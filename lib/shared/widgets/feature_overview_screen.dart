@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/features/feature_registry.dart';
 import '../../core/theme/app_theme.dart';
@@ -13,11 +14,15 @@ class FeatureOverviewScreen extends StatelessWidget {
     required this.title,
     required this.intro,
     required this.features,
+    this.routes = const {},
   });
 
   final String title;
   final String intro;
   final List<AppFeature> features;
+
+  /// Route for each feature that has a screen.
+  final Map<AppFeature, String> routes;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +51,11 @@ class FeatureOverviewScreen extends StatelessWidget {
                   style: theme.textTheme.labelLarge),
             ),
           ),
-          for (final f in features) FeatureStateTile(feature: f),
+          for (final f in features)
+            FeatureStateTile(
+              feature: f,
+              onOpen: routes[f] == null ? null : () => context.push(routes[f]!),
+            ),
         ],
       ),
     );

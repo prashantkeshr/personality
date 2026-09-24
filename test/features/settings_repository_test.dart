@@ -40,13 +40,23 @@ void main() {
     expect((await repo.load()).localeCode, isNull);
   });
 
-  test('schema v1 creates expected tables', () async {
+  test('current schema creates expected tables', () async {
     final tables = await db
         .customSelect(
             "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name")
         .map((r) => r.read<String>('name'))
         .get();
-    expect(tables, containsAll(['app_settings', 'feature_flag']));
-    expect(db.schemaVersion, 1);
+    expect(
+        tables,
+        containsAll([
+          'app_settings',
+          'feature_flag',
+          'user_profile',
+          'goal',
+          'height_record',
+          'weight_record',
+          'body_measurement',
+        ]));
+    expect(db.schemaVersion, 2);
   });
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../core/features/feature_registry.dart';
 import '../l10n/app_localizations.dart';
 import '../shared/widgets/feature_overview_screen.dart';
+import 'router.dart';
 
 class HealthTab extends StatelessWidget {
   const HealthTab({super.key});
@@ -18,6 +19,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.height,
         AppFeature.weight,
         AppFeature.bodyMeasurements,
+        AppFeature.bodyProportions,
         AppFeature.water,
         AppFeature.meals,
         AppFeature.sleep,
@@ -28,6 +30,13 @@ class HealthTab extends StatelessWidget {
         AppFeature.reminders,
         AppFeature.progress,
       ],
+      routes: const {
+        AppFeature.profile: AppRoutes.profile,
+        AppFeature.height: AppRoutes.height,
+        AppFeature.weight: AppRoutes.weight,
+        AppFeature.bodyMeasurements: AppRoutes.measurements,
+        AppFeature.bodyProportions: AppRoutes.proportions,
+      },
     );
   }
 }

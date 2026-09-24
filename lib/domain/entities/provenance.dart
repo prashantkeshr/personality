@@ -37,6 +37,16 @@ enum Confidence {
   medium,
   high;
 
+  String get wireName => name.toUpperCase();
+
+  static Confidence? fromWireName(String? name) => name == null
+      ? null
+      : Confidence.values.firstWhere(
+          (c) => c.wireName == name,
+          orElse: () =>
+              throw ArgumentError.value(name, 'name', 'Unknown confidence'),
+        );
+
   /// Maps a model score in [0, 1] to a bucket.
   static Confidence fromScore(double score) {
     if (score.isNaN || score < 0 || score > 1) {

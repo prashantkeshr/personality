@@ -254,4 +254,480 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get startupErrorBody =>
       'Personality अपना सुरक्षित स्टोरेज नहीं खोल सका। आपके डेटा में कोई बदलाव नहीं हुआ है।';
+
+  @override
+  String get featureBodyProportions => 'शरीर के अनुपात';
+
+  @override
+  String get sourceUserEntered => 'मैन्युअल';
+
+  @override
+  String get sourceCameraDerived => 'कैमरा अनुमान';
+
+  @override
+  String get sourceDeviceDerived => 'डिवाइस';
+
+  @override
+  String get sourceHealthPlatform => 'हेल्थ प्लेटफ़ॉर्म';
+
+  @override
+  String get sourceCalculated => 'गणना की गई';
+
+  @override
+  String get sourceImported => 'आयात किया गया';
+
+  @override
+  String get sourceAiGenerated => 'AI द्वारा बनाया गया';
+
+  @override
+  String get confidenceLow => 'कम विश्वसनीयता';
+
+  @override
+  String get confidenceMedium => 'मध्यम विश्वसनीयता';
+
+  @override
+  String get confidenceHigh => 'उच्च विश्वसनीयता';
+
+  @override
+  String valueCm(String value) {
+    return '$value सेमी';
+  }
+
+  @override
+  String valueKg(String value) {
+    return '$value किग्रा';
+  }
+
+  @override
+  String valueLb(String value) {
+    return '$value पाउंड';
+  }
+
+  @override
+  String valueIn(String value) {
+    return '$value इंच';
+  }
+
+  @override
+  String valueFtIn(String feet, String inches) {
+    return '$feet फ़ुट $inches इंच';
+  }
+
+  @override
+  String get unitCmShort => 'सेमी';
+
+  @override
+  String get unitKgShort => 'किग्रा';
+
+  @override
+  String get unitLbShort => 'पाउंड';
+
+  @override
+  String get unitInShort => 'इंच';
+
+  @override
+  String get unitFtShort => 'फ़ुट';
+
+  @override
+  String get actionSave => 'सहेजें';
+
+  @override
+  String get actionCancel => 'रद्द करें';
+
+  @override
+  String get actionDelete => 'हटाएँ';
+
+  @override
+  String get deleteRecordTitle => 'यह रिकॉर्ड हटाएँ?';
+
+  @override
+  String get deleteRecordBody =>
+      'यह रिकॉर्ड इस डिवाइस से स्थायी रूप से हट जाएगा।';
+
+  @override
+  String get recordSaveError => 'सहेजा नहीं जा सका। कृपया फिर से कोशिश करें।';
+
+  @override
+  String get loadErrorTitle => 'लोड नहीं हो सका';
+
+  @override
+  String get loadErrorBody =>
+      'यह जानकारी लोड नहीं हो सकी। आपके डेटा में कोई बदलाव नहीं हुआ है।';
+
+  @override
+  String get fieldDate => 'तारीख़';
+
+  @override
+  String get fieldNotes => 'टिप्पणी (वैकल्पिक)';
+
+  @override
+  String get fieldMethod => 'यह कैसे मापा गया?';
+
+  @override
+  String get methodSelfMeasured => 'मैंने स्वयं मापा';
+
+  @override
+  String get methodMeasuredByOther => 'किसी और ने मापा';
+
+  @override
+  String get methodProfessional => 'पेशेवर माप';
+
+  @override
+  String get methodScale => 'वज़न मशीन';
+
+  @override
+  String get methodEstimated => 'मेरा अनुमान';
+
+  @override
+  String get validationRequired => 'एक मान दर्ज करें';
+
+  @override
+  String validationRange(String min, String max) {
+    return '$min और $max के बीच का मान दर्ज करें';
+  }
+
+  @override
+  String get historyTitle => 'इतिहास';
+
+  @override
+  String get profileTitle => 'प्रोफ़ाइल';
+
+  @override
+  String get profileIntro =>
+      'यहाँ सब कुछ वैकल्पिक है और इसी डिवाइस पर रहता है।';
+
+  @override
+  String get profileName => 'नाम (वैकल्पिक)';
+
+  @override
+  String get profileAgeRange => 'आयु सीमा';
+
+  @override
+  String get profileActivityLevel => 'गतिविधि स्तर';
+
+  @override
+  String get profileGoals => 'लक्ष्य';
+
+  @override
+  String get notSpecified => 'निर्दिष्ट नहीं';
+
+  @override
+  String get profileSaved => 'प्रोफ़ाइल सहेजी गई';
+
+  @override
+  String get ageUnder18 => '18 से कम';
+
+  @override
+  String get age18to24 => '18–24';
+
+  @override
+  String get age25to34 => '25–34';
+
+  @override
+  String get age35to44 => '35–44';
+
+  @override
+  String get age45to54 => '45–54';
+
+  @override
+  String get age55to64 => '55–64';
+
+  @override
+  String get age65plus => '65+';
+
+  @override
+  String get activitySedentary => 'अधिकतर बैठे रहना';
+
+  @override
+  String get activityLight => 'हल्का सक्रिय';
+
+  @override
+  String get activityModerate => 'मध्यम सक्रिय';
+
+  @override
+  String get activityActive => 'सक्रिय';
+
+  @override
+  String get activityVeryActive => 'बहुत सक्रिय';
+
+  @override
+  String get goalPosture => 'पोश्चर';
+
+  @override
+  String get goalWeightManagement => 'वज़न प्रबंधन';
+
+  @override
+  String get goalFitness => 'फ़िटनेस';
+
+  @override
+  String get goalFlexibility => 'लचीलापन और गतिशीलता';
+
+  @override
+  String get goalHydration => 'पानी पीना';
+
+  @override
+  String get goalSleep => 'नींद';
+
+  @override
+  String get goalHabits => 'आदतें और दिनचर्या';
+
+  @override
+  String get goalStyle => 'स्टाइल';
+
+  @override
+  String get goalGrooming => 'ग्रूमिंग';
+
+  @override
+  String get heightTitle => 'लंबाई';
+
+  @override
+  String get heightEmpty =>
+      'शरीर के अनुपात और कपड़ों के बेहतर सुझावों के लिए अपनी लंबाई जोड़ें।';
+
+  @override
+  String get heightAdd => 'लंबाई जोड़ें';
+
+  @override
+  String get heightPrimary => 'मुख्य लंबाई';
+
+  @override
+  String get heightPinnedNote =>
+      'आपने इस रिकॉर्ड को अपनी मुख्य लंबाई के रूप में चुना है।';
+
+  @override
+  String get heightLatestManualNote =>
+      'आपके सबसे हाल के मैन्युअल माप का उपयोग किया जा रहा है।';
+
+  @override
+  String get heightVariationNote =>
+      'दिन भर में लंबाई स्वाभाविक रूप से लगभग 1–2 सेमी बदलती है। रिकॉर्ड के बीच छोटे अंतर सामान्य हैं और इन्हें बढ़त नहीं माना जाता।';
+
+  @override
+  String get heightSetPrimary => 'मुख्य के रूप में उपयोग करें';
+
+  @override
+  String get weightTitle => 'वज़न';
+
+  @override
+  String get weightEmpty => 'रुझान देखने के लिए अपना पहला वज़न दर्ज करें।';
+
+  @override
+  String get weightAdd => 'वज़न जोड़ें';
+
+  @override
+  String get weightLatest => 'नवीनतम';
+
+  @override
+  String get weightGoalRange => 'लक्ष्य सीमा';
+
+  @override
+  String get weightGoalNotSet => 'कोई लक्ष्य सीमा तय नहीं';
+
+  @override
+  String get weightSetGoal => 'तय करें';
+
+  @override
+  String get weightGoalMin => 'से';
+
+  @override
+  String get weightGoalMax => 'तक';
+
+  @override
+  String get weightGoalInvalid => 'दूसरा मान पहले से अधिक होना चाहिए।';
+
+  @override
+  String get weightClearGoal => 'हटाएँ';
+
+  @override
+  String get goalBelow => 'आपकी लक्ष्य सीमा से कम';
+
+  @override
+  String get goalWithin => 'आपकी लक्ष्य सीमा के भीतर';
+
+  @override
+  String get goalAbove => 'आपकी लक्ष्य सीमा से अधिक';
+
+  @override
+  String get periodWeek => 'सप्ताह';
+
+  @override
+  String get periodMonth => 'महीना';
+
+  @override
+  String get periodQuarter => '3 महीने';
+
+  @override
+  String weightTrendChange(String change) {
+    return 'इस अवधि में 7-दिन के औसत में बदलाव: $change';
+  }
+
+  @override
+  String get weightTrendInsufficient =>
+      'रुझान देखने के लिए इस अवधि में कम से कम दो प्रविष्टियाँ जोड़ें।';
+
+  @override
+  String weightChartLabel(int count) {
+    return '$count प्रविष्टियों वाला वज़न चार्ट';
+  }
+
+  @override
+  String get weightAverageLegend => '7-दिन का औसत';
+
+  @override
+  String get weightEntriesLegend => 'प्रविष्टियाँ';
+
+  @override
+  String get measurementsTitle => 'शरीर के माप';
+
+  @override
+  String get measurementsIntro =>
+      'वैकल्पिक। शरीर के अनुपात और कपड़ों की फ़िटिंग के लिए उपयोग होता है। हल्के कपड़ों के ऊपर नरम टेप से मापें।';
+
+  @override
+  String get measurementNotRecorded => 'दर्ज नहीं';
+
+  @override
+  String get measurementAdd => 'माप जोड़ें';
+
+  @override
+  String get measurementCustom => 'कस्टम माप';
+
+  @override
+  String get measurementCustomLabel => 'माप का नाम';
+
+  @override
+  String get measurementType => 'माप';
+
+  @override
+  String get mShoulderWidth => 'कंधे की चौड़ाई';
+
+  @override
+  String get mChest => 'छाती';
+
+  @override
+  String get mWaist => 'कमर';
+
+  @override
+  String get mHip => 'कूल्हा';
+
+  @override
+  String get mNeck => 'गर्दन';
+
+  @override
+  String get mArmLength => 'बाँह की लंबाई';
+
+  @override
+  String get mLegLength => 'पैर की लंबाई';
+
+  @override
+  String get mTorsoLength => 'धड़ की लंबाई';
+
+  @override
+  String get mInseam => 'इनसीम';
+
+  @override
+  String get mShoulderWidthHelp =>
+      'पीठ के आर-पार, एक कंधे के सिरे से दूसरे कंधे के सिरे तक।';
+
+  @override
+  String get mChestHelp =>
+      'छाती के सबसे चौड़े हिस्से के चारों ओर, टेप को सीधा रखते हुए।';
+
+  @override
+  String get mWaistHelp => 'प्राकृतिक कमर के चारों ओर, नाभि के ठीक ऊपर।';
+
+  @override
+  String get mHipHelp => 'कूल्हों के सबसे चौड़े हिस्से के चारों ओर।';
+
+  @override
+  String get mNeckHelp => 'गर्दन के निचले हिस्से के चारों ओर।';
+
+  @override
+  String get mArmLengthHelp => 'कंधे के सिरे से कलाई तक, बाँह ढीली रखते हुए।';
+
+  @override
+  String get mLegLengthHelp => 'कूल्हे की हड्डी से फ़र्श तक, पैर के बाहरी ओर।';
+
+  @override
+  String get mTorsoLengthHelp => 'कंधे के ऊपर से प्राकृतिक कमर तक।';
+
+  @override
+  String get mInseamHelp => 'जाँघ के जोड़ से फ़र्श तक, पैर के अंदरूनी ओर।';
+
+  @override
+  String get proportionsTitle => 'शरीर के अनुपात';
+
+  @override
+  String get proportionsIntro =>
+      'कपड़ों की फ़िटिंग और सिल्हूट सुझावों के लिए उपयोग होने वाले तटस्थ विवरण।';
+
+  @override
+  String get proportionsDisclaimer =>
+      'ये स्वास्थ्य या रूप का आकलन नहीं हैं, और कोई आदर्श आकार नहीं होता।';
+
+  @override
+  String get proportionsEmpty =>
+      'अपने अनुपात देखने के लिए अपनी लंबाई और कुछ माप जोड़ें।';
+
+  @override
+  String proportionsMissing(String items, String metric) {
+    return '$metric देखने के लिए $items जोड़ें।';
+  }
+
+  @override
+  String proportionsBasedOn(String inputs) {
+    return 'आधार: $inputs';
+  }
+
+  @override
+  String get proportionsAddMeasurements => 'माप';
+
+  @override
+  String get metricLegLine => 'पैरों की रेखा';
+
+  @override
+  String get metricShoulderBreadth => 'कंधों की चौड़ाई';
+
+  @override
+  String get metricUpperTaper => 'छाती और कमर का अंतर';
+
+  @override
+  String get metricHipBalance => 'कूल्हे और छाती का संतुलन';
+
+  @override
+  String get descShorterLegLine => 'लंबाई के अनुपात में पैरों की रेखा छोटी';
+
+  @override
+  String get descBalancedLegLine => 'संतुलित पैरों की रेखा';
+
+  @override
+  String get descLongerLegLine => 'लंबाई के अनुपात में पैरों की रेखा लंबी';
+
+  @override
+  String get descNarrowerShoulders => 'लंबाई के अनुपात में कंधे संकरे';
+
+  @override
+  String get descAverageShoulders =>
+      'आपकी लंबाई के लिए कंधों की चौड़ाई मध्यम सीमा में';
+
+  @override
+  String get descBroaderShoulders => 'लंबाई के अनुपात में कंधे चौड़े';
+
+  @override
+  String get descStraightTaper => 'धड़ में सीधी रेखा';
+
+  @override
+  String get descModerateTaper => 'छाती से कमर तक मध्यम ढलान';
+
+  @override
+  String get descPronouncedTaper => 'छाती से कमर तक स्पष्ट ढलान';
+
+  @override
+  String get descChestFuller => 'छाती का माप कूल्हों से अधिक';
+
+  @override
+  String get descBalancedChestHip => 'छाती और कूल्हों का माप लगभग समान';
+
+  @override
+  String get descHipsFuller => 'कूल्हों का माप छाती से अधिक';
 }

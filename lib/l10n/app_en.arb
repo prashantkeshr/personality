@@ -1,23 +1,19 @@
 {
   "@@locale": "en",
   "appTitle": "Personality",
-
   "navHome": "Home",
   "navHealth": "Health",
   "navAnalyze": "Analyze",
   "navCoach": "Coach",
   "navStyle": "Style",
-
   "todayTitle": "Today",
   "homeEmptyTitle": "Your day starts here",
   "homeEmptyBody": "Your daily plan and progress will appear here as tracking features become available.",
   "sectionFeatures": "Features",
-
   "healthIntro": "Track your body, nutrition, sleep and daily activity.",
   "analyzeIntro": "On-device camera analysis. Frames are processed on your phone and discarded.",
   "coachIntro": "Recommendations come from transparent rules. The optional AI Coach can explain them.",
   "styleIntro": "Clothing, color and outfits based on your measurements and preferences.",
-
   "featureStateAvailable": "Available",
   "featureStateBeta": "Beta",
   "featureStateComingSoon": "Coming soon",
@@ -25,7 +21,6 @@
   "featureStateModelRequired": "Model required",
   "featureStateOnlineRequired": "Internet required",
   "featureStatePremium": "Premium",
-
   "featureProfile": "Profile",
   "featureHeight": "Height",
   "featureBodyMeasurements": "Body measurements",
@@ -49,7 +44,6 @@
   "featureHealthIntegration": "Health Connect",
   "featureBackup": "Encrypted backup",
   "featureCommerce": "Shopping",
-
   "onboardingWelcomeTitle": "A private space for your wellbeing",
   "onboardingWelcomeBody": "Track your body, health, habits and style in one place. Everything works offline.",
   "onboardingPrivacyTitle": "Your data stays on this device",
@@ -62,16 +56,18 @@
   "onboardingStep": "Step {current} of {total}",
   "@onboardingStep": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
-
   "actionNext": "Next",
   "actionBack": "Back",
   "actionGetStarted": "Get started",
   "actionRetry": "Retry",
-
   "settingsTitle": "Settings",
   "settingsAppearance": "Appearance",
   "themeSystem": "System",
@@ -89,7 +85,232 @@
   "settingsAbout": "About",
   "wellnessDisclaimer": "Personality supports wellness and lifestyle habits. It does not provide medical advice or diagnosis.",
   "settingsSaveError": "The setting could not be saved. Please try again.",
-
   "startupErrorTitle": "Unable to open your data",
-  "startupErrorBody": "Personality could not open its secure storage. Your data has not been changed."
+  "startupErrorBody": "Personality could not open its secure storage. Your data has not been changed.",
+  "featureBodyProportions": "Body proportions",
+  "sourceUserEntered": "Manual",
+  "sourceCameraDerived": "Camera estimate",
+  "sourceDeviceDerived": "Device",
+  "sourceHealthPlatform": "Health platform",
+  "sourceCalculated": "Calculated",
+  "sourceImported": "Imported",
+  "sourceAiGenerated": "AI generated",
+  "confidenceLow": "Low confidence",
+  "confidenceMedium": "Medium confidence",
+  "confidenceHigh": "High confidence",
+  "valueCm": "{value} cm",
+  "@valueCm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueKg": "{value} kg",
+  "@valueKg": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueLb": "{value} lb",
+  "@valueLb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueIn": "{value} in",
+  "@valueIn": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueFtIn": "{feet} ft {inches} in",
+  "@valueFtIn": {
+    "placeholders": {
+      "feet": {
+        "type": "String"
+      },
+      "inches": {
+        "type": "String"
+      }
+    }
+  },
+  "unitCmShort": "cm",
+  "unitKgShort": "kg",
+  "unitLbShort": "lb",
+  "unitInShort": "in",
+  "unitFtShort": "ft",
+  "actionSave": "Save",
+  "actionCancel": "Cancel",
+  "actionDelete": "Delete",
+  "deleteRecordTitle": "Delete this record?",
+  "deleteRecordBody": "This permanently removes the record from this device.",
+  "recordSaveError": "Could not save. Please try again.",
+  "loadErrorTitle": "Unable to load",
+  "loadErrorBody": "This information could not be loaded. Your data has not been changed.",
+  "fieldDate": "Date",
+  "fieldNotes": "Notes (optional)",
+  "fieldMethod": "How was it measured?",
+  "methodSelfMeasured": "Measured myself",
+  "methodMeasuredByOther": "Measured by another person",
+  "methodProfessional": "Professional measurement",
+  "methodScale": "Scale",
+  "methodEstimated": "My estimate",
+  "validationRequired": "Enter a value",
+  "validationRange": "Enter a value between {min} and {max}",
+  "@validationRange": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "historyTitle": "History",
+  "profileTitle": "Profile",
+  "profileIntro": "Everything here is optional and stays on this device.",
+  "profileName": "Name (optional)",
+  "profileAgeRange": "Age range",
+  "profileActivityLevel": "Activity level",
+  "profileGoals": "Goals",
+  "notSpecified": "Not specified",
+  "profileSaved": "Profile saved",
+  "ageUnder18": "Under 18",
+  "age18to24": "18–24",
+  "age25to34": "25–34",
+  "age35to44": "35–44",
+  "age45to54": "45–54",
+  "age55to64": "55–64",
+  "age65plus": "65+",
+  "activitySedentary": "Mostly sitting",
+  "activityLight": "Lightly active",
+  "activityModerate": "Moderately active",
+  "activityActive": "Active",
+  "activityVeryActive": "Very active",
+  "goalPosture": "Posture",
+  "goalWeightManagement": "Weight management",
+  "goalFitness": "Fitness",
+  "goalFlexibility": "Flexibility and mobility",
+  "goalHydration": "Hydration",
+  "goalSleep": "Sleep",
+  "goalHabits": "Habits and routines",
+  "goalStyle": "Style",
+  "goalGrooming": "Grooming",
+  "heightTitle": "Height",
+  "heightEmpty": "Add your height to improve body-proportion and clothing recommendations.",
+  "heightAdd": "Add height",
+  "heightPrimary": "Primary height",
+  "heightPinnedNote": "You chose this record as your primary height.",
+  "heightLatestManualNote": "Using your most recent manual measurement.",
+  "heightVariationNote": "Height naturally varies by about 1–2 cm during the day. Small differences between records are normal and are not treated as growth.",
+  "heightSetPrimary": "Use as primary",
+  "weightTitle": "Weight",
+  "weightEmpty": "Add your first weight entry to start seeing trends.",
+  "weightAdd": "Add weight",
+  "weightLatest": "Latest",
+  "weightGoalRange": "Goal range",
+  "weightGoalNotSet": "No goal range set",
+  "weightSetGoal": "Set",
+  "weightGoalMin": "From",
+  "weightGoalMax": "To",
+  "weightGoalInvalid": "The second value must be higher than the first.",
+  "weightClearGoal": "Clear",
+  "goalBelow": "Below your goal range",
+  "goalWithin": "Within your goal range",
+  "goalAbove": "Above your goal range",
+  "periodWeek": "Week",
+  "periodMonth": "Month",
+  "periodQuarter": "3 months",
+  "weightTrendChange": "Change in 7-day average over this period: {change}",
+  "@weightTrendChange": {
+    "placeholders": {
+      "change": {
+        "type": "String"
+      }
+    }
+  },
+  "weightTrendInsufficient": "Add at least two entries in this period to see a trend.",
+  "weightChartLabel": "Weight chart with {count} entries",
+  "@weightChartLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weightAverageLegend": "7-day average",
+  "weightEntriesLegend": "Entries",
+  "measurementsTitle": "Body measurements",
+  "measurementsIntro": "Optional. Used for body proportions and clothing fit. Measure over light clothing with a soft tape.",
+  "measurementNotRecorded": "Not recorded",
+  "measurementAdd": "Add measurement",
+  "measurementCustom": "Custom measurement",
+  "measurementCustomLabel": "Measurement name",
+  "measurementType": "Measurement",
+  "mShoulderWidth": "Shoulder width",
+  "mChest": "Chest",
+  "mWaist": "Waist",
+  "mHip": "Hip",
+  "mNeck": "Neck",
+  "mArmLength": "Arm length",
+  "mLegLength": "Leg length",
+  "mTorsoLength": "Torso length",
+  "mInseam": "Inseam",
+  "mShoulderWidthHelp": "Straight across the back, from shoulder point to shoulder point.",
+  "mChestHelp": "Around the fullest part of the chest, keeping the tape level.",
+  "mWaistHelp": "Around the natural waist, just above the navel.",
+  "mHipHelp": "Around the fullest part of the hips.",
+  "mNeckHelp": "Around the base of the neck.",
+  "mArmLengthHelp": "From the shoulder point to the wrist, with the arm relaxed.",
+  "mLegLengthHelp": "From the hip bone to the floor, along the outside of the leg.",
+  "mTorsoLengthHelp": "From the top of the shoulder to the natural waist.",
+  "mInseamHelp": "From the crotch to the floor, along the inside of the leg.",
+  "proportionsTitle": "Body proportions",
+  "proportionsIntro": "Neutral descriptions used for clothing fit and silhouette suggestions.",
+  "proportionsDisclaimer": "These are not assessments of health or appearance, and there is no ideal shape.",
+  "proportionsEmpty": "Add your height and a few measurements to see your proportions.",
+  "proportionsMissing": "Add {items} to see {metric}.",
+  "@proportionsMissing": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      },
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "proportionsBasedOn": "Based on: {inputs}",
+  "@proportionsBasedOn": {
+    "placeholders": {
+      "inputs": {
+        "type": "String"
+      }
+    }
+  },
+  "proportionsAddMeasurements": "Measurements",
+  "metricLegLine": "Leg line",
+  "metricShoulderBreadth": "Shoulder breadth",
+  "metricUpperTaper": "Chest-to-waist difference",
+  "metricHipBalance": "Hip-to-chest balance",
+  "descShorterLegLine": "Shorter leg line relative to height",
+  "descBalancedLegLine": "Balanced leg line",
+  "descLongerLegLine": "Longer leg line relative to height",
+  "descNarrowerShoulders": "Narrower shoulders relative to height",
+  "descAverageShoulders": "Shoulder width in the middle range for your height",
+  "descBroaderShoulders": "Broader shoulders relative to height",
+  "descStraightTaper": "Straighter line through the torso",
+  "descModerateTaper": "Moderate taper from chest to waist",
+  "descPronouncedTaper": "Pronounced taper from chest to waist",
+  "descChestFuller": "Chest measures fuller than hips",
+  "descBalancedChestHip": "Chest and hips measure similarly",
+  "descHipsFuller": "Hips measure fuller than chest"
 }

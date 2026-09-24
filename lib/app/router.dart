@@ -4,7 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
 import '../features/dashboard/home_screen.dart';
+import '../features/health/height/height_screen.dart';
+import '../features/health/measurements/measurements_screen.dart';
+import '../features/health/proportions/proportions_screen.dart';
+import '../features/health/weight/weight_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
+import '../features/profile/profile_screen.dart';
 import '../features/settings/settings_screen.dart';
 import 'app_shell.dart';
 import 'primary_tabs.dart';
@@ -17,6 +22,11 @@ abstract final class AppRoutes {
   static const coach = '/coach';
   static const style = '/style';
   static const settings = '/settings';
+  static const profile = '/health/profile';
+  static const height = '/health/height';
+  static const weight = '/health/weight';
+  static const measurements = '/health/measurements';
+  static const proportions = '/health/proportions';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -55,7 +65,24 @@ final routerProvider = Provider<GoRouter>((ref) {
           ]),
           StatefulShellBranch(routes: [
             GoRoute(
-                path: AppRoutes.health, builder: (_, _) => const HealthTab()),
+              path: AppRoutes.health,
+              builder: (_, _) => const HealthTab(),
+              routes: [
+                GoRoute(
+                    path: 'profile',
+                    builder: (_, _) => const ProfileScreen()),
+                GoRoute(
+                    path: 'height', builder: (_, _) => const HeightScreen()),
+                GoRoute(
+                    path: 'weight', builder: (_, _) => const WeightScreen()),
+                GoRoute(
+                    path: 'measurements',
+                    builder: (_, _) => const MeasurementsScreen()),
+                GoRoute(
+                    path: 'proportions',
+                    builder: (_, _) => const ProportionsScreen()),
+              ],
+            ),
           ]),
           StatefulShellBranch(routes: [
             GoRoute(

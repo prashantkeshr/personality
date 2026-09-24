@@ -22,6 +22,7 @@ enum AppFeature {
   profile,
   height,
   bodyMeasurements,
+  bodyProportions,
   weight,
   water,
   meals,
