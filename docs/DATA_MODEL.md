@@ -1,6 +1,6 @@
 # Data Model & Database Design
 
-Encrypted SQLite (Drift + SQLCipher). All ids are UUID v4 strings so records
+Encrypted SQLite (Drift + SQLite3MultipleCiphers). All ids are UUID v4 strings so records
 survive export/backup merges. All timestamps are stored as UTC epoch millis.
 
 ## Common columns

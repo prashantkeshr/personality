@@ -63,7 +63,7 @@ Failure outcomes are explicit types (`NoPersonDetected`, `LowQualityFrame`, `Pos
 
 ## Security
 
-- Database: SQLite via Drift, encrypted with SQLCipher. 256-bit random key generated on first launch, stored in platform secure storage (Android Keystore-backed). Verified in Phase 1.
+- Database: SQLite via Drift, encrypted with SQLite3MultipleCiphers (`hooks.user_defines.sqlite3.source: sqlite3mc`, MIT, no OpenSSL). 256-bit random key generated on first launch, stored in platform secure storage (Android Keystore-backed), applied with `PRAGMA hexkey`. Startup fails closed if the cipher is missing. Android cloud backup and device transfer are disabled for app data.
 - Backups: encrypted before leaving the device, user-chosen destination (Phase 13).
 - Models: SHA-256 verified before install (`ModelDescriptor.sha256`).
 - No secrets in source; store keys (RevenueCat) injected at build time.

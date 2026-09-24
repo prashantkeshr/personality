@@ -6,7 +6,7 @@ Premium, calm, professional. No cartoon styling and no emoji in UI chrome.
 
 | Token | Value |
 |---|---|
-| Typeface | Inter (UI), with the platform font as fallback. Tabular figures for metrics. |
+| Typeface | Platform font (Roboto on Android) in v1 — bundling Inter offline is a later polish item. Tabular figures for metrics. |
 | Type scale | Display 32/40 · Headline 24/32 · Title 18/26 · Body 15/22 · Label 13/18 · Caption 12/16 |
 | Spacing | 4-pt grid: 4, 8, 12, 16, 24, 32, 48 |
 | Radius | 8 (inputs), 12 (buttons), 16 (cards), 24 (sheets) |

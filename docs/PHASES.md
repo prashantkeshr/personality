@@ -4,8 +4,8 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
 
 | Phase | Scope | Status |
 |---|---|---|
-| 0 Architecture | Architecture, data model, design system, core contracts (provenance, device tier, feature registry, pose + model-manager interfaces) | **Done — awaiting approval** |
-| 1 Foundation | Theme (light/dark/high contrast), localization (ARB, RTL-ready), GoRouter shell with 5 tabs, encrypted Drift database and migrations, secure key storage, units system, onboarding | Planned |
+| 0 Architecture | Architecture, data model, design system, core contracts (provenance, device tier, feature registry, pose + model-manager interfaces) | Done (approved) |
+| 1 Foundation | Theme (light/dark/high contrast), localization (ARB, RTL-ready), GoRouter shell with 5 tabs, encrypted Drift database and migrations, secure key storage, units system, onboarding | **Done — awaiting approval** |
 | 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | Planned |
 | 3 Health | Water, meals, sleep, activity, exercise logging, habits | Planned |
 | 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | Planned |
@@ -34,4 +34,23 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
   - `lib/core/features/feature_registry.dart`: central feature states
   - `lib/ml/pose/pose_estimator.dart`: pose contract with explicit failure types and `UnavailablePoseEstimator`
   - `lib/ml/model_manager/model_descriptor.dart`: model manager contract
-- Verification: `flutter analyze` reports no issues; `flutter test` passes 20/20.
+- Verification: `flutter analyze` reports no issues; `flutter test` passes 20/20; debug APK built and launched on the emulator.
+
+## Phase 1 — completed 2026-09-24
+
+- **Encrypted database**: Drift + SQLite3MultipleCiphers. The 256-bit key is created with `Random.secure()` and stored in `flutter_secure_storage` (Keystore). Startup fails closed if the cipher is missing or the key is wrong, and a stored key is never overwritten. Schema v1 (`app_settings`, `feature_flag`) is snapshotted in `drift_schemas/`.
+- **Android backup**: `allowBackup=false` plus data-extraction rules, so personal data is never copied to Google cloud backup.
+- **Settings**: theme (system/light/dark, plus automatic high contrast), units (metric/imperial), language (device/English/Hindi). Saved before the UI updates.
+- **Localization**: ARB files for English and Hindi; no hard-coded UI strings; directional padding is RTL-ready.
+- **Navigation**: GoRouter with an onboarding redirect; 5 tabs (Home, Health, Analyze, Coach, Style) that keep their own stacks; Settings as a secondary route. Bottom bar on phones, navigation rail at 600dp+, extended rail at 840dp+.
+- **Onboarding**: welcome, privacy and preferences pages. Honors reduce motion.
+- **Home**: date plus an honest empty state. Tabs list features with their real state from `FeatureRegistry` (currently all "Coming soon", shown disabled).
+- **Units**: canonical metric storage and conversions (ft/in, lb, fl oz, miles).
+- **Startup error screen**: shows no raw errors and offers Retry.
+- **Logging**: event name plus error type only, never values.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 35/35 passed, including a real encryption test (wrong key and no key both fail, file header is not plaintext) and widget tests for onboarding, tabs, Hindi and the tablet rail.
+- On the emulator (API 36): onboarding → Home works; the dark theme applies instantly; the app reopens on Home after a force-stop (persistence); switching to Hindi applies live; the on-device `personality.sqlite` has a random header and no plaintext setting keys.
+
+Dev notes (Windows + OneDrive): OneDrive marks folders ReadOnly, which breaks `flutter gen-l10n` and `flutter test`. Fix it with `attrib -R "<project>\*" /S /D`.
