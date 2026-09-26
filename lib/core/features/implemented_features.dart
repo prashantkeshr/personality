@@ -9,4 +9,11 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.weight,
   AppFeature.bodyMeasurements,
   AppFeature.bodyProportions,
+  // Phase 3
+  AppFeature.water,
+  AppFeature.meals,
+  AppFeature.sleep,
+  AppFeature.activity,
+  AppFeature.exercise,
+  AppFeature.habits,
 };

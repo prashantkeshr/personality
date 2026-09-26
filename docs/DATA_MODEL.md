@@ -28,7 +28,7 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 |---|---|
 | 1 Foundation | `app_settings`, `feature_flag`, `schema_meta` |
 | 2 Profile + Body | `user_profile` (single row), `goal`, `height_record`, `weight_record`, `body_measurement` (type column: shoulderWidth, chest, waist, hip, neck, armLength, legLength, torsoLength, inseam, custom plus `custom_label`). Body proportions are computed on demand by `ProportionEngine` (always consistent with the latest inputs). Stored `body_proportion` snapshots arrive with the evolution timeline in Phase 10. |
-| 3 Health | `water_log`, `meal`, `sleep_log`, `activity_log`, `exercise_session`, `habit`, `habit_completion` |
+| 3 Health | `water_log` (provenance block, ml), `meal` (calories optional), `sleep_log` (bed/wake, attributed to wake day), `activity_log` (steps/duration/distance, source), `exercise_session`, `habit` (weekday bitmask, archived), `habit_completion` (PK habit+day, cascade delete). Daily targets are keys in `app_settings`. |
 | 4 Routines | `routine`, `routine_item`, `routine_completion`, `reminder`, `reminder_history` |
 | 6 Posture | `posture_session`, `posture_metric` |
 | 7 Exercise | `exercise` (library, seeded from assets), `exercise_progress` |

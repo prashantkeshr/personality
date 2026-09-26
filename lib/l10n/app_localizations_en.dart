@@ -737,4 +737,362 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get descHipsFuller => 'Hips measure fuller than chest';
+
+  @override
+  String valueFlOz(String value) {
+    return '$value fl oz';
+  }
+
+  @override
+  String valueLitres(String value) {
+    return '$value L';
+  }
+
+  @override
+  String valueMl(String value) {
+    return '$value ml';
+  }
+
+  @override
+  String durationHm(int hours, int minutes) {
+    return '${hours}h ${minutes}m';
+  }
+
+  @override
+  String valueMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String valueSteps(String value) {
+    return '$value steps';
+  }
+
+  @override
+  String valueKm(String value) {
+    return '$value km';
+  }
+
+  @override
+  String valueMiles(String value) {
+    return '$value mi';
+  }
+
+  @override
+  String valueKcal(int value) {
+    return '$value kcal';
+  }
+
+  @override
+  String get mealBreakfast => 'Breakfast';
+
+  @override
+  String get mealLunch => 'Lunch';
+
+  @override
+  String get mealSnack => 'Snack';
+
+  @override
+  String get mealDinner => 'Dinner';
+
+  @override
+  String get mealCustom => 'Other';
+
+  @override
+  String get activityWalking => 'Walking';
+
+  @override
+  String get activityRunning => 'Running';
+
+  @override
+  String get activityCycling => 'Cycling';
+
+  @override
+  String get activitySwimming => 'Swimming';
+
+  @override
+  String get activitySports => 'Sports';
+
+  @override
+  String get activityOther => 'Other activity';
+
+  @override
+  String get exNeck => 'Neck';
+
+  @override
+  String get exShoulder => 'Shoulder';
+
+  @override
+  String get exUpperBack => 'Upper back';
+
+  @override
+  String get exLowerBack => 'Lower back';
+
+  @override
+  String get exCore => 'Core';
+
+  @override
+  String get exMobility => 'Mobility';
+
+  @override
+  String get exYoga => 'Yoga';
+
+  @override
+  String get exStretching => 'Stretching';
+
+  @override
+  String get exPosture => 'Posture';
+
+  @override
+  String get exGeneralFitness => 'General fitness';
+
+  @override
+  String get exStrength => 'Strength';
+
+  @override
+  String get exCardio => 'Cardio';
+
+  @override
+  String get targetOutOfRange => 'This value is outside the supported range.';
+
+  @override
+  String get targetsTitle => 'Daily targets';
+
+  @override
+  String get targetsIntro =>
+      'These are starting points you can change at any time. They are not medical recommendations.';
+
+  @override
+  String get unitLitreShort => 'L';
+
+  @override
+  String get unitFlOzShort => 'fl oz';
+
+  @override
+  String get unitHoursShort => 'h';
+
+  @override
+  String get unitMinutesShort => 'min';
+
+  @override
+  String get unitMlShort => 'ml';
+
+  @override
+  String get unitKmShort => 'km';
+
+  @override
+  String get unitMiShort => 'mi';
+
+  @override
+  String get stepsLabel => 'Steps';
+
+  @override
+  String get activeMinutesLabel => 'Active minutes';
+
+  @override
+  String get waterCustom => 'Custom amount';
+
+  @override
+  String get actionAdd => 'Add';
+
+  @override
+  String get actionEdit => 'Edit';
+
+  @override
+  String ofTarget(String value) {
+    return 'Target: $value';
+  }
+
+  @override
+  String get lastSevenDays => 'Last 7 days';
+
+  @override
+  String weekChartLabel(String metric) {
+    return '$metric for the last 7 days';
+  }
+
+  @override
+  String get todayEntries => 'Today\'s entries';
+
+  @override
+  String get waterEmpty => 'No water logged today.';
+
+  @override
+  String get mealAdd => 'Log meal';
+
+  @override
+  String get mealsEmpty =>
+      'Log what you eat, in your own words. Calories are optional.';
+
+  @override
+  String get mealType => 'Meal';
+
+  @override
+  String get mealCustomName => 'Name (optional)';
+
+  @override
+  String get mealFood => 'What did you eat?';
+
+  @override
+  String get mealQuantity => 'Quantity (optional)';
+
+  @override
+  String get mealCalories => 'Calories (optional)';
+
+  @override
+  String get mealCaloriesHelp => 'Only if you want to track them.';
+
+  @override
+  String get fieldTime => 'Time';
+
+  @override
+  String get sleepAdd => 'Log sleep';
+
+  @override
+  String get sleepLastNight => 'Last night';
+
+  @override
+  String get sleepConsistencyInsufficient =>
+      'Log at least two nights this week to see how consistent your bedtime is.';
+
+  @override
+  String sleepConsistency(int minutes) {
+    return 'Your bedtime varied by about $minutes min this week.';
+  }
+
+  @override
+  String get sleepDisclaimer =>
+      'Sleep tracking here is for personal awareness and does not assess sleep disorders.';
+
+  @override
+  String get sleepEmpty => 'No sleep logged yet.';
+
+  @override
+  String get sleepWakeBeforeBed => 'Wake time must be after bedtime.';
+
+  @override
+  String get sleepTooLong => 'A sleep entry cannot be longer than 24 hours.';
+
+  @override
+  String get sleepBedtime => 'Bedtime';
+
+  @override
+  String get sleepWakeTime => 'Wake time';
+
+  @override
+  String sleepDurationPreview(String duration) {
+    return 'Duration: $duration';
+  }
+
+  @override
+  String get activityAdd => 'Log activity';
+
+  @override
+  String get activeMinutesNote =>
+      'Active minutes include activities and exercise sessions.';
+
+  @override
+  String get activityEmpty =>
+      'No activity logged yet. Automatic step import from Health Connect comes later.';
+
+  @override
+  String get activityNeedsValue => 'Enter steps, a duration or a distance.';
+
+  @override
+  String get activityKindLabel => 'Activity';
+
+  @override
+  String get durationLabel => 'Duration';
+
+  @override
+  String get distanceLabel => 'Distance (optional)';
+
+  @override
+  String get exerciseAdd => 'Log exercise';
+
+  @override
+  String get exerciseEmpty =>
+      'Log exercise you have done. A guided exercise library comes in a later update.';
+
+  @override
+  String get exerciseThisWeek => 'This week';
+
+  @override
+  String setsReps(int sets, int reps) {
+    return '$sets × $reps';
+  }
+
+  @override
+  String get exerciseName => 'Exercise';
+
+  @override
+  String get exerciseCategory => 'Category';
+
+  @override
+  String get setsLabel => 'Sets (optional)';
+
+  @override
+  String get repsLabel => 'Reps (optional)';
+
+  @override
+  String get habitAdd => 'Add habit';
+
+  @override
+  String get habitEdit => 'Edit habit';
+
+  @override
+  String get habitsEmpty =>
+      'Add a small habit you want to repeat, and choose the days it applies.';
+
+  @override
+  String habitsTodaySummary(int done, int total) {
+    return 'You completed $done of $total habits today.';
+  }
+
+  @override
+  String get habitsNotToday => 'Not scheduled today';
+
+  @override
+  String habitWeekAdherence(int done, int total) {
+    return '$done of $total this week';
+  }
+
+  @override
+  String get habitSkippedToday => 'Skipped today';
+
+  @override
+  String get habitSkip => 'Skip';
+
+  @override
+  String get habitUndo => 'Undo';
+
+  @override
+  String get habitArchive => 'Archive';
+
+  @override
+  String get habitName => 'Habit';
+
+  @override
+  String get habitDays => 'Days';
+
+  @override
+  String get habitDaysRequired => 'Choose at least one day.';
+
+  @override
+  String get habitsNoneToday => 'None today';
+
+  @override
+  String get homeBodyTitle => 'Body';
+
+  @override
+  String mealsLogged(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count meals',
+      one: '1 meal',
+      zero: 'None logged',
+    );
+    return '$_temp0';
+  }
 }

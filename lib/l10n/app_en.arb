@@ -312,5 +312,239 @@
   "descPronouncedTaper": "Pronounced taper from chest to waist",
   "descChestFuller": "Chest measures fuller than hips",
   "descBalancedChestHip": "Chest and hips measure similarly",
-  "descHipsFuller": "Hips measure fuller than chest"
+  "descHipsFuller": "Hips measure fuller than chest",
+  "valueFlOz": "{value} fl oz",
+  "@valueFlOz": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueLitres": "{value} L",
+  "@valueLitres": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueMl": "{value} ml",
+  "@valueMl": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "durationHm": "{hours}h {minutes}m",
+  "@durationHm": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "valueMinutes": "{minutes} min",
+  "@valueMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "valueSteps": "{value} steps",
+  "@valueSteps": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueKm": "{value} km",
+  "@valueKm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueMiles": "{value} mi",
+  "@valueMiles": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueKcal": "{value} kcal",
+  "@valueKcal": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "mealBreakfast": "Breakfast",
+  "mealLunch": "Lunch",
+  "mealSnack": "Snack",
+  "mealDinner": "Dinner",
+  "mealCustom": "Other",
+  "activityWalking": "Walking",
+  "activityRunning": "Running",
+  "activityCycling": "Cycling",
+  "activitySwimming": "Swimming",
+  "activitySports": "Sports",
+  "activityOther": "Other activity",
+  "exNeck": "Neck",
+  "exShoulder": "Shoulder",
+  "exUpperBack": "Upper back",
+  "exLowerBack": "Lower back",
+  "exCore": "Core",
+  "exMobility": "Mobility",
+  "exYoga": "Yoga",
+  "exStretching": "Stretching",
+  "exPosture": "Posture",
+  "exGeneralFitness": "General fitness",
+  "exStrength": "Strength",
+  "exCardio": "Cardio",
+  "targetOutOfRange": "This value is outside the supported range.",
+  "targetsTitle": "Daily targets",
+  "targetsIntro": "These are starting points you can change at any time. They are not medical recommendations.",
+  "unitLitreShort": "L",
+  "unitFlOzShort": "fl oz",
+  "unitHoursShort": "h",
+  "unitMinutesShort": "min",
+  "unitMlShort": "ml",
+  "unitKmShort": "km",
+  "unitMiShort": "mi",
+  "stepsLabel": "Steps",
+  "activeMinutesLabel": "Active minutes",
+  "waterCustom": "Custom amount",
+  "actionAdd": "Add",
+  "actionEdit": "Edit",
+  "ofTarget": "Target: {value}",
+  "@ofTarget": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "lastSevenDays": "Last 7 days",
+  "weekChartLabel": "{metric} for the last 7 days",
+  "@weekChartLabel": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "todayEntries": "Today's entries",
+  "waterEmpty": "No water logged today.",
+  "mealAdd": "Log meal",
+  "mealsEmpty": "Log what you eat, in your own words. Calories are optional.",
+  "mealType": "Meal",
+  "mealCustomName": "Name (optional)",
+  "mealFood": "What did you eat?",
+  "mealQuantity": "Quantity (optional)",
+  "mealCalories": "Calories (optional)",
+  "mealCaloriesHelp": "Only if you want to track them.",
+  "fieldTime": "Time",
+  "sleepAdd": "Log sleep",
+  "sleepLastNight": "Last night",
+  "sleepConsistencyInsufficient": "Log at least two nights this week to see how consistent your bedtime is.",
+  "sleepConsistency": "Your bedtime varied by about {minutes} min this week.",
+  "@sleepConsistency": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sleepDisclaimer": "Sleep tracking here is for personal awareness and does not assess sleep disorders.",
+  "sleepEmpty": "No sleep logged yet.",
+  "sleepWakeBeforeBed": "Wake time must be after bedtime.",
+  "sleepTooLong": "A sleep entry cannot be longer than 24 hours.",
+  "sleepBedtime": "Bedtime",
+  "sleepWakeTime": "Wake time",
+  "sleepDurationPreview": "Duration: {duration}",
+  "@sleepDurationPreview": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "activityAdd": "Log activity",
+  "activeMinutesNote": "Active minutes include activities and exercise sessions.",
+  "activityEmpty": "No activity logged yet. Automatic step import from Health Connect comes later.",
+  "activityNeedsValue": "Enter steps, a duration or a distance.",
+  "activityKindLabel": "Activity",
+  "durationLabel": "Duration",
+  "distanceLabel": "Distance (optional)",
+  "exerciseAdd": "Log exercise",
+  "exerciseEmpty": "Log exercise you have done. A guided exercise library comes in a later update.",
+  "exerciseThisWeek": "This week",
+  "setsReps": "{sets} × {reps}",
+  "@setsReps": {
+    "placeholders": {
+      "sets": {
+        "type": "int"
+      },
+      "reps": {
+        "type": "int"
+      }
+    }
+  },
+  "exerciseName": "Exercise",
+  "exerciseCategory": "Category",
+  "setsLabel": "Sets (optional)",
+  "repsLabel": "Reps (optional)",
+  "habitAdd": "Add habit",
+  "habitEdit": "Edit habit",
+  "habitsEmpty": "Add a small habit you want to repeat, and choose the days it applies.",
+  "habitsTodaySummary": "You completed {done} of {total} habits today.",
+  "@habitsTodaySummary": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "habitsNotToday": "Not scheduled today",
+  "habitWeekAdherence": "{done} of {total} this week",
+  "@habitWeekAdherence": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "habitSkippedToday": "Skipped today",
+  "habitSkip": "Skip",
+  "habitUndo": "Undo",
+  "habitArchive": "Archive",
+  "habitName": "Habit",
+  "habitDays": "Days",
+  "habitDaysRequired": "Choose at least one day.",
+  "habitsNoneToday": "None today",
+  "homeBodyTitle": "Body",
+  "mealsLogged": "{count, plural, =0{None logged} =1{1 meal} other{{count} meals}}",
+  "@mealsLogged": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

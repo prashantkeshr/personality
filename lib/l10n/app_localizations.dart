@@ -1441,6 +1441,624 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hips measure fuller than chest'**
   String get descHipsFuller;
+
+  /// No description provided for @valueFlOz.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} fl oz'**
+  String valueFlOz(String value);
+
+  /// No description provided for @valueLitres.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} L'**
+  String valueLitres(String value);
+
+  /// No description provided for @valueMl.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} ml'**
+  String valueMl(String value);
+
+  /// No description provided for @durationHm.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours}h {minutes}m'**
+  String durationHm(int hours, int minutes);
+
+  /// No description provided for @valueMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String valueMinutes(int minutes);
+
+  /// No description provided for @valueSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} steps'**
+  String valueSteps(String value);
+
+  /// No description provided for @valueKm.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} km'**
+  String valueKm(String value);
+
+  /// No description provided for @valueMiles.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} mi'**
+  String valueMiles(String value);
+
+  /// No description provided for @valueKcal.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} kcal'**
+  String valueKcal(int value);
+
+  /// No description provided for @mealBreakfast.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast'**
+  String get mealBreakfast;
+
+  /// No description provided for @mealLunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch'**
+  String get mealLunch;
+
+  /// No description provided for @mealSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Snack'**
+  String get mealSnack;
+
+  /// No description provided for @mealDinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Dinner'**
+  String get mealDinner;
+
+  /// No description provided for @mealCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get mealCustom;
+
+  /// No description provided for @activityWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'Walking'**
+  String get activityWalking;
+
+  /// No description provided for @activityRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Running'**
+  String get activityRunning;
+
+  /// No description provided for @activityCycling.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycling'**
+  String get activityCycling;
+
+  /// No description provided for @activitySwimming.
+  ///
+  /// In en, this message translates to:
+  /// **'Swimming'**
+  String get activitySwimming;
+
+  /// No description provided for @activitySports.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports'**
+  String get activitySports;
+
+  /// No description provided for @activityOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other activity'**
+  String get activityOther;
+
+  /// No description provided for @exNeck.
+  ///
+  /// In en, this message translates to:
+  /// **'Neck'**
+  String get exNeck;
+
+  /// No description provided for @exShoulder.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoulder'**
+  String get exShoulder;
+
+  /// No description provided for @exUpperBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Upper back'**
+  String get exUpperBack;
+
+  /// No description provided for @exLowerBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower back'**
+  String get exLowerBack;
+
+  /// No description provided for @exCore.
+  ///
+  /// In en, this message translates to:
+  /// **'Core'**
+  String get exCore;
+
+  /// No description provided for @exMobility.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobility'**
+  String get exMobility;
+
+  /// No description provided for @exYoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Yoga'**
+  String get exYoga;
+
+  /// No description provided for @exStretching.
+  ///
+  /// In en, this message translates to:
+  /// **'Stretching'**
+  String get exStretching;
+
+  /// No description provided for @exPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture'**
+  String get exPosture;
+
+  /// No description provided for @exGeneralFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'General fitness'**
+  String get exGeneralFitness;
+
+  /// No description provided for @exStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get exStrength;
+
+  /// No description provided for @exCardio.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardio'**
+  String get exCardio;
+
+  /// No description provided for @targetOutOfRange.
+  ///
+  /// In en, this message translates to:
+  /// **'This value is outside the supported range.'**
+  String get targetOutOfRange;
+
+  /// No description provided for @targetsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily targets'**
+  String get targetsTitle;
+
+  /// No description provided for @targetsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'These are starting points you can change at any time. They are not medical recommendations.'**
+  String get targetsIntro;
+
+  /// No description provided for @unitLitreShort.
+  ///
+  /// In en, this message translates to:
+  /// **'L'**
+  String get unitLitreShort;
+
+  /// No description provided for @unitFlOzShort.
+  ///
+  /// In en, this message translates to:
+  /// **'fl oz'**
+  String get unitFlOzShort;
+
+  /// No description provided for @unitHoursShort.
+  ///
+  /// In en, this message translates to:
+  /// **'h'**
+  String get unitHoursShort;
+
+  /// No description provided for @unitMinutesShort.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
+  String get unitMinutesShort;
+
+  /// No description provided for @unitMlShort.
+  ///
+  /// In en, this message translates to:
+  /// **'ml'**
+  String get unitMlShort;
+
+  /// No description provided for @unitKmShort.
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get unitKmShort;
+
+  /// No description provided for @unitMiShort.
+  ///
+  /// In en, this message translates to:
+  /// **'mi'**
+  String get unitMiShort;
+
+  /// No description provided for @stepsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get stepsLabel;
+
+  /// No description provided for @activeMinutesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Active minutes'**
+  String get activeMinutesLabel;
+
+  /// No description provided for @waterCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom amount'**
+  String get waterCustom;
+
+  /// No description provided for @actionAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get actionAdd;
+
+  /// No description provided for @actionEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get actionEdit;
+
+  /// No description provided for @ofTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target: {value}'**
+  String ofTarget(String value);
+
+  /// No description provided for @lastSevenDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 7 days'**
+  String get lastSevenDays;
+
+  /// No description provided for @weekChartLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{metric} for the last 7 days'**
+  String weekChartLabel(String metric);
+
+  /// No description provided for @todayEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s entries'**
+  String get todayEntries;
+
+  /// No description provided for @waterEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No water logged today.'**
+  String get waterEmpty;
+
+  /// No description provided for @mealAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Log meal'**
+  String get mealAdd;
+
+  /// No description provided for @mealsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Log what you eat, in your own words. Calories are optional.'**
+  String get mealsEmpty;
+
+  /// No description provided for @mealType.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal'**
+  String get mealType;
+
+  /// No description provided for @mealCustomName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name (optional)'**
+  String get mealCustomName;
+
+  /// No description provided for @mealFood.
+  ///
+  /// In en, this message translates to:
+  /// **'What did you eat?'**
+  String get mealFood;
+
+  /// No description provided for @mealQuantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity (optional)'**
+  String get mealQuantity;
+
+  /// No description provided for @mealCalories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories (optional)'**
+  String get mealCalories;
+
+  /// No description provided for @mealCaloriesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Only if you want to track them.'**
+  String get mealCaloriesHelp;
+
+  /// No description provided for @fieldTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get fieldTime;
+
+  /// No description provided for @sleepAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Log sleep'**
+  String get sleepAdd;
+
+  /// No description provided for @sleepLastNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Last night'**
+  String get sleepLastNight;
+
+  /// No description provided for @sleepConsistencyInsufficient.
+  ///
+  /// In en, this message translates to:
+  /// **'Log at least two nights this week to see how consistent your bedtime is.'**
+  String get sleepConsistencyInsufficient;
+
+  /// No description provided for @sleepConsistency.
+  ///
+  /// In en, this message translates to:
+  /// **'Your bedtime varied by about {minutes} min this week.'**
+  String sleepConsistency(int minutes);
+
+  /// No description provided for @sleepDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep tracking here is for personal awareness and does not assess sleep disorders.'**
+  String get sleepDisclaimer;
+
+  /// No description provided for @sleepEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No sleep logged yet.'**
+  String get sleepEmpty;
+
+  /// No description provided for @sleepWakeBeforeBed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wake time must be after bedtime.'**
+  String get sleepWakeBeforeBed;
+
+  /// No description provided for @sleepTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'A sleep entry cannot be longer than 24 hours.'**
+  String get sleepTooLong;
+
+  /// No description provided for @sleepBedtime.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedtime'**
+  String get sleepBedtime;
+
+  /// No description provided for @sleepWakeTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Wake time'**
+  String get sleepWakeTime;
+
+  /// No description provided for @sleepDurationPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration: {duration}'**
+  String sleepDurationPreview(String duration);
+
+  /// No description provided for @activityAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Log activity'**
+  String get activityAdd;
+
+  /// No description provided for @activeMinutesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Active minutes include activities and exercise sessions.'**
+  String get activeMinutesNote;
+
+  /// No description provided for @activityEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity logged yet. Automatic step import from Health Connect comes later.'**
+  String get activityEmpty;
+
+  /// No description provided for @activityNeedsValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter steps, a duration or a distance.'**
+  String get activityNeedsValue;
+
+  /// No description provided for @activityKindLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity'**
+  String get activityKindLabel;
+
+  /// No description provided for @durationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get durationLabel;
+
+  /// No description provided for @distanceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance (optional)'**
+  String get distanceLabel;
+
+  /// No description provided for @exerciseAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Log exercise'**
+  String get exerciseAdd;
+
+  /// No description provided for @exerciseEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Log exercise you have done. A guided exercise library comes in a later update.'**
+  String get exerciseEmpty;
+
+  /// No description provided for @exerciseThisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get exerciseThisWeek;
+
+  /// No description provided for @setsReps.
+  ///
+  /// In en, this message translates to:
+  /// **'{sets} × {reps}'**
+  String setsReps(int sets, int reps);
+
+  /// No description provided for @exerciseName.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise'**
+  String get exerciseName;
+
+  /// No description provided for @exerciseCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get exerciseCategory;
+
+  /// No description provided for @setsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets (optional)'**
+  String get setsLabel;
+
+  /// No description provided for @repsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps (optional)'**
+  String get repsLabel;
+
+  /// No description provided for @habitAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add habit'**
+  String get habitAdd;
+
+  /// No description provided for @habitEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit habit'**
+  String get habitEdit;
+
+  /// No description provided for @habitsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a small habit you want to repeat, and choose the days it applies.'**
+  String get habitsEmpty;
+
+  /// No description provided for @habitsTodaySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'You completed {done} of {total} habits today.'**
+  String habitsTodaySummary(int done, int total);
+
+  /// No description provided for @habitsNotToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Not scheduled today'**
+  String get habitsNotToday;
+
+  /// No description provided for @habitWeekAdherence.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} this week'**
+  String habitWeekAdherence(int done, int total);
+
+  /// No description provided for @habitSkippedToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Skipped today'**
+  String get habitSkippedToday;
+
+  /// No description provided for @habitSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get habitSkip;
+
+  /// No description provided for @habitUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get habitUndo;
+
+  /// No description provided for @habitArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get habitArchive;
+
+  /// No description provided for @habitName.
+  ///
+  /// In en, this message translates to:
+  /// **'Habit'**
+  String get habitName;
+
+  /// No description provided for @habitDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days'**
+  String get habitDays;
+
+  /// No description provided for @habitDaysRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose at least one day.'**
+  String get habitDaysRequired;
+
+  /// No description provided for @habitsNoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'None today'**
+  String get habitsNoneToday;
+
+  /// No description provided for @homeBodyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get homeBodyTitle;
+
+  /// No description provided for @mealsLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{None logged} =1{1 meal} other{{count} meals}}'**
+  String mealsLogged(int count);
 }
 
 class _AppLocalizationsDelegate

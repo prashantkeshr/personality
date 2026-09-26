@@ -6,8 +6,8 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
 |---|---|---|
 | 0 Architecture | Architecture, data model, design system, core contracts (provenance, device tier, feature registry, pose + model-manager interfaces) | Done (approved) |
 | 1 Foundation | Theme (light/dark/high contrast), localization (ARB, RTL-ready), GoRouter shell with 5 tabs, encrypted Drift database and migrations, secure key storage, units system, onboarding | Done (approved) |
-| 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | **Done — awaiting approval** |
-| 3 Health | Water, meals, sleep, activity, exercise logging, habits | Planned |
+| 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | Done (approved) |
+| 3 Health | Water, meals, sleep, activity, exercise logging, habits | **Done — awaiting approval** |
 | 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | Planned |
 | 5 Camera | Camera, permissions, device capability probe, processing pipeline | Planned |
 | 6 Posture | Pose model, landmarks, metrics, confidence, history, recommendations | Planned |
@@ -75,3 +75,30 @@ Verification:
 - Emulator: upgrade from Phase 1 kept onboarding and theme; added height 172 cm, weight 70.5 kg, and inseam/chest/waist; proportions showed "Balanced leg line" and "Moderate taper"; Home shows both metrics; no Flutter errors in logcat.
 
 Dev note, widget tests with Drift: use `test/helpers/app_harness.dart`. Drift cancels streams with a zero-duration timer, so tests must pump after unmounting and before `db.close()`, or they deadlock.
+
+## Phase 3 — completed 2026-09-26
+
+- **Schema v3** adds `water_log`, `meal`, `sleep_log`, `activity_log`, `exercise_session`, `habit` and `habit_completion`, with indexes. The v2 → v3 migration is non-destructive, with generated tests plus a data-integrity test using real Phase 2 profile and height rows. It was verified on the emulator by upgrading in place, and Phase 2 height and weight were kept.
+- **Water**: progress ring against a target, quick add (250/500 ml, or 8/16 fl oz), a validated custom amount, a 7-day bar chart with a target line, and today's entries with delete.
+- **Meals**: breakfast, lunch, snack, dinner or custom; food in your own words; optional quantity; calories optional; the meal type is suggested from the time of day; grouped by day.
+- **Sleep**: bedtime and wake time (validated: wake after bed, at most 24 h), attributed to the wake day; last night against target; 7-night chart; bedtime consistency measured with circular statistics so bedtimes either side of midnight compare correctly; a wording note that makes no disorder claims.
+- **Activity**: steps, duration and distance (km or mi) with a source label on every entry; steps and active minutes against targets; 7-day steps chart.
+- **Exercise log**: name, category (spec §18 list), duration, sets and reps; weekly minutes. The guided library comes in Phase 7.
+- **Habits**:
+  - Weekday schedules, done or skip, undo, edit, archive or delete; completions are removed together with their habit.
+  - Wording is neutral ("You completed 1 of 1 habits today", "3 of 5 this week").
+  - Days before a habit was created never count as missed.
+- **Daily targets**: water, sleep, steps and active minutes; editable, range-validated, and labelled as starting points rather than medical recommendations.
+- **Home "Today"**: tiles for water, sleep, steps, active minutes, habits and meals, each against its target and linking to its screen, plus the Body section. It uses 2 columns, or 3 on wide screens.
+- English and Hindi for all new strings, including plurals.
+
+Bugs found by tests and fixed:
+- The water custom dialog disposed its text controller while the dialog was still closing.
+- Habit adherence counted days before the habit existed.
+- The habit name was announced twice by screen readers.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 86/86 pass.
+- Emulator: upgrade from Phase 2 kept all data; water 2 × 500 ml gave 1.0 L on the ring, the chart and Home; habit created and ticked gave "1 of 1" on the screen and on Home; no Flutter errors.
+
+OneDrive note (2026-09-26): OneDrive restored stale Sep 24 copies of 7 files and renamed the current ones to `*-Shiva`. This was repaired from git (the pushed commits are the source of truth). Before every commit, check for `*-Shiva*` files.

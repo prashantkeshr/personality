@@ -4,6 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
 import '../features/dashboard/home_screen.dart';
+import '../features/habits/habits_screen.dart';
+import '../features/health/activity/activity_screen.dart';
+import '../features/health/exercise/exercise_log_screen.dart';
+import '../features/health/meals/meals_screen.dart';
+import '../features/health/sleep/sleep_screen.dart';
+import '../features/health/water/water_screen.dart';
 import '../features/health/height/height_screen.dart';
 import '../features/health/measurements/measurements_screen.dart';
 import '../features/health/proportions/proportions_screen.dart';
@@ -27,6 +33,12 @@ abstract final class AppRoutes {
   static const weight = '/health/weight';
   static const measurements = '/health/measurements';
   static const proportions = '/health/proportions';
+  static const water = '/health/water';
+  static const meals = '/health/meals';
+  static const sleep = '/health/sleep';
+  static const activity = '/health/activity';
+  static const exercise = '/health/exercise';
+  static const habits = '/health/habits';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -81,6 +93,20 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'proportions',
                     builder: (_, _) => const ProportionsScreen()),
+                GoRoute(
+                    path: 'water', builder: (_, _) => const WaterScreen()),
+                GoRoute(
+                    path: 'meals', builder: (_, _) => const MealsScreen()),
+                GoRoute(
+                    path: 'sleep', builder: (_, _) => const SleepScreen()),
+                GoRoute(
+                    path: 'activity',
+                    builder: (_, _) => const ActivityScreen()),
+                GoRoute(
+                    path: 'exercise',
+                    builder: (_, _) => const ExerciseLogScreen()),
+                GoRoute(
+                    path: 'habits', builder: (_, _) => const HabitsScreen()),
               ],
             ),
           ]),

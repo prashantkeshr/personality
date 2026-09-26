@@ -56,7 +56,14 @@ void main() {
           'height_record',
           'weight_record',
           'body_measurement',
+          'water_log',
+          'meal',
+          'sleep_log',
+          'activity_log',
+          'exercise_session',
+          'habit',
+          'habit_completion',
         ]));
-    expect(db.schemaVersion, 2);
+    expect(db.schemaVersion, 3);
   });
 }

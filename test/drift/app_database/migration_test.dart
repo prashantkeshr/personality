@@ -9,6 +9,7 @@ import 'generated/schema.dart';
 
 import 'generated/schema_v1.dart' as v1;
 import 'generated/schema_v2.dart' as v2;
+import 'generated/schema_v3.dart' as v3;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -78,6 +79,57 @@ void main() {
           expectedNewFeatureFlagData,
           await newDb.select(newDb.featureFlag).get(),
         );
+      },
+    );
+  });
+
+  // Body data written by v2 (Phase 2) must survive the v3 upgrade unchanged.
+  test('migration from v2 to v3 keeps profile and height data', () async {
+    const height = (
+      id: 'h1',
+      value: 172.0,
+      unit: 'cm',
+      source: 'USER_ENTERED',
+      method: 'Self-measured',
+      recordedAt: 1790000000000,
+    );
+
+    await verifier.testWithDataIntegrity(
+      oldVersion: 2,
+      newVersion: 3,
+      createOld: v2.DatabaseAtV2.new,
+      createNew: v3.DatabaseAtV3.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.userProfile,
+            const v2.UserProfileData(
+                id: 'me',
+                displayName: 'Asha',
+                primaryHeightId: 'h1',
+                createdAt: 1,
+                updatedAt: 1));
+        batch.insert(
+            oldDb.heightRecord,
+            v2.HeightRecordData(
+                id: height.id,
+                value: height.value,
+                unit: height.unit,
+                source: height.source,
+                method: height.method,
+                recordedAt: height.recordedAt,
+                createdAt: 1,
+                updatedAt: 1));
+      },
+      validateItems: (newDb) async {
+        final profile = await newDb.select(newDb.userProfile).getSingle();
+        expect(profile.displayName, 'Asha');
+        expect(profile.primaryHeightId, 'h1');
+        final h = await newDb.select(newDb.heightRecord).getSingle();
+        expect(h.value, height.value);
+        expect(h.source, height.source);
+        expect(h.method, height.method);
+        expect(h.recordedAt, height.recordedAt);
       },
     );
   });

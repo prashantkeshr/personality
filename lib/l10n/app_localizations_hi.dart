@@ -730,4 +730,362 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get descHipsFuller => 'कूल्हों का माप छाती से अधिक';
+
+  @override
+  String valueFlOz(String value) {
+    return '$value फ़्लूइड औंस';
+  }
+
+  @override
+  String valueLitres(String value) {
+    return '$value लीटर';
+  }
+
+  @override
+  String valueMl(String value) {
+    return '$value मिली';
+  }
+
+  @override
+  String durationHm(int hours, int minutes) {
+    return '$hours घं $minutes मि';
+  }
+
+  @override
+  String valueMinutes(int minutes) {
+    return '$minutes मिनट';
+  }
+
+  @override
+  String valueSteps(String value) {
+    return '$value कदम';
+  }
+
+  @override
+  String valueKm(String value) {
+    return '$value किमी';
+  }
+
+  @override
+  String valueMiles(String value) {
+    return '$value मील';
+  }
+
+  @override
+  String valueKcal(int value) {
+    return '$value किलो कैलोरी';
+  }
+
+  @override
+  String get mealBreakfast => 'नाश्ता';
+
+  @override
+  String get mealLunch => 'दोपहर का भोजन';
+
+  @override
+  String get mealSnack => 'स्नैक';
+
+  @override
+  String get mealDinner => 'रात का भोजन';
+
+  @override
+  String get mealCustom => 'अन्य';
+
+  @override
+  String get activityWalking => 'पैदल चलना';
+
+  @override
+  String get activityRunning => 'दौड़ना';
+
+  @override
+  String get activityCycling => 'साइकिल चलाना';
+
+  @override
+  String get activitySwimming => 'तैराकी';
+
+  @override
+  String get activitySports => 'खेल';
+
+  @override
+  String get activityOther => 'अन्य गतिविधि';
+
+  @override
+  String get exNeck => 'गर्दन';
+
+  @override
+  String get exShoulder => 'कंधा';
+
+  @override
+  String get exUpperBack => 'ऊपरी पीठ';
+
+  @override
+  String get exLowerBack => 'निचली पीठ';
+
+  @override
+  String get exCore => 'कोर';
+
+  @override
+  String get exMobility => 'गतिशीलता';
+
+  @override
+  String get exYoga => 'योग';
+
+  @override
+  String get exStretching => 'स्ट्रेचिंग';
+
+  @override
+  String get exPosture => 'पोश्चर';
+
+  @override
+  String get exGeneralFitness => 'सामान्य फ़िटनेस';
+
+  @override
+  String get exStrength => 'शक्ति';
+
+  @override
+  String get exCardio => 'कार्डियो';
+
+  @override
+  String get targetOutOfRange => 'यह मान समर्थित सीमा से बाहर है।';
+
+  @override
+  String get targetsTitle => 'दैनिक लक्ष्य';
+
+  @override
+  String get targetsIntro =>
+      'ये शुरुआती मान हैं जिन्हें आप कभी भी बदल सकते हैं। ये चिकित्सा सलाह नहीं हैं।';
+
+  @override
+  String get unitLitreShort => 'लीटर';
+
+  @override
+  String get unitFlOzShort => 'फ़्लूइड औंस';
+
+  @override
+  String get unitHoursShort => 'घंटे';
+
+  @override
+  String get unitMinutesShort => 'मिनट';
+
+  @override
+  String get unitMlShort => 'मिली';
+
+  @override
+  String get unitKmShort => 'किमी';
+
+  @override
+  String get unitMiShort => 'मील';
+
+  @override
+  String get stepsLabel => 'कदम';
+
+  @override
+  String get activeMinutesLabel => 'सक्रिय मिनट';
+
+  @override
+  String get waterCustom => 'अपनी मात्रा';
+
+  @override
+  String get actionAdd => 'जोड़ें';
+
+  @override
+  String get actionEdit => 'बदलें';
+
+  @override
+  String ofTarget(String value) {
+    return 'लक्ष्य: $value';
+  }
+
+  @override
+  String get lastSevenDays => 'पिछले 7 दिन';
+
+  @override
+  String weekChartLabel(String metric) {
+    return 'पिछले 7 दिनों का $metric';
+  }
+
+  @override
+  String get todayEntries => 'आज की प्रविष्टियाँ';
+
+  @override
+  String get waterEmpty => 'आज कोई पानी दर्ज नहीं।';
+
+  @override
+  String get mealAdd => 'भोजन दर्ज करें';
+
+  @override
+  String get mealsEmpty =>
+      'आप क्या खाते हैं, अपने शब्दों में दर्ज करें। कैलोरी वैकल्पिक है।';
+
+  @override
+  String get mealType => 'भोजन';
+
+  @override
+  String get mealCustomName => 'नाम (वैकल्पिक)';
+
+  @override
+  String get mealFood => 'आपने क्या खाया?';
+
+  @override
+  String get mealQuantity => 'मात्रा (वैकल्पिक)';
+
+  @override
+  String get mealCalories => 'कैलोरी (वैकल्पिक)';
+
+  @override
+  String get mealCaloriesHelp => 'केवल यदि आप इन्हें ट्रैक करना चाहें।';
+
+  @override
+  String get fieldTime => 'समय';
+
+  @override
+  String get sleepAdd => 'नींद दर्ज करें';
+
+  @override
+  String get sleepLastNight => 'पिछली रात';
+
+  @override
+  String get sleepConsistencyInsufficient =>
+      'सोने के समय की नियमितता देखने के लिए इस सप्ताह कम से कम दो रातें दर्ज करें।';
+
+  @override
+  String sleepConsistency(int minutes) {
+    return 'इस सप्ताह आपके सोने का समय लगभग $minutes मिनट ऊपर-नीचे रहा।';
+  }
+
+  @override
+  String get sleepDisclaimer =>
+      'यहाँ नींद ट्रैकिंग व्यक्तिगत जागरूकता के लिए है और नींद संबंधी विकारों का आकलन नहीं करती।';
+
+  @override
+  String get sleepEmpty => 'अभी तक कोई नींद दर्ज नहीं।';
+
+  @override
+  String get sleepWakeBeforeBed =>
+      'जागने का समय सोने के समय के बाद होना चाहिए।';
+
+  @override
+  String get sleepTooLong => 'नींद की प्रविष्टि 24 घंटे से अधिक नहीं हो सकती।';
+
+  @override
+  String get sleepBedtime => 'सोने का समय';
+
+  @override
+  String get sleepWakeTime => 'जागने का समय';
+
+  @override
+  String sleepDurationPreview(String duration) {
+    return 'अवधि: $duration';
+  }
+
+  @override
+  String get activityAdd => 'गतिविधि दर्ज करें';
+
+  @override
+  String get activeMinutesNote =>
+      'सक्रिय मिनट में गतिविधियाँ और व्यायाम सत्र शामिल हैं।';
+
+  @override
+  String get activityEmpty =>
+      'अभी तक कोई गतिविधि दर्ज नहीं। Health Connect से स्वचालित कदम बाद में आएँगे।';
+
+  @override
+  String get activityNeedsValue => 'कदम, अवधि या दूरी दर्ज करें।';
+
+  @override
+  String get activityKindLabel => 'गतिविधि';
+
+  @override
+  String get durationLabel => 'अवधि';
+
+  @override
+  String get distanceLabel => 'दूरी (वैकल्पिक)';
+
+  @override
+  String get exerciseAdd => 'व्यायाम दर्ज करें';
+
+  @override
+  String get exerciseEmpty =>
+      'आपने जो व्यायाम किया है उसे दर्ज करें। निर्देशित व्यायाम लाइब्रेरी बाद के अपडेट में आएगी।';
+
+  @override
+  String get exerciseThisWeek => 'इस सप्ताह';
+
+  @override
+  String setsReps(int sets, int reps) {
+    return '$sets × $reps';
+  }
+
+  @override
+  String get exerciseName => 'व्यायाम';
+
+  @override
+  String get exerciseCategory => 'श्रेणी';
+
+  @override
+  String get setsLabel => 'सेट (वैकल्पिक)';
+
+  @override
+  String get repsLabel => 'दोहराव (वैकल्पिक)';
+
+  @override
+  String get habitAdd => 'आदत जोड़ें';
+
+  @override
+  String get habitEdit => 'आदत बदलें';
+
+  @override
+  String get habitsEmpty =>
+      'कोई छोटी आदत जोड़ें जिसे आप दोहराना चाहते हैं, और वे दिन चुनें जिन पर यह लागू हो।';
+
+  @override
+  String habitsTodaySummary(int done, int total) {
+    return 'आज आपने $total में से $done आदतें पूरी कीं।';
+  }
+
+  @override
+  String get habitsNotToday => 'आज निर्धारित नहीं';
+
+  @override
+  String habitWeekAdherence(int done, int total) {
+    return 'इस सप्ताह $total में से $done';
+  }
+
+  @override
+  String get habitSkippedToday => 'आज छोड़ी गई';
+
+  @override
+  String get habitSkip => 'छोड़ें';
+
+  @override
+  String get habitUndo => 'वापस लें';
+
+  @override
+  String get habitArchive => 'संग्रहित करें';
+
+  @override
+  String get habitName => 'आदत';
+
+  @override
+  String get habitDays => 'दिन';
+
+  @override
+  String get habitDaysRequired => 'कम से कम एक दिन चुनें।';
+
+  @override
+  String get habitsNoneToday => 'आज कोई नहीं';
+
+  @override
+  String get homeBodyTitle => 'शरीर';
+
+  @override
+  String mealsLogged(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count भोजन',
+      zero: 'कोई दर्ज नहीं',
+    );
+    return '$_temp0';
+  }
 }
