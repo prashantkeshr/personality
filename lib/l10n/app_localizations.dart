@@ -2059,6 +2059,366 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =0{None logged} =1{1 meal} other{{count} meals}}'**
   String mealsLogged(int count);
+
+  /// No description provided for @planTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s plan'**
+  String get planTitle;
+
+  /// No description provided for @routineNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New routine'**
+  String get routineNew;
+
+  /// No description provided for @routinesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Build a daily routine with times for water, meals, movement and rest. Reminders are optional.'**
+  String get routinesEmpty;
+
+  /// No description provided for @routineFromExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Start from an example'**
+  String get routineFromExample;
+
+  /// No description provided for @templateRoutineName.
+  ///
+  /// In en, this message translates to:
+  /// **'My daily routine'**
+  String get templateRoutineName;
+
+  /// No description provided for @newRoutineName.
+  ///
+  /// In en, this message translates to:
+  /// **'New routine'**
+  String get newRoutineName;
+
+  /// No description provided for @routineItemCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No items} =1{1 item} other{{count} items}}'**
+  String routineItemCount(int count);
+
+  /// No description provided for @everyDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day'**
+  String get everyDay;
+
+  /// No description provided for @routineNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'This routine no longer exists.'**
+  String get routineNotFound;
+
+  /// No description provided for @actionDuplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get actionDuplicate;
+
+  /// No description provided for @routineCopyName.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} (copy)'**
+  String routineCopyName(String name);
+
+  /// No description provided for @routineAddItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Add item'**
+  String get routineAddItem;
+
+  /// No description provided for @routinePaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused — not part of today\'s plan.'**
+  String get routinePaused;
+
+  /// No description provided for @routineNoItems.
+  ///
+  /// In en, this message translates to:
+  /// **'No items yet. Add times for the things you want to do.'**
+  String get routineNoItems;
+
+  /// No description provided for @reminderOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me'**
+  String get reminderOn;
+
+  /// No description provided for @reminderOff.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminder'**
+  String get reminderOff;
+
+  /// No description provided for @routineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Routine name'**
+  String get routineName;
+
+  /// No description provided for @routineItemTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What'**
+  String get routineItemTitle;
+
+  /// No description provided for @routineItemKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get routineItemKind;
+
+  /// No description provided for @kindWake.
+  ///
+  /// In en, this message translates to:
+  /// **'Wake'**
+  String get kindWake;
+
+  /// No description provided for @kindMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal'**
+  String get kindMeal;
+
+  /// No description provided for @kindWindDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind down'**
+  String get kindWindDown;
+
+  /// No description provided for @kindCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get kindCustom;
+
+  /// No description provided for @templatePostureBreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture break'**
+  String get templatePostureBreak;
+
+  /// No description provided for @remindersChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Routine reminders'**
+  String get remindersChannelName;
+
+  /// No description provided for @remindersChannelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders for items in your routines'**
+  String get remindersChannelDescription;
+
+  /// No description provided for @reminderActionDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get reminderActionDone;
+
+  /// No description provided for @reminderActionSnooze.
+  ///
+  /// In en, this message translates to:
+  /// **'Snooze 10 min'**
+  String get reminderActionSnooze;
+
+  /// No description provided for @reminderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Planned for {time}'**
+  String reminderBody(String time);
+
+  /// No description provided for @planEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is planned for today. Create a routine to see your plan here.'**
+  String get planEmpty;
+
+  /// No description provided for @planSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed {done} of {total} planned'**
+  String planSummary(int done, int total);
+
+  /// No description provided for @planBreakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Skipped {skipped} · Missed {missed} · Moved {moved} · Remaining {open}'**
+  String planBreakdown(int skipped, int missed, int moved, int open);
+
+  /// No description provided for @planWeekAdherence.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan completed, last 7 days (%)'**
+  String get planWeekAdherence;
+
+  /// No description provided for @planAdherenceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This shows how much of your plan happened. It is separate from health results such as water or steps.'**
+  String get planAdherenceNote;
+
+  /// No description provided for @planUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get planUpcoming;
+
+  /// No description provided for @planDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get planDue;
+
+  /// No description provided for @planDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get planDone;
+
+  /// No description provided for @planSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Skipped'**
+  String get planSkipped;
+
+  /// No description provided for @planMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get planMissed;
+
+  /// No description provided for @planMovedFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'moved from {time}'**
+  String planMovedFrom(String time);
+
+  /// No description provided for @planReschedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to another time'**
+  String get planReschedule;
+
+  /// No description provided for @planHomeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No plan for today yet'**
+  String get planHomeEmpty;
+
+  /// No description provided for @planAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing left for today'**
+  String get planAllDone;
+
+  /// No description provided for @planNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {title} — {time}'**
+  String planNext(String title, String time);
+
+  /// No description provided for @suggestionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestion'**
+  String get suggestionTitle;
+
+  /// No description provided for @suggestionMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} at {time} was missed on {count} of the last {total} scheduled days.'**
+  String suggestionMissed(String title, String time, int count, int total);
+
+  /// No description provided for @suggestionLate.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} at {time} was usually done later — on {count} of the last {total} scheduled days.'**
+  String suggestionLate(String title, String time, int count, int total);
+
+  /// No description provided for @suggestionRescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'You moved {title} from {time} {count} times recently.'**
+  String suggestionRescheduled(String title, String time, int count);
+
+  /// No description provided for @suggestionQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Move it to {time}?'**
+  String suggestionQuestion(String time);
+
+  /// No description provided for @suggestionAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to {time}'**
+  String suggestionAccept(String time);
+
+  /// No description provided for @suggestionDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep current time'**
+  String get suggestionDismiss;
+
+  /// No description provided for @notificationsBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off for this app. Your plan still works here; enable notifications in Android settings to get reminders.'**
+  String get notificationsBlocked;
+
+  /// No description provided for @remindersEnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Routine reminders'**
+  String get remindersEnable;
+
+  /// No description provided for @remindersOnNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll be reminded of routine items that have reminders turned on.'**
+  String get remindersOnNote;
+
+  /// No description provided for @remindersOffNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Off. Your plan is still available in the app.'**
+  String get remindersOffNote;
+
+  /// No description provided for @remindersAdaptive.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing suggestions'**
+  String get remindersAdaptive;
+
+  /// No description provided for @remindersAdaptiveNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggest a better time when an item is often missed or done late. Nothing changes unless you accept.'**
+  String get remindersAdaptiveNote;
+
+  /// No description provided for @remindersTimingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'To save battery, Android may deliver reminders a few minutes late.'**
+  String get remindersTimingNote;
+
+  /// No description provided for @remindersNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next reminders'**
+  String get remindersNext;
+
+  /// No description provided for @remindersNoneUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders in the next two days.'**
+  String get remindersNoneUpcoming;
 }
 
 class _AppLocalizationsDelegate

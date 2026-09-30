@@ -1095,4 +1095,225 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get planTitle => 'Today\'s plan';
+
+  @override
+  String get routineNew => 'New routine';
+
+  @override
+  String get routinesEmpty =>
+      'Build a daily routine with times for water, meals, movement and rest. Reminders are optional.';
+
+  @override
+  String get routineFromExample => 'Start from an example';
+
+  @override
+  String get templateRoutineName => 'My daily routine';
+
+  @override
+  String get newRoutineName => 'New routine';
+
+  @override
+  String routineItemCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+      zero: 'No items',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get everyDay => 'Every day';
+
+  @override
+  String get routineNotFound => 'This routine no longer exists.';
+
+  @override
+  String get actionDuplicate => 'Duplicate';
+
+  @override
+  String routineCopyName(String name) {
+    return '$name (copy)';
+  }
+
+  @override
+  String get routineAddItem => 'Add item';
+
+  @override
+  String get routinePaused => 'Paused — not part of today\'s plan.';
+
+  @override
+  String get routineNoItems =>
+      'No items yet. Add times for the things you want to do.';
+
+  @override
+  String get reminderOn => 'Remind me';
+
+  @override
+  String get reminderOff => 'No reminder';
+
+  @override
+  String get routineName => 'Routine name';
+
+  @override
+  String get routineItemTitle => 'What';
+
+  @override
+  String get routineItemKind => 'Type';
+
+  @override
+  String get kindWake => 'Wake';
+
+  @override
+  String get kindMeal => 'Meal';
+
+  @override
+  String get kindWindDown => 'Wind down';
+
+  @override
+  String get kindCustom => 'Other';
+
+  @override
+  String get templatePostureBreak => 'Posture break';
+
+  @override
+  String get remindersChannelName => 'Routine reminders';
+
+  @override
+  String get remindersChannelDescription =>
+      'Reminders for items in your routines';
+
+  @override
+  String get reminderActionDone => 'Done';
+
+  @override
+  String get reminderActionSnooze => 'Snooze 10 min';
+
+  @override
+  String reminderBody(String time) {
+    return 'Planned for $time';
+  }
+
+  @override
+  String get planEmpty =>
+      'Nothing is planned for today. Create a routine to see your plan here.';
+
+  @override
+  String planSummary(int done, int total) {
+    return 'Completed $done of $total planned';
+  }
+
+  @override
+  String planBreakdown(int skipped, int missed, int moved, int open) {
+    return 'Skipped $skipped · Missed $missed · Moved $moved · Remaining $open';
+  }
+
+  @override
+  String get planWeekAdherence => 'Plan completed, last 7 days (%)';
+
+  @override
+  String get planAdherenceNote =>
+      'This shows how much of your plan happened. It is separate from health results such as water or steps.';
+
+  @override
+  String get planUpcoming => 'Upcoming';
+
+  @override
+  String get planDue => 'Now';
+
+  @override
+  String get planDone => 'Done';
+
+  @override
+  String get planSkipped => 'Skipped';
+
+  @override
+  String get planMissed => 'Missed';
+
+  @override
+  String planMovedFrom(String time) {
+    return 'moved from $time';
+  }
+
+  @override
+  String get planReschedule => 'Move to another time';
+
+  @override
+  String get planHomeEmpty => 'No plan for today yet';
+
+  @override
+  String get planAllDone => 'Nothing left for today';
+
+  @override
+  String planNext(String title, String time) {
+    return 'Next: $title — $time';
+  }
+
+  @override
+  String get suggestionTitle => 'Suggestion';
+
+  @override
+  String suggestionMissed(String title, String time, int count, int total) {
+    return '$title at $time was missed on $count of the last $total scheduled days.';
+  }
+
+  @override
+  String suggestionLate(String title, String time, int count, int total) {
+    return '$title at $time was usually done later — on $count of the last $total scheduled days.';
+  }
+
+  @override
+  String suggestionRescheduled(String title, String time, int count) {
+    return 'You moved $title from $time $count times recently.';
+  }
+
+  @override
+  String suggestionQuestion(String time) {
+    return 'Move it to $time?';
+  }
+
+  @override
+  String suggestionAccept(String time) {
+    return 'Move to $time';
+  }
+
+  @override
+  String get suggestionDismiss => 'Keep current time';
+
+  @override
+  String get notificationsBlocked =>
+      'Notifications are off for this app. Your plan still works here; enable notifications in Android settings to get reminders.';
+
+  @override
+  String get remindersEnable => 'Routine reminders';
+
+  @override
+  String get remindersOnNote =>
+      'You\'ll be reminded of routine items that have reminders turned on.';
+
+  @override
+  String get remindersOffNote =>
+      'Off. Your plan is still available in the app.';
+
+  @override
+  String get remindersAdaptive => 'Timing suggestions';
+
+  @override
+  String get remindersAdaptiveNote =>
+      'Suggest a better time when an item is often missed or done late. Nothing changes unless you accept.';
+
+  @override
+  String get remindersTimingNote =>
+      'To save battery, Android may deliver reminders a few minutes late.';
+
+  @override
+  String get remindersNext => 'Next reminders';
+
+  @override
+  String get remindersNoneUpcoming => 'No reminders in the next two days.';
 }

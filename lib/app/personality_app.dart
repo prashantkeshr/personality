@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/providers.dart';
 import '../core/theme/app_theme.dart';
+import '../features/routines/reminder_sync_host.dart';
 import '../l10n/app_localizations.dart';
 import 'router.dart';
 
@@ -24,6 +25,7 @@ class PersonalityApp extends ConsumerWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: ref.watch(routerProvider),
+      builder: (context, child) => ReminderSyncHost(child: child!),
     );
   }
 }

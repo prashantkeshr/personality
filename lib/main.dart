@@ -7,6 +7,8 @@ import 'core/database/encrypted_connection.dart';
 import 'core/logging/app_logger.dart';
 import 'core/providers.dart';
 import 'core/security/database_key_store.dart';
+import 'core/notifications/reminder_scheduler.dart';
+import 'features/routines/routine_providers.dart';
 import 'features/settings/settings_repository.dart';
 
 Future<void> main() async {
@@ -22,11 +24,13 @@ Future<void> _start() async {
     final key = await SecureDatabaseKeyStore().obtainKey();
     db = AppDatabase(openEncryptedDatabase(key));
     final settings = await SettingsRepository(db).load();
+    final scheduler = await _reminderScheduler();
 
     runApp(ProviderScope(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         initialSettingsProvider.overrideWithValue(settings),
+        reminderSchedulerProvider.overrideWithValue(scheduler),
       ],
       child: const PersonalityApp(),
     ));
@@ -34,5 +38,18 @@ Future<void> _start() async {
     AppLogger.error('startup', e, st);
     await db?.close();
     runApp(StartupErrorApp(onRetry: _start));
+  }
+}
+
+/// Reminders are optional: if the notification plugin fails to start, the
+/// app still runs and the in-app plan keeps working.
+Future<ReminderScheduler> _reminderScheduler() async {
+  try {
+    final scheduler = LocalNotificationScheduler();
+    await scheduler.initialize(reminderResponses.add);
+    return scheduler;
+  } catch (e, st) {
+    AppLogger.error('reminders.init', e, st);
+    return NoopReminderScheduler();
   }
 }

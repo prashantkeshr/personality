@@ -63,7 +63,10 @@ void main() {
           'exercise_session',
           'habit',
           'habit_completion',
+          'routine',
+          'routine_item',
+          'routine_completion',
         ]));
-    expect(db.schemaVersion, 3);
+    expect(db.schemaVersion, 4);
   });
 }

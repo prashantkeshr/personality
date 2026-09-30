@@ -16,4 +16,7 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.activity,
   AppFeature.exercise,
   AppFeature.habits,
+  // Phase 4
+  AppFeature.routines,
+  AppFeature.reminders,
 };

@@ -12,6 +12,10 @@ import '../../shared/widgets/empty_state.dart';
 import '../health/body_providers.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
+import '../routines/plan_screen.dart';
+import '../routines/reminder_sync_host.dart';
+import '../routines/routine_providers.dart';
+import '../../domain/services/plan_engine.dart';
 
 /// Today-first dashboard (spec §63). Summary cards appear as features ship.
 class HomeScreen extends StatelessWidget {
@@ -49,6 +53,9 @@ class HomeScreen extends StatelessWidget {
               style: theme.textTheme.bodyMedium
                   ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
           const SizedBox(height: AppSpacing.xl),
+          const _PlanCard(),
+          const _HomeSuggestions(),
+          const SizedBox(height: AppSpacing.lg),
           const _TodaySection(),
           const SizedBox(height: AppSpacing.xl),
           Semantics(
@@ -221,6 +228,81 @@ class _Tile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                 ),
               ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Adaptive reminder suggestions; each needs an explicit accept (spec §33).
+class _HomeSuggestions extends ConsumerWidget {
+  const _HomeSuggestions();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // One at a time on Home, the best-supported first; all on the Plan screen.
+    final suggestions = [...ref.watch(suggestionsProvider)]
+      ..sort((a, b) => b.occurrences.compareTo(a.occurrences));
+    return Column(
+      children: [
+        for (final s in suggestions.take(1)) ...[
+          const SizedBox(height: AppSpacing.md),
+          SuggestionCard(suggestion: s),
+        ],
+      ],
+    );
+  }
+}
+
+/// "Next: Posture break — 16:00" and today's plan adherence (spec §81).
+class _PlanCard extends ConsumerWidget {
+  const _PlanCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final entries = ref.watch(todayPlanProvider);
+    final summary = PlanSummary.of(entries);
+    final next = PlanEngine.next(entries);
+
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () => context.push(
+            entries.isEmpty ? AppRoutes.routines : AppRoutes.plan),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Row(
+            children: [
+              Icon(Icons.schedule, color: theme.colorScheme.primary),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.planTitle, style: theme.textTheme.labelLarge),
+                    const SizedBox(height: AppSpacing.xs),
+                    Text(
+                      entries.isEmpty
+                          ? l10n.planHomeEmpty
+                          : next == null
+                              ? l10n.planAllDone
+                              : l10n.planNext(next.item.title,
+                                  formatMinute(context, next.minute)),
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    if (entries.isNotEmpty)
+                      Text(
+                          l10n.planSummary(
+                              summary.completed, summary.scheduled),
+                          style: theme.textTheme.bodySmall),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right),
             ],
           ),
         ),

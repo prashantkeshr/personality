@@ -233,6 +233,63 @@ class HabitCompletions extends Table {
   Set<Column> get primaryKey => {habitId, day};
 }
 
+@DataClassName('RoutineRow')
+class Routines extends Table {
+  @override
+  String get tableName => 'routine';
+
+  TextColumn get id => text()();
+  TextColumn get name => text()();
+  IntColumn get weekdays => integer()();
+  BoolColumn get active => boolean().withDefault(const Constant(true))();
+  IntColumn get createdAt => integer()();
+  IntColumn get updatedAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('RoutineItemRow')
+@TableIndex(name: 'idx_routine_item_routine', columns: {#routineId})
+class RoutineItems extends Table {
+  @override
+  String get tableName => 'routine_item';
+
+  TextColumn get id => text()();
+  TextColumn get routineId =>
+      text().references(Routines, #id, onDelete: KeyAction.cascade)();
+
+  /// Local time, minutes after midnight.
+  IntColumn get minuteOfDay => integer()();
+  TextColumn get title => text()();
+  TextColumn get kind => text()();
+  BoolColumn get reminder => boolean().withDefault(const Constant(true))();
+  IntColumn get createdAt => integer()();
+  IntColumn get updatedAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+/// Plan vs actual: what happened to a routine item on a day (spec §34).
+/// Also serves as reminder history — reminders are routine items.
+@DataClassName('PlanRecordRow')
+@TableIndex(name: 'idx_plan_record_day', columns: {#day})
+class PlanRecords extends Table {
+  @override
+  String get tableName => 'routine_completion';
+
+  TextColumn get itemId =>
+      text().references(RoutineItems, #id, onDelete: KeyAction.cascade)();
+  IntColumn get day => integer()();
+  TextColumn get outcome => text()();
+  IntColumn get rescheduledMinute => integer().nullable()();
+  IntColumn get recordedAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {itemId, day};
+}
+
 @DriftDatabase(tables: [
   AppSettingsEntries,
   FeatureFlags,
@@ -248,6 +305,9 @@ class HabitCompletions extends Table {
   ExerciseSessions,
   Habits,
   HabitCompletions,
+  Routines,
+  RoutineItems,
+  PlanRecords,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -255,7 +315,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -285,6 +345,13 @@ class AppDatabase extends _$AppDatabase {
             await m.createIndex(schema.idxActivityRecordedAt);
             await m.createIndex(schema.idxExercisePerformedAt);
             await m.createIndex(schema.idxHabitCompletionDay);
+          },
+          from3To4: (m, schema) async {
+            await m.createTable(schema.routine);
+            await m.createTable(schema.routineItem);
+            await m.createTable(schema.routineCompletion);
+            await m.createIndex(schema.idxRoutineItemRoutine);
+            await m.createIndex(schema.idxPlanRecordDay);
           },
         ),
         beforeOpen: (details) async {

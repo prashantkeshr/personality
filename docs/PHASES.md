@@ -7,8 +7,8 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
 | 0 Architecture | Architecture, data model, design system, core contracts (provenance, device tier, feature registry, pose + model-manager interfaces) | Done (approved) |
 | 1 Foundation | Theme (light/dark/high contrast), localization (ARB, RTL-ready), GoRouter shell with 5 tabs, encrypted Drift database and migrations, secure key storage, units system, onboarding | Done (approved) |
 | 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | Done (approved) |
-| 3 Health | Water, meals, sleep, activity, exercise logging, habits | **Done — awaiting approval** |
-| 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | Planned |
+| 3 Health | Water, meals, sleep, activity, exercise logging, habits | Done (approved) |
+| 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | **Done — awaiting approval** |
 | 5 Camera | Camera, permissions, device capability probe, processing pipeline | Planned |
 | 6 Posture | Pose model, landmarks, metrics, confidence, history, recommendations | Planned |
 | 7 Exercise | Library (data-driven), animations, programs, progress, optional camera tracking | Planned |
@@ -102,3 +102,40 @@ Verification:
 - Emulator: upgrade from Phase 2 kept all data; water 2 × 500 ml gave 1.0 L on the ring, the chart and Home; habit created and ticked gave "1 of 1" on the screen and on Home; no Flutter errors.
 
 OneDrive note (2026-09-26): OneDrive restored stale Sep 24 copies of 7 files and renamed the current ones to `*-Shiva`. This was repaired from git (the pushed commits are the source of truth). Before every commit, check for `*-Shiva*` files.
+
+## Phase 4 — completed 2026-09-30
+
+- **Schema v4** adds `routine`, `routine_item` and `routine_completion`. The migration is non-destructive, with generated tests for every path from v1 to v4 plus a v3 → v4 data-integrity test that uses habits. It was verified on the emulator by upgrading in place.
+- **Routine builder**: create, rename, choose days, pause, duplicate and delete routines; add, edit, duplicate and delete items (time, title, type, reminder on/off). A "Start from an example" option builds the spec §31 routine with localized titles.
+- **Plan vs actual** (`PlanScreen`):
+  - Today's items with upcoming / now / done / skipped / missed states, where "now" lasts 60 minutes after an item's time.
+  - Actions: Done, Skip, Move to another time, Undo.
+  - Summary counts for completed, skipped, missed, moved and remaining.
+  - A 7-day adherence chart, kept separate from health performance (spec §34).
+- **Reminders**:
+  - Off by default. Notification permission is requested only when the user turns reminders on; if it is denied, a banner explains this and the plan keeps working.
+  - Uses `flutter_local_notifications`, scheduled as absolute UTC instants over a rolling 7-day window. It re-syncs when the plan changes and when the app resumes.
+  - Done and skipped items cancel their reminder for that day.
+  - Scheduling is inexact, so no exact-alarm permission is needed; the app says reminders may arrive a few minutes late.
+  - The Done action opens the app and records the outcome. Snooze reschedules in a background isolate without opening the database.
+  - Notification taps deep-link to the plan.
+- **Adaptive suggestions** (spec §33):
+  - Uses the last 14 past days only, never today, and needs at least 4 scheduled days and at least 3 supporting occurrences.
+  - Suggests either the time the user keeps moving the item to, the typical time it is actually done when done late, or one hour later when the item is usually missed.
+  - Only changes anything when the user accepts. Dismissing hides the suggestion for 14 days.
+  - Can be turned off. Home shows one suggestion; the plan screen shows all of them.
+- **Home**: plan card ("Next: Posture break — 10:30 AM", "Completed x of y planned").
+- English and Hindi for all new strings.
+
+Bugs found by tests and fixed:
+- Suggestions and "missed" counts included times before a routine item existed ("missed on 14 of the last 14 days" for a routine created minutes earlier). Items now count only from their creation instant.
+- Home stacked many suggestion cards; it now shows one.
+- Completing or skipping a moved item dropped the moved time (found on device). The moved time is now kept, so the plan and the suggestion evidence stay accurate.
+- Test count: 115/115.
+- Test harness: a failing widget test used to hang every later test. It now always unmounts and flushes Drift's timer in teardown (verified with a deliberate-failure probe).
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 115/115 pass (plan engine, reminder planner, adaptive rules, repository, 9 migration tests, routine/reminder/suggestion widget flows).
+- Emulator (API 36, software GPU — see note): the upgrade from Phase 3 worked. An example routine created at 09:28 showed 6 upcoming items and none falsely missed. Turning reminders on showed Android's permission prompt; after allowing, Android alarms were registered (the first one at 10:30 IST). Moving Posture break to 09:35 updated the plan ("moved from 10:30 AM"). The app was then sent to the background. **The real notification was posted at 09:37** (inexact, 2 min late) with the title, "Planned for 9:35 AM", and Done / Snooze 10 min. Tapping **Done** opened Today's plan with "Completed 1 of 6", and the notification was dismissed.
+
+Emulator note: the emulator crashed inside the NVIDIA OpenGL driver (`nvoglv64.dll`) with host GPU rendering. Launch it with `-gpu swiftshader_indirect -memory 3072` (detached, via `Start-Process`).

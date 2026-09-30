@@ -546,5 +546,188 @@
         "type": "int"
       }
     }
-  }
+  },
+  "planTitle": "Today's plan",
+  "routineNew": "New routine",
+  "routinesEmpty": "Build a daily routine with times for water, meals, movement and rest. Reminders are optional.",
+  "routineFromExample": "Start from an example",
+  "templateRoutineName": "My daily routine",
+  "newRoutineName": "New routine",
+  "routineItemCount": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
+  "@routineItemCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "everyDay": "Every day",
+  "routineNotFound": "This routine no longer exists.",
+  "actionDuplicate": "Duplicate",
+  "routineCopyName": "{name} (copy)",
+  "@routineCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "routineAddItem": "Add item",
+  "routinePaused": "Paused — not part of today's plan.",
+  "routineNoItems": "No items yet. Add times for the things you want to do.",
+  "reminderOn": "Remind me",
+  "reminderOff": "No reminder",
+  "routineName": "Routine name",
+  "routineItemTitle": "What",
+  "routineItemKind": "Type",
+  "kindWake": "Wake",
+  "kindMeal": "Meal",
+  "kindWindDown": "Wind down",
+  "kindCustom": "Other",
+  "templatePostureBreak": "Posture break",
+  "remindersChannelName": "Routine reminders",
+  "remindersChannelDescription": "Reminders for items in your routines",
+  "reminderActionDone": "Done",
+  "reminderActionSnooze": "Snooze 10 min",
+  "reminderBody": "Planned for {time}",
+  "@reminderBody": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "planEmpty": "Nothing is planned for today. Create a routine to see your plan here.",
+  "planSummary": "Completed {done} of {total} planned",
+  "@planSummary": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "planBreakdown": "Skipped {skipped} · Missed {missed} · Moved {moved} · Remaining {open}",
+  "@planBreakdown": {
+    "placeholders": {
+      "skipped": {
+        "type": "int"
+      },
+      "missed": {
+        "type": "int"
+      },
+      "moved": {
+        "type": "int"
+      },
+      "open": {
+        "type": "int"
+      }
+    }
+  },
+  "planWeekAdherence": "Plan completed, last 7 days (%)",
+  "planAdherenceNote": "This shows how much of your plan happened. It is separate from health results such as water or steps.",
+  "planUpcoming": "Upcoming",
+  "planDue": "Now",
+  "planDone": "Done",
+  "planSkipped": "Skipped",
+  "planMissed": "Missed",
+  "planMovedFrom": "moved from {time}",
+  "@planMovedFrom": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "planReschedule": "Move to another time",
+  "planHomeEmpty": "No plan for today yet",
+  "planAllDone": "Nothing left for today",
+  "planNext": "Next: {title} — {time}",
+  "@planNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "suggestionTitle": "Suggestion",
+  "suggestionMissed": "{title} at {time} was missed on {count} of the last {total} scheduled days.",
+  "@suggestionMissed": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "suggestionLate": "{title} at {time} was usually done later — on {count} of the last {total} scheduled days.",
+  "@suggestionLate": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "suggestionRescheduled": "You moved {title} from {time} {count} times recently.",
+  "@suggestionRescheduled": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "suggestionQuestion": "Move it to {time}?",
+  "@suggestionQuestion": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "suggestionAccept": "Move to {time}",
+  "@suggestionAccept": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "suggestionDismiss": "Keep current time",
+  "notificationsBlocked": "Notifications are off for this app. Your plan still works here; enable notifications in Android settings to get reminders.",
+  "remindersEnable": "Routine reminders",
+  "remindersOnNote": "You'll be reminded of routine items that have reminders turned on.",
+  "remindersOffNote": "Off. Your plan is still available in the app.",
+  "remindersAdaptive": "Timing suggestions",
+  "remindersAdaptiveNote": "Suggest a better time when an item is often missed or done late. Nothing changes unless you accept.",
+  "remindersTimingNote": "To save battery, Android may deliver reminders a few minutes late.",
+  "remindersNext": "Next reminders",
+  "remindersNoneUpcoming": "No reminders in the next two days."
 }

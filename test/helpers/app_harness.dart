@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,19 @@ import 'package:personality/features/settings/app_settings.dart';
 class AppHarness {
   AppHarness(this.tester) : db = AppDatabase(NativeDatabase.memory()) {
     driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+    // If a test fails before calling dispose(), still unmount the app and
+    // flush Drift's pending timer so the next test is not blocked. The close
+    // is not awaited here: awaiting it during teardown can deadlock.
+    addTearDown(() async {
+      if (_disposed) return;
+      _disposed = true;
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(Duration.zero);
+      unawaited(db.close());
+    });
   }
+
+  bool _disposed = false;
 
   final WidgetTester tester;
   final AppDatabase db;
@@ -56,6 +70,8 @@ class AppHarness {
   Future<T?> run<T>(Future<T> Function() body) => tester.runAsync(body);
 
   Future<void> dispose() async {
+    if (_disposed) return;
+    _disposed = true;
     await tester.pumpWidget(const SizedBox());
     await tester.pump(Duration.zero);
     await tester.runAsync(db.close);

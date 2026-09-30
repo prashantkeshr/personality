@@ -1088,4 +1088,223 @@ class AppLocalizationsHi extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get planTitle => 'आज की योजना';
+
+  @override
+  String get routineNew => 'नई दिनचर्या';
+
+  @override
+  String get routinesEmpty =>
+      'पानी, भोजन, गतिविधि और आराम के समय के साथ एक दैनिक दिनचर्या बनाएँ। रिमाइंडर वैकल्पिक हैं।';
+
+  @override
+  String get routineFromExample => 'एक उदाहरण से शुरू करें';
+
+  @override
+  String get templateRoutineName => 'मेरी दैनिक दिनचर्या';
+
+  @override
+  String get newRoutineName => 'नई दिनचर्या';
+
+  @override
+  String routineItemCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count आइटम',
+      zero: 'कोई आइटम नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get everyDay => 'हर दिन';
+
+  @override
+  String get routineNotFound => 'यह दिनचर्या अब मौजूद नहीं है।';
+
+  @override
+  String get actionDuplicate => 'प्रतिलिपि बनाएँ';
+
+  @override
+  String routineCopyName(String name) {
+    return '$name (प्रति)';
+  }
+
+  @override
+  String get routineAddItem => 'आइटम जोड़ें';
+
+  @override
+  String get routinePaused => 'रुकी हुई — आज की योजना में शामिल नहीं।';
+
+  @override
+  String get routineNoItems =>
+      'अभी कोई आइटम नहीं। जो करना चाहते हैं उनके समय जोड़ें।';
+
+  @override
+  String get reminderOn => 'मुझे याद दिलाएँ';
+
+  @override
+  String get reminderOff => 'कोई रिमाइंडर नहीं';
+
+  @override
+  String get routineName => 'दिनचर्या का नाम';
+
+  @override
+  String get routineItemTitle => 'क्या';
+
+  @override
+  String get routineItemKind => 'प्रकार';
+
+  @override
+  String get kindWake => 'जागना';
+
+  @override
+  String get kindMeal => 'भोजन';
+
+  @override
+  String get kindWindDown => 'आराम की तैयारी';
+
+  @override
+  String get kindCustom => 'अन्य';
+
+  @override
+  String get templatePostureBreak => 'पोश्चर ब्रेक';
+
+  @override
+  String get remindersChannelName => 'दिनचर्या रिमाइंडर';
+
+  @override
+  String get remindersChannelDescription =>
+      'आपकी दिनचर्या के आइटम के लिए रिमाइंडर';
+
+  @override
+  String get reminderActionDone => 'हो गया';
+
+  @override
+  String get reminderActionSnooze => '10 मिनट बाद';
+
+  @override
+  String reminderBody(String time) {
+    return '$time के लिए योजना';
+  }
+
+  @override
+  String get planEmpty =>
+      'आज के लिए कुछ योजना नहीं है। अपनी योजना यहाँ देखने के लिए एक दिनचर्या बनाएँ।';
+
+  @override
+  String planSummary(int done, int total) {
+    return '$total में से $done पूरे';
+  }
+
+  @override
+  String planBreakdown(int skipped, int missed, int moved, int open) {
+    return 'छोड़े $skipped · छूटे $missed · बदले $moved · बाकी $open';
+  }
+
+  @override
+  String get planWeekAdherence => 'योजना पूर्णता, पिछले 7 दिन (%)';
+
+  @override
+  String get planAdherenceNote =>
+      'यह दिखाता है कि आपकी योजना का कितना हिस्सा पूरा हुआ। यह पानी या कदम जैसे स्वास्थ्य परिणामों से अलग है।';
+
+  @override
+  String get planUpcoming => 'आने वाला';
+
+  @override
+  String get planDue => 'अभी';
+
+  @override
+  String get planDone => 'पूरा';
+
+  @override
+  String get planSkipped => 'छोड़ा';
+
+  @override
+  String get planMissed => 'छूटा';
+
+  @override
+  String planMovedFrom(String time) {
+    return '$time से बदला';
+  }
+
+  @override
+  String get planReschedule => 'दूसरे समय पर करें';
+
+  @override
+  String get planHomeEmpty => 'आज के लिए अभी कोई योजना नहीं';
+
+  @override
+  String get planAllDone => 'आज के लिए कुछ बाकी नहीं';
+
+  @override
+  String planNext(String title, String time) {
+    return 'अगला: $title — $time';
+  }
+
+  @override
+  String get suggestionTitle => 'सुझाव';
+
+  @override
+  String suggestionMissed(String title, String time, int count, int total) {
+    return '$time पर $title पिछले $total निर्धारित दिनों में से $count दिन छूटा।';
+  }
+
+  @override
+  String suggestionLate(String title, String time, int count, int total) {
+    return '$time पर $title अक्सर बाद में हुआ — पिछले $total निर्धारित दिनों में से $count दिन।';
+  }
+
+  @override
+  String suggestionRescheduled(String title, String time, int count) {
+    return 'आपने हाल में $title को $time से $count बार बदला।';
+  }
+
+  @override
+  String suggestionQuestion(String time) {
+    return 'इसे $time पर करें?';
+  }
+
+  @override
+  String suggestionAccept(String time) {
+    return '$time पर करें';
+  }
+
+  @override
+  String get suggestionDismiss => 'मौजूदा समय रखें';
+
+  @override
+  String get notificationsBlocked =>
+      'इस ऐप के लिए सूचनाएँ बंद हैं। आपकी योजना यहाँ काम करती रहेगी; रिमाइंडर के लिए Android सेटिंग्स में सूचनाएँ चालू करें।';
+
+  @override
+  String get remindersEnable => 'दिनचर्या रिमाइंडर';
+
+  @override
+  String get remindersOnNote =>
+      'जिन दिनचर्या आइटम पर रिमाइंडर चालू हैं, उनकी याद दिलाई जाएगी।';
+
+  @override
+  String get remindersOffNote => 'बंद। आपकी योजना ऐप में फिर भी उपलब्ध है।';
+
+  @override
+  String get remindersAdaptive => 'समय संबंधी सुझाव';
+
+  @override
+  String get remindersAdaptiveNote =>
+      'जब कोई आइटम अक्सर छूटता है या देर से होता है तो बेहतर समय सुझाएँ। आपकी स्वीकृति के बिना कुछ नहीं बदलता।';
+
+  @override
+  String get remindersTimingNote =>
+      'बैटरी बचाने के लिए, Android रिमाइंडर कुछ मिनट देर से दे सकता है।';
+
+  @override
+  String get remindersNext => 'अगले रिमाइंडर';
+
+  @override
+  String get remindersNoneUpcoming => 'अगले दो दिनों में कोई रिमाइंडर नहीं।';
 }

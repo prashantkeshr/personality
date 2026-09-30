@@ -10,6 +10,7 @@ import 'generated/schema.dart';
 import 'generated/schema_v1.dart' as v1;
 import 'generated/schema_v2.dart' as v2;
 import 'generated/schema_v3.dart' as v3;
+import 'generated/schema_v4.dart' as v4;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -130,6 +131,42 @@ void main() {
         expect(h.source, height.source);
         expect(h.method, height.method);
         expect(h.recordedAt, height.recordedAt);
+      },
+    );
+  });
+
+  // Habits and their history from v3 (Phase 3) must survive the v4 upgrade.
+  test('migration from v3 to v4 keeps habits and completions', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 3,
+      newVersion: 4,
+      createOld: v3.DatabaseAtV3.new,
+      createNew: v4.DatabaseAtV4.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.habit,
+            const v3.HabitData(
+                id: 'h1',
+                name: 'Stretch',
+                weekdays: 0x7F,
+                archived: 0,
+                createdAt: 1,
+                updatedAt: 1));
+        batch.insert(
+            oldDb.habitCompletion,
+            const v3.HabitCompletionData(
+                habitId: 'h1',
+                day: 20260926,
+                status: 'completed',
+                recordedAt: 2));
+      },
+      validateItems: (newDb) async {
+        final h = await newDb.select(newDb.habit).getSingle();
+        expect((h.id, h.name, h.weekdays), ('h1', 'Stretch', 0x7F));
+        final c = await newDb.select(newDb.habitCompletion).getSingle();
+        expect((c.habitId, c.day, c.status), ('h1', 20260926, 'completed'));
+        expect(await newDb.select(newDb.routine).get(), isEmpty);
       },
     );
   });

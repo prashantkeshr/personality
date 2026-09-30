@@ -16,6 +16,9 @@ import '../features/health/proportions/proportions_screen.dart';
 import '../features/health/weight/weight_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/profile_screen.dart';
+import '../features/routines/plan_screen.dart';
+import '../features/routines/reminders_screen.dart';
+import '../features/routines/routines_screen.dart';
 import '../features/settings/settings_screen.dart';
 import 'app_shell.dart';
 import 'primary_tabs.dart';
@@ -39,6 +42,9 @@ abstract final class AppRoutes {
   static const activity = '/health/activity';
   static const exercise = '/health/exercise';
   static const habits = '/health/habits';
+  static const routines = '/health/routines';
+  static const plan = '/health/plan';
+  static const reminders = '/health/reminders';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -107,6 +113,21 @@ final routerProvider = Provider<GoRouter>((ref) {
                     builder: (_, _) => const ExerciseLogScreen()),
                 GoRoute(
                     path: 'habits', builder: (_, _) => const HabitsScreen()),
+                GoRoute(
+                  path: 'routines',
+                  builder: (_, _) => const RoutinesScreen(),
+                  routes: [
+                    GoRoute(
+                      path: ':id',
+                      builder: (_, state) => RoutineEditorScreen(
+                          routineId: state.pathParameters['id']!),
+                    ),
+                  ],
+                ),
+                GoRoute(path: 'plan', builder: (_, _) => const PlanScreen()),
+                GoRoute(
+                    path: 'reminders',
+                    builder: (_, _) => const RemindersScreen()),
               ],
             ),
           ]),
