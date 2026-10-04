@@ -2419,6 +2419,360 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No reminders in the next two days.'**
   String get remindersNoneUpcoming;
+
+  /// No description provided for @featureCameraCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera check'**
+  String get featureCameraCheck;
+
+  /// No description provided for @cameraSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch camera'**
+  String get cameraSwitch;
+
+  /// No description provided for @cameraUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access is unavailable. Manual tracking remains available.'**
+  String get cameraUnavailable;
+
+  /// No description provided for @cameraPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access was not allowed. Manual tracking remains available. To use the camera, allow it for Personality in Android settings.'**
+  String get cameraPermissionDenied;
+
+  /// No description provided for @cameraFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera could not be started. Close other apps using the camera and try again.'**
+  String get cameraFailed;
+
+  /// No description provided for @cameraIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your camera setup and lighting. Frames are analyzed on this phone and discarded — nothing is saved or uploaded.'**
+  String get cameraIntro;
+
+  /// No description provided for @cameraStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start camera'**
+  String get cameraStart;
+
+  /// No description provided for @cameraStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop camera'**
+  String get cameraStop;
+
+  /// No description provided for @cameraPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera frames stay in memory only while being analyzed and are then discarded. The camera stops when you leave this screen or switch apps.'**
+  String get cameraPrivacyNote;
+
+  /// No description provided for @cameraProcessingOnDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing on device'**
+  String get cameraProcessingOnDevice;
+
+  /// No description provided for @cameraWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for frames…'**
+  String get cameraWaiting;
+
+  /// No description provided for @cameraLighting.
+  ///
+  /// In en, this message translates to:
+  /// **'Lighting'**
+  String get cameraLighting;
+
+  /// No description provided for @cameraAnalysisRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis'**
+  String get cameraAnalysisRate;
+
+  /// No description provided for @cameraFramesStats.
+  ///
+  /// In en, this message translates to:
+  /// **'{fps} frames per second · {frames} analyzed'**
+  String cameraFramesStats(int fps, int frames);
+
+  /// No description provided for @poseModelRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture analysis needs the pose model, which arrives in a later update. Lighting and camera checks work now.'**
+  String get poseModelRequired;
+
+  /// No description provided for @poseNoPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'No person detected. Step into the frame.'**
+  String get poseNoPerson;
+
+  /// No description provided for @posePersonDetected.
+  ///
+  /// In en, this message translates to:
+  /// **'Person detected'**
+  String get posePersonDetected;
+
+  /// No description provided for @poseReposition.
+  ///
+  /// In en, this message translates to:
+  /// **'Move into the guide so your whole body is visible.'**
+  String get poseReposition;
+
+  /// No description provided for @poseHoldStill.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold still for a moment.'**
+  String get poseHoldStill;
+
+  /// No description provided for @cameraPowerMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera power mode'**
+  String get cameraPowerMode;
+
+  /// No description provided for @powerLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low power'**
+  String get powerLow;
+
+  /// No description provided for @powerStandard.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard'**
+  String get powerStandard;
+
+  /// No description provided for @powerHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High accuracy'**
+  String get powerHigh;
+
+  /// No description provided for @powerLowNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower resolution, 5 analyses per second. Saves battery; results may be less stable.'**
+  String get powerLowNote;
+
+  /// No description provided for @powerStandardNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced resolution, 10 analyses per second. Recommended for most phones.'**
+  String get powerStandardNote;
+
+  /// No description provided for @powerHighNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher resolution, 15 analyses per second. Most stable results; uses more battery and may warm the phone.'**
+  String get powerHighNote;
+
+  /// No description provided for @lightingGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good light'**
+  String get lightingGood;
+
+  /// No description provided for @lightingDim.
+  ///
+  /// In en, this message translates to:
+  /// **'Dim'**
+  String get lightingDim;
+
+  /// No description provided for @lightingTooDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Too dark'**
+  String get lightingTooDark;
+
+  /// No description provided for @lightingTooBright.
+  ///
+  /// In en, this message translates to:
+  /// **'Too bright'**
+  String get lightingTooBright;
+
+  /// No description provided for @lightingLowContrast.
+  ///
+  /// In en, this message translates to:
+  /// **'Lens covered?'**
+  String get lightingLowContrast;
+
+  /// No description provided for @lightingGoodAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Lighting is good for analysis.'**
+  String get lightingGoodAdvice;
+
+  /// No description provided for @lightingDimAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Usable, but more light will give steadier results.'**
+  String get lightingDimAdvice;
+
+  /// No description provided for @lightingTooDarkAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Please improve the lighting — turn on a light or face a window.'**
+  String get lightingTooDarkAdvice;
+
+  /// No description provided for @lightingTooBrightAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much light — avoid standing in front of a bright window.'**
+  String get lightingTooBrightAdvice;
+
+  /// No description provided for @lightingLowContrastAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'The image is almost uniform. Check that the lens is not covered.'**
+  String get lightingLowContrastAdvice;
+
+  /// No description provided for @deviceInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This device'**
+  String get deviceInfoTitle;
+
+  /// No description provided for @deviceInfoSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware and processing quality'**
+  String get deviceInfoSubtitle;
+
+  /// No description provided for @deviceInfoIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Personality adjusts camera and analysis quality to this phone\'s hardware. Only hardware facts are read; no identifiers are collected.'**
+  String get deviceInfoIntro;
+
+  /// No description provided for @deviceUnknownNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware details could not be read, so the most conservative settings are used.'**
+  String get deviceUnknownNote;
+
+  /// No description provided for @deviceTier.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance level'**
+  String get deviceTier;
+
+  /// No description provided for @tierHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get tierHigh;
+
+  /// No description provided for @tierMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get tierMedium;
+
+  /// No description provided for @tierLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic'**
+  String get tierLow;
+
+  /// No description provided for @deviceRam.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory'**
+  String get deviceRam;
+
+  /// No description provided for @deviceCores.
+  ///
+  /// In en, this message translates to:
+  /// **'Processor cores'**
+  String get deviceCores;
+
+  /// No description provided for @deviceAndroid.
+  ///
+  /// In en, this message translates to:
+  /// **'Android version'**
+  String get deviceAndroid;
+
+  /// No description provided for @deviceStorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Free storage'**
+  String get deviceStorage;
+
+  /// No description provided for @deviceCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get deviceCamera;
+
+  /// No description provided for @deviceProcessing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get deviceProcessing;
+
+  /// No description provided for @deviceAnalysisRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Default analysis rate'**
+  String get deviceAnalysisRate;
+
+  /// No description provided for @deviceCameraResolution.
+  ///
+  /// In en, this message translates to:
+  /// **'Default camera resolution'**
+  String get deviceCameraResolution;
+
+  /// No description provided for @deviceLocalAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional local AI supported'**
+  String get deviceLocalAi;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @unknownValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknownValue;
+
+  /// No description provided for @valueGb.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} GB'**
+  String valueGb(String value);
+
+  /// No description provided for @valueFps.
+  ///
+  /// In en, this message translates to:
+  /// **'{fps} per second'**
+  String valueFps(int fps);
+
+  /// No description provided for @privacyCameraSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo.'**
+  String get privacyCameraSummary;
 }
 
 class _AppLocalizationsDelegate

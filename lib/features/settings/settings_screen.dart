@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:go_router/go_router.dart';
+
+import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import 'preference_controls.dart';
@@ -46,6 +49,16 @@ class SettingsScreen extends StatelessWidget {
           const LanguageSelector(),
           header(l10n.settingsPrivacy),
           body(l10n.privacyStorageSummary),
+          const SizedBox(height: AppSpacing.sm),
+          body(l10n.privacyCameraSummary),
+          header(l10n.deviceInfoTitle),
+          ListTile(
+            leading: const Icon(Icons.memory),
+            title: Text(l10n.deviceInfoTitle),
+            subtitle: Text(l10n.deviceInfoSubtitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRoutes.deviceInfo),
+          ),
           header(l10n.settingsAbout),
           body(l10n.wellnessDisclaimer),
         ],

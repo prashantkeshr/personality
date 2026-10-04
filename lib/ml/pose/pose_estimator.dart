@@ -96,7 +96,15 @@ final class NoPersonDetected extends PoseEstimation {
   const NoPersonDetected();
 }
 
-enum FrameQualityIssue { tooDark, bodyOutOfFrame, tooFar, tooClose, motionBlur }
+enum FrameQualityIssue {
+  tooDark,
+  tooBright,
+  lowContrast,
+  bodyOutOfFrame,
+  tooFar,
+  tooClose,
+  motionBlur,
+}
 
 final class LowQualityFrame extends PoseEstimation {
   const LowQualityFrame(this.issues);

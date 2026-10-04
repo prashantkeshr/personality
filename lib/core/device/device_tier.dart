@@ -17,6 +17,8 @@ class DeviceSpecs {
     this.hasGpuDelegate = false,
     this.hasNpu = false,
     this.hasCamera = false,
+    this.hasFrontCamera = false,
+    this.lowRamDevice = false,
   });
 
   final int? ramMb;
@@ -26,6 +28,13 @@ class DeviceSpecs {
   final bool hasGpuDelegate;
   final bool hasNpu;
   final bool hasCamera;
+  final bool hasFrontCamera;
+
+  /// Android's own "low RAM device" flag; always treated as low tier.
+  final bool lowRamDevice;
+
+  /// True when no probe result is available.
+  bool get isUnknown => ramMb == null && cpuCores == null;
 }
 
 abstract interface class DeviceCapabilityProbe {
@@ -37,7 +46,7 @@ abstract interface class DeviceCapabilityProbe {
 DeviceTier classifyDevice(DeviceSpecs specs) {
   final ram = specs.ramMb;
   final cores = specs.cpuCores;
-  if (ram == null || cores == null) return DeviceTier.low;
+  if (ram == null || cores == null || specs.lowRamDevice) return DeviceTier.low;
   if (ram >= 8 * 1024 && cores >= 8) return DeviceTier.high;
   if (ram >= 4 * 1024 && cores >= 6) return DeviceTier.medium;
   return DeviceTier.low;
@@ -84,4 +93,31 @@ class ProcessingPolicy {
             reducedEffects: true,
           ),
       };
+}
+
+/// User-selectable camera power modes (spec §68).
+enum CameraPowerMode {
+  lowPower(analysisFps: 5, maxHeightPx: 480),
+  standard(analysisFps: 10, maxHeightPx: 720),
+  highAccuracy(analysisFps: 15, maxHeightPx: 1080);
+
+  const CameraPowerMode({required this.analysisFps, required this.maxHeightPx});
+
+  /// Frames analyzed per second; the preview itself is not throttled.
+  final int analysisFps;
+  final int maxHeightPx;
+
+  /// Default for a device tier. High-end devices still default to standard
+  /// to save battery; the user can opt in to high accuracy.
+  static CameraPowerMode defaultFor(DeviceTier tier) => switch (tier) {
+        DeviceTier.low => CameraPowerMode.lowPower,
+        DeviceTier.medium || DeviceTier.high => CameraPowerMode.standard,
+      };
+
+  static CameraPowerMode? fromName(String? name) {
+    for (final m in values) {
+      if (m.name == name) return m;
+    }
+    return null;
+  }
 }

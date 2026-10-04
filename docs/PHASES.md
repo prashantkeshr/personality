@@ -8,8 +8,8 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
 | 1 Foundation | Theme (light/dark/high contrast), localization (ARB, RTL-ready), GoRouter shell with 5 tabs, encrypted Drift database and migrations, secure key storage, units system, onboarding | Done (approved) |
 | 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | Done (approved) |
 | 3 Health | Water, meals, sleep, activity, exercise logging, habits | Done (approved) |
-| 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | **Done — awaiting approval** |
-| 5 Camera | Camera, permissions, device capability probe, processing pipeline | Planned |
+| 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | Done (approved) |
+| 5 Camera | Camera, permissions, device capability probe, processing pipeline | **Done — awaiting approval** |
 | 6 Posture | Pose model, landmarks, metrics, confidence, history, recommendations | Planned |
 | 7 Exercise | Library (data-driven), animations, programs, progress, optional camera tracking | Planned |
 | 8 Face + Grooming | Face geometry, hairstyle, grooming, eyewear | Planned |
@@ -139,3 +139,30 @@ Verification:
 - Emulator (API 36, software GPU — see note): the upgrade from Phase 3 worked. An example routine created at 09:28 showed 6 upcoming items and none falsely missed. Turning reminders on showed Android's permission prompt; after allowing, Android alarms were registered (the first one at 10:30 IST). Moving Posture break to 09:35 updated the plan ("moved from 10:30 AM"). The app was then sent to the background. **The real notification was posted at 09:37** (inexact, 2 min late) with the title, "Planned for 9:35 AM", and Done / Snooze 10 min. Tapping **Done** opened Today's plan with "Completed 1 of 6", and the notification was dismissed.
 
 Emulator note: the emulator crashed inside the NVIDIA OpenGL driver (`nvoglv64.dll`) with host GPU rendering. Launch it with `-gpu swiftshader_indirect -memory 3072` (detached, via `Start-Process`).
+
+## Phase 5 — completed 2026-10-05
+
+- **Device capability probe** (spec §7): a native `personality/device` MethodChannel in `MainActivity` reads RAM, CPU cores, Android API level, free storage, Android's low-RAM flag and camera presence. It collects no identifiers and adds no extra dependency. Results feed `classifyDevice` → tier → `ProcessingPolicy` and the central `FeatureRegistry`. If the probe fails, the device is treated as unknown → low tier.
+- **"This device" screen** (Settings): shows the detected hardware and the processing quality it selects.
+- **Camera** (`camera` plugin / CameraX):
+  - Behind a `CameraSource` interface, so screens and tests don't depend on the plugin.
+  - Permission is requested only when you tap Start. If it's denied, the screen says "Camera access … Manual tracking remains available."
+  - Devices without a camera get an honest "not supported" state.
+  - Front/back switch; audio disabled.
+- **Frame pipeline** (spec §16, §69): frame selection throttled to the power mode's rate (busy frames are dropped, never queued) → a real lighting/contrast check from the Y (brightness) plane → pose estimator only for usable frames → a `PipelineStatus` containing no image data. Frames are never copied, stored or uploaded.
+- **Pose**: until the Phase 6 model ships, the pipeline reports "pose model required"; it never produces fabricated landmarks.
+- **Camera power modes** (spec §68): Low power, Standard and High accuracy (5/10/15 analyses per second at 480p/720p/1080p), with explanations. The default follows the device tier; the choice is saved and applies immediately.
+- **Privacy hardening**: the camera stops when you leave the screen or the app is hidden. Plugin-declared `RECORD_AUDIO`, `WRITE_EXTERNAL_STORAGE` and the implied `READ_EXTERNAL_STORAGE` are removed. **The release APK has no INTERNET permission.** Its permissions are CAMERA, POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED, VIBRATE, plus `ACCESS_NETWORK_STATE`, a normal permission from androidx.media3 that I kept to avoid crashing that library; it reveals no personal data.
+
+Bugs found and fixed:
+- Changing the power mode restarted the camera with the old mode (a race with the saved setting). The new mode is now passed directly.
+- Feature status chips overflowed list tiles on phone-width screens (a layout exception at 392 pt, worse with Hindi). They are now width-bounded and wrap.
+- Over-bright frames were labelled "too dark"; quality issues now map to tooBright and lowContrast correctly.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 133/133 pass (frame quality on synthetic planes including row padding, sampler throttling and busy-drop, pipeline gating and fps, device rules, and camera screen flows with a fake camera on a phone-sized viewport).
+- First release build compiled (67 MB) and its permissions were audited with aapt2.
+- Emulator:
+  - The camera permission prompt appeared only on Start. Real frames from the virtual camera gave "Good light" from measured brightness.
+  - Leaving the screen made Android's CameraService log "Disconnected client for camera 1"; active camera clients: none.
+  - "This device" showed 2.9 GB RAM (matching /proc/meminfo), 4 cores and API 36 → Basic tier, 5 analyses/s, 480p, and Low power as the default.

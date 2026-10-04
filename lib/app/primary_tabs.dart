@@ -59,11 +59,13 @@ class AnalyzeTab extends StatelessWidget {
       title: l10n.navAnalyze,
       intro: l10n.analyzeIntro,
       features: const [
+        AppFeature.cameraCheck,
         AppFeature.postureAnalysis,
         AppFeature.cameraHeightEstimate,
         AppFeature.faceAnalysis,
         AppFeature.exerciseCameraTracking,
       ],
+      routes: const {AppFeature.cameraCheck: AppRoutes.cameraCheck},
     );
   }
 }

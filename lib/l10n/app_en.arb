@@ -729,5 +729,88 @@
   "remindersAdaptiveNote": "Suggest a better time when an item is often missed or done late. Nothing changes unless you accept.",
   "remindersTimingNote": "To save battery, Android may deliver reminders a few minutes late.",
   "remindersNext": "Next reminders",
-  "remindersNoneUpcoming": "No reminders in the next two days."
+  "remindersNoneUpcoming": "No reminders in the next two days.",
+  "featureCameraCheck": "Camera check",
+  "cameraSwitch": "Switch camera",
+  "cameraUnavailable": "Camera access is unavailable. Manual tracking remains available.",
+  "cameraPermissionDenied": "Camera access was not allowed. Manual tracking remains available. To use the camera, allow it for Personality in Android settings.",
+  "cameraFailed": "The camera could not be started. Close other apps using the camera and try again.",
+  "cameraIntro": "Check your camera setup and lighting. Frames are analyzed on this phone and discarded — nothing is saved or uploaded.",
+  "cameraStart": "Start camera",
+  "cameraStop": "Stop camera",
+  "cameraPrivacyNote": "Camera frames stay in memory only while being analyzed and are then discarded. The camera stops when you leave this screen or switch apps.",
+  "cameraProcessingOnDevice": "Processing on device",
+  "cameraWaiting": "Waiting for frames…",
+  "cameraLighting": "Lighting",
+  "cameraAnalysisRate": "Analysis",
+  "cameraFramesStats": "{fps} frames per second · {frames} analyzed",
+  "@cameraFramesStats": {
+    "placeholders": {
+      "fps": {
+        "type": "int"
+      },
+      "frames": {
+        "type": "int"
+      }
+    }
+  },
+  "poseModelRequired": "Posture analysis needs the pose model, which arrives in a later update. Lighting and camera checks work now.",
+  "poseNoPerson": "No person detected. Step into the frame.",
+  "posePersonDetected": "Person detected",
+  "poseReposition": "Move into the guide so your whole body is visible.",
+  "poseHoldStill": "Hold still for a moment.",
+  "cameraPowerMode": "Camera power mode",
+  "powerLow": "Low power",
+  "powerStandard": "Standard",
+  "powerHigh": "High accuracy",
+  "powerLowNote": "Lower resolution, 5 analyses per second. Saves battery; results may be less stable.",
+  "powerStandardNote": "Balanced resolution, 10 analyses per second. Recommended for most phones.",
+  "powerHighNote": "Higher resolution, 15 analyses per second. Most stable results; uses more battery and may warm the phone.",
+  "lightingGood": "Good light",
+  "lightingDim": "Dim",
+  "lightingTooDark": "Too dark",
+  "lightingTooBright": "Too bright",
+  "lightingLowContrast": "Lens covered?",
+  "lightingGoodAdvice": "Lighting is good for analysis.",
+  "lightingDimAdvice": "Usable, but more light will give steadier results.",
+  "lightingTooDarkAdvice": "Please improve the lighting — turn on a light or face a window.",
+  "lightingTooBrightAdvice": "Too much light — avoid standing in front of a bright window.",
+  "lightingLowContrastAdvice": "The image is almost uniform. Check that the lens is not covered.",
+  "deviceInfoTitle": "This device",
+  "deviceInfoSubtitle": "Hardware and processing quality",
+  "deviceInfoIntro": "Personality adjusts camera and analysis quality to this phone's hardware. Only hardware facts are read; no identifiers are collected.",
+  "deviceUnknownNote": "Hardware details could not be read, so the most conservative settings are used.",
+  "deviceTier": "Performance level",
+  "tierHigh": "High",
+  "tierMedium": "Medium",
+  "tierLow": "Basic",
+  "deviceRam": "Memory",
+  "deviceCores": "Processor cores",
+  "deviceAndroid": "Android version",
+  "deviceStorage": "Free storage",
+  "deviceCamera": "Camera",
+  "deviceProcessing": "Processing",
+  "deviceAnalysisRate": "Default analysis rate",
+  "deviceCameraResolution": "Default camera resolution",
+  "deviceLocalAi": "Optional local AI supported",
+  "yes": "Yes",
+  "no": "No",
+  "unknownValue": "Unknown",
+  "valueGb": "{value} GB",
+  "@valueGb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "valueFps": "{fps} per second",
+  "@valueFps": {
+    "placeholders": {
+      "fps": {
+        "type": "int"
+      }
+    }
+  },
+  "privacyCameraSummary": "Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo."
 }

@@ -106,6 +106,7 @@ GoRouter with `StatefulShellRoute` so each tab keeps its stack; deep links for r
 | intl / flutter_localizations | i18n, RTL, number/date formats |
 | uuid | Stable record ids for export/backup merge |
 | fl_chart | Trend charts (weight, 7-day bars) |
+| camera (CameraX) | Live preview and YUV frame stream for on-device analysis; audio disabled |
 | flutter_local_notifications + timezone | On-device routine reminders; scheduled as absolute UTC instants, inexact (no exact-alarm permission) |
 
 Later phases add: camera, MediaPipe/LiteRT runtime, local notifications, health (Health Connect), RevenueCat. Each is added only in the phase that needs it.

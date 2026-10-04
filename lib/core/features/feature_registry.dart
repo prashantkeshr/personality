@@ -33,6 +33,7 @@ enum AppFeature {
   routines,
   reminders,
   progress,
+  cameraCheck,
   cameraHeightEstimate,
   postureAnalysis,
   exerciseCameraTracking,
@@ -88,6 +89,8 @@ class FeatureRegistry {
 
   FeatureState? _requirement(AppFeature feature, CapabilityContext ctx) {
     switch (feature) {
+      case AppFeature.cameraCheck:
+        if (!ctx.hasCamera) return FeatureState.deviceRequired;
       case AppFeature.cameraHeightEstimate:
       case AppFeature.postureAnalysis:
       case AppFeature.exerciseCameraTracking:

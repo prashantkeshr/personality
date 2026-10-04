@@ -19,7 +19,9 @@ import '../features/profile/profile_screen.dart';
 import '../features/routines/plan_screen.dart';
 import '../features/routines/reminders_screen.dart';
 import '../features/routines/routines_screen.dart';
+import '../features/settings/device_info_screen.dart';
 import '../features/settings/settings_screen.dart';
+import '../features/camera/camera_check_screen.dart';
 import 'app_shell.dart';
 import 'primary_tabs.dart';
 
@@ -45,6 +47,8 @@ abstract final class AppRoutes {
   static const routines = '/health/routines';
   static const plan = '/health/plan';
   static const reminders = '/health/reminders';
+  static const cameraCheck = '/analyze/camera';
+  static const deviceInfo = '/settings/device';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -73,6 +77,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.settings,
         builder: (_, _) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+              path: 'device', builder: (_, _) => const DeviceInfoScreen()),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => AppShell(navigationShell: shell),
@@ -133,8 +141,14 @@ final routerProvider = Provider<GoRouter>((ref) {
           ]),
           StatefulShellBranch(routes: [
             GoRoute(
-                path: AppRoutes.analyze,
-                builder: (_, _) => const AnalyzeTab()),
+              path: AppRoutes.analyze,
+              builder: (_, _) => const AnalyzeTab(),
+              routes: [
+                GoRoute(
+                    path: 'camera',
+                    builder: (_, _) => const CameraCheckScreen()),
+              ],
+            ),
           ]),
           StatefulShellBranch(routes: [
             GoRoute(path: AppRoutes.coach, builder: (_, _) => const CoachTab()),

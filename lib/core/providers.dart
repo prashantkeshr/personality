@@ -4,6 +4,7 @@ import '../features/settings/app_settings.dart';
 import '../features/settings/settings_repository.dart';
 import 'database/app_database.dart';
 import 'device/device_tier.dart';
+import 'device/platform_device_probe.dart';
 import 'features/feature_registry.dart';
 import 'features/implemented_features.dart';
 
@@ -40,12 +41,23 @@ final featureRegistryProvider = Provider<FeatureRegistry>(
   (ref) => const FeatureRegistry(implemented: implementedFeatures),
 );
 
-/// Device probing arrives in Phase 5. Until then the device is treated as
-/// unknown, which the capability rules handle conservatively.
-final capabilityContextProvider = Provider<CapabilityContext>(
-  (ref) => const CapabilityContext(
-    tier: DeviceTier.low,
-    hasCamera: false,
-    installedModels: {},
-  ),
-);
+final deviceProbeProvider =
+    Provider<DeviceCapabilityProbe>((ref) => const PlatformDeviceProbe());
+
+/// Hardware facts, probed once per launch.
+final deviceSpecsProvider = FutureProvider<DeviceSpecs>(
+    (ref) => ref.watch(deviceProbeProvider).probe());
+
+final deviceTierProvider = Provider<DeviceTier>((ref) =>
+    classifyDevice(ref.watch(deviceSpecsProvider).value ?? const DeviceSpecs()));
+
+/// Until the probe answers, the device is treated as unknown, which the
+/// capability rules handle conservatively. ML models arrive in Phase 6.
+final capabilityContextProvider = Provider<CapabilityContext>((ref) {
+  final specs = ref.watch(deviceSpecsProvider).value ?? const DeviceSpecs();
+  return CapabilityContext(
+    tier: classifyDevice(specs),
+    hasCamera: specs.hasCamera,
+    installedModels: const {},
+  );
+});

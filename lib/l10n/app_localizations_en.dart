@@ -1316,4 +1316,204 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remindersNoneUpcoming => 'No reminders in the next two days.';
+
+  @override
+  String get featureCameraCheck => 'Camera check';
+
+  @override
+  String get cameraSwitch => 'Switch camera';
+
+  @override
+  String get cameraUnavailable =>
+      'Camera access is unavailable. Manual tracking remains available.';
+
+  @override
+  String get cameraPermissionDenied =>
+      'Camera access was not allowed. Manual tracking remains available. To use the camera, allow it for Personality in Android settings.';
+
+  @override
+  String get cameraFailed =>
+      'The camera could not be started. Close other apps using the camera and try again.';
+
+  @override
+  String get cameraIntro =>
+      'Check your camera setup and lighting. Frames are analyzed on this phone and discarded — nothing is saved or uploaded.';
+
+  @override
+  String get cameraStart => 'Start camera';
+
+  @override
+  String get cameraStop => 'Stop camera';
+
+  @override
+  String get cameraPrivacyNote =>
+      'Camera frames stay in memory only while being analyzed and are then discarded. The camera stops when you leave this screen or switch apps.';
+
+  @override
+  String get cameraProcessingOnDevice => 'Processing on device';
+
+  @override
+  String get cameraWaiting => 'Waiting for frames…';
+
+  @override
+  String get cameraLighting => 'Lighting';
+
+  @override
+  String get cameraAnalysisRate => 'Analysis';
+
+  @override
+  String cameraFramesStats(int fps, int frames) {
+    return '$fps frames per second · $frames analyzed';
+  }
+
+  @override
+  String get poseModelRequired =>
+      'Posture analysis needs the pose model, which arrives in a later update. Lighting and camera checks work now.';
+
+  @override
+  String get poseNoPerson => 'No person detected. Step into the frame.';
+
+  @override
+  String get posePersonDetected => 'Person detected';
+
+  @override
+  String get poseReposition =>
+      'Move into the guide so your whole body is visible.';
+
+  @override
+  String get poseHoldStill => 'Hold still for a moment.';
+
+  @override
+  String get cameraPowerMode => 'Camera power mode';
+
+  @override
+  String get powerLow => 'Low power';
+
+  @override
+  String get powerStandard => 'Standard';
+
+  @override
+  String get powerHigh => 'High accuracy';
+
+  @override
+  String get powerLowNote =>
+      'Lower resolution, 5 analyses per second. Saves battery; results may be less stable.';
+
+  @override
+  String get powerStandardNote =>
+      'Balanced resolution, 10 analyses per second. Recommended for most phones.';
+
+  @override
+  String get powerHighNote =>
+      'Higher resolution, 15 analyses per second. Most stable results; uses more battery and may warm the phone.';
+
+  @override
+  String get lightingGood => 'Good light';
+
+  @override
+  String get lightingDim => 'Dim';
+
+  @override
+  String get lightingTooDark => 'Too dark';
+
+  @override
+  String get lightingTooBright => 'Too bright';
+
+  @override
+  String get lightingLowContrast => 'Lens covered?';
+
+  @override
+  String get lightingGoodAdvice => 'Lighting is good for analysis.';
+
+  @override
+  String get lightingDimAdvice =>
+      'Usable, but more light will give steadier results.';
+
+  @override
+  String get lightingTooDarkAdvice =>
+      'Please improve the lighting — turn on a light or face a window.';
+
+  @override
+  String get lightingTooBrightAdvice =>
+      'Too much light — avoid standing in front of a bright window.';
+
+  @override
+  String get lightingLowContrastAdvice =>
+      'The image is almost uniform. Check that the lens is not covered.';
+
+  @override
+  String get deviceInfoTitle => 'This device';
+
+  @override
+  String get deviceInfoSubtitle => 'Hardware and processing quality';
+
+  @override
+  String get deviceInfoIntro =>
+      'Personality adjusts camera and analysis quality to this phone\'s hardware. Only hardware facts are read; no identifiers are collected.';
+
+  @override
+  String get deviceUnknownNote =>
+      'Hardware details could not be read, so the most conservative settings are used.';
+
+  @override
+  String get deviceTier => 'Performance level';
+
+  @override
+  String get tierHigh => 'High';
+
+  @override
+  String get tierMedium => 'Medium';
+
+  @override
+  String get tierLow => 'Basic';
+
+  @override
+  String get deviceRam => 'Memory';
+
+  @override
+  String get deviceCores => 'Processor cores';
+
+  @override
+  String get deviceAndroid => 'Android version';
+
+  @override
+  String get deviceStorage => 'Free storage';
+
+  @override
+  String get deviceCamera => 'Camera';
+
+  @override
+  String get deviceProcessing => 'Processing';
+
+  @override
+  String get deviceAnalysisRate => 'Default analysis rate';
+
+  @override
+  String get deviceCameraResolution => 'Default camera resolution';
+
+  @override
+  String get deviceLocalAi => 'Optional local AI supported';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get unknownValue => 'Unknown';
+
+  @override
+  String valueGb(String value) {
+    return '$value GB';
+  }
+
+  @override
+  String valueFps(int fps) {
+    return '$fps per second';
+  }
+
+  @override
+  String get privacyCameraSummary =>
+      'Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo.';
 }

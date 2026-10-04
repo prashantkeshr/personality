@@ -1307,4 +1307,203 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get remindersNoneUpcoming => 'अगले दो दिनों में कोई रिमाइंडर नहीं।';
+
+  @override
+  String get featureCameraCheck => 'कैमरा जाँच';
+
+  @override
+  String get cameraSwitch => 'कैमरा बदलें';
+
+  @override
+  String get cameraUnavailable =>
+      'कैमरा उपलब्ध नहीं है। मैन्युअल ट्रैकिंग उपलब्ध रहेगी।';
+
+  @override
+  String get cameraPermissionDenied =>
+      'कैमरा की अनुमति नहीं दी गई। मैन्युअल ट्रैकिंग उपलब्ध रहेगी। कैमरा उपयोग करने के लिए Android सेटिंग्स में Personality को अनुमति दें।';
+
+  @override
+  String get cameraFailed =>
+      'कैमरा शुरू नहीं हो सका। कैमरा उपयोग कर रहे अन्य ऐप बंद करें और फिर से कोशिश करें।';
+
+  @override
+  String get cameraIntro =>
+      'अपना कैमरा सेटअप और रोशनी जाँचें। फ़्रेम इसी फ़ोन पर जाँचे जाकर हटा दिए जाते हैं — कुछ भी सहेजा या अपलोड नहीं होता।';
+
+  @override
+  String get cameraStart => 'कैमरा शुरू करें';
+
+  @override
+  String get cameraStop => 'कैमरा बंद करें';
+
+  @override
+  String get cameraPrivacyNote =>
+      'कैमरा फ़्रेम केवल जाँच के दौरान मेमोरी में रहते हैं और फिर हटा दिए जाते हैं। इस स्क्रीन से हटने या ऐप बदलने पर कैमरा बंद हो जाता है।';
+
+  @override
+  String get cameraProcessingOnDevice => 'डिवाइस पर प्रोसेसिंग';
+
+  @override
+  String get cameraWaiting => 'फ़्रेम की प्रतीक्षा…';
+
+  @override
+  String get cameraLighting => 'रोशनी';
+
+  @override
+  String get cameraAnalysisRate => 'विश्लेषण';
+
+  @override
+  String cameraFramesStats(int fps, int frames) {
+    return '$fps फ़्रेम प्रति सेकंड · $frames जाँचे गए';
+  }
+
+  @override
+  String get poseModelRequired =>
+      'पोश्चर विश्लेषण के लिए पोज़ मॉडल चाहिए, जो बाद के अपडेट में आएगा। रोशनी और कैमरा जाँच अभी काम करती हैं।';
+
+  @override
+  String get poseNoPerson => 'कोई व्यक्ति नहीं दिखा। फ़्रेम में आएँ।';
+
+  @override
+  String get posePersonDetected => 'व्यक्ति दिखा';
+
+  @override
+  String get poseReposition => 'गाइड के अंदर आएँ ताकि पूरा शरीर दिखे।';
+
+  @override
+  String get poseHoldStill => 'एक पल स्थिर रहें।';
+
+  @override
+  String get cameraPowerMode => 'कैमरा पावर मोड';
+
+  @override
+  String get powerLow => 'कम पावर';
+
+  @override
+  String get powerStandard => 'मानक';
+
+  @override
+  String get powerHigh => 'उच्च सटीकता';
+
+  @override
+  String get powerLowNote =>
+      'कम रिज़ॉल्यूशन, प्रति सेकंड 5 विश्लेषण। बैटरी बचाता है; परिणाम कम स्थिर हो सकते हैं।';
+
+  @override
+  String get powerStandardNote =>
+      'संतुलित रिज़ॉल्यूशन, प्रति सेकंड 10 विश्लेषण। अधिकांश फ़ोन के लिए अनुशंसित।';
+
+  @override
+  String get powerHighNote =>
+      'अधिक रिज़ॉल्यूशन, प्रति सेकंड 15 विश्लेषण। सबसे स्थिर परिणाम; अधिक बैटरी लेता है और फ़ोन गर्म हो सकता है।';
+
+  @override
+  String get lightingGood => 'अच्छी रोशनी';
+
+  @override
+  String get lightingDim => 'कम रोशनी';
+
+  @override
+  String get lightingTooDark => 'बहुत अंधेरा';
+
+  @override
+  String get lightingTooBright => 'बहुत तेज़ रोशनी';
+
+  @override
+  String get lightingLowContrast => 'लेंस ढका है?';
+
+  @override
+  String get lightingGoodAdvice => 'विश्लेषण के लिए रोशनी अच्छी है।';
+
+  @override
+  String get lightingDimAdvice =>
+      'उपयोगी है, पर अधिक रोशनी से परिणाम अधिक स्थिर होंगे।';
+
+  @override
+  String get lightingTooDarkAdvice =>
+      'कृपया रोशनी बढ़ाएँ — लाइट जलाएँ या खिड़की की ओर मुँह करें।';
+
+  @override
+  String get lightingTooBrightAdvice =>
+      'बहुत अधिक रोशनी — तेज़ रोशनी वाली खिड़की के सामने खड़े न हों।';
+
+  @override
+  String get lightingLowContrastAdvice =>
+      'छवि लगभग एक जैसी है। जाँचें कि लेंस ढका न हो।';
+
+  @override
+  String get deviceInfoTitle => 'यह डिवाइस';
+
+  @override
+  String get deviceInfoSubtitle => 'हार्डवेयर और प्रोसेसिंग गुणवत्ता';
+
+  @override
+  String get deviceInfoIntro =>
+      'Personality कैमरा और विश्लेषण गुणवत्ता को इस फ़ोन के हार्डवेयर के अनुसार समायोजित करता है। केवल हार्डवेयर जानकारी पढ़ी जाती है; कोई पहचानकर्ता एकत्र नहीं किया जाता।';
+
+  @override
+  String get deviceUnknownNote =>
+      'हार्डवेयर विवरण पढ़े नहीं जा सके, इसलिए सबसे सुरक्षित सेटिंग्स उपयोग की जा रही हैं।';
+
+  @override
+  String get deviceTier => 'प्रदर्शन स्तर';
+
+  @override
+  String get tierHigh => 'उच्च';
+
+  @override
+  String get tierMedium => 'मध्यम';
+
+  @override
+  String get tierLow => 'बुनियादी';
+
+  @override
+  String get deviceRam => 'मेमोरी';
+
+  @override
+  String get deviceCores => 'प्रोसेसर कोर';
+
+  @override
+  String get deviceAndroid => 'Android संस्करण';
+
+  @override
+  String get deviceStorage => 'खाली स्टोरेज';
+
+  @override
+  String get deviceCamera => 'कैमरा';
+
+  @override
+  String get deviceProcessing => 'प्रोसेसिंग';
+
+  @override
+  String get deviceAnalysisRate => 'डिफ़ॉल्ट विश्लेषण दर';
+
+  @override
+  String get deviceCameraResolution => 'डिफ़ॉल्ट कैमरा रिज़ॉल्यूशन';
+
+  @override
+  String get deviceLocalAi => 'वैकल्पिक लोकल AI समर्थित';
+
+  @override
+  String get yes => 'हाँ';
+
+  @override
+  String get no => 'नहीं';
+
+  @override
+  String get unknownValue => 'अज्ञात';
+
+  @override
+  String valueGb(String value) {
+    return '$value GB';
+  }
+
+  @override
+  String valueFps(int fps) {
+    return '$fps प्रति सेकंड';
+  }
+
+  @override
+  String get privacyCameraSummary =>
+      'कैमरा विश्लेषण इसी फ़ोन पर होता है। जब तक आप स्पष्ट रूप से फ़ोटो सहेजना न चुनें, फ़्रेम कभी सहेजे या अपलोड नहीं होते।';
 }
