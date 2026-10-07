@@ -330,6 +330,54 @@ class PostureMetrics extends Table {
   Set<Column> get primaryKey => {sessionId, metric};
 }
 
+/// A saved face-shape estimate. Proportions only — never images (spec §69).
+@DataClassName('FaceAnalysisRow')
+@TableIndex(name: 'idx_face_analysis_recorded_at', columns: {#recordedAt})
+class FaceAnalyses extends Table {
+  @override
+  String get tableName => 'face_analysis';
+
+  TextColumn get id => text()();
+  IntColumn get recordedAt => integer()();
+  TextColumn get shape => text()();
+  TextColumn get alsoLike => text().nullable()();
+  TextColumn get confidence => text()();
+  IntColumn get framesUsed => integer()();
+  TextColumn get source => text()();
+  TextColumn get method => text()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('FaceMetricRow')
+class FaceMetrics extends Table {
+  @override
+  String get tableName => 'face_metric';
+
+  TextColumn get analysisId =>
+      text().references(FaceAnalyses, #id, onDelete: KeyAction.cascade)();
+  TextColumn get metric => text()();
+  RealColumn get value => real()();
+
+  @override
+  Set<Column> get primaryKey => {analysisId, metric};
+}
+
+/// Style suggestions the user marked as favourite (hair, beard, glasses).
+@DataClassName('StyleFavoriteRow')
+class StyleFavorites extends Table {
+  @override
+  String get tableName => 'hairstyle_favorite';
+
+  TextColumn get itemId => text()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {itemId};
+}
+
 @DriftDatabase(tables: [
   AppSettingsEntries,
   FeatureFlags,
@@ -350,6 +398,9 @@ class PostureMetrics extends Table {
   PlanRecords,
   PostureSessions,
   PostureMetrics,
+  FaceAnalyses,
+  FaceMetrics,
+  StyleFavorites,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -357,7 +408,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -399,6 +450,12 @@ class AppDatabase extends _$AppDatabase {
             await m.createTable(schema.postureSession);
             await m.createTable(schema.postureMetric);
             await m.createIndex(schema.idxPostureSessionRecordedAt);
+          },
+          from5To6: (m, schema) async {
+            await m.createTable(schema.faceAnalysis);
+            await m.createTable(schema.faceMetric);
+            await m.createTable(schema.hairstyleFavorite);
+            await m.createIndex(schema.idxFaceAnalysisRecordedAt);
           },
         ),
         beforeOpen: (details) async {

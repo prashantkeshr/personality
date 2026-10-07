@@ -17,3 +17,4 @@
 -dontwarn com.google.mlkit.**
 -keep class com.google.research.xeno.** { *; }
 -keep class com.google.mediapipe.** { *; }
+-keep class com.google_mlkit_face_detection.** { *; }

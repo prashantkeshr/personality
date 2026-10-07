@@ -6,6 +6,8 @@ import '../core/providers.dart';
 import '../features/dashboard/home_screen.dart';
 import '../features/exercise/exercise_library_screen.dart';
 import '../features/exercise/exercise_tracking_screen.dart';
+import '../features/face/face_history_screen.dart';
+import '../features/face/face_screen.dart';
 import '../features/habits/habits_screen.dart';
 import '../features/health/activity/activity_screen.dart';
 import '../features/health/exercise/exercise_log_screen.dart';
@@ -55,6 +57,8 @@ abstract final class AppRoutes {
   static const cameraCheck = '/analyze/camera';
   static const posture = '/analyze/posture';
   static const postureHistory = '/analyze/posture/history';
+  static const face = '/analyze/face';
+  static const faceHistory = '/analyze/face/history';
   static const deviceInfo = '/settings/device';
 }
 
@@ -177,6 +181,15 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'camera',
                     builder: (_, _) => const CameraCheckScreen()),
+                GoRoute(
+                  path: 'face',
+                  builder: (_, _) => const FaceScreen(),
+                  routes: [
+                    GoRoute(
+                        path: 'history',
+                        builder: (_, _) => const FaceHistoryScreen()),
+                  ],
+                ),
                 GoRoute(
                   path: 'posture',
                   builder: (_, _) => const PostureScreen(),

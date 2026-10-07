@@ -12,6 +12,7 @@ import 'generated/schema_v2.dart' as v2;
 import 'generated/schema_v3.dart' as v3;
 import 'generated/schema_v4.dart' as v4;
 import 'generated/schema_v5.dart' as v5;
+import 'generated/schema_v6.dart' as v6;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -195,6 +196,36 @@ void main() {
         final r = await newDb.select(newDb.routine).getSingle();
         expect((r.id, r.name, r.weekdays), ('r1', 'Morning', 0x7F));
         expect(await newDb.select(newDb.postureSession).get(), isEmpty);
+      },
+    );
+  });
+
+  // Posture checks from v5 (Phase 6) must survive the v6 upgrade.
+  test('migration from v5 to v6 keeps posture history', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 5,
+      newVersion: 6,
+      createOld: v5.DatabaseAtV5.new,
+      createNew: v6.DatabaseAtV6.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.postureSession,
+            const v5.PostureSessionData(
+                id: 'p1',
+                recordedAt: 5,
+                view: 'front',
+                framesUsed: 15,
+                confidence: 'HIGH',
+                visibility: 0.9,
+                source: 'CAMERA_DERIVED',
+                method: 'm',
+                createdAt: 5));
+      },
+      validateItems: (newDb) async {
+        final p = await newDb.select(newDb.postureSession).getSingle();
+        expect((p.id, p.framesUsed, p.confidence), ('p1', 15, 'HIGH'));
+        expect(await newDb.select(newDb.faceAnalysis).get(), isEmpty);
       },
     );
   });

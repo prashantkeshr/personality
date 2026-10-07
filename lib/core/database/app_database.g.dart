@@ -9807,6 +9807,1051 @@ class PostureMetricsCompanion extends UpdateCompanion<PostureMetricRow> {
   }
 }
 
+class $FaceAnalysesTable extends FaceAnalyses
+    with TableInfo<$FaceAnalysesTable, FaceAnalysisRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FaceAnalysesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _recordedAtMeta = const VerificationMeta(
+    'recordedAt',
+  );
+  @override
+  late final GeneratedColumn<int> recordedAt = GeneratedColumn<int>(
+    'recorded_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _shapeMeta = const VerificationMeta('shape');
+  @override
+  late final GeneratedColumn<String> shape = GeneratedColumn<String>(
+    'shape',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _alsoLikeMeta = const VerificationMeta(
+    'alsoLike',
+  );
+  @override
+  late final GeneratedColumn<String> alsoLike = GeneratedColumn<String>(
+    'also_like',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _confidenceMeta = const VerificationMeta(
+    'confidence',
+  );
+  @override
+  late final GeneratedColumn<String> confidence = GeneratedColumn<String>(
+    'confidence',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _framesUsedMeta = const VerificationMeta(
+    'framesUsed',
+  );
+  @override
+  late final GeneratedColumn<int> framesUsed = GeneratedColumn<int>(
+    'frames_used',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceMeta = const VerificationMeta('source');
+  @override
+  late final GeneratedColumn<String> source = GeneratedColumn<String>(
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _methodMeta = const VerificationMeta('method');
+  @override
+  late final GeneratedColumn<String> method = GeneratedColumn<String>(
+    'method',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    recordedAt,
+    shape,
+    alsoLike,
+    confidence,
+    framesUsed,
+    source,
+    method,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'face_analysis';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FaceAnalysisRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('recorded_at')) {
+      context.handle(
+        _recordedAtMeta,
+        recordedAt.isAcceptableOrUnknown(data['recorded_at']!, _recordedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recordedAtMeta);
+    }
+    if (data.containsKey('shape')) {
+      context.handle(
+        _shapeMeta,
+        shape.isAcceptableOrUnknown(data['shape']!, _shapeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_shapeMeta);
+    }
+    if (data.containsKey('also_like')) {
+      context.handle(
+        _alsoLikeMeta,
+        alsoLike.isAcceptableOrUnknown(data['also_like']!, _alsoLikeMeta),
+      );
+    }
+    if (data.containsKey('confidence')) {
+      context.handle(
+        _confidenceMeta,
+        confidence.isAcceptableOrUnknown(data['confidence']!, _confidenceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_confidenceMeta);
+    }
+    if (data.containsKey('frames_used')) {
+      context.handle(
+        _framesUsedMeta,
+        framesUsed.isAcceptableOrUnknown(data['frames_used']!, _framesUsedMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_framesUsedMeta);
+    }
+    if (data.containsKey('source')) {
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceMeta);
+    }
+    if (data.containsKey('method')) {
+      context.handle(
+        _methodMeta,
+        method.isAcceptableOrUnknown(data['method']!, _methodMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_methodMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FaceAnalysisRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FaceAnalysisRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      recordedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}recorded_at'],
+      )!,
+      shape: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}shape'],
+      )!,
+      alsoLike: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}also_like'],
+      ),
+      confidence: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}confidence'],
+      )!,
+      framesUsed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}frames_used'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      method: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}method'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $FaceAnalysesTable createAlias(String alias) {
+    return $FaceAnalysesTable(attachedDatabase, alias);
+  }
+}
+
+class FaceAnalysisRow extends DataClass implements Insertable<FaceAnalysisRow> {
+  final String id;
+  final int recordedAt;
+  final String shape;
+  final String? alsoLike;
+  final String confidence;
+  final int framesUsed;
+  final String source;
+  final String method;
+  final int createdAt;
+  const FaceAnalysisRow({
+    required this.id,
+    required this.recordedAt,
+    required this.shape,
+    this.alsoLike,
+    required this.confidence,
+    required this.framesUsed,
+    required this.source,
+    required this.method,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['recorded_at'] = Variable<int>(recordedAt);
+    map['shape'] = Variable<String>(shape);
+    if (!nullToAbsent || alsoLike != null) {
+      map['also_like'] = Variable<String>(alsoLike);
+    }
+    map['confidence'] = Variable<String>(confidence);
+    map['frames_used'] = Variable<int>(framesUsed);
+    map['source'] = Variable<String>(source);
+    map['method'] = Variable<String>(method);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  FaceAnalysesCompanion toCompanion(bool nullToAbsent) {
+    return FaceAnalysesCompanion(
+      id: Value(id),
+      recordedAt: Value(recordedAt),
+      shape: Value(shape),
+      alsoLike: alsoLike == null && nullToAbsent
+          ? const Value.absent()
+          : Value(alsoLike),
+      confidence: Value(confidence),
+      framesUsed: Value(framesUsed),
+      source: Value(source),
+      method: Value(method),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory FaceAnalysisRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FaceAnalysisRow(
+      id: serializer.fromJson<String>(json['id']),
+      recordedAt: serializer.fromJson<int>(json['recordedAt']),
+      shape: serializer.fromJson<String>(json['shape']),
+      alsoLike: serializer.fromJson<String?>(json['alsoLike']),
+      confidence: serializer.fromJson<String>(json['confidence']),
+      framesUsed: serializer.fromJson<int>(json['framesUsed']),
+      source: serializer.fromJson<String>(json['source']),
+      method: serializer.fromJson<String>(json['method']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'recordedAt': serializer.toJson<int>(recordedAt),
+      'shape': serializer.toJson<String>(shape),
+      'alsoLike': serializer.toJson<String?>(alsoLike),
+      'confidence': serializer.toJson<String>(confidence),
+      'framesUsed': serializer.toJson<int>(framesUsed),
+      'source': serializer.toJson<String>(source),
+      'method': serializer.toJson<String>(method),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  FaceAnalysisRow copyWith({
+    String? id,
+    int? recordedAt,
+    String? shape,
+    Value<String?> alsoLike = const Value.absent(),
+    String? confidence,
+    int? framesUsed,
+    String? source,
+    String? method,
+    int? createdAt,
+  }) => FaceAnalysisRow(
+    id: id ?? this.id,
+    recordedAt: recordedAt ?? this.recordedAt,
+    shape: shape ?? this.shape,
+    alsoLike: alsoLike.present ? alsoLike.value : this.alsoLike,
+    confidence: confidence ?? this.confidence,
+    framesUsed: framesUsed ?? this.framesUsed,
+    source: source ?? this.source,
+    method: method ?? this.method,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  FaceAnalysisRow copyWithCompanion(FaceAnalysesCompanion data) {
+    return FaceAnalysisRow(
+      id: data.id.present ? data.id.value : this.id,
+      recordedAt: data.recordedAt.present
+          ? data.recordedAt.value
+          : this.recordedAt,
+      shape: data.shape.present ? data.shape.value : this.shape,
+      alsoLike: data.alsoLike.present ? data.alsoLike.value : this.alsoLike,
+      confidence: data.confidence.present
+          ? data.confidence.value
+          : this.confidence,
+      framesUsed: data.framesUsed.present
+          ? data.framesUsed.value
+          : this.framesUsed,
+      source: data.source.present ? data.source.value : this.source,
+      method: data.method.present ? data.method.value : this.method,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FaceAnalysisRow(')
+          ..write('id: $id, ')
+          ..write('recordedAt: $recordedAt, ')
+          ..write('shape: $shape, ')
+          ..write('alsoLike: $alsoLike, ')
+          ..write('confidence: $confidence, ')
+          ..write('framesUsed: $framesUsed, ')
+          ..write('source: $source, ')
+          ..write('method: $method, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    recordedAt,
+    shape,
+    alsoLike,
+    confidence,
+    framesUsed,
+    source,
+    method,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FaceAnalysisRow &&
+          other.id == this.id &&
+          other.recordedAt == this.recordedAt &&
+          other.shape == this.shape &&
+          other.alsoLike == this.alsoLike &&
+          other.confidence == this.confidence &&
+          other.framesUsed == this.framesUsed &&
+          other.source == this.source &&
+          other.method == this.method &&
+          other.createdAt == this.createdAt);
+}
+
+class FaceAnalysesCompanion extends UpdateCompanion<FaceAnalysisRow> {
+  final Value<String> id;
+  final Value<int> recordedAt;
+  final Value<String> shape;
+  final Value<String?> alsoLike;
+  final Value<String> confidence;
+  final Value<int> framesUsed;
+  final Value<String> source;
+  final Value<String> method;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const FaceAnalysesCompanion({
+    this.id = const Value.absent(),
+    this.recordedAt = const Value.absent(),
+    this.shape = const Value.absent(),
+    this.alsoLike = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.framesUsed = const Value.absent(),
+    this.source = const Value.absent(),
+    this.method = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FaceAnalysesCompanion.insert({
+    required String id,
+    required int recordedAt,
+    required String shape,
+    this.alsoLike = const Value.absent(),
+    required String confidence,
+    required int framesUsed,
+    required String source,
+    required String method,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       recordedAt = Value(recordedAt),
+       shape = Value(shape),
+       confidence = Value(confidence),
+       framesUsed = Value(framesUsed),
+       source = Value(source),
+       method = Value(method),
+       createdAt = Value(createdAt);
+  static Insertable<FaceAnalysisRow> custom({
+    Expression<String>? id,
+    Expression<int>? recordedAt,
+    Expression<String>? shape,
+    Expression<String>? alsoLike,
+    Expression<String>? confidence,
+    Expression<int>? framesUsed,
+    Expression<String>? source,
+    Expression<String>? method,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (recordedAt != null) 'recorded_at': recordedAt,
+      if (shape != null) 'shape': shape,
+      if (alsoLike != null) 'also_like': alsoLike,
+      if (confidence != null) 'confidence': confidence,
+      if (framesUsed != null) 'frames_used': framesUsed,
+      if (source != null) 'source': source,
+      if (method != null) 'method': method,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FaceAnalysesCompanion copyWith({
+    Value<String>? id,
+    Value<int>? recordedAt,
+    Value<String>? shape,
+    Value<String?>? alsoLike,
+    Value<String>? confidence,
+    Value<int>? framesUsed,
+    Value<String>? source,
+    Value<String>? method,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return FaceAnalysesCompanion(
+      id: id ?? this.id,
+      recordedAt: recordedAt ?? this.recordedAt,
+      shape: shape ?? this.shape,
+      alsoLike: alsoLike ?? this.alsoLike,
+      confidence: confidence ?? this.confidence,
+      framesUsed: framesUsed ?? this.framesUsed,
+      source: source ?? this.source,
+      method: method ?? this.method,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (recordedAt.present) {
+      map['recorded_at'] = Variable<int>(recordedAt.value);
+    }
+    if (shape.present) {
+      map['shape'] = Variable<String>(shape.value);
+    }
+    if (alsoLike.present) {
+      map['also_like'] = Variable<String>(alsoLike.value);
+    }
+    if (confidence.present) {
+      map['confidence'] = Variable<String>(confidence.value);
+    }
+    if (framesUsed.present) {
+      map['frames_used'] = Variable<int>(framesUsed.value);
+    }
+    if (source.present) {
+      map['source'] = Variable<String>(source.value);
+    }
+    if (method.present) {
+      map['method'] = Variable<String>(method.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FaceAnalysesCompanion(')
+          ..write('id: $id, ')
+          ..write('recordedAt: $recordedAt, ')
+          ..write('shape: $shape, ')
+          ..write('alsoLike: $alsoLike, ')
+          ..write('confidence: $confidence, ')
+          ..write('framesUsed: $framesUsed, ')
+          ..write('source: $source, ')
+          ..write('method: $method, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $FaceMetricsTable extends FaceMetrics
+    with TableInfo<$FaceMetricsTable, FaceMetricRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FaceMetricsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _analysisIdMeta = const VerificationMeta(
+    'analysisId',
+  );
+  @override
+  late final GeneratedColumn<String> analysisId = GeneratedColumn<String>(
+    'analysis_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES face_analysis (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _metricMeta = const VerificationMeta('metric');
+  @override
+  late final GeneratedColumn<String> metric = GeneratedColumn<String>(
+    'metric',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  @override
+  late final GeneratedColumn<double> value = GeneratedColumn<double>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [analysisId, metric, value];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'face_metric';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FaceMetricRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('analysis_id')) {
+      context.handle(
+        _analysisIdMeta,
+        analysisId.isAcceptableOrUnknown(data['analysis_id']!, _analysisIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_analysisIdMeta);
+    }
+    if (data.containsKey('metric')) {
+      context.handle(
+        _metricMeta,
+        metric.isAcceptableOrUnknown(data['metric']!, _metricMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_metricMeta);
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {analysisId, metric};
+  @override
+  FaceMetricRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FaceMetricRow(
+      analysisId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}analysis_id'],
+      )!,
+      metric: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}metric'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}value'],
+      )!,
+    );
+  }
+
+  @override
+  $FaceMetricsTable createAlias(String alias) {
+    return $FaceMetricsTable(attachedDatabase, alias);
+  }
+}
+
+class FaceMetricRow extends DataClass implements Insertable<FaceMetricRow> {
+  final String analysisId;
+  final String metric;
+  final double value;
+  const FaceMetricRow({
+    required this.analysisId,
+    required this.metric,
+    required this.value,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['analysis_id'] = Variable<String>(analysisId);
+    map['metric'] = Variable<String>(metric);
+    map['value'] = Variable<double>(value);
+    return map;
+  }
+
+  FaceMetricsCompanion toCompanion(bool nullToAbsent) {
+    return FaceMetricsCompanion(
+      analysisId: Value(analysisId),
+      metric: Value(metric),
+      value: Value(value),
+    );
+  }
+
+  factory FaceMetricRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FaceMetricRow(
+      analysisId: serializer.fromJson<String>(json['analysisId']),
+      metric: serializer.fromJson<String>(json['metric']),
+      value: serializer.fromJson<double>(json['value']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'analysisId': serializer.toJson<String>(analysisId),
+      'metric': serializer.toJson<String>(metric),
+      'value': serializer.toJson<double>(value),
+    };
+  }
+
+  FaceMetricRow copyWith({String? analysisId, String? metric, double? value}) =>
+      FaceMetricRow(
+        analysisId: analysisId ?? this.analysisId,
+        metric: metric ?? this.metric,
+        value: value ?? this.value,
+      );
+  FaceMetricRow copyWithCompanion(FaceMetricsCompanion data) {
+    return FaceMetricRow(
+      analysisId: data.analysisId.present
+          ? data.analysisId.value
+          : this.analysisId,
+      metric: data.metric.present ? data.metric.value : this.metric,
+      value: data.value.present ? data.value.value : this.value,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FaceMetricRow(')
+          ..write('analysisId: $analysisId, ')
+          ..write('metric: $metric, ')
+          ..write('value: $value')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(analysisId, metric, value);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FaceMetricRow &&
+          other.analysisId == this.analysisId &&
+          other.metric == this.metric &&
+          other.value == this.value);
+}
+
+class FaceMetricsCompanion extends UpdateCompanion<FaceMetricRow> {
+  final Value<String> analysisId;
+  final Value<String> metric;
+  final Value<double> value;
+  final Value<int> rowid;
+  const FaceMetricsCompanion({
+    this.analysisId = const Value.absent(),
+    this.metric = const Value.absent(),
+    this.value = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FaceMetricsCompanion.insert({
+    required String analysisId,
+    required String metric,
+    required double value,
+    this.rowid = const Value.absent(),
+  }) : analysisId = Value(analysisId),
+       metric = Value(metric),
+       value = Value(value);
+  static Insertable<FaceMetricRow> custom({
+    Expression<String>? analysisId,
+    Expression<String>? metric,
+    Expression<double>? value,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (analysisId != null) 'analysis_id': analysisId,
+      if (metric != null) 'metric': metric,
+      if (value != null) 'value': value,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FaceMetricsCompanion copyWith({
+    Value<String>? analysisId,
+    Value<String>? metric,
+    Value<double>? value,
+    Value<int>? rowid,
+  }) {
+    return FaceMetricsCompanion(
+      analysisId: analysisId ?? this.analysisId,
+      metric: metric ?? this.metric,
+      value: value ?? this.value,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (analysisId.present) {
+      map['analysis_id'] = Variable<String>(analysisId.value);
+    }
+    if (metric.present) {
+      map['metric'] = Variable<String>(metric.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<double>(value.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FaceMetricsCompanion(')
+          ..write('analysisId: $analysisId, ')
+          ..write('metric: $metric, ')
+          ..write('value: $value, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $StyleFavoritesTable extends StyleFavorites
+    with TableInfo<$StyleFavoritesTable, StyleFavoriteRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StyleFavoritesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _itemIdMeta = const VerificationMeta('itemId');
+  @override
+  late final GeneratedColumn<String> itemId = GeneratedColumn<String>(
+    'item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [itemId, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'hairstyle_favorite';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<StyleFavoriteRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('item_id')) {
+      context.handle(
+        _itemIdMeta,
+        itemId.isAcceptableOrUnknown(data['item_id']!, _itemIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_itemIdMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {itemId};
+  @override
+  StyleFavoriteRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StyleFavoriteRow(
+      itemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}item_id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $StyleFavoritesTable createAlias(String alias) {
+    return $StyleFavoritesTable(attachedDatabase, alias);
+  }
+}
+
+class StyleFavoriteRow extends DataClass
+    implements Insertable<StyleFavoriteRow> {
+  final String itemId;
+  final int createdAt;
+  const StyleFavoriteRow({required this.itemId, required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['item_id'] = Variable<String>(itemId);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  StyleFavoritesCompanion toCompanion(bool nullToAbsent) {
+    return StyleFavoritesCompanion(
+      itemId: Value(itemId),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory StyleFavoriteRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StyleFavoriteRow(
+      itemId: serializer.fromJson<String>(json['itemId']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'itemId': serializer.toJson<String>(itemId),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  StyleFavoriteRow copyWith({String? itemId, int? createdAt}) =>
+      StyleFavoriteRow(
+        itemId: itemId ?? this.itemId,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  StyleFavoriteRow copyWithCompanion(StyleFavoritesCompanion data) {
+    return StyleFavoriteRow(
+      itemId: data.itemId.present ? data.itemId.value : this.itemId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StyleFavoriteRow(')
+          ..write('itemId: $itemId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(itemId, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StyleFavoriteRow &&
+          other.itemId == this.itemId &&
+          other.createdAt == this.createdAt);
+}
+
+class StyleFavoritesCompanion extends UpdateCompanion<StyleFavoriteRow> {
+  final Value<String> itemId;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const StyleFavoritesCompanion({
+    this.itemId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  StyleFavoritesCompanion.insert({
+    required String itemId,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : itemId = Value(itemId),
+       createdAt = Value(createdAt);
+  static Insertable<StyleFavoriteRow> custom({
+    Expression<String>? itemId,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (itemId != null) 'item_id': itemId,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  StyleFavoritesCompanion copyWith({
+    Value<String>? itemId,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return StyleFavoritesCompanion(
+      itemId: itemId ?? this.itemId,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (itemId.present) {
+      map['item_id'] = Variable<String>(itemId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StyleFavoritesCompanion(')
+          ..write('itemId: $itemId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -9838,6 +10883,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $PostureMetricsTable postureMetrics = $PostureMetricsTable(this);
+  late final $FaceAnalysesTable faceAnalyses = $FaceAnalysesTable(this);
+  late final $FaceMetricsTable faceMetrics = $FaceMetricsTable(this);
+  late final $StyleFavoritesTable styleFavorites = $StyleFavoritesTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -9886,6 +10934,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'idx_posture_session_recorded_at',
     'CREATE INDEX idx_posture_session_recorded_at ON posture_session (recorded_at)',
   );
+  late final Index idxFaceAnalysisRecordedAt = Index(
+    'idx_face_analysis_recorded_at',
+    'CREATE INDEX idx_face_analysis_recorded_at ON face_analysis (recorded_at)',
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -9910,6 +10962,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     planRecords,
     postureSessions,
     postureMetrics,
+    faceAnalyses,
+    faceMetrics,
+    styleFavorites,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -9922,6 +10977,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     idxRoutineItemRoutine,
     idxPlanRecordDay,
     idxPostureSessionRecordedAt,
+    idxFaceAnalysisRecordedAt,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -9952,6 +11008,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         limitUpdateKind: UpdateKind.delete,
       ),
       result: [TableUpdate('posture_metric', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'face_analysis',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('face_metric', kind: UpdateKind.delete)],
     ),
   ]);
 }
@@ -15927,6 +16990,825 @@ typedef $$PostureMetricsTableProcessedTableManager =
       PostureMetricRow,
       PrefetchHooks Function({bool sessionId})
     >;
+typedef $$FaceAnalysesTableCreateCompanionBuilder =
+    FaceAnalysesCompanion Function({
+      required String id,
+      required int recordedAt,
+      required String shape,
+      Value<String?> alsoLike,
+      required String confidence,
+      required int framesUsed,
+      required String source,
+      required String method,
+      required int createdAt,
+      Value<int> rowid,
+    });
+typedef $$FaceAnalysesTableUpdateCompanionBuilder =
+    FaceAnalysesCompanion Function({
+      Value<String> id,
+      Value<int> recordedAt,
+      Value<String> shape,
+      Value<String?> alsoLike,
+      Value<String> confidence,
+      Value<int> framesUsed,
+      Value<String> source,
+      Value<String> method,
+      Value<int> createdAt,
+      Value<int> rowid,
+    });
+
+final class $$FaceAnalysesTableReferences
+    extends BaseReferences<_$AppDatabase, $FaceAnalysesTable, FaceAnalysisRow> {
+  $$FaceAnalysesTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$FaceMetricsTable, List<FaceMetricRow>>
+  _faceMetricsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.faceMetrics,
+    aliasName: 'face_analysis__id__face_metric__analysis_id',
+  );
+
+  $$FaceMetricsTableProcessedTableManager get faceMetricsRefs {
+    final manager = $$FaceMetricsTableTableManager(
+      $_db,
+      $_db.faceMetrics,
+    ).filter((f) => f.analysisId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_faceMetricsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$FaceAnalysesTableFilterComposer
+    extends Composer<_$AppDatabase, $FaceAnalysesTable> {
+  $$FaceAnalysesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get shape => $composableBuilder(
+    column: $table.shape,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get alsoLike => $composableBuilder(
+    column: $table.alsoLike,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get method => $composableBuilder(
+    column: $table.method,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> faceMetricsRefs(
+    Expression<bool> Function($$FaceMetricsTableFilterComposer f) f,
+  ) {
+    final $$FaceMetricsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.faceMetrics,
+      getReferencedColumn: (t) => t.analysisId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$FaceMetricsTableFilterComposer(
+            $db: $db,
+            $table: $db.faceMetrics,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$FaceAnalysesTableOrderingComposer
+    extends Composer<_$AppDatabase, $FaceAnalysesTable> {
+  $$FaceAnalysesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get shape => $composableBuilder(
+    column: $table.shape,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get alsoLike => $composableBuilder(
+    column: $table.alsoLike,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get method => $composableBuilder(
+    column: $table.method,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FaceAnalysesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FaceAnalysesTable> {
+  $$FaceAnalysesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get shape =>
+      $composableBuilder(column: $table.shape, builder: (column) => column);
+
+  GeneratedColumn<String> get alsoLike =>
+      $composableBuilder(column: $table.alsoLike, builder: (column) => column);
+
+  GeneratedColumn<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get source =>
+      $composableBuilder(column: $table.source, builder: (column) => column);
+
+  GeneratedColumn<String> get method =>
+      $composableBuilder(column: $table.method, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  Expression<T> faceMetricsRefs<T extends Object>(
+    Expression<T> Function($$FaceMetricsTableAnnotationComposer a) f,
+  ) {
+    final $$FaceMetricsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.faceMetrics,
+      getReferencedColumn: (t) => t.analysisId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$FaceMetricsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.faceMetrics,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$FaceAnalysesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FaceAnalysesTable,
+          FaceAnalysisRow,
+          $$FaceAnalysesTableFilterComposer,
+          $$FaceAnalysesTableOrderingComposer,
+          $$FaceAnalysesTableAnnotationComposer,
+          $$FaceAnalysesTableCreateCompanionBuilder,
+          $$FaceAnalysesTableUpdateCompanionBuilder,
+          (FaceAnalysisRow, $$FaceAnalysesTableReferences),
+          FaceAnalysisRow,
+          PrefetchHooks Function({bool faceMetricsRefs})
+        > {
+  $$FaceAnalysesTableTableManager(_$AppDatabase db, $FaceAnalysesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FaceAnalysesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FaceAnalysesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FaceAnalysesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<int> recordedAt = const Value.absent(),
+                Value<String> shape = const Value.absent(),
+                Value<String?> alsoLike = const Value.absent(),
+                Value<String> confidence = const Value.absent(),
+                Value<int> framesUsed = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String> method = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FaceAnalysesCompanion(
+                id: id,
+                recordedAt: recordedAt,
+                shape: shape,
+                alsoLike: alsoLike,
+                confidence: confidence,
+                framesUsed: framesUsed,
+                source: source,
+                method: method,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required int recordedAt,
+                required String shape,
+                Value<String?> alsoLike = const Value.absent(),
+                required String confidence,
+                required int framesUsed,
+                required String source,
+                required String method,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => FaceAnalysesCompanion.insert(
+                id: id,
+                recordedAt: recordedAt,
+                shape: shape,
+                alsoLike: alsoLike,
+                confidence: confidence,
+                framesUsed: framesUsed,
+                source: source,
+                method: method,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FaceAnalysesTable, FaceAnalysisRow>(table),
+                  $$FaceAnalysesTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({faceMetricsRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [if (faceMetricsRefs) db.faceMetrics],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (faceMetricsRefs)
+                    await $_getPrefetchedData<
+                      FaceAnalysisRow,
+                      $FaceAnalysesTable,
+                      FaceMetricRow
+                    >(
+                      currentTable: table,
+                      referencedTable: $$FaceAnalysesTableReferences
+                          ._faceMetricsRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$FaceAnalysesTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).faceMetricsRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.analysisId == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$FaceAnalysesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FaceAnalysesTable,
+      FaceAnalysisRow,
+      $$FaceAnalysesTableFilterComposer,
+      $$FaceAnalysesTableOrderingComposer,
+      $$FaceAnalysesTableAnnotationComposer,
+      $$FaceAnalysesTableCreateCompanionBuilder,
+      $$FaceAnalysesTableUpdateCompanionBuilder,
+      (FaceAnalysisRow, $$FaceAnalysesTableReferences),
+      FaceAnalysisRow,
+      PrefetchHooks Function({bool faceMetricsRefs})
+    >;
+typedef $$FaceMetricsTableCreateCompanionBuilder =
+    FaceMetricsCompanion Function({
+      required String analysisId,
+      required String metric,
+      required double value,
+      Value<int> rowid,
+    });
+typedef $$FaceMetricsTableUpdateCompanionBuilder =
+    FaceMetricsCompanion Function({
+      Value<String> analysisId,
+      Value<String> metric,
+      Value<double> value,
+      Value<int> rowid,
+    });
+
+final class $$FaceMetricsTableReferences
+    extends BaseReferences<_$AppDatabase, $FaceMetricsTable, FaceMetricRow> {
+  $$FaceMetricsTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $FaceAnalysesTable _analysisIdTable(_$AppDatabase db) => db
+      .faceAnalyses
+      .createAlias('face_metric__analysis_id__face_analysis__id');
+
+  $$FaceAnalysesTableProcessedTableManager get analysisId {
+    final $_column = $_itemColumn<String>('analysis_id')!;
+
+    final manager = $$FaceAnalysesTableTableManager(
+      $_db,
+      $_db.faceAnalyses,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_analysisIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$FaceMetricsTableFilterComposer
+    extends Composer<_$AppDatabase, $FaceMetricsTable> {
+  $$FaceMetricsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get metric => $composableBuilder(
+    column: $table.metric,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$FaceAnalysesTableFilterComposer get analysisId {
+    final $$FaceAnalysesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.analysisId,
+      referencedTable: $db.faceAnalyses,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$FaceAnalysesTableFilterComposer(
+            $db: $db,
+            $table: $db.faceAnalyses,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$FaceMetricsTableOrderingComposer
+    extends Composer<_$AppDatabase, $FaceMetricsTable> {
+  $$FaceMetricsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get metric => $composableBuilder(
+    column: $table.metric,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$FaceAnalysesTableOrderingComposer get analysisId {
+    final $$FaceAnalysesTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.analysisId,
+      referencedTable: $db.faceAnalyses,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$FaceAnalysesTableOrderingComposer(
+            $db: $db,
+            $table: $db.faceAnalyses,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$FaceMetricsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FaceMetricsTable> {
+  $$FaceMetricsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get metric =>
+      $composableBuilder(column: $table.metric, builder: (column) => column);
+
+  GeneratedColumn<double> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  $$FaceAnalysesTableAnnotationComposer get analysisId {
+    final $$FaceAnalysesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.analysisId,
+      referencedTable: $db.faceAnalyses,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$FaceAnalysesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.faceAnalyses,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$FaceMetricsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FaceMetricsTable,
+          FaceMetricRow,
+          $$FaceMetricsTableFilterComposer,
+          $$FaceMetricsTableOrderingComposer,
+          $$FaceMetricsTableAnnotationComposer,
+          $$FaceMetricsTableCreateCompanionBuilder,
+          $$FaceMetricsTableUpdateCompanionBuilder,
+          (FaceMetricRow, $$FaceMetricsTableReferences),
+          FaceMetricRow,
+          PrefetchHooks Function({bool analysisId})
+        > {
+  $$FaceMetricsTableTableManager(_$AppDatabase db, $FaceMetricsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FaceMetricsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FaceMetricsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FaceMetricsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> analysisId = const Value.absent(),
+                Value<String> metric = const Value.absent(),
+                Value<double> value = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FaceMetricsCompanion(
+                analysisId: analysisId,
+                metric: metric,
+                value: value,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String analysisId,
+                required String metric,
+                required double value,
+                Value<int> rowid = const Value.absent(),
+              }) => FaceMetricsCompanion.insert(
+                analysisId: analysisId,
+                metric: metric,
+                value: value,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FaceMetricsTable, FaceMetricRow>(table),
+                  $$FaceMetricsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({analysisId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (analysisId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.analysisId,
+                        referencedTable: $$FaceMetricsTableReferences
+                            ._analysisIdTable(db),
+                        referencedColumn: $$FaceMetricsTableReferences
+                            ._analysisIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$FaceMetricsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FaceMetricsTable,
+      FaceMetricRow,
+      $$FaceMetricsTableFilterComposer,
+      $$FaceMetricsTableOrderingComposer,
+      $$FaceMetricsTableAnnotationComposer,
+      $$FaceMetricsTableCreateCompanionBuilder,
+      $$FaceMetricsTableUpdateCompanionBuilder,
+      (FaceMetricRow, $$FaceMetricsTableReferences),
+      FaceMetricRow,
+      PrefetchHooks Function({bool analysisId})
+    >;
+typedef $$StyleFavoritesTableCreateCompanionBuilder =
+    StyleFavoritesCompanion Function({
+      required String itemId,
+      required int createdAt,
+      Value<int> rowid,
+    });
+typedef $$StyleFavoritesTableUpdateCompanionBuilder =
+    StyleFavoritesCompanion Function({
+      Value<String> itemId,
+      Value<int> createdAt,
+      Value<int> rowid,
+    });
+
+class $$StyleFavoritesTableFilterComposer
+    extends Composer<_$AppDatabase, $StyleFavoritesTable> {
+  $$StyleFavoritesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get itemId => $composableBuilder(
+    column: $table.itemId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$StyleFavoritesTableOrderingComposer
+    extends Composer<_$AppDatabase, $StyleFavoritesTable> {
+  $$StyleFavoritesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get itemId => $composableBuilder(
+    column: $table.itemId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$StyleFavoritesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $StyleFavoritesTable> {
+  $$StyleFavoritesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get itemId =>
+      $composableBuilder(column: $table.itemId, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$StyleFavoritesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $StyleFavoritesTable,
+          StyleFavoriteRow,
+          $$StyleFavoritesTableFilterComposer,
+          $$StyleFavoritesTableOrderingComposer,
+          $$StyleFavoritesTableAnnotationComposer,
+          $$StyleFavoritesTableCreateCompanionBuilder,
+          $$StyleFavoritesTableUpdateCompanionBuilder,
+          (
+            StyleFavoriteRow,
+            BaseReferences<
+              _$AppDatabase,
+              $StyleFavoritesTable,
+              StyleFavoriteRow
+            >,
+          ),
+          StyleFavoriteRow,
+          PrefetchHooks Function()
+        > {
+  $$StyleFavoritesTableTableManager(
+    _$AppDatabase db,
+    $StyleFavoritesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StyleFavoritesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StyleFavoritesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StyleFavoritesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> itemId = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => StyleFavoritesCompanion(
+                itemId: itemId,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String itemId,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => StyleFavoritesCompanion.insert(
+                itemId: itemId,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$StyleFavoritesTable, StyleFavoriteRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $StyleFavoritesTable,
+                    StyleFavoriteRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$StyleFavoritesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $StyleFavoritesTable,
+      StyleFavoriteRow,
+      $$StyleFavoritesTableFilterComposer,
+      $$StyleFavoritesTableOrderingComposer,
+      $$StyleFavoritesTableAnnotationComposer,
+      $$StyleFavoritesTableCreateCompanionBuilder,
+      $$StyleFavoritesTableUpdateCompanionBuilder,
+      (
+        StyleFavoriteRow,
+        BaseReferences<_$AppDatabase, $StyleFavoritesTable, StyleFavoriteRow>,
+      ),
+      StyleFavoriteRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -15969,4 +17851,10 @@ class $AppDatabaseManager {
       $$PostureSessionsTableTableManager(_db, _db.postureSessions);
   $$PostureMetricsTableTableManager get postureMetrics =>
       $$PostureMetricsTableTableManager(_db, _db.postureMetrics);
+  $$FaceAnalysesTableTableManager get faceAnalyses =>
+      $$FaceAnalysesTableTableManager(_db, _db.faceAnalyses);
+  $$FaceMetricsTableTableManager get faceMetrics =>
+      $$FaceMetricsTableTableManager(_db, _db.faceMetrics);
+  $$StyleFavoritesTableTableManager get styleFavorites =>
+      $$StyleFavoritesTableTableManager(_db, _db.styleFavorites);
 }

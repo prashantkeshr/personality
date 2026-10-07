@@ -1,0 +1,362 @@
+{
+ "items": [
+  {
+   "id": "textured_crop",
+   "kind": "hair",
+   "name": {
+    "en": "Textured crop",
+    "hi": "टेक्सचर्ड क्रॉप"
+   },
+   "desc": {
+    "en": "Short on the sides with texture on top.",
+    "hi": "किनारों पर छोटे, ऊपर टेक्सचर के साथ।"
+   }
+  },
+  {
+   "id": "side_part",
+   "kind": "hair",
+   "name": {
+    "en": "Classic side part",
+    "hi": "क्लासिक साइड पार्ट"
+   },
+   "desc": {
+    "en": "Neat, medium-short with a defined part.",
+    "hi": "सलीकेदार, मध्यम-छोटे, साफ़ मांग के साथ।"
+   }
+  },
+  {
+   "id": "quiff",
+   "kind": "hair",
+   "name": {
+    "en": "Quiff / volume on top",
+    "hi": "क्विफ़ / ऊपर वॉल्यूम"
+   },
+   "desc": {
+    "en": "Height at the front adds length.",
+    "hi": "आगे ऊँचाई चेहरे को लंबा दिखाती है।"
+   }
+  },
+  {
+   "id": "long_layers",
+   "kind": "hair",
+   "name": {
+    "en": "Long layers",
+    "hi": "लंबी लेयर्स"
+   },
+   "desc": {
+    "en": "Layers that start below the cheekbones.",
+    "hi": "गालों की हड्डी से नीचे शुरू होने वाली लेयर्स।"
+   }
+  },
+  {
+   "id": "side_fringe",
+   "kind": "hair",
+   "name": {
+    "en": "Side-swept fringe",
+    "hi": "साइड फ़्रिंज"
+   },
+   "desc": {
+    "en": "A fringe swept to one side softens the forehead.",
+    "hi": "एक ओर झुकी फ़्रिंज माथे को नरम दिखाती है।"
+   }
+  },
+  {
+   "id": "bob_chin",
+   "kind": "hair",
+   "name": {
+    "en": "Chin-length bob",
+    "hi": "ठुड्डी तक बॉब"
+   },
+   "desc": {
+    "en": "Ends at the chin to add width at the jaw.",
+    "hi": "ठुड्डी पर खत्म होकर जबड़े पर चौड़ाई जोड़ता है।"
+   }
+  },
+  {
+   "id": "soft_waves",
+   "kind": "hair",
+   "name": {
+    "en": "Soft waves",
+    "hi": "हल्की लहरें"
+   },
+   "desc": {
+    "en": "Gentle waves soften strong angles.",
+    "hi": "हल्की लहरें तीखे कोणों को नरम करती हैं।"
+   }
+  },
+  {
+   "id": "buzz_fade",
+   "kind": "hair",
+   "name": {
+    "en": "Buzz cut with fade",
+    "hi": "फ़ेड के साथ बज़ कट"
+   },
+   "desc": {
+    "en": "Very short and low-maintenance.",
+    "hi": "बहुत छोटे और कम देखभाल वाले।"
+   }
+  },
+  {
+   "id": "shoulder_length",
+   "kind": "hair",
+   "name": {
+    "en": "Shoulder-length with volume at the sides",
+    "hi": "कंधे तक, किनारों पर वॉल्यूम"
+   },
+   "desc": {
+    "en": "Adds width to balance a longer face.",
+    "hi": "लंबे चेहरे को संतुलित करने के लिए चौड़ाई जोड़ता है।"
+   }
+  },
+  {
+   "id": "short_beard",
+   "kind": "beard",
+   "name": {
+    "en": "Short boxed beard",
+    "hi": "छोटी बॉक्स्ड दाढ़ी"
+   },
+   "desc": {
+    "en": "Trimmed evenly with clean lines.",
+    "hi": "साफ़ रेखाओं के साथ समान रूप से ट्रिम।"
+   }
+  },
+  {
+   "id": "stubble",
+   "kind": "beard",
+   "name": {
+    "en": "Light stubble",
+    "hi": "हल्की स्टबल"
+   },
+   "desc": {
+    "en": "A few days' growth for subtle definition.",
+    "hi": "हल्की परिभाषा के लिए कुछ दिनों की बढ़त।"
+   }
+  },
+  {
+   "id": "chin_beard",
+   "kind": "beard",
+   "name": {
+    "en": "Fuller chin beard",
+    "hi": "भरी ठुड्डी वाली दाढ़ी"
+   },
+   "desc": {
+    "en": "More length at the chin, shorter on the cheeks.",
+    "hi": "ठुड्डी पर अधिक, गालों पर कम।"
+   }
+  },
+  {
+   "id": "full_sides",
+   "kind": "beard",
+   "name": {
+    "en": "Fuller on the sides",
+    "hi": "किनारों पर भरी दाढ़ी"
+   },
+   "desc": {
+    "en": "Width on the cheeks balances a longer face.",
+    "hi": "गालों पर चौड़ाई लंबे चेहरे को संतुलित करती है।"
+   }
+  },
+  {
+   "id": "rect_frames",
+   "kind": "glasses",
+   "name": {
+    "en": "Rectangular frames",
+    "hi": "आयताकार फ़्रेम"
+   },
+   "desc": {
+    "en": "Angular lines add structure.",
+    "hi": "कोणीय रेखाएँ संरचना जोड़ती हैं।"
+   }
+  },
+  {
+   "id": "round_frames",
+   "kind": "glasses",
+   "name": {
+    "en": "Round or oval frames",
+    "hi": "गोल या अंडाकार फ़्रेम"
+   },
+   "desc": {
+    "en": "Curves soften angular features.",
+    "hi": "गोलाई कोणीय विशेषताओं को नरम करती है।"
+   }
+  },
+  {
+   "id": "browline_frames",
+   "kind": "glasses",
+   "name": {
+    "en": "Browline frames",
+    "hi": "ब्राउलाइन फ़्रेम"
+   },
+   "desc": {
+    "en": "Emphasis on top balances a narrower jaw.",
+    "hi": "ऊपर ज़ोर संकरे जबड़े को संतुलित करता है।"
+   }
+  },
+  {
+   "id": "deep_frames",
+   "kind": "glasses",
+   "name": {
+    "en": "Taller (deeper) frames",
+    "hi": "ऊँचे फ़्रेम"
+   },
+   "desc": {
+    "en": "More vertical depth shortens a long face visually.",
+    "hi": "अधिक ऊँचाई लंबे चेहरे को छोटा दिखाती है।"
+   }
+  },
+  {
+   "id": "oversized_any",
+   "kind": "glasses",
+   "name": {
+    "en": "Most frame styles",
+    "hi": "अधिकांश फ़्रेम"
+   },
+   "desc": {
+    "en": "Balanced proportions suit most shapes; choose by width.",
+    "hi": "संतुलित अनुपात पर अधिकांश फ़्रेम जँचते हैं; चौड़ाई से चुनें।"
+   }
+  }
+ ],
+ "shapes": {
+  "oval": {
+   "why": {
+    "en": "Balanced proportions suit most styles; keep the forehead and jaw visible.",
+    "hi": "संतुलित अनुपात पर अधिकांश स्टाइल जँचते हैं; माथा और जबड़ा दिखने दें।"
+   },
+   "hair": [
+    "side_part",
+    "textured_crop",
+    "long_layers"
+   ],
+   "beard": [
+    "short_beard",
+    "stubble"
+   ],
+   "glasses": [
+    "oversized_any",
+    "rect_frames"
+   ]
+  },
+  "round": {
+   "why": {
+    "en": "Height on top and angular lines add length and definition.",
+    "hi": "ऊपर ऊँचाई और कोणीय रेखाएँ लंबाई और परिभाषा जोड़ती हैं।"
+   },
+   "hair": [
+    "quiff",
+    "side_part",
+    "long_layers"
+   ],
+   "beard": [
+    "chin_beard",
+    "short_beard"
+   ],
+   "glasses": [
+    "rect_frames",
+    "browline_frames"
+   ]
+  },
+  "square": {
+   "why": {
+    "en": "Softer, textured shapes balance a strong jawline.",
+    "hi": "नरम, टेक्सचर वाले आकार मज़बूत जबड़े को संतुलित करते हैं।"
+   },
+   "hair": [
+    "soft_waves",
+    "textured_crop",
+    "side_fringe"
+   ],
+   "beard": [
+    "stubble",
+    "chin_beard"
+   ],
+   "glasses": [
+    "round_frames",
+    "oversized_any"
+   ]
+  },
+  "oblong": {
+   "why": {
+    "en": "Width at the sides and less height on top balance a longer face.",
+    "hi": "किनारों पर चौड़ाई और ऊपर कम ऊँचाई लंबे चेहरे को संतुलित करती है।"
+   },
+   "hair": [
+    "side_fringe",
+    "shoulder_length",
+    "bob_chin"
+   ],
+   "beard": [
+    "full_sides",
+    "stubble"
+   ],
+   "glasses": [
+    "deep_frames",
+    "round_frames"
+   ]
+  },
+  "heart": {
+   "why": {
+    "en": "Fullness near the jaw balances a wider forehead.",
+    "hi": "जबड़े के पास भराव चौड़े माथे को संतुलित करता है।"
+   },
+   "hair": [
+    "side_fringe",
+    "bob_chin",
+    "soft_waves"
+   ],
+   "beard": [
+    "full_sides",
+    "short_beard"
+   ],
+   "glasses": [
+    "round_frames",
+    "oversized_any"
+   ]
+  },
+  "diamond": {
+   "why": {
+    "en": "Width at the forehead and chin balances wider cheekbones.",
+    "hi": "माथे और ठुड्डी पर चौड़ाई चौड़ी गालों की हड्डी को संतुलित करती है।"
+   },
+   "hair": [
+    "side_fringe",
+    "textured_crop",
+    "shoulder_length"
+   ],
+   "beard": [
+    "chin_beard",
+    "short_beard"
+   ],
+   "glasses": [
+    "browline_frames",
+    "round_frames"
+   ]
+  }
+ },
+ "routine": [
+  {
+   "id": "cleanse",
+   "minute": 465,
+   "name": {
+    "en": "Cleanse and moisturise",
+    "hi": "साफ़ करें और मॉइस्चराइज़ करें"
+   }
+  },
+  {
+   "id": "sunscreen",
+   "minute": 480,
+   "name": {
+    "en": "Sunscreen before going out",
+    "hi": "बाहर जाने से पहले सनस्क्रीन"
+   }
+  },
+  {
+   "id": "evening_cleanse",
+   "minute": 1290,
+   "name": {
+    "en": "Evening face wash",
+    "hi": "शाम को चेहरा धोना"
+   }
+  }
+ ]
+}

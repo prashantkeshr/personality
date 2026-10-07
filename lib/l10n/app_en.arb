@@ -1022,5 +1022,55 @@
   "cueKeepBodyStraight": "Keep a straight line from shoulders to ankles.",
   "cueGetIntoPosition": "Get into position.",
   "cueGoodForm": "Good — keep going.",
-  "cueKeepGoing": "Keep going at a steady pace."
+  "cueKeepGoing": "Keep going at a steady pace.",
+  "faceHistory": "Face history",
+  "faceHistoryEmpty": "Complete a face check to see style suggestions here.",
+  "faceIntro": "Estimate your face shape from its proportions and get hairstyle, beard, glasses and grooming ideas.",
+  "facePrivacy": "Your face is analyzed on this phone. No photo is taken or stored; only proportions are saved, and only if you tap Save.",
+  "faceTipLight": "Face a window or lamp so light falls evenly on your face.",
+  "faceTipHair": "Keep hair away from your forehead and jawline.",
+  "faceTipStraight": "Look straight at the camera with a neutral expression; keep your head level.",
+  "faceDisclaimer": "Face shape is an estimate from the camera, used only for style ideas. It says nothing about attractiveness, and every face suits many styles.",
+  "faceNone": "No face detected. Look at the camera.",
+  "faceMultiple": "More than one face is visible. Make sure only you are in view.",
+  "faceModelRequired": "Face analysis isn't available on this device.",
+  "faceReady": "Face detected — tap Analyze and hold still.",
+  "faceTooFar": "Bring the phone a little closer to your face.",
+  "faceTooClose": "Move the phone a little further away.",
+  "faceInGuide": "Keep your whole face inside the oval.",
+  "faceCapturing": "Hold still while a few frames are measured…",
+  "faceNotReliable": "Face shape could not be reliably estimated.",
+  "faceSaved": "Face check saved",
+  "faceResultTitle": "Estimated face shape",
+  "faceShapeBetween": "{first} / {second}",
+  "@faceShapeBetween": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "faceLowConfidenceNote": "The estimate was uncertain, so no style suggestions are shown. Try again with even light and your head level.",
+  "shapeOval": "Oval",
+  "shapeRound": "Round",
+  "shapeSquare": "Square",
+  "shapeOblong": "Oblong",
+  "shapeHeart": "Heart",
+  "shapeDiamond": "Diamond",
+  "ratioLengthWidth": "Length ÷ cheekbone width",
+  "ratioForeheadCheek": "Forehead ÷ cheekbone width",
+  "ratioJawCheek": "Jaw ÷ cheekbone width",
+  "styleHair": "Hairstyles",
+  "styleBeard": "Beard styles",
+  "styleBeardNote": "If you have or want facial hair.",
+  "styleGlasses": "Glasses frames",
+  "favoriteAdd": "Add to favourites",
+  "favoriteRemove": "Remove from favourites",
+  "groomingTitle": "Simple grooming routine",
+  "groomingAddRoutine": "Add to my routines",
+  "groomingRoutineName": "Grooming",
+  "groomingRoutineAdded": "Grooming routine added to your routines"
 }

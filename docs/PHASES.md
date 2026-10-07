@@ -214,3 +214,24 @@ Bugs fixed:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 169/169 pass, including tracker unit tests and a simulated 3-squat camera session saved as camera-derived.
 - Release APK 64 MB with no INTERNET permission. Release posture analysis confirmed working on POCO X4 Pro 5G.
+
+## Phase 8 — face shape and grooming (2026-10-08)
+
+- **Face estimator**: Google ML Kit face detection (bundled, offline). Contours only: no smile/eye classification, no identity features. It sits behind the `FaceEstimator` contract. The frame pipeline runs face analysis instead of pose when a face estimator is given.
+- **Face engine** (pure Dart):
+  - Measures the outline width at fixed heights (forehead 12%, cheekbones as the widest point at 25–55%, jaw 80%) rather than relying on point indices.
+  - Computes length/cheek, forehead/cheek and jaw/cheek ratios and ranks six reference shapes (oval, round, square, oblong, heart, diamond) by weighted distance.
+  - Takes the median over 12 frames. Confidence comes from frames, the margin between shapes, and stability. Close calls report two shapes.
+  - Frame checks: head turned/tilted, too far/close, outside the frame.
+- **Face screen**: privacy explanation (no photo taken; proportions saved only on Save), tips, front camera with an outline overlay and oval guide, live guidance (no face / multiple faces / look straight / move closer), a 3-second countdown, then the result with shape, ratios, provenance chip and disclaimer ("says nothing about attractiveness").
+- **Suggestions** (`assets/content/grooming.json`, English and Hindi):
+  - Hairstyles, beard styles ("if you have or want facial hair") and glasses frames for each shape, with "Why this?".
+  - Favourites (heart).
+  - A simple grooming routine that can be added to Routines in one tap (reuses Phase 4).
+  - Low-confidence results get no suggestions.
+- **History**: schema v6 adds `face_analysis`, `face_metric` and `hairstyle_favorite` (proportions only, no images). History lists past estimates with delete (cascade).
+- **Release**: R8 keep rules cover the face plugin; the `usage.txt` audit shows no ML Kit/MediaPipe classes removed. Release APK 90 MB (bundled face model) with no INTERNET permission.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 184/184 pass (face engine with exact synthetic outlines for every shape, in-between and unsteady cases; v5 → v6 migration integrity; repository; content completeness; full face-check widget flow including favourites and routine creation).
+- On-device check pending: the phone was disconnected when this was committed.

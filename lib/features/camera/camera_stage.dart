@@ -17,6 +17,7 @@ class CameraStage extends StatelessWidget {
     required this.guidance,
     this.countdown,
     this.overlay,
+    this.painter,
   });
 
   final CameraSource camera;
@@ -27,6 +28,9 @@ class CameraStage extends StatelessWidget {
 
   /// Shown at the top-right, e.g. a rep counter or hold timer.
   final Widget? overlay;
+
+  /// Replaces the default body skeleton and guide (e.g. a face outline).
+  final CustomPainter? painter;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class CameraStage extends StatelessWidget {
                         children: [
                           camera.preview(),
                           CustomPaint(
-                            painter: SkeletonPainter(
+                            painter: painter ?? SkeletonPainter(
                               pose: pose,
                               guideColor: Colors.white.withValues(alpha: 0.7),
                               boneColor: scheme.primary,

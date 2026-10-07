@@ -68,7 +68,10 @@ void main() {
           'routine_completion',
           'posture_session',
           'posture_metric',
+          'face_analysis',
+          'face_metric',
+          'hairstyle_favorite',
         ]));
-    expect(db.schemaVersion, 5);
+    expect(db.schemaVersion, 6);
   });
 }

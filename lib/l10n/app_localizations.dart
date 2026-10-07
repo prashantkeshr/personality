@@ -3367,6 +3367,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep going at a steady pace.'**
   String get cueKeepGoing;
+
+  /// No description provided for @faceHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Face history'**
+  String get faceHistory;
+
+  /// No description provided for @faceHistoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete a face check to see style suggestions here.'**
+  String get faceHistoryEmpty;
+
+  /// No description provided for @faceIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimate your face shape from its proportions and get hairstyle, beard, glasses and grooming ideas.'**
+  String get faceIntro;
+
+  /// No description provided for @facePrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your face is analyzed on this phone. No photo is taken or stored; only proportions are saved, and only if you tap Save.'**
+  String get facePrivacy;
+
+  /// No description provided for @faceTipLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Face a window or lamp so light falls evenly on your face.'**
+  String get faceTipLight;
+
+  /// No description provided for @faceTipHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep hair away from your forehead and jawline.'**
+  String get faceTipHair;
+
+  /// No description provided for @faceTipStraight.
+  ///
+  /// In en, this message translates to:
+  /// **'Look straight at the camera with a neutral expression; keep your head level.'**
+  String get faceTipStraight;
+
+  /// No description provided for @faceDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Face shape is an estimate from the camera, used only for style ideas. It says nothing about attractiveness, and every face suits many styles.'**
+  String get faceDisclaimer;
+
+  /// No description provided for @faceNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No face detected. Look at the camera.'**
+  String get faceNone;
+
+  /// No description provided for @faceMultiple.
+  ///
+  /// In en, this message translates to:
+  /// **'More than one face is visible. Make sure only you are in view.'**
+  String get faceMultiple;
+
+  /// No description provided for @faceModelRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Face analysis isn\'t available on this device.'**
+  String get faceModelRequired;
+
+  /// No description provided for @faceReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Face detected — tap Analyze and hold still.'**
+  String get faceReady;
+
+  /// No description provided for @faceTooFar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring the phone a little closer to your face.'**
+  String get faceTooFar;
+
+  /// No description provided for @faceTooClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Move the phone a little further away.'**
+  String get faceTooClose;
+
+  /// No description provided for @faceInGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your whole face inside the oval.'**
+  String get faceInGuide;
+
+  /// No description provided for @faceCapturing.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold still while a few frames are measured…'**
+  String get faceCapturing;
+
+  /// No description provided for @faceNotReliable.
+  ///
+  /// In en, this message translates to:
+  /// **'Face shape could not be reliably estimated.'**
+  String get faceNotReliable;
+
+  /// No description provided for @faceSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Face check saved'**
+  String get faceSaved;
+
+  /// No description provided for @faceResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated face shape'**
+  String get faceResultTitle;
+
+  /// No description provided for @faceShapeBetween.
+  ///
+  /// In en, this message translates to:
+  /// **'{first} / {second}'**
+  String faceShapeBetween(String first, String second);
+
+  /// No description provided for @faceLowConfidenceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The estimate was uncertain, so no style suggestions are shown. Try again with even light and your head level.'**
+  String get faceLowConfidenceNote;
+
+  /// No description provided for @shapeOval.
+  ///
+  /// In en, this message translates to:
+  /// **'Oval'**
+  String get shapeOval;
+
+  /// No description provided for @shapeRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round'**
+  String get shapeRound;
+
+  /// No description provided for @shapeSquare.
+  ///
+  /// In en, this message translates to:
+  /// **'Square'**
+  String get shapeSquare;
+
+  /// No description provided for @shapeOblong.
+  ///
+  /// In en, this message translates to:
+  /// **'Oblong'**
+  String get shapeOblong;
+
+  /// No description provided for @shapeHeart.
+  ///
+  /// In en, this message translates to:
+  /// **'Heart'**
+  String get shapeHeart;
+
+  /// No description provided for @shapeDiamond.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond'**
+  String get shapeDiamond;
+
+  /// No description provided for @ratioLengthWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Length ÷ cheekbone width'**
+  String get ratioLengthWidth;
+
+  /// No description provided for @ratioForeheadCheek.
+  ///
+  /// In en, this message translates to:
+  /// **'Forehead ÷ cheekbone width'**
+  String get ratioForeheadCheek;
+
+  /// No description provided for @ratioJawCheek.
+  ///
+  /// In en, this message translates to:
+  /// **'Jaw ÷ cheekbone width'**
+  String get ratioJawCheek;
+
+  /// No description provided for @styleHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Hairstyles'**
+  String get styleHair;
+
+  /// No description provided for @styleBeard.
+  ///
+  /// In en, this message translates to:
+  /// **'Beard styles'**
+  String get styleBeard;
+
+  /// No description provided for @styleBeardNote.
+  ///
+  /// In en, this message translates to:
+  /// **'If you have or want facial hair.'**
+  String get styleBeardNote;
+
+  /// No description provided for @styleGlasses.
+  ///
+  /// In en, this message translates to:
+  /// **'Glasses frames'**
+  String get styleGlasses;
+
+  /// No description provided for @favoriteAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favourites'**
+  String get favoriteAdd;
+
+  /// No description provided for @favoriteRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favourites'**
+  String get favoriteRemove;
+
+  /// No description provided for @groomingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple grooming routine'**
+  String get groomingTitle;
+
+  /// No description provided for @groomingAddRoutine.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to my routines'**
+  String get groomingAddRoutine;
+
+  /// No description provided for @groomingRoutineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Grooming'**
+  String get groomingRoutineName;
+
+  /// No description provided for @groomingRoutineAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Grooming routine added to your routines'**
+  String get groomingRoutineAdded;
 }
 
 class _AppLocalizationsDelegate

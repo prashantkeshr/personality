@@ -9,6 +9,7 @@ library;
 
 import 'dart:typed_data';
 
+import '../face/face_estimator.dart';
 import '../pose/pose_estimator.dart';
 import '../preprocessing/frame_quality.dart';
 import '../preprocessing/frame_sampler.dart';
@@ -53,6 +54,7 @@ class PipelineStatus {
     required this.analysisFps,
     required this.pose,
     this.frameTime,
+    this.face,
   });
 
   static const initial = PipelineStatus(
@@ -78,6 +80,9 @@ class PipelineStatus {
 
   /// Capture time of the analyzed frame (for timing reps and holds).
   final DateTime? frameTime;
+
+  /// Face outline result, when the pipeline runs face analysis.
+  final FaceEstimation? face;
 }
 
 class FramePipeline {
@@ -85,9 +90,13 @@ class FramePipeline {
     required int targetFps,
     required this.estimator,
     required this.onStatus,
+    this.faceEstimator,
   }) : _sampler = FrameSampler(targetFps: targetFps);
 
   final PoseEstimator estimator;
+
+  /// When set, usable frames go to face analysis instead of pose.
+  final FaceEstimator? faceEstimator;
   final void Function(PipelineStatus) onStatus;
   final FrameSampler _sampler;
   final _recent = <DateTime>[];
@@ -110,9 +119,10 @@ class FramePipeline {
 
       // Only usable frames reach the (comparatively expensive) estimator.
       PoseEstimation? pose;
+      FaceEstimation? face;
       if (quality.usable) {
         final converted = frame.toNv21?.call();
-        pose = await estimator.estimate(CameraFrame(
+        final input = CameraFrame(
           bytes: converted ?? frame.yPlane,
           width: frame.width,
           height: frame.height,
@@ -121,7 +131,12 @@ class FramePipeline {
           timestamp: frame.timestamp,
           format: converted != null ? FrameFormat.nv21 : frame.format,
           frontCamera: frame.frontCamera,
-        ));
+        );
+        if (faceEstimator != null) {
+          face = await faceEstimator!.estimate(input);
+        } else {
+          pose = await estimator.estimate(input);
+        }
       } else {
         pose = LowQualityFrame({
           switch (quality.lighting) {
@@ -145,6 +160,7 @@ class FramePipeline {
         analysisFps: _recent.length.toDouble(),
         pose: pose,
         frameTime: frame.timestamp,
+        face: face,
       ));
     } finally {
       _sampler.done();

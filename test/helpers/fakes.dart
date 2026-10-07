@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:personality/core/device/device_tier.dart';
 import 'package:personality/features/camera/camera_source.dart';
+import 'package:personality/ml/face/face_estimator.dart';
 import 'package:personality/ml/inference/frame_pipeline.dart';
 import 'package:personality/ml/pose/pose_estimator.dart';
 
@@ -77,6 +78,23 @@ class ScriptedEstimator implements PoseEstimator {
   Future<void> load() async {}
   @override
   Future<PoseEstimation> estimate(CameraFrame frame) async {
+    final r = script[calls < script.length ? calls : script.length - 1];
+    calls++;
+    return r;
+  }
+
+  @override
+  Future<void> dispose() async {}
+}
+
+/// Returns scripted face results in order, repeating the last one.
+class ScriptedFaceEstimator implements FaceEstimator {
+  ScriptedFaceEstimator(this.script);
+  List<FaceEstimation> script;
+  int calls = 0;
+
+  @override
+  Future<FaceEstimation> estimate(CameraFrame frame) async {
     final r = script[calls < script.length ? calls : script.length - 1];
     calls++;
     return r;

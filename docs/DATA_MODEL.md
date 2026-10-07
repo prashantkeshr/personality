@@ -32,7 +32,7 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 | 4 Routines | `routine` (weekday bitmask, active), `routine_item` (minute of day, kind, reminder flag; `created_at` bounds the plan so new items never count as missed), `routine_completion` (plan vs actual: completed/skipped/rescheduled + new time; PK item+day; cascades). Reminders are a property of routine items rather than a separate table, and their history is `routine_completion`. Reminder preferences and dismissed suggestions are keys in `app_settings`. |
 | 6 Posture | `posture_session` (view, frames used, confidence, visibility, source=CAMERA_DERIVED, method) and `posture_metric` (PK session+metric: degrees, direction, band, spread, confidence; cascades). Numbers only — no images. |
 | 7 Exercise | `exercise` (library, seeded from assets), `exercise_progress` |
-| 8 Face + Grooming | `face_analysis`, `face_metric`, `hairstyle_favorite`, `grooming_routine` |
+| 8 Face + Grooming | `face_analysis` (shape, alsoLike, confidence, frames, source=CAMERA_DERIVED, method), `face_metric` (PK analysis+metric: ratio values; cascades), `hairstyle_favorite` (favourite style item ids). Proportions only — no images. The grooming routine is stored as a normal Phase 4 routine. |
 | 9 Style | `style_profile`, `color_profile`, `wardrobe_item`, `outfit`, `outfit_item`, `accessory` |
 | 10 Recommendations | `recommendation`, `recommendation_history`, `evolution_event` |
 | 11 AI | `ai_model`, `model_version`, `ai_conversation`, `ai_message` |

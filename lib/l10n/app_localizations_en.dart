@@ -1869,4 +1869,135 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cueKeepGoing => 'Keep going at a steady pace.';
+
+  @override
+  String get faceHistory => 'Face history';
+
+  @override
+  String get faceHistoryEmpty =>
+      'Complete a face check to see style suggestions here.';
+
+  @override
+  String get faceIntro =>
+      'Estimate your face shape from its proportions and get hairstyle, beard, glasses and grooming ideas.';
+
+  @override
+  String get facePrivacy =>
+      'Your face is analyzed on this phone. No photo is taken or stored; only proportions are saved, and only if you tap Save.';
+
+  @override
+  String get faceTipLight =>
+      'Face a window or lamp so light falls evenly on your face.';
+
+  @override
+  String get faceTipHair => 'Keep hair away from your forehead and jawline.';
+
+  @override
+  String get faceTipStraight =>
+      'Look straight at the camera with a neutral expression; keep your head level.';
+
+  @override
+  String get faceDisclaimer =>
+      'Face shape is an estimate from the camera, used only for style ideas. It says nothing about attractiveness, and every face suits many styles.';
+
+  @override
+  String get faceNone => 'No face detected. Look at the camera.';
+
+  @override
+  String get faceMultiple =>
+      'More than one face is visible. Make sure only you are in view.';
+
+  @override
+  String get faceModelRequired =>
+      'Face analysis isn\'t available on this device.';
+
+  @override
+  String get faceReady => 'Face detected — tap Analyze and hold still.';
+
+  @override
+  String get faceTooFar => 'Bring the phone a little closer to your face.';
+
+  @override
+  String get faceTooClose => 'Move the phone a little further away.';
+
+  @override
+  String get faceInGuide => 'Keep your whole face inside the oval.';
+
+  @override
+  String get faceCapturing => 'Hold still while a few frames are measured…';
+
+  @override
+  String get faceNotReliable => 'Face shape could not be reliably estimated.';
+
+  @override
+  String get faceSaved => 'Face check saved';
+
+  @override
+  String get faceResultTitle => 'Estimated face shape';
+
+  @override
+  String faceShapeBetween(String first, String second) {
+    return '$first / $second';
+  }
+
+  @override
+  String get faceLowConfidenceNote =>
+      'The estimate was uncertain, so no style suggestions are shown. Try again with even light and your head level.';
+
+  @override
+  String get shapeOval => 'Oval';
+
+  @override
+  String get shapeRound => 'Round';
+
+  @override
+  String get shapeSquare => 'Square';
+
+  @override
+  String get shapeOblong => 'Oblong';
+
+  @override
+  String get shapeHeart => 'Heart';
+
+  @override
+  String get shapeDiamond => 'Diamond';
+
+  @override
+  String get ratioLengthWidth => 'Length ÷ cheekbone width';
+
+  @override
+  String get ratioForeheadCheek => 'Forehead ÷ cheekbone width';
+
+  @override
+  String get ratioJawCheek => 'Jaw ÷ cheekbone width';
+
+  @override
+  String get styleHair => 'Hairstyles';
+
+  @override
+  String get styleBeard => 'Beard styles';
+
+  @override
+  String get styleBeardNote => 'If you have or want facial hair.';
+
+  @override
+  String get styleGlasses => 'Glasses frames';
+
+  @override
+  String get favoriteAdd => 'Add to favourites';
+
+  @override
+  String get favoriteRemove => 'Remove from favourites';
+
+  @override
+  String get groomingTitle => 'Simple grooming routine';
+
+  @override
+  String get groomingAddRoutine => 'Add to my routines';
+
+  @override
+  String get groomingRoutineName => 'Grooming';
+
+  @override
+  String get groomingRoutineAdded => 'Grooming routine added to your routines';
 }

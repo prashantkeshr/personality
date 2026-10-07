@@ -1856,4 +1856,136 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get cueKeepGoing => 'स्थिर गति से जारी रखें।';
+
+  @override
+  String get faceHistory => 'चेहरा इतिहास';
+
+  @override
+  String get faceHistoryEmpty =>
+      'स्टाइल सुझाव देखने के लिए एक चेहरा जाँच पूरी करें।';
+
+  @override
+  String get faceIntro =>
+      'अनुपात से अपने चेहरे के आकार का अनुमान लगाएँ और बाल, दाढ़ी, चश्मे और ग्रूमिंग के सुझाव पाएँ।';
+
+  @override
+  String get facePrivacy =>
+      'आपके चेहरे का विश्लेषण इसी फ़ोन पर होता है। कोई फ़ोटो नहीं ली या सहेजी जाती; केवल अनुपात सहेजे जाते हैं, और वह भी तभी जब आप सहेजें पर टैप करें।';
+
+  @override
+  String get faceTipLight =>
+      'खिड़की या लैंप की ओर मुँह करें ताकि चेहरे पर समान रोशनी पड़े।';
+
+  @override
+  String get faceTipHair => 'बालों को माथे और जबड़े से दूर रखें।';
+
+  @override
+  String get faceTipStraight =>
+      'सामान्य भाव से सीधे कैमरे में देखें; सिर सीधा रखें।';
+
+  @override
+  String get faceDisclaimer =>
+      'चेहरे का आकार कैमरे से लगाया गया अनुमान है, केवल स्टाइल सुझावों के लिए। यह सुंदरता के बारे में कुछ नहीं कहता, और हर चेहरे पर कई स्टाइल जँचते हैं।';
+
+  @override
+  String get faceNone => 'कोई चेहरा नहीं दिखा। कैमरे की ओर देखें।';
+
+  @override
+  String get faceMultiple =>
+      'एक से अधिक चेहरे दिख रहे हैं। सुनिश्चित करें कि केवल आप दिखें।';
+
+  @override
+  String get faceModelRequired => 'इस डिवाइस पर चेहरा विश्लेषण उपलब्ध नहीं है।';
+
+  @override
+  String get faceReady => 'चेहरा दिखा — विश्लेषण पर टैप करें और स्थिर रहें।';
+
+  @override
+  String get faceTooFar => 'फ़ोन को चेहरे के थोड़ा पास लाएँ।';
+
+  @override
+  String get faceTooClose => 'फ़ोन को थोड़ा दूर करें।';
+
+  @override
+  String get faceInGuide => 'पूरा चेहरा अंडाकार के अंदर रखें।';
+
+  @override
+  String get faceCapturing => 'कुछ फ़्रेम मापे जाने तक स्थिर रहें…';
+
+  @override
+  String get faceNotReliable =>
+      'चेहरे के आकार का विश्वसनीय अनुमान नहीं लग सका।';
+
+  @override
+  String get faceSaved => 'चेहरा जाँच सहेजी गई';
+
+  @override
+  String get faceResultTitle => 'अनुमानित चेहरे का आकार';
+
+  @override
+  String faceShapeBetween(String first, String second) {
+    return '$first / $second';
+  }
+
+  @override
+  String get faceLowConfidenceNote =>
+      'अनुमान अनिश्चित था, इसलिए स्टाइल सुझाव नहीं दिखाए गए। समान रोशनी और सीधे सिर के साथ फिर से कोशिश करें।';
+
+  @override
+  String get shapeOval => 'अंडाकार';
+
+  @override
+  String get shapeRound => 'गोल';
+
+  @override
+  String get shapeSquare => 'चौकोर';
+
+  @override
+  String get shapeOblong => 'लंबा';
+
+  @override
+  String get shapeHeart => 'हृदय आकार';
+
+  @override
+  String get shapeDiamond => 'हीरा आकार';
+
+  @override
+  String get ratioLengthWidth => 'लंबाई ÷ गालों की चौड़ाई';
+
+  @override
+  String get ratioForeheadCheek => 'माथा ÷ गालों की चौड़ाई';
+
+  @override
+  String get ratioJawCheek => 'जबड़ा ÷ गालों की चौड़ाई';
+
+  @override
+  String get styleHair => 'हेयरस्टाइल';
+
+  @override
+  String get styleBeard => 'दाढ़ी के स्टाइल';
+
+  @override
+  String get styleBeardNote => 'यदि आपकी दाढ़ी है या रखना चाहते हैं।';
+
+  @override
+  String get styleGlasses => 'चश्मे के फ़्रेम';
+
+  @override
+  String get favoriteAdd => 'पसंदीदा में जोड़ें';
+
+  @override
+  String get favoriteRemove => 'पसंदीदा से हटाएँ';
+
+  @override
+  String get groomingTitle => 'आसान ग्रूमिंग दिनचर्या';
+
+  @override
+  String get groomingAddRoutine => 'मेरी दिनचर्या में जोड़ें';
+
+  @override
+  String get groomingRoutineName => 'ग्रूमिंग';
+
+  @override
+  String get groomingRoutineAdded =>
+      'ग्रूमिंग दिनचर्या आपकी दिनचर्या में जोड़ी गई';
 }
