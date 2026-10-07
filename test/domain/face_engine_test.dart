@@ -71,10 +71,15 @@ void main() {
     }
   });
 
-  test('in-between proportions report two shapes and lower confidence', () {
+  test('in-between proportions report two shapes; steady stays confident',
+      () {
     final r = capture((_) => face(1.19, 0.89, 0.82)); // between oval and round
     expect({r.shape, r.alsoLike}, {FaceShape.oval, FaceShape.round});
-    expect(r.confidence, isNot(Confidence.high));
+    expect(r.confidence, Confidence.high);
+    // The user's real measurement on the phone: oval / diamond.
+    final real = capture((_) => face(1.27, 0.83, 0.78));
+    expect({real.shape, real.alsoLike}, {FaceShape.oval, FaceShape.diamond});
+    expect(real.confidence, Confidence.high);
   });
 
   test('unsteady measurements lower confidence', () {

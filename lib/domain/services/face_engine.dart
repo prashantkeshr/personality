@@ -190,10 +190,13 @@ class FaceCapture {
     final m = ratios[FaceRatio.lengthToWidth]!;
     final spread = _median([for (final v in lw) (v - m).abs()]);
 
+    // Confidence describes the measurement (enough steady frames). Sitting
+    // between two reference shapes is normal and is reported via alsoLike,
+    // not as uncertainty.
     final Confidence confidence;
-    if (_frames.length >= 10 && margin >= 0.8 && spread <= 0.02) {
+    if (_frames.length >= 10 && spread <= 0.02) {
       confidence = Confidence.high;
-    } else if (_frames.length >= 8 && margin >= 0.3 && spread <= 0.04) {
+    } else if (_frames.length >= 8 && spread <= 0.04) {
       confidence = Confidence.medium;
     } else {
       confidence = Confidence.low;

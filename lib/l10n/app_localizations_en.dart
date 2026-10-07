@@ -2000,4 +2000,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get groomingRoutineAdded => 'Grooming routine added to your routines';
+
+  @override
+  String faceBetweenNote(String shape) {
+    return 'Your proportions are also close to $shape, so ideas for both are shown:';
+  }
 }

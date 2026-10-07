@@ -234,4 +234,4 @@ Verification:
 
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 184/184 pass (face engine with exact synthetic outlines for every shape, in-between and unsteady cases; v5 → v6 migration integrity; repository; content completeness; full face-check widget flow including favourites and routine creation).
-- On-device check pending: the phone was disconnected when this was committed.
+- On the user's phone: the first real check measured 1.27 / 0.83 / 0.78 (between oval and diamond), but low confidence hid all suggestions. Fix: confidence now reflects measurement stability only, and in-between faces show both shapes with merged suggestions. The re-check gave **Oval / Diamond, high confidence**, with suggestions; the camera was released.

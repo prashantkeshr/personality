@@ -584,5 +584,6 @@
   "groomingTitle": "आसान ग्रूमिंग दिनचर्या",
   "groomingAddRoutine": "मेरी दिनचर्या में जोड़ें",
   "groomingRoutineName": "ग्रूमिंग",
-  "groomingRoutineAdded": "ग्रूमिंग दिनचर्या आपकी दिनचर्या में जोड़ी गई"
+  "groomingRoutineAdded": "ग्रूमिंग दिनचर्या आपकी दिनचर्या में जोड़ी गई",
+  "faceBetweenNote": "आपके अनुपात {shape} के भी करीब हैं, इसलिए दोनों के सुझाव दिखाए गए हैं:"
 }

@@ -3607,6 +3607,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Grooming routine added to your routines'**
   String get groomingRoutineAdded;
+
+  /// No description provided for @faceBetweenNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your proportions are also close to {shape}, so ideas for both are shown:'**
+  String faceBetweenNote(String shape);
 }
 
 class _AppLocalizationsDelegate

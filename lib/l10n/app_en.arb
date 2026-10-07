@@ -1072,5 +1072,13 @@
   "groomingTitle": "Simple grooming routine",
   "groomingAddRoutine": "Add to my routines",
   "groomingRoutineName": "Grooming",
-  "groomingRoutineAdded": "Grooming routine added to your routines"
+  "groomingRoutineAdded": "Grooming routine added to your routines",
+  "faceBetweenNote": "Your proportions are also close to {shape}, so ideas for both are shown:",
+  "@faceBetweenNote": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  }
 }

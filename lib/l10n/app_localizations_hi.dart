@@ -1988,4 +1988,9 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get groomingRoutineAdded =>
       'ग्रूमिंग दिनचर्या आपकी दिनचर्या में जोड़ी गई';
+
+  @override
+  String faceBetweenNote(String shape) {
+    return 'आपके अनुपात $shape के भी करीब हैं, इसलिए दोनों के सुझाव दिखाए गए हैं:';
+  }
 }

@@ -356,7 +356,13 @@ class FaceResultView extends ConsumerWidget {
             l10n.faceShapeName(result.shape), l10n.faceShapeName(result.alsoLike!));
 
     Widget section(String title, StyleKind kind, {String? note}) {
-      final items = content?.suggestions(result.shape, kind) ?? const [];
+      // Primary shape first, then the close second shape, without repeats.
+      final seen = <String>{};
+      final items = [
+        for (final s in [result.shape, ?result.alsoLike])
+          for (final i in content?.suggestions(s, kind) ?? const <StyleItem>[])
+            if (seen.add(i.id)) i,
+      ].take(4).toList();
       if (items.isEmpty) return const SizedBox.shrink();
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -448,6 +454,12 @@ class FaceResultView extends ConsumerWidget {
           const SizedBox(height: AppSpacing.lg),
           Text(l10n.whyThis, style: theme.textTheme.labelLarge),
           Text(GroomingContent.pick(content.shapes[result.shape]!.why, lang)),
+          if (result.alsoLike != null) ...[
+            const SizedBox(height: AppSpacing.xs),
+            Text(l10n.faceBetweenNote(l10n.faceShapeName(result.alsoLike!))),
+            Text(GroomingContent.pick(
+                content.shapes[result.alsoLike!]!.why, lang)),
+          ],
           section(l10n.styleHair, StyleKind.hair),
           section(l10n.styleBeard, StyleKind.beard, note: l10n.styleBeardNote),
           section(l10n.styleGlasses, StyleKind.glasses),
