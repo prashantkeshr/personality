@@ -7,6 +7,7 @@ import 'device/device_tier.dart';
 import 'device/platform_device_probe.dart';
 import 'features/feature_registry.dart';
 import 'features/implemented_features.dart';
+import '../ml/model_manager/bundled_models.dart';
 
 /// Opened during bootstrap and injected with an override.
 final appDatabaseProvider = Provider<AppDatabase>(
@@ -52,12 +53,12 @@ final deviceTierProvider = Provider<DeviceTier>((ref) =>
     classifyDevice(ref.watch(deviceSpecsProvider).value ?? const DeviceSpecs()));
 
 /// Until the probe answers, the device is treated as unknown, which the
-/// capability rules handle conservatively. ML models arrive in Phase 6.
+/// capability rules handle conservatively.
 final capabilityContextProvider = Provider<CapabilityContext>((ref) {
   final specs = ref.watch(deviceSpecsProvider).value ?? const DeviceSpecs();
   return CapabilityContext(
     tier: classifyDevice(specs),
     hasCamera: specs.hasCamera,
-    installedModels: const {},
+    installedModels: ref.watch(installedModelsProvider),
   );
 });

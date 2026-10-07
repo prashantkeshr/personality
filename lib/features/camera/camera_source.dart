@@ -1,10 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show DeviceOrientation;
 import 'package:flutter/widgets.dart';
 
 import '../../core/device/device_tier.dart';
 import '../../core/logging/app_logger.dart';
 import '../../ml/inference/frame_pipeline.dart';
+import '../../ml/pose/pose_estimator.dart' show FrameFormat;
+import '../../ml/preprocessing/yuv_convert.dart';
 
 enum CameraLens { front, back }
 
@@ -37,6 +40,22 @@ abstract interface class CameraSource {
       void Function(FrameInput) onFrame);
   Future<void> stop();
   Widget preview();
+}
+
+/// Clockwise rotation that makes a sensor frame upright, following ML Kit's
+/// Android guidance: the sensor orientation compensated for how the phone
+/// is currently held (front cameras rotate the other way).
+int frameRotation(int sensorOrientation, DeviceOrientation device,
+    {required bool front}) {
+  final compensation = switch (device) {
+    DeviceOrientation.portraitUp => 0,
+    DeviceOrientation.landscapeLeft => 90,
+    DeviceOrientation.portraitDown => 180,
+    DeviceOrientation.landscapeRight => 270,
+  };
+  return front
+      ? (sensorOrientation + compensation) % 360
+      : (sensorOrientation - compensation + 360) % 360;
 }
 
 ResolutionPreset _preset(CameraPowerMode m) => switch (m) {
@@ -95,19 +114,42 @@ class PluginCameraSource implements CameraSource {
         description,
         _preset(mode),
         enableAudio: false, // never records sound
-        imageFormatGroup: ImageFormatGroup.yuv420,
+        // NV21 is what the on-device pose model expects on Android.
+        imageFormatGroup: ImageFormatGroup.nv21,
       );
       _controller = controller;
       await controller.initialize(); // requests CAMERA permission if needed
+      // Camera screens are portrait-only; lock capture so the preview and
+      // the frames given to the model always share one orientation.
+      await controller.lockCaptureOrientation(DeviceOrientation.portraitUp);
+      final front = description.lensDirection == CameraLensDirection.front;
+      var logged = false;
       await controller.startImageStream((image) {
-        final y = image.planes.first;
+        final plane = image.planes.first;
+        final planes = image.planes;
+        final threePlane = planes.length >= 3;
+        if (kDebugMode && !logged) {
+          logged = true;
+          debugPrint('[personality] camera frames: ${image.width}x${image.height}, '
+              '${planes.length} plane(s), ${planes.first.bytes.length} bytes, '
+              'group ${image.format.group}');
+        }
         onFrame(FrameInput(
-          yPlane: y.bytes,
+          yPlane: plane.bytes,
           width: image.width,
           height: image.height,
-          bytesPerRow: y.bytesPerRow,
-          rotationDegrees: description.sensorOrientation,
+          bytesPerRow: plane.bytesPerRow,
+          rotationDegrees: frameRotation(description.sensorOrientation,
+              DeviceOrientation.portraitUp, front: front),
           timestamp: DateTime.now(),
+          format: threePlane ? FrameFormat.luma : FrameFormat.nv21,
+          frontCamera: front,
+          toNv21: threePlane
+              ? () => yuv420ToNv21(image.width, image.height, [
+                    for (final p in planes)
+                      YuvPlane(p.bytes, p.bytesPerRow, p.bytesPerPixel ?? 1),
+                  ])
+              : null,
         ));
       });
       _state.value = CameraSourceState(

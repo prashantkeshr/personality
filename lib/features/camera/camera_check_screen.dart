@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'portrait_lock.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/device/device_tier.dart';
@@ -10,6 +11,7 @@ import '../../ml/inference/frame_pipeline.dart';
 import '../../ml/pose/pose_estimator.dart';
 import '../../ml/preprocessing/frame_quality.dart';
 import '../../shared/widgets/empty_state.dart';
+import '../posture/posture_labels.dart';
 import 'camera_providers.dart';
 import 'camera_source.dart';
 
@@ -35,6 +37,7 @@ class _CameraCheckScreenState extends ConsumerState<CameraCheckScreen> {
   @override
   void initState() {
     super.initState();
+    PortraitLock.enter();
     // Release the camera whenever the app leaves the foreground.
     _lifecycle = AppLifecycleListener(
       onHide: _pause,
@@ -53,6 +56,7 @@ class _CameraCheckScreenState extends ConsumerState<CameraCheckScreen> {
 
   @override
   void dispose() {
+    PortraitLock.exit();
     _lifecycle.dispose();
     _pipeline?.close();
     _camera.stop();
@@ -390,13 +394,6 @@ String lightingAdvice(AppLocalizations l10n, LightingLevel l) => switch (l) {
       LightingLevel.lowContrast => l10n.lightingLowContrastAdvice,
     };
 
-String qualityAdvice(AppLocalizations l10n, FrameQualityIssue i) => switch (i) {
-      FrameQualityIssue.tooDark => l10n.lightingTooDarkAdvice,
-      FrameQualityIssue.tooBright => l10n.lightingTooBrightAdvice,
-      FrameQualityIssue.lowContrast => l10n.lightingLowContrastAdvice,
-      FrameQualityIssue.bodyOutOfFrame ||
-      FrameQualityIssue.tooFar ||
-      FrameQualityIssue.tooClose =>
-        l10n.poseReposition,
-      FrameQualityIssue.motionBlur => l10n.poseHoldStill,
-    };
+/// Shared with the posture screen so guidance wording stays consistent.
+String qualityAdvice(AppLocalizations l10n, FrameQualityIssue i) =>
+    l10n.poseGuidance(i);

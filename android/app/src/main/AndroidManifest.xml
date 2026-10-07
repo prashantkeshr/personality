@@ -9,6 +9,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove" />
     <!-- Implied by the plugin's (removed) write permission; not needed. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
+    <!-- ML Kit declares INTERNET only to upload Google usage telemetry; pose
+         detection itself is bundled and fully offline. Removing it means the
+         OS blocks any upload (spec §2: no data leaves the device). Verified
+         on device that ML Kit's upload job fails quietly without crashing. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
     <!-- Reminders: requested only when the user turns reminders on. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Reschedules pending reminders after a reboot or app update. -->

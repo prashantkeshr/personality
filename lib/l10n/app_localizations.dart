@@ -2773,6 +2773,378 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo.'**
   String get privacyCameraSummary;
+
+  /// No description provided for @pmHeadTilt.
+  ///
+  /// In en, this message translates to:
+  /// **'Head tilt'**
+  String get pmHeadTilt;
+
+  /// No description provided for @pmShoulderLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoulder level'**
+  String get pmShoulderLevel;
+
+  /// No description provided for @pmHipLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hip level'**
+  String get pmHipLevel;
+
+  /// No description provided for @pmTorsoLean.
+  ///
+  /// In en, this message translates to:
+  /// **'Torso lean'**
+  String get pmTorsoLean;
+
+  /// No description provided for @pmKneeAlignment.
+  ///
+  /// In en, this message translates to:
+  /// **'Knee alignment'**
+  String get pmKneeAlignment;
+
+  /// No description provided for @pmHeadForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Head position'**
+  String get pmHeadForward;
+
+  /// No description provided for @bandAligned.
+  ///
+  /// In en, this message translates to:
+  /// **'Within typical range'**
+  String get bandAligned;
+
+  /// No description provided for @bandSlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Slight'**
+  String get bandSlight;
+
+  /// No description provided for @bandNoticeable.
+  ///
+  /// In en, this message translates to:
+  /// **'Noticeable'**
+  String get bandNoticeable;
+
+  /// No description provided for @dirNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Centered'**
+  String get dirNone;
+
+  /// No description provided for @dirLeftHigher.
+  ///
+  /// In en, this message translates to:
+  /// **'Left side higher'**
+  String get dirLeftHigher;
+
+  /// No description provided for @dirRightHigher.
+  ///
+  /// In en, this message translates to:
+  /// **'Right side higher'**
+  String get dirRightHigher;
+
+  /// No description provided for @dirTiltLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Tilted toward your left'**
+  String get dirTiltLeft;
+
+  /// No description provided for @dirTiltRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Tilted toward your right'**
+  String get dirTiltRight;
+
+  /// No description provided for @dirKneeLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Larger on the left knee'**
+  String get dirKneeLeft;
+
+  /// No description provided for @dirKneeRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Larger on the right knee'**
+  String get dirKneeRight;
+
+  /// No description provided for @dirLeanLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaning toward your left'**
+  String get dirLeanLeft;
+
+  /// No description provided for @dirLeanRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaning toward your right'**
+  String get dirLeanRight;
+
+  /// No description provided for @dirHeadAhead.
+  ///
+  /// In en, this message translates to:
+  /// **'Head ahead of the shoulders'**
+  String get dirHeadAhead;
+
+  /// No description provided for @dirLeanForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaning forward'**
+  String get dirLeanForward;
+
+  /// No description provided for @dirLeanBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaning back'**
+  String get dirLeanBack;
+
+  /// No description provided for @viewFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Front view'**
+  String get viewFront;
+
+  /// No description provided for @viewSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Side view'**
+  String get viewSide;
+
+  /// No description provided for @poseTooFar.
+  ///
+  /// In en, this message translates to:
+  /// **'Move a little closer to the phone.'**
+  String get poseTooFar;
+
+  /// No description provided for @poseTooClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Step back so your whole body fits in the guide.'**
+  String get poseTooClose;
+
+  /// No description provided for @poseUnclearView.
+  ///
+  /// In en, this message translates to:
+  /// **'Face the camera directly, or turn fully sideways.'**
+  String get poseUnclearView;
+
+  /// No description provided for @poseLowVisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Your body isn\'t clearly visible. Fitted clothes and a plain background help.'**
+  String get poseLowVisibility;
+
+  /// No description provided for @postureReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready — {view} detected. Stand naturally and tap Analyze.'**
+  String postureReady(String view);
+
+  /// No description provided for @postureAnalyze.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyze'**
+  String get postureAnalyze;
+
+  /// No description provided for @postureCapturing.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold still while several frames are analyzed…'**
+  String get postureCapturing;
+
+  /// No description provided for @postureHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture history'**
+  String get postureHistory;
+
+  /// No description provided for @postureHistoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your first posture check.'**
+  String get postureHistoryEmpty;
+
+  /// No description provided for @postureIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Get an estimated alignment of your head, shoulders, hips and knees. Analysis runs on this phone; frames are discarded.'**
+  String get postureIntro;
+
+  /// No description provided for @postureTipPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Prop the phone upright at about waist height.'**
+  String get postureTipPhone;
+
+  /// No description provided for @postureTipDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand 2–3 metres away so your whole body fits.'**
+  String get postureTipDistance;
+
+  /// No description provided for @postureTipLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Use even lighting; avoid a bright window behind you.'**
+  String get postureTipLight;
+
+  /// No description provided for @postureTipClothes.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitted clothing makes landmarks easier to see.'**
+  String get postureTipClothes;
+
+  /// No description provided for @postureTipViews.
+  ///
+  /// In en, this message translates to:
+  /// **'Face the camera for a front view, or stand sideways for head position.'**
+  String get postureTipViews;
+
+  /// No description provided for @lensFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Front camera'**
+  String get lensFront;
+
+  /// No description provided for @lensBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back camera'**
+  String get lensBack;
+
+  /// No description provided for @postureDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated alignment from the camera for personal awareness — not a medical or spinal assessment. For pain or concerns, consult a qualified professional.'**
+  String get postureDisclaimer;
+
+  /// No description provided for @postureNotReliable.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture could not be reliably measured.'**
+  String get postureNotReliable;
+
+  /// No description provided for @postureResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated alignment · {view}'**
+  String postureResultTitle(String view);
+
+  /// No description provided for @postureFramesUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} frames'**
+  String postureFramesUsed(int count);
+
+  /// No description provided for @postureSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture check saved'**
+  String get postureSaved;
+
+  /// No description provided for @postureSavedShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get postureSavedShort;
+
+  /// No description provided for @postureRetake.
+  ///
+  /// In en, this message translates to:
+  /// **'Retake'**
+  String get postureRetake;
+
+  /// No description provided for @postureSuggestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested for you'**
+  String get postureSuggestions;
+
+  /// No description provided for @postureLowConfidenceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Results were uncertain, so no suggestions are shown. Try again with better light and your whole body in the guide.'**
+  String get postureLowConfidenceNote;
+
+  /// No description provided for @postureChange.
+  ///
+  /// In en, this message translates to:
+  /// **'{change} since last check'**
+  String postureChange(String change);
+
+  /// No description provided for @postureFlaggedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{All within typical range} =1{1 to look at} other{{count} to look at}}'**
+  String postureFlaggedCount(int count);
+
+  /// No description provided for @valueDegrees.
+  ///
+  /// In en, this message translates to:
+  /// **'{value}°'**
+  String valueDegrees(String value);
+
+  /// No description provided for @exerciseSafetyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These are general mobility ideas, not treatment. Stop if anything hurts.'**
+  String get exerciseSafetyNote;
+
+  /// No description provided for @whyThis.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this?'**
+  String get whyThis;
+
+  /// No description provided for @whyObserved.
+  ///
+  /// In en, this message translates to:
+  /// **'{metric} measured {degrees}° ({band}) in this check.'**
+  String whyObserved(String metric, String degrees, String band);
+
+  /// No description provided for @whyRepeated.
+  ///
+  /// In en, this message translates to:
+  /// **'Your previous check showed this too.'**
+  String get whyRepeated;
+
+  /// No description provided for @whyGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture is one of your goals.'**
+  String get whyGoal;
+
+  /// No description provided for @whyMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'All estimated alignments were within the typical range; regular breaks help keep it that way.'**
+  String get whyMaintenance;
+
+  /// No description provided for @alternativeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Alternative: {name}'**
+  String alternativeLabel(String name);
+
+  /// No description provided for @poseAnalysisFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'On-device analysis could not run on this frame. If this keeps happening, restart the camera.'**
+  String get poseAnalysisFailed;
+
+  /// No description provided for @postureStepBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Step back into the guide — capture starts at zero.'**
+  String get postureStepBack;
+
+  /// No description provided for @postureCountdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting in {seconds}'**
+  String postureCountdown(int seconds);
 }
 
 class _AppLocalizationsDelegate

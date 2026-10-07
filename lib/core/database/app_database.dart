@@ -290,6 +290,46 @@ class PlanRecords extends Table {
   Set<Column> get primaryKey => {itemId, day};
 }
 
+/// One saved posture check. Stores numbers only — never images (spec §69).
+@DataClassName('PostureSessionRow')
+@TableIndex(name: 'idx_posture_session_recorded_at', columns: {#recordedAt})
+class PostureSessions extends Table {
+  @override
+  String get tableName => 'posture_session';
+
+  TextColumn get id => text()();
+  IntColumn get recordedAt => integer()();
+  TextColumn get view => text()();
+  IntColumn get framesUsed => integer()();
+  TextColumn get confidence => text()();
+  RealColumn get visibility => real()();
+  TextColumn get source => text()();
+  TextColumn get method => text()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('PostureMetricRow')
+class PostureMetrics extends Table {
+  @override
+  String get tableName => 'posture_metric';
+
+  TextColumn get sessionId =>
+      text().references(PostureSessions, #id, onDelete: KeyAction.cascade)();
+  TextColumn get metric => text()();
+  RealColumn get value => real()();
+  TextColumn get unit => text()();
+  TextColumn get direction => text()();
+  TextColumn get band => text()();
+  RealColumn get spread => real()();
+  TextColumn get confidence => text()();
+
+  @override
+  Set<Column> get primaryKey => {sessionId, metric};
+}
+
 @DriftDatabase(tables: [
   AppSettingsEntries,
   FeatureFlags,
@@ -308,6 +348,8 @@ class PlanRecords extends Table {
   Routines,
   RoutineItems,
   PlanRecords,
+  PostureSessions,
+  PostureMetrics,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -315,7 +357,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -352,6 +394,11 @@ class AppDatabase extends _$AppDatabase {
             await m.createTable(schema.routineCompletion);
             await m.createIndex(schema.idxRoutineItemRoutine);
             await m.createIndex(schema.idxPlanRecordDay);
+          },
+          from4To5: (m, schema) async {
+            await m.createTable(schema.postureSession);
+            await m.createTable(schema.postureMetric);
+            await m.createIndex(schema.idxPostureSessionRecordedAt);
           },
         ),
         beforeOpen: (details) async {

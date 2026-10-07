@@ -9,7 +9,7 @@ Each phase ends with: compile → analyze → test → run on the emulator → d
 | 2 Profile + Body | Profile, height system and history, weight, body measurements, proportions engine, goals | Done (approved) |
 | 3 Health | Water, meals, sleep, activity, exercise logging, habits | Done (approved) |
 | 4 Routines | Routine builder, reminders (local notifications), plan vs actual, adaptive reminder suggestions | Done (approved) |
-| 5 Camera | Camera, permissions, device capability probe, processing pipeline | **Done — awaiting approval** |
+| 5 Camera | Camera, permissions, device capability probe, processing pipeline | Done (approved) |
 | 6 Posture | Pose model, landmarks, metrics, confidence, history, recommendations | Planned |
 | 7 Exercise | Library (data-driven), animations, programs, progress, optional camera tracking | Planned |
 | 8 Face + Grooming | Face geometry, hairstyle, grooming, eyewear | Planned |
@@ -166,3 +166,29 @@ Verification:
   - The camera permission prompt appeared only on Start. Real frames from the virtual camera gave "Good light" from measured brightness.
   - Leaving the screen made Android's CameraService log "Disconnected client for camera 1"; active camera clients: none.
   - "This device" showed 2.9 GB RAM (matching /proc/meminfo), 4 cores and API 36 → Basic tier, 5 analyses/s, 480p, and Low power as the default.
+
+## Phase 6 — completed 2026-10-07
+
+- **Pose model**: Google ML Kit BlazePose, bundled and on-device (no download). The accurate variant is used on high-tier devices. Landmarks are normalized to the upright image.
+- **Posture engine** (pure Dart): head tilt, shoulder and hip level, torso lean and knee alignment (front view); head position and torso lean (side view).
+  - Angles use real pixel proportions and handle mirrored selfie images.
+  - Before measuring, each frame is checked for body out of frame, too far, too close, movement, an unclear view and low landmark visibility.
+  - A capture is the median over 15 usable frames. Confidence comes from frame count, visibility and spread.
+  - With insufficient evidence it returns no result and says "could not be reliably measured" with specific guidance.
+- **Posture screen**: setup tips, a live skeleton overlay with a body guide and live guidance, and a 5-second countdown so you can step back after tapping Analyze. Results show bands, direction and confidence, labelled as a camera estimate. Save or Retake. Camera screens are locked to portrait.
+- **History** (schema v5: `posture_session`, `posture_metric`, numbers only, never images): compares each check with the previous one of the same view; delete cascades.
+- **Recommendations**: deterministic rules plus data-driven exercise content (9 gentle mobility exercises, English and Hindi, each with safety text). Each card has "Why this?", an alternative, and the safety note. Low-confidence results get no suggestions.
+- **Privacy**: ML Kit's INTERNET permission is removed, so its telemetry upload can't reach the network. Release permissions: CAMERA, POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED, VIBRATE, plus library-declared ACCESS_NETWORK_STATE, WAKE_LOCK and FOREGROUND_SERVICE (WorkManager). The app has no INTERNET permission.
+
+Bugs found on the physical phone (POCO X4 Pro 5G, Android 13 / HyperOS) and fixed:
+- **Release crash at startup**: R8 stripped WorkManager's Room database. Fixed with keep rules in `proguard-rules.pro`.
+- **Every frame failed analysis**: the device delivers 3-plane YUV_420_888 even when NV21 is requested. Frames are now converted to NV21 only when they reach the model (`yuv420ToNv21`, unit-tested with row/pixel strides).
+- **Sideways preview when the phone rotated**: camera screens are now portrait-locked and capture orientation is locked.
+- **The Analyze button was impossible to use alone** (it needed a usable frame while you stood at the phone): it is now always enabled, followed by a countdown.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 157/157 pass.
+- On-device integration test (`integration_test/pose_device_test.dart`): ML Kit runs on the phone with NV21 frames.
+- Real front-view check on the user's phone: hips 0.8°, torso 0.5°, knees 4.3°, all within typical range with high confidence. It was saved, and the camera was released afterwards (CameraService disconnect).
+
+Device notes: Xiaomi needs "Install via USB" and "USB debugging (Security settings)" (applied only after a reboot) for installs and input. scrcpy v5.0 in C:\dev\scrcpy mirrors the phone (SHA-256 verified).

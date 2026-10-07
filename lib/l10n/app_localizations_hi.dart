@@ -1506,4 +1506,227 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get privacyCameraSummary =>
       'कैमरा विश्लेषण इसी फ़ोन पर होता है। जब तक आप स्पष्ट रूप से फ़ोटो सहेजना न चुनें, फ़्रेम कभी सहेजे या अपलोड नहीं होते।';
+
+  @override
+  String get pmHeadTilt => 'सिर का झुकाव';
+
+  @override
+  String get pmShoulderLevel => 'कंधों का स्तर';
+
+  @override
+  String get pmHipLevel => 'कूल्हों का स्तर';
+
+  @override
+  String get pmTorsoLean => 'धड़ का झुकाव';
+
+  @override
+  String get pmKneeAlignment => 'घुटनों का संरेखण';
+
+  @override
+  String get pmHeadForward => 'सिर की स्थिति';
+
+  @override
+  String get bandAligned => 'सामान्य सीमा में';
+
+  @override
+  String get bandSlight => 'हल्का';
+
+  @override
+  String get bandNoticeable => 'स्पष्ट';
+
+  @override
+  String get dirNone => 'बीच में';
+
+  @override
+  String get dirLeftHigher => 'बायाँ हिस्सा ऊँचा';
+
+  @override
+  String get dirRightHigher => 'दायाँ हिस्सा ऊँचा';
+
+  @override
+  String get dirTiltLeft => 'आपकी बाईं ओर झुका';
+
+  @override
+  String get dirTiltRight => 'आपकी दाईं ओर झुका';
+
+  @override
+  String get dirKneeLeft => 'बाएँ घुटने में अधिक';
+
+  @override
+  String get dirKneeRight => 'दाएँ घुटने में अधिक';
+
+  @override
+  String get dirLeanLeft => 'आपकी बाईं ओर झुकाव';
+
+  @override
+  String get dirLeanRight => 'आपकी दाईं ओर झुकाव';
+
+  @override
+  String get dirHeadAhead => 'सिर कंधों से आगे';
+
+  @override
+  String get dirLeanForward => 'आगे की ओर झुकाव';
+
+  @override
+  String get dirLeanBack => 'पीछे की ओर झुकाव';
+
+  @override
+  String get viewFront => 'सामने से';
+
+  @override
+  String get viewSide => 'बगल से';
+
+  @override
+  String get poseTooFar => 'फ़ोन के थोड़ा पास आएँ।';
+
+  @override
+  String get poseTooClose => 'पीछे हटें ताकि पूरा शरीर गाइड में आ जाए।';
+
+  @override
+  String get poseUnclearView =>
+      'कैमरे की ओर सीधे मुँह करें, या पूरी तरह बगल में मुड़ें।';
+
+  @override
+  String get poseLowVisibility =>
+      'आपका शरीर साफ़ नहीं दिख रहा। फ़िटिंग वाले कपड़े और सादी पृष्ठभूमि मदद करती है।';
+
+  @override
+  String postureReady(String view) {
+    return 'तैयार — $view पहचाना गया। सामान्य रूप से खड़े हों और विश्लेषण पर टैप करें।';
+  }
+
+  @override
+  String get postureAnalyze => 'विश्लेषण करें';
+
+  @override
+  String get postureCapturing => 'कई फ़्रेम जाँचे जाने तक स्थिर रहें…';
+
+  @override
+  String get postureHistory => 'पोश्चर इतिहास';
+
+  @override
+  String get postureHistoryEmpty => 'अपनी पहली पोश्चर जाँच पूरी करें।';
+
+  @override
+  String get postureIntro =>
+      'अपने सिर, कंधों, कूल्हों और घुटनों का अनुमानित संरेखण जानें। विश्लेषण इसी फ़ोन पर होता है; फ़्रेम हटा दिए जाते हैं।';
+
+  @override
+  String get postureTipPhone => 'फ़ोन को कमर की ऊँचाई पर सीधा टिकाएँ।';
+
+  @override
+  String get postureTipDistance => '2–3 मीटर दूर खड़े हों ताकि पूरा शरीर दिखे।';
+
+  @override
+  String get postureTipLight =>
+      'समान रोशनी रखें; पीछे तेज़ रोशनी वाली खिड़की न हो।';
+
+  @override
+  String get postureTipClothes =>
+      'फ़िटिंग वाले कपड़ों से शरीर के बिंदु आसानी से दिखते हैं।';
+
+  @override
+  String get postureTipViews =>
+      'सामने के दृश्य के लिए कैमरे की ओर मुँह करें, या सिर की स्थिति के लिए बगल में खड़े हों।';
+
+  @override
+  String get lensFront => 'सामने का कैमरा';
+
+  @override
+  String get lensBack => 'पीछे का कैमरा';
+
+  @override
+  String get postureDisclaimer =>
+      'व्यक्तिगत जागरूकता के लिए कैमरे से अनुमानित संरेखण — यह चिकित्सा या रीढ़ का आकलन नहीं है। दर्द या चिंता होने पर किसी योग्य विशेषज्ञ से सलाह लें।';
+
+  @override
+  String get postureNotReliable =>
+      'पोश्चर को विश्वसनीय रूप से मापा नहीं जा सका।';
+
+  @override
+  String postureResultTitle(String view) {
+    return 'अनुमानित संरेखण · $view';
+  }
+
+  @override
+  String postureFramesUsed(int count) {
+    return '$count फ़्रेम';
+  }
+
+  @override
+  String get postureSaved => 'पोश्चर जाँच सहेजी गई';
+
+  @override
+  String get postureSavedShort => 'सहेजा गया';
+
+  @override
+  String get postureRetake => 'फिर से करें';
+
+  @override
+  String get postureSuggestions => 'आपके लिए सुझाव';
+
+  @override
+  String get postureLowConfidenceNote =>
+      'परिणाम अनिश्चित थे, इसलिए कोई सुझाव नहीं दिखाया गया। बेहतर रोशनी में और पूरे शरीर को गाइड में रखकर फिर से कोशिश करें।';
+
+  @override
+  String postureChange(String change) {
+    return 'पिछली जाँच से $change';
+  }
+
+  @override
+  String postureFlaggedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count पर ध्यान दें',
+      zero: 'सभी सामान्य सीमा में',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String valueDegrees(String value) {
+    return '$value°';
+  }
+
+  @override
+  String get exerciseSafetyNote =>
+      'ये सामान्य गतिशीलता सुझाव हैं, उपचार नहीं। कुछ भी दर्द हो तो रुक जाएँ।';
+
+  @override
+  String get whyThis => 'यह क्यों?';
+
+  @override
+  String whyObserved(String metric, String degrees, String band) {
+    return 'इस जाँच में $metric $degrees° ($band) मापा गया।';
+  }
+
+  @override
+  String get whyRepeated => 'आपकी पिछली जाँच में भी यही दिखा था।';
+
+  @override
+  String get whyGoal => 'पोश्चर आपके लक्ष्यों में से एक है।';
+
+  @override
+  String get whyMaintenance =>
+      'सभी अनुमानित संरेखण सामान्य सीमा में थे; नियमित ब्रेक इसे बनाए रखने में मदद करते हैं।';
+
+  @override
+  String alternativeLabel(String name) {
+    return 'विकल्प: $name';
+  }
+
+  @override
+  String get poseAnalysisFailed =>
+      'इस फ़्रेम पर डिवाइस पर विश्लेषण नहीं हो सका। अगर ऐसा बार-बार हो तो कैमरा फिर से शुरू करें।';
+
+  @override
+  String get postureStepBack =>
+      'गाइड में पीछे हटें — शून्य पर कैप्चर शुरू होगा।';
+
+  @override
+  String postureCountdown(int seconds) {
+    return '$seconds में शुरू';
+  }
 }

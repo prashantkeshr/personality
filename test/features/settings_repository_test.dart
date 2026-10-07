@@ -66,7 +66,9 @@ void main() {
           'routine',
           'routine_item',
           'routine_completion',
+          'posture_session',
+          'posture_metric',
         ]));
-    expect(db.schemaVersion, 4);
+    expect(db.schemaVersion, 5);
   });
 }

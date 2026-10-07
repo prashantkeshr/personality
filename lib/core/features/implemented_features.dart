@@ -21,4 +21,6 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.reminders,
   // Phase 5
   AppFeature.cameraCheck,
+  // Phase 6
+  AppFeature.postureAnalysis,
 };

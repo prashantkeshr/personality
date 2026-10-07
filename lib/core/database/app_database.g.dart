@@ -8731,6 +8731,1082 @@ class PlanRecordsCompanion extends UpdateCompanion<PlanRecordRow> {
   }
 }
 
+class $PostureSessionsTable extends PostureSessions
+    with TableInfo<$PostureSessionsTable, PostureSessionRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PostureSessionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _recordedAtMeta = const VerificationMeta(
+    'recordedAt',
+  );
+  @override
+  late final GeneratedColumn<int> recordedAt = GeneratedColumn<int>(
+    'recorded_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _viewMeta = const VerificationMeta('view');
+  @override
+  late final GeneratedColumn<String> view = GeneratedColumn<String>(
+    'view',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _framesUsedMeta = const VerificationMeta(
+    'framesUsed',
+  );
+  @override
+  late final GeneratedColumn<int> framesUsed = GeneratedColumn<int>(
+    'frames_used',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _confidenceMeta = const VerificationMeta(
+    'confidence',
+  );
+  @override
+  late final GeneratedColumn<String> confidence = GeneratedColumn<String>(
+    'confidence',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _visibilityMeta = const VerificationMeta(
+    'visibility',
+  );
+  @override
+  late final GeneratedColumn<double> visibility = GeneratedColumn<double>(
+    'visibility',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceMeta = const VerificationMeta('source');
+  @override
+  late final GeneratedColumn<String> source = GeneratedColumn<String>(
+    'source',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _methodMeta = const VerificationMeta('method');
+  @override
+  late final GeneratedColumn<String> method = GeneratedColumn<String>(
+    'method',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    recordedAt,
+    view,
+    framesUsed,
+    confidence,
+    visibility,
+    source,
+    method,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'posture_session';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PostureSessionRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('recorded_at')) {
+      context.handle(
+        _recordedAtMeta,
+        recordedAt.isAcceptableOrUnknown(data['recorded_at']!, _recordedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recordedAtMeta);
+    }
+    if (data.containsKey('view')) {
+      context.handle(
+        _viewMeta,
+        view.isAcceptableOrUnknown(data['view']!, _viewMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_viewMeta);
+    }
+    if (data.containsKey('frames_used')) {
+      context.handle(
+        _framesUsedMeta,
+        framesUsed.isAcceptableOrUnknown(data['frames_used']!, _framesUsedMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_framesUsedMeta);
+    }
+    if (data.containsKey('confidence')) {
+      context.handle(
+        _confidenceMeta,
+        confidence.isAcceptableOrUnknown(data['confidence']!, _confidenceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_confidenceMeta);
+    }
+    if (data.containsKey('visibility')) {
+      context.handle(
+        _visibilityMeta,
+        visibility.isAcceptableOrUnknown(data['visibility']!, _visibilityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_visibilityMeta);
+    }
+    if (data.containsKey('source')) {
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceMeta);
+    }
+    if (data.containsKey('method')) {
+      context.handle(
+        _methodMeta,
+        method.isAcceptableOrUnknown(data['method']!, _methodMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_methodMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PostureSessionRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PostureSessionRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      recordedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}recorded_at'],
+      )!,
+      view: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}view'],
+      )!,
+      framesUsed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}frames_used'],
+      )!,
+      confidence: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}confidence'],
+      )!,
+      visibility: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}visibility'],
+      )!,
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      )!,
+      method: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}method'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $PostureSessionsTable createAlias(String alias) {
+    return $PostureSessionsTable(attachedDatabase, alias);
+  }
+}
+
+class PostureSessionRow extends DataClass
+    implements Insertable<PostureSessionRow> {
+  final String id;
+  final int recordedAt;
+  final String view;
+  final int framesUsed;
+  final String confidence;
+  final double visibility;
+  final String source;
+  final String method;
+  final int createdAt;
+  const PostureSessionRow({
+    required this.id,
+    required this.recordedAt,
+    required this.view,
+    required this.framesUsed,
+    required this.confidence,
+    required this.visibility,
+    required this.source,
+    required this.method,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['recorded_at'] = Variable<int>(recordedAt);
+    map['view'] = Variable<String>(view);
+    map['frames_used'] = Variable<int>(framesUsed);
+    map['confidence'] = Variable<String>(confidence);
+    map['visibility'] = Variable<double>(visibility);
+    map['source'] = Variable<String>(source);
+    map['method'] = Variable<String>(method);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  PostureSessionsCompanion toCompanion(bool nullToAbsent) {
+    return PostureSessionsCompanion(
+      id: Value(id),
+      recordedAt: Value(recordedAt),
+      view: Value(view),
+      framesUsed: Value(framesUsed),
+      confidence: Value(confidence),
+      visibility: Value(visibility),
+      source: Value(source),
+      method: Value(method),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory PostureSessionRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PostureSessionRow(
+      id: serializer.fromJson<String>(json['id']),
+      recordedAt: serializer.fromJson<int>(json['recordedAt']),
+      view: serializer.fromJson<String>(json['view']),
+      framesUsed: serializer.fromJson<int>(json['framesUsed']),
+      confidence: serializer.fromJson<String>(json['confidence']),
+      visibility: serializer.fromJson<double>(json['visibility']),
+      source: serializer.fromJson<String>(json['source']),
+      method: serializer.fromJson<String>(json['method']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'recordedAt': serializer.toJson<int>(recordedAt),
+      'view': serializer.toJson<String>(view),
+      'framesUsed': serializer.toJson<int>(framesUsed),
+      'confidence': serializer.toJson<String>(confidence),
+      'visibility': serializer.toJson<double>(visibility),
+      'source': serializer.toJson<String>(source),
+      'method': serializer.toJson<String>(method),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  PostureSessionRow copyWith({
+    String? id,
+    int? recordedAt,
+    String? view,
+    int? framesUsed,
+    String? confidence,
+    double? visibility,
+    String? source,
+    String? method,
+    int? createdAt,
+  }) => PostureSessionRow(
+    id: id ?? this.id,
+    recordedAt: recordedAt ?? this.recordedAt,
+    view: view ?? this.view,
+    framesUsed: framesUsed ?? this.framesUsed,
+    confidence: confidence ?? this.confidence,
+    visibility: visibility ?? this.visibility,
+    source: source ?? this.source,
+    method: method ?? this.method,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  PostureSessionRow copyWithCompanion(PostureSessionsCompanion data) {
+    return PostureSessionRow(
+      id: data.id.present ? data.id.value : this.id,
+      recordedAt: data.recordedAt.present
+          ? data.recordedAt.value
+          : this.recordedAt,
+      view: data.view.present ? data.view.value : this.view,
+      framesUsed: data.framesUsed.present
+          ? data.framesUsed.value
+          : this.framesUsed,
+      confidence: data.confidence.present
+          ? data.confidence.value
+          : this.confidence,
+      visibility: data.visibility.present
+          ? data.visibility.value
+          : this.visibility,
+      source: data.source.present ? data.source.value : this.source,
+      method: data.method.present ? data.method.value : this.method,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PostureSessionRow(')
+          ..write('id: $id, ')
+          ..write('recordedAt: $recordedAt, ')
+          ..write('view: $view, ')
+          ..write('framesUsed: $framesUsed, ')
+          ..write('confidence: $confidence, ')
+          ..write('visibility: $visibility, ')
+          ..write('source: $source, ')
+          ..write('method: $method, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    recordedAt,
+    view,
+    framesUsed,
+    confidence,
+    visibility,
+    source,
+    method,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PostureSessionRow &&
+          other.id == this.id &&
+          other.recordedAt == this.recordedAt &&
+          other.view == this.view &&
+          other.framesUsed == this.framesUsed &&
+          other.confidence == this.confidence &&
+          other.visibility == this.visibility &&
+          other.source == this.source &&
+          other.method == this.method &&
+          other.createdAt == this.createdAt);
+}
+
+class PostureSessionsCompanion extends UpdateCompanion<PostureSessionRow> {
+  final Value<String> id;
+  final Value<int> recordedAt;
+  final Value<String> view;
+  final Value<int> framesUsed;
+  final Value<String> confidence;
+  final Value<double> visibility;
+  final Value<String> source;
+  final Value<String> method;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const PostureSessionsCompanion({
+    this.id = const Value.absent(),
+    this.recordedAt = const Value.absent(),
+    this.view = const Value.absent(),
+    this.framesUsed = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.visibility = const Value.absent(),
+    this.source = const Value.absent(),
+    this.method = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PostureSessionsCompanion.insert({
+    required String id,
+    required int recordedAt,
+    required String view,
+    required int framesUsed,
+    required String confidence,
+    required double visibility,
+    required String source,
+    required String method,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       recordedAt = Value(recordedAt),
+       view = Value(view),
+       framesUsed = Value(framesUsed),
+       confidence = Value(confidence),
+       visibility = Value(visibility),
+       source = Value(source),
+       method = Value(method),
+       createdAt = Value(createdAt);
+  static Insertable<PostureSessionRow> custom({
+    Expression<String>? id,
+    Expression<int>? recordedAt,
+    Expression<String>? view,
+    Expression<int>? framesUsed,
+    Expression<String>? confidence,
+    Expression<double>? visibility,
+    Expression<String>? source,
+    Expression<String>? method,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (recordedAt != null) 'recorded_at': recordedAt,
+      if (view != null) 'view': view,
+      if (framesUsed != null) 'frames_used': framesUsed,
+      if (confidence != null) 'confidence': confidence,
+      if (visibility != null) 'visibility': visibility,
+      if (source != null) 'source': source,
+      if (method != null) 'method': method,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PostureSessionsCompanion copyWith({
+    Value<String>? id,
+    Value<int>? recordedAt,
+    Value<String>? view,
+    Value<int>? framesUsed,
+    Value<String>? confidence,
+    Value<double>? visibility,
+    Value<String>? source,
+    Value<String>? method,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return PostureSessionsCompanion(
+      id: id ?? this.id,
+      recordedAt: recordedAt ?? this.recordedAt,
+      view: view ?? this.view,
+      framesUsed: framesUsed ?? this.framesUsed,
+      confidence: confidence ?? this.confidence,
+      visibility: visibility ?? this.visibility,
+      source: source ?? this.source,
+      method: method ?? this.method,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (recordedAt.present) {
+      map['recorded_at'] = Variable<int>(recordedAt.value);
+    }
+    if (view.present) {
+      map['view'] = Variable<String>(view.value);
+    }
+    if (framesUsed.present) {
+      map['frames_used'] = Variable<int>(framesUsed.value);
+    }
+    if (confidence.present) {
+      map['confidence'] = Variable<String>(confidence.value);
+    }
+    if (visibility.present) {
+      map['visibility'] = Variable<double>(visibility.value);
+    }
+    if (source.present) {
+      map['source'] = Variable<String>(source.value);
+    }
+    if (method.present) {
+      map['method'] = Variable<String>(method.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PostureSessionsCompanion(')
+          ..write('id: $id, ')
+          ..write('recordedAt: $recordedAt, ')
+          ..write('view: $view, ')
+          ..write('framesUsed: $framesUsed, ')
+          ..write('confidence: $confidence, ')
+          ..write('visibility: $visibility, ')
+          ..write('source: $source, ')
+          ..write('method: $method, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $PostureMetricsTable extends PostureMetrics
+    with TableInfo<$PostureMetricsTable, PostureMetricRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PostureMetricsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _sessionIdMeta = const VerificationMeta(
+    'sessionId',
+  );
+  @override
+  late final GeneratedColumn<String> sessionId = GeneratedColumn<String>(
+    'session_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES posture_session (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _metricMeta = const VerificationMeta('metric');
+  @override
+  late final GeneratedColumn<String> metric = GeneratedColumn<String>(
+    'metric',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  @override
+  late final GeneratedColumn<double> value = GeneratedColumn<double>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unitMeta = const VerificationMeta('unit');
+  @override
+  late final GeneratedColumn<String> unit = GeneratedColumn<String>(
+    'unit',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _directionMeta = const VerificationMeta(
+    'direction',
+  );
+  @override
+  late final GeneratedColumn<String> direction = GeneratedColumn<String>(
+    'direction',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bandMeta = const VerificationMeta('band');
+  @override
+  late final GeneratedColumn<String> band = GeneratedColumn<String>(
+    'band',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spreadMeta = const VerificationMeta('spread');
+  @override
+  late final GeneratedColumn<double> spread = GeneratedColumn<double>(
+    'spread',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _confidenceMeta = const VerificationMeta(
+    'confidence',
+  );
+  @override
+  late final GeneratedColumn<String> confidence = GeneratedColumn<String>(
+    'confidence',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    sessionId,
+    metric,
+    value,
+    unit,
+    direction,
+    band,
+    spread,
+    confidence,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'posture_metric';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PostureMetricRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('session_id')) {
+      context.handle(
+        _sessionIdMeta,
+        sessionId.isAcceptableOrUnknown(data['session_id']!, _sessionIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sessionIdMeta);
+    }
+    if (data.containsKey('metric')) {
+      context.handle(
+        _metricMeta,
+        metric.isAcceptableOrUnknown(data['metric']!, _metricMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_metricMeta);
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
+    if (data.containsKey('unit')) {
+      context.handle(
+        _unitMeta,
+        unit.isAcceptableOrUnknown(data['unit']!, _unitMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitMeta);
+    }
+    if (data.containsKey('direction')) {
+      context.handle(
+        _directionMeta,
+        direction.isAcceptableOrUnknown(data['direction']!, _directionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_directionMeta);
+    }
+    if (data.containsKey('band')) {
+      context.handle(
+        _bandMeta,
+        band.isAcceptableOrUnknown(data['band']!, _bandMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bandMeta);
+    }
+    if (data.containsKey('spread')) {
+      context.handle(
+        _spreadMeta,
+        spread.isAcceptableOrUnknown(data['spread']!, _spreadMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_spreadMeta);
+    }
+    if (data.containsKey('confidence')) {
+      context.handle(
+        _confidenceMeta,
+        confidence.isAcceptableOrUnknown(data['confidence']!, _confidenceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_confidenceMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {sessionId, metric};
+  @override
+  PostureMetricRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PostureMetricRow(
+      sessionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}session_id'],
+      )!,
+      metric: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}metric'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}value'],
+      )!,
+      unit: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit'],
+      )!,
+      direction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}direction'],
+      )!,
+      band: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}band'],
+      )!,
+      spread: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}spread'],
+      )!,
+      confidence: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}confidence'],
+      )!,
+    );
+  }
+
+  @override
+  $PostureMetricsTable createAlias(String alias) {
+    return $PostureMetricsTable(attachedDatabase, alias);
+  }
+}
+
+class PostureMetricRow extends DataClass
+    implements Insertable<PostureMetricRow> {
+  final String sessionId;
+  final String metric;
+  final double value;
+  final String unit;
+  final String direction;
+  final String band;
+  final double spread;
+  final String confidence;
+  const PostureMetricRow({
+    required this.sessionId,
+    required this.metric,
+    required this.value,
+    required this.unit,
+    required this.direction,
+    required this.band,
+    required this.spread,
+    required this.confidence,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['session_id'] = Variable<String>(sessionId);
+    map['metric'] = Variable<String>(metric);
+    map['value'] = Variable<double>(value);
+    map['unit'] = Variable<String>(unit);
+    map['direction'] = Variable<String>(direction);
+    map['band'] = Variable<String>(band);
+    map['spread'] = Variable<double>(spread);
+    map['confidence'] = Variable<String>(confidence);
+    return map;
+  }
+
+  PostureMetricsCompanion toCompanion(bool nullToAbsent) {
+    return PostureMetricsCompanion(
+      sessionId: Value(sessionId),
+      metric: Value(metric),
+      value: Value(value),
+      unit: Value(unit),
+      direction: Value(direction),
+      band: Value(band),
+      spread: Value(spread),
+      confidence: Value(confidence),
+    );
+  }
+
+  factory PostureMetricRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PostureMetricRow(
+      sessionId: serializer.fromJson<String>(json['sessionId']),
+      metric: serializer.fromJson<String>(json['metric']),
+      value: serializer.fromJson<double>(json['value']),
+      unit: serializer.fromJson<String>(json['unit']),
+      direction: serializer.fromJson<String>(json['direction']),
+      band: serializer.fromJson<String>(json['band']),
+      spread: serializer.fromJson<double>(json['spread']),
+      confidence: serializer.fromJson<String>(json['confidence']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'sessionId': serializer.toJson<String>(sessionId),
+      'metric': serializer.toJson<String>(metric),
+      'value': serializer.toJson<double>(value),
+      'unit': serializer.toJson<String>(unit),
+      'direction': serializer.toJson<String>(direction),
+      'band': serializer.toJson<String>(band),
+      'spread': serializer.toJson<double>(spread),
+      'confidence': serializer.toJson<String>(confidence),
+    };
+  }
+
+  PostureMetricRow copyWith({
+    String? sessionId,
+    String? metric,
+    double? value,
+    String? unit,
+    String? direction,
+    String? band,
+    double? spread,
+    String? confidence,
+  }) => PostureMetricRow(
+    sessionId: sessionId ?? this.sessionId,
+    metric: metric ?? this.metric,
+    value: value ?? this.value,
+    unit: unit ?? this.unit,
+    direction: direction ?? this.direction,
+    band: band ?? this.band,
+    spread: spread ?? this.spread,
+    confidence: confidence ?? this.confidence,
+  );
+  PostureMetricRow copyWithCompanion(PostureMetricsCompanion data) {
+    return PostureMetricRow(
+      sessionId: data.sessionId.present ? data.sessionId.value : this.sessionId,
+      metric: data.metric.present ? data.metric.value : this.metric,
+      value: data.value.present ? data.value.value : this.value,
+      unit: data.unit.present ? data.unit.value : this.unit,
+      direction: data.direction.present ? data.direction.value : this.direction,
+      band: data.band.present ? data.band.value : this.band,
+      spread: data.spread.present ? data.spread.value : this.spread,
+      confidence: data.confidence.present
+          ? data.confidence.value
+          : this.confidence,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PostureMetricRow(')
+          ..write('sessionId: $sessionId, ')
+          ..write('metric: $metric, ')
+          ..write('value: $value, ')
+          ..write('unit: $unit, ')
+          ..write('direction: $direction, ')
+          ..write('band: $band, ')
+          ..write('spread: $spread, ')
+          ..write('confidence: $confidence')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    sessionId,
+    metric,
+    value,
+    unit,
+    direction,
+    band,
+    spread,
+    confidence,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PostureMetricRow &&
+          other.sessionId == this.sessionId &&
+          other.metric == this.metric &&
+          other.value == this.value &&
+          other.unit == this.unit &&
+          other.direction == this.direction &&
+          other.band == this.band &&
+          other.spread == this.spread &&
+          other.confidence == this.confidence);
+}
+
+class PostureMetricsCompanion extends UpdateCompanion<PostureMetricRow> {
+  final Value<String> sessionId;
+  final Value<String> metric;
+  final Value<double> value;
+  final Value<String> unit;
+  final Value<String> direction;
+  final Value<String> band;
+  final Value<double> spread;
+  final Value<String> confidence;
+  final Value<int> rowid;
+  const PostureMetricsCompanion({
+    this.sessionId = const Value.absent(),
+    this.metric = const Value.absent(),
+    this.value = const Value.absent(),
+    this.unit = const Value.absent(),
+    this.direction = const Value.absent(),
+    this.band = const Value.absent(),
+    this.spread = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PostureMetricsCompanion.insert({
+    required String sessionId,
+    required String metric,
+    required double value,
+    required String unit,
+    required String direction,
+    required String band,
+    required double spread,
+    required String confidence,
+    this.rowid = const Value.absent(),
+  }) : sessionId = Value(sessionId),
+       metric = Value(metric),
+       value = Value(value),
+       unit = Value(unit),
+       direction = Value(direction),
+       band = Value(band),
+       spread = Value(spread),
+       confidence = Value(confidence);
+  static Insertable<PostureMetricRow> custom({
+    Expression<String>? sessionId,
+    Expression<String>? metric,
+    Expression<double>? value,
+    Expression<String>? unit,
+    Expression<String>? direction,
+    Expression<String>? band,
+    Expression<double>? spread,
+    Expression<String>? confidence,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (sessionId != null) 'session_id': sessionId,
+      if (metric != null) 'metric': metric,
+      if (value != null) 'value': value,
+      if (unit != null) 'unit': unit,
+      if (direction != null) 'direction': direction,
+      if (band != null) 'band': band,
+      if (spread != null) 'spread': spread,
+      if (confidence != null) 'confidence': confidence,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PostureMetricsCompanion copyWith({
+    Value<String>? sessionId,
+    Value<String>? metric,
+    Value<double>? value,
+    Value<String>? unit,
+    Value<String>? direction,
+    Value<String>? band,
+    Value<double>? spread,
+    Value<String>? confidence,
+    Value<int>? rowid,
+  }) {
+    return PostureMetricsCompanion(
+      sessionId: sessionId ?? this.sessionId,
+      metric: metric ?? this.metric,
+      value: value ?? this.value,
+      unit: unit ?? this.unit,
+      direction: direction ?? this.direction,
+      band: band ?? this.band,
+      spread: spread ?? this.spread,
+      confidence: confidence ?? this.confidence,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (sessionId.present) {
+      map['session_id'] = Variable<String>(sessionId.value);
+    }
+    if (metric.present) {
+      map['metric'] = Variable<String>(metric.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<double>(value.value);
+    }
+    if (unit.present) {
+      map['unit'] = Variable<String>(unit.value);
+    }
+    if (direction.present) {
+      map['direction'] = Variable<String>(direction.value);
+    }
+    if (band.present) {
+      map['band'] = Variable<String>(band.value);
+    }
+    if (spread.present) {
+      map['spread'] = Variable<double>(spread.value);
+    }
+    if (confidence.present) {
+      map['confidence'] = Variable<String>(confidence.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PostureMetricsCompanion(')
+          ..write('sessionId: $sessionId, ')
+          ..write('metric: $metric, ')
+          ..write('value: $value, ')
+          ..write('unit: $unit, ')
+          ..write('direction: $direction, ')
+          ..write('band: $band, ')
+          ..write('spread: $spread, ')
+          ..write('confidence: $confidence, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -8758,6 +9834,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $RoutinesTable routines = $RoutinesTable(this);
   late final $RoutineItemsTable routineItems = $RoutineItemsTable(this);
   late final $PlanRecordsTable planRecords = $PlanRecordsTable(this);
+  late final $PostureSessionsTable postureSessions = $PostureSessionsTable(
+    this,
+  );
+  late final $PostureMetricsTable postureMetrics = $PostureMetricsTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -8802,6 +9882,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'idx_plan_record_day',
     'CREATE INDEX idx_plan_record_day ON routine_completion (day)',
   );
+  late final Index idxPostureSessionRecordedAt = Index(
+    'idx_posture_session_recorded_at',
+    'CREATE INDEX idx_posture_session_recorded_at ON posture_session (recorded_at)',
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -8824,6 +9908,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     routines,
     routineItems,
     planRecords,
+    postureSessions,
+    postureMetrics,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -8835,6 +9921,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     idxHabitCompletionDay,
     idxRoutineItemRoutine,
     idxPlanRecordDay,
+    idxPostureSessionRecordedAt,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -8858,6 +9945,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         limitUpdateKind: UpdateKind.delete,
       ),
       result: [TableUpdate('routine_completion', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'posture_session',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('posture_metric', kind: UpdateKind.delete)],
     ),
   ]);
 }
@@ -14053,6 +15147,786 @@ typedef $$PlanRecordsTableProcessedTableManager =
       PlanRecordRow,
       PrefetchHooks Function({bool itemId})
     >;
+typedef $$PostureSessionsTableCreateCompanionBuilder =
+    PostureSessionsCompanion Function({
+      required String id,
+      required int recordedAt,
+      required String view,
+      required int framesUsed,
+      required String confidence,
+      required double visibility,
+      required String source,
+      required String method,
+      required int createdAt,
+      Value<int> rowid,
+    });
+typedef $$PostureSessionsTableUpdateCompanionBuilder =
+    PostureSessionsCompanion Function({
+      Value<String> id,
+      Value<int> recordedAt,
+      Value<String> view,
+      Value<int> framesUsed,
+      Value<String> confidence,
+      Value<double> visibility,
+      Value<String> source,
+      Value<String> method,
+      Value<int> createdAt,
+      Value<int> rowid,
+    });
+
+final class $$PostureSessionsTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $PostureSessionsTable,
+          PostureSessionRow
+        > {
+  $$PostureSessionsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<$PostureMetricsTable, List<PostureMetricRow>>
+  _postureMetricsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.postureMetrics,
+    aliasName: 'posture_session__id__posture_metric__session_id',
+  );
+
+  $$PostureMetricsTableProcessedTableManager get postureMetricsRefs {
+    final manager = $$PostureMetricsTableTableManager(
+      $_db,
+      $_db.postureMetrics,
+    ).filter((f) => f.sessionId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_postureMetricsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$PostureSessionsTableFilterComposer
+    extends Composer<_$AppDatabase, $PostureSessionsTable> {
+  $$PostureSessionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get view => $composableBuilder(
+    column: $table.view,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get visibility => $composableBuilder(
+    column: $table.visibility,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get method => $composableBuilder(
+    column: $table.method,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> postureMetricsRefs(
+    Expression<bool> Function($$PostureMetricsTableFilterComposer f) f,
+  ) {
+    final $$PostureMetricsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.postureMetrics,
+      getReferencedColumn: (t) => t.sessionId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$PostureMetricsTableFilterComposer(
+            $db: $db,
+            $table: $db.postureMetrics,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$PostureSessionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PostureSessionsTable> {
+  $$PostureSessionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get view => $composableBuilder(
+    column: $table.view,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get visibility => $composableBuilder(
+    column: $table.visibility,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get method => $composableBuilder(
+    column: $table.method,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PostureSessionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PostureSessionsTable> {
+  $$PostureSessionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get view =>
+      $composableBuilder(column: $table.view, builder: (column) => column);
+
+  GeneratedColumn<int> get framesUsed => $composableBuilder(
+    column: $table.framesUsed,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get visibility => $composableBuilder(
+    column: $table.visibility,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get source =>
+      $composableBuilder(column: $table.source, builder: (column) => column);
+
+  GeneratedColumn<String> get method =>
+      $composableBuilder(column: $table.method, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  Expression<T> postureMetricsRefs<T extends Object>(
+    Expression<T> Function($$PostureMetricsTableAnnotationComposer a) f,
+  ) {
+    final $$PostureMetricsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.postureMetrics,
+      getReferencedColumn: (t) => t.sessionId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$PostureMetricsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.postureMetrics,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$PostureSessionsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PostureSessionsTable,
+          PostureSessionRow,
+          $$PostureSessionsTableFilterComposer,
+          $$PostureSessionsTableOrderingComposer,
+          $$PostureSessionsTableAnnotationComposer,
+          $$PostureSessionsTableCreateCompanionBuilder,
+          $$PostureSessionsTableUpdateCompanionBuilder,
+          (PostureSessionRow, $$PostureSessionsTableReferences),
+          PostureSessionRow,
+          PrefetchHooks Function({bool postureMetricsRefs})
+        > {
+  $$PostureSessionsTableTableManager(
+    _$AppDatabase db,
+    $PostureSessionsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PostureSessionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PostureSessionsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PostureSessionsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<int> recordedAt = const Value.absent(),
+                Value<String> view = const Value.absent(),
+                Value<int> framesUsed = const Value.absent(),
+                Value<String> confidence = const Value.absent(),
+                Value<double> visibility = const Value.absent(),
+                Value<String> source = const Value.absent(),
+                Value<String> method = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PostureSessionsCompanion(
+                id: id,
+                recordedAt: recordedAt,
+                view: view,
+                framesUsed: framesUsed,
+                confidence: confidence,
+                visibility: visibility,
+                source: source,
+                method: method,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required int recordedAt,
+                required String view,
+                required int framesUsed,
+                required String confidence,
+                required double visibility,
+                required String source,
+                required String method,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => PostureSessionsCompanion.insert(
+                id: id,
+                recordedAt: recordedAt,
+                view: view,
+                framesUsed: framesUsed,
+                confidence: confidence,
+                visibility: visibility,
+                source: source,
+                method: method,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$PostureSessionsTable, PostureSessionRow>(table),
+                  $$PostureSessionsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({postureMetricsRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (postureMetricsRefs) db.postureMetrics,
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (postureMetricsRefs)
+                    await $_getPrefetchedData<
+                      PostureSessionRow,
+                      $PostureSessionsTable,
+                      PostureMetricRow
+                    >(
+                      currentTable: table,
+                      referencedTable: $$PostureSessionsTableReferences
+                          ._postureMetricsRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$PostureSessionsTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).postureMetricsRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.sessionId == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$PostureSessionsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PostureSessionsTable,
+      PostureSessionRow,
+      $$PostureSessionsTableFilterComposer,
+      $$PostureSessionsTableOrderingComposer,
+      $$PostureSessionsTableAnnotationComposer,
+      $$PostureSessionsTableCreateCompanionBuilder,
+      $$PostureSessionsTableUpdateCompanionBuilder,
+      (PostureSessionRow, $$PostureSessionsTableReferences),
+      PostureSessionRow,
+      PrefetchHooks Function({bool postureMetricsRefs})
+    >;
+typedef $$PostureMetricsTableCreateCompanionBuilder =
+    PostureMetricsCompanion Function({
+      required String sessionId,
+      required String metric,
+      required double value,
+      required String unit,
+      required String direction,
+      required String band,
+      required double spread,
+      required String confidence,
+      Value<int> rowid,
+    });
+typedef $$PostureMetricsTableUpdateCompanionBuilder =
+    PostureMetricsCompanion Function({
+      Value<String> sessionId,
+      Value<String> metric,
+      Value<double> value,
+      Value<String> unit,
+      Value<String> direction,
+      Value<String> band,
+      Value<double> spread,
+      Value<String> confidence,
+      Value<int> rowid,
+    });
+
+final class $$PostureMetricsTableReferences
+    extends
+        BaseReferences<_$AppDatabase, $PostureMetricsTable, PostureMetricRow> {
+  $$PostureMetricsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $PostureSessionsTable _sessionIdTable(_$AppDatabase db) => db
+      .postureSessions
+      .createAlias('posture_metric__session_id__posture_session__id');
+
+  $$PostureSessionsTableProcessedTableManager get sessionId {
+    final $_column = $_itemColumn<String>('session_id')!;
+
+    final manager = $$PostureSessionsTableTableManager(
+      $_db,
+      $_db.postureSessions,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_sessionIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$PostureMetricsTableFilterComposer
+    extends Composer<_$AppDatabase, $PostureMetricsTable> {
+  $$PostureMetricsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get metric => $composableBuilder(
+    column: $table.metric,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get direction => $composableBuilder(
+    column: $table.direction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get band => $composableBuilder(
+    column: $table.band,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get spread => $composableBuilder(
+    column: $table.spread,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$PostureSessionsTableFilterComposer get sessionId {
+    final $$PostureSessionsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sessionId,
+      referencedTable: $db.postureSessions,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$PostureSessionsTableFilterComposer(
+            $db: $db,
+            $table: $db.postureSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$PostureMetricsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PostureMetricsTable> {
+  $$PostureMetricsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get metric => $composableBuilder(
+    column: $table.metric,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get direction => $composableBuilder(
+    column: $table.direction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get band => $composableBuilder(
+    column: $table.band,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get spread => $composableBuilder(
+    column: $table.spread,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$PostureSessionsTableOrderingComposer get sessionId {
+    final $$PostureSessionsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sessionId,
+      referencedTable: $db.postureSessions,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$PostureSessionsTableOrderingComposer(
+            $db: $db,
+            $table: $db.postureSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$PostureMetricsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PostureMetricsTable> {
+  $$PostureMetricsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get metric =>
+      $composableBuilder(column: $table.metric, builder: (column) => column);
+
+  GeneratedColumn<double> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  GeneratedColumn<String> get unit =>
+      $composableBuilder(column: $table.unit, builder: (column) => column);
+
+  GeneratedColumn<String> get direction =>
+      $composableBuilder(column: $table.direction, builder: (column) => column);
+
+  GeneratedColumn<String> get band =>
+      $composableBuilder(column: $table.band, builder: (column) => column);
+
+  GeneratedColumn<double> get spread =>
+      $composableBuilder(column: $table.spread, builder: (column) => column);
+
+  GeneratedColumn<String> get confidence => $composableBuilder(
+    column: $table.confidence,
+    builder: (column) => column,
+  );
+
+  $$PostureSessionsTableAnnotationComposer get sessionId {
+    final $$PostureSessionsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sessionId,
+      referencedTable: $db.postureSessions,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$PostureSessionsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.postureSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$PostureMetricsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PostureMetricsTable,
+          PostureMetricRow,
+          $$PostureMetricsTableFilterComposer,
+          $$PostureMetricsTableOrderingComposer,
+          $$PostureMetricsTableAnnotationComposer,
+          $$PostureMetricsTableCreateCompanionBuilder,
+          $$PostureMetricsTableUpdateCompanionBuilder,
+          (PostureMetricRow, $$PostureMetricsTableReferences),
+          PostureMetricRow,
+          PrefetchHooks Function({bool sessionId})
+        > {
+  $$PostureMetricsTableTableManager(
+    _$AppDatabase db,
+    $PostureMetricsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PostureMetricsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PostureMetricsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PostureMetricsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> sessionId = const Value.absent(),
+                Value<String> metric = const Value.absent(),
+                Value<double> value = const Value.absent(),
+                Value<String> unit = const Value.absent(),
+                Value<String> direction = const Value.absent(),
+                Value<String> band = const Value.absent(),
+                Value<double> spread = const Value.absent(),
+                Value<String> confidence = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PostureMetricsCompanion(
+                sessionId: sessionId,
+                metric: metric,
+                value: value,
+                unit: unit,
+                direction: direction,
+                band: band,
+                spread: spread,
+                confidence: confidence,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String sessionId,
+                required String metric,
+                required double value,
+                required String unit,
+                required String direction,
+                required String band,
+                required double spread,
+                required String confidence,
+                Value<int> rowid = const Value.absent(),
+              }) => PostureMetricsCompanion.insert(
+                sessionId: sessionId,
+                metric: metric,
+                value: value,
+                unit: unit,
+                direction: direction,
+                band: band,
+                spread: spread,
+                confidence: confidence,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$PostureMetricsTable, PostureMetricRow>(table),
+                  $$PostureMetricsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({sessionId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (sessionId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.sessionId,
+                        referencedTable: $$PostureMetricsTableReferences
+                            ._sessionIdTable(db),
+                        referencedColumn: $$PostureMetricsTableReferences
+                            ._sessionIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$PostureMetricsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PostureMetricsTable,
+      PostureMetricRow,
+      $$PostureMetricsTableFilterComposer,
+      $$PostureMetricsTableOrderingComposer,
+      $$PostureMetricsTableAnnotationComposer,
+      $$PostureMetricsTableCreateCompanionBuilder,
+      $$PostureMetricsTableUpdateCompanionBuilder,
+      (PostureMetricRow, $$PostureMetricsTableReferences),
+      PostureMetricRow,
+      PrefetchHooks Function({bool sessionId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -14091,4 +15965,8 @@ class $AppDatabaseManager {
       $$RoutineItemsTableTableManager(_db, _db.routineItems);
   $$PlanRecordsTableTableManager get planRecords =>
       $$PlanRecordsTableTableManager(_db, _db.planRecords);
+  $$PostureSessionsTableTableManager get postureSessions =>
+      $$PostureSessionsTableTableManager(_db, _db.postureSessions);
+  $$PostureMetricsTableTableManager get postureMetrics =>
+      $$PostureMetricsTableTableManager(_db, _db.postureMetrics);
 }

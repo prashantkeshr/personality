@@ -11,6 +11,7 @@ import 'generated/schema_v1.dart' as v1;
 import 'generated/schema_v2.dart' as v2;
 import 'generated/schema_v3.dart' as v3;
 import 'generated/schema_v4.dart' as v4;
+import 'generated/schema_v5.dart' as v5;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -167,6 +168,33 @@ void main() {
         final c = await newDb.select(newDb.habitCompletion).getSingle();
         expect((c.habitId, c.day, c.status), ('h1', 20260926, 'completed'));
         expect(await newDb.select(newDb.routine).get(), isEmpty);
+      },
+    );
+  });
+
+  // Routines from v4 (Phase 4) must survive the v5 upgrade.
+  test('migration from v4 to v5 keeps routines', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 4,
+      newVersion: 5,
+      createOld: v4.DatabaseAtV4.new,
+      createNew: v5.DatabaseAtV5.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.routine,
+            const v4.RoutineData(
+                id: 'r1',
+                name: 'Morning',
+                weekdays: 0x7F,
+                active: 1,
+                createdAt: 1,
+                updatedAt: 1));
+      },
+      validateItems: (newDb) async {
+        final r = await newDb.select(newDb.routine).getSingle();
+        expect((r.id, r.name, r.weekdays), ('r1', 'Morning', 0x7F));
+        expect(await newDb.select(newDb.postureSession).get(), isEmpty);
       },
     );
   });

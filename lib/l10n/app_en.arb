@@ -812,5 +812,136 @@
       }
     }
   },
-  "privacyCameraSummary": "Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo."
+  "privacyCameraSummary": "Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo.",
+  "pmHeadTilt": "Head tilt",
+  "pmShoulderLevel": "Shoulder level",
+  "pmHipLevel": "Hip level",
+  "pmTorsoLean": "Torso lean",
+  "pmKneeAlignment": "Knee alignment",
+  "pmHeadForward": "Head position",
+  "bandAligned": "Within typical range",
+  "bandSlight": "Slight",
+  "bandNoticeable": "Noticeable",
+  "dirNone": "Centered",
+  "dirLeftHigher": "Left side higher",
+  "dirRightHigher": "Right side higher",
+  "dirTiltLeft": "Tilted toward your left",
+  "dirTiltRight": "Tilted toward your right",
+  "dirKneeLeft": "Larger on the left knee",
+  "dirKneeRight": "Larger on the right knee",
+  "dirLeanLeft": "Leaning toward your left",
+  "dirLeanRight": "Leaning toward your right",
+  "dirHeadAhead": "Head ahead of the shoulders",
+  "dirLeanForward": "Leaning forward",
+  "dirLeanBack": "Leaning back",
+  "viewFront": "Front view",
+  "viewSide": "Side view",
+  "poseTooFar": "Move a little closer to the phone.",
+  "poseTooClose": "Step back so your whole body fits in the guide.",
+  "poseUnclearView": "Face the camera directly, or turn fully sideways.",
+  "poseLowVisibility": "Your body isn't clearly visible. Fitted clothes and a plain background help.",
+  "postureReady": "Ready — {view} detected. Stand naturally and tap Analyze.",
+  "@postureReady": {
+    "placeholders": {
+      "view": {
+        "type": "String"
+      }
+    }
+  },
+  "postureAnalyze": "Analyze",
+  "postureCapturing": "Hold still while several frames are analyzed…",
+  "postureHistory": "Posture history",
+  "postureHistoryEmpty": "Complete your first posture check.",
+  "postureIntro": "Get an estimated alignment of your head, shoulders, hips and knees. Analysis runs on this phone; frames are discarded.",
+  "postureTipPhone": "Prop the phone upright at about waist height.",
+  "postureTipDistance": "Stand 2–3 metres away so your whole body fits.",
+  "postureTipLight": "Use even lighting; avoid a bright window behind you.",
+  "postureTipClothes": "Fitted clothing makes landmarks easier to see.",
+  "postureTipViews": "Face the camera for a front view, or stand sideways for head position.",
+  "lensFront": "Front camera",
+  "lensBack": "Back camera",
+  "postureDisclaimer": "Estimated alignment from the camera for personal awareness — not a medical or spinal assessment. For pain or concerns, consult a qualified professional.",
+  "postureNotReliable": "Posture could not be reliably measured.",
+  "postureResultTitle": "Estimated alignment · {view}",
+  "@postureResultTitle": {
+    "placeholders": {
+      "view": {
+        "type": "String"
+      }
+    }
+  },
+  "postureFramesUsed": "{count} frames",
+  "@postureFramesUsed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "postureSaved": "Posture check saved",
+  "postureSavedShort": "Saved",
+  "postureRetake": "Retake",
+  "postureSuggestions": "Suggested for you",
+  "postureLowConfidenceNote": "Results were uncertain, so no suggestions are shown. Try again with better light and your whole body in the guide.",
+  "postureChange": "{change} since last check",
+  "@postureChange": {
+    "placeholders": {
+      "change": {
+        "type": "String"
+      }
+    }
+  },
+  "postureFlaggedCount": "{count, plural, =0{All within typical range} =1{1 to look at} other{{count} to look at}}",
+  "@postureFlaggedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "valueDegrees": "{value}°",
+  "@valueDegrees": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "exerciseSafetyNote": "These are general mobility ideas, not treatment. Stop if anything hurts.",
+  "whyThis": "Why this?",
+  "whyObserved": "{metric} measured {degrees}° ({band}) in this check.",
+  "@whyObserved": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      },
+      "degrees": {
+        "type": "String"
+      },
+      "band": {
+        "type": "String"
+      }
+    }
+  },
+  "whyRepeated": "Your previous check showed this too.",
+  "whyGoal": "Posture is one of your goals.",
+  "whyMaintenance": "All estimated alignments were within the typical range; regular breaks help keep it that way.",
+  "alternativeLabel": "Alternative: {name}",
+  "@alternativeLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "poseAnalysisFailed": "On-device analysis could not run on this frame. If this keeps happening, restart the camera.",
+  "postureStepBack": "Step back into the guide — capture starts at zero.",
+  "postureCountdown": "Starting in {seconds}",
+  "@postureCountdown": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  }
 }

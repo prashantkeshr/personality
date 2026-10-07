@@ -22,9 +22,20 @@ class FrameInput {
     required this.bytesPerRow,
     required this.rotationDegrees,
     required this.timestamp,
+    this.format = FrameFormat.luma,
+    this.frontCamera = false,
+    this.toNv21,
   });
 
+  /// Builds NV21 bytes on demand for devices that deliver 3-plane YUV; only
+  /// called for frames that actually reach the model.
+  final Uint8List Function()? toNv21;
+
+  /// Starts with the luminance plane; for [FrameFormat.nv21] the chroma
+  /// follows it in the same buffer.
   final Uint8List yPlane;
+  final FrameFormat format;
+  final bool frontCamera;
   final int width;
   final int height;
   final int bytesPerRow;
@@ -96,12 +107,16 @@ class FramePipeline {
       // Only usable frames reach the (comparatively expensive) estimator.
       PoseEstimation? pose;
       if (quality.usable) {
+        final converted = frame.toNv21?.call();
         pose = await estimator.estimate(CameraFrame(
-          bytes: frame.yPlane,
+          bytes: converted ?? frame.yPlane,
           width: frame.width,
           height: frame.height,
+          bytesPerRow: converted != null ? frame.width : frame.bytesPerRow,
           rotationDegrees: frame.rotationDegrees,
           timestamp: frame.timestamp,
+          format: converted != null ? FrameFormat.nv21 : frame.format,
+          frontCamera: frame.frontCamera,
         ));
       } else {
         pose = LowQualityFrame({

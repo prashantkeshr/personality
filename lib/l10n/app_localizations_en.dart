@@ -1516,4 +1516,229 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get privacyCameraSummary =>
       'Camera analysis runs on this phone. Frames are never saved or uploaded unless you explicitly choose to save a photo.';
+
+  @override
+  String get pmHeadTilt => 'Head tilt';
+
+  @override
+  String get pmShoulderLevel => 'Shoulder level';
+
+  @override
+  String get pmHipLevel => 'Hip level';
+
+  @override
+  String get pmTorsoLean => 'Torso lean';
+
+  @override
+  String get pmKneeAlignment => 'Knee alignment';
+
+  @override
+  String get pmHeadForward => 'Head position';
+
+  @override
+  String get bandAligned => 'Within typical range';
+
+  @override
+  String get bandSlight => 'Slight';
+
+  @override
+  String get bandNoticeable => 'Noticeable';
+
+  @override
+  String get dirNone => 'Centered';
+
+  @override
+  String get dirLeftHigher => 'Left side higher';
+
+  @override
+  String get dirRightHigher => 'Right side higher';
+
+  @override
+  String get dirTiltLeft => 'Tilted toward your left';
+
+  @override
+  String get dirTiltRight => 'Tilted toward your right';
+
+  @override
+  String get dirKneeLeft => 'Larger on the left knee';
+
+  @override
+  String get dirKneeRight => 'Larger on the right knee';
+
+  @override
+  String get dirLeanLeft => 'Leaning toward your left';
+
+  @override
+  String get dirLeanRight => 'Leaning toward your right';
+
+  @override
+  String get dirHeadAhead => 'Head ahead of the shoulders';
+
+  @override
+  String get dirLeanForward => 'Leaning forward';
+
+  @override
+  String get dirLeanBack => 'Leaning back';
+
+  @override
+  String get viewFront => 'Front view';
+
+  @override
+  String get viewSide => 'Side view';
+
+  @override
+  String get poseTooFar => 'Move a little closer to the phone.';
+
+  @override
+  String get poseTooClose => 'Step back so your whole body fits in the guide.';
+
+  @override
+  String get poseUnclearView =>
+      'Face the camera directly, or turn fully sideways.';
+
+  @override
+  String get poseLowVisibility =>
+      'Your body isn\'t clearly visible. Fitted clothes and a plain background help.';
+
+  @override
+  String postureReady(String view) {
+    return 'Ready — $view detected. Stand naturally and tap Analyze.';
+  }
+
+  @override
+  String get postureAnalyze => 'Analyze';
+
+  @override
+  String get postureCapturing =>
+      'Hold still while several frames are analyzed…';
+
+  @override
+  String get postureHistory => 'Posture history';
+
+  @override
+  String get postureHistoryEmpty => 'Complete your first posture check.';
+
+  @override
+  String get postureIntro =>
+      'Get an estimated alignment of your head, shoulders, hips and knees. Analysis runs on this phone; frames are discarded.';
+
+  @override
+  String get postureTipPhone => 'Prop the phone upright at about waist height.';
+
+  @override
+  String get postureTipDistance =>
+      'Stand 2–3 metres away so your whole body fits.';
+
+  @override
+  String get postureTipLight =>
+      'Use even lighting; avoid a bright window behind you.';
+
+  @override
+  String get postureTipClothes =>
+      'Fitted clothing makes landmarks easier to see.';
+
+  @override
+  String get postureTipViews =>
+      'Face the camera for a front view, or stand sideways for head position.';
+
+  @override
+  String get lensFront => 'Front camera';
+
+  @override
+  String get lensBack => 'Back camera';
+
+  @override
+  String get postureDisclaimer =>
+      'Estimated alignment from the camera for personal awareness — not a medical or spinal assessment. For pain or concerns, consult a qualified professional.';
+
+  @override
+  String get postureNotReliable => 'Posture could not be reliably measured.';
+
+  @override
+  String postureResultTitle(String view) {
+    return 'Estimated alignment · $view';
+  }
+
+  @override
+  String postureFramesUsed(int count) {
+    return '$count frames';
+  }
+
+  @override
+  String get postureSaved => 'Posture check saved';
+
+  @override
+  String get postureSavedShort => 'Saved';
+
+  @override
+  String get postureRetake => 'Retake';
+
+  @override
+  String get postureSuggestions => 'Suggested for you';
+
+  @override
+  String get postureLowConfidenceNote =>
+      'Results were uncertain, so no suggestions are shown. Try again with better light and your whole body in the guide.';
+
+  @override
+  String postureChange(String change) {
+    return '$change since last check';
+  }
+
+  @override
+  String postureFlaggedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count to look at',
+      one: '1 to look at',
+      zero: 'All within typical range',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String valueDegrees(String value) {
+    return '$value°';
+  }
+
+  @override
+  String get exerciseSafetyNote =>
+      'These are general mobility ideas, not treatment. Stop if anything hurts.';
+
+  @override
+  String get whyThis => 'Why this?';
+
+  @override
+  String whyObserved(String metric, String degrees, String band) {
+    return '$metric measured $degrees° ($band) in this check.';
+  }
+
+  @override
+  String get whyRepeated => 'Your previous check showed this too.';
+
+  @override
+  String get whyGoal => 'Posture is one of your goals.';
+
+  @override
+  String get whyMaintenance =>
+      'All estimated alignments were within the typical range; regular breaks help keep it that way.';
+
+  @override
+  String alternativeLabel(String name) {
+    return 'Alternative: $name';
+  }
+
+  @override
+  String get poseAnalysisFailed =>
+      'On-device analysis could not run on this frame. If this keeps happening, restart the camera.';
+
+  @override
+  String get postureStepBack =>
+      'Step back into the guide — capture starts at zero.';
+
+  @override
+  String postureCountdown(int seconds) {
+    return 'Starting in $seconds';
+  }
 }

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "chin_tuck",
+    "targets": ["headForward", "headTilt"],
+    "name": {"en": "Chin tucks", "hi": "चिन टक"},
+    "summary": {"en": "Gently draws the head back over the shoulders.", "hi": "सिर को धीरे से कंधों के ऊपर पीछे लाता है।"},
+    "steps": {
+      "en": ["Sit or stand tall, looking straight ahead.", "Glide your chin straight back, as if making a double chin.", "Hold for 3–5 seconds, then relax."],
+      "hi": ["सीधे बैठें या खड़े हों, सामने देखें।", "ठुड्डी को सीधा पीछे खिसकाएँ, जैसे डबल चिन बना रहे हों।", "3–5 सेकंड रुकें, फिर ढीला छोड़ें।"]
+    },
+    "dose": {"en": "8–10 repetitions", "hi": "8–10 बार"},
+    "safety": {"en": "Move slowly and without forcing. Stop if you feel pain, dizziness or tingling.", "hi": "धीरे-धीरे और बिना ज़ोर लगाए करें। दर्द, चक्कर या झनझनाहट हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "neck_side_stretch",
+    "targets": ["headTilt"],
+    "name": {"en": "Neck side stretch", "hi": "गर्दन का साइड स्ट्रेच"},
+    "summary": {"en": "Eases the muscles along the side of the neck.", "hi": "गर्दन के किनारे की मांसपेशियों को आराम देता है।"},
+    "steps": {
+      "en": ["Sit tall with shoulders relaxed.", "Slowly tilt one ear toward the same shoulder until you feel a light stretch.", "Hold 15–20 seconds, then repeat on the other side."],
+      "hi": ["कंधे ढीले रखकर सीधे बैठें।", "धीरे से एक कान को उसी कंधे की ओर झुकाएँ जब तक हल्का खिंचाव महसूस न हो।", "15–20 सेकंड रुकें, फिर दूसरी ओर दोहराएँ।"]
+    },
+    "dose": {"en": "2 times each side", "hi": "हर ओर 2 बार"},
+    "safety": {"en": "Keep the stretch light. Do not bounce. Stop if you feel pain or tingling.", "hi": "खिंचाव हल्का रखें। झटका न दें। दर्द या झनझनाहट हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "scapular_squeeze",
+    "targets": ["shoulderLevel", "headForward"],
+    "name": {"en": "Shoulder blade squeezes", "hi": "शोल्डर ब्लेड स्क्वीज़"},
+    "summary": {"en": "Activates the muscles between the shoulder blades.", "hi": "कंधे की हड्डियों के बीच की मांसपेशियों को सक्रिय करता है।"},
+    "steps": {
+      "en": ["Stand or sit tall with arms relaxed.", "Draw your shoulder blades back and slightly down.", "Hold for 5 seconds, then release."],
+      "hi": ["हाथ ढीले रखकर सीधे खड़े हों या बैठें।", "कंधे की हड्डियों को पीछे और थोड़ा नीचे की ओर खींचें।", "5 सेकंड रुकें, फिर छोड़ें।"]
+    },
+    "dose": {"en": "10 repetitions", "hi": "10 बार"},
+    "safety": {"en": "Avoid shrugging toward your ears. Stop if anything hurts.", "hi": "कंधों को कानों की ओर न उचकाएँ। कुछ भी दर्द हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "doorway_chest_stretch",
+    "targets": ["headForward", "shoulderLevel"],
+    "name": {"en": "Doorway chest stretch", "hi": "दरवाज़े पर छाती का स्ट्रेच"},
+    "summary": {"en": "Opens the front of the chest and shoulders.", "hi": "छाती और कंधों के सामने वाले हिस्से को खोलता है।"},
+    "steps": {
+      "en": ["Stand in a doorway with forearms resting on the frame at shoulder height.", "Step one foot forward slowly until you feel a gentle stretch across the chest.", "Hold 20–30 seconds while breathing normally."],
+      "hi": ["दरवाज़े में खड़े हों और अग्रबाहुओं को कंधे की ऊँचाई पर चौखट पर रखें।", "एक पैर धीरे से आगे बढ़ाएँ जब तक छाती में हल्का खिंचाव न लगे।", "सामान्य साँस लेते हुए 20–30 सेकंड रुकें।"]
+    },
+    "dose": {"en": "2–3 times", "hi": "2–3 बार"},
+    "safety": {"en": "Keep the stretch gentle. Skip it if you have a shoulder injury.", "hi": "खिंचाव हल्का रखें। कंधे में चोट हो तो इसे न करें।"}
+  },
+  {
+    "id": "standing_side_bend",
+    "targets": ["torsoLean"],
+    "name": {"en": "Standing side bend", "hi": "खड़े होकर साइड बेंड"},
+    "summary": {"en": "Gentle stretch for the sides of the trunk.", "hi": "धड़ के किनारों के लिए हल्का स्ट्रेच।"},
+    "steps": {
+      "en": ["Stand with feet hip-width apart.", "Raise one arm overhead and lean slowly to the opposite side.", "Hold 15–20 seconds, then switch sides."],
+      "hi": ["पैरों को कूल्हों जितना फैलाकर खड़े हों।", "एक हाथ ऊपर उठाएँ और धीरे से दूसरी ओर झुकें।", "15–20 सेकंड रुकें, फिर ओर बदलें।"]
+    },
+    "dose": {"en": "2 times each side", "hi": "हर ओर 2 बार"},
+    "safety": {"en": "Bend only as far as is comfortable. Stop if you feel back pain.", "hi": "केवल उतना ही झुकें जितना आरामदायक हो। पीठ में दर्द हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "wall_angels",
+    "targets": ["torsoLean", "headForward"],
+    "name": {"en": "Wall angels", "hi": "वॉल एंजल"},
+    "summary": {"en": "Encourages an upright upper back.", "hi": "ऊपरी पीठ को सीधा रखने में मदद करता है।"},
+    "steps": {
+      "en": ["Stand with your back, head and arms against a wall, elbows bent.", "Slowly slide your arms up the wall as far as is comfortable.", "Slide them back down. Keep your back in contact with the wall."],
+      "hi": ["पीठ, सिर और हाथों को दीवार से लगाकर खड़े हों, कोहनियाँ मुड़ी हों।", "हाथों को धीरे से दीवार पर ऊपर ले जाएँ जितना आरामदायक हो।", "वापस नीचे लाएँ। पीठ दीवार से लगी रहे।"]
+    },
+    "dose": {"en": "8 slow repetitions", "hi": "8 बार धीरे-धीरे"},
+    "safety": {"en": "Keep the range comfortable. Stop if your shoulders hurt.", "hi": "दायरा आरामदायक रखें। कंधों में दर्द हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "glute_bridge",
+    "targets": ["hipLevel"],
+    "name": {"en": "Glute bridge", "hi": "ग्लूट ब्रिज"},
+    "summary": {"en": "Strengthens the hips evenly on both sides.", "hi": "दोनों ओर कूल्हों को समान रूप से मज़बूत करता है।"},
+    "steps": {
+      "en": ["Lie on your back with knees bent and feet flat.", "Press through your heels and lift your hips until your body forms a straight line.", "Hold 2 seconds, then lower slowly."],
+      "hi": ["पीठ के बल लेटें, घुटने मुड़े और पैर ज़मीन पर सपाट हों।", "एड़ियों से दबाव डालकर कूल्हों को उठाएँ जब तक शरीर सीधी रेखा में न हो।", "2 सेकंड रुकें, फिर धीरे से नीचे लाएँ।"]
+    },
+    "dose": {"en": "10 repetitions", "hi": "10 बार"},
+    "safety": {"en": "Keep your lower back neutral, not arched. Stop if it hurts.", "hi": "निचली पीठ सामान्य रखें, मोड़ें नहीं। दर्द हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "clamshell",
+    "targets": ["kneeAlignment", "hipLevel"],
+    "name": {"en": "Clamshells", "hi": "क्लैमशेल"},
+    "summary": {"en": "Works the outer hip muscles that guide knee alignment.", "hi": "कूल्हे की बाहरी मांसपेशियों पर काम करता है जो घुटनों की दिशा में मदद करती हैं।"},
+    "steps": {
+      "en": ["Lie on your side with hips and knees bent and feet together.", "Keeping your feet touching, lift the top knee slowly.", "Lower it with control. Repeat, then switch sides."],
+      "hi": ["करवट लेकर लेटें, कूल्हे और घुटने मुड़े और पैर साथ हों।", "पैरों को साथ रखते हुए ऊपर वाले घुटने को धीरे से उठाएँ।", "नियंत्रण से नीचे लाएँ। दोहराएँ, फिर ओर बदलें।"]
+    },
+    "dose": {"en": "10 each side", "hi": "हर ओर 10 बार"},
+    "safety": {"en": "Keep your hips still and avoid rolling back. Stop if you feel pain.", "hi": "कूल्हे स्थिर रखें और पीछे न लुढ़कें। दर्द हो तो रुक जाएँ।"}
+  },
+  {
+    "id": "posture_break",
+    "targets": [],
+    "name": {"en": "2-minute posture break", "hi": "2 मिनट का पोश्चर ब्रेक"},
+    "summary": {"en": "A short reset: stand up, move and breathe.", "hi": "एक छोटा रीसेट: उठें, हिलें-डुलें और साँस लें।"},
+    "steps": {
+      "en": ["Stand up and walk for a minute.", "Roll your shoulders backward 10 times.", "Take three slow, deep breaths while standing tall."],
+      "hi": ["उठें और एक मिनट चलें।", "कंधों को 10 बार पीछे की ओर घुमाएँ।", "सीधे खड़े होकर तीन धीमी, गहरी साँसें लें।"]
+    },
+    "dose": {"en": "About 2 minutes", "hi": "लगभग 2 मिनट"},
+    "safety": {"en": "Move comfortably at your own pace.", "hi": "अपनी गति से आराम से करें।"}
+  }
+]

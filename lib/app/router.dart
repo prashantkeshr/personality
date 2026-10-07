@@ -22,6 +22,8 @@ import '../features/routines/routines_screen.dart';
 import '../features/settings/device_info_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/camera/camera_check_screen.dart';
+import '../features/posture/posture_history_screen.dart';
+import '../features/posture/posture_screen.dart';
 import 'app_shell.dart';
 import 'primary_tabs.dart';
 
@@ -48,6 +50,8 @@ abstract final class AppRoutes {
   static const plan = '/health/plan';
   static const reminders = '/health/reminders';
   static const cameraCheck = '/analyze/camera';
+  static const posture = '/analyze/posture';
+  static const postureHistory = '/analyze/posture/history';
   static const deviceInfo = '/settings/device';
 }
 
@@ -147,6 +151,15 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'camera',
                     builder: (_, _) => const CameraCheckScreen()),
+                GoRoute(
+                  path: 'posture',
+                  builder: (_, _) => const PostureScreen(),
+                  routes: [
+                    GoRoute(
+                        path: 'history',
+                        builder: (_, _) => const PostureHistoryScreen()),
+                  ],
+                ),
               ],
             ),
           ]),

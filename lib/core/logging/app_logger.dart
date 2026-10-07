@@ -1,5 +1,7 @@
 import 'dart:developer' as developer;
 
+import 'package:flutter/foundation.dart';
+
 /// Developer logging (spec §70).
 ///
 /// Only technical context is logged: an event name and the error *type*.
@@ -12,6 +14,9 @@ abstract final class AppLogger {
       level: 1000,
       stackTrace: stackTrace,
     );
+    // Debug builds only: the exception text helps diagnose device-specific
+    // failures. Release builds never print it.
+    if (kDebugMode) debugPrint('[personality] $event: $error');
   }
 
   static void info(String event) {
