@@ -47,7 +47,28 @@ class MlKitFaceEstimator implements FaceEstimator {
       final f = faces.first;
       final points = f.contours[mlkit.FaceContourType.face]?.points ?? const [];
       if (points.length < 30) return const NoFaceDetected();
+      (double, double)? centre(mlkit.FaceContourType t) {
+        final p = f.contours[t]?.points;
+        if (p == null || p.isEmpty) return null;
+        var x = 0.0, y = 0.0;
+        for (final q in p) {
+          x += q.x;
+          y += q.y;
+        }
+        return (x / p.length, y / p.length);
+      }
+
+      List<(double, double)>? line(mlkit.FaceContourType t) => f.contours[t]
+          ?.points
+          .map((p) => (p.x.toDouble(), p.y.toDouble()))
+          .toList();
+
       return FaceDetected(
+        leftEye: centre(mlkit.FaceContourType.leftEye),
+        rightEye: centre(mlkit.FaceContourType.rightEye),
+        noseBottom: centre(mlkit.FaceContourType.noseBottom),
+        upperLip: line(mlkit.FaceContourType.upperLipTop),
+        lowerLip: line(mlkit.FaceContourType.lowerLipBottom),
         outline: [for (final p in points) (p.x.toDouble(), p.y.toDouble())],
         yaw: f.headEulerAngleY ?? 0,
         roll: f.headEulerAngleZ ?? 0,

@@ -22,7 +22,11 @@ import '../camera/camera_providers.dart';
 import '../camera/camera_source.dart';
 import '../camera/camera_stage.dart';
 import '../camera/portrait_lock.dart';
+import '../../shared/visual/reveal.dart';
+import '../../shared/visual/style_art.dart';
+import '../../shared/visual/style_carousel.dart';
 import '../posture/posture_labels.dart';
+import '../routines/reminder_sync_host.dart' show formatMinute;
 import '../routines/routine_providers.dart';
 import 'face_labels.dart';
 import 'face_providers.dart';
@@ -237,6 +241,12 @@ class _FaceScreenState extends ConsumerState<FaceScreen> {
                   icon: const Icon(Icons.videocam_outlined),
                   label: Text(l10n.cameraStart),
                 ),
+                const SizedBox(height: AppSpacing.sm),
+                OutlinedButton.icon(
+                  onPressed: () => context.push(AppRoutes.tryOn),
+                  icon: const Icon(Icons.face_retouching_natural),
+                  label: Text(l10n.tryOnOpen),
+                ),
                 const SizedBox(height: AppSpacing.lg),
                 Text(l10n.faceDisclaimer, style: theme.textTheme.bodySmall),
               ],
@@ -250,6 +260,11 @@ class _FaceScreenState extends ConsumerState<FaceScreen> {
                     pose: null,
                     guidance: _guidance(l10n),
                     countdown: _phase == _Phase.countdown ? _countdown : null,
+                    ovalGuide: true,
+                    scanning: _phase != _Phase.countdown,
+                    progress: _phase == _Phase.capturing
+                        ? _capture?.progress ?? 0
+                        : null,
                     painter: FaceOutlinePainter(
                       face: face,
                       guideColor: Colors.white.withValues(alpha: 0.7),
@@ -343,6 +358,31 @@ class FaceResultView extends ConsumerWidget {
     }
   }
 
+  /// Photo when bundled; vector art for glasses; otherwise a quiet
+  /// gradient with the face silhouette (never a cartoon icon).
+  Widget _art(BuildContext context, StyleItem item) {
+    final scheme = Theme.of(context).colorScheme;
+    if (item.image != null) {
+      return Image.asset(item.image!, fit: BoxFit.cover);
+    }
+    final glasses = glassesStyleFor(item.id);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [scheme.primaryContainer, scheme.surfaceContainerHighest],
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(28, 28, 28, 70),
+        child: glasses != null
+            ? GlassesArt(style: glasses, color: scheme.onPrimaryContainer)
+            : FaceShapeArt(shape: result.shape),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
@@ -354,74 +394,127 @@ class FaceResultView extends ConsumerWidget {
         ? l10n.faceShapeName(result.shape)
         : l10n.faceShapeBetween(
             l10n.faceShapeName(result.shape), l10n.faceShapeName(result.alsoLike!));
+    var reveal = 0;
 
-    Widget section(String title, StyleKind kind, {String? note}) {
-      // Primary shape first, then the close second shape, without repeats.
+    List<Widget> section(String title, StyleKind kind, {String? note}) {
       final seen = <String>{};
       final items = [
         for (final s in [result.shape, ?result.alsoLike])
           for (final i in content?.suggestions(s, kind) ?? const <StyleItem>[])
             if (seen.add(i.id)) i,
       ].take(4).toList();
-      if (items.isEmpty) return const SizedBox.shrink();
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: AppSpacing.lg),
-          Text(title, style: theme.textTheme.titleMedium),
-          if (note != null) Text(note, style: theme.textTheme.bodySmall),
-          const SizedBox(height: AppSpacing.xs),
-          for (final item in items)
-            Card(
-              margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-              child: ListTile(
-                title: Text(GroomingContent.pick(item.name, lang)),
-                subtitle: Text(GroomingContent.pick(item.desc, lang)),
-                trailing: IconButton(
-                  tooltip: favorites.contains(item.id)
-                      ? l10n.favoriteRemove
-                      : l10n.favoriteAdd,
-                  icon: Icon(favorites.contains(item.id)
-                      ? Icons.favorite
-                      : Icons.favorite_border),
-                  onPressed: () => ref
-                      .read(faceRepositoryProvider)
-                      .setFavorite(item.id, !favorites.contains(item.id)),
-                ),
+      if (items.isEmpty || content == null) return const [];
+      final why = GroomingContent.pick(content.shapes[result.shape]!.why, lang);
+      return [
+        const SizedBox(height: AppSpacing.xl),
+        Reveal(
+          index: reveal++,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: theme.textTheme.titleLarge),
+              if (note != null) Text(note, style: theme.textTheme.bodySmall),
+              const SizedBox(height: AppSpacing.sm),
+              StyleCarousel(
+                flipHint: l10n.cardFlipHint,
+                tryOnLabel: l10n.tryOn,
+                favoriteLabel: l10n.favoriteAdd,
+                cards: [
+                  for (final item in items)
+                    StyleCardData(
+                      id: item.id,
+                      title: GroomingContent.pick(item.name, lang),
+                      subtitle: GroomingContent.pick(item.desc, lang),
+                      art: _art(context, item),
+                      credit: item.credit,
+                      details: [
+                        GroomingContent.pick(item.desc, lang),
+                        '',
+                        l10n.whyThis,
+                        why,
+                      ].join('\n'),
+                      favorite: favorites.contains(item.id),
+                      onFavorite: () => ref
+                          .read(faceRepositoryProvider)
+                          .setFavorite(item.id, !favorites.contains(item.id)),
+                      onTryOn: kind == StyleKind.hair
+                          ? null
+                          : () => context.push(
+                              '${AppRoutes.tryOn}?item=${item.id}'),
+                    ),
+                ],
               ),
-            ),
-        ],
-      );
+            ],
+          ),
+        ),
+      ];
     }
 
+    final lw = result.ratios[FaceRatio.lengthToWidth];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(l10n.faceResultTitle, style: theme.textTheme.labelLarge),
-        const SizedBox(height: AppSpacing.xs),
-        Text(shapeText, style: theme.textTheme.headlineSmall),
-        const SizedBox(height: AppSpacing.sm),
-        Wrap(
-          spacing: AppSpacing.sm,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            ProvenanceChip(source: result.source, confidence: result.confidence),
-            Text(l10n.postureFramesUsed(result.framesUsed),
-                style: theme.textTheme.bodySmall),
-          ],
+        Reveal(
+          index: reveal++,
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Padding(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 120,
+                    height: 160,
+                    child: FaceShapeArt(
+                        shape: result.shape, ratios: result.ratios),
+                  ),
+                  const SizedBox(width: AppSpacing.lg),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(l10n.faceResultTitle,
+                            style: theme.textTheme.labelLarge),
+                        const SizedBox(height: AppSpacing.xs),
+                        Text(shapeText, style: theme.textTheme.headlineSmall),
+                        const SizedBox(height: AppSpacing.sm),
+                        ProvenanceChip(
+                            source: result.source,
+                            confidence: result.confidence),
+                        const SizedBox(height: AppSpacing.xs),
+                        Text(l10n.faceArtLegend,
+                            style: theme.textTheme.bodySmall),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         const SizedBox(height: AppSpacing.md),
-        Card(
-          child: Column(children: [
-            for (final r in FaceRatio.values)
-              if (result.ratios[r] != null)
-                ListTile(
-                  dense: true,
-                  title: Text(l10n.faceRatioName(r)),
-                  trailing: Text(result.ratios[r]!.toStringAsFixed(2),
-                      style: theme.textTheme.titleMedium),
-                ),
-          ]),
+        Reveal(
+          index: reveal++,
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: Column(children: [
+                if (lw != null)
+                  AnimatedValueBar(
+                    label: l10n.faceRatioName(FaceRatio.lengthToWidth),
+                    valueText: lw.toStringAsFixed(2),
+                    value: (lw - 0.9) / 0.8,
+                  ),
+                for (final r in [FaceRatio.foreheadToCheek, FaceRatio.jawToCheek])
+                  if (result.ratios[r] != null)
+                    AnimatedValueBar(
+                      label: l10n.faceRatioName(r),
+                      valueText: result.ratios[r]!.toStringAsFixed(2),
+                      value: result.ratios[r]!,
+                    ),
+              ]),
+            ),
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         Text(l10n.faceDisclaimer, style: theme.textTheme.bodySmall),
@@ -452,29 +545,55 @@ class FaceResultView extends ConsumerWidget {
           )
         else if (content != null) ...[
           const SizedBox(height: AppSpacing.lg),
-          Text(l10n.whyThis, style: theme.textTheme.labelLarge),
-          Text(GroomingContent.pick(content.shapes[result.shape]!.why, lang)),
-          if (result.alsoLike != null) ...[
-            const SizedBox(height: AppSpacing.xs),
-            Text(l10n.faceBetweenNote(l10n.faceShapeName(result.alsoLike!))),
-            Text(GroomingContent.pick(
-                content.shapes[result.alsoLike!]!.why, lang)),
-          ],
-          section(l10n.styleHair, StyleKind.hair),
-          section(l10n.styleBeard, StyleKind.beard, note: l10n.styleBeardNote),
-          section(l10n.styleGlasses, StyleKind.glasses),
-          const SizedBox(height: AppSpacing.lg),
-          Text(l10n.groomingTitle, style: theme.textTheme.titleMedium),
-          for (final s in content.routine)
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.face_retouching_natural),
-              title: Text(GroomingContent.pick(s.name, lang)),
+          Reveal(
+            index: reveal++,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.whyThis, style: theme.textTheme.labelLarge),
+                Text(GroomingContent.pick(
+                    content.shapes[result.shape]!.why, lang)),
+                if (result.alsoLike != null) ...[
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(l10n.faceBetweenNote(
+                      l10n.faceShapeName(result.alsoLike!))),
+                  Text(GroomingContent.pick(
+                      content.shapes[result.alsoLike!]!.why, lang)),
+                ],
+              ],
             ),
-          OutlinedButton.icon(
-            onPressed: () => _addRoutine(context, ref, content),
-            icon: const Icon(Icons.playlist_add),
-            label: Text(l10n.groomingAddRoutine),
+          ),
+          ...section(l10n.styleHair, StyleKind.hair),
+          ...section(l10n.styleBeard, StyleKind.beard, note: l10n.styleBeardNote),
+          ...section(l10n.styleGlasses, StyleKind.glasses),
+          const SizedBox(height: AppSpacing.xl),
+          Reveal(
+            index: reveal++,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(AppSpacing.lg),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.groomingTitle, style: theme.textTheme.titleMedium),
+                    for (final s in content.routine)
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: Text(
+                          formatMinute(context, s.minuteOfDay),
+                          style: theme.textTheme.labelLarge,
+                        ),
+                        title: Text(GroomingContent.pick(s.name, lang)),
+                      ),
+                    OutlinedButton.icon(
+                      onPressed: () => _addRoutine(context, ref, content),
+                      icon: const Icon(Icons.playlist_add),
+                      label: Text(l10n.groomingAddRoutine),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: AppSpacing.xl),
         ],
@@ -515,18 +634,38 @@ class FaceOutlinePainter extends CustomPainter {
           p.$2 / f.imageHeight * size.height);
     }
 
-    final path = Path()..moveTo(at(f.outline.first).dx, at(f.outline.first).dy);
-    for (final p in f.outline.skip(1)) {
-      final o = at(p);
-      path.lineTo(o.dx, o.dy);
+    final pts = [for (final p in f.outline) at(p)];
+    final centre = pts.reduce((a, b) => a + b) / pts.length.toDouble();
+
+    // Light mesh: spokes from the outline toward the centre and a ring at
+    // mid-depth, then the outline with a soft glow and point markers.
+    final mesh = Paint()
+      ..color = lineColor.withValues(alpha: 0.28)
+      ..strokeWidth = 1;
+    final inner = [for (final p in pts) Offset.lerp(p, centre, 0.45)!];
+    for (var i = 0; i < pts.length; i += 2) {
+      canvas.drawLine(pts[i], inner[i], mesh);
     }
-    path.close();
+    canvas.drawPath(Path()..addPolygon(inner, true), mesh);
+
+    final outline = Path()..addPolygon(pts, true);
     canvas.drawPath(
-        path,
+        outline,
         Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 3
+          ..strokeWidth = 9
+          ..color = lineColor.withValues(alpha: 0.4)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6));
+    canvas.drawPath(
+        outline,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2.5
           ..color = lineColor);
+    final dot = Paint()..color = Colors.white;
+    for (var i = 0; i < pts.length; i += 3) {
+      canvas.drawCircle(pts[i], 2.2, dot);
+    }
   }
 
   @override

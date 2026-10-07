@@ -4,6 +4,7 @@ import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../../ml/pose/pose_estimator.dart';
 import '../posture/skeleton_overlay.dart';
+import '../../shared/visual/scan_overlay.dart';
 import 'camera_source.dart';
 
 /// Live camera preview with landmark overlay, body guide, an on-device
@@ -18,6 +19,9 @@ class CameraStage extends StatelessWidget {
     this.countdown,
     this.overlay,
     this.painter,
+    this.scanning = true,
+    this.progress,
+    this.ovalGuide = false,
   });
 
   final CameraSource camera;
@@ -31,6 +35,15 @@ class CameraStage extends StatelessWidget {
 
   /// Replaces the default body skeleton and guide (e.g. a face outline).
   final CustomPainter? painter;
+
+  /// Animated scan line while looking for a body or face.
+  final bool scanning;
+
+  /// Capture progress 0–1 shown as a ring; null hides it.
+  final double? progress;
+
+  /// Face mode: scan within an oval guide.
+  final bool ovalGuide;
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +83,15 @@ class CameraStage extends StatelessWidget {
                     child: Center(child: CircularProgressIndicator()),
                   ),
           ),
+          if (state.running)
+            Positioned.fill(
+              child: ScanOverlay(
+                color: scheme.primary,
+                scanning: scanning,
+                progress: progress,
+                oval: ovalGuide,
+              ),
+            ),
           PositionedDirectional(
             top: AppSpacing.sm,
             start: AppSpacing.sm,
@@ -87,13 +109,28 @@ class CameraStage extends StatelessWidget {
                 child: Semantics(
                   liveRegion: true,
                   label: l10n.postureCountdown(countdown!),
-                  child: Text(
-                    '$countdown',
-                    style: const TextStyle(
-                      fontSize: 120,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                      shadows: [Shadow(blurRadius: 12)],
+                  // Each number pops in and fades, like a camera timer.
+                  child: AnimatedSwitcher(
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : const Duration(milliseconds: 350),
+                    transitionBuilder: (child, a) => FadeTransition(
+                      opacity: a,
+                      child: ScaleTransition(
+                        scale: Tween(begin: 1.6, end: 1.0).animate(
+                            CurvedAnimation(parent: a, curve: Curves.easeOutBack)),
+                        child: child,
+                      ),
+                    ),
+                    child: Text(
+                      '$countdown',
+                      key: ValueKey(countdown),
+                      style: const TextStyle(
+                        fontSize: 120,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        shadows: [Shadow(blurRadius: 16)],
+                      ),
                     ),
                   ),
                 ),

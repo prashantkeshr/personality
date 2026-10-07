@@ -1080,5 +1080,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "cardFlipHint": "Tap to see details",
+  "tryOn": "Try on",
+  "tryOnOpen": "Try on glasses & beard styles",
+  "faceArtLegend": "Grey: reference shape · Colour: your proportions",
+  "tryOnHint": "Press and hold the preview to compare without.",
+  "tryOnComparing": "Showing without the style",
+  "tryOnNone": "None",
+  "tryOnNote": "Live preview drawn on this phone; nothing is recorded. Beard previews are approximate shading, not a photo-real render."
 }

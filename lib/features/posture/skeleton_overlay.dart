@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../../ml/pose/pose_estimator.dart';
 
+/// Joints that get a marker (face detail points are skipped as clutter).
+const _drawn = {
+  PoseJoint.nose,
+  PoseJoint.leftShoulder, PoseJoint.rightShoulder,
+  PoseJoint.leftElbow, PoseJoint.rightElbow,
+  PoseJoint.leftWrist, PoseJoint.rightWrist,
+  PoseJoint.leftHip, PoseJoint.rightHip,
+  PoseJoint.leftKnee, PoseJoint.rightKnee,
+  PoseJoint.leftAnkle, PoseJoint.rightAnkle,
+};
+
 /// Bones drawn between landmarks.
 const _bones = [
   (PoseJoint.leftShoulder, PoseJoint.rightShoulder),
@@ -36,21 +47,6 @@ class SkeletonPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Body guide: where to stand for a full-body check.
-    final guide = RRect.fromRectAndRadius(
-      Rect.fromCenter(
-          center: size.center(Offset.zero),
-          width: size.width * 0.6,
-          height: size.height * 0.88),
-      const Radius.circular(24),
-    );
-    canvas.drawRRect(
-        guide,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2
-          ..color = guideColor);
-
     final p = pose;
     if (p == null) return;
     Offset? at(PoseJoint j) {
@@ -61,18 +57,34 @@ class SkeletonPainter extends CustomPainter {
       return Offset(x * size.width, l.y * size.height);
     }
 
+    // Soft glow beneath crisp bones; joints as rings with a light core.
+    final glow = Paint()
+      ..color = boneColor.withValues(alpha: 0.45)
+      ..strokeWidth = 10
+      ..strokeCap = StrokeCap.round
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6);
     final bone = Paint()
       ..color = boneColor
-      ..strokeWidth = 4
+      ..strokeWidth = 3.5
       ..strokeCap = StrokeCap.round;
     for (final (a, b) in _bones) {
       final pa = at(a), pb = at(b);
-      if (pa != null && pb != null) canvas.drawLine(pa, pb, bone);
+      if (pa != null && pb != null) {
+        canvas.drawLine(pa, pb, glow);
+        canvas.drawLine(pa, pb, bone);
+      }
     }
-    final dot = Paint()..color = boneColor;
+    final ring = Paint()
+      ..color = boneColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.5;
+    final core = Paint()..color = Colors.white;
     for (final l in p.landmarks) {
+      if (!_drawn.contains(l.joint)) continue;
       final o = at(l.joint);
-      if (o != null) canvas.drawCircle(o, 5, dot);
+      if (o == null) continue;
+      canvas.drawCircle(o, 6, ring);
+      canvas.drawCircle(o, 2.5, core);
     }
   }
 

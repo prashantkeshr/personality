@@ -20,7 +20,19 @@ final class FaceDetected extends FaceEstimation {
     required this.imageWidth,
     required this.imageHeight,
     this.frontCamera = false,
+    this.leftEye,
+    this.rightEye,
+    this.noseBottom,
+    this.upperLip,
+    this.lowerLip,
   });
+
+  /// Feature points in upright-image pixels, used for try-on placement.
+  final (double, double)? leftEye;
+  final (double, double)? rightEye;
+  final (double, double)? noseBottom;
+  final List<(double, double)>? upperLip;
+  final List<(double, double)>? lowerLip;
 
   /// Face outline in upright-image pixels (36 points, clockwise from the
   /// top centre of the forehead).

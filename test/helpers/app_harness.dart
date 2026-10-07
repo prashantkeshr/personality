@@ -19,6 +19,12 @@ import 'package:personality/features/settings/app_settings.dart';
 class AppHarness {
   AppHarness(this.tester) : db = AppDatabase(NativeDatabase.memory()) {
     driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+    // Run with "reduce motion" on: continuous animations (scan lines) would
+    // otherwise keep pumpAndSettle from ever settling. The reduce-motion
+    // path is part of the product and is exercised here on purpose.
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
     // If a test fails before calling dispose(), still unmount the app and
     // flush Drift's pending timer so the next test is not blocked. The close
     // is not awaited here: awaiting it during teardown can deadlock.

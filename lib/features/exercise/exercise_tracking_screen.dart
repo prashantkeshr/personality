@@ -252,6 +252,13 @@ class _TrackingState extends ConsumerState<_Tracking> {
                     pose: _pose,
                     guidance: _guidance(l10n),
                     countdown: _phase == _Phase.countdown ? _countdown : null,
+                    scanning: _phase == _Phase.ready,
+                    progress: _phase == _Phase.active && target != null
+                        ? (_hold
+                                ? _state.holdSeconds / target
+                                : _state.reps / target)
+                            .clamp(0.0, 1.0)
+                        : null,
                     overlay: _phase == _Phase.active
                         ? _Counter(
                             label: _hold

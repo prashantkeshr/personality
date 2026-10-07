@@ -1993,4 +1993,29 @@ class AppLocalizationsHi extends AppLocalizations {
   String faceBetweenNote(String shape) {
     return 'आपके अनुपात $shape के भी करीब हैं, इसलिए दोनों के सुझाव दिखाए गए हैं:';
   }
+
+  @override
+  String get cardFlipHint => 'विवरण देखने के लिए टैप करें';
+
+  @override
+  String get tryOn => 'आज़माएँ';
+
+  @override
+  String get tryOnOpen => 'चश्मे और दाढ़ी के स्टाइल आज़माएँ';
+
+  @override
+  String get faceArtLegend => 'धूसर: संदर्भ आकार · रंगीन: आपके अनुपात';
+
+  @override
+  String get tryOnHint => 'बिना स्टाइल के तुलना के लिए प्रीव्यू को दबाकर रखें।';
+
+  @override
+  String get tryOnComparing => 'स्टाइल के बिना दिखा रहे हैं';
+
+  @override
+  String get tryOnNone => 'कोई नहीं';
+
+  @override
+  String get tryOnNote =>
+      'इसी फ़ोन पर बना लाइव प्रीव्यू; कुछ भी रिकॉर्ड नहीं होता। दाढ़ी का प्रीव्यू अनुमानित छाया है, असली तस्वीर जैसा नहीं।';
 }

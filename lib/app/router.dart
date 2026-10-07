@@ -8,6 +8,7 @@ import '../features/exercise/exercise_library_screen.dart';
 import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
+import '../features/face/try_on_screen.dart';
 import '../features/habits/habits_screen.dart';
 import '../features/health/activity/activity_screen.dart';
 import '../features/health/exercise/exercise_log_screen.dart';
@@ -59,6 +60,7 @@ abstract final class AppRoutes {
   static const postureHistory = '/analyze/posture/history';
   static const face = '/analyze/face';
   static const faceHistory = '/analyze/face/history';
+  static const tryOn = '/analyze/face/try-on';
   static const deviceInfo = '/settings/device';
 }
 
@@ -188,6 +190,11 @@ final routerProvider = Provider<GoRouter>((ref) {
                     GoRoute(
                         path: 'history',
                         builder: (_, _) => const FaceHistoryScreen()),
+                    GoRoute(
+                      path: 'try-on',
+                      builder: (_, state) => TryOnScreen(
+                          initialItem: state.uri.queryParameters['item']),
+                    ),
                   ],
                 ),
                 GoRoute(

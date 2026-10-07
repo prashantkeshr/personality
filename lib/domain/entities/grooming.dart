@@ -8,12 +8,20 @@ class StyleItem {
     required this.kind,
     required this.name,
     required this.desc,
+    this.image,
+    this.credit,
   });
 
   final String id;
   final StyleKind kind;
   final Map<String, String> name;
   final Map<String, String> desc;
+
+  /// Bundled photo (asset path), when one is available.
+  final String? image;
+
+  /// Photo credit, e.g. "Photo: Name / Unsplash".
+  final String? credit;
 }
 
 class ShapeGuide {
@@ -67,6 +75,8 @@ class GroomingContent {
             kind: StyleKind.values.byName(e['kind'] as String),
             name: text(e['name']),
             desc: text(e['desc']),
+            image: e['image'] as String?,
+            credit: e['credit'] as String?,
           ),
       },
       shapes: {

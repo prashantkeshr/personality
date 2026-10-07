@@ -3613,6 +3613,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your proportions are also close to {shape}, so ideas for both are shown:'**
   String faceBetweenNote(String shape);
+
+  /// No description provided for @cardFlipHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to see details'**
+  String get cardFlipHint;
+
+  /// No description provided for @tryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Try on'**
+  String get tryOn;
+
+  /// No description provided for @tryOnOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Try on glasses & beard styles'**
+  String get tryOnOpen;
+
+  /// No description provided for @faceArtLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'Grey: reference shape · Colour: your proportions'**
+  String get faceArtLegend;
+
+  /// No description provided for @tryOnHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Press and hold the preview to compare without.'**
+  String get tryOnHint;
+
+  /// No description provided for @tryOnComparing.
+  ///
+  /// In en, this message translates to:
+  /// **'Showing without the style'**
+  String get tryOnComparing;
+
+  /// No description provided for @tryOnNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get tryOnNone;
+
+  /// No description provided for @tryOnNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Live preview drawn on this phone; nothing is recorded. Beard previews are approximate shading, not a photo-real render.'**
+  String get tryOnNote;
 }
 
 class _AppLocalizationsDelegate

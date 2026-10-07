@@ -2005,4 +2005,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String faceBetweenNote(String shape) {
     return 'Your proportions are also close to $shape, so ideas for both are shown:';
   }
+
+  @override
+  String get cardFlipHint => 'Tap to see details';
+
+  @override
+  String get tryOn => 'Try on';
+
+  @override
+  String get tryOnOpen => 'Try on glasses & beard styles';
+
+  @override
+  String get faceArtLegend =>
+      'Grey: reference shape · Colour: your proportions';
+
+  @override
+  String get tryOnHint => 'Press and hold the preview to compare without.';
+
+  @override
+  String get tryOnComparing => 'Showing without the style';
+
+  @override
+  String get tryOnNone => 'None';
+
+  @override
+  String get tryOnNote =>
+      'Live preview drawn on this phone; nothing is recorded. Beard previews are approximate shading, not a photo-real render.';
 }

@@ -247,6 +247,10 @@ class _PostureScreenState extends ConsumerState<PostureScreen> {
                     pose: _pose,
                     guidance: _guidance(l10n),
                     countdown: _phase == _Phase.countdown ? _countdown : null,
+                    scanning: _phase != _Phase.countdown,
+                    progress: _phase == _Phase.capturing
+                        ? _capture?.progress ?? 0
+                        : null,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   if (_phase == _Phase.countdown)
