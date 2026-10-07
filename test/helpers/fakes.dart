@@ -43,6 +43,13 @@ class FakeCamera implements CameraSource {
   @override
   Widget preview() => const ColoredBox(color: Colors.black);
 
+  /// A tiny valid JPEG (or a custom one) for snapshot tests.
+  Uint8List? photo;
+
+  @override
+  Future<Uint8List?> capturePhoto() async =>
+      _state.value.running ? photo : null;
+
   /// Sends a frame with the given brightness (checkerboard a/b).
   /// Frames are luma-only; tests pair this with a scripted estimator.
   Future<void> emit(int a, int b, DateTime at) async {

@@ -99,8 +99,8 @@ void main() {
     await tester.tap(find.text('Analyze'));
     await tester.pumpAndSettle();
     // Every camera feature says so honestly: Camera check, Posture,
-    // Face analysis and Exercise tracking.
-    expect(find.text('Not supported on this device'), findsNWidgets(4));
+    // Face analysis, Progress snapshots and Exercise tracking.
+    expect(find.text('Not supported on this device'), findsNWidgets(5));
     await app.dispose();
   });
 

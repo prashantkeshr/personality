@@ -9,7 +9,9 @@ import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
 import '../features/face/try_on_screen.dart';
+import '../data/repositories/snapshot_repository.dart' show SnapshotKind;
 import '../features/habits/habits_screen.dart';
+import '../features/snapshots/snapshots_screen.dart';
 import '../features/health/activity/activity_screen.dart';
 import '../features/health/exercise/exercise_log_screen.dart';
 import '../features/health/meals/meals_screen.dart';
@@ -61,6 +63,7 @@ abstract final class AppRoutes {
   static const face = '/analyze/face';
   static const faceHistory = '/analyze/face/history';
   static const tryOn = '/analyze/face/try-on';
+  static const snapshots = '/analyze/snapshots';
   static const deviceInfo = '/settings/device';
 }
 
@@ -183,6 +186,24 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'camera',
                     builder: (_, _) => const CameraCheckScreen()),
+                GoRoute(
+                  path: 'snapshots',
+                  builder: (_, _) => const SnapshotsScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'capture',
+                      builder: (_, state) => SnapshotCaptureScreen(
+                          kind: SnapshotKind.values.byName(
+                              state.uri.queryParameters['kind'] ?? 'face')),
+                    ),
+                    GoRoute(
+                      path: 'compare',
+                      builder: (_, state) => SnapshotCompareScreen(
+                          kind: SnapshotKind.values.byName(
+                              state.uri.queryParameters['kind'] ?? 'face')),
+                    ),
+                  ],
+                ),
                 GoRoute(
                   path: 'face',
                   builder: (_, _) => const FaceScreen(),

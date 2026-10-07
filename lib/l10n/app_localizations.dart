@@ -3661,6 +3661,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Live preview drawn on this phone; nothing is recorded. Beard previews are approximate shading, not a photo-real render.'**
   String get tryOnNote;
+
+  /// No description provided for @featureProgressSnapshots.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress snapshots'**
+  String get featureProgressSnapshots;
+
+  /// No description provided for @snapFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face'**
+  String get snapFace;
+
+  /// No description provided for @snapBodyFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Body · front'**
+  String get snapBodyFront;
+
+  /// No description provided for @snapBodySide.
+  ///
+  /// In en, this message translates to:
+  /// **'Body · side'**
+  String get snapBodySide;
+
+  /// No description provided for @snapTake.
+  ///
+  /// In en, this message translates to:
+  /// **'Take snapshot'**
+  String get snapTake;
+
+  /// No description provided for @snapCompare.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare before / after'**
+  String get snapCompare;
+
+  /// No description provided for @snapEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Take your first snapshot. Repeat it regularly in the same place and light to see changes over time.'**
+  String get snapEmpty;
+
+  /// No description provided for @snapPrivacyShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Stored only on this phone, inside the encrypted database. Never uploaded or added to your gallery.'**
+  String get snapPrivacyShort;
+
+  /// No description provided for @snapLongPressDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Long-press a snapshot to delete it.'**
+  String get snapLongPressDelete;
+
+  /// No description provided for @snapWeeklyReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me weekly (Sunday 9:00)'**
+  String get snapWeeklyReminder;
+
+  /// No description provided for @snapDeleteAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all snapshots'**
+  String get snapDeleteAll;
+
+  /// No description provided for @snapReminderRoutine.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress snapshot'**
+  String get snapReminderRoutine;
+
+  /// No description provided for @snapReminderItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a progress snapshot'**
+  String get snapReminderItem;
+
+  /// No description provided for @snapReminderAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly snapshot reminder added to your routines'**
+  String get snapReminderAdded;
+
+  /// No description provided for @snapConsentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Track changes with private photos'**
+  String get snapConsentTitle;
+
+  /// No description provided for @snapConsentStored.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos are saved only when you tap Save, inside this app\'s encrypted database.'**
+  String get snapConsentStored;
+
+  /// No description provided for @snapConsentNeverUploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'They never leave this phone and are not added to your gallery.'**
+  String get snapConsentNeverUploaded;
+
+  /// No description provided for @snapConsentOptIn.
+  ///
+  /// In en, this message translates to:
+  /// **'This is optional; every other feature works without photos.'**
+  String get snapConsentOptIn;
+
+  /// No description provided for @snapConsentDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'You can delete any snapshot, or all of them, at any time.'**
+  String get snapConsentDelete;
+
+  /// No description provided for @snapConsentAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand — turn on snapshots'**
+  String get snapConsentAccept;
+
+  /// No description provided for @snapGhost.
+  ///
+  /// In en, this message translates to:
+  /// **'Show previous snapshot as a guide'**
+  String get snapGhost;
+
+  /// No description provided for @snapGhostHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Line yourself up with the faint image so snapshots are comparable.'**
+  String get snapGhostHelp;
+
+  /// No description provided for @snapTipFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Same place and light each time; face the camera with a neutral expression.'**
+  String get snapTipFace;
+
+  /// No description provided for @snapTipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Prop the phone at waist height, step back so your whole body fits, and wear similar clothing each time.'**
+  String get snapTipBody;
+
+  /// No description provided for @snapCapture.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture (3-second timer)'**
+  String get snapCapture;
+
+  /// No description provided for @snapSaveEncrypted.
+  ///
+  /// In en, this message translates to:
+  /// **'Save privately'**
+  String get snapSaveEncrypted;
+
+  /// No description provided for @snapSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Snapshot saved privately'**
+  String get snapSaved;
+
+  /// No description provided for @snapBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'Before'**
+  String get snapBefore;
+
+  /// No description provided for @snapAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'After'**
+  String get snapAfter;
+
+  /// No description provided for @snapCompareHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag across the image to compare. Choose any two snapshots below.'**
+  String get snapCompareHelp;
 }
 
 class _AppLocalizationsDelegate

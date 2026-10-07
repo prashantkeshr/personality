@@ -378,6 +378,30 @@ class StyleFavorites extends Table {
   Set<Column> get primaryKey => {itemId};
 }
 
+/// Opt-in progress photo (face or body). The JPEG lives inside this
+/// encrypted database — never as a loose file or in the gallery — and is
+/// only created when the user taps Save.
+@DataClassName('SnapshotRow')
+@TableIndex(name: 'idx_snapshot_kind_taken', columns: {#kind, #takenAt})
+class Snapshots extends Table {
+  @override
+  String get tableName => 'progress_snapshot';
+
+  TextColumn get id => text()();
+
+  /// face, bodyFront or bodySide.
+  TextColumn get kind => text()();
+  IntColumn get takenAt => integer()();
+  BlobColumn get jpeg => blob()();
+  IntColumn get width => integer()();
+  IntColumn get height => integer()();
+  TextColumn get note => text().nullable()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 @DriftDatabase(tables: [
   AppSettingsEntries,
   FeatureFlags,
@@ -401,6 +425,7 @@ class StyleFavorites extends Table {
   FaceAnalyses,
   FaceMetrics,
   StyleFavorites,
+  Snapshots,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -408,7 +433,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -456,6 +481,10 @@ class AppDatabase extends _$AppDatabase {
             await m.createTable(schema.faceMetric);
             await m.createTable(schema.hairstyleFavorite);
             await m.createIndex(schema.idxFaceAnalysisRecordedAt);
+          },
+          from6To7: (m, schema) async {
+            await m.createTable(schema.progressSnapshot);
+            await m.createIndex(schema.idxSnapshotKindTaken);
           },
         ),
         beforeOpen: (details) async {

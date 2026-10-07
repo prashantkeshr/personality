@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show DeviceOrientation;
@@ -40,6 +42,10 @@ abstract interface class CameraSource {
       void Function(FrameInput) onFrame);
   Future<void> stop();
   Widget preview();
+
+  /// Takes one still photo (JPEG bytes) while running, or null. The
+  /// temporary file the camera writes is deleted immediately.
+  Future<Uint8List?> capturePhoto();
 }
 
 /// Clockwise rotation that makes a sensor frame upright, following ML Kit's
@@ -186,6 +192,25 @@ class PluginCameraSource implements CameraSource {
     }
     if (_state.value.running || _state.value.starting) {
       _state.value = const CameraSourceState();
+    }
+  }
+
+  @override
+  Future<Uint8List?> capturePhoto() async {
+    final c = _controller;
+    if (c == null || !c.value.isInitialized || c.value.isTakingPicture) {
+      return null;
+    }
+    try {
+      final file = await c.takePicture();
+      final bytes = await file.readAsBytes();
+      try {
+        await File(file.path).delete();
+      } catch (_) {}
+      return bytes;
+    } catch (e, st) {
+      AppLogger.error('camera.photo', e, st);
+      return null;
     }
   }
 

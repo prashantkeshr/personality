@@ -10852,6 +10852,509 @@ class StyleFavoritesCompanion extends UpdateCompanion<StyleFavoriteRow> {
   }
 }
 
+class $SnapshotsTable extends Snapshots
+    with TableInfo<$SnapshotsTable, SnapshotRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SnapshotsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  @override
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+    'kind',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _takenAtMeta = const VerificationMeta(
+    'takenAt',
+  );
+  @override
+  late final GeneratedColumn<int> takenAt = GeneratedColumn<int>(
+    'taken_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _jpegMeta = const VerificationMeta('jpeg');
+  @override
+  late final GeneratedColumn<Uint8List> jpeg = GeneratedColumn<Uint8List>(
+    'jpeg',
+    aliasedName,
+    false,
+    type: DriftSqlType.blob,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _widthMeta = const VerificationMeta('width');
+  @override
+  late final GeneratedColumn<int> width = GeneratedColumn<int>(
+    'width',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _heightMeta = const VerificationMeta('height');
+  @override
+  late final GeneratedColumn<int> height = GeneratedColumn<int>(
+    'height',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    kind,
+    takenAt,
+    jpeg,
+    width,
+    height,
+    note,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'progress_snapshot';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SnapshotRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+        _kindMeta,
+        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('taken_at')) {
+      context.handle(
+        _takenAtMeta,
+        takenAt.isAcceptableOrUnknown(data['taken_at']!, _takenAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_takenAtMeta);
+    }
+    if (data.containsKey('jpeg')) {
+      context.handle(
+        _jpegMeta,
+        jpeg.isAcceptableOrUnknown(data['jpeg']!, _jpegMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_jpegMeta);
+    }
+    if (data.containsKey('width')) {
+      context.handle(
+        _widthMeta,
+        width.isAcceptableOrUnknown(data['width']!, _widthMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_widthMeta);
+    }
+    if (data.containsKey('height')) {
+      context.handle(
+        _heightMeta,
+        height.isAcceptableOrUnknown(data['height']!, _heightMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_heightMeta);
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  SnapshotRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SnapshotRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      kind: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}kind'],
+      )!,
+      takenAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}taken_at'],
+      )!,
+      jpeg: attachedDatabase.typeMapping.read(
+        DriftSqlType.blob,
+        data['${effectivePrefix}jpeg'],
+      )!,
+      width: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}width'],
+      )!,
+      height: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}height'],
+      )!,
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $SnapshotsTable createAlias(String alias) {
+    return $SnapshotsTable(attachedDatabase, alias);
+  }
+}
+
+class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
+  final String id;
+
+  /// face, bodyFront or bodySide.
+  final String kind;
+  final int takenAt;
+  final Uint8List jpeg;
+  final int width;
+  final int height;
+  final String? note;
+  final int createdAt;
+  const SnapshotRow({
+    required this.id,
+    required this.kind,
+    required this.takenAt,
+    required this.jpeg,
+    required this.width,
+    required this.height,
+    this.note,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['kind'] = Variable<String>(kind);
+    map['taken_at'] = Variable<int>(takenAt);
+    map['jpeg'] = Variable<Uint8List>(jpeg);
+    map['width'] = Variable<int>(width);
+    map['height'] = Variable<int>(height);
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  SnapshotsCompanion toCompanion(bool nullToAbsent) {
+    return SnapshotsCompanion(
+      id: Value(id),
+      kind: Value(kind),
+      takenAt: Value(takenAt),
+      jpeg: Value(jpeg),
+      width: Value(width),
+      height: Value(height),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory SnapshotRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SnapshotRow(
+      id: serializer.fromJson<String>(json['id']),
+      kind: serializer.fromJson<String>(json['kind']),
+      takenAt: serializer.fromJson<int>(json['takenAt']),
+      jpeg: serializer.fromJson<Uint8List>(json['jpeg']),
+      width: serializer.fromJson<int>(json['width']),
+      height: serializer.fromJson<int>(json['height']),
+      note: serializer.fromJson<String?>(json['note']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'kind': serializer.toJson<String>(kind),
+      'takenAt': serializer.toJson<int>(takenAt),
+      'jpeg': serializer.toJson<Uint8List>(jpeg),
+      'width': serializer.toJson<int>(width),
+      'height': serializer.toJson<int>(height),
+      'note': serializer.toJson<String?>(note),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  SnapshotRow copyWith({
+    String? id,
+    String? kind,
+    int? takenAt,
+    Uint8List? jpeg,
+    int? width,
+    int? height,
+    Value<String?> note = const Value.absent(),
+    int? createdAt,
+  }) => SnapshotRow(
+    id: id ?? this.id,
+    kind: kind ?? this.kind,
+    takenAt: takenAt ?? this.takenAt,
+    jpeg: jpeg ?? this.jpeg,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    note: note.present ? note.value : this.note,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  SnapshotRow copyWithCompanion(SnapshotsCompanion data) {
+    return SnapshotRow(
+      id: data.id.present ? data.id.value : this.id,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      takenAt: data.takenAt.present ? data.takenAt.value : this.takenAt,
+      jpeg: data.jpeg.present ? data.jpeg.value : this.jpeg,
+      width: data.width.present ? data.width.value : this.width,
+      height: data.height.present ? data.height.value : this.height,
+      note: data.note.present ? data.note.value : this.note,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SnapshotRow(')
+          ..write('id: $id, ')
+          ..write('kind: $kind, ')
+          ..write('takenAt: $takenAt, ')
+          ..write('jpeg: $jpeg, ')
+          ..write('width: $width, ')
+          ..write('height: $height, ')
+          ..write('note: $note, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    kind,
+    takenAt,
+    $driftBlobEquality.hash(jpeg),
+    width,
+    height,
+    note,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SnapshotRow &&
+          other.id == this.id &&
+          other.kind == this.kind &&
+          other.takenAt == this.takenAt &&
+          $driftBlobEquality.equals(other.jpeg, this.jpeg) &&
+          other.width == this.width &&
+          other.height == this.height &&
+          other.note == this.note &&
+          other.createdAt == this.createdAt);
+}
+
+class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
+  final Value<String> id;
+  final Value<String> kind;
+  final Value<int> takenAt;
+  final Value<Uint8List> jpeg;
+  final Value<int> width;
+  final Value<int> height;
+  final Value<String?> note;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const SnapshotsCompanion({
+    this.id = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.takenAt = const Value.absent(),
+    this.jpeg = const Value.absent(),
+    this.width = const Value.absent(),
+    this.height = const Value.absent(),
+    this.note = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  SnapshotsCompanion.insert({
+    required String id,
+    required String kind,
+    required int takenAt,
+    required Uint8List jpeg,
+    required int width,
+    required int height,
+    this.note = const Value.absent(),
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       kind = Value(kind),
+       takenAt = Value(takenAt),
+       jpeg = Value(jpeg),
+       width = Value(width),
+       height = Value(height),
+       createdAt = Value(createdAt);
+  static Insertable<SnapshotRow> custom({
+    Expression<String>? id,
+    Expression<String>? kind,
+    Expression<int>? takenAt,
+    Expression<Uint8List>? jpeg,
+    Expression<int>? width,
+    Expression<int>? height,
+    Expression<String>? note,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (kind != null) 'kind': kind,
+      if (takenAt != null) 'taken_at': takenAt,
+      if (jpeg != null) 'jpeg': jpeg,
+      if (width != null) 'width': width,
+      if (height != null) 'height': height,
+      if (note != null) 'note': note,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  SnapshotsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? kind,
+    Value<int>? takenAt,
+    Value<Uint8List>? jpeg,
+    Value<int>? width,
+    Value<int>? height,
+    Value<String?>? note,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return SnapshotsCompanion(
+      id: id ?? this.id,
+      kind: kind ?? this.kind,
+      takenAt: takenAt ?? this.takenAt,
+      jpeg: jpeg ?? this.jpeg,
+      width: width ?? this.width,
+      height: height ?? this.height,
+      note: note ?? this.note,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (takenAt.present) {
+      map['taken_at'] = Variable<int>(takenAt.value);
+    }
+    if (jpeg.present) {
+      map['jpeg'] = Variable<Uint8List>(jpeg.value);
+    }
+    if (width.present) {
+      map['width'] = Variable<int>(width.value);
+    }
+    if (height.present) {
+      map['height'] = Variable<int>(height.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SnapshotsCompanion(')
+          ..write('id: $id, ')
+          ..write('kind: $kind, ')
+          ..write('takenAt: $takenAt, ')
+          ..write('jpeg: $jpeg, ')
+          ..write('width: $width, ')
+          ..write('height: $height, ')
+          ..write('note: $note, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -10886,6 +11389,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FaceAnalysesTable faceAnalyses = $FaceAnalysesTable(this);
   late final $FaceMetricsTable faceMetrics = $FaceMetricsTable(this);
   late final $StyleFavoritesTable styleFavorites = $StyleFavoritesTable(this);
+  late final $SnapshotsTable snapshots = $SnapshotsTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -10938,6 +11442,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'idx_face_analysis_recorded_at',
     'CREATE INDEX idx_face_analysis_recorded_at ON face_analysis (recorded_at)',
   );
+  late final Index idxSnapshotKindTaken = Index(
+    'idx_snapshot_kind_taken',
+    'CREATE INDEX idx_snapshot_kind_taken ON progress_snapshot (kind, taken_at)',
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -10965,6 +11473,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     faceAnalyses,
     faceMetrics,
     styleFavorites,
+    snapshots,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -10978,6 +11487,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     idxPlanRecordDay,
     idxPostureSessionRecordedAt,
     idxFaceAnalysisRecordedAt,
+    idxSnapshotKindTaken,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -17809,6 +18319,270 @@ typedef $$StyleFavoritesTableProcessedTableManager =
       StyleFavoriteRow,
       PrefetchHooks Function()
     >;
+typedef $$SnapshotsTableCreateCompanionBuilder = SnapshotsCompanion Function({
+  required String id,
+  required String kind,
+  required int takenAt,
+  required Uint8List jpeg,
+  required int width,
+  required int height,
+  Value<String?> note,
+  required int createdAt,
+  Value<int> rowid,
+});
+typedef $$SnapshotsTableUpdateCompanionBuilder = SnapshotsCompanion Function({
+  Value<String> id,
+  Value<String> kind,
+  Value<int> takenAt,
+  Value<Uint8List> jpeg,
+  Value<int> width,
+  Value<int> height,
+  Value<String?> note,
+  Value<int> createdAt,
+  Value<int> rowid,
+});
+
+class $$SnapshotsTableFilterComposer
+    extends Composer<_$AppDatabase, $SnapshotsTable> {
+  $$SnapshotsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get takenAt => $composableBuilder(
+    column: $table.takenAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<Uint8List> get jpeg => $composableBuilder(
+    column: $table.jpeg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get width => $composableBuilder(
+    column: $table.width,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get height => $composableBuilder(
+    column: $table.height,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SnapshotsTableOrderingComposer
+    extends Composer<_$AppDatabase, $SnapshotsTable> {
+  $$SnapshotsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get takenAt => $composableBuilder(
+    column: $table.takenAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<Uint8List> get jpeg => $composableBuilder(
+    column: $table.jpeg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get width => $composableBuilder(
+    column: $table.width,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get height => $composableBuilder(
+    column: $table.height,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SnapshotsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SnapshotsTable> {
+  $$SnapshotsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<int> get takenAt =>
+      $composableBuilder(column: $table.takenAt, builder: (column) => column);
+
+  GeneratedColumn<Uint8List> get jpeg =>
+      $composableBuilder(column: $table.jpeg, builder: (column) => column);
+
+  GeneratedColumn<int> get width =>
+      $composableBuilder(column: $table.width, builder: (column) => column);
+
+  GeneratedColumn<int> get height =>
+      $composableBuilder(column: $table.height, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$SnapshotsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SnapshotsTable,
+          SnapshotRow,
+          $$SnapshotsTableFilterComposer,
+          $$SnapshotsTableOrderingComposer,
+          $$SnapshotsTableAnnotationComposer,
+          $$SnapshotsTableCreateCompanionBuilder,
+          $$SnapshotsTableUpdateCompanionBuilder,
+          (
+            SnapshotRow,
+            BaseReferences<_$AppDatabase, $SnapshotsTable, SnapshotRow>,
+          ),
+          SnapshotRow,
+          PrefetchHooks Function()
+        > {
+  $$SnapshotsTableTableManager(_$AppDatabase db, $SnapshotsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SnapshotsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SnapshotsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SnapshotsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> kind = const Value.absent(),
+                Value<int> takenAt = const Value.absent(),
+                Value<Uint8List> jpeg = const Value.absent(),
+                Value<int> width = const Value.absent(),
+                Value<int> height = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SnapshotsCompanion(
+                id: id,
+                kind: kind,
+                takenAt: takenAt,
+                jpeg: jpeg,
+                width: width,
+                height: height,
+                note: note,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String kind,
+                required int takenAt,
+                required Uint8List jpeg,
+                required int width,
+                required int height,
+                Value<String?> note = const Value.absent(),
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => SnapshotsCompanion.insert(
+                id: id,
+                kind: kind,
+                takenAt: takenAt,
+                jpeg: jpeg,
+                width: width,
+                height: height,
+                note: note,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$SnapshotsTable, SnapshotRow>(table),
+                  BaseReferences<_$AppDatabase, $SnapshotsTable, SnapshotRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SnapshotsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SnapshotsTable,
+      SnapshotRow,
+      $$SnapshotsTableFilterComposer,
+      $$SnapshotsTableOrderingComposer,
+      $$SnapshotsTableAnnotationComposer,
+      $$SnapshotsTableCreateCompanionBuilder,
+      $$SnapshotsTableUpdateCompanionBuilder,
+      (
+        SnapshotRow,
+        BaseReferences<_$AppDatabase, $SnapshotsTable, SnapshotRow>,
+      ),
+      SnapshotRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -17857,4 +18631,6 @@ class $AppDatabaseManager {
       $$FaceMetricsTableTableManager(_db, _db.faceMetrics);
   $$StyleFavoritesTableTableManager get styleFavorites =>
       $$StyleFavoritesTableTableManager(_db, _db.styleFavorites);
+  $$SnapshotsTableTableManager get snapshots =>
+      $$SnapshotsTableTableManager(_db, _db.snapshots);
 }

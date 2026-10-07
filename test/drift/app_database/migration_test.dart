@@ -13,6 +13,7 @@ import 'generated/schema_v3.dart' as v3;
 import 'generated/schema_v4.dart' as v4;
 import 'generated/schema_v5.dart' as v5;
 import 'generated/schema_v6.dart' as v6;
+import 'generated/schema_v7.dart' as v7;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -226,6 +227,36 @@ void main() {
         final p = await newDb.select(newDb.postureSession).getSingle();
         expect((p.id, p.framesUsed, p.confidence), ('p1', 15, 'HIGH'));
         expect(await newDb.select(newDb.faceAnalysis).get(), isEmpty);
+      },
+    );
+  });
+
+  // Face estimates from v6 (Phase 8) must survive the v7 upgrade.
+  test('migration from v6 to v7 keeps face analyses', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 6,
+      newVersion: 7,
+      createOld: v6.DatabaseAtV6.new,
+      createNew: v7.DatabaseAtV7.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.faceAnalysis,
+            const v6.FaceAnalysisData(
+                id: 'f1',
+                recordedAt: 7,
+                shape: 'oval',
+                alsoLike: 'diamond',
+                confidence: 'HIGH',
+                framesUsed: 12,
+                source: 'CAMERA_DERIVED',
+                method: 'm',
+                createdAt: 7));
+      },
+      validateItems: (newDb) async {
+        final f = await newDb.select(newDb.faceAnalysis).getSingle();
+        expect((f.id, f.shape, f.alsoLike), ('f1', 'oval', 'diamond'));
+        expect(await newDb.select(newDb.progressSnapshot).get(), isEmpty);
       },
     );
   });

@@ -2018,4 +2018,104 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get tryOnNote =>
       'इसी फ़ोन पर बना लाइव प्रीव्यू; कुछ भी रिकॉर्ड नहीं होता। दाढ़ी का प्रीव्यू अनुमानित छाया है, असली तस्वीर जैसा नहीं।';
+
+  @override
+  String get featureProgressSnapshots => 'प्रगति स्नैपशॉट';
+
+  @override
+  String get snapFace => 'चेहरा';
+
+  @override
+  String get snapBodyFront => 'शरीर · सामने';
+
+  @override
+  String get snapBodySide => 'शरीर · बगल';
+
+  @override
+  String get snapTake => 'स्नैपशॉट लें';
+
+  @override
+  String get snapCompare => 'पहले / बाद में तुलना';
+
+  @override
+  String get snapEmpty =>
+      'अपना पहला स्नैपशॉट लें। बदलाव देखने के लिए इसे नियमित रूप से उसी जगह और रोशनी में दोहराएँ।';
+
+  @override
+  String get snapPrivacyShort =>
+      'केवल इसी फ़ोन पर, एन्क्रिप्टेड डेटाबेस में सहेजे जाते हैं। कभी अपलोड या गैलरी में नहीं जोड़े जाते।';
+
+  @override
+  String get snapLongPressDelete => 'स्नैपशॉट हटाने के लिए उसे दबाकर रखें।';
+
+  @override
+  String get snapWeeklyReminder => 'हर सप्ताह याद दिलाएँ (रविवार 9:00)';
+
+  @override
+  String get snapDeleteAll => 'सभी स्नैपशॉट हटाएँ';
+
+  @override
+  String get snapReminderRoutine => 'प्रगति स्नैपशॉट';
+
+  @override
+  String get snapReminderItem => 'प्रगति स्नैपशॉट लें';
+
+  @override
+  String get snapReminderAdded =>
+      'साप्ताहिक स्नैपशॉट रिमाइंडर आपकी दिनचर्या में जोड़ा गया';
+
+  @override
+  String get snapConsentTitle => 'निजी तस्वीरों से बदलाव ट्रैक करें';
+
+  @override
+  String get snapConsentStored =>
+      'तस्वीरें केवल सहेजें पर टैप करने पर, इस ऐप के एन्क्रिप्टेड डेटाबेस में सहेजी जाती हैं।';
+
+  @override
+  String get snapConsentNeverUploaded =>
+      'वे कभी इस फ़ोन से बाहर नहीं जातीं और गैलरी में नहीं जोड़ी जातीं।';
+
+  @override
+  String get snapConsentOptIn =>
+      'यह वैकल्पिक है; बाकी सभी सुविधाएँ बिना तस्वीरों के काम करती हैं।';
+
+  @override
+  String get snapConsentDelete => 'आप कभी भी कोई या सभी स्नैपशॉट हटा सकते हैं।';
+
+  @override
+  String get snapConsentAccept => 'मैं समझता/समझती हूँ — स्नैपशॉट चालू करें';
+
+  @override
+  String get snapGhost => 'पिछला स्नैपशॉट गाइड के रूप में दिखाएँ';
+
+  @override
+  String get snapGhostHelp =>
+      'हल्की छवि के साथ खुद को मिलाएँ ताकि स्नैपशॉट की तुलना हो सके।';
+
+  @override
+  String get snapTipFace =>
+      'हर बार वही जगह और रोशनी; सामान्य भाव से कैमरे की ओर देखें।';
+
+  @override
+  String get snapTipBody =>
+      'फ़ोन को कमर की ऊँचाई पर रखें, पीछे हटें ताकि पूरा शरीर दिखे, और हर बार मिलते-जुलते कपड़े पहनें।';
+
+  @override
+  String get snapCapture => 'कैप्चर करें (3 सेकंड टाइमर)';
+
+  @override
+  String get snapSaveEncrypted => 'निजी रूप से सहेजें';
+
+  @override
+  String get snapSaved => 'स्नैपशॉट निजी रूप से सहेजा गया';
+
+  @override
+  String get snapBefore => 'पहले';
+
+  @override
+  String get snapAfter => 'बाद में';
+
+  @override
+  String get snapCompareHelp =>
+      'तुलना के लिए छवि पर खींचें। नीचे कोई भी दो स्नैपशॉट चुनें।';
 }

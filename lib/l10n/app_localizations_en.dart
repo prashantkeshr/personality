@@ -2031,4 +2031,105 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tryOnNote =>
       'Live preview drawn on this phone; nothing is recorded. Beard previews are approximate shading, not a photo-real render.';
+
+  @override
+  String get featureProgressSnapshots => 'Progress snapshots';
+
+  @override
+  String get snapFace => 'Face';
+
+  @override
+  String get snapBodyFront => 'Body · front';
+
+  @override
+  String get snapBodySide => 'Body · side';
+
+  @override
+  String get snapTake => 'Take snapshot';
+
+  @override
+  String get snapCompare => 'Compare before / after';
+
+  @override
+  String get snapEmpty =>
+      'Take your first snapshot. Repeat it regularly in the same place and light to see changes over time.';
+
+  @override
+  String get snapPrivacyShort =>
+      'Stored only on this phone, inside the encrypted database. Never uploaded or added to your gallery.';
+
+  @override
+  String get snapLongPressDelete => 'Long-press a snapshot to delete it.';
+
+  @override
+  String get snapWeeklyReminder => 'Remind me weekly (Sunday 9:00)';
+
+  @override
+  String get snapDeleteAll => 'Delete all snapshots';
+
+  @override
+  String get snapReminderRoutine => 'Progress snapshot';
+
+  @override
+  String get snapReminderItem => 'Take a progress snapshot';
+
+  @override
+  String get snapReminderAdded =>
+      'Weekly snapshot reminder added to your routines';
+
+  @override
+  String get snapConsentTitle => 'Track changes with private photos';
+
+  @override
+  String get snapConsentStored =>
+      'Photos are saved only when you tap Save, inside this app\'s encrypted database.';
+
+  @override
+  String get snapConsentNeverUploaded =>
+      'They never leave this phone and are not added to your gallery.';
+
+  @override
+  String get snapConsentOptIn =>
+      'This is optional; every other feature works without photos.';
+
+  @override
+  String get snapConsentDelete =>
+      'You can delete any snapshot, or all of them, at any time.';
+
+  @override
+  String get snapConsentAccept => 'I understand — turn on snapshots';
+
+  @override
+  String get snapGhost => 'Show previous snapshot as a guide';
+
+  @override
+  String get snapGhostHelp =>
+      'Line yourself up with the faint image so snapshots are comparable.';
+
+  @override
+  String get snapTipFace =>
+      'Same place and light each time; face the camera with a neutral expression.';
+
+  @override
+  String get snapTipBody =>
+      'Prop the phone at waist height, step back so your whole body fits, and wear similar clothing each time.';
+
+  @override
+  String get snapCapture => 'Capture (3-second timer)';
+
+  @override
+  String get snapSaveEncrypted => 'Save privately';
+
+  @override
+  String get snapSaved => 'Snapshot saved privately';
+
+  @override
+  String get snapBefore => 'Before';
+
+  @override
+  String get snapAfter => 'After';
+
+  @override
+  String get snapCompareHelp =>
+      'Drag across the image to compare. Choose any two snapshots below.';
 }

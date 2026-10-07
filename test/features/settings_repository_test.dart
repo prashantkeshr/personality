@@ -71,7 +71,8 @@ void main() {
           'face_analysis',
           'face_metric',
           'hairstyle_favorite',
+          'progress_snapshot',
         ]));
-    expect(db.schemaVersion, 6);
+    expect(db.schemaVersion, 7);
   });
 }
