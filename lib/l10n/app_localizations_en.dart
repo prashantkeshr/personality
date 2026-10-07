@@ -1741,4 +1741,132 @@ class AppLocalizationsEn extends AppLocalizations {
   String postureCountdown(int seconds) {
     return 'Starting in $seconds';
   }
+
+  @override
+  String get exerciseLibrary => 'Exercise library';
+
+  @override
+  String get filterAll => 'All';
+
+  @override
+  String get filterCameraTracked => 'Camera-tracked';
+
+  @override
+  String get cameraTracked => 'Camera-tracked';
+
+  @override
+  String get howTo => 'How to do it';
+
+  @override
+  String get trackWithCamera => 'Track with camera';
+
+  @override
+  String get logAsDone => 'Log as done';
+
+  @override
+  String get savedToLog => 'Saved to your exercise log';
+
+  @override
+  String repsValue(int count) {
+    return '$count reps';
+  }
+
+  @override
+  String get trackingSetupFront =>
+      'Prop the phone upright at waist height, step back 2–3 m and face the camera so your whole body is visible.';
+
+  @override
+  String get trackingSetupSide =>
+      'Place the phone at floor or waist height to your side, so it sees your whole body from the side.';
+
+  @override
+  String trackingTargetReps(int count) {
+    return 'Goal: $count reps';
+  }
+
+  @override
+  String trackingTargetHold(int seconds) {
+    return 'Goal: hold for $seconds seconds';
+  }
+
+  @override
+  String get trackingReady =>
+      'Ready — tap Start, then get into position during the countdown.';
+
+  @override
+  String get trackingStart => 'Start';
+
+  @override
+  String get trackingFinish => 'Finish';
+
+  @override
+  String trackingOfReps(int count) {
+    return 'of $count reps';
+  }
+
+  @override
+  String trackingOfSeconds(int seconds) {
+    return 'of ${seconds}s';
+  }
+
+  @override
+  String holdSecondsValue(int seconds) {
+    return '${seconds}s';
+  }
+
+  @override
+  String get trackingSummaryTitle => 'Session summary';
+
+  @override
+  String get trackingRepsDone => 'Reps counted';
+
+  @override
+  String get trackingHoldTime => 'Time in position';
+
+  @override
+  String get trackingTargetReached => 'Goal reached — well done.';
+
+  @override
+  String get trackingCountNote =>
+      'Counted by the camera on this phone. It can occasionally miss or add a rep.';
+
+  @override
+  String get saveToLog => 'Save to log';
+
+  @override
+  String get trackingDone => 'Done';
+
+  @override
+  String get cueStepIntoView => 'Step into view so your whole body is visible.';
+
+  @override
+  String get cueGoLower => 'Go a little lower if it feels comfortable.';
+
+  @override
+  String get cueKneesOverToes => 'Keep your knees in line with your toes.';
+
+  @override
+  String get cueChestUp => 'Keep your chest up.';
+
+  @override
+  String get cueRaiseHigher => 'Raise your arms a little higher.';
+
+  @override
+  String get cueRaiseEvenly => 'Raise both arms evenly.';
+
+  @override
+  String get cueLiftKneeHigher => 'Lift your knee a little higher.';
+
+  @override
+  String get cueKeepBodyStraight =>
+      'Keep a straight line from shoulders to ankles.';
+
+  @override
+  String get cueGetIntoPosition => 'Get into position.';
+
+  @override
+  String get cueGoodForm => 'Good — keep going.';
+
+  @override
+  String get cueKeepGoing => 'Keep going at a steady pace.';
 }

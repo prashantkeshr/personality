@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
 import '../features/dashboard/home_screen.dart';
+import '../features/exercise/exercise_library_screen.dart';
+import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/habits/habits_screen.dart';
 import '../features/health/activity/activity_screen.dart';
 import '../features/health/exercise/exercise_log_screen.dart';
@@ -45,6 +47,7 @@ abstract final class AppRoutes {
   static const sleep = '/health/sleep';
   static const activity = '/health/activity';
   static const exercise = '/health/exercise';
+  static const exerciseLibrary = '/health/exercise/library';
   static const habits = '/health/habits';
   static const routines = '/health/routines';
   static const plan = '/health/plan';
@@ -121,8 +124,31 @@ final routerProvider = Provider<GoRouter>((ref) {
                     path: 'activity',
                     builder: (_, _) => const ActivityScreen()),
                 GoRoute(
-                    path: 'exercise',
-                    builder: (_, _) => const ExerciseLogScreen()),
+                  path: 'exercise',
+                  builder: (_, _) => const ExerciseLogScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'library',
+                      builder: (_, state) => ExerciseLibraryScreen(
+                          cameraOnly:
+                              state.uri.queryParameters['camera'] == '1'),
+                      routes: [
+                        GoRoute(
+                          path: ':id',
+                          builder: (_, state) => ExerciseDetailScreen(
+                              id: state.pathParameters['id']!),
+                          routes: [
+                            GoRoute(
+                              path: 'track',
+                              builder: (_, state) => ExerciseTrackingScreen(
+                                  id: state.pathParameters['id']!),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
                 GoRoute(
                     path: 'habits', builder: (_, _) => const HabitsScreen()),
                 GoRoute(

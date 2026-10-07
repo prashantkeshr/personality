@@ -209,6 +209,7 @@ class ExerciseRepository {
     int? sets,
     int? reps,
     String? notes,
+    DataSource source = DataSource.userEntered,
   }) async {
     if (_blank(name) == null) throw ArgumentError('Name is required');
     if (durationMinutes <= 0) throw ArgumentError('Duration must be positive');
@@ -222,7 +223,7 @@ class ExerciseRepository {
             sets: Value(sets),
             reps: Value(reps),
             performedAt: _ms(performedAt),
-            source: DataSource.userEntered.wireName,
+            source: source.wireName,
             notes: Value(_blank(notes)),
             createdAt: now,
             updatedAt: now,

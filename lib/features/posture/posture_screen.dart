@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import '../camera/camera_stage.dart';
 import '../camera/portrait_lock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,6 @@ import '../camera/camera_source.dart';
 import '../health/body_providers.dart';
 import 'posture_labels.dart';
 import 'posture_providers.dart';
-import 'skeleton_overlay.dart';
 
 enum _Phase { setup, live, countdown, capturing, result, failed }
 
@@ -239,9 +239,9 @@ class _PostureScreenState extends ConsumerState<PostureScreen> {
               )],
             _Phase.live || _Phase.countdown || _Phase.capturing => [
                 if (cam.problem != null)
-                  _Problem(problem: cam.problem!, onRetry: _startCamera)
+                  CameraProblemCard(problem: cam.problem!, onRetry: _startCamera)
                 else ...[
-                  _LivePreview(
+                  CameraStage(
                     camera: _camera,
                     state: cam,
                     pose: _pose,
@@ -336,157 +336,6 @@ class _Setup extends StatelessWidget {
         const SizedBox(height: AppSpacing.lg),
         Text(l10n.postureDisclaimer, style: theme.textTheme.bodySmall),
       ],
-    );
-  }
-}
-
-class _LivePreview extends StatelessWidget {
-  const _LivePreview({
-    required this.camera,
-    required this.state,
-    required this.pose,
-    required this.guidance,
-    this.countdown,
-  });
-
-  final CameraSource camera;
-  final CameraSourceState state;
-  final PoseDetected? pose;
-  final String guidance;
-  final int? countdown;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
-    final aspect = state.previewAspectRatio ?? 4 / 3;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(AppRadius.card),
-      child: Stack(
-        children: [
-          AspectRatio(
-            aspectRatio: 3 / 4,
-            child: state.running
-                ? FittedBox(
-                    fit: BoxFit.cover,
-                    clipBehavior: Clip.hardEdge,
-                    child: SizedBox(
-                      width: 300,
-                      height: 300 * aspect,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          camera.preview(),
-                          CustomPaint(
-                            painter: SkeletonPainter(
-                              pose: pose,
-                              guideColor: Colors.white.withValues(alpha: 0.7),
-                              boneColor: scheme.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : const ColoredBox(
-                    color: Colors.black,
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-          ),
-          PositionedDirectional(
-            top: AppSpacing.sm,
-            start: AppSpacing.sm,
-            child: _Pill(text: l10n.cameraProcessingOnDevice, icon: Icons.memory),
-          ),
-          if (countdown != null)
-            Positioned.fill(
-              child: Center(
-                child: Semantics(
-                  liveRegion: true,
-                  label: l10n.postureCountdown(countdown!),
-                  child: Text(
-                    '$countdown',
-                    style: const TextStyle(
-                      fontSize: 120,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                      shadows: [Shadow(blurRadius: 12)],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          PositionedDirectional(
-            bottom: AppSpacing.sm,
-            start: AppSpacing.sm,
-            end: AppSpacing.sm,
-            child: Semantics(
-              liveRegion: true,
-              child: _Pill(text: guidance, icon: Icons.info_outline),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Pill extends StatelessWidget {
-  const _Pill({required this.text, required this.icon});
-
-  final String text;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.65),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 16, color: Colors.white),
-            const SizedBox(width: 6),
-            Flexible(
-              child: Text(text,
-                  style: const TextStyle(color: Colors.white, fontSize: 13)),
-            ),
-          ],
-        ),
-      );
-}
-
-class _Problem extends StatelessWidget {
-  const _Problem({required this.problem, required this.onRetry});
-
-  final CameraProblem problem;
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.xl),
-        child: Column(
-          children: [
-            const Icon(Icons.no_photography_outlined, size: 40),
-            const SizedBox(height: AppSpacing.md),
-            Text(
-              switch (problem) {
-                CameraProblem.permissionDenied => l10n.cameraPermissionDenied,
-                CameraProblem.noCamera => l10n.cameraUnavailable,
-                CameraProblem.failed => l10n.cameraFailed,
-              },
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSpacing.lg),
-            FilledButton(onPressed: onRetry, child: Text(l10n.actionRetry)),
-          ],
-        ),
-      ),
     );
   }
 }

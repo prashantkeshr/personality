@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../core/logging/app_logger.dart';
 import '../../../core/providers.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../domain/entities/health.dart';
+import '../../../domain/entities/provenance.dart';
 import '../../../domain/services/health_stats.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/async_view.dart';
@@ -26,7 +29,16 @@ class ExerciseLogScreen extends ConsumerWidget {
     final week = Days.lastDays(ref.watch(clockProvider)(), 7);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.featureExercise)),
+      appBar: AppBar(
+        title: Text(l10n.featureExercise),
+        actions: [
+          TextButton.icon(
+            onPressed: () => context.push(AppRoutes.exerciseLibrary),
+            icon: const Icon(Icons.menu_book_outlined),
+            label: Text(l10n.exerciseLibrary),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showModalBottomSheet<void>(
           context: context,
@@ -74,7 +86,10 @@ class ExerciseLogScreen extends ConsumerWidget {
                     format.day(e.performedAt),
                     format.minutes(e.durationMinutes),
                     if (e.sets != null && e.reps != null)
-                      l10n.setsReps(e.sets!, e.reps!),
+                      l10n.setsReps(e.sets!, e.reps!)
+                    else if (e.reps != null)
+                      l10n.repsValue(e.reps!),
+                    if (e.source == DataSource.cameraDerived) l10n.cameraTracked,
                   ].join(' · ')),
                   trailing: IconButton(
                     tooltip: l10n.actionDelete,

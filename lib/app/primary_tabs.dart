@@ -65,9 +65,11 @@ class AnalyzeTab extends StatelessWidget {
         AppFeature.faceAnalysis,
         AppFeature.exerciseCameraTracking,
       ],
-      routes: const {
+      routes: {
         AppFeature.cameraCheck: AppRoutes.cameraCheck,
         AppFeature.postureAnalysis: AppRoutes.posture,
+        AppFeature.exerciseCameraTracking:
+            '${AppRoutes.exerciseLibrary}?camera=1',
       },
     );
   }

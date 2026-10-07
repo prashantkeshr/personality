@@ -1,0 +1,489 @@
+[
+ {
+  "id": "squat",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Bodyweight squat",
+   "hi": "बॉडीवेट स्क्वाट"
+  },
+  "summary": {
+   "en": "Strengthens legs and hips.",
+   "hi": "पैरों और कूल्हों को मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand with feet shoulder-width apart, facing the camera.",
+    "Push your hips back and bend your knees as if sitting on a chair.",
+    "Keep your chest up and knees in line with your toes, then stand back up."
+   ],
+   "hi": [
+    "पैरों को कंधों जितना फैलाकर कैमरे की ओर मुँह करके खड़े हों।",
+    "कूल्हों को पीछे ले जाएँ और घुटने मोड़ें जैसे कुर्सी पर बैठ रहे हों।",
+    "छाती ऊपर और घुटने पंजों की सीध में रखें, फिर वापस खड़े हों।"
+   ]
+  },
+  "dose": {
+   "en": "2 sets of 10",
+   "hi": "10-10 के 2 सेट"
+  },
+  "safety": {
+   "en": "Go only as low as is comfortable. Use a chair behind you if balance is a concern.",
+   "hi": "केवल उतना नीचे जाएँ जितना आरामदायक हो। संतुलन की चिंता हो तो पीछे कुर्सी रखें।"
+  },
+  "tracking": {
+   "pattern": "squat",
+   "view": "front",
+   "target": 10
+  }
+ },
+ {
+  "id": "arm_raise",
+  "category": "shoulder",
+  "level": "beginner",
+  "name": {
+   "en": "Overhead arm raise",
+   "hi": "ओवरहेड आर्म रेज़"
+  },
+  "summary": {
+   "en": "Improves shoulder mobility.",
+   "hi": "कंधों की गतिशीलता बढ़ाता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand tall facing the camera, arms by your sides.",
+    "Raise both arms forward and up overhead together.",
+    "Lower them slowly back to your sides."
+   ],
+   "hi": [
+    "कैमरे की ओर मुँह करके सीधे खड़े हों, हाथ बगल में।",
+    "दोनों हाथ एक साथ आगे और ऊपर सिर के ऊपर उठाएँ।",
+    "धीरे से वापस बगल में लाएँ।"
+   ]
+  },
+  "dose": {
+   "en": "2 sets of 10",
+   "hi": "10-10 के 2 सेट"
+  },
+  "safety": {
+   "en": "Avoid shrugging. Stop if your shoulder pinches or hurts.",
+   "hi": "कंधे न उचकाएँ। कंधे में चुभन या दर्द हो तो रुक जाएँ।"
+  },
+  "tracking": {
+   "pattern": "armRaise",
+   "view": "front",
+   "target": 10
+  }
+ },
+ {
+  "id": "knee_raise",
+  "category": "cardio",
+  "level": "beginner",
+  "name": {
+   "en": "Standing knee raises",
+   "hi": "खड़े होकर घुटना उठाना"
+  },
+  "summary": {
+   "en": "Gentle cardio and hip mobility.",
+   "hi": "हल्का कार्डियो और कूल्हे की गतिशीलता।"
+  },
+  "steps": {
+   "en": [
+    "Stand tall facing the camera.",
+    "Lift one knee toward hip height, then lower it.",
+    "Alternate legs at a steady pace."
+   ],
+   "hi": [
+    "कैमरे की ओर मुँह करके सीधे खड़े हों।",
+    "एक घुटना कूल्हे की ऊँचाई की ओर उठाएँ, फिर नीचे लाएँ।",
+    "स्थिर गति से पैर बदलते रहें।"
+   ]
+  },
+  "dose": {
+   "en": "20 raises (10 each leg)",
+   "hi": "20 बार (हर पैर से 10)"
+  },
+  "safety": {
+   "en": "Hold a wall or chair for balance if needed.",
+   "hi": "ज़रूरत हो तो संतुलन के लिए दीवार या कुर्सी पकड़ें।"
+  },
+  "tracking": {
+   "pattern": "kneeRaise",
+   "view": "front",
+   "target": 20
+  }
+ },
+ {
+  "id": "plank",
+  "category": "core",
+  "level": "beginner",
+  "name": {
+   "en": "Plank",
+   "hi": "प्लैंक"
+  },
+  "summary": {
+   "en": "Builds core endurance.",
+   "hi": "कोर की सहनशक्ति बढ़ाता है।"
+  },
+  "steps": {
+   "en": [
+    "Place the phone to your side so it sees your whole body.",
+    "Rest on forearms and toes with elbows under shoulders.",
+    "Keep a straight line from shoulders to ankles and breathe."
+   ],
+   "hi": [
+    "फ़ोन को अपनी बगल में रखें ताकि पूरा शरीर दिखे।",
+    "कोहनियाँ कंधों के नीचे रखकर अग्रबाहुओं और पंजों पर टिकें।",
+    "कंधों से टखनों तक सीधी रेखा रखें और साँस लेते रहें।"
+   ]
+  },
+  "dose": {
+   "en": "Hold 20–30 seconds, 2 times",
+   "hi": "20–30 सेकंड, 2 बार"
+  },
+  "safety": {
+   "en": "Do it on your knees if needed. Stop if your lower back hurts.",
+   "hi": "ज़रूरत हो तो घुटनों के बल करें। निचली पीठ में दर्द हो तो रुकें।"
+  },
+  "tracking": {
+   "pattern": "plank",
+   "view": "side",
+   "target": 30
+  }
+ },
+ {
+  "id": "wall_sit",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Wall sit",
+   "hi": "वॉल सिट"
+  },
+  "summary": {
+   "en": "Strengthens thighs with no impact.",
+   "hi": "बिना झटके के जाँघों को मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Place the phone to your side.",
+    "Lean your back against a wall and slide down until knees are bent.",
+    "Hold with knees above ankles."
+   ],
+   "hi": [
+    "फ़ोन को अपनी बगल में रखें।",
+    "पीठ दीवार से टिकाकर नीचे खिसकें जब तक घुटने मुड़ न जाएँ।",
+    "घुटने टखनों के ऊपर रखकर रुकें।"
+   ]
+  },
+  "dose": {
+   "en": "Hold 20–30 seconds, 2 times",
+   "hi": "20–30 सेकंड, 2 बार"
+  },
+  "safety": {
+   "en": "Don't go lower than is comfortable for your knees.",
+   "hi": "घुटनों के लिए आरामदायक से नीचे न जाएँ।"
+  },
+  "tracking": {
+   "pattern": "wallSit",
+   "view": "side",
+   "target": 30
+  }
+ },
+ {
+  "id": "chin_tuck",
+  "category": "neck",
+  "level": "beginner",
+  "name": {
+   "en": "Chin tucks",
+   "hi": "चिन टक"
+  },
+  "summary": {
+   "en": "Draws the head back over the shoulders.",
+   "hi": "सिर को कंधों के ऊपर पीछे लाता है।"
+  },
+  "steps": {
+   "en": [
+    "Sit or stand tall.",
+    "Glide your chin straight back.",
+    "Hold 3–5 seconds and relax."
+   ],
+   "hi": [
+    "सीधे बैठें या खड़े हों।",
+    "ठुड्डी को सीधा पीछे खिसकाएँ।",
+    "3–5 सेकंड रुकें और ढीला छोड़ें।"
+   ]
+  },
+  "dose": {
+   "en": "8–10 repetitions",
+   "hi": "8–10 बार"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "neck_stretch",
+  "category": "neck",
+  "level": "beginner",
+  "name": {
+   "en": "Neck side stretch",
+   "hi": "गर्दन का साइड स्ट्रेच"
+  },
+  "summary": {
+   "en": "Eases the side of the neck.",
+   "hi": "गर्दन के किनारे को आराम देता है।"
+  },
+  "steps": {
+   "en": [
+    "Sit tall, shoulders relaxed.",
+    "Tilt one ear toward the shoulder.",
+    "Hold 15–20 seconds each side."
+   ],
+   "hi": [
+    "कंधे ढीले रखकर सीधे बैठें।",
+    "एक कान को कंधे की ओर झुकाएँ।",
+    "हर ओर 15–20 सेकंड रुकें।"
+   ]
+  },
+  "dose": {
+   "en": "2 times each side",
+   "hi": "हर ओर 2 बार"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "shoulder_rolls",
+  "category": "shoulder",
+  "level": "beginner",
+  "name": {
+   "en": "Shoulder rolls",
+   "hi": "कंधे घुमाना"
+  },
+  "summary": {
+   "en": "Loosens tight shoulders.",
+   "hi": "जकड़े कंधों को ढीला करता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand or sit tall.",
+    "Lift shoulders up, roll them back and down.",
+    "Move slowly in a smooth circle."
+   ],
+   "hi": [
+    "सीधे खड़े हों या बैठें।",
+    "कंधे ऊपर उठाएँ, पीछे और नीचे घुमाएँ।",
+    "धीरे-धीरे गोल घुमाएँ।"
+   ]
+  },
+  "dose": {
+   "en": "10 backward, 10 forward",
+   "hi": "10 पीछे, 10 आगे"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "wall_angels",
+  "category": "upperBack",
+  "level": "beginner",
+  "name": {
+   "en": "Wall angels",
+   "hi": "वॉल एंजल"
+  },
+  "summary": {
+   "en": "Encourages an upright upper back.",
+   "hi": "ऊपरी पीठ को सीधा रखने में मदद करता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand with back and arms against a wall.",
+    "Slide arms up the wall slowly.",
+    "Slide back down, keeping contact."
+   ],
+   "hi": [
+    "पीठ और हाथ दीवार से लगाकर खड़े हों।",
+    "हाथ धीरे से दीवार पर ऊपर ले जाएँ।",
+    "संपर्क बनाए रखते हुए नीचे लाएँ।"
+   ]
+  },
+  "dose": {
+   "en": "8 slow repetitions",
+   "hi": "8 बार धीरे-धीरे"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "cat_cow",
+  "category": "lowerBack",
+  "level": "beginner",
+  "name": {
+   "en": "Cat–cow",
+   "hi": "कैट–काउ"
+  },
+  "summary": {
+   "en": "Gentle spine mobility.",
+   "hi": "रीढ़ की हल्की गतिशीलता।"
+  },
+  "steps": {
+   "en": [
+    "Start on hands and knees.",
+    "Arch your back up, tucking the chin.",
+    "Then let the belly drop and look forward."
+   ],
+   "hi": [
+    "हाथों और घुटनों के बल आएँ।",
+    "पीठ ऊपर गोल करें, ठुड्डी अंदर।",
+    "फिर पेट नीचे जाने दें और आगे देखें।"
+   ]
+  },
+  "dose": {
+   "en": "8–10 slow cycles",
+   "hi": "8–10 धीमे चक्र"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "glute_bridge",
+  "category": "lowerBack",
+  "level": "beginner",
+  "name": {
+   "en": "Glute bridge",
+   "hi": "ग्लूट ब्रिज"
+  },
+  "summary": {
+   "en": "Strengthens hips and supports the lower back.",
+   "hi": "कूल्हों को मज़बूत कर निचली पीठ को सहारा देता है।"
+  },
+  "steps": {
+   "en": [
+    "Lie on your back, knees bent.",
+    "Lift your hips until the body is straight.",
+    "Lower slowly."
+   ],
+   "hi": [
+    "पीठ के बल लेटें, घुटने मुड़े।",
+    "कूल्हे उठाएँ जब तक शरीर सीधा न हो।",
+    "धीरे से नीचे लाएँ।"
+   ]
+  },
+  "dose": {
+   "en": "10 repetitions",
+   "hi": "10 बार"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "child_pose",
+  "category": "yoga",
+  "level": "beginner",
+  "name": {
+   "en": "Child's pose",
+   "hi": "बालासन"
+  },
+  "summary": {
+   "en": "A calm resting stretch.",
+   "hi": "शांत विश्राम वाला स्ट्रेच।"
+  },
+  "steps": {
+   "en": [
+    "Kneel and sit back on your heels.",
+    "Fold forward with arms extended.",
+    "Breathe slowly for 30 seconds."
+   ],
+   "hi": [
+    "घुटनों के बल बैठकर एड़ियों पर बैठें।",
+    "हाथ आगे फैलाकर आगे झुकें।",
+    "30 सेकंड धीरे साँस लें।"
+   ]
+  },
+  "dose": {
+   "en": "30–60 seconds",
+   "hi": "30–60 सेकंड"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "hamstring_stretch",
+  "category": "stretching",
+  "level": "beginner",
+  "name": {
+   "en": "Standing hamstring stretch",
+   "hi": "खड़े होकर हैमस्ट्रिंग स्ट्रेच"
+  },
+  "summary": {
+   "en": "Stretches the back of the thighs.",
+   "hi": "जाँघों के पीछे खिंचाव देता है।"
+  },
+  "steps": {
+   "en": [
+    "Place one heel on a low step, leg straight.",
+    "Hinge forward from the hips with a straight back.",
+    "Hold 20 seconds, then switch."
+   ],
+   "hi": [
+    "एक एड़ी नीचे की सीढ़ी पर रखें, पैर सीधा।",
+    "सीधी पीठ से कूल्हों से आगे झुकें।",
+    "20 सेकंड रुकें, फिर बदलें।"
+   ]
+  },
+  "dose": {
+   "en": "2 times each leg",
+   "hi": "हर पैर 2 बार"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "bird_dog",
+  "category": "core",
+  "level": "beginner",
+  "name": {
+   "en": "Bird dog",
+   "hi": "बर्ड डॉग"
+  },
+  "summary": {
+   "en": "Improves balance and core control.",
+   "hi": "संतुलन और कोर नियंत्रण सुधारता है।"
+  },
+  "steps": {
+   "en": [
+    "Start on hands and knees.",
+    "Extend the opposite arm and leg.",
+    "Hold 2 seconds, return, switch sides."
+   ],
+   "hi": [
+    "हाथों और घुटनों के बल आएँ।",
+    "विपरीत हाथ और पैर सीधा फैलाएँ।",
+    "2 सेकंड रुकें, वापस आएँ, ओर बदलें।"
+   ]
+  },
+  "dose": {
+   "en": "8 each side",
+   "hi": "हर ओर 8 बार"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ }
+]

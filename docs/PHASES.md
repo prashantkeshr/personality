@@ -192,3 +192,25 @@ Verification:
 - Real front-view check on the user's phone: hips 0.8°, torso 0.5°, knees 4.3°, all within typical range with high confidence. It was saved, and the camera was released afterwards (CameraService disconnect).
 
 Device notes: Xiaomi needs "Install via USB" and "USB debugging (Security settings)" (applied only after a reboot) for installs and input. scrcpy v5.0 in C:\dev\scrcpy mirrors the phone (SHA-256 verified).
+
+## Phase 7 — completed 2026-10-07
+
+- **Exercise library** (`assets/content/exercises.json`): 14 exercises in English and Hindi, each with steps, dose and a safety note. 5 are camera-tracked. Filter: All / Camera-tracked. "Log as done" covers the rest.
+- **Exercise tracker** (pure Dart, `exercise_tracker.dart`):
+  - Squat, overhead arm raise and standing knee raise (alternating legs) count reps.
+  - Plank and wall sit are timed holds.
+  - Reps use joint angles with hysteresis, smoothing and a 600 ms minimum rep time, so jitter adds no reps. Partial movements aren't counted.
+  - When joints aren't visible, tracking pauses instead of guessing.
+- **Form cues**: go lower, knees in line with toes, chest up, raise higher, raise evenly, lift knee higher, keep body straight, get into position. All general guidance, never medical.
+- **Tracking screen**: setup tips by view (front/side), lens choice, a 5-second countdown, a live counter or hold timer on the shared `CameraStage`, and auto-finish at the goal. The summary has save-to-log (source CAMERA_DERIVED) and retake. The camera is released on finish and when the app is hidden.
+- **Exercise log** links to the library and shows camera-tracked sessions. The Analyze tab's "Exercise tracking" opens the camera-filtered library.
+
+Bugs fixed:
+- **Release builds couldn't recognize anyone**: R8 stripped ML Kit/MediaPipe classes that the native engine loads by name. Keep rules were added; the R8 `usage.txt` is now checked for removed ML Kit code. Verified on the user's phone that release posture analysis works.
+- **"Log as done" dialog** disposed its controller while closing.
+- **The uneven-arms cue** lagged behind smoothing.
+- **Asset-loading test hang**: the cached rootBundle future crossed test zones; it now uses `cache: false`.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 169/169 pass, including tracker unit tests and a simulated 3-squat camera session saved as camera-derived.
+- Release APK 64 MB with no INTERNET permission. Release posture analysis confirmed working on POCO X4 Pro 5G.

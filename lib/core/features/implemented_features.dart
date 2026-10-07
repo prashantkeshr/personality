@@ -23,4 +23,6 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.cameraCheck,
   // Phase 6
   AppFeature.postureAnalysis,
+  // Phase 7
+  AppFeature.exerciseCameraTracking,
 };

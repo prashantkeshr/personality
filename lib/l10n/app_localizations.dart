@@ -3145,6 +3145,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starting in {seconds}'**
   String postureCountdown(int seconds);
+
+  /// No description provided for @exerciseLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise library'**
+  String get exerciseLibrary;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterCameraTracked.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera-tracked'**
+  String get filterCameraTracked;
+
+  /// No description provided for @cameraTracked.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera-tracked'**
+  String get cameraTracked;
+
+  /// No description provided for @howTo.
+  ///
+  /// In en, this message translates to:
+  /// **'How to do it'**
+  String get howTo;
+
+  /// No description provided for @trackWithCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Track with camera'**
+  String get trackWithCamera;
+
+  /// No description provided for @logAsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Log as done'**
+  String get logAsDone;
+
+  /// No description provided for @savedToLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to your exercise log'**
+  String get savedToLog;
+
+  /// No description provided for @repsValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reps'**
+  String repsValue(int count);
+
+  /// No description provided for @trackingSetupFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Prop the phone upright at waist height, step back 2–3 m and face the camera so your whole body is visible.'**
+  String get trackingSetupFront;
+
+  /// No description provided for @trackingSetupSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Place the phone at floor or waist height to your side, so it sees your whole body from the side.'**
+  String get trackingSetupSide;
+
+  /// No description provided for @trackingTargetReps.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal: {count} reps'**
+  String trackingTargetReps(int count);
+
+  /// No description provided for @trackingTargetHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal: hold for {seconds} seconds'**
+  String trackingTargetHold(int seconds);
+
+  /// No description provided for @trackingReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready — tap Start, then get into position during the countdown.'**
+  String get trackingReady;
+
+  /// No description provided for @trackingStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get trackingStart;
+
+  /// No description provided for @trackingFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get trackingFinish;
+
+  /// No description provided for @trackingOfReps.
+  ///
+  /// In en, this message translates to:
+  /// **'of {count} reps'**
+  String trackingOfReps(int count);
+
+  /// No description provided for @trackingOfSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'of {seconds}s'**
+  String trackingOfSeconds(int seconds);
+
+  /// No description provided for @holdSecondsValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds}s'**
+  String holdSecondsValue(int seconds);
+
+  /// No description provided for @trackingSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Session summary'**
+  String get trackingSummaryTitle;
+
+  /// No description provided for @trackingRepsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps counted'**
+  String get trackingRepsDone;
+
+  /// No description provided for @trackingHoldTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time in position'**
+  String get trackingHoldTime;
+
+  /// No description provided for @trackingTargetReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal reached — well done.'**
+  String get trackingTargetReached;
+
+  /// No description provided for @trackingCountNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Counted by the camera on this phone. It can occasionally miss or add a rep.'**
+  String get trackingCountNote;
+
+  /// No description provided for @saveToLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to log'**
+  String get saveToLog;
+
+  /// No description provided for @trackingDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get trackingDone;
+
+  /// No description provided for @cueStepIntoView.
+  ///
+  /// In en, this message translates to:
+  /// **'Step into view so your whole body is visible.'**
+  String get cueStepIntoView;
+
+  /// No description provided for @cueGoLower.
+  ///
+  /// In en, this message translates to:
+  /// **'Go a little lower if it feels comfortable.'**
+  String get cueGoLower;
+
+  /// No description provided for @cueKneesOverToes.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your knees in line with your toes.'**
+  String get cueKneesOverToes;
+
+  /// No description provided for @cueChestUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your chest up.'**
+  String get cueChestUp;
+
+  /// No description provided for @cueRaiseHigher.
+  ///
+  /// In en, this message translates to:
+  /// **'Raise your arms a little higher.'**
+  String get cueRaiseHigher;
+
+  /// No description provided for @cueRaiseEvenly.
+  ///
+  /// In en, this message translates to:
+  /// **'Raise both arms evenly.'**
+  String get cueRaiseEvenly;
+
+  /// No description provided for @cueLiftKneeHigher.
+  ///
+  /// In en, this message translates to:
+  /// **'Lift your knee a little higher.'**
+  String get cueLiftKneeHigher;
+
+  /// No description provided for @cueKeepBodyStraight.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep a straight line from shoulders to ankles.'**
+  String get cueKeepBodyStraight;
+
+  /// No description provided for @cueGetIntoPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Get into position.'**
+  String get cueGetIntoPosition;
+
+  /// No description provided for @cueGoodForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Good — keep going.'**
+  String get cueGoodForm;
+
+  /// No description provided for @cueKeepGoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going at a steady pace.'**
+  String get cueKeepGoing;
 }
 
 class _AppLocalizationsDelegate

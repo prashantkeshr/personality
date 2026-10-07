@@ -1729,4 +1729,131 @@ class AppLocalizationsHi extends AppLocalizations {
   String postureCountdown(int seconds) {
     return '$seconds में शुरू';
   }
+
+  @override
+  String get exerciseLibrary => 'व्यायाम लाइब्रेरी';
+
+  @override
+  String get filterAll => 'सभी';
+
+  @override
+  String get filterCameraTracked => 'कैमरा-ट्रैक';
+
+  @override
+  String get cameraTracked => 'कैमरा से ट्रैक';
+
+  @override
+  String get howTo => 'कैसे करें';
+
+  @override
+  String get trackWithCamera => 'कैमरे से ट्रैक करें';
+
+  @override
+  String get logAsDone => 'पूरा दर्ज करें';
+
+  @override
+  String get savedToLog => 'आपके व्यायाम लॉग में सहेजा गया';
+
+  @override
+  String repsValue(int count) {
+    return '$count बार';
+  }
+
+  @override
+  String get trackingSetupFront =>
+      'फ़ोन को कमर की ऊँचाई पर सीधा टिकाएँ, 2–3 मीटर पीछे हटें और कैमरे की ओर मुँह करें ताकि पूरा शरीर दिखे।';
+
+  @override
+  String get trackingSetupSide =>
+      'फ़ोन को फ़र्श या कमर की ऊँचाई पर अपनी बगल में रखें, ताकि वह आपको बगल से पूरा देख सके।';
+
+  @override
+  String trackingTargetReps(int count) {
+    return 'लक्ष्य: $count बार';
+  }
+
+  @override
+  String trackingTargetHold(int seconds) {
+    return 'लक्ष्य: $seconds सेकंड रुकें';
+  }
+
+  @override
+  String get trackingReady =>
+      'तैयार — शुरू करें पर टैप करें, फिर काउंटडाउन में स्थिति में आएँ।';
+
+  @override
+  String get trackingStart => 'शुरू करें';
+
+  @override
+  String get trackingFinish => 'समाप्त करें';
+
+  @override
+  String trackingOfReps(int count) {
+    return '$count में से';
+  }
+
+  @override
+  String trackingOfSeconds(int seconds) {
+    return '$seconds सेकंड में से';
+  }
+
+  @override
+  String holdSecondsValue(int seconds) {
+    return '$seconds सेकंड';
+  }
+
+  @override
+  String get trackingSummaryTitle => 'सत्र सारांश';
+
+  @override
+  String get trackingRepsDone => 'गिने गए दोहराव';
+
+  @override
+  String get trackingHoldTime => 'स्थिति में समय';
+
+  @override
+  String get trackingTargetReached => 'लक्ष्य पूरा — बहुत बढ़िया।';
+
+  @override
+  String get trackingCountNote =>
+      'इस फ़ोन के कैमरे से गिना गया। कभी-कभी एक दोहराव छूट या जुड़ सकता है।';
+
+  @override
+  String get saveToLog => 'लॉग में सहेजें';
+
+  @override
+  String get trackingDone => 'हो गया';
+
+  @override
+  String get cueStepIntoView => 'फ़्रेम में आएँ ताकि पूरा शरीर दिखे।';
+
+  @override
+  String get cueGoLower => 'आरामदायक लगे तो थोड़ा और नीचे जाएँ।';
+
+  @override
+  String get cueKneesOverToes => 'घुटनों को पंजों की सीध में रखें।';
+
+  @override
+  String get cueChestUp => 'छाती ऊपर रखें।';
+
+  @override
+  String get cueRaiseHigher => 'हाथ थोड़ा और ऊपर उठाएँ।';
+
+  @override
+  String get cueRaiseEvenly => 'दोनों हाथ बराबर उठाएँ।';
+
+  @override
+  String get cueLiftKneeHigher => 'घुटना थोड़ा और ऊपर उठाएँ।';
+
+  @override
+  String get cueKeepBodyStraight => 'कंधों से टखनों तक सीधी रेखा रखें।';
+
+  @override
+  String get cueGetIntoPosition => 'स्थिति में आएँ।';
+
+  @override
+  String get cueGoodForm => 'बढ़िया — जारी रखें।';
+
+  @override
+  String get cueKeepGoing => 'स्थिर गति से जारी रखें।';
 }

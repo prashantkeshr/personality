@@ -52,6 +52,7 @@ class PipelineStatus {
     required this.skippedFrames,
     required this.analysisFps,
     required this.pose,
+    this.frameTime,
   });
 
   static const initial = PipelineStatus(
@@ -74,6 +75,9 @@ class PipelineStatus {
   /// Last pose outcome. Never a fabricated result: when no model is
   /// installed this is [PoseUnavailable].
   final PoseEstimation? pose;
+
+  /// Capture time of the analyzed frame (for timing reps and holds).
+  final DateTime? frameTime;
 }
 
 class FramePipeline {
@@ -140,6 +144,7 @@ class FramePipeline {
         skippedFrames: _sampler.skipped,
         analysisFps: _recent.length.toDouble(),
         pose: pose,
+        frameTime: frame.timestamp,
       ));
     } finally {
       _sampler.done();

@@ -943,5 +943,84 @@
         "type": "int"
       }
     }
-  }
+  },
+  "exerciseLibrary": "Exercise library",
+  "filterAll": "All",
+  "filterCameraTracked": "Camera-tracked",
+  "cameraTracked": "Camera-tracked",
+  "howTo": "How to do it",
+  "trackWithCamera": "Track with camera",
+  "logAsDone": "Log as done",
+  "savedToLog": "Saved to your exercise log",
+  "repsValue": "{count} reps",
+  "@repsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "trackingSetupFront": "Prop the phone upright at waist height, step back 2–3 m and face the camera so your whole body is visible.",
+  "trackingSetupSide": "Place the phone at floor or waist height to your side, so it sees your whole body from the side.",
+  "trackingTargetReps": "Goal: {count} reps",
+  "@trackingTargetReps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "trackingTargetHold": "Goal: hold for {seconds} seconds",
+  "@trackingTargetHold": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "trackingReady": "Ready — tap Start, then get into position during the countdown.",
+  "trackingStart": "Start",
+  "trackingFinish": "Finish",
+  "trackingOfReps": "of {count} reps",
+  "@trackingOfReps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "trackingOfSeconds": "of {seconds}s",
+  "@trackingOfSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "holdSecondsValue": "{seconds}s",
+  "@holdSecondsValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "trackingSummaryTitle": "Session summary",
+  "trackingRepsDone": "Reps counted",
+  "trackingHoldTime": "Time in position",
+  "trackingTargetReached": "Goal reached — well done.",
+  "trackingCountNote": "Counted by the camera on this phone. It can occasionally miss or add a rep.",
+  "saveToLog": "Save to log",
+  "trackingDone": "Done",
+  "cueStepIntoView": "Step into view so your whole body is visible.",
+  "cueGoLower": "Go a little lower if it feels comfortable.",
+  "cueKneesOverToes": "Keep your knees in line with your toes.",
+  "cueChestUp": "Keep your chest up.",
+  "cueRaiseHigher": "Raise your arms a little higher.",
+  "cueRaiseEvenly": "Raise both arms evenly.",
+  "cueLiftKneeHigher": "Lift your knee a little higher.",
+  "cueKeepBodyStraight": "Keep a straight line from shoulders to ankles.",
+  "cueGetIntoPosition": "Get into position.",
+  "cueGoodForm": "Good — keep going.",
+  "cueKeepGoing": "Keep going at a steady pace."
 }
