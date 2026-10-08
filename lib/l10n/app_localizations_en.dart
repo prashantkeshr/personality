@@ -2132,4 +2132,338 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get snapCompareHelp =>
       'Drag across the image to compare. Choose any two snapshots below.';
+
+  @override
+  String get colourTitle => 'Colour & style';
+
+  @override
+  String get colourYourPalette => 'Your palette';
+
+  @override
+  String get colourDisclaimer =>
+      'Palettes are colour-theory suggestions, not rules — wear what you enjoy.';
+
+  @override
+  String get quizVeinQ => 'What colour do the veins on your inner wrist look?';
+
+  @override
+  String get quizVeinHelp => 'Look in daylight, without filters.';
+
+  @override
+  String get quizVeinBlue => 'Blue or purple';
+
+  @override
+  String get quizVeinGreen => 'Greenish';
+
+  @override
+  String get quizVeinBoth => 'Hard to tell / both';
+
+  @override
+  String get quizJewelQ => 'Which jewellery looks better on your skin?';
+
+  @override
+  String get quizJewelHelp => 'Think of rings or a watch against your hand.';
+
+  @override
+  String get quizJewelSilver => 'Silver';
+
+  @override
+  String get quizJewelGold => 'Gold';
+
+  @override
+  String get quizJewelBoth => 'Both look good';
+
+  @override
+  String get quizSunQ => 'How does your skin usually react to the sun?';
+
+  @override
+  String get quizSunHelp => 'Without sunscreen, after a short time outdoors.';
+
+  @override
+  String get quizSunBurns => 'Burns or turns pink';
+
+  @override
+  String get quizSunTans => 'Tans easily';
+
+  @override
+  String get quizSunBoth => 'A bit of both';
+
+  @override
+  String get quizDepthQ => 'Which is closest to your skin depth?';
+
+  @override
+  String get quizDepthHelp => 'This sets how much contrast your palette has.';
+
+  @override
+  String get quizSeePalette => 'See my palette';
+
+  @override
+  String get quizRetake => 'Retake colour quiz';
+
+  @override
+  String get undertoneWarm => 'Warm undertone';
+
+  @override
+  String get undertoneCool => 'Cool undertone';
+
+  @override
+  String get undertoneNeutral => 'Neutral undertone';
+
+  @override
+  String get undertoneWarmExplain =>
+      'Earthy, golden and olive shades tend to harmonise with your skin.';
+
+  @override
+  String get undertoneCoolExplain =>
+      'Jewel tones, blues and rosy shades tend to harmonise with your skin.';
+
+  @override
+  String get undertoneNeutralExplain =>
+      'Most balanced shades suit you; avoid only very extreme colours near the face.';
+
+  @override
+  String get depthLight => 'Light';
+
+  @override
+  String get depthMedium => 'Medium';
+
+  @override
+  String get depthDeep => 'Deep';
+
+  @override
+  String get paletteBest => 'Best colours';
+
+  @override
+  String get paletteBestNote =>
+      'Wear these near your face — tops, shirts, scarves. Tap one to try it on.';
+
+  @override
+  String get paletteNeutrals => 'Your neutrals';
+
+  @override
+  String get paletteNeutralsNote =>
+      'Foundation colours for trousers, outerwear and shoes.';
+
+  @override
+  String get paletteSparingly => 'Use sparingly';
+
+  @override
+  String get paletteSparinglyNote =>
+      'Fine away from the face or as small accents.';
+
+  @override
+  String get drapeOpen => 'Try colours on live';
+
+  @override
+  String get drapeTitle => 'Colour drape';
+
+  @override
+  String get drapeHint => 'Tap colours below and compare';
+
+  @override
+  String get drapeNote =>
+      'A colour drape shows how a shade looks next to your face. Live preview only; nothing is recorded. Room lighting affects how colours appear.';
+
+  @override
+  String get stylePrefsTitle => 'Styles you like';
+
+  @override
+  String get prefClassic => 'Classic';
+
+  @override
+  String get prefMinimal => 'Minimal';
+
+  @override
+  String get prefSmartCasual => 'Smart casual';
+
+  @override
+  String get prefStreet => 'Streetwear';
+
+  @override
+  String get prefTraditional => 'Traditional / ethnic';
+
+  @override
+  String get prefSporty => 'Sporty';
+
+  @override
+  String get wardrobeAdd => 'Add clothing';
+
+  @override
+  String get wardrobeEmpty =>
+      'Add a few pieces you wear often — tops, bottoms and shoes — and get outfit ideas from your own clothes.';
+
+  @override
+  String get wardrobePrivacy =>
+      'Clothing photos stay on this phone inside the encrypted database.';
+
+  @override
+  String get outfitIdeas => 'Outfit ideas';
+
+  @override
+  String get outfitIdeasTab => 'Ideas';
+
+  @override
+  String get outfitSavedTab => 'Saved';
+
+  @override
+  String get outfitNone =>
+      'No combinations for this occasion yet. Add tops, bottoms and shoes, or mark items for this occasion.';
+
+  @override
+  String get outfitPaletteHint =>
+      'Tip: complete the colour quiz to rank outfits by your palette.';
+
+  @override
+  String get outfitSave => 'Save outfit';
+
+  @override
+  String get outfitSavedEmpty =>
+      'Saved outfits appear here, ready for busy mornings.';
+
+  @override
+  String get outfitWoreToday => 'Wore it today';
+
+  @override
+  String get garmentName => 'Name (e.g. white oxford shirt)';
+
+  @override
+  String get garmentPhoto => 'Add photo (optional)';
+
+  @override
+  String get garmentRetakePhoto => 'Retake photo';
+
+  @override
+  String get garmentPhotoTip =>
+      'Lay the item flat or hang it in good light, filling the frame. Its colour is read from the centre.';
+
+  @override
+  String get garmentCategory => 'Type';
+
+  @override
+  String get garmentColour => 'Colour';
+
+  @override
+  String get garmentColourFromPhoto =>
+      'Colour (read from photo — adjust if needed)';
+
+  @override
+  String get garmentPattern => 'Pattern';
+
+  @override
+  String get garmentFormality => 'Formality';
+
+  @override
+  String get garmentOccasions => 'Occasions';
+
+  @override
+  String get garmentOccasionsHelp => 'Leave empty to allow any occasion.';
+
+  @override
+  String get catTop => 'Top / shirt';
+
+  @override
+  String get catBottom => 'Bottom';
+
+  @override
+  String get catOnePiece => 'Dress / one-piece';
+
+  @override
+  String get catOuterwear => 'Outerwear';
+
+  @override
+  String get catFootwear => 'Footwear';
+
+  @override
+  String get catEthnicTop => 'Kurta / ethnic top';
+
+  @override
+  String get catEthnicBottom => 'Ethnic bottom';
+
+  @override
+  String get catAccessory => 'Accessory';
+
+  @override
+  String get patSolid => 'Solid';
+
+  @override
+  String get patStripes => 'Stripes';
+
+  @override
+  String get patChecks => 'Checks';
+
+  @override
+  String get patPrint => 'Print';
+
+  @override
+  String get occCasual => 'Casual';
+
+  @override
+  String get occWork => 'Work';
+
+  @override
+  String get occFormal => 'Formal';
+
+  @override
+  String get occFestive => 'Festive';
+
+  @override
+  String get occSport => 'Sport';
+
+  @override
+  String get form1 => 'Very relaxed';
+
+  @override
+  String get form2 => 'Relaxed';
+
+  @override
+  String get form3 => 'Smart';
+
+  @override
+  String get form4 => 'Dressy';
+
+  @override
+  String get form5 => 'Formal';
+
+  @override
+  String get reasonAllNeutral => 'All neutral colours — easy and polished.';
+
+  @override
+  String get reasonOneAccent => 'One accent colour against neutrals.';
+
+  @override
+  String get reasonTonal => 'Tonal colours from the same family.';
+
+  @override
+  String get reasonAnalogous => 'Neighbouring colours that blend smoothly.';
+
+  @override
+  String get reasonComplementary =>
+      'Opposite colours for a confident contrast.';
+
+  @override
+  String get reasonInPalette => 'The colour near your face is in your palette.';
+
+  @override
+  String get reasonOnePattern => 'A single pattern, balanced by solids.';
+
+  @override
+  String get reasonMatchedFormality => 'Every piece suits the occasion.';
+
+  @override
+  String get reasonFavourite => 'Includes a favourite piece.';
+
+  @override
+  String get reasonNotWorn => 'None of these were worn this week.';
+
+  @override
+  String outfitWornCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Worn $count times',
+      one: 'Worn once',
+      zero: 'Not worn yet',
+    );
+    return '$_temp0';
+  }
 }

@@ -3841,6 +3841,624 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Drag across the image to compare. Choose any two snapshots below.'**
   String get snapCompareHelp;
+
+  /// No description provided for @colourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour & style'**
+  String get colourTitle;
+
+  /// No description provided for @colourYourPalette.
+  ///
+  /// In en, this message translates to:
+  /// **'Your palette'**
+  String get colourYourPalette;
+
+  /// No description provided for @colourDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Palettes are colour-theory suggestions, not rules — wear what you enjoy.'**
+  String get colourDisclaimer;
+
+  /// No description provided for @quizVeinQ.
+  ///
+  /// In en, this message translates to:
+  /// **'What colour do the veins on your inner wrist look?'**
+  String get quizVeinQ;
+
+  /// No description provided for @quizVeinHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Look in daylight, without filters.'**
+  String get quizVeinHelp;
+
+  /// No description provided for @quizVeinBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue or purple'**
+  String get quizVeinBlue;
+
+  /// No description provided for @quizVeinGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Greenish'**
+  String get quizVeinGreen;
+
+  /// No description provided for @quizVeinBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'Hard to tell / both'**
+  String get quizVeinBoth;
+
+  /// No description provided for @quizJewelQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Which jewellery looks better on your skin?'**
+  String get quizJewelQ;
+
+  /// No description provided for @quizJewelHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Think of rings or a watch against your hand.'**
+  String get quizJewelHelp;
+
+  /// No description provided for @quizJewelSilver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get quizJewelSilver;
+
+  /// No description provided for @quizJewelGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get quizJewelGold;
+
+  /// No description provided for @quizJewelBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'Both look good'**
+  String get quizJewelBoth;
+
+  /// No description provided for @quizSunQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How does your skin usually react to the sun?'**
+  String get quizSunQ;
+
+  /// No description provided for @quizSunHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Without sunscreen, after a short time outdoors.'**
+  String get quizSunHelp;
+
+  /// No description provided for @quizSunBurns.
+  ///
+  /// In en, this message translates to:
+  /// **'Burns or turns pink'**
+  String get quizSunBurns;
+
+  /// No description provided for @quizSunTans.
+  ///
+  /// In en, this message translates to:
+  /// **'Tans easily'**
+  String get quizSunTans;
+
+  /// No description provided for @quizSunBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'A bit of both'**
+  String get quizSunBoth;
+
+  /// No description provided for @quizDepthQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Which is closest to your skin depth?'**
+  String get quizDepthQ;
+
+  /// No description provided for @quizDepthHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'This sets how much contrast your palette has.'**
+  String get quizDepthHelp;
+
+  /// No description provided for @quizSeePalette.
+  ///
+  /// In en, this message translates to:
+  /// **'See my palette'**
+  String get quizSeePalette;
+
+  /// No description provided for @quizRetake.
+  ///
+  /// In en, this message translates to:
+  /// **'Retake colour quiz'**
+  String get quizRetake;
+
+  /// No description provided for @undertoneWarm.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm undertone'**
+  String get undertoneWarm;
+
+  /// No description provided for @undertoneCool.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool undertone'**
+  String get undertoneCool;
+
+  /// No description provided for @undertoneNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral undertone'**
+  String get undertoneNeutral;
+
+  /// No description provided for @undertoneWarmExplain.
+  ///
+  /// In en, this message translates to:
+  /// **'Earthy, golden and olive shades tend to harmonise with your skin.'**
+  String get undertoneWarmExplain;
+
+  /// No description provided for @undertoneCoolExplain.
+  ///
+  /// In en, this message translates to:
+  /// **'Jewel tones, blues and rosy shades tend to harmonise with your skin.'**
+  String get undertoneCoolExplain;
+
+  /// No description provided for @undertoneNeutralExplain.
+  ///
+  /// In en, this message translates to:
+  /// **'Most balanced shades suit you; avoid only very extreme colours near the face.'**
+  String get undertoneNeutralExplain;
+
+  /// No description provided for @depthLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get depthLight;
+
+  /// No description provided for @depthMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get depthMedium;
+
+  /// No description provided for @depthDeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep'**
+  String get depthDeep;
+
+  /// No description provided for @paletteBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best colours'**
+  String get paletteBest;
+
+  /// No description provided for @paletteBestNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear these near your face — tops, shirts, scarves. Tap one to try it on.'**
+  String get paletteBestNote;
+
+  /// No description provided for @paletteNeutrals.
+  ///
+  /// In en, this message translates to:
+  /// **'Your neutrals'**
+  String get paletteNeutrals;
+
+  /// No description provided for @paletteNeutralsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Foundation colours for trousers, outerwear and shoes.'**
+  String get paletteNeutralsNote;
+
+  /// No description provided for @paletteSparingly.
+  ///
+  /// In en, this message translates to:
+  /// **'Use sparingly'**
+  String get paletteSparingly;
+
+  /// No description provided for @paletteSparinglyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Fine away from the face or as small accents.'**
+  String get paletteSparinglyNote;
+
+  /// No description provided for @drapeOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Try colours on live'**
+  String get drapeOpen;
+
+  /// No description provided for @drapeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour drape'**
+  String get drapeTitle;
+
+  /// No description provided for @drapeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap colours below and compare'**
+  String get drapeHint;
+
+  /// No description provided for @drapeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A colour drape shows how a shade looks next to your face. Live preview only; nothing is recorded. Room lighting affects how colours appear.'**
+  String get drapeNote;
+
+  /// No description provided for @stylePrefsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Styles you like'**
+  String get stylePrefsTitle;
+
+  /// No description provided for @prefClassic.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic'**
+  String get prefClassic;
+
+  /// No description provided for @prefMinimal.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal'**
+  String get prefMinimal;
+
+  /// No description provided for @prefSmartCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart casual'**
+  String get prefSmartCasual;
+
+  /// No description provided for @prefStreet.
+  ///
+  /// In en, this message translates to:
+  /// **'Streetwear'**
+  String get prefStreet;
+
+  /// No description provided for @prefTraditional.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional / ethnic'**
+  String get prefTraditional;
+
+  /// No description provided for @prefSporty.
+  ///
+  /// In en, this message translates to:
+  /// **'Sporty'**
+  String get prefSporty;
+
+  /// No description provided for @wardrobeAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add clothing'**
+  String get wardrobeAdd;
+
+  /// No description provided for @wardrobeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a few pieces you wear often — tops, bottoms and shoes — and get outfit ideas from your own clothes.'**
+  String get wardrobeEmpty;
+
+  /// No description provided for @wardrobePrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothing photos stay on this phone inside the encrypted database.'**
+  String get wardrobePrivacy;
+
+  /// No description provided for @outfitIdeas.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit ideas'**
+  String get outfitIdeas;
+
+  /// No description provided for @outfitIdeasTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas'**
+  String get outfitIdeasTab;
+
+  /// No description provided for @outfitSavedTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get outfitSavedTab;
+
+  /// No description provided for @outfitNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No combinations for this occasion yet. Add tops, bottoms and shoes, or mark items for this occasion.'**
+  String get outfitNone;
+
+  /// No description provided for @outfitPaletteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: complete the colour quiz to rank outfits by your palette.'**
+  String get outfitPaletteHint;
+
+  /// No description provided for @outfitSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save outfit'**
+  String get outfitSave;
+
+  /// No description provided for @outfitSavedEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved outfits appear here, ready for busy mornings.'**
+  String get outfitSavedEmpty;
+
+  /// No description provided for @outfitWoreToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Wore it today'**
+  String get outfitWoreToday;
+
+  /// No description provided for @garmentName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name (e.g. white oxford shirt)'**
+  String get garmentName;
+
+  /// No description provided for @garmentPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photo (optional)'**
+  String get garmentPhoto;
+
+  /// No description provided for @garmentRetakePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Retake photo'**
+  String get garmentRetakePhoto;
+
+  /// No description provided for @garmentPhotoTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Lay the item flat or hang it in good light, filling the frame. Its colour is read from the centre.'**
+  String get garmentPhotoTip;
+
+  /// No description provided for @garmentCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get garmentCategory;
+
+  /// No description provided for @garmentColour.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour'**
+  String get garmentColour;
+
+  /// No description provided for @garmentColourFromPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour (read from photo — adjust if needed)'**
+  String get garmentColourFromPhoto;
+
+  /// No description provided for @garmentPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get garmentPattern;
+
+  /// No description provided for @garmentFormality.
+  ///
+  /// In en, this message translates to:
+  /// **'Formality'**
+  String get garmentFormality;
+
+  /// No description provided for @garmentOccasions.
+  ///
+  /// In en, this message translates to:
+  /// **'Occasions'**
+  String get garmentOccasions;
+
+  /// No description provided for @garmentOccasionsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave empty to allow any occasion.'**
+  String get garmentOccasionsHelp;
+
+  /// No description provided for @catTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Top / shirt'**
+  String get catTop;
+
+  /// No description provided for @catBottom.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom'**
+  String get catBottom;
+
+  /// No description provided for @catOnePiece.
+  ///
+  /// In en, this message translates to:
+  /// **'Dress / one-piece'**
+  String get catOnePiece;
+
+  /// No description provided for @catOuterwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Outerwear'**
+  String get catOuterwear;
+
+  /// No description provided for @catFootwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Footwear'**
+  String get catFootwear;
+
+  /// No description provided for @catEthnicTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Kurta / ethnic top'**
+  String get catEthnicTop;
+
+  /// No description provided for @catEthnicBottom.
+  ///
+  /// In en, this message translates to:
+  /// **'Ethnic bottom'**
+  String get catEthnicBottom;
+
+  /// No description provided for @catAccessory.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessory'**
+  String get catAccessory;
+
+  /// No description provided for @patSolid.
+  ///
+  /// In en, this message translates to:
+  /// **'Solid'**
+  String get patSolid;
+
+  /// No description provided for @patStripes.
+  ///
+  /// In en, this message translates to:
+  /// **'Stripes'**
+  String get patStripes;
+
+  /// No description provided for @patChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks'**
+  String get patChecks;
+
+  /// No description provided for @patPrint.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get patPrint;
+
+  /// No description provided for @occCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual'**
+  String get occCasual;
+
+  /// No description provided for @occWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Work'**
+  String get occWork;
+
+  /// No description provided for @occFormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal'**
+  String get occFormal;
+
+  /// No description provided for @occFestive.
+  ///
+  /// In en, this message translates to:
+  /// **'Festive'**
+  String get occFestive;
+
+  /// No description provided for @occSport.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport'**
+  String get occSport;
+
+  /// No description provided for @form1.
+  ///
+  /// In en, this message translates to:
+  /// **'Very relaxed'**
+  String get form1;
+
+  /// No description provided for @form2.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get form2;
+
+  /// No description provided for @form3.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart'**
+  String get form3;
+
+  /// No description provided for @form4.
+  ///
+  /// In en, this message translates to:
+  /// **'Dressy'**
+  String get form4;
+
+  /// No description provided for @form5.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal'**
+  String get form5;
+
+  /// No description provided for @reasonAllNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'All neutral colours — easy and polished.'**
+  String get reasonAllNeutral;
+
+  /// No description provided for @reasonOneAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'One accent colour against neutrals.'**
+  String get reasonOneAccent;
+
+  /// No description provided for @reasonTonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Tonal colours from the same family.'**
+  String get reasonTonal;
+
+  /// No description provided for @reasonAnalogous.
+  ///
+  /// In en, this message translates to:
+  /// **'Neighbouring colours that blend smoothly.'**
+  String get reasonAnalogous;
+
+  /// No description provided for @reasonComplementary.
+  ///
+  /// In en, this message translates to:
+  /// **'Opposite colours for a confident contrast.'**
+  String get reasonComplementary;
+
+  /// No description provided for @reasonInPalette.
+  ///
+  /// In en, this message translates to:
+  /// **'The colour near your face is in your palette.'**
+  String get reasonInPalette;
+
+  /// No description provided for @reasonOnePattern.
+  ///
+  /// In en, this message translates to:
+  /// **'A single pattern, balanced by solids.'**
+  String get reasonOnePattern;
+
+  /// No description provided for @reasonMatchedFormality.
+  ///
+  /// In en, this message translates to:
+  /// **'Every piece suits the occasion.'**
+  String get reasonMatchedFormality;
+
+  /// No description provided for @reasonFavourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Includes a favourite piece.'**
+  String get reasonFavourite;
+
+  /// No description provided for @reasonNotWorn.
+  ///
+  /// In en, this message translates to:
+  /// **'None of these were worn this week.'**
+  String get reasonNotWorn;
+
+  /// No description provided for @outfitWornCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Not worn yet} =1{Worn once} other{Worn {count} times}}'**
+  String outfitWornCount(int count);
 }
 
 class _AppLocalizationsDelegate

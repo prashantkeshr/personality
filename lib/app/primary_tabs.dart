@@ -106,6 +106,10 @@ class StyleTab extends StatelessWidget {
         AppFeature.wardrobe,
         AppFeature.commerce,
       ],
+      routes: const {
+        AppFeature.styleRecommendations: AppRoutes.colours,
+        AppFeature.wardrobe: AppRoutes.wardrobe,
+      },
     );
   }
 }

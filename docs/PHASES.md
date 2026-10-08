@@ -256,3 +256,29 @@ The original Style phase moves to Phase 10 at the user's request.
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 196/196 pass (scan animation and reduce-motion behaviour, vector art for every style and shape, card flip and favourite, v6 → v7 migration, photo preparation including corrupt input, snapshot consent/capture/save flow, content requiring a credited photo for every hair/beard card).
 - Release APK installed on the user's phone and launches cleanly. The R8 usage audit shows no ML Kit classes removed, and there is no INTERNET permission.
+
+## Phase 10 — style: colour, wardrobe, outfits (2026-10-08)
+
+- **Colour science** (pure Dart): sRGB → CIE Lab, ΔE76 distance, neutral detection (greys, beige/camel/brown, navy/denim), and hue-based harmony (neutral, monochrome, analogous, complementary, clash).
+- **Colour quiz**: vein colour, jewellery and sun response give an undertone (mixed signals → neutral, with agreement), plus a depth choice (light/medium/deep, whole option tappable). That selects one of 9 curated palettes (best, neutrals, use sparingly); palette fit uses ΔE.
+- **Palette screen**: animated swatch groups, style preferences (classic, minimal, smart casual, streetwear, traditional/ethnic, sporty), retake.
+- **Live colour drape**: front camera with a fabric-like band under the chin that follows the face; swipe through palette and garment colours. Nothing is recorded.
+- **Wardrobe** (schema v8 `wardrobe_item`, `outfit`, `outfit_item`, `outfit_wear`):
+  - Add items with category (including Indian ethnic wear), colour from 24 named swatches, pattern, formality and occasions.
+  - Optional photo (encrypted DB); the colour is sampled from the centre of the photo.
+  - Tiles show the photo or a fabric-textured swatch, never icons.
+- **Outfit engine**:
+  - Builds top + bottom (or one-piece), with footwear and optional outer layer.
+  - Rejects two patterns, colour clashes and formality spread > 2.
+  - Scores harmony (all-neutral favoured for work/formal), asymmetric formality (dressing down penalised at work/formal, gently when casual), palette fit near the face, favourites, and variety (recently worn items lose).
+  - Ideas are diverse per base and carry localized "Why this?" reasons.
+- **Outfit ideas screen**: occasion chips, animated collages, save; saved tab with "Wore it today" and worn count; deleting a garment removes incomplete outfits.
+
+Bugs found by tests and fixed:
+- Scoring put a T-shirt top for work and buried classic neutral looks; rebalanced with real numbers, verified in a debug run.
+- The depth label wasn't tappable (only the swatch).
+- Saved outfits didn't refresh on "Wore it today" (the stream only watched one table).
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 216/216 pass (colour science, quiz, every palette, outfit rules and ranking, repository incl. cascade and the wear log, v7 → v8 migration, quiz → palette flow, wardrobe → ideas → save → worn flow).
+- Release APK 93 MB installed on the user's phone and launches cleanly; no ML Kit classes removed, no INTERNET permission.

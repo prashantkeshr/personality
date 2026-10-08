@@ -11355,6 +11355,1354 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
   }
 }
 
+class $WardrobeItemsTable extends WardrobeItems
+    with TableInfo<$WardrobeItemsTable, WardrobeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $WardrobeItemsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _colorHexMeta = const VerificationMeta(
+    'colorHex',
+  );
+  @override
+  late final GeneratedColumn<String> colorHex = GeneratedColumn<String>(
+    'color_hex',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _patternMeta = const VerificationMeta(
+    'pattern',
+  );
+  @override
+  late final GeneratedColumn<String> pattern = GeneratedColumn<String>(
+    'pattern',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _formalityMeta = const VerificationMeta(
+    'formality',
+  );
+  @override
+  late final GeneratedColumn<int> formality = GeneratedColumn<int>(
+    'formality',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _occasionsMeta = const VerificationMeta(
+    'occasions',
+  );
+  @override
+  late final GeneratedColumn<String> occasions = GeneratedColumn<String>(
+    'occasions',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(''),
+  );
+  static const VerificationMeta _favoriteMeta = const VerificationMeta(
+    'favorite',
+  );
+  @override
+  late final GeneratedColumn<bool> favorite = GeneratedColumn<bool>(
+    'favorite',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("favorite" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _photoMeta = const VerificationMeta('photo');
+  @override
+  late final GeneratedColumn<Uint8List> photo = GeneratedColumn<Uint8List>(
+    'photo',
+    aliasedName,
+    true,
+    type: DriftSqlType.blob,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<int> updatedAt = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    name,
+    category,
+    colorHex,
+    pattern,
+    formality,
+    occasions,
+    favorite,
+    photo,
+    createdAt,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'wardrobe_item';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<WardrobeRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('color_hex')) {
+      context.handle(
+        _colorHexMeta,
+        colorHex.isAcceptableOrUnknown(data['color_hex']!, _colorHexMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_colorHexMeta);
+    }
+    if (data.containsKey('pattern')) {
+      context.handle(
+        _patternMeta,
+        pattern.isAcceptableOrUnknown(data['pattern']!, _patternMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_patternMeta);
+    }
+    if (data.containsKey('formality')) {
+      context.handle(
+        _formalityMeta,
+        formality.isAcceptableOrUnknown(data['formality']!, _formalityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_formalityMeta);
+    }
+    if (data.containsKey('occasions')) {
+      context.handle(
+        _occasionsMeta,
+        occasions.isAcceptableOrUnknown(data['occasions']!, _occasionsMeta),
+      );
+    }
+    if (data.containsKey('favorite')) {
+      context.handle(
+        _favoriteMeta,
+        favorite.isAcceptableOrUnknown(data['favorite']!, _favoriteMeta),
+      );
+    }
+    if (data.containsKey('photo')) {
+      context.handle(
+        _photoMeta,
+        photo.isAcceptableOrUnknown(data['photo']!, _photoMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  WardrobeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WardrobeRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      colorHex: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}color_hex'],
+      )!,
+      pattern: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}pattern'],
+      )!,
+      formality: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}formality'],
+      )!,
+      occasions: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}occasions'],
+      )!,
+      favorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}favorite'],
+      )!,
+      photo: attachedDatabase.typeMapping.read(
+        DriftSqlType.blob,
+        data['${effectivePrefix}photo'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $WardrobeItemsTable createAlias(String alias) {
+    return $WardrobeItemsTable(attachedDatabase, alias);
+  }
+}
+
+class WardrobeRow extends DataClass implements Insertable<WardrobeRow> {
+  final String id;
+  final String name;
+  final String category;
+  final String colorHex;
+  final String pattern;
+  final int formality;
+
+  /// Comma-separated occasion names; empty means any occasion.
+  final String occasions;
+  final bool favorite;
+  final Uint8List? photo;
+  final int createdAt;
+  final int updatedAt;
+  const WardrobeRow({
+    required this.id,
+    required this.name,
+    required this.category,
+    required this.colorHex,
+    required this.pattern,
+    required this.formality,
+    required this.occasions,
+    required this.favorite,
+    this.photo,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['name'] = Variable<String>(name);
+    map['category'] = Variable<String>(category);
+    map['color_hex'] = Variable<String>(colorHex);
+    map['pattern'] = Variable<String>(pattern);
+    map['formality'] = Variable<int>(formality);
+    map['occasions'] = Variable<String>(occasions);
+    map['favorite'] = Variable<bool>(favorite);
+    if (!nullToAbsent || photo != null) {
+      map['photo'] = Variable<Uint8List>(photo);
+    }
+    map['created_at'] = Variable<int>(createdAt);
+    map['updated_at'] = Variable<int>(updatedAt);
+    return map;
+  }
+
+  WardrobeItemsCompanion toCompanion(bool nullToAbsent) {
+    return WardrobeItemsCompanion(
+      id: Value(id),
+      name: Value(name),
+      category: Value(category),
+      colorHex: Value(colorHex),
+      pattern: Value(pattern),
+      formality: Value(formality),
+      occasions: Value(occasions),
+      favorite: Value(favorite),
+      photo: photo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photo),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory WardrobeRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WardrobeRow(
+      id: serializer.fromJson<String>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      category: serializer.fromJson<String>(json['category']),
+      colorHex: serializer.fromJson<String>(json['colorHex']),
+      pattern: serializer.fromJson<String>(json['pattern']),
+      formality: serializer.fromJson<int>(json['formality']),
+      occasions: serializer.fromJson<String>(json['occasions']),
+      favorite: serializer.fromJson<bool>(json['favorite']),
+      photo: serializer.fromJson<Uint8List?>(json['photo']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+      updatedAt: serializer.fromJson<int>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'name': serializer.toJson<String>(name),
+      'category': serializer.toJson<String>(category),
+      'colorHex': serializer.toJson<String>(colorHex),
+      'pattern': serializer.toJson<String>(pattern),
+      'formality': serializer.toJson<int>(formality),
+      'occasions': serializer.toJson<String>(occasions),
+      'favorite': serializer.toJson<bool>(favorite),
+      'photo': serializer.toJson<Uint8List?>(photo),
+      'createdAt': serializer.toJson<int>(createdAt),
+      'updatedAt': serializer.toJson<int>(updatedAt),
+    };
+  }
+
+  WardrobeRow copyWith({
+    String? id,
+    String? name,
+    String? category,
+    String? colorHex,
+    String? pattern,
+    int? formality,
+    String? occasions,
+    bool? favorite,
+    Value<Uint8List?> photo = const Value.absent(),
+    int? createdAt,
+    int? updatedAt,
+  }) => WardrobeRow(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    category: category ?? this.category,
+    colorHex: colorHex ?? this.colorHex,
+    pattern: pattern ?? this.pattern,
+    formality: formality ?? this.formality,
+    occasions: occasions ?? this.occasions,
+    favorite: favorite ?? this.favorite,
+    photo: photo.present ? photo.value : this.photo,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  WardrobeRow copyWithCompanion(WardrobeItemsCompanion data) {
+    return WardrobeRow(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      category: data.category.present ? data.category.value : this.category,
+      colorHex: data.colorHex.present ? data.colorHex.value : this.colorHex,
+      pattern: data.pattern.present ? data.pattern.value : this.pattern,
+      formality: data.formality.present ? data.formality.value : this.formality,
+      occasions: data.occasions.present ? data.occasions.value : this.occasions,
+      favorite: data.favorite.present ? data.favorite.value : this.favorite,
+      photo: data.photo.present ? data.photo.value : this.photo,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WardrobeRow(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('category: $category, ')
+          ..write('colorHex: $colorHex, ')
+          ..write('pattern: $pattern, ')
+          ..write('formality: $formality, ')
+          ..write('occasions: $occasions, ')
+          ..write('favorite: $favorite, ')
+          ..write('photo: $photo, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    name,
+    category,
+    colorHex,
+    pattern,
+    formality,
+    occasions,
+    favorite,
+    $driftBlobEquality.hash(photo),
+    createdAt,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WardrobeRow &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.category == this.category &&
+          other.colorHex == this.colorHex &&
+          other.pattern == this.pattern &&
+          other.formality == this.formality &&
+          other.occasions == this.occasions &&
+          other.favorite == this.favorite &&
+          $driftBlobEquality.equals(other.photo, this.photo) &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class WardrobeItemsCompanion extends UpdateCompanion<WardrobeRow> {
+  final Value<String> id;
+  final Value<String> name;
+  final Value<String> category;
+  final Value<String> colorHex;
+  final Value<String> pattern;
+  final Value<int> formality;
+  final Value<String> occasions;
+  final Value<bool> favorite;
+  final Value<Uint8List?> photo;
+  final Value<int> createdAt;
+  final Value<int> updatedAt;
+  final Value<int> rowid;
+  const WardrobeItemsCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.category = const Value.absent(),
+    this.colorHex = const Value.absent(),
+    this.pattern = const Value.absent(),
+    this.formality = const Value.absent(),
+    this.occasions = const Value.absent(),
+    this.favorite = const Value.absent(),
+    this.photo = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  WardrobeItemsCompanion.insert({
+    required String id,
+    required String name,
+    required String category,
+    required String colorHex,
+    required String pattern,
+    required int formality,
+    this.occasions = const Value.absent(),
+    this.favorite = const Value.absent(),
+    this.photo = const Value.absent(),
+    required int createdAt,
+    required int updatedAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       name = Value(name),
+       category = Value(category),
+       colorHex = Value(colorHex),
+       pattern = Value(pattern),
+       formality = Value(formality),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<WardrobeRow> custom({
+    Expression<String>? id,
+    Expression<String>? name,
+    Expression<String>? category,
+    Expression<String>? colorHex,
+    Expression<String>? pattern,
+    Expression<int>? formality,
+    Expression<String>? occasions,
+    Expression<bool>? favorite,
+    Expression<Uint8List>? photo,
+    Expression<int>? createdAt,
+    Expression<int>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (category != null) 'category': category,
+      if (colorHex != null) 'color_hex': colorHex,
+      if (pattern != null) 'pattern': pattern,
+      if (formality != null) 'formality': formality,
+      if (occasions != null) 'occasions': occasions,
+      if (favorite != null) 'favorite': favorite,
+      if (photo != null) 'photo': photo,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  WardrobeItemsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? name,
+    Value<String>? category,
+    Value<String>? colorHex,
+    Value<String>? pattern,
+    Value<int>? formality,
+    Value<String>? occasions,
+    Value<bool>? favorite,
+    Value<Uint8List?>? photo,
+    Value<int>? createdAt,
+    Value<int>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return WardrobeItemsCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      category: category ?? this.category,
+      colorHex: colorHex ?? this.colorHex,
+      pattern: pattern ?? this.pattern,
+      formality: formality ?? this.formality,
+      occasions: occasions ?? this.occasions,
+      favorite: favorite ?? this.favorite,
+      photo: photo ?? this.photo,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (colorHex.present) {
+      map['color_hex'] = Variable<String>(colorHex.value);
+    }
+    if (pattern.present) {
+      map['pattern'] = Variable<String>(pattern.value);
+    }
+    if (formality.present) {
+      map['formality'] = Variable<int>(formality.value);
+    }
+    if (occasions.present) {
+      map['occasions'] = Variable<String>(occasions.value);
+    }
+    if (favorite.present) {
+      map['favorite'] = Variable<bool>(favorite.value);
+    }
+    if (photo.present) {
+      map['photo'] = Variable<Uint8List>(photo.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<int>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WardrobeItemsCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('category: $category, ')
+          ..write('colorHex: $colorHex, ')
+          ..write('pattern: $pattern, ')
+          ..write('formality: $formality, ')
+          ..write('occasions: $occasions, ')
+          ..write('favorite: $favorite, ')
+          ..write('photo: $photo, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OutfitsTable extends Outfits with TableInfo<$OutfitsTable, OutfitRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OutfitsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _occasionMeta = const VerificationMeta(
+    'occasion',
+  );
+  @override
+  late final GeneratedColumn<String> occasion = GeneratedColumn<String>(
+    'occasion',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, occasion, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'outfit';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<OutfitRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('occasion')) {
+      context.handle(
+        _occasionMeta,
+        occasion.isAcceptableOrUnknown(data['occasion']!, _occasionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_occasionMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  OutfitRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OutfitRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      occasion: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}occasion'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $OutfitsTable createAlias(String alias) {
+    return $OutfitsTable(attachedDatabase, alias);
+  }
+}
+
+class OutfitRow extends DataClass implements Insertable<OutfitRow> {
+  final String id;
+  final String occasion;
+  final int createdAt;
+  const OutfitRow({
+    required this.id,
+    required this.occasion,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['occasion'] = Variable<String>(occasion);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  OutfitsCompanion toCompanion(bool nullToAbsent) {
+    return OutfitsCompanion(
+      id: Value(id),
+      occasion: Value(occasion),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory OutfitRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OutfitRow(
+      id: serializer.fromJson<String>(json['id']),
+      occasion: serializer.fromJson<String>(json['occasion']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'occasion': serializer.toJson<String>(occasion),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  OutfitRow copyWith({String? id, String? occasion, int? createdAt}) =>
+      OutfitRow(
+        id: id ?? this.id,
+        occasion: occasion ?? this.occasion,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  OutfitRow copyWithCompanion(OutfitsCompanion data) {
+    return OutfitRow(
+      id: data.id.present ? data.id.value : this.id,
+      occasion: data.occasion.present ? data.occasion.value : this.occasion,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitRow(')
+          ..write('id: $id, ')
+          ..write('occasion: $occasion, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, occasion, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OutfitRow &&
+          other.id == this.id &&
+          other.occasion == this.occasion &&
+          other.createdAt == this.createdAt);
+}
+
+class OutfitsCompanion extends UpdateCompanion<OutfitRow> {
+  final Value<String> id;
+  final Value<String> occasion;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const OutfitsCompanion({
+    this.id = const Value.absent(),
+    this.occasion = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OutfitsCompanion.insert({
+    required String id,
+    required String occasion,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       occasion = Value(occasion),
+       createdAt = Value(createdAt);
+  static Insertable<OutfitRow> custom({
+    Expression<String>? id,
+    Expression<String>? occasion,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (occasion != null) 'occasion': occasion,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OutfitsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? occasion,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return OutfitsCompanion(
+      id: id ?? this.id,
+      occasion: occasion ?? this.occasion,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (occasion.present) {
+      map['occasion'] = Variable<String>(occasion.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitsCompanion(')
+          ..write('id: $id, ')
+          ..write('occasion: $occasion, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OutfitItemsTable extends OutfitItems
+    with TableInfo<$OutfitItemsTable, OutfitItemRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OutfitItemsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _outfitIdMeta = const VerificationMeta(
+    'outfitId',
+  );
+  @override
+  late final GeneratedColumn<String> outfitId = GeneratedColumn<String>(
+    'outfit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES outfit (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _itemIdMeta = const VerificationMeta('itemId');
+  @override
+  late final GeneratedColumn<String> itemId = GeneratedColumn<String>(
+    'item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES wardrobe_item (id) ON DELETE CASCADE',
+    ),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [outfitId, itemId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'outfit_item';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<OutfitItemRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('outfit_id')) {
+      context.handle(
+        _outfitIdMeta,
+        outfitId.isAcceptableOrUnknown(data['outfit_id']!, _outfitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_outfitIdMeta);
+    }
+    if (data.containsKey('item_id')) {
+      context.handle(
+        _itemIdMeta,
+        itemId.isAcceptableOrUnknown(data['item_id']!, _itemIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_itemIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {outfitId, itemId};
+  @override
+  OutfitItemRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OutfitItemRow(
+      outfitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}outfit_id'],
+      )!,
+      itemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}item_id'],
+      )!,
+    );
+  }
+
+  @override
+  $OutfitItemsTable createAlias(String alias) {
+    return $OutfitItemsTable(attachedDatabase, alias);
+  }
+}
+
+class OutfitItemRow extends DataClass implements Insertable<OutfitItemRow> {
+  final String outfitId;
+  final String itemId;
+  const OutfitItemRow({required this.outfitId, required this.itemId});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['outfit_id'] = Variable<String>(outfitId);
+    map['item_id'] = Variable<String>(itemId);
+    return map;
+  }
+
+  OutfitItemsCompanion toCompanion(bool nullToAbsent) {
+    return OutfitItemsCompanion(
+      outfitId: Value(outfitId),
+      itemId: Value(itemId),
+    );
+  }
+
+  factory OutfitItemRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OutfitItemRow(
+      outfitId: serializer.fromJson<String>(json['outfitId']),
+      itemId: serializer.fromJson<String>(json['itemId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'outfitId': serializer.toJson<String>(outfitId),
+      'itemId': serializer.toJson<String>(itemId),
+    };
+  }
+
+  OutfitItemRow copyWith({String? outfitId, String? itemId}) => OutfitItemRow(
+    outfitId: outfitId ?? this.outfitId,
+    itemId: itemId ?? this.itemId,
+  );
+  OutfitItemRow copyWithCompanion(OutfitItemsCompanion data) {
+    return OutfitItemRow(
+      outfitId: data.outfitId.present ? data.outfitId.value : this.outfitId,
+      itemId: data.itemId.present ? data.itemId.value : this.itemId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitItemRow(')
+          ..write('outfitId: $outfitId, ')
+          ..write('itemId: $itemId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(outfitId, itemId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OutfitItemRow &&
+          other.outfitId == this.outfitId &&
+          other.itemId == this.itemId);
+}
+
+class OutfitItemsCompanion extends UpdateCompanion<OutfitItemRow> {
+  final Value<String> outfitId;
+  final Value<String> itemId;
+  final Value<int> rowid;
+  const OutfitItemsCompanion({
+    this.outfitId = const Value.absent(),
+    this.itemId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OutfitItemsCompanion.insert({
+    required String outfitId,
+    required String itemId,
+    this.rowid = const Value.absent(),
+  }) : outfitId = Value(outfitId),
+       itemId = Value(itemId);
+  static Insertable<OutfitItemRow> custom({
+    Expression<String>? outfitId,
+    Expression<String>? itemId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (outfitId != null) 'outfit_id': outfitId,
+      if (itemId != null) 'item_id': itemId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OutfitItemsCompanion copyWith({
+    Value<String>? outfitId,
+    Value<String>? itemId,
+    Value<int>? rowid,
+  }) {
+    return OutfitItemsCompanion(
+      outfitId: outfitId ?? this.outfitId,
+      itemId: itemId ?? this.itemId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (outfitId.present) {
+      map['outfit_id'] = Variable<String>(outfitId.value);
+    }
+    if (itemId.present) {
+      map['item_id'] = Variable<String>(itemId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitItemsCompanion(')
+          ..write('outfitId: $outfitId, ')
+          ..write('itemId: $itemId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OutfitWearsTable extends OutfitWears
+    with TableInfo<$OutfitWearsTable, OutfitWearRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OutfitWearsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _outfitIdMeta = const VerificationMeta(
+    'outfitId',
+  );
+  @override
+  late final GeneratedColumn<String> outfitId = GeneratedColumn<String>(
+    'outfit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES outfit (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _dayMeta = const VerificationMeta('day');
+  @override
+  late final GeneratedColumn<int> day = GeneratedColumn<int>(
+    'day',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [outfitId, day];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'outfit_wear';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<OutfitWearRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('outfit_id')) {
+      context.handle(
+        _outfitIdMeta,
+        outfitId.isAcceptableOrUnknown(data['outfit_id']!, _outfitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_outfitIdMeta);
+    }
+    if (data.containsKey('day')) {
+      context.handle(
+        _dayMeta,
+        day.isAcceptableOrUnknown(data['day']!, _dayMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dayMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {outfitId, day};
+  @override
+  OutfitWearRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OutfitWearRow(
+      outfitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}outfit_id'],
+      )!,
+      day: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}day'],
+      )!,
+    );
+  }
+
+  @override
+  $OutfitWearsTable createAlias(String alias) {
+    return $OutfitWearsTable(attachedDatabase, alias);
+  }
+}
+
+class OutfitWearRow extends DataClass implements Insertable<OutfitWearRow> {
+  final String outfitId;
+  final int day;
+  const OutfitWearRow({required this.outfitId, required this.day});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['outfit_id'] = Variable<String>(outfitId);
+    map['day'] = Variable<int>(day);
+    return map;
+  }
+
+  OutfitWearsCompanion toCompanion(bool nullToAbsent) {
+    return OutfitWearsCompanion(outfitId: Value(outfitId), day: Value(day));
+  }
+
+  factory OutfitWearRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OutfitWearRow(
+      outfitId: serializer.fromJson<String>(json['outfitId']),
+      day: serializer.fromJson<int>(json['day']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'outfitId': serializer.toJson<String>(outfitId),
+      'day': serializer.toJson<int>(day),
+    };
+  }
+
+  OutfitWearRow copyWith({String? outfitId, int? day}) =>
+      OutfitWearRow(outfitId: outfitId ?? this.outfitId, day: day ?? this.day);
+  OutfitWearRow copyWithCompanion(OutfitWearsCompanion data) {
+    return OutfitWearRow(
+      outfitId: data.outfitId.present ? data.outfitId.value : this.outfitId,
+      day: data.day.present ? data.day.value : this.day,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitWearRow(')
+          ..write('outfitId: $outfitId, ')
+          ..write('day: $day')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(outfitId, day);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OutfitWearRow &&
+          other.outfitId == this.outfitId &&
+          other.day == this.day);
+}
+
+class OutfitWearsCompanion extends UpdateCompanion<OutfitWearRow> {
+  final Value<String> outfitId;
+  final Value<int> day;
+  final Value<int> rowid;
+  const OutfitWearsCompanion({
+    this.outfitId = const Value.absent(),
+    this.day = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OutfitWearsCompanion.insert({
+    required String outfitId,
+    required int day,
+    this.rowid = const Value.absent(),
+  }) : outfitId = Value(outfitId),
+       day = Value(day);
+  static Insertable<OutfitWearRow> custom({
+    Expression<String>? outfitId,
+    Expression<int>? day,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (outfitId != null) 'outfit_id': outfitId,
+      if (day != null) 'day': day,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OutfitWearsCompanion copyWith({
+    Value<String>? outfitId,
+    Value<int>? day,
+    Value<int>? rowid,
+  }) {
+    return OutfitWearsCompanion(
+      outfitId: outfitId ?? this.outfitId,
+      day: day ?? this.day,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (outfitId.present) {
+      map['outfit_id'] = Variable<String>(outfitId.value);
+    }
+    if (day.present) {
+      map['day'] = Variable<int>(day.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OutfitWearsCompanion(')
+          ..write('outfitId: $outfitId, ')
+          ..write('day: $day, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -11390,6 +12738,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FaceMetricsTable faceMetrics = $FaceMetricsTable(this);
   late final $StyleFavoritesTable styleFavorites = $StyleFavoritesTable(this);
   late final $SnapshotsTable snapshots = $SnapshotsTable(this);
+  late final $WardrobeItemsTable wardrobeItems = $WardrobeItemsTable(this);
+  late final $OutfitsTable outfits = $OutfitsTable(this);
+  late final $OutfitItemsTable outfitItems = $OutfitItemsTable(this);
+  late final $OutfitWearsTable outfitWears = $OutfitWearsTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -11446,6 +12798,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'idx_snapshot_kind_taken',
     'CREATE INDEX idx_snapshot_kind_taken ON progress_snapshot (kind, taken_at)',
   );
+  late final Index idxWardrobeCategory = Index(
+    'idx_wardrobe_category',
+    'CREATE INDEX idx_wardrobe_category ON wardrobe_item (category)',
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -11474,6 +12830,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     faceMetrics,
     styleFavorites,
     snapshots,
+    wardrobeItems,
+    outfits,
+    outfitItems,
+    outfitWears,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -11488,6 +12848,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     idxPostureSessionRecordedAt,
     idxFaceAnalysisRecordedAt,
     idxSnapshotKindTaken,
+    idxWardrobeCategory,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -11525,6 +12886,27 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         limitUpdateKind: UpdateKind.delete,
       ),
       result: [TableUpdate('face_metric', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'outfit',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('outfit_item', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'wardrobe_item',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('outfit_item', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'outfit',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('outfit_wear', kind: UpdateKind.delete)],
     ),
   ]);
 }
@@ -18583,6 +19965,1381 @@ typedef $$SnapshotsTableProcessedTableManager =
       SnapshotRow,
       PrefetchHooks Function()
     >;
+typedef $$WardrobeItemsTableCreateCompanionBuilder =
+    WardrobeItemsCompanion Function({
+      required String id,
+      required String name,
+      required String category,
+      required String colorHex,
+      required String pattern,
+      required int formality,
+      Value<String> occasions,
+      Value<bool> favorite,
+      Value<Uint8List?> photo,
+      required int createdAt,
+      required int updatedAt,
+      Value<int> rowid,
+    });
+typedef $$WardrobeItemsTableUpdateCompanionBuilder =
+    WardrobeItemsCompanion Function({
+      Value<String> id,
+      Value<String> name,
+      Value<String> category,
+      Value<String> colorHex,
+      Value<String> pattern,
+      Value<int> formality,
+      Value<String> occasions,
+      Value<bool> favorite,
+      Value<Uint8List?> photo,
+      Value<int> createdAt,
+      Value<int> updatedAt,
+      Value<int> rowid,
+    });
+
+final class $$WardrobeItemsTableReferences
+    extends BaseReferences<_$AppDatabase, $WardrobeItemsTable, WardrobeRow> {
+  $$WardrobeItemsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<$OutfitItemsTable, List<OutfitItemRow>>
+  _outfitItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.outfitItems,
+    aliasName: 'wardrobe_item__id__outfit_item__item_id',
+  );
+
+  $$OutfitItemsTableProcessedTableManager get outfitItemsRefs {
+    final manager = $$OutfitItemsTableTableManager(
+      $_db,
+      $_db.outfitItems,
+    ).filter((f) => f.itemId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_outfitItemsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$WardrobeItemsTableFilterComposer
+    extends Composer<_$AppDatabase, $WardrobeItemsTable> {
+  $$WardrobeItemsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get colorHex => $composableBuilder(
+    column: $table.colorHex,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get pattern => $composableBuilder(
+    column: $table.pattern,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get formality => $composableBuilder(
+    column: $table.formality,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get occasions => $composableBuilder(
+    column: $table.occasions,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get favorite => $composableBuilder(
+    column: $table.favorite,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<Uint8List> get photo => $composableBuilder(
+    column: $table.photo,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> outfitItemsRefs(
+    Expression<bool> Function($$OutfitItemsTableFilterComposer f) f,
+  ) {
+    final $$OutfitItemsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitItems,
+      getReferencedColumn: (t) => t.itemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.outfitItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$WardrobeItemsTableOrderingComposer
+    extends Composer<_$AppDatabase, $WardrobeItemsTable> {
+  $$WardrobeItemsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get colorHex => $composableBuilder(
+    column: $table.colorHex,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get pattern => $composableBuilder(
+    column: $table.pattern,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get formality => $composableBuilder(
+    column: $table.formality,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get occasions => $composableBuilder(
+    column: $table.occasions,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get favorite => $composableBuilder(
+    column: $table.favorite,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<Uint8List> get photo => $composableBuilder(
+    column: $table.photo,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$WardrobeItemsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $WardrobeItemsTable> {
+  $$WardrobeItemsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get colorHex =>
+      $composableBuilder(column: $table.colorHex, builder: (column) => column);
+
+  GeneratedColumn<String> get pattern =>
+      $composableBuilder(column: $table.pattern, builder: (column) => column);
+
+  GeneratedColumn<int> get formality =>
+      $composableBuilder(column: $table.formality, builder: (column) => column);
+
+  GeneratedColumn<String> get occasions =>
+      $composableBuilder(column: $table.occasions, builder: (column) => column);
+
+  GeneratedColumn<bool> get favorite =>
+      $composableBuilder(column: $table.favorite, builder: (column) => column);
+
+  GeneratedColumn<Uint8List> get photo =>
+      $composableBuilder(column: $table.photo, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<int> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  Expression<T> outfitItemsRefs<T extends Object>(
+    Expression<T> Function($$OutfitItemsTableAnnotationComposer a) f,
+  ) {
+    final $$OutfitItemsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitItems,
+      getReferencedColumn: (t) => t.itemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.outfitItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$WardrobeItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $WardrobeItemsTable,
+          WardrobeRow,
+          $$WardrobeItemsTableFilterComposer,
+          $$WardrobeItemsTableOrderingComposer,
+          $$WardrobeItemsTableAnnotationComposer,
+          $$WardrobeItemsTableCreateCompanionBuilder,
+          $$WardrobeItemsTableUpdateCompanionBuilder,
+          (WardrobeRow, $$WardrobeItemsTableReferences),
+          WardrobeRow,
+          PrefetchHooks Function({bool outfitItemsRefs})
+        > {
+  $$WardrobeItemsTableTableManager(_$AppDatabase db, $WardrobeItemsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$WardrobeItemsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$WardrobeItemsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$WardrobeItemsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<String> colorHex = const Value.absent(),
+                Value<String> pattern = const Value.absent(),
+                Value<int> formality = const Value.absent(),
+                Value<String> occasions = const Value.absent(),
+                Value<bool> favorite = const Value.absent(),
+                Value<Uint8List?> photo = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => WardrobeItemsCompanion(
+                id: id,
+                name: name,
+                category: category,
+                colorHex: colorHex,
+                pattern: pattern,
+                formality: formality,
+                occasions: occasions,
+                favorite: favorite,
+                photo: photo,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String name,
+                required String category,
+                required String colorHex,
+                required String pattern,
+                required int formality,
+                Value<String> occasions = const Value.absent(),
+                Value<bool> favorite = const Value.absent(),
+                Value<Uint8List?> photo = const Value.absent(),
+                required int createdAt,
+                required int updatedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => WardrobeItemsCompanion.insert(
+                id: id,
+                name: name,
+                category: category,
+                colorHex: colorHex,
+                pattern: pattern,
+                formality: formality,
+                occasions: occasions,
+                favorite: favorite,
+                photo: photo,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$WardrobeItemsTable, WardrobeRow>(table),
+                  $$WardrobeItemsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({outfitItemsRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [if (outfitItemsRefs) db.outfitItems],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (outfitItemsRefs)
+                    await $_getPrefetchedData<
+                      WardrobeRow,
+                      $WardrobeItemsTable,
+                      OutfitItemRow
+                    >(
+                      currentTable: table,
+                      referencedTable: $$WardrobeItemsTableReferences
+                          ._outfitItemsRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$WardrobeItemsTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).outfitItemsRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.itemId == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$WardrobeItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $WardrobeItemsTable,
+      WardrobeRow,
+      $$WardrobeItemsTableFilterComposer,
+      $$WardrobeItemsTableOrderingComposer,
+      $$WardrobeItemsTableAnnotationComposer,
+      $$WardrobeItemsTableCreateCompanionBuilder,
+      $$WardrobeItemsTableUpdateCompanionBuilder,
+      (WardrobeRow, $$WardrobeItemsTableReferences),
+      WardrobeRow,
+      PrefetchHooks Function({bool outfitItemsRefs})
+    >;
+typedef $$OutfitsTableCreateCompanionBuilder = OutfitsCompanion Function({
+  required String id,
+  required String occasion,
+  required int createdAt,
+  Value<int> rowid,
+});
+typedef $$OutfitsTableUpdateCompanionBuilder = OutfitsCompanion Function({
+  Value<String> id,
+  Value<String> occasion,
+  Value<int> createdAt,
+  Value<int> rowid,
+});
+
+final class $$OutfitsTableReferences
+    extends BaseReferences<_$AppDatabase, $OutfitsTable, OutfitRow> {
+  $$OutfitsTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$OutfitItemsTable, List<OutfitItemRow>>
+  _outfitItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.outfitItems,
+    aliasName: 'outfit__id__outfit_item__outfit_id',
+  );
+
+  $$OutfitItemsTableProcessedTableManager get outfitItemsRefs {
+    final manager = $$OutfitItemsTableTableManager(
+      $_db,
+      $_db.outfitItems,
+    ).filter((f) => f.outfitId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_outfitItemsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<$OutfitWearsTable, List<OutfitWearRow>>
+  _outfitWearsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.outfitWears,
+    aliasName: 'outfit__id__outfit_wear__outfit_id',
+  );
+
+  $$OutfitWearsTableProcessedTableManager get outfitWearsRefs {
+    final manager = $$OutfitWearsTableTableManager(
+      $_db,
+      $_db.outfitWears,
+    ).filter((f) => f.outfitId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_outfitWearsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$OutfitsTableFilterComposer
+    extends Composer<_$AppDatabase, $OutfitsTable> {
+  $$OutfitsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get occasion => $composableBuilder(
+    column: $table.occasion,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> outfitItemsRefs(
+    Expression<bool> Function($$OutfitItemsTableFilterComposer f) f,
+  ) {
+    final $$OutfitItemsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitItems,
+      getReferencedColumn: (t) => t.outfitId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.outfitItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> outfitWearsRefs(
+    Expression<bool> Function($$OutfitWearsTableFilterComposer f) f,
+  ) {
+    final $$OutfitWearsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitWears,
+      getReferencedColumn: (t) => t.outfitId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitWearsTableFilterComposer(
+            $db: $db,
+            $table: $db.outfitWears,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$OutfitsTableOrderingComposer
+    extends Composer<_$AppDatabase, $OutfitsTable> {
+  $$OutfitsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get occasion => $composableBuilder(
+    column: $table.occasion,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$OutfitsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $OutfitsTable> {
+  $$OutfitsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get occasion =>
+      $composableBuilder(column: $table.occasion, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  Expression<T> outfitItemsRefs<T extends Object>(
+    Expression<T> Function($$OutfitItemsTableAnnotationComposer a) f,
+  ) {
+    final $$OutfitItemsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitItems,
+      getReferencedColumn: (t) => t.outfitId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.outfitItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> outfitWearsRefs<T extends Object>(
+    Expression<T> Function($$OutfitWearsTableAnnotationComposer a) f,
+  ) {
+    final $$OutfitWearsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.outfitWears,
+      getReferencedColumn: (t) => t.outfitId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitWearsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.outfitWears,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$OutfitsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $OutfitsTable,
+          OutfitRow,
+          $$OutfitsTableFilterComposer,
+          $$OutfitsTableOrderingComposer,
+          $$OutfitsTableAnnotationComposer,
+          $$OutfitsTableCreateCompanionBuilder,
+          $$OutfitsTableUpdateCompanionBuilder,
+          (OutfitRow, $$OutfitsTableReferences),
+          OutfitRow,
+          PrefetchHooks Function({bool outfitItemsRefs, bool outfitWearsRefs})
+        > {
+  $$OutfitsTableTableManager(_$AppDatabase db, $OutfitsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OutfitsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OutfitsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OutfitsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> occasion = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitsCompanion(
+                id: id,
+                occasion: occasion,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String occasion,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitsCompanion.insert(
+                id: id,
+                occasion: occasion,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$OutfitsTable, OutfitRow>(table),
+                  $$OutfitsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({outfitItemsRefs = false, outfitWearsRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (outfitItemsRefs) db.outfitItems,
+                    if (outfitWearsRefs) db.outfitWears,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (outfitItemsRefs)
+                        await $_getPrefetchedData<
+                          OutfitRow,
+                          $OutfitsTable,
+                          OutfitItemRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$OutfitsTableReferences
+                              ._outfitItemsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$OutfitsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).outfitItemsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.outfitId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (outfitWearsRefs)
+                        await $_getPrefetchedData<
+                          OutfitRow,
+                          $OutfitsTable,
+                          OutfitWearRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$OutfitsTableReferences
+                              ._outfitWearsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$OutfitsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).outfitWearsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.outfitId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $$OutfitsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $OutfitsTable,
+      OutfitRow,
+      $$OutfitsTableFilterComposer,
+      $$OutfitsTableOrderingComposer,
+      $$OutfitsTableAnnotationComposer,
+      $$OutfitsTableCreateCompanionBuilder,
+      $$OutfitsTableUpdateCompanionBuilder,
+      (OutfitRow, $$OutfitsTableReferences),
+      OutfitRow,
+      PrefetchHooks Function({bool outfitItemsRefs, bool outfitWearsRefs})
+    >;
+typedef $$OutfitItemsTableCreateCompanionBuilder =
+    OutfitItemsCompanion Function({
+      required String outfitId,
+      required String itemId,
+      Value<int> rowid,
+    });
+typedef $$OutfitItemsTableUpdateCompanionBuilder =
+    OutfitItemsCompanion Function({
+      Value<String> outfitId,
+      Value<String> itemId,
+      Value<int> rowid,
+    });
+
+final class $$OutfitItemsTableReferences
+    extends BaseReferences<_$AppDatabase, $OutfitItemsTable, OutfitItemRow> {
+  $$OutfitItemsTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $OutfitsTable _outfitIdTable(_$AppDatabase db) =>
+      db.outfits.createAlias('outfit_item__outfit_id__outfit__id');
+
+  $$OutfitsTableProcessedTableManager get outfitId {
+    final $_column = $_itemColumn<String>('outfit_id')!;
+
+    final manager = $$OutfitsTableTableManager(
+      $_db,
+      $_db.outfits,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_outfitIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static $WardrobeItemsTable _itemIdTable(_$AppDatabase db) =>
+      db.wardrobeItems.createAlias('outfit_item__item_id__wardrobe_item__id');
+
+  $$WardrobeItemsTableProcessedTableManager get itemId {
+    final $_column = $_itemColumn<String>('item_id')!;
+
+    final manager = $$WardrobeItemsTableTableManager(
+      $_db,
+      $_db.wardrobeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_itemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$OutfitItemsTableFilterComposer
+    extends Composer<_$AppDatabase, $OutfitItemsTable> {
+  $$OutfitItemsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $$OutfitsTableFilterComposer get outfitId {
+    final $$OutfitsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableFilterComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$WardrobeItemsTableFilterComposer get itemId {
+    final $$WardrobeItemsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.itemId,
+      referencedTable: $db.wardrobeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WardrobeItemsTableFilterComposer(
+            $db: $db,
+            $table: $db.wardrobeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitItemsTableOrderingComposer
+    extends Composer<_$AppDatabase, $OutfitItemsTable> {
+  $$OutfitItemsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $$OutfitsTableOrderingComposer get outfitId {
+    final $$OutfitsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableOrderingComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$WardrobeItemsTableOrderingComposer get itemId {
+    final $$WardrobeItemsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.itemId,
+      referencedTable: $db.wardrobeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WardrobeItemsTableOrderingComposer(
+            $db: $db,
+            $table: $db.wardrobeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitItemsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $OutfitItemsTable> {
+  $$OutfitItemsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $$OutfitsTableAnnotationComposer get outfitId {
+    final $$OutfitsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$WardrobeItemsTableAnnotationComposer get itemId {
+    final $$WardrobeItemsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.itemId,
+      referencedTable: $db.wardrobeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$WardrobeItemsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.wardrobeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $OutfitItemsTable,
+          OutfitItemRow,
+          $$OutfitItemsTableFilterComposer,
+          $$OutfitItemsTableOrderingComposer,
+          $$OutfitItemsTableAnnotationComposer,
+          $$OutfitItemsTableCreateCompanionBuilder,
+          $$OutfitItemsTableUpdateCompanionBuilder,
+          (OutfitItemRow, $$OutfitItemsTableReferences),
+          OutfitItemRow,
+          PrefetchHooks Function({bool outfitId, bool itemId})
+        > {
+  $$OutfitItemsTableTableManager(_$AppDatabase db, $OutfitItemsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OutfitItemsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OutfitItemsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OutfitItemsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> outfitId = const Value.absent(),
+                Value<String> itemId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitItemsCompanion(
+                outfitId: outfitId,
+                itemId: itemId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String outfitId,
+                required String itemId,
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitItemsCompanion.insert(
+                outfitId: outfitId,
+                itemId: itemId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$OutfitItemsTable, OutfitItemRow>(table),
+                  $$OutfitItemsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({outfitId = false, itemId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (outfitId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.outfitId,
+                        referencedTable: $$OutfitItemsTableReferences
+                            ._outfitIdTable(db),
+                        referencedColumn: $$OutfitItemsTableReferences
+                            ._outfitIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+                    if (itemId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.itemId,
+                        referencedTable: $$OutfitItemsTableReferences
+                            ._itemIdTable(db),
+                        referencedColumn: $$OutfitItemsTableReferences
+                            ._itemIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$OutfitItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $OutfitItemsTable,
+      OutfitItemRow,
+      $$OutfitItemsTableFilterComposer,
+      $$OutfitItemsTableOrderingComposer,
+      $$OutfitItemsTableAnnotationComposer,
+      $$OutfitItemsTableCreateCompanionBuilder,
+      $$OutfitItemsTableUpdateCompanionBuilder,
+      (OutfitItemRow, $$OutfitItemsTableReferences),
+      OutfitItemRow,
+      PrefetchHooks Function({bool outfitId, bool itemId})
+    >;
+typedef $$OutfitWearsTableCreateCompanionBuilder =
+    OutfitWearsCompanion Function({
+      required String outfitId,
+      required int day,
+      Value<int> rowid,
+    });
+typedef $$OutfitWearsTableUpdateCompanionBuilder =
+    OutfitWearsCompanion Function({
+      Value<String> outfitId,
+      Value<int> day,
+      Value<int> rowid,
+    });
+
+final class $$OutfitWearsTableReferences
+    extends BaseReferences<_$AppDatabase, $OutfitWearsTable, OutfitWearRow> {
+  $$OutfitWearsTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $OutfitsTable _outfitIdTable(_$AppDatabase db) =>
+      db.outfits.createAlias('outfit_wear__outfit_id__outfit__id');
+
+  $$OutfitsTableProcessedTableManager get outfitId {
+    final $_column = $_itemColumn<String>('outfit_id')!;
+
+    final manager = $$OutfitsTableTableManager(
+      $_db,
+      $_db.outfits,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_outfitIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$OutfitWearsTableFilterComposer
+    extends Composer<_$AppDatabase, $OutfitWearsTable> {
+  $$OutfitWearsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$OutfitsTableFilterComposer get outfitId {
+    final $$OutfitsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableFilterComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitWearsTableOrderingComposer
+    extends Composer<_$AppDatabase, $OutfitWearsTable> {
+  $$OutfitWearsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$OutfitsTableOrderingComposer get outfitId {
+    final $$OutfitsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableOrderingComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitWearsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $OutfitWearsTable> {
+  $$OutfitWearsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get day =>
+      $composableBuilder(column: $table.day, builder: (column) => column);
+
+  $$OutfitsTableAnnotationComposer get outfitId {
+    final $$OutfitsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.outfitId,
+      referencedTable: $db.outfits,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$OutfitsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.outfits,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$OutfitWearsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $OutfitWearsTable,
+          OutfitWearRow,
+          $$OutfitWearsTableFilterComposer,
+          $$OutfitWearsTableOrderingComposer,
+          $$OutfitWearsTableAnnotationComposer,
+          $$OutfitWearsTableCreateCompanionBuilder,
+          $$OutfitWearsTableUpdateCompanionBuilder,
+          (OutfitWearRow, $$OutfitWearsTableReferences),
+          OutfitWearRow,
+          PrefetchHooks Function({bool outfitId})
+        > {
+  $$OutfitWearsTableTableManager(_$AppDatabase db, $OutfitWearsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OutfitWearsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OutfitWearsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OutfitWearsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> outfitId = const Value.absent(),
+                Value<int> day = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitWearsCompanion(
+                outfitId: outfitId,
+                day: day,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String outfitId,
+                required int day,
+                Value<int> rowid = const Value.absent(),
+              }) => OutfitWearsCompanion.insert(
+                outfitId: outfitId,
+                day: day,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$OutfitWearsTable, OutfitWearRow>(table),
+                  $$OutfitWearsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({outfitId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (outfitId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.outfitId,
+                        referencedTable: $$OutfitWearsTableReferences
+                            ._outfitIdTable(db),
+                        referencedColumn: $$OutfitWearsTableReferences
+                            ._outfitIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$OutfitWearsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $OutfitWearsTable,
+      OutfitWearRow,
+      $$OutfitWearsTableFilterComposer,
+      $$OutfitWearsTableOrderingComposer,
+      $$OutfitWearsTableAnnotationComposer,
+      $$OutfitWearsTableCreateCompanionBuilder,
+      $$OutfitWearsTableUpdateCompanionBuilder,
+      (OutfitWearRow, $$OutfitWearsTableReferences),
+      OutfitWearRow,
+      PrefetchHooks Function({bool outfitId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -18633,4 +21390,12 @@ class $AppDatabaseManager {
       $$StyleFavoritesTableTableManager(_db, _db.styleFavorites);
   $$SnapshotsTableTableManager get snapshots =>
       $$SnapshotsTableTableManager(_db, _db.snapshots);
+  $$WardrobeItemsTableTableManager get wardrobeItems =>
+      $$WardrobeItemsTableTableManager(_db, _db.wardrobeItems);
+  $$OutfitsTableTableManager get outfits =>
+      $$OutfitsTableTableManager(_db, _db.outfits);
+  $$OutfitItemsTableTableManager get outfitItems =>
+      $$OutfitItemsTableTableManager(_db, _db.outfitItems);
+  $$OutfitWearsTableTableManager get outfitWears =>
+      $$OutfitWearsTableTableManager(_db, _db.outfitWears);
 }

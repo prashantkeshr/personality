@@ -2118,4 +2118,338 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get snapCompareHelp =>
       'तुलना के लिए छवि पर खींचें। नीचे कोई भी दो स्नैपशॉट चुनें।';
+
+  @override
+  String get colourTitle => 'रंग और स्टाइल';
+
+  @override
+  String get colourYourPalette => 'आपका पैलेट';
+
+  @override
+  String get colourDisclaimer =>
+      'पैलेट रंग-सिद्धांत के सुझाव हैं, नियम नहीं — जो पसंद हो वह पहनें।';
+
+  @override
+  String get quizVeinQ => 'आपकी कलाई के अंदर की नसें किस रंग की दिखती हैं?';
+
+  @override
+  String get quizVeinHelp => 'दिन की रोशनी में, बिना फ़िल्टर के देखें।';
+
+  @override
+  String get quizVeinBlue => 'नीली या बैंगनी';
+
+  @override
+  String get quizVeinGreen => 'हरी-सी';
+
+  @override
+  String get quizVeinBoth => 'कहना मुश्किल / दोनों';
+
+  @override
+  String get quizJewelQ => 'आपकी त्वचा पर कौन-से गहने बेहतर लगते हैं?';
+
+  @override
+  String get quizJewelHelp => 'हाथ पर अंगूठी या घड़ी के बारे में सोचें।';
+
+  @override
+  String get quizJewelSilver => 'चाँदी';
+
+  @override
+  String get quizJewelGold => 'सोना';
+
+  @override
+  String get quizJewelBoth => 'दोनों अच्छे लगते हैं';
+
+  @override
+  String get quizSunQ =>
+      'धूप में आपकी त्वचा आमतौर पर कैसी प्रतिक्रिया देती है?';
+
+  @override
+  String get quizSunHelp => 'बिना सनस्क्रीन, बाहर थोड़ी देर बाद।';
+
+  @override
+  String get quizSunBurns => 'जलती है या गुलाबी होती है';
+
+  @override
+  String get quizSunTans => 'आसानी से टैन होती है';
+
+  @override
+  String get quizSunBoth => 'दोनों थोड़ा-थोड़ा';
+
+  @override
+  String get quizDepthQ => 'आपकी त्वचा की गहराई के सबसे करीब कौन-सा है?';
+
+  @override
+  String get quizDepthHelp =>
+      'इससे तय होता है कि पैलेट में कितना कंट्रास्ट हो।';
+
+  @override
+  String get quizSeePalette => 'मेरा पैलेट देखें';
+
+  @override
+  String get quizRetake => 'रंग प्रश्नोत्तरी फिर से करें';
+
+  @override
+  String get undertoneWarm => 'गर्म अंडरटोन';
+
+  @override
+  String get undertoneCool => 'ठंडा अंडरटोन';
+
+  @override
+  String get undertoneNeutral => 'न्यूट्रल अंडरटोन';
+
+  @override
+  String get undertoneWarmExplain =>
+      'मिट्टी जैसे, सुनहरे और जैतूनी रंग आपकी त्वचा से मेल खाते हैं।';
+
+  @override
+  String get undertoneCoolExplain =>
+      'रत्न जैसे रंग, नीले और गुलाबी शेड आपकी त्वचा से मेल खाते हैं।';
+
+  @override
+  String get undertoneNeutralExplain =>
+      'अधिकांश संतुलित रंग आप पर जँचते हैं; चेहरे के पास केवल बहुत तीखे रंगों से बचें।';
+
+  @override
+  String get depthLight => 'हल्की';
+
+  @override
+  String get depthMedium => 'मध्यम';
+
+  @override
+  String get depthDeep => 'गहरी';
+
+  @override
+  String get paletteBest => 'सबसे अच्छे रंग';
+
+  @override
+  String get paletteBestNote =>
+      'इन्हें चेहरे के पास पहनें — टॉप, शर्ट, दुपट्टे। आज़माने के लिए टैप करें।';
+
+  @override
+  String get paletteNeutrals => 'आपके न्यूट्रल';
+
+  @override
+  String get paletteNeutralsNote => 'पैंट, जैकेट और जूतों के लिए आधार रंग।';
+
+  @override
+  String get paletteSparingly => 'कम मात्रा में';
+
+  @override
+  String get paletteSparinglyNote =>
+      'चेहरे से दूर या छोटे एक्सेंट के रूप में ठीक।';
+
+  @override
+  String get drapeOpen => 'रंग लाइव आज़माएँ';
+
+  @override
+  String get drapeTitle => 'रंग ड्रेप';
+
+  @override
+  String get drapeHint => 'नीचे रंग टैप करें और तुलना करें';
+
+  @override
+  String get drapeNote =>
+      'रंग ड्रेप दिखाता है कि कोई रंग आपके चेहरे के पास कैसा लगता है। केवल लाइव प्रीव्यू; कुछ रिकॉर्ड नहीं होता। कमरे की रोशनी रंगों को प्रभावित करती है।';
+
+  @override
+  String get stylePrefsTitle => 'आपकी पसंद के स्टाइल';
+
+  @override
+  String get prefClassic => 'क्लासिक';
+
+  @override
+  String get prefMinimal => 'मिनिमल';
+
+  @override
+  String get prefSmartCasual => 'स्मार्ट कैज़ुअल';
+
+  @override
+  String get prefStreet => 'स्ट्रीटवियर';
+
+  @override
+  String get prefTraditional => 'पारंपरिक / एथनिक';
+
+  @override
+  String get prefSporty => 'स्पोर्टी';
+
+  @override
+  String get wardrobeAdd => 'कपड़े जोड़ें';
+
+  @override
+  String get wardrobeEmpty =>
+      'अक्सर पहने जाने वाले कुछ कपड़े जोड़ें — टॉप, बॉटम और जूते — और अपने ही कपड़ों से आउटफ़िट सुझाव पाएँ।';
+
+  @override
+  String get wardrobePrivacy =>
+      'कपड़ों की तस्वीरें इसी फ़ोन पर एन्क्रिप्टेड डेटाबेस में रहती हैं।';
+
+  @override
+  String get outfitIdeas => 'आउटफ़िट सुझाव';
+
+  @override
+  String get outfitIdeasTab => 'सुझाव';
+
+  @override
+  String get outfitSavedTab => 'सहेजे गए';
+
+  @override
+  String get outfitNone =>
+      'इस अवसर के लिए अभी कोई संयोजन नहीं। टॉप, बॉटम और जूते जोड़ें, या कपड़ों को इस अवसर के लिए चिह्नित करें।';
+
+  @override
+  String get outfitPaletteHint =>
+      'सुझाव: अपने पैलेट के अनुसार आउटफ़िट क्रम के लिए रंग प्रश्नोत्तरी पूरी करें।';
+
+  @override
+  String get outfitSave => 'आउटफ़िट सहेजें';
+
+  @override
+  String get outfitSavedEmpty =>
+      'सहेजे गए आउटफ़िट यहाँ दिखते हैं, व्यस्त सुबह के लिए तैयार।';
+
+  @override
+  String get outfitWoreToday => 'आज पहना';
+
+  @override
+  String get garmentName => 'नाम (जैसे सफ़ेद ऑक्सफ़ोर्ड शर्ट)';
+
+  @override
+  String get garmentPhoto => 'फ़ोटो जोड़ें (वैकल्पिक)';
+
+  @override
+  String get garmentRetakePhoto => 'फ़ोटो फिर से लें';
+
+  @override
+  String get garmentPhotoTip =>
+      'कपड़े को अच्छी रोशनी में फैलाएँ या टाँगें, फ़्रेम भरते हुए। रंग बीच के हिस्से से पढ़ा जाता है।';
+
+  @override
+  String get garmentCategory => 'प्रकार';
+
+  @override
+  String get garmentColour => 'रंग';
+
+  @override
+  String get garmentColourFromPhoto =>
+      'रंग (फ़ोटो से पढ़ा गया — ज़रूरत हो तो बदलें)';
+
+  @override
+  String get garmentPattern => 'पैटर्न';
+
+  @override
+  String get garmentFormality => 'औपचारिकता';
+
+  @override
+  String get garmentOccasions => 'अवसर';
+
+  @override
+  String get garmentOccasionsHelp => 'किसी भी अवसर के लिए खाली छोड़ें।';
+
+  @override
+  String get catTop => 'टॉप / शर्ट';
+
+  @override
+  String get catBottom => 'बॉटम';
+
+  @override
+  String get catOnePiece => 'ड्रेस / वन-पीस';
+
+  @override
+  String get catOuterwear => 'जैकेट / आउटरवियर';
+
+  @override
+  String get catFootwear => 'जूते';
+
+  @override
+  String get catEthnicTop => 'कुर्ता / एथनिक टॉप';
+
+  @override
+  String get catEthnicBottom => 'एथनिक बॉटम';
+
+  @override
+  String get catAccessory => 'एक्सेसरी';
+
+  @override
+  String get patSolid => 'सादा';
+
+  @override
+  String get patStripes => 'धारीदार';
+
+  @override
+  String get patChecks => 'चेक';
+
+  @override
+  String get patPrint => 'प्रिंट';
+
+  @override
+  String get occCasual => 'कैज़ुअल';
+
+  @override
+  String get occWork => 'काम';
+
+  @override
+  String get occFormal => 'औपचारिक';
+
+  @override
+  String get occFestive => 'त्योहार';
+
+  @override
+  String get occSport => 'खेल';
+
+  @override
+  String get form1 => 'बहुत आरामदायक';
+
+  @override
+  String get form2 => 'आरामदायक';
+
+  @override
+  String get form3 => 'स्मार्ट';
+
+  @override
+  String get form4 => 'सजीला';
+
+  @override
+  String get form5 => 'औपचारिक';
+
+  @override
+  String get reasonAllNeutral => 'सभी न्यूट्रल रंग — आसान और सुथरा।';
+
+  @override
+  String get reasonOneAccent => 'न्यूट्रल रंगों के साथ एक एक्सेंट रंग।';
+
+  @override
+  String get reasonTonal => 'एक ही परिवार के मिलते-जुलते रंग।';
+
+  @override
+  String get reasonAnalogous => 'पास-पास के रंग जो सहजता से मिलते हैं।';
+
+  @override
+  String get reasonComplementary =>
+      'विपरीत रंग, आत्मविश्वासी कंट्रास्ट के लिए।';
+
+  @override
+  String get reasonInPalette => 'चेहरे के पास का रंग आपके पैलेट में है।';
+
+  @override
+  String get reasonOnePattern => 'एक पैटर्न, सादे कपड़ों से संतुलित।';
+
+  @override
+  String get reasonMatchedFormality => 'हर कपड़ा अवसर के अनुकूल है।';
+
+  @override
+  String get reasonFavourite => 'एक पसंदीदा कपड़ा शामिल है।';
+
+  @override
+  String get reasonNotWorn => 'इनमें से कोई इस सप्ताह नहीं पहना गया।';
+
+  @override
+  String outfitWornCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count बार पहना',
+      zero: 'अभी नहीं पहना',
+    );
+    return '$_temp0';
+  }
 }

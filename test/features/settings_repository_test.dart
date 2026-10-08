@@ -72,7 +72,11 @@ void main() {
           'face_metric',
           'hairstyle_favorite',
           'progress_snapshot',
+          'wardrobe_item',
+          'outfit',
+          'outfit_item',
+          'outfit_wear',
         ]));
-    expect(db.schemaVersion, 7);
+    expect(db.schemaVersion, 8);
   });
 }

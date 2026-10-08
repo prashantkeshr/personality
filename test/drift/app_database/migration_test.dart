@@ -14,6 +14,7 @@ import 'generated/schema_v4.dart' as v4;
 import 'generated/schema_v5.dart' as v5;
 import 'generated/schema_v6.dart' as v6;
 import 'generated/schema_v7.dart' as v7;
+import 'generated/schema_v8.dart' as v8;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -257,6 +258,36 @@ void main() {
         final f = await newDb.select(newDb.faceAnalysis).getSingle();
         expect((f.id, f.shape, f.alsoLike), ('f1', 'oval', 'diamond'));
         expect(await newDb.select(newDb.progressSnapshot).get(), isEmpty);
+      },
+    );
+  });
+
+  // Progress snapshots from v7 (Phase 9) must survive the v8 upgrade.
+  test('migration from v7 to v8 keeps snapshots', () async {
+    final jpeg = Uint8List.fromList([0xff, 0xd8, 1, 2, 3, 0xff, 0xd9]);
+    await verifier.testWithDataIntegrity(
+      oldVersion: 7,
+      newVersion: 8,
+      createOld: v7.DatabaseAtV7.new,
+      createNew: v8.DatabaseAtV8.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.progressSnapshot,
+            v7.ProgressSnapshotData(
+                id: 's1',
+                kind: 'face',
+                takenAt: 9,
+                jpeg: jpeg,
+                width: 720,
+                height: 960,
+                createdAt: 9));
+      },
+      validateItems: (newDb) async {
+        final s = await newDb.select(newDb.progressSnapshot).getSingle();
+        expect((s.id, s.kind), ('s1', 'face'));
+        expect(s.jpeg, jpeg);
+        expect(await newDb.select(newDb.wardrobeItem).get(), isEmpty);
       },
     );
   });

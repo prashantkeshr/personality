@@ -12,6 +12,10 @@ import '../features/face/try_on_screen.dart';
 import '../data/repositories/snapshot_repository.dart' show SnapshotKind;
 import '../features/habits/habits_screen.dart';
 import '../features/snapshots/snapshots_screen.dart';
+import '../features/style/colour_screen.dart';
+import '../features/style/drape_screen.dart';
+import '../features/style/outfits_screen.dart';
+import '../features/style/wardrobe_screen.dart';
 import '../features/health/activity/activity_screen.dart';
 import '../features/health/exercise/exercise_log_screen.dart';
 import '../features/health/meals/meals_screen.dart';
@@ -64,6 +68,11 @@ abstract final class AppRoutes {
   static const faceHistory = '/analyze/face/history';
   static const tryOn = '/analyze/face/try-on';
   static const snapshots = '/analyze/snapshots';
+  static const colours = '/style/colours';
+  static const drape = '/style/colours/drape';
+  static const wardrobe = '/style/wardrobe';
+  static const outfits = '/style/wardrobe/outfits';
+  static const garmentPhoto = '/style/wardrobe/photo';
   static const deviceInfo = '/settings/device';
 }
 
@@ -234,7 +243,35 @@ final routerProvider = Provider<GoRouter>((ref) {
             GoRoute(path: AppRoutes.coach, builder: (_, _) => const CoachTab()),
           ]),
           StatefulShellBranch(routes: [
-            GoRoute(path: AppRoutes.style, builder: (_, _) => const StyleTab()),
+            GoRoute(
+              path: AppRoutes.style,
+              builder: (_, _) => const StyleTab(),
+              routes: [
+                GoRoute(
+                  path: 'colours',
+                  builder: (_, _) => const ColourScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'drape',
+                      builder: (_, state) => DrapeScreen(
+                          initialHex: state.uri.queryParameters['hex']),
+                    ),
+                  ],
+                ),
+                GoRoute(
+                  path: 'wardrobe',
+                  builder: (_, _) => const WardrobeScreen(),
+                  routes: [
+                    GoRoute(
+                        path: 'outfits',
+                        builder: (_, _) => const OutfitsScreen()),
+                    GoRoute(
+                        path: 'photo',
+                        builder: (_, _) => const GarmentPhotoScreen()),
+                  ],
+                ),
+              ],
+            ),
           ]),
         ],
       ),

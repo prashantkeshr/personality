@@ -1,0 +1,170 @@
+[
+ {
+  "hex": "#FFFFFF",
+  "name": {
+   "en": "White",
+   "hi": "सफ़ेद"
+  }
+ },
+ {
+  "hex": "#F5F2EA",
+  "name": {
+   "en": "Ivory",
+   "hi": "हाथीदांत"
+  }
+ },
+ {
+  "hex": "#D9CBB3",
+  "name": {
+   "en": "Beige",
+   "hi": "बेज"
+  }
+ },
+ {
+  "hex": "#C19A6B",
+  "name": {
+   "en": "Camel",
+   "hi": "ऊँटिया भूरा"
+  }
+ },
+ {
+  "hex": "#8A8D91",
+  "name": {
+   "en": "Grey",
+   "hi": "धूसर"
+  }
+ },
+ {
+  "hex": "#3F4247",
+  "name": {
+   "en": "Charcoal",
+   "hi": "चारकोल"
+  }
+ },
+ {
+  "hex": "#111111",
+  "name": {
+   "en": "Black",
+   "hi": "काला"
+  }
+ },
+ {
+  "hex": "#1F2A44",
+  "name": {
+   "en": "Navy",
+   "hi": "नेवी"
+  }
+ },
+ {
+  "hex": "#4A6A8A",
+  "name": {
+   "en": "Denim",
+   "hi": "डेनिम"
+  }
+ },
+ {
+  "hex": "#4682B4",
+  "name": {
+   "en": "Steel blue",
+   "hi": "स्टील नीला"
+  }
+ },
+ {
+  "hex": "#9DB4D8",
+  "name": {
+   "en": "Sky blue",
+   "hi": "आसमानी"
+  }
+ },
+ {
+  "hex": "#2E8B78",
+  "name": {
+   "en": "Teal",
+   "hi": "टील"
+  }
+ },
+ {
+  "hex": "#556B2F",
+  "name": {
+   "en": "Olive",
+   "hi": "जैतूनी"
+  }
+ },
+ {
+  "hex": "#2E8B57",
+  "name": {
+   "en": "Green",
+   "hi": "हरा"
+  }
+ },
+ {
+  "hex": "#9CB380",
+  "name": {
+   "en": "Sage",
+   "hi": "सेज हरा"
+  }
+ },
+ {
+  "hex": "#5A4130",
+  "name": {
+   "en": "Brown",
+   "hi": "भूरा"
+  }
+ },
+ {
+  "hex": "#8B4513",
+  "name": {
+   "en": "Rust brown",
+   "hi": "कत्थई"
+  }
+ },
+ {
+  "hex": "#C8553D",
+  "name": {
+   "en": "Terracotta",
+   "hi": "टेराकोटा"
+  }
+ },
+ {
+  "hex": "#B22222",
+  "name": {
+   "en": "Red",
+   "hi": "लाल"
+  }
+ },
+ {
+  "hex": "#800020",
+  "name": {
+   "en": "Maroon",
+   "hi": "मरून"
+  }
+ },
+ {
+  "hex": "#E6A8B8",
+  "name": {
+   "en": "Pink",
+   "hi": "गुलाबी"
+  }
+ },
+ {
+  "hex": "#8E4585",
+  "name": {
+   "en": "Plum",
+   "hi": "बैंगनी"
+  }
+ },
+ {
+  "hex": "#E1A140",
+  "name": {
+   "en": "Mustard",
+   "hi": "सरसों पीला"
+  }
+ },
+ {
+  "hex": "#F2C57C",
+  "name": {
+   "en": "Peach",
+   "hi": "आड़ू"
+  }
+ }
+]

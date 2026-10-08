@@ -402,6 +402,73 @@ class Snapshots extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+/// A garment in the user's wardrobe. The optional photo is stored inside
+/// this encrypted database, never as a file.
+@DataClassName('WardrobeRow')
+@TableIndex(name: 'idx_wardrobe_category', columns: {#category})
+class WardrobeItems extends Table {
+  @override
+  String get tableName => 'wardrobe_item';
+
+  TextColumn get id => text()();
+  TextColumn get name => text()();
+  TextColumn get category => text()();
+  TextColumn get colorHex => text()();
+  TextColumn get pattern => text()();
+  IntColumn get formality => integer()();
+
+  /// Comma-separated occasion names; empty means any occasion.
+  TextColumn get occasions => text().withDefault(const Constant(''))();
+  BoolColumn get favorite => boolean().withDefault(const Constant(false))();
+  BlobColumn get photo => blob().nullable()();
+  IntColumn get createdAt => integer()();
+  IntColumn get updatedAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('OutfitRow')
+class Outfits extends Table {
+  @override
+  String get tableName => 'outfit';
+
+  TextColumn get id => text()();
+  TextColumn get occasion => text()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('OutfitItemRow')
+class OutfitItems extends Table {
+  @override
+  String get tableName => 'outfit_item';
+
+  TextColumn get outfitId =>
+      text().references(Outfits, #id, onDelete: KeyAction.cascade)();
+  TextColumn get itemId =>
+      text().references(WardrobeItems, #id, onDelete: KeyAction.cascade)();
+
+  @override
+  Set<Column> get primaryKey => {outfitId, itemId};
+}
+
+/// Days an outfit was worn (for variety in suggestions).
+@DataClassName('OutfitWearRow')
+class OutfitWears extends Table {
+  @override
+  String get tableName => 'outfit_wear';
+
+  TextColumn get outfitId =>
+      text().references(Outfits, #id, onDelete: KeyAction.cascade)();
+  IntColumn get day => integer()();
+
+  @override
+  Set<Column> get primaryKey => {outfitId, day};
+}
+
 @DriftDatabase(tables: [
   AppSettingsEntries,
   FeatureFlags,
@@ -426,6 +493,10 @@ class Snapshots extends Table {
   FaceMetrics,
   StyleFavorites,
   Snapshots,
+  WardrobeItems,
+  Outfits,
+  OutfitItems,
+  OutfitWears,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -433,7 +504,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 7;
+  int get schemaVersion => 8;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -485,6 +556,13 @@ class AppDatabase extends _$AppDatabase {
           from6To7: (m, schema) async {
             await m.createTable(schema.progressSnapshot);
             await m.createIndex(schema.idxSnapshotKindTaken);
+          },
+          from7To8: (m, schema) async {
+            await m.createTable(schema.wardrobeItem);
+            await m.createTable(schema.outfit);
+            await m.createTable(schema.outfitItem);
+            await m.createTable(schema.outfitWear);
+            await m.createIndex(schema.idxWardrobeCategory);
           },
         ),
         beforeOpen: (details) async {

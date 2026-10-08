@@ -29,4 +29,7 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.faceAnalysis,
   // Phase 9
   AppFeature.progressSnapshots,
+  // Phase 10
+  AppFeature.styleRecommendations,
+  AppFeature.wardrobe,
 };
