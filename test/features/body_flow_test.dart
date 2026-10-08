@@ -23,6 +23,8 @@ void main() {
   testWidgets('Home prompts for height when none exists', (tester) async {
     final app = AppHarness(tester);
     await app.start(onboarded);
+    await tester.scrollUntilVisible(find.text('Add height'), 300,
+        scrollable: find.byType(Scrollable).first);
     expect(
         find.text('Add your height to improve body-proportion and clothing '
             'recommendations.'),
@@ -51,6 +53,8 @@ void main() {
     expect(find.textContaining('not treated as growth'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Home'));
+    await tester.scrollUntilVisible(find.text('172 cm'), 300,
+        scrollable: find.byType(Scrollable).first);
     expect(find.text('172 cm'), findsOneWidget);
     await app.dispose();
   });

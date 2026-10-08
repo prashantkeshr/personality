@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
+import '../features/journey/goal_finder_screen.dart';
+import '../features/journey/journey_screen.dart';
 import '../features/dashboard/home_screen.dart';
 import '../features/exercise/exercise_library_screen.dart';
 import '../features/exercise/exercise_tracking_screen.dart';
@@ -41,6 +43,8 @@ import 'primary_tabs.dart';
 abstract final class AppRoutes {
   static const onboarding = '/onboarding';
   static const home = '/home';
+  static const journey = '/home/journey';
+  static const goalFinder = '/home/goals';
   static const health = '/health';
   static const analyze = '/analyze';
   static const coach = '/coach';
@@ -112,7 +116,17 @@ final routerProvider = Provider<GoRouter>((ref) {
         branches: [
           StatefulShellBranch(routes: [
             GoRoute(
-                path: AppRoutes.home, builder: (_, _) => const HomeScreen()),
+              path: AppRoutes.home,
+              builder: (_, _) => const HomeScreen(),
+              routes: [
+                GoRoute(
+                    path: 'journey',
+                    builder: (_, _) => const JourneyScreen()),
+                GoRoute(
+                    path: 'goals',
+                    builder: (_, _) => const GoalFinderScreen()),
+              ],
+            ),
           ]),
           StatefulShellBranch(routes: [
             GoRoute(

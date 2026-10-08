@@ -44,6 +44,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.habits: AppRoutes.habits,
         AppFeature.routines: AppRoutes.routines,
         AppFeature.reminders: AppRoutes.reminders,
+        AppFeature.progress: AppRoutes.journey,
       },
     );
   }

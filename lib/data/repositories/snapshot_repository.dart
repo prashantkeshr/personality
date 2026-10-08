@@ -16,6 +16,7 @@ class Snapshot {
     required this.jpeg,
     required this.width,
     required this.height,
+    this.eyes,
   });
 
   final String id;
@@ -24,7 +25,13 @@ class Snapshot {
   final Uint8List jpeg;
   final int width;
   final int height;
+
+  /// Eye centres as fractions of the image size (left, right), if found.
+  final EyePoints? eyes;
 }
+
+/// Eye centres in 0–1 image coordinates, used to align a time-lapse.
+typedef EyePoints = ((double, double), (double, double));
 
 /// Upright, size-limited JPEG: orientation baked in, longest side ≤ 1080.
 /// Runs off the UI thread.
@@ -98,9 +105,33 @@ class SnapshotRepository {
               jpeg: r.jpeg,
               width: r.width,
               height: r.height,
+              eyes: r.leftEyeX == null
+                  ? null
+                  : ((r.leftEyeX!, r.leftEyeY!), (r.rightEyeX!, r.rightEyeY!)),
             ),
         ]);
   }
+
+  /// Face snapshots whose eyes have not been looked for yet.
+  Future<List<(String, Uint8List)>> pendingAlignment() async {
+    final rows = await (_db.select(_db.snapshots)
+          ..where((t) =>
+              t.kind.equals(SnapshotKind.face.name) &
+              t.alignChecked.equals(false)))
+        .get();
+    return [for (final r in rows) (r.id, r.jpeg)];
+  }
+
+  /// Stores the detected eyes, or marks the photo as checked without them.
+  Future<void> setEyes(String id, EyePoints? eyes) =>
+      (_db.update(_db.snapshots)..where((t) => t.id.equals(id))).write(
+          SnapshotsCompanion(
+        leftEyeX: Value(eyes?.$1.$1),
+        leftEyeY: Value(eyes?.$1.$2),
+        rightEyeX: Value(eyes?.$2.$1),
+        rightEyeY: Value(eyes?.$2.$2),
+        alignChecked: const Value(true),
+      ));
 
   Future<void> delete(String id) =>
       (_db.delete(_db.snapshots)..where((t) => t.id.equals(id))).go();

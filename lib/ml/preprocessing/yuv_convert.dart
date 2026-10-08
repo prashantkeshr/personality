@@ -34,3 +34,30 @@ Uint8List yuv420ToNv21(int width, int height, List<YuvPlane> planes) {
   }
   return out;
 }
+
+/// Packs an RGB(A) image into NV21 (BT.601 full range) so a stored photo can
+/// be analysed by the same detector as live frames — entirely in memory.
+/// Odd edges are dropped so both dimensions are even.
+({Uint8List bytes, int width, int height}) rgbToNv21(
+    Uint8List rgba, int width, int height, {int channels = 4}) {
+  final w = width & ~1, h = height & ~1;
+  final out = Uint8List(w * h * 3 ~/ 2);
+  int px(int x, int y) => (y * width + x) * channels;
+  for (var y = 0; y < h; y++) {
+    for (var x = 0; x < w; x++) {
+      final i = px(x, y);
+      final r = rgba[i], g = rgba[i + 1], b = rgba[i + 2];
+      out[y * w + x] = ((77 * r + 150 * g + 29 * b) >> 8).clamp(0, 255);
+    }
+  }
+  var o = w * h;
+  for (var y = 0; y < h; y += 2) {
+    for (var x = 0; x < w; x += 2) {
+      final i = px(x, y);
+      final r = rgba[i], g = rgba[i + 1], b = rgba[i + 2];
+      out[o++] = (((128 * r - 107 * g - 21 * b) >> 8) + 128).clamp(0, 255); // V
+      out[o++] = (((-43 * r - 85 * g + 128 * b) >> 8) + 128).clamp(0, 255); // U
+    }
+  }
+  return (bytes: out, width: w, height: h);
+}

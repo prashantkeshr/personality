@@ -2452,4 +2452,351 @@ class AppLocalizationsHi extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get journeyTitle => 'आपकी यात्रा';
+
+  @override
+  String journeyLevel(int level) {
+    return 'लेवल $level';
+  }
+
+  @override
+  String journeyXpToNext(int xp, int level) {
+    return 'लेवल $level तक $xp XP';
+  }
+
+  @override
+  String journeyTodayXp(int xp) {
+    return 'आज +$xp XP';
+  }
+
+  @override
+  String journeyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count दिन की स्ट्रीक',
+      one: '1 दिन की स्ट्रीक',
+      zero: 'अभी कोई स्ट्रीक नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String journeyRestDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count आराम-दिन जमा',
+      one: '1 आराम-दिन जमा',
+      zero: 'कोई आराम-दिन जमा नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get journeyRestDaysHelp =>
+      'हर 7 सक्रिय दिनों पर एक आराम-दिन मिलता है। कोई दिन छूटने पर वह इस्तेमाल होता है और स्ट्रीक बनी रहती है।';
+
+  @override
+  String get journeyStartTimelapse =>
+      'अपना टाइम-लैप्स शुरू करने के लिए चेहरे की स्नैपशॉट लें';
+
+  @override
+  String get journeyOneSnapshot =>
+      'बदलाव देखने के लिए अगले हफ़्ते एक और स्नैपशॉट जोड़ें';
+
+  @override
+  String journeySnapshotCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count स्नैपशॉट',
+      one: '1 स्नैपशॉट',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get journeyFirst => 'पहली';
+
+  @override
+  String get journeyLatest => 'नवीनतम';
+
+  @override
+  String get journeyPlay => 'टाइम-लैप्स चलाएँ';
+
+  @override
+  String get journeyPause => 'रोकें';
+
+  @override
+  String get journeyCompare => 'साथ-साथ तुलना करें';
+
+  @override
+  String get journeyAlignNote =>
+      'फ़ोटो आँखों की स्थिति से मिलाई जाती हैं। सामने से, अच्छी रोशनी में ली गई फ़ोटो सबसे अच्छी मिलती है।';
+
+  @override
+  String get journeyTotalXp => 'कुल XP';
+
+  @override
+  String get journeyBestStreak => 'सबसे लंबी स्ट्रीक';
+
+  @override
+  String get journeyActiveDays => 'सक्रिय दिन';
+
+  @override
+  String get journeyLast4Weeks => 'पिछले 4 हफ़्ते';
+
+  @override
+  String get journeyTrends => 'रुझान';
+
+  @override
+  String get journeyWeight => 'वज़न';
+
+  @override
+  String get journeyXpPerDay => 'प्रतिदिन XP';
+
+  @override
+  String get journeyBadges => 'बैज';
+
+  @override
+  String journeyBadgesEarned(int earned, int total) {
+    return '$total में से $earned मिले';
+  }
+
+  @override
+  String get journeyHowXp => 'XP कैसे मिलते हैं';
+
+  @override
+  String get journeyHowXpBody =>
+      'XP उन्हीं चीज़ों से मिलते हैं जो आप पहले से दर्ज करते हैं — पानी, भोजन, नींद, गतिविधि, आदतें, प्लान, जाँचें, स्नैपशॉट और आउटफ़िट। 15 या अधिक XP वाला दिन स्ट्रीक में गिना जाता है। कोई दिन छूटने पर XP कभी नहीं घटते।';
+
+  @override
+  String get questsTitle => 'आज के लक्ष्य';
+
+  @override
+  String questsReward(int xp) {
+    return '+$xp XP';
+  }
+
+  @override
+  String questsAllDone(int xp) {
+    return 'सब पूरे — +$xp बोनस XP';
+  }
+
+  @override
+  String questsAllBonus(int xp) {
+    return 'तीनों पूरे करने पर +$xp बोनस XP';
+  }
+
+  @override
+  String get questDrinkTarget => 'पानी का लक्ष्य पूरा करें';
+
+  @override
+  String get questLogMeals => 'दो भोजन दर्ज करें';
+
+  @override
+  String get questPostureCheck => 'पोस्चर जाँच करें';
+
+  @override
+  String get questCompletePlan => 'प्लान के तीन काम पूरे करें';
+
+  @override
+  String get questAllHabits => 'आज की आदतें पूरी करें';
+
+  @override
+  String get questLogSleep => 'पिछली रात की नींद दर्ज करें';
+
+  @override
+  String get questWorkout => 'कोई व्यायाम या गतिविधि दर्ज करें';
+
+  @override
+  String get questWearOutfit => 'सहेजा हुआ आउटफ़िट पहनें';
+
+  @override
+  String get questSnapshot => 'इस हफ़्ते की चेहरे की स्नैपशॉट लें';
+
+  @override
+  String get questLogWeight => 'अपना वज़न दर्ज करें';
+
+  @override
+  String get badgeUnlocked => 'बैज मिला';
+
+  @override
+  String badgesUnlocked(int count) {
+    return '$count बैज मिले';
+  }
+
+  @override
+  String get badgeContinue => 'आगे बढ़ें';
+
+  @override
+  String badgeProgress(int progress, int target) {
+    return '$progress / $target';
+  }
+
+  @override
+  String get badgeFirstSteps => 'पहले कदम';
+
+  @override
+  String get badgeFirstStepsInfo => 'पहली बार कुछ भी दर्ज करें।';
+
+  @override
+  String get badgeStreak7 => 'एक स्थिर हफ़्ता';
+
+  @override
+  String get badgeStreak7Info => '7 दिन की स्ट्रीक बनाएँ।';
+
+  @override
+  String get badgeStreak30 => 'तीस दिन मज़बूत';
+
+  @override
+  String get badgeStreak30Info => '30 दिन की स्ट्रीक बनाएँ।';
+
+  @override
+  String get badgeHydration => 'भरपूर पानी';
+
+  @override
+  String get badgeHydrationInfo => '7 दिन पानी का लक्ष्य पूरा करें।';
+
+  @override
+  String get badgePosture => 'पोस्चर नियमित';
+
+  @override
+  String get badgePostureInfo => '5 पोस्चर जाँच पूरी करें।';
+
+  @override
+  String get badgeFace => 'चेहरा खोजी';
+
+  @override
+  String get badgeFaceInfo => 'एक चेहरा विश्लेषण पूरा करें।';
+
+  @override
+  String get badgeJourney => 'यात्रा संजोने वाले';
+
+  @override
+  String get badgeJourneyInfo => '4 प्रगति स्नैपशॉट सहेजें।';
+
+  @override
+  String get badgePlanner => 'योजनाकार';
+
+  @override
+  String get badgePlannerInfo => 'प्लान के 20 काम पूरे करें।';
+
+  @override
+  String get badgeHabits => 'आदत निर्माता';
+
+  @override
+  String get badgeHabitsInfo => 'आदतें 30 बार पूरी करें।';
+
+  @override
+  String get badgeStylist => 'स्टाइलिस्ट';
+
+  @override
+  String get badgeStylistInfo => '5 आउटफ़िट सहेजें।';
+
+  @override
+  String get badgeLevel5 => 'लेवल 5';
+
+  @override
+  String get badgeLevel5Info => 'लेवल 5 तक पहुँचें।';
+
+  @override
+  String get badgeLevel10 => 'लेवल 10';
+
+  @override
+  String get badgeLevel10Info => 'लेवल 10 तक पहुँचें।';
+
+  @override
+  String get forYouTitle => 'आज आपके लिए';
+
+  @override
+  String get forYouSnapshot => 'साप्ताहिक स्नैपशॉट';
+
+  @override
+  String get forYouSnapshotInfo => 'अपने टाइम-लैप्स में एक फ़्रेम जोड़ें';
+
+  @override
+  String get forYouTryOn => 'नया लुक आज़माएँ';
+
+  @override
+  String get forYouTryOnInfo => 'चश्मा और दाढ़ी, लाइव आप पर';
+
+  @override
+  String get forYouPosture => 'पोस्चर जाँच';
+
+  @override
+  String get forYouPostureInfo => 'दो मिनट, आपके लिए सुझाव';
+
+  @override
+  String get forYouColours => 'अपने रंग खोजें';
+
+  @override
+  String get forYouColoursInfo => 'आपके पैलेट के लिए छोटा क्विज़';
+
+  @override
+  String get forYouOutfit => 'आज का आउटफ़िट';
+
+  @override
+  String get forYouOutfitInfo => 'आपकी अलमारी से सुझाव';
+
+  @override
+  String get forYouFace => 'चेहरे का आकार';
+
+  @override
+  String get forYouFaceInfo => 'आप पर जँचने वाले स्टाइल';
+
+  @override
+  String get forYouExercise => 'थोड़ा चलें-फिरें';
+
+  @override
+  String get forYouExerciseInfo => 'निर्देशित रेप्स, लाइव गिनती';
+
+  @override
+  String get forYouHairstyles => 'हेयरस्टाइल सुझाव';
+
+  @override
+  String get forYouHairstylesInfo => 'आपके चेहरे के आकार के लिए';
+
+  @override
+  String get goalFinderTitle => 'अपना फ़ोकस चुनें';
+
+  @override
+  String get goalFinderStep1 => 'आप किस पर काम करना चाहेंगे?';
+
+  @override
+  String get goalFinderStep1Hint => 'हर वह तस्वीर चुनें जो आपको भाए।';
+
+  @override
+  String get goalFinderStep2 => 'कौन-से लुक आपके जैसे लगते हैं?';
+
+  @override
+  String get goalFinderStep2Hint =>
+      'जितने चाहें चुनें — इससे आपके आउटफ़िट सुझाव बनते हैं।';
+
+  @override
+  String get goalFinderNext => 'आगे';
+
+  @override
+  String get goalFinderBack => 'पीछे';
+
+  @override
+  String get goalFinderSave => 'मेरा फ़ोकस सहेजें';
+
+  @override
+  String get goalFinderSaved =>
+      'आपका फ़ोकस सहेजा गया। लक्ष्य और सुझाव अब इसी के अनुसार होंगे।';
+
+  @override
+  String goalFinderSelected(int count) {
+    return '$count चुने गए';
+  }
+
+  @override
+  String get forYouGoals => 'आप क्या चाहते हैं?';
+
+  @override
+  String get forYouGoalsInfo => 'प्रेरित करने वाली तस्वीरें चुनें';
 }

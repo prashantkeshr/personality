@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:personality/app/personality_app.dart';
 import 'package:personality/core/database/app_database.dart';
 import 'package:personality/core/providers.dart';
+import 'package:personality/features/journey/journey_providers.dart';
 import 'package:personality/features/settings/app_settings.dart';
 
 /// Runs the full app on an in-memory database inside a widget test.
@@ -25,6 +26,13 @@ class AppHarness {
     tester.platformDispatcher.accessibilityFeaturesTestValue =
         const FakeAccessibilityFeatures(disableAnimations: true);
     addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
+    // A phone-sized screen (432 × 1280 logical) like the devices we ship
+    // to, unless the test already chose a size (e.g. tablet).
+    if (tester.view.physicalSize == const Size(2400, 1800)) {
+      tester.view.physicalSize = const Size(1080, 3200);
+      tester.view.devicePixelRatio = 2.5;
+      addTearDown(tester.view.reset);
+    }
     // If a test fails before calling dispose(), still unmount the app and
     // flush Drift's pending timer so the next test is not blocked. The close
     // is not awaited here: awaiting it during teardown can deadlock.
@@ -45,11 +53,13 @@ class AppHarness {
   Future<void> start(
     AppSettings settings, {
     List<Override> overrides = const [],
+    bool celebrateBadges = false,
   }) async {
     await tester.pumpWidget(ProviderScope(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         initialSettingsProvider.overrideWithValue(settings),
+        if (!celebrateBadges) badgeCelebrationsProvider.overrideWithValue(false),
         ...overrides,
       ],
       child: const PersonalityApp(),

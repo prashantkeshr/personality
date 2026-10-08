@@ -282,3 +282,37 @@ Bugs found by tests and fixed:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 216/216 pass (colour science, quiz, every palette, outfit rules and ranking, repository incl. cascade and the wear log, v7 → v8 migration, quiz → palette flow, wardrobe → ideas → save → worn flow).
 - Release APK 93 MB installed on the user's phone and launches cleanly; no ML Kit classes removed, no INTERNET permission.
+
+## Phase 11 — journey & gamification (2026-10-08)
+
+The original Phase 11 (local AI coach) moves later at the user's request.
+
+- **Progress engine** (pure Dart, `progress_engine.dart`): everything is derived from existing records, so nothing can drift or be double-counted.
+  - XP per action with caps (water target 20, meals 5 ×3, sleep 10, workouts 15 ×2, habits 10, plan items 5, posture 25 ×2, face 20, snapshots 20, outfits 10, weight 10).
+  - Level n starts at 50·(n−1)² XP.
+  - Streak: a day with ≥ 15 XP is active; today never breaks it; every 7 active days banks a rest day (max 2) that covers a missed day.
+  - 3 daily quests, stable per day, weighted by goals and only offered when achievable (+15 XP each, +25 for all three).
+  - 12 badges with progress.
+- **Activity digest** (`ProgressRepository`): one SQL union over 13 tables, grouped by local day in Dart; a multi-table trigger keeps it live.
+- **Home**:
+  - Journey card: face time-lapse beside the level ring, XP to next level, streak and last-7-days dots.
+  - Today's quests with animated progress; tapping a quest opens its feature.
+  - "For you today": a horizontal row of photo cards chosen from what the user has and hasn't done.
+  - A one-time badge celebration: a struck-metal medallion with a light sweep.
+- **Journey screen** (also Health → Progress):
+  - Time-lapse player with scrubber, and first-vs-latest comparison.
+  - Level, rest days, total XP, best streak and active days.
+  - 4-week XP chart and weight change.
+  - Badge gallery with progress sheets.
+- **Time-lapse alignment** (schema v9): eyes are found once per face snapshot by decoding the stored JPEG to NV21 in memory and running the same face detector. Frames are then transformed so the eyes are level, centred and equally spaced. Nothing is written to files.
+- **Visual goal finder**: tap photo cards for goals (9) and looks (6 styles × 2 photos); saving updates the goals and style preferences that drive quests and outfit ideas.
+  - 24 Unsplash photos, credited on the card and in `CREDITS.md`.
+
+Bugs found and fixed:
+- Long dropdown labels overflowed on phone-width forms. Tests now run at phone size (432 × 1280), and all 8 dropdowns expand to the field width.
+- The journey card overflowed in Hindi; its height now follows the text.
+- A badge celebration re-opened after closing, because the provider reports its previous value while refreshing.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 244/244 pass (XP caps, levels, streak and rest days, quests, badges, day digest, v8 → v9 migration, eye alignment maths, RGB → NV21, Home journey, quests, celebration shown once, time-lapse and compare, goal finder, every photo bundled and credited).
+- Release APK (arm64, 96 MB) installed on the user's phone and launches without crashes. R8 removed only obfuscated ML Kit internals; there is no INTERNET permission.

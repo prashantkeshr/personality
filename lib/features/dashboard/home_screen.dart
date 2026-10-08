@@ -10,6 +10,7 @@ import '../../l10n/app_localizations.dart';
 import '../../shared/format/body_format.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../health/body_providers.dart';
+import '../journey/home_journey.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import '../routines/plan_screen.dart';
@@ -52,11 +53,18 @@ class HomeScreen extends StatelessWidget {
           Text(date,
               style: theme.textTheme.bodyMedium
                   ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
-          const SizedBox(height: AppSpacing.xl),
+          const SizedBox(height: AppSpacing.lg),
+          const BadgeCelebrationHost(),
+          const JourneyCard(),
+          const SizedBox(height: AppSpacing.md),
+          const QuestsCard(),
+          const SizedBox(height: AppSpacing.md),
           const _PlanCard(),
           const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.lg),
           const _TodaySection(),
+          const SizedBox(height: AppSpacing.xl),
+          const ForYouFeed(),
           const SizedBox(height: AppSpacing.xl),
           Semantics(
             header: true,

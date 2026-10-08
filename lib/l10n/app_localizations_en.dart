@@ -2466,4 +2466,351 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get journeyTitle => 'Your journey';
+
+  @override
+  String journeyLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String journeyXpToNext(int xp, int level) {
+    return '$xp XP to level $level';
+  }
+
+  @override
+  String journeyTodayXp(int xp) {
+    return '+$xp XP today';
+  }
+
+  @override
+  String journeyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-day streak',
+      one: '1-day streak',
+      zero: 'No streak yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String journeyRestDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rest days banked',
+      one: '1 rest day banked',
+      zero: 'No rest days banked',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get journeyRestDaysHelp =>
+      'Every 7 active days earns a rest day. A missed day uses one, so your streak continues.';
+
+  @override
+  String get journeyStartTimelapse =>
+      'Take a face snapshot to start your time-lapse';
+
+  @override
+  String get journeyOneSnapshot =>
+      'Add another snapshot next week to see your change';
+
+  @override
+  String journeySnapshotCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count snapshots',
+      one: '1 snapshot',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get journeyFirst => 'First';
+
+  @override
+  String get journeyLatest => 'Latest';
+
+  @override
+  String get journeyPlay => 'Play time-lapse';
+
+  @override
+  String get journeyPause => 'Pause';
+
+  @override
+  String get journeyCompare => 'Compare side by side';
+
+  @override
+  String get journeyAlignNote =>
+      'Photos are lined up by your eyes. A front-facing, well-lit photo lines up best.';
+
+  @override
+  String get journeyTotalXp => 'Total XP';
+
+  @override
+  String get journeyBestStreak => 'Best streak';
+
+  @override
+  String get journeyActiveDays => 'Active days';
+
+  @override
+  String get journeyLast4Weeks => 'Last 4 weeks';
+
+  @override
+  String get journeyTrends => 'Trends';
+
+  @override
+  String get journeyWeight => 'Weight';
+
+  @override
+  String get journeyXpPerDay => 'XP per day';
+
+  @override
+  String get journeyBadges => 'Badges';
+
+  @override
+  String journeyBadgesEarned(int earned, int total) {
+    return '$earned of $total earned';
+  }
+
+  @override
+  String get journeyHowXp => 'How XP works';
+
+  @override
+  String get journeyHowXpBody =>
+      'XP comes from what you already log — water, meals, sleep, activity, habits, plan items, checks, snapshots and outfits. A day with 15 XP or more counts toward your streak. Missing a day never removes XP.';
+
+  @override
+  String get questsTitle => 'Today\'s quests';
+
+  @override
+  String questsReward(int xp) {
+    return '+$xp XP';
+  }
+
+  @override
+  String questsAllDone(int xp) {
+    return 'All done — +$xp bonus XP';
+  }
+
+  @override
+  String questsAllBonus(int xp) {
+    return 'Finish all three for +$xp bonus XP';
+  }
+
+  @override
+  String get questDrinkTarget => 'Reach your water target';
+
+  @override
+  String get questLogMeals => 'Log two meals';
+
+  @override
+  String get questPostureCheck => 'Do a posture check';
+
+  @override
+  String get questCompletePlan => 'Complete three plan items';
+
+  @override
+  String get questAllHabits => 'Finish today\'s habits';
+
+  @override
+  String get questLogSleep => 'Log last night\'s sleep';
+
+  @override
+  String get questWorkout => 'Log a workout or activity';
+
+  @override
+  String get questWearOutfit => 'Wear a saved outfit';
+
+  @override
+  String get questSnapshot => 'Take this week\'s face snapshot';
+
+  @override
+  String get questLogWeight => 'Log your weight';
+
+  @override
+  String get badgeUnlocked => 'Badge unlocked';
+
+  @override
+  String badgesUnlocked(int count) {
+    return '$count badges unlocked';
+  }
+
+  @override
+  String get badgeContinue => 'Continue';
+
+  @override
+  String badgeProgress(int progress, int target) {
+    return '$progress / $target';
+  }
+
+  @override
+  String get badgeFirstSteps => 'First steps';
+
+  @override
+  String get badgeFirstStepsInfo => 'Log anything for the first time.';
+
+  @override
+  String get badgeStreak7 => 'One steady week';
+
+  @override
+  String get badgeStreak7Info => 'Reach a 7-day streak.';
+
+  @override
+  String get badgeStreak30 => 'Thirty strong';
+
+  @override
+  String get badgeStreak30Info => 'Reach a 30-day streak.';
+
+  @override
+  String get badgeHydration => 'Well hydrated';
+
+  @override
+  String get badgeHydrationInfo => 'Meet your water target on 7 days.';
+
+  @override
+  String get badgePosture => 'Posture regular';
+
+  @override
+  String get badgePostureInfo => 'Complete 5 posture checks.';
+
+  @override
+  String get badgeFace => 'Face explorer';
+
+  @override
+  String get badgeFaceInfo => 'Complete a face analysis.';
+
+  @override
+  String get badgeJourney => 'Journey keeper';
+
+  @override
+  String get badgeJourneyInfo => 'Save 4 progress snapshots.';
+
+  @override
+  String get badgePlanner => 'Planner';
+
+  @override
+  String get badgePlannerInfo => 'Complete 20 plan items.';
+
+  @override
+  String get badgeHabits => 'Habit builder';
+
+  @override
+  String get badgeHabitsInfo => 'Complete habits 30 times.';
+
+  @override
+  String get badgeStylist => 'Stylist';
+
+  @override
+  String get badgeStylistInfo => 'Save 5 outfits.';
+
+  @override
+  String get badgeLevel5 => 'Level 5';
+
+  @override
+  String get badgeLevel5Info => 'Reach level 5.';
+
+  @override
+  String get badgeLevel10 => 'Level 10';
+
+  @override
+  String get badgeLevel10Info => 'Reach level 10.';
+
+  @override
+  String get forYouTitle => 'For you today';
+
+  @override
+  String get forYouSnapshot => 'Weekly snapshot';
+
+  @override
+  String get forYouSnapshotInfo => 'Add a frame to your time-lapse';
+
+  @override
+  String get forYouTryOn => 'Try a new look';
+
+  @override
+  String get forYouTryOnInfo => 'Glasses and beards, live on you';
+
+  @override
+  String get forYouPosture => 'Posture check';
+
+  @override
+  String get forYouPostureInfo => 'Two minutes, tips for you';
+
+  @override
+  String get forYouColours => 'Find your colours';
+
+  @override
+  String get forYouColoursInfo => 'A short quiz for your palette';
+
+  @override
+  String get forYouOutfit => 'Today\'s outfit';
+
+  @override
+  String get forYouOutfitInfo => 'Ideas from your wardrobe';
+
+  @override
+  String get forYouFace => 'Face shape';
+
+  @override
+  String get forYouFaceInfo => 'Styles that suit you';
+
+  @override
+  String get forYouExercise => 'Move a little';
+
+  @override
+  String get forYouExerciseInfo => 'Guided reps, counted live';
+
+  @override
+  String get forYouHairstyles => 'Hairstyle ideas';
+
+  @override
+  String get forYouHairstylesInfo => 'Picked for your face shape';
+
+  @override
+  String get goalFinderTitle => 'Find your focus';
+
+  @override
+  String get goalFinderStep1 => 'What would you like to work on?';
+
+  @override
+  String get goalFinderStep1Hint => 'Tap every image that speaks to you.';
+
+  @override
+  String get goalFinderStep2 => 'Which looks feel like you?';
+
+  @override
+  String get goalFinderStep2Hint =>
+      'Pick as many as you like — this shapes your outfit ideas.';
+
+  @override
+  String get goalFinderNext => 'Next';
+
+  @override
+  String get goalFinderBack => 'Back';
+
+  @override
+  String get goalFinderSave => 'Save my focus';
+
+  @override
+  String get goalFinderSaved =>
+      'Your focus is saved. Quests and suggestions now follow it.';
+
+  @override
+  String goalFinderSelected(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get forYouGoals => 'What do you want?';
+
+  @override
+  String get forYouGoalsInfo => 'Pick images that inspire you';
 }

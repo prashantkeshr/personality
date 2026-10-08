@@ -223,6 +223,7 @@ class _AddActivitySheetState extends ConsumerState<_AddActivitySheet> {
                   style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: AppSpacing.lg),
               DropdownButtonFormField<ActivityKind>(
+                isExpanded: true,
                 initialValue: _kind,
                 decoration: InputDecoration(labelText: l10n.activityKindLabel),
                 items: [

@@ -461,6 +461,7 @@ class _ItemSheetState extends ConsumerState<_ItemSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
               DropdownButtonFormField<RoutineItemKind>(
+                isExpanded: true,
                 initialValue: _kind,
                 decoration: InputDecoration(labelText: l10n.routineItemKind),
                 items: [

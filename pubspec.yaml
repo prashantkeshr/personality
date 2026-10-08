@@ -50,3 +50,5 @@ flutter:
   assets:
     - assets/content/
     - assets/images/styles/
+    - assets/images/goals/
+    - assets/images/looks/

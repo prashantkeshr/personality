@@ -398,6 +398,16 @@ class Snapshots extends Table {
   TextColumn get note => text().nullable()();
   IntColumn get createdAt => integer()();
 
+  /// Eye centres as fractions of width/height, for aligning the face
+  /// time-lapse (v9). Null when not detected; [alignChecked] records that
+  /// detection already ran so it is never repeated.
+  RealColumn get leftEyeX => real().nullable()();
+  RealColumn get leftEyeY => real().nullable()();
+  RealColumn get rightEyeX => real().nullable()();
+  RealColumn get rightEyeY => real().nullable()();
+  BoolColumn get alignChecked =>
+      boolean().withDefault(const Constant(false))();
+
   @override
   Set<Column> get primaryKey => {id};
 }
@@ -504,7 +514,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -563,6 +573,14 @@ class AppDatabase extends _$AppDatabase {
             await m.createTable(schema.outfitItem);
             await m.createTable(schema.outfitWear);
             await m.createIndex(schema.idxWardrobeCategory);
+          },
+          from8To9: (m, schema) async {
+            final t = schema.progressSnapshot;
+            await m.addColumn(t, t.leftEyeX);
+            await m.addColumn(t, t.leftEyeY);
+            await m.addColumn(t, t.rightEyeX);
+            await m.addColumn(t, t.rightEyeY);
+            await m.addColumn(t, t.alignChecked);
           },
         ),
         beforeOpen: (details) async {

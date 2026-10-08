@@ -230,6 +230,7 @@ class _AddRecordSheetState extends State<AddRecordSheet> {
               if (widget.kind == RecordKind.measurement &&
                   widget.presetType == null) ...[
                 DropdownButtonFormField<BodyMeasurementType>(
+                  isExpanded: true,
                   initialValue: _type,
                   decoration: InputDecoration(labelText: l10n.measurementType),
                   items: [
@@ -296,6 +297,7 @@ class _AddRecordSheetState extends State<AddRecordSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
               DropdownButtonFormField<MeasurementMethod>(
+                isExpanded: true,
                 initialValue: _method,
                 decoration: InputDecoration(labelText: l10n.fieldMethod),
                 items: [

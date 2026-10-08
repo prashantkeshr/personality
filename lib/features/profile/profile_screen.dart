@@ -97,6 +97,7 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
         ),
         const SizedBox(height: AppSpacing.lg),
         DropdownButtonFormField<AgeRange?>(
+          isExpanded: true,
           initialValue: _age,
           decoration: InputDecoration(labelText: l10n.profileAgeRange),
           items: [
@@ -108,6 +109,7 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
         ),
         const SizedBox(height: AppSpacing.lg),
         DropdownButtonFormField<ActivityLevel?>(
+          isExpanded: true,
           initialValue: _activity,
           decoration: InputDecoration(labelText: l10n.profileActivityLevel),
           items: [

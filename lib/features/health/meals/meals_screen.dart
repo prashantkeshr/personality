@@ -167,6 +167,7 @@ class _AddMealSheetState extends ConsumerState<_AddMealSheet> {
               Text(l10n.mealAdd, style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: AppSpacing.lg),
               DropdownButtonFormField<MealType>(
+                isExpanded: true,
                 initialValue: _type,
                 decoration: InputDecoration(labelText: l10n.mealType),
                 items: [

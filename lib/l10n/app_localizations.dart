@@ -4459,6 +4459,594 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =0{Not worn yet} =1{Worn once} other{Worn {count} times}}'**
   String outfitWornCount(int count);
+
+  /// No description provided for @journeyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey'**
+  String get journeyTitle;
+
+  /// No description provided for @journeyLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level {level}'**
+  String journeyLevel(int level);
+
+  /// No description provided for @journeyXpToNext.
+  ///
+  /// In en, this message translates to:
+  /// **'{xp} XP to level {level}'**
+  String journeyXpToNext(int xp, int level);
+
+  /// No description provided for @journeyTodayXp.
+  ///
+  /// In en, this message translates to:
+  /// **'+{xp} XP today'**
+  String journeyTodayXp(int xp);
+
+  /// No description provided for @journeyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No streak yet} =1{1-day streak} other{{count}-day streak}}'**
+  String journeyStreak(int count);
+
+  /// No description provided for @journeyRestDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No rest days banked} =1{1 rest day banked} other{{count} rest days banked}}'**
+  String journeyRestDays(int count);
+
+  /// No description provided for @journeyRestDaysHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Every 7 active days earns a rest day. A missed day uses one, so your streak continues.'**
+  String get journeyRestDaysHelp;
+
+  /// No description provided for @journeyStartTimelapse.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a face snapshot to start your time-lapse'**
+  String get journeyStartTimelapse;
+
+  /// No description provided for @journeyOneSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Add another snapshot next week to see your change'**
+  String get journeyOneSnapshot;
+
+  /// No description provided for @journeySnapshotCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 snapshot} other{{count} snapshots}}'**
+  String journeySnapshotCount(int count);
+
+  /// No description provided for @journeyFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'First'**
+  String get journeyFirst;
+
+  /// No description provided for @journeyLatest.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest'**
+  String get journeyLatest;
+
+  /// No description provided for @journeyPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play time-lapse'**
+  String get journeyPlay;
+
+  /// No description provided for @journeyPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get journeyPause;
+
+  /// No description provided for @journeyCompare.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare side by side'**
+  String get journeyCompare;
+
+  /// No description provided for @journeyAlignNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos are lined up by your eyes. A front-facing, well-lit photo lines up best.'**
+  String get journeyAlignNote;
+
+  /// No description provided for @journeyTotalXp.
+  ///
+  /// In en, this message translates to:
+  /// **'Total XP'**
+  String get journeyTotalXp;
+
+  /// No description provided for @journeyBestStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Best streak'**
+  String get journeyBestStreak;
+
+  /// No description provided for @journeyActiveDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Active days'**
+  String get journeyActiveDays;
+
+  /// No description provided for @journeyLast4Weeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 4 weeks'**
+  String get journeyLast4Weeks;
+
+  /// No description provided for @journeyTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Trends'**
+  String get journeyTrends;
+
+  /// No description provided for @journeyWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get journeyWeight;
+
+  /// No description provided for @journeyXpPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'XP per day'**
+  String get journeyXpPerDay;
+
+  /// No description provided for @journeyBadges.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges'**
+  String get journeyBadges;
+
+  /// No description provided for @journeyBadgesEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'{earned} of {total} earned'**
+  String journeyBadgesEarned(int earned, int total);
+
+  /// No description provided for @journeyHowXp.
+  ///
+  /// In en, this message translates to:
+  /// **'How XP works'**
+  String get journeyHowXp;
+
+  /// No description provided for @journeyHowXpBody.
+  ///
+  /// In en, this message translates to:
+  /// **'XP comes from what you already log — water, meals, sleep, activity, habits, plan items, checks, snapshots and outfits. A day with 15 XP or more counts toward your streak. Missing a day never removes XP.'**
+  String get journeyHowXpBody;
+
+  /// No description provided for @questsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s quests'**
+  String get questsTitle;
+
+  /// No description provided for @questsReward.
+  ///
+  /// In en, this message translates to:
+  /// **'+{xp} XP'**
+  String questsReward(int xp);
+
+  /// No description provided for @questsAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All done — +{xp} bonus XP'**
+  String questsAllDone(int xp);
+
+  /// No description provided for @questsAllBonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish all three for +{xp} bonus XP'**
+  String questsAllBonus(int xp);
+
+  /// No description provided for @questDrinkTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach your water target'**
+  String get questDrinkTarget;
+
+  /// No description provided for @questLogMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Log two meals'**
+  String get questLogMeals;
+
+  /// No description provided for @questPostureCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Do a posture check'**
+  String get questPostureCheck;
+
+  /// No description provided for @questCompletePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete three plan items'**
+  String get questCompletePlan;
+
+  /// No description provided for @questAllHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish today\'s habits'**
+  String get questAllHabits;
+
+  /// No description provided for @questLogSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Log last night\'s sleep'**
+  String get questLogSleep;
+
+  /// No description provided for @questWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log a workout or activity'**
+  String get questWorkout;
+
+  /// No description provided for @questWearOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear a saved outfit'**
+  String get questWearOutfit;
+
+  /// No description provided for @questSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Take this week\'s face snapshot'**
+  String get questSnapshot;
+
+  /// No description provided for @questLogWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log your weight'**
+  String get questLogWeight;
+
+  /// No description provided for @badgeUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge unlocked'**
+  String get badgeUnlocked;
+
+  /// No description provided for @badgesUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} badges unlocked'**
+  String badgesUnlocked(int count);
+
+  /// No description provided for @badgeContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get badgeContinue;
+
+  /// No description provided for @badgeProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{progress} / {target}'**
+  String badgeProgress(int progress, int target);
+
+  /// No description provided for @badgeFirstSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'First steps'**
+  String get badgeFirstSteps;
+
+  /// No description provided for @badgeFirstStepsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Log anything for the first time.'**
+  String get badgeFirstStepsInfo;
+
+  /// No description provided for @badgeStreak7.
+  ///
+  /// In en, this message translates to:
+  /// **'One steady week'**
+  String get badgeStreak7;
+
+  /// No description provided for @badgeStreak7Info.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach a 7-day streak.'**
+  String get badgeStreak7Info;
+
+  /// No description provided for @badgeStreak30.
+  ///
+  /// In en, this message translates to:
+  /// **'Thirty strong'**
+  String get badgeStreak30;
+
+  /// No description provided for @badgeStreak30Info.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach a 30-day streak.'**
+  String get badgeStreak30Info;
+
+  /// No description provided for @badgeHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Well hydrated'**
+  String get badgeHydration;
+
+  /// No description provided for @badgeHydrationInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet your water target on 7 days.'**
+  String get badgeHydrationInfo;
+
+  /// No description provided for @badgePosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture regular'**
+  String get badgePosture;
+
+  /// No description provided for @badgePostureInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 5 posture checks.'**
+  String get badgePostureInfo;
+
+  /// No description provided for @badgeFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face explorer'**
+  String get badgeFace;
+
+  /// No description provided for @badgeFaceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete a face analysis.'**
+  String get badgeFaceInfo;
+
+  /// No description provided for @badgeJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Journey keeper'**
+  String get badgeJourney;
+
+  /// No description provided for @badgeJourneyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Save 4 progress snapshots.'**
+  String get badgeJourneyInfo;
+
+  /// No description provided for @badgePlanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Planner'**
+  String get badgePlanner;
+
+  /// No description provided for @badgePlannerInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 20 plan items.'**
+  String get badgePlannerInfo;
+
+  /// No description provided for @badgeHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Habit builder'**
+  String get badgeHabits;
+
+  /// No description provided for @badgeHabitsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete habits 30 times.'**
+  String get badgeHabitsInfo;
+
+  /// No description provided for @badgeStylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Stylist'**
+  String get badgeStylist;
+
+  /// No description provided for @badgeStylistInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Save 5 outfits.'**
+  String get badgeStylistInfo;
+
+  /// No description provided for @badgeLevel5.
+  ///
+  /// In en, this message translates to:
+  /// **'Level 5'**
+  String get badgeLevel5;
+
+  /// No description provided for @badgeLevel5Info.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach level 5.'**
+  String get badgeLevel5Info;
+
+  /// No description provided for @badgeLevel10.
+  ///
+  /// In en, this message translates to:
+  /// **'Level 10'**
+  String get badgeLevel10;
+
+  /// No description provided for @badgeLevel10Info.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach level 10.'**
+  String get badgeLevel10Info;
+
+  /// No description provided for @forYouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For you today'**
+  String get forYouTitle;
+
+  /// No description provided for @forYouSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly snapshot'**
+  String get forYouSnapshot;
+
+  /// No description provided for @forYouSnapshotInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a frame to your time-lapse'**
+  String get forYouSnapshotInfo;
+
+  /// No description provided for @forYouTryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a new look'**
+  String get forYouTryOn;
+
+  /// No description provided for @forYouTryOnInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Glasses and beards, live on you'**
+  String get forYouTryOnInfo;
+
+  /// No description provided for @forYouPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture check'**
+  String get forYouPosture;
+
+  /// No description provided for @forYouPostureInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Two minutes, tips for you'**
+  String get forYouPostureInfo;
+
+  /// No description provided for @forYouColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your colours'**
+  String get forYouColours;
+
+  /// No description provided for @forYouColoursInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A short quiz for your palette'**
+  String get forYouColoursInfo;
+
+  /// No description provided for @forYouOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s outfit'**
+  String get forYouOutfit;
+
+  /// No description provided for @forYouOutfitInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas from your wardrobe'**
+  String get forYouOutfitInfo;
+
+  /// No description provided for @forYouFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face shape'**
+  String get forYouFace;
+
+  /// No description provided for @forYouFaceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Styles that suit you'**
+  String get forYouFaceInfo;
+
+  /// No description provided for @forYouExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Move a little'**
+  String get forYouExercise;
+
+  /// No description provided for @forYouExerciseInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided reps, counted live'**
+  String get forYouExerciseInfo;
+
+  /// No description provided for @forYouHairstyles.
+  ///
+  /// In en, this message translates to:
+  /// **'Hairstyle ideas'**
+  String get forYouHairstyles;
+
+  /// No description provided for @forYouHairstylesInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Picked for your face shape'**
+  String get forYouHairstylesInfo;
+
+  /// No description provided for @goalFinderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your focus'**
+  String get goalFinderTitle;
+
+  /// No description provided for @goalFinderStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to work on?'**
+  String get goalFinderStep1;
+
+  /// No description provided for @goalFinderStep1Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap every image that speaks to you.'**
+  String get goalFinderStep1Hint;
+
+  /// No description provided for @goalFinderStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Which looks feel like you?'**
+  String get goalFinderStep2;
+
+  /// No description provided for @goalFinderStep2Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick as many as you like — this shapes your outfit ideas.'**
+  String get goalFinderStep2Hint;
+
+  /// No description provided for @goalFinderNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get goalFinderNext;
+
+  /// No description provided for @goalFinderBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get goalFinderBack;
+
+  /// No description provided for @goalFinderSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save my focus'**
+  String get goalFinderSave;
+
+  /// No description provided for @goalFinderSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your focus is saved. Quests and suggestions now follow it.'**
+  String get goalFinderSaved;
+
+  /// No description provided for @goalFinderSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String goalFinderSelected(int count);
+
+  /// No description provided for @forYouGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want?'**
+  String get forYouGoals;
+
+  /// No description provided for @forYouGoalsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick images that inspire you'**
+  String get forYouGoalsInfo;
 }
 
 class _AppLocalizationsDelegate

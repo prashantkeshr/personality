@@ -10934,6 +10934,65 @@ class $SnapshotsTable extends Snapshots
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _leftEyeXMeta = const VerificationMeta(
+    'leftEyeX',
+  );
+  @override
+  late final GeneratedColumn<double> leftEyeX = GeneratedColumn<double>(
+    'left_eye_x',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _leftEyeYMeta = const VerificationMeta(
+    'leftEyeY',
+  );
+  @override
+  late final GeneratedColumn<double> leftEyeY = GeneratedColumn<double>(
+    'left_eye_y',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rightEyeXMeta = const VerificationMeta(
+    'rightEyeX',
+  );
+  @override
+  late final GeneratedColumn<double> rightEyeX = GeneratedColumn<double>(
+    'right_eye_x',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rightEyeYMeta = const VerificationMeta(
+    'rightEyeY',
+  );
+  @override
+  late final GeneratedColumn<double> rightEyeY = GeneratedColumn<double>(
+    'right_eye_y',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _alignCheckedMeta = const VerificationMeta(
+    'alignChecked',
+  );
+  @override
+  late final GeneratedColumn<bool> alignChecked = GeneratedColumn<bool>(
+    'align_checked',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("align_checked" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -10944,6 +11003,11 @@ class $SnapshotsTable extends Snapshots
     height,
     note,
     createdAt,
+    leftEyeX,
+    leftEyeY,
+    rightEyeX,
+    rightEyeY,
+    alignChecked,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -11016,6 +11080,39 @@ class $SnapshotsTable extends Snapshots
     } else if (isInserting) {
       context.missing(_createdAtMeta);
     }
+    if (data.containsKey('left_eye_x')) {
+      context.handle(
+        _leftEyeXMeta,
+        leftEyeX.isAcceptableOrUnknown(data['left_eye_x']!, _leftEyeXMeta),
+      );
+    }
+    if (data.containsKey('left_eye_y')) {
+      context.handle(
+        _leftEyeYMeta,
+        leftEyeY.isAcceptableOrUnknown(data['left_eye_y']!, _leftEyeYMeta),
+      );
+    }
+    if (data.containsKey('right_eye_x')) {
+      context.handle(
+        _rightEyeXMeta,
+        rightEyeX.isAcceptableOrUnknown(data['right_eye_x']!, _rightEyeXMeta),
+      );
+    }
+    if (data.containsKey('right_eye_y')) {
+      context.handle(
+        _rightEyeYMeta,
+        rightEyeY.isAcceptableOrUnknown(data['right_eye_y']!, _rightEyeYMeta),
+      );
+    }
+    if (data.containsKey('align_checked')) {
+      context.handle(
+        _alignCheckedMeta,
+        alignChecked.isAcceptableOrUnknown(
+          data['align_checked']!,
+          _alignCheckedMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -11057,6 +11154,26 @@ class $SnapshotsTable extends Snapshots
         DriftSqlType.int,
         data['${effectivePrefix}created_at'],
       )!,
+      leftEyeX: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}left_eye_x'],
+      ),
+      leftEyeY: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}left_eye_y'],
+      ),
+      rightEyeX: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}right_eye_x'],
+      ),
+      rightEyeY: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}right_eye_y'],
+      ),
+      alignChecked: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}align_checked'],
+      )!,
     );
   }
 
@@ -11077,6 +11194,15 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
   final int height;
   final String? note;
   final int createdAt;
+
+  /// Eye centres as fractions of width/height, for aligning the face
+  /// time-lapse (v9). Null when not detected; [alignChecked] records that
+  /// detection already ran so it is never repeated.
+  final double? leftEyeX;
+  final double? leftEyeY;
+  final double? rightEyeX;
+  final double? rightEyeY;
+  final bool alignChecked;
   const SnapshotRow({
     required this.id,
     required this.kind,
@@ -11086,6 +11212,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
     required this.height,
     this.note,
     required this.createdAt,
+    this.leftEyeX,
+    this.leftEyeY,
+    this.rightEyeX,
+    this.rightEyeY,
+    required this.alignChecked,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -11100,6 +11231,19 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
       map['note'] = Variable<String>(note);
     }
     map['created_at'] = Variable<int>(createdAt);
+    if (!nullToAbsent || leftEyeX != null) {
+      map['left_eye_x'] = Variable<double>(leftEyeX);
+    }
+    if (!nullToAbsent || leftEyeY != null) {
+      map['left_eye_y'] = Variable<double>(leftEyeY);
+    }
+    if (!nullToAbsent || rightEyeX != null) {
+      map['right_eye_x'] = Variable<double>(rightEyeX);
+    }
+    if (!nullToAbsent || rightEyeY != null) {
+      map['right_eye_y'] = Variable<double>(rightEyeY);
+    }
+    map['align_checked'] = Variable<bool>(alignChecked);
     return map;
   }
 
@@ -11113,6 +11257,19 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
       height: Value(height),
       note: note == null && nullToAbsent ? const Value.absent() : Value(note),
       createdAt: Value(createdAt),
+      leftEyeX: leftEyeX == null && nullToAbsent
+          ? const Value.absent()
+          : Value(leftEyeX),
+      leftEyeY: leftEyeY == null && nullToAbsent
+          ? const Value.absent()
+          : Value(leftEyeY),
+      rightEyeX: rightEyeX == null && nullToAbsent
+          ? const Value.absent()
+          : Value(rightEyeX),
+      rightEyeY: rightEyeY == null && nullToAbsent
+          ? const Value.absent()
+          : Value(rightEyeY),
+      alignChecked: Value(alignChecked),
     );
   }
 
@@ -11130,6 +11287,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
       height: serializer.fromJson<int>(json['height']),
       note: serializer.fromJson<String?>(json['note']),
       createdAt: serializer.fromJson<int>(json['createdAt']),
+      leftEyeX: serializer.fromJson<double?>(json['leftEyeX']),
+      leftEyeY: serializer.fromJson<double?>(json['leftEyeY']),
+      rightEyeX: serializer.fromJson<double?>(json['rightEyeX']),
+      rightEyeY: serializer.fromJson<double?>(json['rightEyeY']),
+      alignChecked: serializer.fromJson<bool>(json['alignChecked']),
     );
   }
   @override
@@ -11144,6 +11306,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
       'height': serializer.toJson<int>(height),
       'note': serializer.toJson<String?>(note),
       'createdAt': serializer.toJson<int>(createdAt),
+      'leftEyeX': serializer.toJson<double?>(leftEyeX),
+      'leftEyeY': serializer.toJson<double?>(leftEyeY),
+      'rightEyeX': serializer.toJson<double?>(rightEyeX),
+      'rightEyeY': serializer.toJson<double?>(rightEyeY),
+      'alignChecked': serializer.toJson<bool>(alignChecked),
     };
   }
 
@@ -11156,6 +11323,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
     int? height,
     Value<String?> note = const Value.absent(),
     int? createdAt,
+    Value<double?> leftEyeX = const Value.absent(),
+    Value<double?> leftEyeY = const Value.absent(),
+    Value<double?> rightEyeX = const Value.absent(),
+    Value<double?> rightEyeY = const Value.absent(),
+    bool? alignChecked,
   }) => SnapshotRow(
     id: id ?? this.id,
     kind: kind ?? this.kind,
@@ -11165,6 +11337,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
     height: height ?? this.height,
     note: note.present ? note.value : this.note,
     createdAt: createdAt ?? this.createdAt,
+    leftEyeX: leftEyeX.present ? leftEyeX.value : this.leftEyeX,
+    leftEyeY: leftEyeY.present ? leftEyeY.value : this.leftEyeY,
+    rightEyeX: rightEyeX.present ? rightEyeX.value : this.rightEyeX,
+    rightEyeY: rightEyeY.present ? rightEyeY.value : this.rightEyeY,
+    alignChecked: alignChecked ?? this.alignChecked,
   );
   SnapshotRow copyWithCompanion(SnapshotsCompanion data) {
     return SnapshotRow(
@@ -11176,6 +11353,13 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
       height: data.height.present ? data.height.value : this.height,
       note: data.note.present ? data.note.value : this.note,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      leftEyeX: data.leftEyeX.present ? data.leftEyeX.value : this.leftEyeX,
+      leftEyeY: data.leftEyeY.present ? data.leftEyeY.value : this.leftEyeY,
+      rightEyeX: data.rightEyeX.present ? data.rightEyeX.value : this.rightEyeX,
+      rightEyeY: data.rightEyeY.present ? data.rightEyeY.value : this.rightEyeY,
+      alignChecked: data.alignChecked.present
+          ? data.alignChecked.value
+          : this.alignChecked,
     );
   }
 
@@ -11189,7 +11373,12 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
           ..write('width: $width, ')
           ..write('height: $height, ')
           ..write('note: $note, ')
-          ..write('createdAt: $createdAt')
+          ..write('createdAt: $createdAt, ')
+          ..write('leftEyeX: $leftEyeX, ')
+          ..write('leftEyeY: $leftEyeY, ')
+          ..write('rightEyeX: $rightEyeX, ')
+          ..write('rightEyeY: $rightEyeY, ')
+          ..write('alignChecked: $alignChecked')
           ..write(')'))
         .toString();
   }
@@ -11204,6 +11393,11 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
     height,
     note,
     createdAt,
+    leftEyeX,
+    leftEyeY,
+    rightEyeX,
+    rightEyeY,
+    alignChecked,
   );
   @override
   bool operator ==(Object other) =>
@@ -11216,7 +11410,12 @@ class SnapshotRow extends DataClass implements Insertable<SnapshotRow> {
           other.width == this.width &&
           other.height == this.height &&
           other.note == this.note &&
-          other.createdAt == this.createdAt);
+          other.createdAt == this.createdAt &&
+          other.leftEyeX == this.leftEyeX &&
+          other.leftEyeY == this.leftEyeY &&
+          other.rightEyeX == this.rightEyeX &&
+          other.rightEyeY == this.rightEyeY &&
+          other.alignChecked == this.alignChecked);
 }
 
 class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
@@ -11228,6 +11427,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
   final Value<int> height;
   final Value<String?> note;
   final Value<int> createdAt;
+  final Value<double?> leftEyeX;
+  final Value<double?> leftEyeY;
+  final Value<double?> rightEyeX;
+  final Value<double?> rightEyeY;
+  final Value<bool> alignChecked;
   final Value<int> rowid;
   const SnapshotsCompanion({
     this.id = const Value.absent(),
@@ -11238,6 +11442,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
     this.height = const Value.absent(),
     this.note = const Value.absent(),
     this.createdAt = const Value.absent(),
+    this.leftEyeX = const Value.absent(),
+    this.leftEyeY = const Value.absent(),
+    this.rightEyeX = const Value.absent(),
+    this.rightEyeY = const Value.absent(),
+    this.alignChecked = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   SnapshotsCompanion.insert({
@@ -11249,6 +11458,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
     required int height,
     this.note = const Value.absent(),
     required int createdAt,
+    this.leftEyeX = const Value.absent(),
+    this.leftEyeY = const Value.absent(),
+    this.rightEyeX = const Value.absent(),
+    this.rightEyeY = const Value.absent(),
+    this.alignChecked = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        kind = Value(kind),
@@ -11266,6 +11480,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
     Expression<int>? height,
     Expression<String>? note,
     Expression<int>? createdAt,
+    Expression<double>? leftEyeX,
+    Expression<double>? leftEyeY,
+    Expression<double>? rightEyeX,
+    Expression<double>? rightEyeY,
+    Expression<bool>? alignChecked,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -11277,6 +11496,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
       if (height != null) 'height': height,
       if (note != null) 'note': note,
       if (createdAt != null) 'created_at': createdAt,
+      if (leftEyeX != null) 'left_eye_x': leftEyeX,
+      if (leftEyeY != null) 'left_eye_y': leftEyeY,
+      if (rightEyeX != null) 'right_eye_x': rightEyeX,
+      if (rightEyeY != null) 'right_eye_y': rightEyeY,
+      if (alignChecked != null) 'align_checked': alignChecked,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -11290,6 +11514,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
     Value<int>? height,
     Value<String?>? note,
     Value<int>? createdAt,
+    Value<double?>? leftEyeX,
+    Value<double?>? leftEyeY,
+    Value<double?>? rightEyeX,
+    Value<double?>? rightEyeY,
+    Value<bool>? alignChecked,
     Value<int>? rowid,
   }) {
     return SnapshotsCompanion(
@@ -11301,6 +11530,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
       height: height ?? this.height,
       note: note ?? this.note,
       createdAt: createdAt ?? this.createdAt,
+      leftEyeX: leftEyeX ?? this.leftEyeX,
+      leftEyeY: leftEyeY ?? this.leftEyeY,
+      rightEyeX: rightEyeX ?? this.rightEyeX,
+      rightEyeY: rightEyeY ?? this.rightEyeY,
+      alignChecked: alignChecked ?? this.alignChecked,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -11332,6 +11566,21 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
     if (createdAt.present) {
       map['created_at'] = Variable<int>(createdAt.value);
     }
+    if (leftEyeX.present) {
+      map['left_eye_x'] = Variable<double>(leftEyeX.value);
+    }
+    if (leftEyeY.present) {
+      map['left_eye_y'] = Variable<double>(leftEyeY.value);
+    }
+    if (rightEyeX.present) {
+      map['right_eye_x'] = Variable<double>(rightEyeX.value);
+    }
+    if (rightEyeY.present) {
+      map['right_eye_y'] = Variable<double>(rightEyeY.value);
+    }
+    if (alignChecked.present) {
+      map['align_checked'] = Variable<bool>(alignChecked.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -11349,6 +11598,11 @@ class SnapshotsCompanion extends UpdateCompanion<SnapshotRow> {
           ..write('height: $height, ')
           ..write('note: $note, ')
           ..write('createdAt: $createdAt, ')
+          ..write('leftEyeX: $leftEyeX, ')
+          ..write('leftEyeY: $leftEyeY, ')
+          ..write('rightEyeX: $rightEyeX, ')
+          ..write('rightEyeY: $rightEyeY, ')
+          ..write('alignChecked: $alignChecked, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -19710,6 +19964,11 @@ typedef $$SnapshotsTableCreateCompanionBuilder = SnapshotsCompanion Function({
   required int height,
   Value<String?> note,
   required int createdAt,
+  Value<double?> leftEyeX,
+  Value<double?> leftEyeY,
+  Value<double?> rightEyeX,
+  Value<double?> rightEyeY,
+  Value<bool> alignChecked,
   Value<int> rowid,
 });
 typedef $$SnapshotsTableUpdateCompanionBuilder = SnapshotsCompanion Function({
@@ -19721,6 +19980,11 @@ typedef $$SnapshotsTableUpdateCompanionBuilder = SnapshotsCompanion Function({
   Value<int> height,
   Value<String?> note,
   Value<int> createdAt,
+  Value<double?> leftEyeX,
+  Value<double?> leftEyeY,
+  Value<double?> rightEyeX,
+  Value<double?> rightEyeY,
+  Value<bool> alignChecked,
   Value<int> rowid,
 });
 
@@ -19770,6 +20034,31 @@ class $$SnapshotsTableFilterComposer
 
   ColumnFilters<int> get createdAt => $composableBuilder(
     column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get leftEyeX => $composableBuilder(
+    column: $table.leftEyeX,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get leftEyeY => $composableBuilder(
+    column: $table.leftEyeY,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get rightEyeX => $composableBuilder(
+    column: $table.rightEyeX,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get rightEyeY => $composableBuilder(
+    column: $table.rightEyeY,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get alignChecked => $composableBuilder(
+    column: $table.alignChecked,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -19822,6 +20111,31 @@ class $$SnapshotsTableOrderingComposer
     column: $table.createdAt,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<double> get leftEyeX => $composableBuilder(
+    column: $table.leftEyeX,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get leftEyeY => $composableBuilder(
+    column: $table.leftEyeY,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get rightEyeX => $composableBuilder(
+    column: $table.rightEyeX,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get rightEyeY => $composableBuilder(
+    column: $table.rightEyeY,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get alignChecked => $composableBuilder(
+    column: $table.alignChecked,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$SnapshotsTableAnnotationComposer
@@ -19856,6 +20170,23 @@ class $$SnapshotsTableAnnotationComposer
 
   GeneratedColumn<int> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<double> get leftEyeX =>
+      $composableBuilder(column: $table.leftEyeX, builder: (column) => column);
+
+  GeneratedColumn<double> get leftEyeY =>
+      $composableBuilder(column: $table.leftEyeY, builder: (column) => column);
+
+  GeneratedColumn<double> get rightEyeX =>
+      $composableBuilder(column: $table.rightEyeX, builder: (column) => column);
+
+  GeneratedColumn<double> get rightEyeY =>
+      $composableBuilder(column: $table.rightEyeY, builder: (column) => column);
+
+  GeneratedColumn<bool> get alignChecked => $composableBuilder(
+    column: $table.alignChecked,
+    builder: (column) => column,
+  );
 }
 
 class $$SnapshotsTableTableManager
@@ -19897,6 +20228,11 @@ class $$SnapshotsTableTableManager
                 Value<int> height = const Value.absent(),
                 Value<String?> note = const Value.absent(),
                 Value<int> createdAt = const Value.absent(),
+                Value<double?> leftEyeX = const Value.absent(),
+                Value<double?> leftEyeY = const Value.absent(),
+                Value<double?> rightEyeX = const Value.absent(),
+                Value<double?> rightEyeY = const Value.absent(),
+                Value<bool> alignChecked = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SnapshotsCompanion(
                 id: id,
@@ -19907,6 +20243,11 @@ class $$SnapshotsTableTableManager
                 height: height,
                 note: note,
                 createdAt: createdAt,
+                leftEyeX: leftEyeX,
+                leftEyeY: leftEyeY,
+                rightEyeX: rightEyeX,
+                rightEyeY: rightEyeY,
+                alignChecked: alignChecked,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -19919,6 +20260,11 @@ class $$SnapshotsTableTableManager
                 required int height,
                 Value<String?> note = const Value.absent(),
                 required int createdAt,
+                Value<double?> leftEyeX = const Value.absent(),
+                Value<double?> leftEyeY = const Value.absent(),
+                Value<double?> rightEyeX = const Value.absent(),
+                Value<double?> rightEyeY = const Value.absent(),
+                Value<bool> alignChecked = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SnapshotsCompanion.insert(
                 id: id,
@@ -19929,6 +20275,11 @@ class $$SnapshotsTableTableManager
                 height: height,
                 note: note,
                 createdAt: createdAt,
+                leftEyeX: leftEyeX,
+                leftEyeY: leftEyeY,
+                rightEyeX: rightEyeX,
+                rightEyeY: rightEyeY,
+                alignChecked: alignChecked,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

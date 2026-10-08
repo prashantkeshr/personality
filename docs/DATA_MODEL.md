@@ -33,8 +33,9 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 | 6 Posture | `posture_session` (view, frames used, confidence, visibility, source=CAMERA_DERIVED, method) and `posture_metric` (PK session+metric: degrees, direction, band, spread, confidence; cascades). Numbers only — no images. |
 | 7 Exercise | `exercise` (library, seeded from assets), `exercise_progress` |
 | 8 Face + Grooming | `face_analysis` (shape, alsoLike, confidence, frames, source=CAMERA_DERIVED, method), `face_metric` (PK analysis+metric: ratio values; cascades), `hairstyle_favorite` (favourite style item ids). Proportions only — no images. The grooming routine is stored as a normal Phase 4 routine. |
-| 9 Snapshots | `progress_snapshot` (kind face/bodyFront/bodySide, taken_at, JPEG blob ≤1080 px, width, height). Opt-in; stored only inside the encrypted database. |
+| 9 Snapshots | `progress_snapshot` (kind face/bodyFront/bodySide, taken_at, JPEG blob ≤1080 px, width, height). Opt-in; stored only inside the encrypted database. v9 adds `left_eye_x/y`, `right_eye_x/y` (0–1 fractions, nullable) and `align_checked`, so the face time-lapse can be aligned; eyes are found once per photo, in memory. |
 | 10 Style | `wardrobe_item` (category, colour hex, pattern, formality 1–5, occasions, favourite, optional photo blob), `outfit`, `outfit_item` (cascades), `outfit_wear` (days worn). Style/colour profile = `app_settings` keys (`style.undertone`, `style.depth`, `style.preferences`). |
+| 11 Journey | No new tables: XP, levels, streaks, quests and badges are derived from existing records (`ProgressRepository` digest per local day). `app_settings` key `progress.badges_seen` remembers which badge celebrations were shown. |
 | 10 Recommendations | `recommendation`, `recommendation_history`, `evolution_event` |
 | 11 AI | `ai_model`, `model_version`, `ai_conversation`, `ai_message` |
 | 12 Health integrations | `health_platform_data` |

@@ -15,6 +15,7 @@ import 'generated/schema_v5.dart' as v5;
 import 'generated/schema_v6.dart' as v6;
 import 'generated/schema_v7.dart' as v7;
 import 'generated/schema_v8.dart' as v8;
+import 'generated/schema_v9.dart' as v9;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -288,6 +289,36 @@ void main() {
         expect((s.id, s.kind), ('s1', 'face'));
         expect(s.jpeg, jpeg);
         expect(await newDb.select(newDb.wardrobeItem).get(), isEmpty);
+      },
+    );
+  });
+
+  // Snapshots from v8 gain empty eye-alignment columns in v9.
+  test('migration from v8 to v9 keeps snapshots, not yet aligned', () async {
+    final jpeg = Uint8List.fromList([0xff, 0xd8, 1, 2, 3, 0xff, 0xd9]);
+    await verifier.testWithDataIntegrity(
+      oldVersion: 8,
+      newVersion: 9,
+      createOld: v8.DatabaseAtV8.new,
+      createNew: v9.DatabaseAtV9.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.progressSnapshot,
+            v8.ProgressSnapshotData(
+                id: 's1',
+                kind: 'face',
+                takenAt: 9,
+                jpeg: jpeg,
+                width: 720,
+                height: 960,
+                createdAt: 9));
+      },
+      validateItems: (newDb) async {
+        final s = await newDb.select(newDb.progressSnapshot).getSingle();
+        expect((s.id, s.kind, s.leftEyeX, s.alignChecked),
+            ('s1', 'face', null, 0));
+        expect(s.jpeg, jpeg);
       },
     );
   });

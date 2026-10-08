@@ -77,6 +77,6 @@ void main() {
           'outfit_item',
           'outfit_wear',
         ]));
-    expect(db.schemaVersion, 8);
+    expect(db.schemaVersion, 9);
   });
 }

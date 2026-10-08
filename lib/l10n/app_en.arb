@@ -1228,5 +1228,203 @@
         "type": "int"
       }
     }
-  }
+  },
+  "journeyTitle": "Your journey",
+  "journeyLevel": "Level {level}",
+  "@journeyLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyXpToNext": "{xp} XP to level {level}",
+  "@journeyXpToNext": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      },
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyTodayXp": "+{xp} XP today",
+  "@journeyTodayXp": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyStreak": "{count, plural, =0{No streak yet} =1{1-day streak} other{{count}-day streak}}",
+  "@journeyStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyRestDays": "{count, plural, =0{No rest days banked} =1{1 rest day banked} other{{count} rest days banked}}",
+  "@journeyRestDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyRestDaysHelp": "Every 7 active days earns a rest day. A missed day uses one, so your streak continues.",
+  "journeyStartTimelapse": "Take a face snapshot to start your time-lapse",
+  "journeyOneSnapshot": "Add another snapshot next week to see your change",
+  "journeySnapshotCount": "{count, plural, =1{1 snapshot} other{{count} snapshots}}",
+  "@journeySnapshotCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyFirst": "First",
+  "journeyLatest": "Latest",
+  "journeyPlay": "Play time-lapse",
+  "journeyPause": "Pause",
+  "journeyCompare": "Compare side by side",
+  "journeyAlignNote": "Photos are lined up by your eyes. A front-facing, well-lit photo lines up best.",
+  "journeyTotalXp": "Total XP",
+  "journeyBestStreak": "Best streak",
+  "journeyActiveDays": "Active days",
+  "journeyLast4Weeks": "Last 4 weeks",
+  "journeyTrends": "Trends",
+  "journeyWeight": "Weight",
+  "journeyXpPerDay": "XP per day",
+  "journeyBadges": "Badges",
+  "journeyBadgesEarned": "{earned} of {total} earned",
+  "@journeyBadgesEarned": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "journeyHowXp": "How XP works",
+  "journeyHowXpBody": "XP comes from what you already log — water, meals, sleep, activity, habits, plan items, checks, snapshots and outfits. A day with 15 XP or more counts toward your streak. Missing a day never removes XP.",
+  "questsTitle": "Today's quests",
+  "questsReward": "+{xp} XP",
+  "@questsReward": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "questsAllDone": "All done — +{xp} bonus XP",
+  "@questsAllDone": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "questsAllBonus": "Finish all three for +{xp} bonus XP",
+  "@questsAllBonus": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "questDrinkTarget": "Reach your water target",
+  "questLogMeals": "Log two meals",
+  "questPostureCheck": "Do a posture check",
+  "questCompletePlan": "Complete three plan items",
+  "questAllHabits": "Finish today's habits",
+  "questLogSleep": "Log last night's sleep",
+  "questWorkout": "Log a workout or activity",
+  "questWearOutfit": "Wear a saved outfit",
+  "questSnapshot": "Take this week's face snapshot",
+  "questLogWeight": "Log your weight",
+  "badgeUnlocked": "Badge unlocked",
+  "badgesUnlocked": "{count} badges unlocked",
+  "@badgesUnlocked": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "badgeContinue": "Continue",
+  "badgeProgress": "{progress} / {target}",
+  "@badgeProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "badgeFirstSteps": "First steps",
+  "badgeFirstStepsInfo": "Log anything for the first time.",
+  "badgeStreak7": "One steady week",
+  "badgeStreak7Info": "Reach a 7-day streak.",
+  "badgeStreak30": "Thirty strong",
+  "badgeStreak30Info": "Reach a 30-day streak.",
+  "badgeHydration": "Well hydrated",
+  "badgeHydrationInfo": "Meet your water target on 7 days.",
+  "badgePosture": "Posture regular",
+  "badgePostureInfo": "Complete 5 posture checks.",
+  "badgeFace": "Face explorer",
+  "badgeFaceInfo": "Complete a face analysis.",
+  "badgeJourney": "Journey keeper",
+  "badgeJourneyInfo": "Save 4 progress snapshots.",
+  "badgePlanner": "Planner",
+  "badgePlannerInfo": "Complete 20 plan items.",
+  "badgeHabits": "Habit builder",
+  "badgeHabitsInfo": "Complete habits 30 times.",
+  "badgeStylist": "Stylist",
+  "badgeStylistInfo": "Save 5 outfits.",
+  "badgeLevel5": "Level 5",
+  "badgeLevel5Info": "Reach level 5.",
+  "badgeLevel10": "Level 10",
+  "badgeLevel10Info": "Reach level 10.",
+  "forYouTitle": "For you today",
+  "forYouSnapshot": "Weekly snapshot",
+  "forYouSnapshotInfo": "Add a frame to your time-lapse",
+  "forYouTryOn": "Try a new look",
+  "forYouTryOnInfo": "Glasses and beards, live on you",
+  "forYouPosture": "Posture check",
+  "forYouPostureInfo": "Two minutes, tips for you",
+  "forYouColours": "Find your colours",
+  "forYouColoursInfo": "A short quiz for your palette",
+  "forYouOutfit": "Today's outfit",
+  "forYouOutfitInfo": "Ideas from your wardrobe",
+  "forYouFace": "Face shape",
+  "forYouFaceInfo": "Styles that suit you",
+  "forYouExercise": "Move a little",
+  "forYouExerciseInfo": "Guided reps, counted live",
+  "forYouHairstyles": "Hairstyle ideas",
+  "forYouHairstylesInfo": "Picked for your face shape",
+  "goalFinderTitle": "Find your focus",
+  "goalFinderStep1": "What would you like to work on?",
+  "goalFinderStep1Hint": "Tap every image that speaks to you.",
+  "goalFinderStep2": "Which looks feel like you?",
+  "goalFinderStep2Hint": "Pick as many as you like — this shapes your outfit ideas.",
+  "goalFinderNext": "Next",
+  "goalFinderBack": "Back",
+  "goalFinderSave": "Save my focus",
+  "goalFinderSaved": "Your focus is saved. Quests and suggestions now follow it.",
+  "goalFinderSelected": "{count} selected",
+  "@goalFinderSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "forYouGoals": "What do you want?",
+  "forYouGoalsInfo": "Pick images that inspire you"
 }

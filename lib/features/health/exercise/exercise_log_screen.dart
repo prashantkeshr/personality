@@ -187,6 +187,7 @@ class _AddExerciseSheetState extends ConsumerState<_AddExerciseSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
               DropdownButtonFormField<ExerciseCategory>(
+                isExpanded: true,
                 initialValue: _category,
                 decoration: InputDecoration(labelText: l10n.exerciseCategory),
                 items: [
