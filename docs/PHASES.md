@@ -235,3 +235,24 @@ Verification:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 184/184 pass (face engine with exact synthetic outlines for every shape, in-between and unsteady cases; v5 → v6 migration integrity; repository; content completeness; full face-check widget flow including favourites and routine creation).
 - On the user's phone: the first real check measured 1.27 / 0.83 / 0.78 (between oval and diamond), but low confidence hid all suggestions. Fix: confidence now reflects measurement stability only, and in-between faces show both shapes with merged suggestions. The re-check gave **Oval / Diamond, high confidence**, with suggestions; the camera was released.
+
+## Phase 9 — visuals, try-on and progress snapshots (2026-10-08)
+
+The original Style phase moves to Phase 10 at the user's request.
+
+- **Scan visuals**: viewfinder corners, a sweeping scan line with a glow trail, a capture progress ring, a pop-in countdown, a glowing skeleton (posture/exercise) and the face outline as a mesh. All motion follows the OS reduce-motion setting.
+- **Face result**: your measured outline animates over the reference silhouette, proportion bars animate, sections reveal in sequence.
+- **Suggestion cards**: swipeable carousels (the centred card is enlarged); tapping flips a card in 3D to show details, "Why this?" and Try on; animated favourite.
+- **Images**:
+  - Hair/beard: 13 Unsplash-licence photos (720 px, about 1.05 MB total), credited on each card and in `assets/images/styles/CREDITS.md`.
+  - Glasses and face shapes: precise vector art drawn in code.
+- **Live try-on**: glasses anchored to the eye centres (scaled by eye distance, rotated by eye line) and beard shading clipped to the jaw region below the nose/lip with the mouth left clear. Press and hold to compare. Nothing is recorded. Realistic hair and body-transformation previews were declined because they would need heavy generative models; snapshots and measurements cover tracking real change instead.
+- **Progress snapshots** (schema v7 `progress_snapshot`):
+  - Opt-in consent screen. The JPEG is stored inside the encrypted database, never as a file or in the gallery.
+  - Face, body front and body side, with a 3-second timer and a "ghost" overlay of the previous snapshot for consistent framing.
+  - Before/after slider, a weekly reminder via Routines, delete one or all.
+  - Photos are oriented, downscaled to 1080 px and re-encoded off the UI thread.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 196/196 pass (scan animation and reduce-motion behaviour, vector art for every style and shape, card flip and favourite, v6 → v7 migration, photo preparation including corrupt input, snapshot consent/capture/save flow, content requiring a credited photo for every hair/beard card).
+- Release APK installed on the user's phone and launches cleanly. The R8 usage audit shows no ML Kit classes removed, and there is no INTERNET permission.

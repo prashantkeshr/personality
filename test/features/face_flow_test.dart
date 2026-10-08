@@ -56,6 +56,13 @@ void main() {
     }
     for (final i in c.items.values) {
       expect(i.name.keys, containsAll(['en', 'hi']), reason: i.id);
+      // Hair and beard cards use a bundled photo with a credit; glasses
+      // are drawn as vector art.
+      if (i.kind != StyleKind.glasses) {
+        expect(i.image, isNotNull, reason: i.id);
+        expect(File(i.image!).existsSync(), isTrue, reason: i.image);
+        expect(i.credit, contains('Unsplash'), reason: i.id);
+      }
     }
   });
 

@@ -49,3 +49,4 @@ flutter:
   generate: true
   assets:
     - assets/content/
+    - assets/images/styles/

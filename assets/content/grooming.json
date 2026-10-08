@@ -10,7 +10,9 @@
    "desc": {
     "en": "Short on the sides with texture on top.",
     "hi": "किनारों पर छोटे, ऊपर टेक्सचर के साथ।"
-   }
+   },
+   "image": "assets/images/styles/textured_crop.jpg",
+   "credit": "Photo: Megan Bagshaw / Unsplash"
   },
   {
    "id": "side_part",
@@ -22,7 +24,9 @@
    "desc": {
     "en": "Neat, medium-short with a defined part.",
     "hi": "सलीकेदार, मध्यम-छोटे, साफ़ मांग के साथ।"
-   }
+   },
+   "image": "assets/images/styles/side_part.jpg",
+   "credit": "Photo: Negar Nikkhah / Unsplash"
   },
   {
    "id": "quiff",
@@ -34,7 +38,9 @@
    "desc": {
     "en": "Height at the front adds length.",
     "hi": "आगे ऊँचाई चेहरे को लंबा दिखाती है।"
-   }
+   },
+   "image": "assets/images/styles/quiff.jpg",
+   "credit": "Photo: Laszlo Barta / Unsplash"
   },
   {
    "id": "long_layers",
@@ -46,7 +52,9 @@
    "desc": {
     "en": "Layers that start below the cheekbones.",
     "hi": "गालों की हड्डी से नीचे शुरू होने वाली लेयर्स।"
-   }
+   },
+   "image": "assets/images/styles/long_layers.jpg",
+   "credit": "Photo: OmAr Taha / Unsplash"
   },
   {
    "id": "side_fringe",
@@ -58,7 +66,9 @@
    "desc": {
     "en": "A fringe swept to one side softens the forehead.",
     "hi": "एक ओर झुकी फ़्रिंज माथे को नरम दिखाती है।"
-   }
+   },
+   "image": "assets/images/styles/side_fringe.jpg",
+   "credit": "Photo: Alexander Krivitskiy / Unsplash"
   },
   {
    "id": "bob_chin",
@@ -70,7 +80,9 @@
    "desc": {
     "en": "Ends at the chin to add width at the jaw.",
     "hi": "ठुड्डी पर खत्म होकर जबड़े पर चौड़ाई जोड़ता है।"
-   }
+   },
+   "image": "assets/images/styles/bob_chin.jpg",
+   "credit": "Photo: Dev Asangbam / Unsplash"
   },
   {
    "id": "soft_waves",
@@ -82,7 +94,9 @@
    "desc": {
     "en": "Gentle waves soften strong angles.",
     "hi": "हल्की लहरें तीखे कोणों को नरम करती हैं।"
-   }
+   },
+   "image": "assets/images/styles/soft_waves.jpg",
+   "credit": "Photo: Rafaella Mendes Diniz / Unsplash"
   },
   {
    "id": "buzz_fade",
@@ -94,7 +108,9 @@
    "desc": {
     "en": "Very short and low-maintenance.",
     "hi": "बहुत छोटे और कम देखभाल वाले।"
-   }
+   },
+   "image": "assets/images/styles/buzz_fade.jpg",
+   "credit": "Photo: Lizzy Jenkins / Unsplash"
   },
   {
    "id": "shoulder_length",
@@ -106,7 +122,9 @@
    "desc": {
     "en": "Adds width to balance a longer face.",
     "hi": "लंबे चेहरे को संतुलित करने के लिए चौड़ाई जोड़ता है।"
-   }
+   },
+   "image": "assets/images/styles/shoulder_length.jpg",
+   "credit": "Photo: Roksolana Zasiadko / Unsplash"
   },
   {
    "id": "short_beard",
@@ -118,7 +136,9 @@
    "desc": {
     "en": "Trimmed evenly with clean lines.",
     "hi": "साफ़ रेखाओं के साथ समान रूप से ट्रिम।"
-   }
+   },
+   "image": "assets/images/styles/short_beard.jpg",
+   "credit": "Photo: Hossein Moradi / Unsplash"
   },
   {
    "id": "stubble",
@@ -130,7 +150,9 @@
    "desc": {
     "en": "A few days' growth for subtle definition.",
     "hi": "हल्की परिभाषा के लिए कुछ दिनों की बढ़त।"
-   }
+   },
+   "image": "assets/images/styles/stubble.jpg",
+   "credit": "Photo: Hamid Tajik / Unsplash"
   },
   {
    "id": "chin_beard",
@@ -142,7 +164,9 @@
    "desc": {
     "en": "More length at the chin, shorter on the cheeks.",
     "hi": "ठुड्डी पर अधिक, गालों पर कम।"
-   }
+   },
+   "image": "assets/images/styles/chin_beard.jpg",
+   "credit": "Photo: Nartan Büyükyıldız / Unsplash"
   },
   {
    "id": "full_sides",
@@ -154,7 +178,9 @@
    "desc": {
     "en": "Width on the cheeks balances a longer face.",
     "hi": "गालों पर चौड़ाई लंबे चेहरे को संतुलित करती है।"
-   }
+   },
+   "image": "assets/images/styles/full_sides.jpg",
+   "credit": "Photo: Lance Reis / Unsplash"
   },
   {
    "id": "rect_frames",

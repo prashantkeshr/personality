@@ -33,7 +33,8 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 | 6 Posture | `posture_session` (view, frames used, confidence, visibility, source=CAMERA_DERIVED, method) and `posture_metric` (PK session+metric: degrees, direction, band, spread, confidence; cascades). Numbers only — no images. |
 | 7 Exercise | `exercise` (library, seeded from assets), `exercise_progress` |
 | 8 Face + Grooming | `face_analysis` (shape, alsoLike, confidence, frames, source=CAMERA_DERIVED, method), `face_metric` (PK analysis+metric: ratio values; cascades), `hairstyle_favorite` (favourite style item ids). Proportions only — no images. The grooming routine is stored as a normal Phase 4 routine. |
-| 9 Style | `style_profile`, `color_profile`, `wardrobe_item`, `outfit`, `outfit_item`, `accessory` |
+| 9 Snapshots | `progress_snapshot` (kind face/bodyFront/bodySide, taken_at, JPEG blob ≤1080 px, width, height). Opt-in; stored only inside the encrypted database. |
+| 10 Style | `style_profile`, `color_profile`, `wardrobe_item`, `outfit`, `outfit_item`, `accessory` |
 | 10 Recommendations | `recommendation`, `recommendation_history`, `evolution_event` |
 | 11 AI | `ai_model`, `model_version`, `ai_conversation`, `ai_message` |
 | 12 Health integrations | `health_platform_data` |
