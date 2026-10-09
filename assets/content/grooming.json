@@ -12,7 +12,8 @@
     "hi": "किनारों पर छोटे, ऊपर टेक्सचर के साथ।"
    },
    "image": "assets/images/styles/textured_crop.jpg",
-   "credit": "Photo: Megan Bagshaw / Unsplash"
+   "credit": "Photo: Megan Bagshaw / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "side_part",
@@ -26,7 +27,8 @@
     "hi": "सलीकेदार, मध्यम-छोटे, साफ़ मांग के साथ।"
    },
    "image": "assets/images/styles/side_part.jpg",
-   "credit": "Photo: Negar Nikkhah / Unsplash"
+   "credit": "Photo: Negar Nikkhah / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "quiff",
@@ -40,7 +42,8 @@
     "hi": "आगे ऊँचाई चेहरे को लंबा दिखाती है।"
    },
    "image": "assets/images/styles/quiff.jpg",
-   "credit": "Photo: Laszlo Barta / Unsplash"
+   "credit": "Photo: Laszlo Barta / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "long_layers",
@@ -54,7 +57,8 @@
     "hi": "गालों की हड्डी से नीचे शुरू होने वाली लेयर्स।"
    },
    "image": "assets/images/styles/long_layers.jpg",
-   "credit": "Photo: OmAr Taha / Unsplash"
+   "credit": "Photo: OmAr Taha / Unsplash",
+   "fit": "womenswear"
   },
   {
    "id": "side_fringe",
@@ -68,7 +72,8 @@
     "hi": "एक ओर झुकी फ़्रिंज माथे को नरम दिखाती है।"
    },
    "image": "assets/images/styles/side_fringe.jpg",
-   "credit": "Photo: Alexander Krivitskiy / Unsplash"
+   "credit": "Photo: Alexander Krivitskiy / Unsplash",
+   "fit": "womenswear"
   },
   {
    "id": "bob_chin",
@@ -82,7 +87,8 @@
     "hi": "ठुड्डी पर खत्म होकर जबड़े पर चौड़ाई जोड़ता है।"
    },
    "image": "assets/images/styles/bob_chin.jpg",
-   "credit": "Photo: Dev Asangbam / Unsplash"
+   "credit": "Photo: Dev Asangbam / Unsplash",
+   "fit": "womenswear"
   },
   {
    "id": "soft_waves",
@@ -96,7 +102,8 @@
     "hi": "हल्की लहरें तीखे कोणों को नरम करती हैं।"
    },
    "image": "assets/images/styles/soft_waves.jpg",
-   "credit": "Photo: Rafaella Mendes Diniz / Unsplash"
+   "credit": "Photo: Rafaella Mendes Diniz / Unsplash",
+   "fit": "womenswear"
   },
   {
    "id": "buzz_fade",
@@ -110,7 +117,8 @@
     "hi": "बहुत छोटे और कम देखभाल वाले।"
    },
    "image": "assets/images/styles/buzz_fade.jpg",
-   "credit": "Photo: Lizzy Jenkins / Unsplash"
+   "credit": "Photo: Lizzy Jenkins / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "shoulder_length",
@@ -124,7 +132,8 @@
     "hi": "लंबे चेहरे को संतुलित करने के लिए चौड़ाई जोड़ता है।"
    },
    "image": "assets/images/styles/shoulder_length.jpg",
-   "credit": "Photo: Roksolana Zasiadko / Unsplash"
+   "credit": "Photo: Roksolana Zasiadko / Unsplash",
+   "fit": "all"
   },
   {
    "id": "short_beard",
@@ -138,7 +147,8 @@
     "hi": "साफ़ रेखाओं के साथ समान रूप से ट्रिम।"
    },
    "image": "assets/images/styles/short_beard.jpg",
-   "credit": "Photo: Hossein Moradi / Unsplash"
+   "credit": "Photo: Hossein Moradi / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "stubble",
@@ -152,7 +162,8 @@
     "hi": "हल्की परिभाषा के लिए कुछ दिनों की बढ़त।"
    },
    "image": "assets/images/styles/stubble.jpg",
-   "credit": "Photo: Hamid Tajik / Unsplash"
+   "credit": "Photo: Hamid Tajik / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "chin_beard",
@@ -166,7 +177,8 @@
     "hi": "ठुड्डी पर अधिक, गालों पर कम।"
    },
    "image": "assets/images/styles/chin_beard.jpg",
-   "credit": "Photo: Nartan Büyükyıldız / Unsplash"
+   "credit": "Photo: Nartan Büyükyıldız / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "full_sides",
@@ -180,7 +192,8 @@
     "hi": "गालों पर चौड़ाई लंबे चेहरे को संतुलित करती है।"
    },
    "image": "assets/images/styles/full_sides.jpg",
-   "credit": "Photo: Lance Reis / Unsplash"
+   "credit": "Photo: Lance Reis / Unsplash",
+   "fit": "menswear"
   },
   {
    "id": "rect_frames",
@@ -192,7 +205,8 @@
    "desc": {
     "en": "Angular lines add structure.",
     "hi": "कोणीय रेखाएँ संरचना जोड़ती हैं।"
-   }
+   },
+   "fit": "all"
   },
   {
    "id": "round_frames",
@@ -204,7 +218,8 @@
    "desc": {
     "en": "Curves soften angular features.",
     "hi": "गोलाई कोणीय विशेषताओं को नरम करती है।"
-   }
+   },
+   "fit": "all"
   },
   {
    "id": "browline_frames",
@@ -216,7 +231,8 @@
    "desc": {
     "en": "Emphasis on top balances a narrower jaw.",
     "hi": "ऊपर ज़ोर संकरे जबड़े को संतुलित करता है।"
-   }
+   },
+   "fit": "all"
   },
   {
    "id": "deep_frames",
@@ -228,7 +244,8 @@
    "desc": {
     "en": "More vertical depth shortens a long face visually.",
     "hi": "अधिक ऊँचाई लंबे चेहरे को छोटा दिखाती है।"
-   }
+   },
+   "fit": "all"
   },
   {
    "id": "oversized_any",
@@ -240,7 +257,8 @@
    "desc": {
     "en": "Balanced proportions suit most shapes; choose by width.",
     "hi": "संतुलित अनुपात पर अधिकांश फ़्रेम जँचते हैं; चौड़ाई से चुनें।"
-   }
+   },
+   "fit": "all"
   }
  ],
  "shapes": {
@@ -309,7 +327,8 @@
    "hair": [
     "side_fringe",
     "shoulder_length",
-    "bob_chin"
+    "bob_chin",
+    "side_part"
    ],
    "beard": [
     "full_sides",
@@ -328,7 +347,8 @@
    "hair": [
     "side_fringe",
     "bob_chin",
-    "soft_waves"
+    "soft_waves",
+    "side_part"
    ],
    "beard": [
     "full_sides",

@@ -15,7 +15,7 @@ void main() {
   Future<void> openHealthFeature(AppHarness app, String name) async {
     await app.tester.tap(find.text('Health'));
     await app.tester.pumpAndSettle();
-    await app.tester.scrollUntilVisible(find.text(name), 100,
+    await app.tester.scrollUntilVisible(find.text(name).hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
     await app.tapAndSettle(find.text(name));
   }
@@ -23,7 +23,7 @@ void main() {
   testWidgets('Home prompts for height when none exists', (tester) async {
     final app = AppHarness(tester);
     await app.start(onboarded);
-    await tester.scrollUntilVisible(find.text('Add height'), 300,
+    await tester.scrollUntilVisible(find.text('Add height').hitTestable(), 300,
         scrollable: find.byType(Scrollable).first);
     expect(
         find.text('Add your height to improve body-proportion and clothing '
@@ -53,7 +53,7 @@ void main() {
     expect(find.textContaining('not treated as growth'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Home'));
-    await tester.scrollUntilVisible(find.text('172 cm'), 300,
+    await tester.scrollUntilVisible(find.text('172 cm').hitTestable(), 300,
         scrollable: find.byType(Scrollable).first);
     expect(find.text('172 cm'), findsOneWidget);
     await app.dispose();
@@ -109,7 +109,7 @@ void main() {
     await app.tapAndSettle(find.text('Save'));
     expect(find.text('65.0 kg – 70.0 kg'), findsOneWidget);
     // The latest-weight card sits at the top of the list.
-    await tester.scrollUntilVisible(find.text('Above your goal range'), -200,
+    await tester.scrollUntilVisible(find.text('Above your goal range').hitTestable(), -200,
         scrollable: find.byType(Scrollable).last);
     expect(find.text('Above your goal range'), findsOneWidget);
     await app.dispose();

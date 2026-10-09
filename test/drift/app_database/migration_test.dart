@@ -16,6 +16,7 @@ import 'generated/schema_v6.dart' as v6;
 import 'generated/schema_v7.dart' as v7;
 import 'generated/schema_v8.dart' as v8;
 import 'generated/schema_v9.dart' as v9;
+import 'generated/schema_v10.dart' as v10;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -319,6 +320,33 @@ void main() {
         expect((s.id, s.kind, s.leftEyeX, s.alignChecked),
             ('s1', 'face', null, 0));
         expect(s.jpeg, jpeg);
+      },
+    );
+  });
+
+  // The profile from v9 keeps its data and gains empty personal fields.
+  test('migration from v9 to v10 keeps the profile', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 9,
+      newVersion: 10,
+      createOld: v9.DatabaseAtV9.new,
+      createNew: v10.DatabaseAtV10.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.userProfile,
+            const v9.UserProfileData(
+                id: 'me',
+                displayName: 'Prashant',
+                activityLevel: 'moderate',
+                createdAt: 1,
+                updatedAt: 1));
+      },
+      validateItems: (newDb) async {
+        final p = await newDb.select(newDb.userProfile).getSingle();
+        expect((p.displayName, p.activityLevel, p.gender, p.dietPreference),
+            ('Prashant', 'moderate', null, null));
+        expect(await newDb.select(newDb.bodyPlan).get(), isEmpty);
       },
     );
   });

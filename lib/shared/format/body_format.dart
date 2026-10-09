@@ -139,4 +139,40 @@ extension BodyLabels on AppLocalizations {
         GoalType.style => goalStyle,
         GoalType.grooming => goalGrooming,
       };
+
+  String genderLabel(Gender g) => switch (g) {
+        Gender.male => genderMale,
+        Gender.female => genderFemale,
+        Gender.nonBinary => genderNonBinary,
+        Gender.preferNotToSay => genderPreferNot,
+      };
+
+  String dietLabel(DietPreference d) => switch (d) {
+        DietPreference.vegetarian => dietVegetarian,
+        DietPreference.eggetarian => dietEggetarian,
+        DietPreference.nonVegetarian => dietNonVegetarian,
+        DietPreference.vegan => dietVegan,
+      };
+
+  String regionLabel(Region r) => switch (r) {
+        Region.indiaNorth => regionIndiaNorth,
+        Region.indiaSouth => regionIndiaSouth,
+        Region.indiaEast => regionIndiaEast,
+        Region.indiaWest => regionIndiaWest,
+        Region.southAsia => regionSouthAsia,
+        Region.eastAsia => regionEastAsia,
+        Region.southeastAsia => regionSoutheastAsia,
+        Region.middleEast => regionMiddleEast,
+        Region.africa => regionAfrica,
+        Region.europe => regionEurope,
+        Region.northAmerica => regionNorthAmerica,
+        Region.latinAmerica => regionLatinAmerica,
+        Region.oceania => regionOceania,
+      };
+
+  String styleFitLabel(StyleFit f) => switch (f) {
+        StyleFit.menswear => styleFitMenswear,
+        StyleFit.womenswear => styleFitWomenswear,
+        StyleFit.all => styleFitAll,
+      };
 }

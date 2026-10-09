@@ -1,0 +1,1845 @@
+[
+ {
+  "id": "poha",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Vegetable poha with peanuts",
+   "hi": "मूँगफली वाला सब्ज़ी पोहा"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 280,
+  "protein": 6,
+  "carbs": 46,
+  "fat": 8,
+  "base": "rice",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "upma",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Vegetable upma",
+   "hi": "सब्ज़ी उपमा"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 260,
+  "protein": 7,
+  "carbs": 40,
+  "fat": 8,
+  "base": "semolina",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "moong_chilla",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Moong dal chilla with mint chutney",
+   "hi": "पुदीना चटनी के साथ मूँग दाल चीला"
+  },
+  "portion": {
+   "en": "2 chillas",
+   "hi": "2 चीले"
+  },
+  "kcal": 280,
+  "protein": 16,
+  "carbs": 34,
+  "fat": 8,
+  "base": "moong",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "idli_sambar",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Idli with sambar",
+   "hi": "सांभर के साथ इडली"
+  },
+  "portion": {
+   "en": "3 idlis + 1 bowl sambar",
+   "hi": "3 इडली + 1 कटोरी सांभर"
+  },
+  "kcal": 300,
+  "protein": 11,
+  "carbs": 56,
+  "fat": 3,
+  "base": "rice",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "pb_toast",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Peanut butter banana toast",
+   "hi": "पीनट बटर केला टोस्ट"
+  },
+  "portion": {
+   "en": "2 slices",
+   "hi": "2 स्लाइस"
+  },
+  "kcal": 380,
+  "protein": 13,
+  "carbs": 48,
+  "fat": 15,
+  "base": "peanut",
+  "cuisine": "global"
+ },
+ {
+  "id": "oats_milk",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Oats with milk, banana and nuts",
+   "hi": "दूध, केले और मेवों के साथ ओट्स"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 350,
+  "protein": 13,
+  "carbs": 52,
+  "fat": 10,
+  "base": "oats",
+  "cuisine": "global"
+ },
+ {
+  "id": "paneer_paratha",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Paneer paratha with curd",
+   "hi": "दही के साथ पनीर पराठा"
+  },
+  "portion": {
+   "en": "1 paratha + ½ cup curd",
+   "hi": "1 पराठा + ½ कप दही"
+  },
+  "kcal": 420,
+  "protein": 17,
+  "carbs": 48,
+  "fat": 17,
+  "base": "paneer",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "besan_chilla",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Besan chilla with curd",
+   "hi": "दही के साथ बेसन चीला"
+  },
+  "portion": {
+   "en": "2 chillas + ½ cup curd",
+   "hi": "2 चीले + ½ कप दही"
+  },
+  "kcal": 300,
+  "protein": 15,
+  "carbs": 32,
+  "fat": 11,
+  "base": "besan",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "yogurt_bowl",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Thick curd bowl with fruit and seeds",
+   "hi": "फल और बीजों के साथ गाढ़ा दही"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 300,
+  "protein": 18,
+  "carbs": 36,
+  "fat": 9,
+  "base": "curd",
+  "cuisine": "global"
+ },
+ {
+  "id": "banana_shake",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Banana peanut milkshake",
+   "hi": "केला-मूँगफली मिल्कशेक"
+  },
+  "portion": {
+   "en": "1 large glass",
+   "hi": "1 बड़ा गिलास"
+  },
+  "kcal": 420,
+  "protein": 18,
+  "carbs": 52,
+  "fat": 15,
+  "base": "milk",
+  "cuisine": "global"
+ },
+ {
+  "id": "masala_omelette",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Masala omelette with toast",
+   "hi": "टोस्ट के साथ मसाला ऑमलेट"
+  },
+  "portion": {
+   "en": "2 eggs + 2 slices",
+   "hi": "2 अंडे + 2 स्लाइस"
+  },
+  "kcal": 360,
+  "protein": 20,
+  "carbs": 30,
+  "fat": 17,
+  "base": "egg",
+  "cuisine": "indian"
+ },
+ {
+  "id": "boiled_eggs_fruit",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Boiled eggs with fruit",
+   "hi": "फल के साथ उबले अंडे"
+  },
+  "portion": {
+   "en": "3 eggs + 1 fruit",
+   "hi": "3 अंडे + 1 फल"
+  },
+  "kcal": 290,
+  "protein": 19,
+  "carbs": 22,
+  "fat": 14,
+  "base": "egg",
+  "cuisine": "global"
+ },
+ {
+  "id": "dal_rice",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Dal, rice, sabzi and salad",
+   "hi": "दाल, चावल, सब्ज़ी और सलाद"
+  },
+  "portion": {
+   "en": "1 thali",
+   "hi": "1 थाली"
+  },
+  "kcal": 520,
+  "protein": 18,
+  "carbs": 88,
+  "fat": 10,
+  "base": "dal",
+  "cuisine": "indian"
+ },
+ {
+  "id": "rajma_chawal",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Rajma chawal with salad",
+   "hi": "सलाद के साथ राजमा चावल"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 540,
+  "protein": 19,
+  "carbs": 92,
+  "fat": 9,
+  "base": "rajma",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "chole_roti",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Chole with roti and salad",
+   "hi": "रोटी और सलाद के साथ छोले"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 520,
+  "protein": 19,
+  "carbs": 80,
+  "fat": 13,
+  "base": "chole",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "tofu_rice",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Tofu stir-fry with brown rice",
+   "hi": "ब्राउन राइस के साथ टोफ़ू स्टर-फ़्राई"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 500,
+  "protein": 25,
+  "carbs": 64,
+  "fat": 15,
+  "base": "soy",
+  "cuisine": "global"
+ },
+ {
+  "id": "soya_curry",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Soya chunk curry with roti",
+   "hi": "रोटी के साथ सोया चंक करी"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 480,
+  "protein": 30,
+  "carbs": 58,
+  "fat": 12,
+  "base": "soy",
+  "cuisine": "indian"
+ },
+ {
+  "id": "paneer_bhurji_roti",
+  "slot": "lunch",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Paneer bhurji with roti and salad",
+   "hi": "रोटी और सलाद के साथ पनीर भुर्जी"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 560,
+  "protein": 28,
+  "carbs": 52,
+  "fat": 26,
+  "base": "paneer",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "curd_rice",
+  "slot": "lunch",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Curd rice with vegetables",
+   "hi": "सब्ज़ियों के साथ दही चावल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 450,
+  "protein": 13,
+  "carbs": 72,
+  "fat": 11,
+  "base": "curd",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "pulao_raita",
+  "slot": "lunch",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Vegetable pulao with raita",
+   "hi": "रायते के साथ सब्ज़ी पुलाव"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 480,
+  "protein": 13,
+  "carbs": 78,
+  "fat": 12,
+  "base": "rice",
+  "cuisine": "indian"
+ },
+ {
+  "id": "egg_curry_roti",
+  "slot": "lunch",
+  "diet": "egg",
+  "name": {
+   "en": "Egg curry with roti",
+   "hi": "रोटी के साथ अंडा करी"
+  },
+  "portion": {
+   "en": "2 eggs + 2 roti",
+   "hi": "2 अंडे + 2 रोटी"
+  },
+  "kcal": 500,
+  "protein": 24,
+  "carbs": 50,
+  "fat": 22,
+  "base": "egg",
+  "cuisine": "indian"
+ },
+ {
+  "id": "chicken_rice",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken curry, rice and salad",
+   "hi": "चिकन करी, चावल और सलाद"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 600,
+  "protein": 38,
+  "carbs": 70,
+  "fat": 17,
+  "base": "chicken",
+  "cuisine": "indian"
+ },
+ {
+  "id": "chicken_quinoa",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Grilled chicken, quinoa and vegetable bowl",
+   "hi": "ग्रिल्ड चिकन, क्विनोआ और सब्ज़ी बाउल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 520,
+  "protein": 42,
+  "carbs": 48,
+  "fat": 15,
+  "base": "chicken",
+  "cuisine": "global"
+ },
+ {
+  "id": "fish_rice",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Fish curry with rice",
+   "hi": "चावल के साथ मछली करी"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 560,
+  "protein": 34,
+  "carbs": 68,
+  "fat": 15,
+  "base": "fish",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "roasted_chana",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Roasted chana",
+   "hi": "भुने चने"
+  },
+  "portion": {
+   "en": "1 handful (40 g)",
+   "hi": "1 मुट्ठी (40 ग्राम)"
+  },
+  "kcal": 150,
+  "protein": 8,
+  "carbs": 24,
+  "fat": 2,
+  "base": "chana",
+  "cuisine": "indian"
+ },
+ {
+  "id": "fruit_almonds",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Fruit with almonds",
+   "hi": "बादाम के साथ फल"
+  },
+  "portion": {
+   "en": "1 fruit + 10 almonds",
+   "hi": "1 फल + 10 बादाम"
+  },
+  "kcal": 170,
+  "protein": 4,
+  "carbs": 22,
+  "fat": 8,
+  "base": "nuts",
+  "cuisine": "global"
+ },
+ {
+  "id": "sprouts_chaat",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Sprouts chaat",
+   "hi": "अंकुरित चाट"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 180,
+  "protein": 11,
+  "carbs": 28,
+  "fat": 2,
+  "base": "moong",
+  "cuisine": "indian"
+ },
+ {
+  "id": "peanuts",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Roasted peanuts",
+   "hi": "भुनी मूँगफली"
+  },
+  "portion": {
+   "en": "30 g",
+   "hi": "30 ग्राम"
+  },
+  "kcal": 170,
+  "protein": 8,
+  "carbs": 5,
+  "fat": 14,
+  "base": "peanut",
+  "cuisine": "global"
+ },
+ {
+  "id": "makhana_chaas",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Roasted makhana with buttermilk",
+   "hi": "छाछ के साथ भुना मखाना"
+  },
+  "portion": {
+   "en": "1 bowl + 1 glass",
+   "hi": "1 कटोरी + 1 गिलास"
+  },
+  "kcal": 160,
+  "protein": 7,
+  "carbs": 22,
+  "fat": 5,
+  "base": "makhana",
+  "cuisine": "indian"
+ },
+ {
+  "id": "curd_fruit",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Curd with fruit",
+   "hi": "फल के साथ दही"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 160,
+  "protein": 8,
+  "carbs": 22,
+  "fat": 4,
+  "base": "curd",
+  "cuisine": "indian"
+ },
+ {
+  "id": "paneer_tikka",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Paneer tikka",
+   "hi": "पनीर टिक्का"
+  },
+  "portion": {
+   "en": "100 g",
+   "hi": "100 ग्राम"
+  },
+  "kcal": 260,
+  "protein": 18,
+  "carbs": 6,
+  "fat": 18,
+  "base": "paneer",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "milk_shake",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Milk protein shake",
+   "hi": "दूध प्रोटीन शेक"
+  },
+  "portion": {
+   "en": "1 glass",
+   "hi": "1 गिलास"
+  },
+  "kcal": 230,
+  "protein": 25,
+  "carbs": 18,
+  "fat": 6,
+  "base": "milk",
+  "cuisine": "global"
+ },
+ {
+  "id": "boiled_eggs",
+  "slot": "snack",
+  "diet": "egg",
+  "name": {
+   "en": "Boiled eggs",
+   "hi": "उबले अंडे"
+  },
+  "portion": {
+   "en": "2 eggs",
+   "hi": "2 अंडे"
+  },
+  "kcal": 140,
+  "protein": 12,
+  "carbs": 1,
+  "fat": 10,
+  "base": "egg",
+  "cuisine": "global"
+ },
+ {
+  "id": "chicken_tikka",
+  "slot": "snack",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken tikka",
+   "hi": "चिकन टिक्का"
+  },
+  "portion": {
+   "en": "150 g",
+   "hi": "150 ग्राम"
+  },
+  "kcal": 240,
+  "protein": 36,
+  "carbs": 4,
+  "fat": 9,
+  "base": "chicken",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "roti_dal_sabzi",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Roti, dal and sabzi",
+   "hi": "रोटी, दाल और सब्ज़ी"
+  },
+  "portion": {
+   "en": "2 roti + 1 bowl dal + sabzi",
+   "hi": "2 रोटी + 1 कटोरी दाल + सब्ज़ी"
+  },
+  "kcal": 450,
+  "protein": 16,
+  "carbs": 66,
+  "fat": 12,
+  "base": "dal",
+  "cuisine": "indian"
+ },
+ {
+  "id": "moong_khichdi",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Moong dal khichdi with vegetables",
+   "hi": "सब्ज़ियों वाली मूँग दाल खिचड़ी"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 400,
+  "protein": 15,
+  "carbs": 66,
+  "fat": 8,
+  "base": "moong",
+  "cuisine": "indian"
+ },
+ {
+  "id": "tofu_bhurji",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Tofu bhurji with roti",
+   "hi": "रोटी के साथ टोफ़ू भुर्जी"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 420,
+  "protein": 22,
+  "carbs": 48,
+  "fat": 15,
+  "base": "soy",
+  "cuisine": "indian"
+ },
+ {
+  "id": "soya_keema",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Soya keema with roti",
+   "hi": "रोटी के साथ सोया कीमा"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 440,
+  "protein": 30,
+  "carbs": 46,
+  "fat": 14,
+  "base": "soy",
+  "cuisine": "indian"
+ },
+ {
+  "id": "millet_roti",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Millet roti with dal and sabzi",
+   "hi": "दाल-सब्ज़ी के साथ बाजरा/ज्वार रोटी"
+  },
+  "portion": {
+   "en": "2 roti + 1 bowl dal",
+   "hi": "2 रोटी + 1 कटोरी दाल"
+  },
+  "kcal": 430,
+  "protein": 15,
+  "carbs": 68,
+  "fat": 10,
+  "base": "dal",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "khichdi_curd",
+  "slot": "dinner",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Khichdi with curd",
+   "hi": "दही के साथ खिचड़ी"
+  },
+  "portion": {
+   "en": "1 bowl + ½ cup curd",
+   "hi": "1 कटोरी + ½ कप दही"
+  },
+  "kcal": 420,
+  "protein": 15,
+  "carbs": 66,
+  "fat": 10,
+  "base": "dal",
+  "cuisine": "indian"
+ },
+ {
+  "id": "palak_paneer",
+  "slot": "dinner",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Palak paneer with roti",
+   "hi": "रोटी के साथ पालक पनीर"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 500,
+  "protein": 22,
+  "carbs": 48,
+  "fat": 24,
+  "base": "paneer",
+  "cuisine": "northIndian"
+ },
+ {
+  "id": "paneer_salad",
+  "slot": "dinner",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Dal soup with grilled paneer salad",
+   "hi": "ग्रिल्ड पनीर सलाद के साथ दाल सूप"
+  },
+  "portion": {
+   "en": "1 bowl + 1 plate",
+   "hi": "1 कटोरी + 1 प्लेट"
+  },
+  "kcal": 380,
+  "protein": 24,
+  "carbs": 24,
+  "fat": 20,
+  "base": "paneer",
+  "cuisine": "indian"
+ },
+ {
+  "id": "egg_bhurji",
+  "slot": "dinner",
+  "diet": "egg",
+  "name": {
+   "en": "Egg bhurji with roti and salad",
+   "hi": "रोटी और सलाद के साथ अंडा भुर्जी"
+  },
+  "portion": {
+   "en": "3 eggs + 2 roti",
+   "hi": "3 अंडे + 2 रोटी"
+  },
+  "kcal": 430,
+  "protein": 22,
+  "carbs": 46,
+  "fat": 17,
+  "base": "egg",
+  "cuisine": "indian"
+ },
+ {
+  "id": "grilled_fish",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Grilled fish with sautéed vegetables",
+   "hi": "भुनी सब्ज़ियों के साथ ग्रिल्ड मछली"
+  },
+  "portion": {
+   "en": "1 fillet + 1 plate",
+   "hi": "1 टुकड़ा + 1 प्लेट"
+  },
+  "kcal": 380,
+  "protein": 38,
+  "carbs": 14,
+  "fat": 18,
+  "base": "fish",
+  "cuisine": "global"
+ },
+ {
+  "id": "chicken_stew",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken stew with roti",
+   "hi": "रोटी के साथ चिकन स्टू"
+  },
+  "portion": {
+   "en": "1 bowl + 2 roti",
+   "hi": "1 कटोरी + 2 रोटी"
+  },
+  "kcal": 480,
+  "protein": 36,
+  "carbs": 46,
+  "fat": 15,
+  "base": "chicken",
+  "cuisine": "global"
+ },
+ {
+  "id": "dosa_sambar",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Dosa with sambar and chutney",
+   "hi": "सांभर और चटनी के साथ डोसा"
+  },
+  "portion": {
+   "en": "2 dosas + 1 bowl sambar",
+   "hi": "2 डोसे + 1 कटोरी सांभर"
+  },
+  "kcal": 380,
+  "protein": 11,
+  "carbs": 62,
+  "fat": 10,
+  "base": "rice",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "pesarattu",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Pesarattu (green moong dosa)",
+   "hi": "पेसरट्टू (हरी मूँग डोसा)"
+  },
+  "portion": {
+   "en": "2 pesarattu",
+   "hi": "2 पेसरट्टू"
+  },
+  "kcal": 300,
+  "protein": 16,
+  "carbs": 40,
+  "fat": 8,
+  "base": "moong",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "sambar_rice",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Sambar rice with poriyal",
+   "hi": "पोरियल के साथ सांभर चावल"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 500,
+  "protein": 16,
+  "carbs": 86,
+  "fat": 10,
+  "base": "dal",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "kerala_fish_curry",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Kerala fish curry with red rice",
+   "hi": "लाल चावल के साथ केरल मछली करी"
+  },
+  "portion": {
+   "en": "1 bowl + 1 cup rice",
+   "hi": "1 कटोरी + 1 कप चावल"
+  },
+  "kcal": 520,
+  "protein": 34,
+  "carbs": 56,
+  "fat": 17,
+  "base": "fish",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "avial_rice",
+  "slot": "dinner",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Avial with rice and curd",
+   "hi": "चावल और दही के साथ अवियल"
+  },
+  "portion": {
+   "en": "1 bowl + 1 cup rice",
+   "hi": "1 कटोरी + 1 कप चावल"
+  },
+  "kcal": 450,
+  "protein": 13,
+  "carbs": 64,
+  "fat": 15,
+  "base": "vegetables",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "sundal",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Chickpea sundal",
+   "hi": "चने का सुंडल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 180,
+  "protein": 9,
+  "carbs": 26,
+  "fat": 4,
+  "base": "chana",
+  "cuisine": "southIndian"
+ },
+ {
+  "id": "thepla_curd",
+  "slot": "breakfast",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Methi thepla with curd",
+   "hi": "दही के साथ मेथी थेपला"
+  },
+  "portion": {
+   "en": "2 thepla + ½ cup curd",
+   "hi": "2 थेपले + ½ कप दही"
+  },
+  "kcal": 380,
+  "protein": 13,
+  "carbs": 50,
+  "fat": 14,
+  "base": "wheat",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "dhokla",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Steamed dhokla",
+   "hi": "भाप में बना ढोकला"
+  },
+  "portion": {
+   "en": "4 pieces",
+   "hi": "4 टुकड़े"
+  },
+  "kcal": 200,
+  "protein": 8,
+  "carbs": 30,
+  "fat": 5,
+  "base": "besan",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "misal_pav",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Misal with pav and salad",
+   "hi": "पाव और सलाद के साथ मिसल"
+  },
+  "portion": {
+   "en": "1 bowl + 2 pav",
+   "hi": "1 कटोरी + 2 पाव"
+  },
+  "kcal": 520,
+  "protein": 19,
+  "carbs": 78,
+  "fat": 15,
+  "base": "moth",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "dal_dhokli",
+  "slot": "dinner",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Dal dhokli",
+   "hi": "दाल ढोकली"
+  },
+  "portion": {
+   "en": "1 large bowl",
+   "hi": "1 बड़ी कटोरी"
+  },
+  "kcal": 450,
+  "protein": 17,
+  "carbs": 70,
+  "fat": 11,
+  "base": "dal",
+  "cuisine": "westIndian"
+ },
+ {
+  "id": "chhena_fruit",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Fresh chhena with fruit",
+   "hi": "फल के साथ ताज़ा छेना"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 200,
+  "protein": 13,
+  "carbs": 18,
+  "fat": 8,
+  "base": "chhena",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "litti_chokha",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Litti chokha",
+   "hi": "लिट्टी चोखा"
+  },
+  "portion": {
+   "en": "2 litti + chokha",
+   "hi": "2 लिट्टी + चोखा"
+  },
+  "kcal": 520,
+  "protein": 17,
+  "carbs": 80,
+  "fat": 14,
+  "base": "sattu",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "macher_jhol",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Macher jhol with rice",
+   "hi": "चावल के साथ माछेर झोल"
+  },
+  "portion": {
+   "en": "1 bowl + 1 cup rice",
+   "hi": "1 कटोरी + 1 कप चावल"
+  },
+  "kcal": 500,
+  "protein": 32,
+  "carbs": 58,
+  "fat": 14,
+  "base": "fish",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "chana_ghugni",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Ghugni with puffed rice",
+   "hi": "मुरमुरे के साथ घुघनी"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 320,
+  "protein": 13,
+  "carbs": 52,
+  "fat": 7,
+  "base": "chana",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "dalma",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Odia dalma with rice",
+   "hi": "चावल के साथ ओड़िया दालमा"
+  },
+  "portion": {
+   "en": "1 bowl + 1 cup rice",
+   "hi": "1 कटोरी + 1 कप चावल"
+  },
+  "kcal": 450,
+  "protein": 16,
+  "carbs": 76,
+  "fat": 8,
+  "base": "dal",
+  "cuisine": "eastIndian"
+ },
+ {
+  "id": "egg_congee",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Rice congee with egg and greens",
+   "hi": "अंडे और साग के साथ चावल की कांजी"
+  },
+  "portion": {
+   "en": "1 large bowl",
+   "hi": "1 बड़ी कटोरी"
+  },
+  "kcal": 320,
+  "protein": 14,
+  "carbs": 48,
+  "fat": 8,
+  "base": "rice",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "miso_tofu_rice",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Miso soup, tofu and rice",
+   "hi": "मिसो सूप, टोफ़ू और चावल"
+  },
+  "portion": {
+   "en": "1 set",
+   "hi": "1 सेट"
+  },
+  "kcal": 480,
+  "protein": 24,
+  "carbs": 66,
+  "fat": 12,
+  "base": "soy",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "chicken_stirfry",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken and vegetable stir-fry with rice",
+   "hi": "चावल के साथ चिकन-सब्ज़ी स्टर-फ़्राई"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 560,
+  "protein": 38,
+  "carbs": 64,
+  "fat": 15,
+  "base": "chicken",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "soba_edamame",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Soba noodles with edamame and vegetables",
+   "hi": "एडामामे और सब्ज़ियों के साथ सोबा नूडल्स"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 450,
+  "protein": 22,
+  "carbs": 64,
+  "fat": 11,
+  "base": "soy",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "steamed_fish_greens",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Steamed fish with greens and rice",
+   "hi": "साग और चावल के साथ भाप में पकी मछली"
+  },
+  "portion": {
+   "en": "1 fillet + 1 cup rice",
+   "hi": "1 टुकड़ा + 1 कप चावल"
+  },
+  "kcal": 460,
+  "protein": 36,
+  "carbs": 50,
+  "fat": 11,
+  "base": "fish",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "edamame",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Steamed edamame",
+   "hi": "भाप में पके एडामामे"
+  },
+  "portion": {
+   "en": "1 cup",
+   "hi": "1 कप"
+  },
+  "kcal": 190,
+  "protein": 17,
+  "carbs": 14,
+  "fat": 8,
+  "base": "soy",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "tofu_curry_rice",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Tofu vegetable curry with rice",
+   "hi": "चावल के साथ टोफ़ू-सब्ज़ी करी"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 520,
+  "protein": 22,
+  "carbs": 66,
+  "fat": 18,
+  "base": "soy",
+  "cuisine": "southeastAsian"
+ },
+ {
+  "id": "chicken_pho",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken pho",
+   "hi": "चिकन फ़ो"
+  },
+  "portion": {
+   "en": "1 large bowl",
+   "hi": "1 बड़ी कटोरी"
+  },
+  "kcal": 450,
+  "protein": 32,
+  "carbs": 56,
+  "fat": 9,
+  "base": "chicken",
+  "cuisine": "southeastAsian"
+ },
+ {
+  "id": "spring_rolls",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Fresh spring rolls",
+   "hi": "ताज़े स्प्रिंग रोल"
+  },
+  "portion": {
+   "en": "2 rolls",
+   "hi": "2 रोल"
+  },
+  "kcal": 180,
+  "protein": 6,
+  "carbs": 32,
+  "fat": 3,
+  "base": "vegetables",
+  "cuisine": "southeastAsian"
+ },
+ {
+  "id": "shakshuka",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Shakshuka with bread",
+   "hi": "ब्रेड के साथ शक्शुका"
+  },
+  "portion": {
+   "en": "2 eggs + 1 slice",
+   "hi": "2 अंडे + 1 स्लाइस"
+  },
+  "kcal": 360,
+  "protein": 18,
+  "carbs": 30,
+  "fat": 18,
+  "base": "egg",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "hummus_pita",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Hummus with vegetables and pita",
+   "hi": "सब्ज़ियों और पीटा के साथ हुमुस"
+  },
+  "portion": {
+   "en": "3 tbsp + ½ pita",
+   "hi": "3 चम्मच + ½ पीटा"
+  },
+  "kcal": 220,
+  "protein": 8,
+  "carbs": 28,
+  "fat": 9,
+  "base": "chickpea",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "lentil_soup",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Lentil soup with bread",
+   "hi": "ब्रेड के साथ मसूर सूप"
+  },
+  "portion": {
+   "en": "1 large bowl + 1 slice",
+   "hi": "1 बड़ी कटोरी + 1 स्लाइस"
+  },
+  "kcal": 420,
+  "protein": 22,
+  "carbs": 64,
+  "fat": 8,
+  "base": "lentil",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "chicken_shawarma_bowl",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken shawarma bowl",
+   "hi": "चिकन शावरमा बाउल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 560,
+  "protein": 40,
+  "carbs": 52,
+  "fat": 20,
+  "base": "chicken",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "greek_salad_chickpea",
+  "slot": "lunch",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Greek salad with chickpeas and feta",
+   "hi": "छोले और फ़ेटा के साथ ग्रीक सलाद"
+  },
+  "portion": {
+   "en": "1 large bowl",
+   "hi": "1 बड़ी कटोरी"
+  },
+  "kcal": 480,
+  "protein": 18,
+  "carbs": 46,
+  "fat": 24,
+  "base": "chickpea",
+  "cuisine": "mediterranean"
+ },
+ {
+  "id": "scrambled_eggs_toast",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Scrambled eggs on wholegrain toast",
+   "hi": "होलग्रेन टोस्ट पर स्क्रैम्बल्ड अंडे"
+  },
+  "portion": {
+   "en": "2 eggs + 2 slices",
+   "hi": "2 अंडे + 2 स्लाइस"
+  },
+  "kcal": 380,
+  "protein": 21,
+  "carbs": 32,
+  "fat": 18,
+  "base": "egg",
+  "cuisine": "western"
+ },
+ {
+  "id": "chicken_sandwich",
+  "slot": "lunch",
+  "diet": "nonveg",
+  "name": {
+   "en": "Grilled chicken wholegrain sandwich",
+   "hi": "ग्रिल्ड चिकन होलग्रेन सैंडविच"
+  },
+  "portion": {
+   "en": "1 sandwich + salad",
+   "hi": "1 सैंडविच + सलाद"
+  },
+  "kcal": 480,
+  "protein": 36,
+  "carbs": 46,
+  "fat": 15,
+  "base": "chicken",
+  "cuisine": "western"
+ },
+ {
+  "id": "bean_chili",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Three-bean chili with rice",
+   "hi": "चावल के साथ थ्री-बीन चिली"
+  },
+  "portion": {
+   "en": "1 bowl + ½ cup rice",
+   "hi": "1 कटोरी + ½ कप चावल"
+  },
+  "kcal": 480,
+  "protein": 20,
+  "carbs": 80,
+  "fat": 8,
+  "base": "beans",
+  "cuisine": "western"
+ },
+ {
+  "id": "salmon_potatoes",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Baked salmon, potatoes and greens",
+   "hi": "बेक्ड सैल्मन, आलू और साग"
+  },
+  "portion": {
+   "en": "1 fillet + 1 plate",
+   "hi": "1 टुकड़ा + 1 प्लेट"
+  },
+  "kcal": 520,
+  "protein": 36,
+  "carbs": 38,
+  "fat": 24,
+  "base": "fish",
+  "cuisine": "western"
+ },
+ {
+  "id": "apple_pb",
+  "slot": "snack",
+  "diet": "vegan",
+  "name": {
+   "en": "Apple with peanut butter",
+   "hi": "पीनट बटर के साथ सेब"
+  },
+  "portion": {
+   "en": "1 apple + 1 tbsp",
+   "hi": "1 सेब + 1 चम्मच"
+  },
+  "kcal": 190,
+  "protein": 5,
+  "carbs": 26,
+  "fat": 8,
+  "base": "peanut",
+  "cuisine": "western"
+ },
+ {
+  "id": "cottage_cheese_fruit",
+  "slot": "snack",
+  "diet": "vegetarian",
+  "name": {
+   "en": "Cottage cheese with fruit",
+   "hi": "फल के साथ कॉटेज चीज़"
+  },
+  "portion": {
+   "en": "1 cup",
+   "hi": "1 कप"
+  },
+  "kcal": 200,
+  "protein": 24,
+  "carbs": 16,
+  "fat": 5,
+  "base": "cheese",
+  "cuisine": "western"
+ },
+ {
+  "id": "breakfast_burrito",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Egg and bean breakfast burrito",
+   "hi": "अंडे और बीन्स वाला ब्रेकफ़ास्ट बरिटो"
+  },
+  "portion": {
+   "en": "1 burrito",
+   "hi": "1 बरिटो"
+  },
+  "kcal": 420,
+  "protein": 22,
+  "carbs": 46,
+  "fat": 16,
+  "base": "egg",
+  "cuisine": "latin"
+ },
+ {
+  "id": "black_bean_bowl",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Black beans, rice and salsa bowl",
+   "hi": "काले बीन्स, चावल और साल्सा बाउल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 520,
+  "protein": 20,
+  "carbs": 90,
+  "fat": 9,
+  "base": "beans",
+  "cuisine": "latin"
+ },
+ {
+  "id": "chicken_fajita_bowl",
+  "slot": "dinner",
+  "diet": "nonveg",
+  "name": {
+   "en": "Chicken fajita bowl",
+   "hi": "चिकन फ़ाहिता बाउल"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 500,
+  "protein": 38,
+  "carbs": 48,
+  "fat": 16,
+  "base": "chicken",
+  "cuisine": "latin"
+ },
+ {
+  "id": "bean_stew_plantain",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Bean stew with plantain",
+   "hi": "प्लांटेन के साथ बीन्स स्टू"
+  },
+  "portion": {
+   "en": "1 bowl + 1 plantain",
+   "hi": "1 कटोरी + 1 प्लांटेन"
+  },
+  "kcal": 520,
+  "protein": 18,
+  "carbs": 86,
+  "fat": 12,
+  "base": "beans",
+  "cuisine": "african"
+ },
+ {
+  "id": "egg_tomato_stew",
+  "slot": "breakfast",
+  "diet": "egg",
+  "name": {
+   "en": "Egg and tomato stew with bread",
+   "hi": "ब्रेड के साथ अंडा-टमाटर स्टू"
+  },
+  "portion": {
+   "en": "2 eggs + 1 slice",
+   "hi": "2 अंडे + 1 स्लाइस"
+  },
+  "kcal": 340,
+  "protein": 17,
+  "carbs": 28,
+  "fat": 18,
+  "base": "egg",
+  "cuisine": "african"
+ },
+ {
+  "id": "peanut_stew",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Peanut vegetable stew with rice",
+   "hi": "चावल के साथ मूँगफली-सब्ज़ी स्टू"
+  },
+  "portion": {
+   "en": "1 bowl + ½ cup rice",
+   "hi": "1 कटोरी + ½ कप चावल"
+  },
+  "kcal": 500,
+  "protein": 16,
+  "carbs": 62,
+  "fat": 21,
+  "base": "peanut",
+  "cuisine": "african"
+ },
+ {
+  "id": "overnight_oats",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Overnight oats with soy milk and berries",
+   "hi": "सोया दूध और बेरी के साथ ओवरनाइट ओट्स"
+  },
+  "portion": {
+   "en": "1 jar",
+   "hi": "1 जार"
+  },
+  "kcal": 360,
+  "protein": 14,
+  "carbs": 56,
+  "fat": 9,
+  "base": "oats",
+  "cuisine": "global"
+ },
+ {
+  "id": "tofu_scramble_toast",
+  "slot": "breakfast",
+  "diet": "vegan",
+  "name": {
+   "en": "Tofu scramble on wholegrain toast",
+   "hi": "होलग्रेन टोस्ट पर टोफ़ू स्क्रैम्बल"
+  },
+  "portion": {
+   "en": "1 cup + 2 slices",
+   "hi": "1 कप + 2 स्लाइस"
+  },
+  "kcal": 380,
+  "protein": 24,
+  "carbs": 36,
+  "fat": 15,
+  "base": "soy",
+  "cuisine": "global"
+ },
+ {
+  "id": "quinoa_bean_salad",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Quinoa, bean and vegetable salad",
+   "hi": "क्विनोआ, बीन्स और सब्ज़ी सलाद"
+  },
+  "portion": {
+   "en": "1 large bowl",
+   "hi": "1 बड़ी कटोरी"
+  },
+  "kcal": 480,
+  "protein": 19,
+  "carbs": 68,
+  "fat": 14,
+  "base": "quinoa",
+  "cuisine": "global"
+ },
+ {
+  "id": "falafel_wrap",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Baked falafel wrap with tahini",
+   "hi": "ताहिनी के साथ बेक्ड फ़लाफ़ेल रैप"
+  },
+  "portion": {
+   "en": "1 wrap",
+   "hi": "1 रैप"
+  },
+  "kcal": 520,
+  "protein": 19,
+  "carbs": 66,
+  "fat": 19,
+  "base": "chickpea",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "minestrone",
+  "slot": "lunch",
+  "diet": "vegan",
+  "name": {
+   "en": "Minestrone with beans and bread",
+   "hi": "बीन्स और ब्रेड के साथ मिनेस्ट्रोन"
+  },
+  "portion": {
+   "en": "1 large bowl + 1 slice",
+   "hi": "1 बड़ी कटोरी + 1 स्लाइस"
+  },
+  "kcal": 440,
+  "protein": 17,
+  "carbs": 72,
+  "fat": 9,
+  "base": "beans",
+  "cuisine": "mediterranean"
+ },
+ {
+  "id": "lentil_bolognese",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Wholewheat pasta with lentil bolognese",
+   "hi": "मसूर बोलोनीज़ के साथ होलव्हीट पास्ता"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 500,
+  "protein": 24,
+  "carbs": 80,
+  "fat": 9,
+  "base": "lentil",
+  "cuisine": "global"
+ },
+ {
+  "id": "tofu_noodles",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Tofu and vegetable noodles",
+   "hi": "टोफ़ू और सब्ज़ी नूडल्स"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 460,
+  "protein": 22,
+  "carbs": 60,
+  "fat": 14,
+  "base": "soy",
+  "cuisine": "eastAsian"
+ },
+ {
+  "id": "stuffed_peppers",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Peppers stuffed with beans and rice",
+   "hi": "बीन्स और चावल भरी शिमला मिर्च"
+  },
+  "portion": {
+   "en": "2 peppers",
+   "hi": "2 शिमला मिर्च"
+  },
+  "kcal": 420,
+  "protein": 15,
+  "carbs": 70,
+  "fat": 8,
+  "base": "beans",
+  "cuisine": "latin"
+ },
+ {
+  "id": "veg_tagine",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Vegetable and chickpea tagine with couscous",
+   "hi": "कूसकूस के साथ सब्ज़ी-छोले टैजीन"
+  },
+  "portion": {
+   "en": "1 bowl",
+   "hi": "1 कटोरी"
+  },
+  "kcal": 480,
+  "protein": 17,
+  "carbs": 80,
+  "fat": 10,
+  "base": "chickpea",
+  "cuisine": "african"
+ },
+ {
+  "id": "mujaddara",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Mujaddara (lentils and rice) with salad",
+   "hi": "सलाद के साथ मुजद्दरा (मसूर और चावल)"
+  },
+  "portion": {
+   "en": "1 plate",
+   "hi": "1 प्लेट"
+  },
+  "kcal": 480,
+  "protein": 19,
+  "carbs": 78,
+  "fat": 11,
+  "base": "lentil",
+  "cuisine": "middleEastern"
+ },
+ {
+  "id": "chickpea_traybake",
+  "slot": "dinner",
+  "diet": "vegan",
+  "name": {
+   "en": "Roasted vegetable and chickpea traybake",
+   "hi": "भुनी सब्ज़ियाँ और छोले"
+  },
+  "portion": {
+   "en": "1 large plate",
+   "hi": "1 बड़ी प्लेट"
+  },
+  "kcal": 440,
+  "protein": 16,
+  "carbs": 58,
+  "fat": 16,
+  "base": "chickpea",
+  "cuisine": "mediterranean"
+ }
+]

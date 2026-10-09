@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
 import '../features/journey/goal_finder_screen.dart';
+import '../features/plans/body_plan_screen.dart';
 import '../features/journey/journey_screen.dart';
 import '../features/dashboard/home_screen.dart';
 import '../features/exercise/exercise_library_screen.dart';
@@ -64,6 +65,7 @@ abstract final class AppRoutes {
   static const habits = '/health/habits';
   static const routines = '/health/routines';
   static const plan = '/health/plan';
+  static const bodyPlan = '/health/body-plan';
   static const reminders = '/health/reminders';
   static const cameraCheck = '/analyze/camera';
   static const posture = '/analyze/posture';
@@ -195,6 +197,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                   ],
                 ),
                 GoRoute(path: 'plan', builder: (_, _) => const PlanScreen()),
+                GoRoute(
+                    path: 'body-plan',
+                    builder: (_, _) => const BodyPlanScreen()),
                 GoRoute(
                     path: 'reminders',
                     builder: (_, _) => const RemindersScreen()),

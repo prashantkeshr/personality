@@ -13,6 +13,7 @@ import '../../shared/visual/reveal.dart';
 import '../../shared/visual/style_art.dart';
 import '../face/face_providers.dart';
 import '../health/health_providers.dart';
+import '../plans/plan_providers.dart';
 import '../snapshots/snapshot_providers.dart';
 import '../style/style_providers.dart';
 import 'journey_labels.dart';
@@ -216,7 +217,7 @@ class QuestsCard extends ConsumerWidget {
   }
 }
 
-enum _Feed { goals, snapshot, faceShape, hairstyles, tryOn, colours, outfit, posture, exercise }
+enum _Feed { bodyPlan, goals, snapshot, faceShape, hairstyles, tryOn, colours, outfit, posture, exercise }
 
 /// Image-led suggestions picked from what the user has and hasn't done.
 class ForYouFeed extends ConsumerWidget {
@@ -233,7 +234,9 @@ class ForYouFeed extends ConsumerWidget {
     final faceSnaps =
         ref.watch(snapshotsProvider(SnapshotKind.face)).value ?? const [];
 
+    final hasPlan = ref.watch(activeBodyPlanProvider).value != null;
     final items = <_Feed>[
+      if (!hasPlan) _Feed.bodyPlan,
       if (ctx.goals.isEmpty) _Feed.goals,
       if (!ctx.snapshotThisWeek && (snapConsent || faceSnaps.isEmpty))
         _Feed.snapshot,
@@ -278,6 +281,7 @@ class _FeedCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final scheme = Theme.of(context).colorScheme;
     final (title, info, route) = switch (kind) {
+      _Feed.bodyPlan => (l10n.forYouBodyPlan, l10n.forYouBodyPlanInfo, AppRoutes.bodyPlan),
       _Feed.goals => (l10n.forYouGoals, l10n.forYouGoalsInfo, AppRoutes.goalFinder),
       _Feed.snapshot => (l10n.forYouSnapshot, l10n.forYouSnapshotInfo, AppRoutes.snapshots),
       _Feed.faceShape => (l10n.forYouFace, l10n.forYouFaceInfo, AppRoutes.face),
@@ -289,6 +293,8 @@ class _FeedCard extends StatelessWidget {
       _Feed.exercise => (l10n.forYouExercise, l10n.forYouExerciseInfo, AppRoutes.exerciseLibrary),
     };
     final Widget art = switch (kind) {
+      _Feed.bodyPlan => Image.asset('assets/images/goals/plan.jpg',
+          fit: BoxFit.cover),
       _Feed.goals => const _Mosaic(['assets/images/goals/fitness.jpg',
           'assets/images/goals/flexibility.jpg', 'assets/images/goals/style.jpg',
           'assets/images/goals/hydration.jpg']),
@@ -325,8 +331,8 @@ class _FeedCard extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    stops: [0.35, 1],
-                    colors: [Color(0x00000000), Color(0xCC000000)],
+                    stops: [0.3, 1],
+                    colors: [Color(0x00000000), Color(0xE6000000)],
                   ),
                 ),
               ),

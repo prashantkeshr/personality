@@ -81,11 +81,11 @@ void main() {
     expect(camera.state.value.running, isFalse);
 
     // Suggestions explain themselves.
-    await tester.scrollUntilVisible(find.text('Why this?').first, 200,
+    await tester.scrollUntilVisible(find.text('Why this?').first.hitTestable(), 200,
         scrollable: find.byType(Scrollable).last);
     expect(find.textContaining('Shoulder level measured 4.0°'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.text('Save'), -200,
+    await tester.scrollUntilVisible(find.text('Save').hitTestable(), -200,
         scrollable: find.byType(Scrollable).last);
     await app.tapAndSettle(find.text('Save'));
     final saved = await app.run(() => PostureRepository(app.db).watchAll().first);

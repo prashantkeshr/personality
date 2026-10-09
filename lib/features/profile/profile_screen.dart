@@ -45,6 +45,10 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
   late final _name = TextEditingController(text: widget.initial.displayName);
   late AgeRange? _age = widget.initial.ageRange;
   late ActivityLevel? _activity = widget.initial.activityLevel;
+  late Gender? _gender = widget.initial.gender;
+  late DietPreference? _diet = widget.initial.dietPreference;
+  late StyleFit? _fit = widget.initial.styleFit;
+  late Region? _region = widget.initial.region;
   late final Set<GoalType> _goals = {...widget.initialGoals};
   bool _saving = false;
 
@@ -67,6 +71,10 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
         displayName: () => _name.text,
         ageRange: () => _age,
         activityLevel: () => _activity,
+        gender: () => _gender,
+        dietPreference: () => _diet,
+        styleFit: () => _fit,
+        region: () => _region,
       ));
       await repo.setGoals(_goals);
       messenger.showSnackBar(SnackBar(content: Text(l10n.profileSaved)));
@@ -95,6 +103,23 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
           textCapitalization: TextCapitalization.words,
           decoration: InputDecoration(labelText: l10n.profileName),
         ),
+        const SizedBox(height: AppSpacing.xl),
+        Text(l10n.profileGender, style: theme.textTheme.labelLarge),
+        const SizedBox(height: AppSpacing.sm),
+        Wrap(
+          spacing: AppSpacing.sm,
+          runSpacing: AppSpacing.sm,
+          children: [
+            for (final g in Gender.values)
+              ChoiceChip(
+                label: Text(l10n.genderLabel(g)),
+                selected: _gender == g,
+                onSelected: (on) => setState(() => _gender = on ? g : null),
+              ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.xs),
+        Text(l10n.profileGenderHelp, style: theme.textTheme.bodySmall),
         const SizedBox(height: AppSpacing.lg),
         DropdownButtonFormField<AgeRange?>(
           isExpanded: true,
@@ -118,6 +143,43 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
               DropdownMenuItem(value: a, child: Text(l10n.activityLabel(a))),
           ],
           onChanged: (a) => setState(() => _activity = a),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        DropdownButtonFormField<Region?>(
+          isExpanded: true,
+          initialValue: _region,
+          decoration: InputDecoration(
+              labelText: l10n.profileRegion, helperText: l10n.profileRegionHelp),
+          items: [
+            DropdownMenuItem(value: null, child: Text(l10n.notSpecified)),
+            for (final r in Region.values)
+              DropdownMenuItem(value: r, child: Text(l10n.regionLabel(r))),
+          ],
+          onChanged: (r) => setState(() => _region = r),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        DropdownButtonFormField<DietPreference?>(
+          isExpanded: true,
+          initialValue: _diet,
+          decoration: InputDecoration(labelText: l10n.profileDiet),
+          items: [
+            DropdownMenuItem(value: null, child: Text(l10n.notSpecified)),
+            for (final d in DietPreference.values)
+              DropdownMenuItem(value: d, child: Text(l10n.dietLabel(d))),
+          ],
+          onChanged: (d) => setState(() => _diet = d),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        DropdownButtonFormField<StyleFit?>(
+          isExpanded: true,
+          initialValue: _fit,
+          decoration: InputDecoration(labelText: l10n.profileStyleFit),
+          items: [
+            DropdownMenuItem(value: null, child: Text(l10n.styleFitAuto)),
+            for (final f in StyleFit.values)
+              DropdownMenuItem(value: f, child: Text(l10n.styleFitLabel(f))),
+          ],
+          onChanged: (f) => setState(() => _fit = f),
         ),
         const SizedBox(height: AppSpacing.xl),
         Semantics(

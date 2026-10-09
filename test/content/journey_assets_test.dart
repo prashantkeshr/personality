@@ -7,10 +7,10 @@ void main() {
   test('every goal and look photo is bundled and credited', () {
     final paths = {
       ...goalImages.values,
-      for (final l in styleImages.values) ...l,
+      for (final l in styleImages.values) ...[for (final (p, _) in l) p],
       ...photoCredits.keys,
     };
-    expect(paths.length, 24);
+    expect(paths.length, 31);
     for (final p in paths) {
       expect(File(p).existsSync(), isTrue, reason: p);
       expect(photoCredits[p], isNotNull, reason: 'credit for $p');

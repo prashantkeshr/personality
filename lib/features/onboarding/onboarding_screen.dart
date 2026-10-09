@@ -6,6 +6,7 @@ import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../settings/preference_controls.dart';
+import 'about_you.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -15,14 +16,16 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pageCount = 3;
+  static const _pageCount = 4;
   final _controller = PageController();
+  final _about = AboutYouData();
   int _page = 0;
   bool _finishing = false;
 
   @override
   void dispose() {
     _controller.dispose();
+    _about.dispose();
     super.dispose();
   }
 
@@ -39,8 +42,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Future<void> _finish() async {
     setState(() => _finishing = true);
     final messenger = ScaffoldMessenger.of(context);
-    final error = AppLocalizations.of(context).settingsSaveError;
+    final l10n = AppLocalizations.of(context);
+    final error = l10n.settingsSaveError;
     try {
+      if (!await _about.save(ref)) {
+        messenger.showSnackBar(SnackBar(content: Text(l10n.onboardingInvalid)));
+        if (mounted) setState(() => _finishing = false);
+        return;
+      }
       await ref
           .read(settingsControllerProvider.notifier)
           .update((s) => s.copyWith(onboardingCompleted: true));
@@ -78,10 +87,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   child: PageView(
                     controller: _controller,
                     onPageChanged: (p) => setState(() => _page = p),
-                    children: const [
-                      _WelcomePage(),
-                      _PrivacyPage(),
-                      _PreferencesPage(),
+                    children: [
+                      const _WelcomePage(),
+                      const _PrivacyPage(),
+                      const _PreferencesPage(),
+                      AboutYouPage(data: _about),
                     ],
                   ),
                 ),

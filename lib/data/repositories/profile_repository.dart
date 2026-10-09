@@ -35,6 +35,10 @@ class ProfileRepository {
             primaryHeightId: Value(p.primaryHeightId),
             goalWeightMinKg: Value(p.goalWeightMinKg),
             goalWeightMaxKg: Value(p.goalWeightMaxKg),
+            gender: Value(p.gender?.name),
+            dietPreference: Value(p.dietPreference?.name),
+            styleFit: Value(p.styleFit?.name),
+            region: Value(p.region?.name),
             createdAt: now,
             updatedAt: now,
           ),
@@ -46,6 +50,10 @@ class ProfileRepository {
               primaryHeightId: Value(p.primaryHeightId),
               goalWeightMinKg: Value(p.goalWeightMinKg),
               goalWeightMaxKg: Value(p.goalWeightMaxKg),
+              gender: Value(p.gender?.name),
+              dietPreference: Value(p.dietPreference?.name),
+              styleFit: Value(p.styleFit?.name),
+              region: Value(p.region?.name),
               updatedAt: Value(now),
             ),
           ),
@@ -114,6 +122,10 @@ class ProfileRepository {
       primaryHeightId: row.primaryHeightId,
       goalWeightMinKg: row.goalWeightMinKg,
       goalWeightMaxKg: row.goalWeightMaxKg,
+      gender: parse(Gender.values, row.gender),
+      dietPreference: parse(DietPreference.values, row.dietPreference),
+      styleFit: parse(StyleFit.values, row.styleFit),
+      region: parse(Region.values, row.region),
     );
   }
 }

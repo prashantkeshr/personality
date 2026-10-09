@@ -33,6 +33,7 @@ enum AppFeature {
   routines,
   reminders,
   progress,
+  bodyPlan,
   cameraCheck,
   cameraHeightEstimate,
   postureAnalysis,

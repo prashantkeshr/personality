@@ -1,4 +1,5 @@
 import '../services/face_engine.dart';
+import 'body.dart' show StyleFit;
 
 enum StyleKind { hair, beard, glasses }
 
@@ -10,10 +11,17 @@ class StyleItem {
     required this.desc,
     this.image,
     this.credit,
+    this.fit = StyleFit.all,
   });
 
   final String id;
   final StyleKind kind;
+
+  /// Who the example is styled for; [StyleFit.all] suits everyone.
+  final StyleFit fit;
+
+  bool suits(StyleFit wanted) =>
+      wanted == StyleFit.all || fit == StyleFit.all || fit == wanted;
   final Map<String, String> name;
   final Map<String, String> desc;
 
@@ -59,9 +67,11 @@ class GroomingContent {
   static String pick(Map<String, String> m, String lang) =>
       m[lang] ?? m['en'] ?? m.values.first;
 
-  List<StyleItem> suggestions(FaceShape shape, StyleKind kind) => [
+  List<StyleItem> suggestions(FaceShape shape, StyleKind kind,
+          {StyleFit fit = StyleFit.all}) =>
+      [
         for (final id in shapes[shape]?.items[kind] ?? const <String>[])
-          if (items[id] != null) items[id]!,
+          if (items[id] case final item? when item.suits(fit)) item,
       ];
 
   factory GroomingContent.fromJson(Map<String, dynamic> j) {
@@ -77,6 +87,7 @@ class GroomingContent {
             desc: text(e['desc']),
             image: e['image'] as String?,
             credit: e['credit'] as String?,
+            fit: StyleFit.values.asNameMap()[e['fit']] ?? StyleFit.all,
           ),
       },
       shapes: {

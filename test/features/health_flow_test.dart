@@ -12,7 +12,7 @@ void main() {
   Future<void> openHealthFeature(AppHarness app, String name) async {
     await app.tester.tap(find.text('Health'));
     await app.tester.pumpAndSettle();
-    await app.tester.scrollUntilVisible(find.text(name), 100,
+    await app.tester.scrollUntilVisible(find.text(name).hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
     await app.tapAndSettle(find.text(name));
   }

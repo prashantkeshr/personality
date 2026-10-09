@@ -89,17 +89,17 @@ void main() {
     expect(find.text('Level 1'), findsOneWidget);
     expect(find.text("Today's quests"), findsOneWidget);
     expect(find.text('1-day streak'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('For you today'), 300,
+    await tester.scrollUntilVisible(find.text('For you today').hitTestable(), 300,
         scrollable: find.byType(Scrollable).first);
     expect(find.text('What do you want?'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.text('Your journey'), -300,
+    await tester.scrollUntilVisible(find.text('Your journey').hitTestable(), -300,
         scrollable: find.byType(Scrollable).first);
     await app.tapAndSettle(find.text('Your journey'));
     expect(find.text('Total XP'), findsOneWidget);
     expect(find.text('Take a face snapshot to start your time-lapse'),
         findsOneWidget);
-    await tester.scrollUntilVisible(find.text('Badges'), 300,
+    await tester.scrollUntilVisible(find.text('Badges').hitTestable(), 300,
         scrollable: find.byType(Scrollable).first);
     expect(find.textContaining('of 12 earned'), findsOneWidget);
     await app.dispose();
@@ -131,7 +131,7 @@ void main() {
     final app = AppHarness(tester);
     await app.start(onboarded,
         overrides: [clockProvider.overrideWithValue(() => now)]);
-    await tester.scrollUntilVisible(find.text('What do you want?'), 300,
+    await tester.scrollUntilVisible(find.text('What do you want?').hitTestable(), 300,
         scrollable: find.byType(Scrollable).first);
     await app.tapAndSettle(find.text('What do you want?'));
     expect(find.text('What would you like to work on?'), findsOneWidget);

@@ -485,5 +485,271 @@
    "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
    "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
   }
+ },
+ {
+  "id": "push_up",
+  "category": "strength",
+  "level": "intermediate",
+  "name": {
+   "en": "Push-up",
+   "hi": "पुश-अप"
+  },
+  "summary": {
+   "en": "Builds chest, shoulders and arms.",
+   "hi": "छाती, कंधे और बाँहें मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Hands under shoulders, body in a straight line.",
+    "Lower your chest towards the floor.",
+    "Push back up without letting the hips sag."
+   ],
+   "hi": [
+    "हाथ कंधों के नीचे, शरीर एक सीधी रेखा में।",
+    "छाती को फ़र्श की ओर नीचे लाएँ।",
+    "कूल्हे झुकने दिए बिना वापस ऊपर धकेलें।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 8–12",
+   "hi": "8–12 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "incline_push_up",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Incline push-up",
+   "hi": "इनक्लाइन पुश-अप"
+  },
+  "summary": {
+   "en": "An easier push-up with hands on a table or wall.",
+   "hi": "मेज़ या दीवार पर हाथ रखकर आसान पुश-अप।"
+  },
+  "steps": {
+   "en": [
+    "Hands on a sturdy table edge, body straight.",
+    "Bend the elbows to bring the chest close.",
+    "Press back to the start."
+   ],
+   "hi": [
+    "मज़बूत मेज़ के किनारे पर हाथ, शरीर सीधा।",
+    "कोहनियाँ मोड़कर छाती पास लाएँ।",
+    "वापस शुरुआत में धकेलें।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 10–15",
+   "hi": "10–15 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "reverse_lunge",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Reverse lunge",
+   "hi": "रिवर्स लंज"
+  },
+  "summary": {
+   "en": "Strengthens legs and glutes, one side at a time.",
+   "hi": "एक-एक तरफ़ से पैर और कूल्हे मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand tall, step one foot back.",
+    "Lower until both knees are bent.",
+    "Push through the front heel to stand. Switch sides."
+   ],
+   "hi": [
+    "सीधे खड़े हों, एक पैर पीछे रखें।",
+    "दोनों घुटने मुड़ने तक नीचे जाएँ।",
+    "आगे की एड़ी से धकेलकर खड़े हों। पैर बदलें।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 8 per leg",
+   "hi": "हर पैर 8 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "chair_dip",
+  "category": "strength",
+  "level": "intermediate",
+  "name": {
+   "en": "Chair dip",
+   "hi": "चेयर डिप"
+  },
+  "summary": {
+   "en": "Works the back of the arms using a sturdy chair.",
+   "hi": "मज़बूत कुर्सी से बाँहों के पिछले हिस्से पर काम।"
+  },
+  "steps": {
+   "en": [
+    "Hands on the chair edge behind you, legs bent.",
+    "Bend the elbows to lower your body.",
+    "Straighten the arms to rise."
+   ],
+   "hi": [
+    "पीछे कुर्सी के किनारे पर हाथ, पैर मुड़े।",
+    "कोहनियाँ मोड़कर शरीर नीचे लाएँ।",
+    "बाँहें सीधी करके ऊपर आएँ।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 8–12",
+   "hi": "8–12 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "backpack_row",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Backpack row",
+   "hi": "बैकपैक रो"
+  },
+  "summary": {
+   "en": "Strengthens the upper back with a loaded bag.",
+   "hi": "भरे बैग से ऊपरी पीठ मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Hinge at the hips holding a loaded bag, back flat.",
+    "Pull the bag towards your ribs.",
+    "Lower it with control."
+   ],
+   "hi": [
+    "भरा बैग पकड़कर कूल्हों से झुकें, पीठ सीधी।",
+    "बैग को पसलियों की ओर खींचें।",
+    "नियंत्रण से नीचे लाएँ।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 10–12",
+   "hi": "10–12 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "calf_raise",
+  "category": "strength",
+  "level": "beginner",
+  "name": {
+   "en": "Calf raise",
+   "hi": "काफ़ रेज़"
+  },
+  "summary": {
+   "en": "Strengthens the calves and ankles.",
+   "hi": "पिंडलियाँ और टखने मज़बूत करता है।"
+  },
+  "steps": {
+   "en": [
+    "Stand tall, hold a wall for balance.",
+    "Rise onto your toes.",
+    "Lower slowly."
+   ],
+   "hi": [
+    "सीधे खड़े हों, संतुलन के लिए दीवार पकड़ें।",
+    "पंजों पर ऊपर उठें।",
+    "धीरे से नीचे आएँ।"
+   ]
+  },
+  "dose": {
+   "en": "3 sets of 15",
+   "hi": "15 के 3 सेट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "brisk_walk",
+  "category": "cardio",
+  "level": "beginner",
+  "name": {
+   "en": "Brisk walk",
+   "hi": "तेज़ चाल"
+  },
+  "summary": {
+   "en": "Steady cardio that is easy on the joints.",
+   "hi": "जोड़ों पर हल्का, लगातार कार्डियो।"
+  },
+  "steps": {
+   "en": [
+    "Walk at a pace where talking is possible but singing is not.",
+    "Swing the arms naturally.",
+    "Finish with an easy minute."
+   ],
+   "hi": [
+    "ऐसी चाल से चलें कि बात कर सकें पर गा न सकें।",
+    "बाँहें स्वाभाविक रूप से हिलाएँ।",
+    "आख़िर में एक मिनट धीरे चलें।"
+   ]
+  },
+  "dose": {
+   "en": "30 minutes",
+   "hi": "30 मिनट"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
+ },
+ {
+  "id": "surya_namaskar",
+  "category": "yoga",
+  "level": "beginner",
+  "name": {
+   "en": "Surya Namaskar (sun salutation)",
+   "hi": "सूर्य नमस्कार"
+  },
+  "summary": {
+   "en": "A flowing sequence that warms up the whole body and builds mobility.",
+   "hi": "पूरे शरीर को गर्म करने और लचीलापन बढ़ाने वाला क्रम।"
+  },
+  "steps": {
+   "en": [
+    "Stand tall, palms together; reach up and lean back gently.",
+    "Fold forward, then step back into a plank and lower down.",
+    "Lift the chest (cobra), then push back to downward dog.",
+    "Step forward, fold, and rise to standing. Repeat on the other leg."
+   ],
+   "hi": [
+    "सीधे खड़े हों, हथेलियाँ जोड़ें; ऊपर उठाकर हल्का पीछे झुकें।",
+    "आगे झुकें, फिर पीछे कदम रखकर प्लैंक में आएँ और नीचे जाएँ।",
+    "छाती उठाएँ (भुजंगासन), फिर अधोमुख श्वानासन में धकेलें।",
+    "आगे कदम रखें, झुकें और खड़े हो जाएँ। दूसरे पैर से दोहराएँ।"
+   ]
+  },
+  "dose": {
+   "en": "6–12 rounds, slowly",
+   "hi": "6–12 चक्र, धीरे-धीरे"
+  },
+  "safety": {
+   "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
+   "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
+  }
  }
 ]

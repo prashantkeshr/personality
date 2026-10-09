@@ -1426,5 +1426,235 @@
     }
   },
   "forYouGoals": "What do you want?",
-  "forYouGoalsInfo": "Pick images that inspire you"
+  "forYouGoalsInfo": "Pick images that inspire you",
+  "profileGender": "Gender",
+  "profileGenderHelp": "Used only for calorie estimates and to show relevant style examples.",
+  "genderMale": "Male",
+  "genderFemale": "Female",
+  "genderNonBinary": "Non-binary",
+  "genderPreferNot": "Prefer not to say",
+  "profileDiet": "Food preference",
+  "dietVegetarian": "Vegetarian",
+  "dietEggetarian": "Eggetarian",
+  "dietNonVegetarian": "Non-vegetarian",
+  "dietVegan": "Vegan",
+  "profileStyleFit": "Show style examples for",
+  "styleFitAuto": "Match my gender",
+  "styleFitMenswear": "Menswear",
+  "styleFitWomenswear": "Womenswear",
+  "styleFitAll": "Everyone",
+  "onboardingAboutTitle": "About you",
+  "onboardingAboutBody": "Everything here is optional and stays on this phone. It personalises your plans, quests and style suggestions.",
+  "onboardingHeightCm": "Height (cm)",
+  "onboardingHeightFt": "Height (ft)",
+  "onboardingHeightIn": "in",
+  "onboardingWeightKg": "Weight (kg)",
+  "onboardingWeightLb": "Weight (lb)",
+  "onboardingInvalid": "Check this value",
+  "greetingMorning": "Good morning",
+  "greetingAfternoon": "Good afternoon",
+  "greetingEvening": "Good evening",
+  "greetingNamed": "{greeting}, {name}",
+  "@greetingNamed": {
+    "placeholders": {
+      "greeting": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeCompleteProfile": "Personalise your app",
+  "homeCompleteProfileInfo": "Add your gender, height and weight for accurate plans and relevant styles.",
+  "forYouBodyPlan": "Your diet plan",
+  "forYouBodyPlanInfo": "Meals and training for your goal",
+  "featureBodyPlan": "Diet & body plan",
+  "bodyPlanIntro": "Calorie and protein targets, daily meals and a simple training week, built from your height, weight and goal.",
+  "bodyPlanNeedData": "Add your height and weight to create a plan.",
+  "bodyPlanImprove": "Add your gender, age range and activity level in Profile for a better estimate.",
+  "bodyPlanOpenProfile": "Open profile",
+  "bodyPlanGoal": "Your goal",
+  "planLoseFat": "Lose fat",
+  "planMaintain": "Stay fit",
+  "planGainWeight": "Gain weight",
+  "planBuildMuscle": "Build muscle",
+  "planLoseFatInfo": "A moderate calorie deficit with high protein",
+  "planMaintainInfo": "Eat at maintenance and train regularly",
+  "planGainWeightInfo": "A steady surplus to gain healthy weight",
+  "planBuildMuscleInfo": "A lean surplus with strength training",
+  "planBlockUnderage": "Under 18: plan weight changes with a doctor. Maintenance guidance is available.",
+  "planBlockUnderweight": "Your BMI is below 18.5, so fat loss isn't suggested.",
+  "planBlockHeavy": "Your BMI is 25 or more. Try Build muscle instead.",
+  "bodyPlanPace": "Pace",
+  "paceGentle": "Gentle",
+  "paceSteady": "Steady",
+  "paceBrisk": "Brisk",
+  "bodyPlanRate": "About {rate} per week",
+  "@bodyPlanRate": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanTarget": "Target weight (optional)",
+  "bodyPlanHealthyRange": "Healthy range for your height: {range}",
+  "@bodyPlanHealthyRange": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanCalories": "Calories",
+  "bodyPlanProtein": "Protein",
+  "bodyPlanCarbs": "Carbs",
+  "bodyPlanFat": "Fat",
+  "bodyPlanWater": "Water",
+  "bodyPlanKcal": "{value} kcal",
+  "@bodyPlanKcal": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanGrams": "{value} g",
+  "@bodyPlanGrams": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanMaintenance": "Maintenance is about {kcal} kcal a day",
+  "@bodyPlanMaintenance": {
+    "placeholders": {
+      "kcal": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanTimeline": "{weeks, plural, =1{About 1 week to your target} other{About {weeks} weeks to your target}}",
+  "@bodyPlanTimeline": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanFloorNote": "Kept at a safe minimum, so progress will be slower than this pace.",
+  "bodyPlanStart": "Start my plan",
+  "bodyPlanStarted": "Your plan has started",
+  "bodyPlanDisclaimer": "Estimates for healthy adults, not medical advice. If you have a medical condition, are pregnant or take medication, check with a doctor first.",
+  "bodyPlanSince": "Since {date}",
+  "@bodyPlanSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanToday": "Today's targets",
+  "bodyPlanEaten": "{eaten} of {target} kcal logged today",
+  "@bodyPlanEaten": {
+    "placeholders": {
+      "eaten": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanMenu": "Today's menu",
+  "bodyPlanServings": "× {servings}",
+  "@bodyPlanServings": {
+    "placeholders": {
+      "servings": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanProteinBoost": "Protein boost",
+  "bodyPlanLog": "Log",
+  "bodyPlanLogged": "Logged",
+  "bodyPlanSwap": "Swap",
+  "bodyPlanWeek": "This week's training",
+  "workoutStrengthA": "Strength A",
+  "workoutStrengthB": "Strength B",
+  "workoutCardio": "Cardio",
+  "workoutMobility": "Mobility",
+  "workoutRest": "Rest",
+  "bodyPlanMinutes": "{minutes} min",
+  "@bodyPlanMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "bodyPlanTodayWorkout": "Today: {workout}",
+  "@bodyPlanTodayWorkout": {
+    "placeholders": {
+      "workout": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanAddRoutine": "Add workouts to my routines",
+  "bodyPlanRoutineAdded": "Added to your routines",
+  "bodyPlanRoutineName": "Training plan",
+  "bodyPlanWorkoutItem": "Workout",
+  "bodyPlanProgress": "Progress",
+  "bodyPlanWeightNow": "{now} now · started at {start}",
+  "@bodyPlanWeightNow": {
+    "placeholders": {
+      "now": {
+        "type": "String"
+      },
+      "start": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanExpected": "Expected by now: {weight}",
+  "@bodyPlanExpected": {
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "bodyPlanUpdate": "Your weight has changed. Update your targets?",
+  "bodyPlanUpdateAction": "Update",
+  "bodyPlanEnd": "End plan",
+  "bodyPlanEndConfirm": "End this plan? Your logged meals and workouts stay.",
+  "bodyPlanLogWeight": "Log weight",
+  "bodyPlanChange": "Change plan",
+  "profileRegion": "Where are you based?",
+  "profileRegionHelp": "Used to suggest local food, suitable exercise and climate tips.",
+  "regionIndiaNorth": "North India",
+  "regionIndiaSouth": "South India",
+  "regionIndiaEast": "East India",
+  "regionIndiaWest": "West India",
+  "regionSouthAsia": "Rest of South Asia",
+  "regionEastAsia": "East Asia",
+  "regionSoutheastAsia": "Southeast Asia",
+  "regionMiddleEast": "Middle East",
+  "regionAfrica": "Africa",
+  "regionEurope": "Europe",
+  "regionNorthAmerica": "North America",
+  "regionLatinAmerica": "Latin America",
+  "regionOceania": "Oceania",
+  "bodyPlanHotClimate": "Warm climate: train in the cooler morning or evening, and sip water through the day.",
+  "bodyPlanLocalMenu": "Meals chosen from {region} cuisine where possible.",
+  "@bodyPlanLocalMenu": {
+    "placeholders": {
+      "region": {
+        "type": "String"
+      }
+    }
+  }
 }

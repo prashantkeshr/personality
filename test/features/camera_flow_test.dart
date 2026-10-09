@@ -111,7 +111,7 @@ void main() {
       deviceProbeProvider.overrideWithValue(const FixedProbe(midRange)),
     ]);
     await app.tapAndSettle(find.byTooltip('Settings'));
-    await tester.scrollUntilVisible(find.text('Hardware and processing quality'), 100,
+    await tester.scrollUntilVisible(find.text('Hardware and processing quality').hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
     await tester.ensureVisible(find.text('Hardware and processing quality'));
     await tester.pumpAndSettle();

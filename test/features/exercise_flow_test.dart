@@ -77,7 +77,7 @@ void main() {
     final (app, _, _) = await start(tester);
     await tester.tap(find.text('Health'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Exercise'), 100,
+    await tester.scrollUntilVisible(find.text('Exercise').hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
     await app.tapAndSettle(find.text('Exercise'));
     await app.tapAndSettle(find.text('Exercise library'));
@@ -86,7 +86,7 @@ void main() {
     await app.tapAndSettle(find.text('Camera-tracked').first);
     expect(find.text('Chin tucks'), findsNothing);
     await app.tapAndSettle(find.text('All'));
-    await tester.scrollUntilVisible(find.text('Chin tucks'), 100,
+    await tester.scrollUntilVisible(find.text('Chin tucks').hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
     await app.tapAndSettle(find.text('Chin tucks'));
     expect(find.text('How to do it'), findsOneWidget);

@@ -139,13 +139,13 @@ void main() {
     expect(find.textContaining('Camera estimate'), findsOneWidget);
     expect(camera.state.value.running, isFalse);
 
-    await tester.scrollUntilVisible(find.text('Hairstyles'), 200,
+    await tester.scrollUntilVisible(find.text('Hairstyles').hitTestable(), 200,
         scrollable: find.byType(Scrollable).last);
     expect(find.text('Classic side part'), findsOneWidget);
     await tester.tap(find.byTooltip('Add to favourites').first);
     await app.settle();
-    await tester.scrollUntilVisible(find.text('Add to my routines'), 200,
-        scrollable: find.byType(Scrollable).last);
+    await tester.scrollUntilVisible(find.text('Add to my routines').hitTestable(), 200,
+        scrollable: find.byType(Scrollable).first);
     await tester.ensureVisible(find.text('Add to my routines'));
     await tester.pump();
     await tester.tap(find.text('Add to my routines'));
@@ -154,8 +154,8 @@ void main() {
         await app.run(() => RoutineRepository(app.db).watchRoutines().first);
     expect(routines!.single.name, 'Grooming');
 
-    await tester.scrollUntilVisible(find.text('Save'), -200,
-        scrollable: find.byType(Scrollable).last);
+    await tester.scrollUntilVisible(find.text('Save').hitTestable(), -200,
+        scrollable: find.byType(Scrollable).first);
     await tester.ensureVisible(find.text('Save'));
     await tester.pump();
     await tester.tap(find.text('Save'));

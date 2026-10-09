@@ -34,4 +34,6 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.wardrobe,
   // Phase 11
   AppFeature.progress,
+  // Phase 12
+  AppFeature.bodyPlan,
 };

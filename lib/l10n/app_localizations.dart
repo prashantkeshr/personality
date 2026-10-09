@@ -5047,6 +5047,702 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pick images that inspire you'**
   String get forYouGoalsInfo;
+
+  /// No description provided for @profileGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get profileGender;
+
+  /// No description provided for @profileGenderHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Used only for calorie estimates and to show relevant style examples.'**
+  String get profileGenderHelp;
+
+  /// No description provided for @genderMale.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get genderMale;
+
+  /// No description provided for @genderFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get genderFemale;
+
+  /// No description provided for @genderNonBinary.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-binary'**
+  String get genderNonBinary;
+
+  /// No description provided for @genderPreferNot.
+  ///
+  /// In en, this message translates to:
+  /// **'Prefer not to say'**
+  String get genderPreferNot;
+
+  /// No description provided for @profileDiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Food preference'**
+  String get profileDiet;
+
+  /// No description provided for @dietVegetarian.
+  ///
+  /// In en, this message translates to:
+  /// **'Vegetarian'**
+  String get dietVegetarian;
+
+  /// No description provided for @dietEggetarian.
+  ///
+  /// In en, this message translates to:
+  /// **'Eggetarian'**
+  String get dietEggetarian;
+
+  /// No description provided for @dietNonVegetarian.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-vegetarian'**
+  String get dietNonVegetarian;
+
+  /// No description provided for @dietVegan.
+  ///
+  /// In en, this message translates to:
+  /// **'Vegan'**
+  String get dietVegan;
+
+  /// No description provided for @profileStyleFit.
+  ///
+  /// In en, this message translates to:
+  /// **'Show style examples for'**
+  String get profileStyleFit;
+
+  /// No description provided for @styleFitAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'Match my gender'**
+  String get styleFitAuto;
+
+  /// No description provided for @styleFitMenswear.
+  ///
+  /// In en, this message translates to:
+  /// **'Menswear'**
+  String get styleFitMenswear;
+
+  /// No description provided for @styleFitWomenswear.
+  ///
+  /// In en, this message translates to:
+  /// **'Womenswear'**
+  String get styleFitWomenswear;
+
+  /// No description provided for @styleFitAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone'**
+  String get styleFitAll;
+
+  /// No description provided for @onboardingAboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About you'**
+  String get onboardingAboutTitle;
+
+  /// No description provided for @onboardingAboutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything here is optional and stays on this phone. It personalises your plans, quests and style suggestions.'**
+  String get onboardingAboutBody;
+
+  /// No description provided for @onboardingHeightCm.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (cm)'**
+  String get onboardingHeightCm;
+
+  /// No description provided for @onboardingHeightFt.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (ft)'**
+  String get onboardingHeightFt;
+
+  /// No description provided for @onboardingHeightIn.
+  ///
+  /// In en, this message translates to:
+  /// **'in'**
+  String get onboardingHeightIn;
+
+  /// No description provided for @onboardingWeightKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
+  String get onboardingWeightKg;
+
+  /// No description provided for @onboardingWeightLb.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (lb)'**
+  String get onboardingWeightLb;
+
+  /// No description provided for @onboardingInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Check this value'**
+  String get onboardingInvalid;
+
+  /// No description provided for @greetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get greetingMorning;
+
+  /// No description provided for @greetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get greetingAfternoon;
+
+  /// No description provided for @greetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get greetingEvening;
+
+  /// No description provided for @greetingNamed.
+  ///
+  /// In en, this message translates to:
+  /// **'{greeting}, {name}'**
+  String greetingNamed(String greeting, String name);
+
+  /// No description provided for @homeCompleteProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalise your app'**
+  String get homeCompleteProfile;
+
+  /// No description provided for @homeCompleteProfileInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your gender, height and weight for accurate plans and relevant styles.'**
+  String get homeCompleteProfileInfo;
+
+  /// No description provided for @forYouBodyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Your diet plan'**
+  String get forYouBodyPlan;
+
+  /// No description provided for @forYouBodyPlanInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Meals and training for your goal'**
+  String get forYouBodyPlanInfo;
+
+  /// No description provided for @featureBodyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Diet & body plan'**
+  String get featureBodyPlan;
+
+  /// No description provided for @bodyPlanIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie and protein targets, daily meals and a simple training week, built from your height, weight and goal.'**
+  String get bodyPlanIntro;
+
+  /// No description provided for @bodyPlanNeedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your height and weight to create a plan.'**
+  String get bodyPlanNeedData;
+
+  /// No description provided for @bodyPlanImprove.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your gender, age range and activity level in Profile for a better estimate.'**
+  String get bodyPlanImprove;
+
+  /// No description provided for @bodyPlanOpenProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Open profile'**
+  String get bodyPlanOpenProfile;
+
+  /// No description provided for @bodyPlanGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Your goal'**
+  String get bodyPlanGoal;
+
+  /// No description provided for @planLoseFat.
+  ///
+  /// In en, this message translates to:
+  /// **'Lose fat'**
+  String get planLoseFat;
+
+  /// No description provided for @planMaintain.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay fit'**
+  String get planMaintain;
+
+  /// No description provided for @planGainWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Gain weight'**
+  String get planGainWeight;
+
+  /// No description provided for @planBuildMuscle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build muscle'**
+  String get planBuildMuscle;
+
+  /// No description provided for @planLoseFatInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A moderate calorie deficit with high protein'**
+  String get planLoseFatInfo;
+
+  /// No description provided for @planMaintainInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat at maintenance and train regularly'**
+  String get planMaintainInfo;
+
+  /// No description provided for @planGainWeightInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A steady surplus to gain healthy weight'**
+  String get planGainWeightInfo;
+
+  /// No description provided for @planBuildMuscleInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A lean surplus with strength training'**
+  String get planBuildMuscleInfo;
+
+  /// No description provided for @planBlockUnderage.
+  ///
+  /// In en, this message translates to:
+  /// **'Under 18: plan weight changes with a doctor. Maintenance guidance is available.'**
+  String get planBlockUnderage;
+
+  /// No description provided for @planBlockUnderweight.
+  ///
+  /// In en, this message translates to:
+  /// **'Your BMI is below 18.5, so fat loss isn\'t suggested.'**
+  String get planBlockUnderweight;
+
+  /// No description provided for @planBlockHeavy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your BMI is 25 or more. Try Build muscle instead.'**
+  String get planBlockHeavy;
+
+  /// No description provided for @bodyPlanPace.
+  ///
+  /// In en, this message translates to:
+  /// **'Pace'**
+  String get bodyPlanPace;
+
+  /// No description provided for @paceGentle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle'**
+  String get paceGentle;
+
+  /// No description provided for @paceSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady'**
+  String get paceSteady;
+
+  /// No description provided for @paceBrisk.
+  ///
+  /// In en, this message translates to:
+  /// **'Brisk'**
+  String get paceBrisk;
+
+  /// No description provided for @bodyPlanRate.
+  ///
+  /// In en, this message translates to:
+  /// **'About {rate} per week'**
+  String bodyPlanRate(String rate);
+
+  /// No description provided for @bodyPlanTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target weight (optional)'**
+  String get bodyPlanTarget;
+
+  /// No description provided for @bodyPlanHealthyRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Healthy range for your height: {range}'**
+  String bodyPlanHealthyRange(String range);
+
+  /// No description provided for @bodyPlanCalories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories'**
+  String get bodyPlanCalories;
+
+  /// No description provided for @bodyPlanProtein.
+  ///
+  /// In en, this message translates to:
+  /// **'Protein'**
+  String get bodyPlanProtein;
+
+  /// No description provided for @bodyPlanCarbs.
+  ///
+  /// In en, this message translates to:
+  /// **'Carbs'**
+  String get bodyPlanCarbs;
+
+  /// No description provided for @bodyPlanFat.
+  ///
+  /// In en, this message translates to:
+  /// **'Fat'**
+  String get bodyPlanFat;
+
+  /// No description provided for @bodyPlanWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get bodyPlanWater;
+
+  /// No description provided for @bodyPlanKcal.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} kcal'**
+  String bodyPlanKcal(int value);
+
+  /// No description provided for @bodyPlanGrams.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} g'**
+  String bodyPlanGrams(int value);
+
+  /// No description provided for @bodyPlanMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance is about {kcal} kcal a day'**
+  String bodyPlanMaintenance(int kcal);
+
+  /// No description provided for @bodyPlanTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'{weeks, plural, =1{About 1 week to your target} other{About {weeks} weeks to your target}}'**
+  String bodyPlanTimeline(int weeks);
+
+  /// No description provided for @bodyPlanFloorNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept at a safe minimum, so progress will be slower than this pace.'**
+  String get bodyPlanFloorNote;
+
+  /// No description provided for @bodyPlanStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start my plan'**
+  String get bodyPlanStart;
+
+  /// No description provided for @bodyPlanStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan has started'**
+  String get bodyPlanStarted;
+
+  /// No description provided for @bodyPlanDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimates for healthy adults, not medical advice. If you have a medical condition, are pregnant or take medication, check with a doctor first.'**
+  String get bodyPlanDisclaimer;
+
+  /// No description provided for @bodyPlanSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Since {date}'**
+  String bodyPlanSince(String date);
+
+  /// No description provided for @bodyPlanToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s targets'**
+  String get bodyPlanToday;
+
+  /// No description provided for @bodyPlanEaten.
+  ///
+  /// In en, this message translates to:
+  /// **'{eaten} of {target} kcal logged today'**
+  String bodyPlanEaten(int eaten, int target);
+
+  /// No description provided for @bodyPlanMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s menu'**
+  String get bodyPlanMenu;
+
+  /// No description provided for @bodyPlanServings.
+  ///
+  /// In en, this message translates to:
+  /// **'× {servings}'**
+  String bodyPlanServings(String servings);
+
+  /// No description provided for @bodyPlanProteinBoost.
+  ///
+  /// In en, this message translates to:
+  /// **'Protein boost'**
+  String get bodyPlanProteinBoost;
+
+  /// No description provided for @bodyPlanLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get bodyPlanLog;
+
+  /// No description provided for @bodyPlanLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged'**
+  String get bodyPlanLogged;
+
+  /// No description provided for @bodyPlanSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap'**
+  String get bodyPlanSwap;
+
+  /// No description provided for @bodyPlanWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week\'s training'**
+  String get bodyPlanWeek;
+
+  /// No description provided for @workoutStrengthA.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength A'**
+  String get workoutStrengthA;
+
+  /// No description provided for @workoutStrengthB.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength B'**
+  String get workoutStrengthB;
+
+  /// No description provided for @workoutCardio.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardio'**
+  String get workoutCardio;
+
+  /// No description provided for @workoutMobility.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobility'**
+  String get workoutMobility;
+
+  /// No description provided for @workoutRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest'**
+  String get workoutRest;
+
+  /// No description provided for @bodyPlanMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String bodyPlanMinutes(int minutes);
+
+  /// No description provided for @bodyPlanTodayWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: {workout}'**
+  String bodyPlanTodayWorkout(String workout);
+
+  /// No description provided for @bodyPlanAddRoutine.
+  ///
+  /// In en, this message translates to:
+  /// **'Add workouts to my routines'**
+  String get bodyPlanAddRoutine;
+
+  /// No description provided for @bodyPlanRoutineAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to your routines'**
+  String get bodyPlanRoutineAdded;
+
+  /// No description provided for @bodyPlanRoutineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Training plan'**
+  String get bodyPlanRoutineName;
+
+  /// No description provided for @bodyPlanWorkoutItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout'**
+  String get bodyPlanWorkoutItem;
+
+  /// No description provided for @bodyPlanProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get bodyPlanProgress;
+
+  /// No description provided for @bodyPlanWeightNow.
+  ///
+  /// In en, this message translates to:
+  /// **'{now} now · started at {start}'**
+  String bodyPlanWeightNow(String now, String start);
+
+  /// No description provided for @bodyPlanExpected.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected by now: {weight}'**
+  String bodyPlanExpected(String weight);
+
+  /// No description provided for @bodyPlanUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Your weight has changed. Update your targets?'**
+  String get bodyPlanUpdate;
+
+  /// No description provided for @bodyPlanUpdateAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get bodyPlanUpdateAction;
+
+  /// No description provided for @bodyPlanEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End plan'**
+  String get bodyPlanEnd;
+
+  /// No description provided for @bodyPlanEndConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'End this plan? Your logged meals and workouts stay.'**
+  String get bodyPlanEndConfirm;
+
+  /// No description provided for @bodyPlanLogWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log weight'**
+  String get bodyPlanLogWeight;
+
+  /// No description provided for @bodyPlanChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change plan'**
+  String get bodyPlanChange;
+
+  /// No description provided for @profileRegion.
+  ///
+  /// In en, this message translates to:
+  /// **'Where are you based?'**
+  String get profileRegion;
+
+  /// No description provided for @profileRegionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to suggest local food, suitable exercise and climate tips.'**
+  String get profileRegionHelp;
+
+  /// No description provided for @regionIndiaNorth.
+  ///
+  /// In en, this message translates to:
+  /// **'North India'**
+  String get regionIndiaNorth;
+
+  /// No description provided for @regionIndiaSouth.
+  ///
+  /// In en, this message translates to:
+  /// **'South India'**
+  String get regionIndiaSouth;
+
+  /// No description provided for @regionIndiaEast.
+  ///
+  /// In en, this message translates to:
+  /// **'East India'**
+  String get regionIndiaEast;
+
+  /// No description provided for @regionIndiaWest.
+  ///
+  /// In en, this message translates to:
+  /// **'West India'**
+  String get regionIndiaWest;
+
+  /// No description provided for @regionSouthAsia.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest of South Asia'**
+  String get regionSouthAsia;
+
+  /// No description provided for @regionEastAsia.
+  ///
+  /// In en, this message translates to:
+  /// **'East Asia'**
+  String get regionEastAsia;
+
+  /// No description provided for @regionSoutheastAsia.
+  ///
+  /// In en, this message translates to:
+  /// **'Southeast Asia'**
+  String get regionSoutheastAsia;
+
+  /// No description provided for @regionMiddleEast.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle East'**
+  String get regionMiddleEast;
+
+  /// No description provided for @regionAfrica.
+  ///
+  /// In en, this message translates to:
+  /// **'Africa'**
+  String get regionAfrica;
+
+  /// No description provided for @regionEurope.
+  ///
+  /// In en, this message translates to:
+  /// **'Europe'**
+  String get regionEurope;
+
+  /// No description provided for @regionNorthAmerica.
+  ///
+  /// In en, this message translates to:
+  /// **'North America'**
+  String get regionNorthAmerica;
+
+  /// No description provided for @regionLatinAmerica.
+  ///
+  /// In en, this message translates to:
+  /// **'Latin America'**
+  String get regionLatinAmerica;
+
+  /// No description provided for @regionOceania.
+  ///
+  /// In en, this message translates to:
+  /// **'Oceania'**
+  String get regionOceania;
+
+  /// No description provided for @bodyPlanHotClimate.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm climate: train in the cooler morning or evening, and sip water through the day.'**
+  String get bodyPlanHotClimate;
+
+  /// No description provided for @bodyPlanLocalMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Meals chosen from {region} cuisine where possible.'**
+  String bodyPlanLocalMenu(String region);
 }
 
 class _AppLocalizationsDelegate

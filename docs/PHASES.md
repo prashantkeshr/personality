@@ -316,3 +316,24 @@ Bugs found and fixed:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 244/244 pass (XP caps, levels, streak and rest days, quests, badges, day digest, v8 → v9 migration, eye alignment maths, RGB → NV21, Home journey, quests, celebration shown once, time-lapse and compare, goal finder, every photo bundled and credited).
 - Release APK (arm64, 96 MB) installed on the user's phone and launches without crashes. R8 removed only obfuscated ML Kit internals; there is no INTERNET permission.
+
+## Phase 12 — personalisation, diet & body plans, UI refresh (2026-10-10)
+
+- **About you** (onboarding page 4, all optional) and Profile: name, region, gender, age range, height, weight (in the chosen units), activity, food preference, and "show style examples for" (follows gender unless set).
+- **Gender-aware style**: hairstyles, beard try-on and goal-finder looks follow menswear/womenswear; every face shape and every style has examples for both.
+- **Region-aware suggestions** (13 regions; India split North/South/East/West): meals favour local cuisine (97 dishes across Indian regional and world cuisines), Indian regions get Surya Namaskar on mobility days, warm climates add 300 ml water and a cooler-hours tip.
+- **Diet & body plan** (Health): lose fat / stay fit / gain weight / build muscle, pace and food preference → Mifflin–St Jeor targets (calories, protein, carbs, fat, water), safe calorie floors, blocked plans with reasons (under 18, underweight, BMI ≥ 25 for weight gain), timeline to a target weight.
+  - Daily menu: protein-dense, near the target, never the same main ingredient twice a day, swappable per meal; one-tap logging into Meals.
+  - Weekly training (strength days never back to back) that can be added to routines; targets update when weight changes by 2 kg.
+- **UI**: floating navigation bar; tab screens with photo headers and image-card grids (photos or muted per-feature art); greeting by name; "Personalise your app" card; branded adaptive app icon (with monochrome), legacy PNGs from `tool/generate_icons.dart`, and splash for all Android versions.
+- Schema v10: `user_profile` gains gender, diet_preference, style_fit, region; new `body_plan` table.
+
+Bugs found and fixed:
+- Long dropdown labels overflowed on phone-width forms (tests now run at phone size by default).
+- A vegetarian day repeated paneer four times; meals now never repeat a main ingredient.
+- The plan dashboard showed "maintenance 0 kcal".
+- The emulator's software renderer crashed on the new Home; ANGLE graphics works (tooling only).
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 272/272 pass (nutrition maths and safety blocks, menus for every region × diet, variety, training rules, plan flow end to end, onboarding with imperial units, style-fit filtering, v9 → v10 migration).
+- Visually checked on the emulator in light and dark mode.

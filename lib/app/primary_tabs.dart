@@ -14,6 +14,7 @@ class HealthTab extends StatelessWidget {
     return FeatureOverviewScreen(
       title: l10n.navHealth,
       intro: l10n.healthIntro,
+      heroImage: 'assets/images/goals/fitness.jpg',
       features: const [
         AppFeature.profile,
         AppFeature.height,
@@ -26,6 +27,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.activity,
         AppFeature.exercise,
         AppFeature.habits,
+        AppFeature.bodyPlan,
         AppFeature.routines,
         AppFeature.reminders,
         AppFeature.progress,
@@ -45,6 +47,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.routines: AppRoutes.routines,
         AppFeature.reminders: AppRoutes.reminders,
         AppFeature.progress: AppRoutes.journey,
+        AppFeature.bodyPlan: AppRoutes.bodyPlan,
       },
     );
   }
@@ -59,6 +62,7 @@ class AnalyzeTab extends StatelessWidget {
     return FeatureOverviewScreen(
       title: l10n.navAnalyze,
       intro: l10n.analyzeIntro,
+      heroImage: 'assets/images/goals/posture.jpg',
       features: const [
         AppFeature.cameraCheck,
         AppFeature.postureAnalysis,
@@ -88,6 +92,7 @@ class CoachTab extends StatelessWidget {
     return FeatureOverviewScreen(
       title: l10n.navCoach,
       intro: l10n.coachIntro,
+      heroImage: 'assets/images/goals/habits.jpg',
       features: const [AppFeature.aiCoach],
     );
   }
@@ -102,6 +107,7 @@ class StyleTab extends StatelessWidget {
     return FeatureOverviewScreen(
       title: l10n.navStyle,
       intro: l10n.styleIntro,
+      heroImage: 'assets/images/looks/smart_1.jpg',
       features: const [
         AppFeature.styleRecommendations,
         AppFeature.wardrobe,

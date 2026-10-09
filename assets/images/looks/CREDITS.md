@@ -16,3 +16,9 @@ Photos from [Unsplash](https://unsplash.com), used under the [Unsplash License](
 | traditional_2.jpg | [Sabesh Photography LTD](https://unsplash.com/@sabesh) | [Xqa_NWl4xEY](https://unsplash.com/photos/Xqa_NWl4xEY) |
 | sporty_1.jpg | [Florian Kurrasch](https://unsplash.com/@flnkrs) | [zkctapwhzxc](https://unsplash.com/photos/zkctapwhzxc) |
 | sporty_2.jpg | [Reza Hasannia](https://unsplash.com/@rezziizz) | [6bIhW4zMGUc](https://unsplash.com/photos/6bIhW4zMGUc) |
+| classic_3.jpg | [Laura Chouette](https://unsplash.com/@laurachouette) | [D381E7Lg2J4](https://unsplash.com/photos/D381E7Lg2J4) |
+| minimal_3.jpg | [Rodrigo Sümmer](https://unsplash.com/@rodsimmer) | [7HWyBKvcQ8g](https://unsplash.com/photos/7HWyBKvcQ8g) |
+| smart_3.jpg | [Nassim Boughazi](https://unsplash.com/@nassim_boughazi) | [dodzmVtjoKs](https://unsplash.com/photos/dodzmVtjoKs) |
+| traditional_3.jpg | [Noor Alam](https://unsplash.com/@itsmenoor2022) | [fI8QI03I3Og](https://unsplash.com/photos/fI8QI03I3Og) |
+| traditional_4.jpg | [Noor Alam](https://unsplash.com/@itsmenoor2022) | [nXoPi3AveII](https://unsplash.com/photos/nXoPi3AveII) |
+| sporty_3.jpg | [nobleseed nobleseed](https://unsplash.com/@nobleseed) | [Gwg6WRj9D_U](https://unsplash.com/photos/Gwg6WRj9D_U) |

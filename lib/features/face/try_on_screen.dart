@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../domain/entities/body.dart' show StyleFit;
 import '../../domain/entities/grooming.dart';
 import '../../l10n/app_localizations.dart';
 import '../../ml/face/face_estimator.dart';
@@ -12,6 +13,7 @@ import '../camera/camera_providers.dart';
 import '../camera/camera_source.dart';
 import '../camera/camera_stage.dart';
 import '../camera/portrait_lock.dart';
+import '../health/body_providers.dart' show profileProvider;
 import 'face_providers.dart';
 import 'try_on_painter.dart';
 
@@ -88,8 +90,10 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
             .where((i) => i.kind == StyleKind.glasses)
             .toList() ??
         const [];
+    final fit = ref.watch(profileProvider).value?.effectiveStyleFit ??
+        StyleFit.all;
     final beardItems = content?.items.values
-            .where((i) => i.kind == StyleKind.beard)
+            .where((i) => i.kind == StyleKind.beard && i.suits(fit))
             .toList() ??
         const [];
 
@@ -162,6 +166,7 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
                     ),
               ]),
             ),
+            if (beardItems.isNotEmpty) ...[
             const SizedBox(height: AppSpacing.md),
             Text(l10n.styleBeard, style: theme.textTheme.titleSmall),
             const SizedBox(height: AppSpacing.xs),
@@ -179,6 +184,7 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
                     ),
               ]),
             ),
+            ],
             const SizedBox(height: AppSpacing.lg),
             Text(l10n.tryOnNote, style: theme.textTheme.bodySmall),
           ],

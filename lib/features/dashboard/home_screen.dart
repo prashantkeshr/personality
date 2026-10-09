@@ -45,6 +45,7 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         children: [
+          _Greeting(clock: clock),
           Semantics(
             header: true,
             child: Text(l10n.todayTitle, style: theme.textTheme.headlineSmall),
@@ -55,6 +56,7 @@ class HomeScreen extends StatelessWidget {
                   ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
           const SizedBox(height: AppSpacing.lg),
           const BadgeCelebrationHost(),
+          const _CompleteProfileCard(),
           const JourneyCard(),
           const SizedBox(height: AppSpacing.md),
           const QuestsCard(),
@@ -312,6 +314,86 @@ class _PlanCard extends ConsumerWidget {
               ),
               const Icon(Icons.chevron_right),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// "Good morning, Name" by local time.
+class _Greeting extends ConsumerWidget {
+  const _Greeting({required this.clock});
+  final DateTime Function() clock;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final hour = clock().hour;
+    final greeting = hour < 12
+        ? l10n.greetingMorning
+        : hour < 17
+            ? l10n.greetingAfternoon
+            : l10n.greetingEvening;
+    final name = ref.watch(profileProvider).value?.displayName?.split(' ').first;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.xs),
+      child: Text(
+        name == null || name.isEmpty ? greeting : l10n.greetingNamed(greeting, name),
+        style: theme.textTheme.titleMedium
+            ?.copyWith(color: theme.colorScheme.primary),
+      ),
+    );
+  }
+}
+
+/// Asks for the details that personalise plans and styles, until given.
+class _CompleteProfileCard extends ConsumerWidget {
+  const _CompleteProfileCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final profile = ref.watch(profileProvider).value;
+    final height = ref.watch(heightRecordsProvider).value;
+    final weights = ref.watch(weightRecordsProvider).value;
+    if (profile == null || height == null || weights == null) {
+      return const SizedBox.shrink();
+    }
+    if (profile.gender != null &&
+        profile.region != null &&
+        height.isNotEmpty &&
+        weights.isNotEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.md),
+      child: Card(
+        color: theme.colorScheme.secondaryContainer,
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => context.push(AppRoutes.profile),
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Row(children: [
+              Icon(Icons.person_outline,
+                  color: theme.colorScheme.onSecondaryContainer),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.homeCompleteProfile,
+                        style: theme.textTheme.titleSmall),
+                    Text(l10n.homeCompleteProfileInfo,
+                        style: theme.textTheme.bodySmall),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right),
+            ]),
           ),
         ),
       ),

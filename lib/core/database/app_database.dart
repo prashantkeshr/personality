@@ -48,6 +48,12 @@ class UserProfiles extends Table {
   IntColumn get createdAt => integer()();
   IntColumn get updatedAt => integer()();
 
+  // v10: personalisation, all optional.
+  TextColumn get gender => text().nullable()();
+  TextColumn get dietPreference => text().nullable()();
+  TextColumn get styleFit => text().nullable()();
+  TextColumn get region => text().nullable()();
+
   @override
   Set<Column> get primaryKey => {id};
 }
@@ -412,6 +418,38 @@ class Snapshots extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+/// A diet + training plan (v10). Targets are stored as calculated when the
+/// plan started, so history stays stable; the app offers a recalculation
+/// when the weight changes.
+@DataClassName('BodyPlanRow')
+class BodyPlans extends Table {
+  @override
+  String get tableName => 'body_plan';
+
+  TextColumn get id => text()();
+
+  /// loseFat, maintain, gainWeight or buildMuscle.
+  TextColumn get kind => text()();
+
+  /// gentle, steady or brisk.
+  TextColumn get pace => text()();
+  TextColumn get diet => text()();
+  IntColumn get startDay => integer()();
+  RealColumn get startWeightKg => real()();
+  RealColumn get targetWeightKg => real().nullable()();
+  IntColumn get calories => integer()();
+  IntColumn get proteinG => integer()();
+  IntColumn get carbsG => integer()();
+  IntColumn get fatG => integer()();
+  IntColumn get waterMl => integer()();
+  BoolColumn get active => boolean().withDefault(const Constant(true))();
+  IntColumn get createdAt => integer()();
+  IntColumn get endedAt => integer().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 /// A garment in the user's wardrobe. The optional photo is stored inside
 /// this encrypted database, never as a file.
 @DataClassName('WardrobeRow')
@@ -507,6 +545,7 @@ class OutfitWears extends Table {
   Outfits,
   OutfitItems,
   OutfitWears,
+  BodyPlans,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -514,7 +553,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 9;
+  int get schemaVersion => 10;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -581,6 +620,14 @@ class AppDatabase extends _$AppDatabase {
             await m.addColumn(t, t.rightEyeX);
             await m.addColumn(t, t.rightEyeY);
             await m.addColumn(t, t.alignChecked);
+          },
+          from9To10: (m, schema) async {
+            final p = schema.userProfile;
+            await m.addColumn(p, p.gender);
+            await m.addColumn(p, p.dietPreference);
+            await m.addColumn(p, p.styleFit);
+            await m.addColumn(p, p.region);
+            await m.createTable(schema.bodyPlan);
           },
         ),
         beforeOpen: (details) async {

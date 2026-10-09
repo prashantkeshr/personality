@@ -25,15 +25,50 @@ const goalImages = <GoalType, String>{
   GoalType.grooming: 'assets/images/goals/grooming.jpg',
 };
 
-/// Two looks per style so the choice isn't tied to one person or gender.
-const styleImages = <StylePreference, List<String>>{
-  StylePreference.classic: ['assets/images/looks/classic_1.jpg', 'assets/images/looks/classic_2.jpg'],
-  StylePreference.minimal: ['assets/images/looks/minimal_1.jpg', 'assets/images/looks/minimal_2.jpg'],
-  StylePreference.smartCasual: ['assets/images/looks/smart_1.jpg', 'assets/images/looks/smart_2.jpg'],
-  StylePreference.street: ['assets/images/looks/street_1.jpg', 'assets/images/looks/street_2.jpg'],
-  StylePreference.traditional: ['assets/images/looks/traditional_1.jpg', 'assets/images/looks/traditional_2.jpg'],
-  StylePreference.sporty: ['assets/images/looks/sporty_1.jpg', 'assets/images/looks/sporty_2.jpg'],
+/// Look photos per style, tagged with who they are styled for. The finder
+/// shows the ones matching the user's style fit (all of them if none match).
+const styleImages = <StylePreference, List<(String, StyleFit)>>{
+  StylePreference.classic: [
+    ('assets/images/looks/classic_1.jpg', StyleFit.menswear),
+    ('assets/images/looks/classic_2.jpg', StyleFit.menswear),
+    ('assets/images/looks/classic_3.jpg', StyleFit.womenswear),
+  ],
+  StylePreference.minimal: [
+    ('assets/images/looks/minimal_1.jpg', StyleFit.womenswear),
+    ('assets/images/looks/minimal_2.jpg', StyleFit.womenswear),
+    ('assets/images/looks/minimal_3.jpg', StyleFit.menswear),
+  ],
+  StylePreference.smartCasual: [
+    ('assets/images/looks/smart_1.jpg', StyleFit.menswear),
+    ('assets/images/looks/smart_2.jpg', StyleFit.menswear),
+    ('assets/images/looks/smart_3.jpg', StyleFit.womenswear),
+  ],
+  StylePreference.street: [
+    ('assets/images/looks/street_1.jpg', StyleFit.menswear),
+    ('assets/images/looks/street_2.jpg', StyleFit.womenswear),
+  ],
+  StylePreference.traditional: [
+    ('assets/images/looks/traditional_1.jpg', StyleFit.womenswear),
+    ('assets/images/looks/traditional_2.jpg', StyleFit.womenswear),
+    ('assets/images/looks/traditional_3.jpg', StyleFit.menswear),
+    ('assets/images/looks/traditional_4.jpg', StyleFit.menswear),
+  ],
+  StylePreference.sporty: [
+    ('assets/images/looks/sporty_1.jpg', StyleFit.menswear),
+    ('assets/images/looks/sporty_2.jpg', StyleFit.menswear),
+    ('assets/images/looks/sporty_3.jpg', StyleFit.womenswear),
+  ],
 };
+
+/// The look photos to show for [style] given the user's [fit].
+List<String> looksFor(StylePreference style, StyleFit fit) {
+  final all = styleImages[style]!;
+  final match = [
+    for (final (path, f) in all)
+      if (fit == StyleFit.all || f == StyleFit.all || f == fit) path,
+  ];
+  return match.isNotEmpty ? match : [for (final (path, _) in all) path];
+}
 
 IconData goalIcon(GoalType g) => switch (g) {
       GoalType.posture => Icons.accessibility_new,
@@ -67,6 +102,8 @@ class _GoalFinderScreenState extends ConsumerState<GoalFinderScreen> {
     // Start from what the user already chose.
     _goals ??= ref.watch(goalsProvider).value?.toSet();
     _styles ??= ref.watch(styleProfileProvider).value?.styles.toSet();
+    final fit = ref.watch(profileProvider).value?.effectiveStyleFit ??
+        StyleFit.all;
     final goals = _goals, styles = _styles;
     if (goals == null || styles == null) {
       return Scaffold(
@@ -90,7 +127,7 @@ class _GoalFinderScreenState extends ConsumerState<GoalFinderScreen> {
           ]
         : [
             for (final s in StylePreference.values)
-              for (final (i, image) in styleImages[s]!.indexed)
+              for (final (i, image) in looksFor(s, fit).indexed)
                 _Choice(
                   key: 'look-${s.name}-$i',
                   label: l10n.stylePrefName(s),
@@ -354,4 +391,11 @@ const photoCredits = <String, String>{
   'assets/images/looks/traditional_2.jpg': 'Sabesh Photography LTD',
   'assets/images/looks/sporty_1.jpg': 'Florian Kurrasch',
   'assets/images/looks/sporty_2.jpg': 'Reza Hasannia',
+  'assets/images/goals/plan.jpg': 'Leanna Myers',
+  'assets/images/looks/classic_3.jpg': 'Laura Chouette',
+  'assets/images/looks/minimal_3.jpg': 'Rodrigo Sümmer',
+  'assets/images/looks/smart_3.jpg': 'Nassim Boughazi',
+  'assets/images/looks/traditional_3.jpg': 'Noor Alam',
+  'assets/images/looks/traditional_4.jpg': 'Noor Alam',
+  'assets/images/looks/sporty_3.jpg': 'nobleseed nobleseed',
 };

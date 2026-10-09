@@ -2813,4 +2813,401 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forYouGoalsInfo => 'Pick images that inspire you';
+
+  @override
+  String get profileGender => 'Gender';
+
+  @override
+  String get profileGenderHelp =>
+      'Used only for calorie estimates and to show relevant style examples.';
+
+  @override
+  String get genderMale => 'Male';
+
+  @override
+  String get genderFemale => 'Female';
+
+  @override
+  String get genderNonBinary => 'Non-binary';
+
+  @override
+  String get genderPreferNot => 'Prefer not to say';
+
+  @override
+  String get profileDiet => 'Food preference';
+
+  @override
+  String get dietVegetarian => 'Vegetarian';
+
+  @override
+  String get dietEggetarian => 'Eggetarian';
+
+  @override
+  String get dietNonVegetarian => 'Non-vegetarian';
+
+  @override
+  String get dietVegan => 'Vegan';
+
+  @override
+  String get profileStyleFit => 'Show style examples for';
+
+  @override
+  String get styleFitAuto => 'Match my gender';
+
+  @override
+  String get styleFitMenswear => 'Menswear';
+
+  @override
+  String get styleFitWomenswear => 'Womenswear';
+
+  @override
+  String get styleFitAll => 'Everyone';
+
+  @override
+  String get onboardingAboutTitle => 'About you';
+
+  @override
+  String get onboardingAboutBody =>
+      'Everything here is optional and stays on this phone. It personalises your plans, quests and style suggestions.';
+
+  @override
+  String get onboardingHeightCm => 'Height (cm)';
+
+  @override
+  String get onboardingHeightFt => 'Height (ft)';
+
+  @override
+  String get onboardingHeightIn => 'in';
+
+  @override
+  String get onboardingWeightKg => 'Weight (kg)';
+
+  @override
+  String get onboardingWeightLb => 'Weight (lb)';
+
+  @override
+  String get onboardingInvalid => 'Check this value';
+
+  @override
+  String get greetingMorning => 'Good morning';
+
+  @override
+  String get greetingAfternoon => 'Good afternoon';
+
+  @override
+  String get greetingEvening => 'Good evening';
+
+  @override
+  String greetingNamed(String greeting, String name) {
+    return '$greeting, $name';
+  }
+
+  @override
+  String get homeCompleteProfile => 'Personalise your app';
+
+  @override
+  String get homeCompleteProfileInfo =>
+      'Add your gender, height and weight for accurate plans and relevant styles.';
+
+  @override
+  String get forYouBodyPlan => 'Your diet plan';
+
+  @override
+  String get forYouBodyPlanInfo => 'Meals and training for your goal';
+
+  @override
+  String get featureBodyPlan => 'Diet & body plan';
+
+  @override
+  String get bodyPlanIntro =>
+      'Calorie and protein targets, daily meals and a simple training week, built from your height, weight and goal.';
+
+  @override
+  String get bodyPlanNeedData => 'Add your height and weight to create a plan.';
+
+  @override
+  String get bodyPlanImprove =>
+      'Add your gender, age range and activity level in Profile for a better estimate.';
+
+  @override
+  String get bodyPlanOpenProfile => 'Open profile';
+
+  @override
+  String get bodyPlanGoal => 'Your goal';
+
+  @override
+  String get planLoseFat => 'Lose fat';
+
+  @override
+  String get planMaintain => 'Stay fit';
+
+  @override
+  String get planGainWeight => 'Gain weight';
+
+  @override
+  String get planBuildMuscle => 'Build muscle';
+
+  @override
+  String get planLoseFatInfo => 'A moderate calorie deficit with high protein';
+
+  @override
+  String get planMaintainInfo => 'Eat at maintenance and train regularly';
+
+  @override
+  String get planGainWeightInfo => 'A steady surplus to gain healthy weight';
+
+  @override
+  String get planBuildMuscleInfo => 'A lean surplus with strength training';
+
+  @override
+  String get planBlockUnderage =>
+      'Under 18: plan weight changes with a doctor. Maintenance guidance is available.';
+
+  @override
+  String get planBlockUnderweight =>
+      'Your BMI is below 18.5, so fat loss isn\'t suggested.';
+
+  @override
+  String get planBlockHeavy =>
+      'Your BMI is 25 or more. Try Build muscle instead.';
+
+  @override
+  String get bodyPlanPace => 'Pace';
+
+  @override
+  String get paceGentle => 'Gentle';
+
+  @override
+  String get paceSteady => 'Steady';
+
+  @override
+  String get paceBrisk => 'Brisk';
+
+  @override
+  String bodyPlanRate(String rate) {
+    return 'About $rate per week';
+  }
+
+  @override
+  String get bodyPlanTarget => 'Target weight (optional)';
+
+  @override
+  String bodyPlanHealthyRange(String range) {
+    return 'Healthy range for your height: $range';
+  }
+
+  @override
+  String get bodyPlanCalories => 'Calories';
+
+  @override
+  String get bodyPlanProtein => 'Protein';
+
+  @override
+  String get bodyPlanCarbs => 'Carbs';
+
+  @override
+  String get bodyPlanFat => 'Fat';
+
+  @override
+  String get bodyPlanWater => 'Water';
+
+  @override
+  String bodyPlanKcal(int value) {
+    return '$value kcal';
+  }
+
+  @override
+  String bodyPlanGrams(int value) {
+    return '$value g';
+  }
+
+  @override
+  String bodyPlanMaintenance(int kcal) {
+    return 'Maintenance is about $kcal kcal a day';
+  }
+
+  @override
+  String bodyPlanTimeline(int weeks) {
+    String _temp0 = intl.Intl.pluralLogic(
+      weeks,
+      locale: localeName,
+      other: 'About $weeks weeks to your target',
+      one: 'About 1 week to your target',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bodyPlanFloorNote =>
+      'Kept at a safe minimum, so progress will be slower than this pace.';
+
+  @override
+  String get bodyPlanStart => 'Start my plan';
+
+  @override
+  String get bodyPlanStarted => 'Your plan has started';
+
+  @override
+  String get bodyPlanDisclaimer =>
+      'Estimates for healthy adults, not medical advice. If you have a medical condition, are pregnant or take medication, check with a doctor first.';
+
+  @override
+  String bodyPlanSince(String date) {
+    return 'Since $date';
+  }
+
+  @override
+  String get bodyPlanToday => 'Today\'s targets';
+
+  @override
+  String bodyPlanEaten(int eaten, int target) {
+    return '$eaten of $target kcal logged today';
+  }
+
+  @override
+  String get bodyPlanMenu => 'Today\'s menu';
+
+  @override
+  String bodyPlanServings(String servings) {
+    return '× $servings';
+  }
+
+  @override
+  String get bodyPlanProteinBoost => 'Protein boost';
+
+  @override
+  String get bodyPlanLog => 'Log';
+
+  @override
+  String get bodyPlanLogged => 'Logged';
+
+  @override
+  String get bodyPlanSwap => 'Swap';
+
+  @override
+  String get bodyPlanWeek => 'This week\'s training';
+
+  @override
+  String get workoutStrengthA => 'Strength A';
+
+  @override
+  String get workoutStrengthB => 'Strength B';
+
+  @override
+  String get workoutCardio => 'Cardio';
+
+  @override
+  String get workoutMobility => 'Mobility';
+
+  @override
+  String get workoutRest => 'Rest';
+
+  @override
+  String bodyPlanMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String bodyPlanTodayWorkout(String workout) {
+    return 'Today: $workout';
+  }
+
+  @override
+  String get bodyPlanAddRoutine => 'Add workouts to my routines';
+
+  @override
+  String get bodyPlanRoutineAdded => 'Added to your routines';
+
+  @override
+  String get bodyPlanRoutineName => 'Training plan';
+
+  @override
+  String get bodyPlanWorkoutItem => 'Workout';
+
+  @override
+  String get bodyPlanProgress => 'Progress';
+
+  @override
+  String bodyPlanWeightNow(String now, String start) {
+    return '$now now · started at $start';
+  }
+
+  @override
+  String bodyPlanExpected(String weight) {
+    return 'Expected by now: $weight';
+  }
+
+  @override
+  String get bodyPlanUpdate => 'Your weight has changed. Update your targets?';
+
+  @override
+  String get bodyPlanUpdateAction => 'Update';
+
+  @override
+  String get bodyPlanEnd => 'End plan';
+
+  @override
+  String get bodyPlanEndConfirm =>
+      'End this plan? Your logged meals and workouts stay.';
+
+  @override
+  String get bodyPlanLogWeight => 'Log weight';
+
+  @override
+  String get bodyPlanChange => 'Change plan';
+
+  @override
+  String get profileRegion => 'Where are you based?';
+
+  @override
+  String get profileRegionHelp =>
+      'Used to suggest local food, suitable exercise and climate tips.';
+
+  @override
+  String get regionIndiaNorth => 'North India';
+
+  @override
+  String get regionIndiaSouth => 'South India';
+
+  @override
+  String get regionIndiaEast => 'East India';
+
+  @override
+  String get regionIndiaWest => 'West India';
+
+  @override
+  String get regionSouthAsia => 'Rest of South Asia';
+
+  @override
+  String get regionEastAsia => 'East Asia';
+
+  @override
+  String get regionSoutheastAsia => 'Southeast Asia';
+
+  @override
+  String get regionMiddleEast => 'Middle East';
+
+  @override
+  String get regionAfrica => 'Africa';
+
+  @override
+  String get regionEurope => 'Europe';
+
+  @override
+  String get regionNorthAmerica => 'North America';
+
+  @override
+  String get regionLatinAmerica => 'Latin America';
+
+  @override
+  String get regionOceania => 'Oceania';
+
+  @override
+  String get bodyPlanHotClimate =>
+      'Warm climate: train in the cooler morning or evening, and sip water through the day.';
+
+  @override
+  String bodyPlanLocalMenu(String region) {
+    return 'Meals chosen from $region cuisine where possible.';
+  }
 }

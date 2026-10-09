@@ -19,6 +19,7 @@ extension FeatureLabels on AppLocalizations {
         AppFeature.routines => featureRoutines,
         AppFeature.reminders => featureReminders,
         AppFeature.progress => featureProgress,
+        AppFeature.bodyPlan => featureBodyPlan,
         AppFeature.cameraCheck => featureCameraCheck,
         AppFeature.cameraHeightEstimate => featureCameraHeight,
         AppFeature.postureAnalysis => featurePosture,
@@ -59,6 +60,7 @@ IconData featureIcon(AppFeature feature) => switch (feature) {
       AppFeature.routines => Icons.schedule,
       AppFeature.reminders => Icons.notifications_none,
       AppFeature.progress => Icons.insights_outlined,
+      AppFeature.bodyPlan => Icons.restaurant_menu,
       AppFeature.cameraCheck => Icons.videocam_outlined,
       AppFeature.cameraHeightEstimate => Icons.photo_camera_outlined,
       AppFeature.postureAnalysis => Icons.accessibility_new,
@@ -71,4 +73,21 @@ IconData featureIcon(AppFeature feature) => switch (feature) {
       AppFeature.healthIntegration => Icons.health_and_safety_outlined,
       AppFeature.encryptedBackup => Icons.lock_outline,
       AppFeature.commerce => Icons.shopping_bag_outlined,
+    };
+
+/// Bundled photo for a feature card, or null to use vector art.
+String? featureImage(AppFeature f) => switch (f) {
+      AppFeature.water => 'assets/images/goals/hydration.jpg',
+      AppFeature.meals => 'assets/images/goals/weight.jpg',
+      AppFeature.sleep => 'assets/images/goals/sleep.jpg',
+      AppFeature.activity => 'assets/images/goals/fitness.jpg',
+      AppFeature.exercise => 'assets/images/goals/flexibility.jpg',
+      AppFeature.habits => 'assets/images/goals/habits.jpg',
+      AppFeature.bodyPlan => 'assets/images/goals/plan.jpg',
+      AppFeature.postureAnalysis => 'assets/images/goals/posture.jpg',
+      AppFeature.exerciseCameraTracking => 'assets/images/goals/feed_exercise.jpg',
+      AppFeature.faceAnalysis => 'assets/images/styles/side_part.jpg',
+      AppFeature.styleRecommendations => 'assets/images/goals/feed_colours.jpg',
+      AppFeature.wardrobe => 'assets/images/goals/feed_wardrobe.jpg',
+      _ => null,
     };

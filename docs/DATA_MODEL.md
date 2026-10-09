@@ -36,6 +36,7 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 | 9 Snapshots | `progress_snapshot` (kind face/bodyFront/bodySide, taken_at, JPEG blob ≤1080 px, width, height). Opt-in; stored only inside the encrypted database. v9 adds `left_eye_x/y`, `right_eye_x/y` (0–1 fractions, nullable) and `align_checked`, so the face time-lapse can be aligned; eyes are found once per photo, in memory. |
 | 10 Style | `wardrobe_item` (category, colour hex, pattern, formality 1–5, occasions, favourite, optional photo blob), `outfit`, `outfit_item` (cascades), `outfit_wear` (days worn). Style/colour profile = `app_settings` keys (`style.undertone`, `style.depth`, `style.preferences`). |
 | 11 Journey | No new tables: XP, levels, streaks, quests and badges are derived from existing records (`ProgressRepository` digest per local day). `app_settings` key `progress.badges_seen` remembers which badge celebrations were shown. |
+| 12 Personal + plans | `user_profile` gains `gender`, `diet_preference`, `style_fit`, `region` (all optional). `body_plan` (kind, pace, diet, start day/weight, optional target, calories, macros, water; one active, ended plans kept). Targets are stored as calculated at the start so history stays stable. |
 | 10 Recommendations | `recommendation`, `recommendation_history`, `evolution_event` |
 | 11 AI | `ai_model`, `model_version`, `ai_conversation`, `ai_message` |
 | 12 Health integrations | `health_platform_data` |

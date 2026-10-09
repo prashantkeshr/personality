@@ -2799,4 +2799,404 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get forYouGoalsInfo => 'प्रेरित करने वाली तस्वीरें चुनें';
+
+  @override
+  String get profileGender => 'लिंग';
+
+  @override
+  String get profileGenderHelp =>
+      'केवल कैलोरी अनुमान और उपयुक्त स्टाइल उदाहरण दिखाने के लिए।';
+
+  @override
+  String get genderMale => 'पुरुष';
+
+  @override
+  String get genderFemale => 'महिला';
+
+  @override
+  String get genderNonBinary => 'नॉन-बाइनरी';
+
+  @override
+  String get genderPreferNot => 'बताना नहीं चाहते';
+
+  @override
+  String get profileDiet => 'भोजन पसंद';
+
+  @override
+  String get dietVegetarian => 'शाकाहारी';
+
+  @override
+  String get dietEggetarian => 'अंडाहारी';
+
+  @override
+  String get dietNonVegetarian => 'मांसाहारी';
+
+  @override
+  String get dietVegan => 'वीगन';
+
+  @override
+  String get profileStyleFit => 'स्टाइल उदाहरण दिखाएँ';
+
+  @override
+  String get styleFitAuto => 'मेरे लिंग के अनुसार';
+
+  @override
+  String get styleFitMenswear => 'पुरुषों के कपड़े';
+
+  @override
+  String get styleFitWomenswear => 'महिलाओं के कपड़े';
+
+  @override
+  String get styleFitAll => 'सभी';
+
+  @override
+  String get onboardingAboutTitle => 'आपके बारे में';
+
+  @override
+  String get onboardingAboutBody =>
+      'यहाँ सब कुछ वैकल्पिक है और इसी फ़ोन पर रहता है। इससे आपकी योजनाएँ, लक्ष्य और स्टाइल सुझाव व्यक्तिगत बनते हैं।';
+
+  @override
+  String get onboardingHeightCm => 'लंबाई (सेमी)';
+
+  @override
+  String get onboardingHeightFt => 'लंबाई (फ़ुट)';
+
+  @override
+  String get onboardingHeightIn => 'इंच';
+
+  @override
+  String get onboardingWeightKg => 'वज़न (किग्रा)';
+
+  @override
+  String get onboardingWeightLb => 'वज़न (पाउंड)';
+
+  @override
+  String get onboardingInvalid => 'यह मान जाँचें';
+
+  @override
+  String get greetingMorning => 'सुप्रभात';
+
+  @override
+  String get greetingAfternoon => 'नमस्कार';
+
+  @override
+  String get greetingEvening => 'शुभ संध्या';
+
+  @override
+  String greetingNamed(String greeting, String name) {
+    return '$greeting, $name';
+  }
+
+  @override
+  String get homeCompleteProfile => 'ऐप को अपने अनुसार बनाएँ';
+
+  @override
+  String get homeCompleteProfileInfo =>
+      'सटीक योजनाओं और उपयुक्त स्टाइल के लिए अपना लिंग, लंबाई और वज़न जोड़ें।';
+
+  @override
+  String get forYouBodyPlan => 'आपकी डाइट योजना';
+
+  @override
+  String get forYouBodyPlanInfo => 'आपके लक्ष्य के लिए भोजन और व्यायाम';
+
+  @override
+  String get featureBodyPlan => 'डाइट और बॉडी प्लान';
+
+  @override
+  String get bodyPlanIntro =>
+      'आपकी लंबाई, वज़न और लक्ष्य से बने कैलोरी और प्रोटीन लक्ष्य, रोज़ का भोजन और आसान साप्ताहिक व्यायाम।';
+
+  @override
+  String get bodyPlanNeedData =>
+      'योजना बनाने के लिए अपनी लंबाई और वज़न जोड़ें।';
+
+  @override
+  String get bodyPlanImprove =>
+      'बेहतर अनुमान के लिए प्रोफ़ाइल में लिंग, आयु वर्ग और सक्रियता जोड़ें।';
+
+  @override
+  String get bodyPlanOpenProfile => 'प्रोफ़ाइल खोलें';
+
+  @override
+  String get bodyPlanGoal => 'आपका लक्ष्य';
+
+  @override
+  String get planLoseFat => 'चर्बी घटाएँ';
+
+  @override
+  String get planMaintain => 'फ़िट रहें';
+
+  @override
+  String get planGainWeight => 'वज़न बढ़ाएँ';
+
+  @override
+  String get planBuildMuscle => 'मांसपेशियाँ बनाएँ';
+
+  @override
+  String get planLoseFatInfo => 'ज़्यादा प्रोटीन के साथ संतुलित कैलोरी कमी';
+
+  @override
+  String get planMaintainInfo => 'संतुलित कैलोरी और नियमित व्यायाम';
+
+  @override
+  String get planGainWeightInfo =>
+      'स्वस्थ वज़न बढ़ाने के लिए स्थिर अतिरिक्त कैलोरी';
+
+  @override
+  String get planBuildMuscleInfo =>
+      'स्ट्रेंथ ट्रेनिंग के साथ थोड़ी अतिरिक्त कैलोरी';
+
+  @override
+  String get planBlockUnderage =>
+      '18 से कम: वज़न बदलने की योजना डॉक्टर के साथ बनाएँ। संतुलन मार्गदर्शन उपलब्ध है।';
+
+  @override
+  String get planBlockUnderweight =>
+      'आपका BMI 18.5 से कम है, इसलिए चर्बी घटाना सुझाया नहीं जाता।';
+
+  @override
+  String get planBlockHeavy =>
+      'आपका BMI 25 या अधिक है। इसके बजाय मांसपेशियाँ बनाएँ चुनें।';
+
+  @override
+  String get bodyPlanPace => 'गति';
+
+  @override
+  String get paceGentle => 'धीमी';
+
+  @override
+  String get paceSteady => 'स्थिर';
+
+  @override
+  String get paceBrisk => 'तेज़';
+
+  @override
+  String bodyPlanRate(String rate) {
+    return 'प्रति सप्ताह लगभग $rate';
+  }
+
+  @override
+  String get bodyPlanTarget => 'लक्ष्य वज़न (वैकल्पिक)';
+
+  @override
+  String bodyPlanHealthyRange(String range) {
+    return 'आपकी लंबाई के लिए स्वस्थ दायरा: $range';
+  }
+
+  @override
+  String get bodyPlanCalories => 'कैलोरी';
+
+  @override
+  String get bodyPlanProtein => 'प्रोटीन';
+
+  @override
+  String get bodyPlanCarbs => 'कार्ब्स';
+
+  @override
+  String get bodyPlanFat => 'वसा';
+
+  @override
+  String get bodyPlanWater => 'पानी';
+
+  @override
+  String bodyPlanKcal(int value) {
+    return '$value कैलोरी';
+  }
+
+  @override
+  String bodyPlanGrams(int value) {
+    return '$value ग्राम';
+  }
+
+  @override
+  String bodyPlanMaintenance(int kcal) {
+    return 'संतुलन लगभग $kcal कैलोरी प्रतिदिन';
+  }
+
+  @override
+  String bodyPlanTimeline(int weeks) {
+    String _temp0 = intl.Intl.pluralLogic(
+      weeks,
+      locale: localeName,
+      other: 'लक्ष्य तक लगभग $weeks सप्ताह',
+      one: 'लक्ष्य तक लगभग 1 सप्ताह',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bodyPlanFloorNote =>
+      'सुरक्षित न्यूनतम पर रखा गया है, इसलिए प्रगति इस गति से धीमी होगी।';
+
+  @override
+  String get bodyPlanStart => 'मेरी योजना शुरू करें';
+
+  @override
+  String get bodyPlanStarted => 'आपकी योजना शुरू हो गई';
+
+  @override
+  String get bodyPlanDisclaimer =>
+      'ये स्वस्थ वयस्कों के लिए अनुमान हैं, चिकित्सा सलाह नहीं। यदि आपको कोई बीमारी है, आप गर्भवती हैं या दवा लेते हैं, तो पहले डॉक्टर से पूछें।';
+
+  @override
+  String bodyPlanSince(String date) {
+    return '$date से';
+  }
+
+  @override
+  String get bodyPlanToday => 'आज के लक्ष्य';
+
+  @override
+  String bodyPlanEaten(int eaten, int target) {
+    return 'आज $target में से $eaten कैलोरी दर्ज';
+  }
+
+  @override
+  String get bodyPlanMenu => 'आज का मेन्यू';
+
+  @override
+  String bodyPlanServings(String servings) {
+    return '× $servings';
+  }
+
+  @override
+  String get bodyPlanProteinBoost => 'प्रोटीन बढ़ाएँ';
+
+  @override
+  String get bodyPlanLog => 'दर्ज करें';
+
+  @override
+  String get bodyPlanLogged => 'दर्ज हुआ';
+
+  @override
+  String get bodyPlanSwap => 'बदलें';
+
+  @override
+  String get bodyPlanWeek => 'इस सप्ताह का व्यायाम';
+
+  @override
+  String get workoutStrengthA => 'स्ट्रेंथ A';
+
+  @override
+  String get workoutStrengthB => 'स्ट्रेंथ B';
+
+  @override
+  String get workoutCardio => 'कार्डियो';
+
+  @override
+  String get workoutMobility => 'लचीलापन';
+
+  @override
+  String get workoutRest => 'आराम';
+
+  @override
+  String bodyPlanMinutes(int minutes) {
+    return '$minutes मिनट';
+  }
+
+  @override
+  String bodyPlanTodayWorkout(String workout) {
+    return 'आज: $workout';
+  }
+
+  @override
+  String get bodyPlanAddRoutine => 'व्यायाम मेरी दिनचर्या में जोड़ें';
+
+  @override
+  String get bodyPlanRoutineAdded => 'आपकी दिनचर्या में जोड़ा गया';
+
+  @override
+  String get bodyPlanRoutineName => 'व्यायाम योजना';
+
+  @override
+  String get bodyPlanWorkoutItem => 'व्यायाम';
+
+  @override
+  String get bodyPlanProgress => 'प्रगति';
+
+  @override
+  String bodyPlanWeightNow(String now, String start) {
+    return 'अभी $now · शुरुआत $start';
+  }
+
+  @override
+  String bodyPlanExpected(String weight) {
+    return 'अब तक अपेक्षित: $weight';
+  }
+
+  @override
+  String get bodyPlanUpdate => 'आपका वज़न बदल गया है। लक्ष्य अपडेट करें?';
+
+  @override
+  String get bodyPlanUpdateAction => 'अपडेट करें';
+
+  @override
+  String get bodyPlanEnd => 'योजना समाप्त करें';
+
+  @override
+  String get bodyPlanEndConfirm =>
+      'यह योजना समाप्त करें? आपका दर्ज भोजन और व्यायाम बना रहेगा।';
+
+  @override
+  String get bodyPlanLogWeight => 'वज़न दर्ज करें';
+
+  @override
+  String get bodyPlanChange => 'योजना बदलें';
+
+  @override
+  String get profileRegion => 'आप कहाँ रहते हैं?';
+
+  @override
+  String get profileRegionHelp =>
+      'स्थानीय भोजन, उपयुक्त व्यायाम और मौसम सुझावों के लिए।';
+
+  @override
+  String get regionIndiaNorth => 'उत्तर भारत';
+
+  @override
+  String get regionIndiaSouth => 'दक्षिण भारत';
+
+  @override
+  String get regionIndiaEast => 'पूर्वी भारत';
+
+  @override
+  String get regionIndiaWest => 'पश्चिम भारत';
+
+  @override
+  String get regionSouthAsia => 'शेष दक्षिण एशिया';
+
+  @override
+  String get regionEastAsia => 'पूर्वी एशिया';
+
+  @override
+  String get regionSoutheastAsia => 'दक्षिण-पूर्व एशिया';
+
+  @override
+  String get regionMiddleEast => 'मध्य पूर्व';
+
+  @override
+  String get regionAfrica => 'अफ़्रीका';
+
+  @override
+  String get regionEurope => 'यूरोप';
+
+  @override
+  String get regionNorthAmerica => 'उत्तर अमेरिका';
+
+  @override
+  String get regionLatinAmerica => 'लैटिन अमेरिका';
+
+  @override
+  String get regionOceania => 'ओशिनिया';
+
+  @override
+  String get bodyPlanHotClimate =>
+      'गर्म मौसम: सुबह या शाम की ठंडक में व्यायाम करें और दिन भर पानी पीते रहें।';
+
+  @override
+  String bodyPlanLocalMenu(String region) {
+    return 'जहाँ संभव हो, $region के भोजन से चुने गए व्यंजन।';
+  }
 }

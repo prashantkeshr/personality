@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router.dart';
 import '../../core/logging/app_logger.dart';
 import '../../core/theme/app_theme.dart';
+import '../../domain/entities/body.dart' show StyleFit;
 import '../../domain/entities/grooming.dart';
 import '../../domain/entities/provenance.dart';
 import '../../domain/entities/routine.dart';
@@ -22,6 +23,7 @@ import '../camera/camera_providers.dart';
 import '../camera/camera_source.dart';
 import '../camera/camera_stage.dart';
 import '../camera/portrait_lock.dart';
+import '../health/body_providers.dart' show profileProvider;
 import '../../shared/visual/reveal.dart';
 import '../../shared/visual/style_art.dart';
 import '../../shared/visual/style_carousel.dart';
@@ -390,6 +392,8 @@ class FaceResultView extends ConsumerWidget {
     final lang = Localizations.localeOf(context).languageCode;
     final content = ref.watch(groomingContentProvider).value;
     final favorites = ref.watch(styleFavoritesProvider).value ?? const {};
+    final fit = ref.watch(profileProvider).value?.effectiveStyleFit ??
+        StyleFit.all;
     final shapeText = result.alsoLike == null
         ? l10n.faceShapeName(result.shape)
         : l10n.faceShapeBetween(
@@ -400,7 +404,7 @@ class FaceResultView extends ConsumerWidget {
       final seen = <String>{};
       final items = [
         for (final s in [result.shape, ?result.alsoLike])
-          for (final i in content?.suggestions(s, kind) ?? const <StyleItem>[])
+          for (final i in content?.suggestions(s, kind, fit: fit) ?? const <StyleItem>[])
             if (seen.add(i.id)) i,
       ].take(4).toList();
       if (items.isEmpty || content == null) return const [];
