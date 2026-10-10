@@ -6727,6 +6727,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Phone sensor'**
   String get sourcePhone;
+
+  /// No description provided for @backupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup & export'**
+  String get backupTitle;
+
+  /// No description provided for @backupSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to a new phone, keep a safe copy, or open your data elsewhere'**
+  String get backupSubtitle;
+
+  /// No description provided for @backupIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'There\'s no account and no cloud, so your data lives only on this phone. Make a backup file and keep it somewhere safe, or send it to your other phone.'**
+  String get backupIntro;
+
+  /// No description provided for @backupEncrypted.
+  ///
+  /// In en, this message translates to:
+  /// **'Encrypted backup'**
+  String get backupEncrypted;
+
+  /// No description provided for @backupEncryptedInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in the app, locked with a passphrase you choose. Restore it on any phone with Personality.'**
+  String get backupEncryptedInfo;
+
+  /// No description provided for @backupIncludePhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Include progress photos'**
+  String get backupIncludePhotos;
+
+  /// No description provided for @backupIncludePhotosInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Makes the file larger.'**
+  String get backupIncludePhotosInfo;
+
+  /// No description provided for @backupSaveFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to file'**
+  String get backupSaveFile;
+
+  /// No description provided for @backupShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get backupShare;
+
+  /// No description provided for @backupNever.
+  ///
+  /// In en, this message translates to:
+  /// **'No backup made on this phone yet'**
+  String get backupNever;
+
+  /// No description provided for @backupLast.
+  ///
+  /// In en, this message translates to:
+  /// **'Last backup {time}'**
+  String backupLast(String time);
+
+  /// No description provided for @backupSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get backupSaved;
+
+  /// No description provided for @backupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'That didn\'t work. Please try again.'**
+  String get backupFailed;
+
+  /// No description provided for @backupRestoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore a backup'**
+  String get backupRestoreTitle;
+
+  /// No description provided for @backupRestoreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a .personality file from your other phone, a drive or a chat.'**
+  String get backupRestoreInfo;
+
+  /// No description provided for @backupChooseFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose backup file'**
+  String get backupChooseFile;
+
+  /// No description provided for @backupExportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Export for other apps'**
+  String get backupExportTitle;
+
+  /// No description provided for @backupExportInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Readable copies to open in a spreadsheet or another app. Not encrypted and without photos.'**
+  String get backupExportInfo;
+
+  /// No description provided for @backupCsv.
+  ///
+  /// In en, this message translates to:
+  /// **'Spreadsheet (CSV)'**
+  String get backupCsv;
+
+  /// No description provided for @backupCsvInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A zip with one table per kind of record'**
+  String get backupCsvInfo;
+
+  /// No description provided for @backupJson.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON'**
+  String get backupJson;
+
+  /// No description provided for @backupJsonInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in one file, for developers'**
+  String get backupJsonInfo;
+
+  /// No description provided for @backupPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Files go only where you send them. Without the passphrase a backup can\'t be read by anyone, including us, and a lost passphrase can\'t be recovered.'**
+  String get backupPrivacy;
+
+  /// No description provided for @backupPassphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Passphrase'**
+  String get backupPassphrase;
+
+  /// No description provided for @backupPassphraseAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat passphrase'**
+  String get backupPassphraseAgain;
+
+  /// No description provided for @backupPassphraseCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a passphrase'**
+  String get backupPassphraseCreate;
+
+  /// No description provided for @backupPassphraseEnter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the backup\'s passphrase'**
+  String get backupPassphraseEnter;
+
+  /// No description provided for @backupPassphraseWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll need it to restore. Write it down: it can\'t be reset.'**
+  String get backupPassphraseWarning;
+
+  /// No description provided for @backupPassphraseShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 8 characters'**
+  String get backupPassphraseShort;
+
+  /// No description provided for @backupPassphraseMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The passphrases don\'t match'**
+  String get backupPassphraseMismatch;
+
+  /// No description provided for @backupShowPassphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Show passphrase'**
+  String get backupShowPassphrase;
+
+  /// No description provided for @backupContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get backupContinue;
+
+  /// No description provided for @backupFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup from {date}: {records} records, {photos} photos.'**
+  String backupFound(String date, int records, int photos);
+
+  /// No description provided for @backupMergeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add: keeps what\'s on this phone and adds anything missing.'**
+  String get backupMergeInfo;
+
+  /// No description provided for @backupReplaceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace: this phone\'s data is swapped for the backup.'**
+  String get backupReplaceInfo;
+
+  /// No description provided for @backupMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get backupMerge;
+
+  /// No description provided for @backupReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get backupReplace;
+
+  /// No description provided for @backupRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Restored 1 record} other{Restored {count} records}}'**
+  String backupRestored(int count);
+
+  /// No description provided for @backupErrorNotBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'That isn\'t a Personality backup file.'**
+  String get backupErrorNotBackup;
+
+  /// No description provided for @backupErrorDamaged.
+  ///
+  /// In en, this message translates to:
+  /// **'The backup file is damaged or incomplete.'**
+  String get backupErrorDamaged;
+
+  /// No description provided for @backupErrorPassphrase.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong passphrase.'**
+  String get backupErrorPassphrase;
+
+  /// No description provided for @backupErrorTooNew.
+  ///
+  /// In en, this message translates to:
+  /// **'This backup is from a newer version. Update the app, then try again.'**
+  String get backupErrorTooNew;
 }
 
 class _AppLocalizationsDelegate

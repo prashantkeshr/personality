@@ -72,6 +72,16 @@
                 <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
             </intent-filter>
         </activity-alias>
+        <!-- Hands a backup or export to the app the user picks in the share sheet. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <receiver android:exported="false" android:name=".sensors.MotionReceiver" />
         <receiver android:exported="false" android:name=".sensors.SensorBootReceiver">
             <intent-filter>

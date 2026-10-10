@@ -3805,4 +3805,152 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get sourcePhone => 'फ़ोन सेंसर';
+
+  @override
+  String get backupTitle => 'बैकअप और एक्सपोर्ट';
+
+  @override
+  String get backupSubtitle =>
+      'नए फ़ोन पर ले जाएँ, सुरक्षित कॉपी रखें, या डेटा कहीं और खोलें';
+
+  @override
+  String get backupIntro =>
+      'कोई खाता या क्लाउड नहीं है, इसलिए आपका डेटा सिर्फ़ इसी फ़ोन पर है। बैकअप फ़ाइल बनाकर सुरक्षित रखें, या अपने दूसरे फ़ोन पर भेजें।';
+
+  @override
+  String get backupEncrypted => 'एन्क्रिप्टेड बैकअप';
+
+  @override
+  String get backupEncryptedInfo =>
+      'ऐप का सब कुछ, आपके चुने पासफ़्रेज़ से लॉक। Personality वाले किसी भी फ़ोन पर रीस्टोर करें।';
+
+  @override
+  String get backupIncludePhotos => 'प्रगति फ़ोटो शामिल करें';
+
+  @override
+  String get backupIncludePhotosInfo => 'फ़ाइल बड़ी हो जाती है।';
+
+  @override
+  String get backupSaveFile => 'फ़ाइल में सहेजें';
+
+  @override
+  String get backupShare => 'भेजें';
+
+  @override
+  String get backupNever => 'इस फ़ोन पर अभी कोई बैकअप नहीं बना';
+
+  @override
+  String backupLast(String time) {
+    return 'अंतिम बैकअप $time';
+  }
+
+  @override
+  String get backupSaved => 'सहेजा गया';
+
+  @override
+  String get backupFailed => 'यह नहीं हो पाया। कृपया फिर से कोशिश करें।';
+
+  @override
+  String get backupRestoreTitle => 'बैकअप रीस्टोर करें';
+
+  @override
+  String get backupRestoreInfo =>
+      'अपने दूसरे फ़ोन, ड्राइव या चैट से .personality फ़ाइल खोलें।';
+
+  @override
+  String get backupChooseFile => 'बैकअप फ़ाइल चुनें';
+
+  @override
+  String get backupExportTitle => 'अन्य ऐप्स के लिए एक्सपोर्ट';
+
+  @override
+  String get backupExportInfo =>
+      'स्प्रेडशीट या किसी अन्य ऐप में खोलने के लिए पढ़ने योग्य कॉपी। एन्क्रिप्टेड नहीं और फ़ोटो के बिना।';
+
+  @override
+  String get backupCsv => 'स्प्रेडशीट (CSV)';
+
+  @override
+  String get backupCsvInfo => 'हर प्रकार के रिकॉर्ड की एक तालिका वाली zip';
+
+  @override
+  String get backupJson => 'JSON';
+
+  @override
+  String get backupJsonInfo => 'सब कुछ एक फ़ाइल में, डेवलपर्स के लिए';
+
+  @override
+  String get backupPrivacy =>
+      'फ़ाइलें वहीं जाती हैं जहाँ आप भेजते हैं। पासफ़्रेज़ के बिना बैकअप कोई नहीं पढ़ सकता, हम भी नहीं, और खोया पासफ़्रेज़ वापस नहीं मिल सकता।';
+
+  @override
+  String get backupPassphrase => 'पासफ़्रेज़';
+
+  @override
+  String get backupPassphraseAgain => 'पासफ़्रेज़ दोबारा';
+
+  @override
+  String get backupPassphraseCreate => 'पासफ़्रेज़ चुनें';
+
+  @override
+  String get backupPassphraseEnter => 'बैकअप का पासफ़्रेज़ डालें';
+
+  @override
+  String get backupPassphraseWarning =>
+      'रीस्टोर के लिए इसकी ज़रूरत होगी। इसे लिख लें: यह रीसेट नहीं हो सकता।';
+
+  @override
+  String get backupPassphraseShort => 'कम से कम 8 अक्षर रखें';
+
+  @override
+  String get backupPassphraseMismatch => 'पासफ़्रेज़ मेल नहीं खाते';
+
+  @override
+  String get backupShowPassphrase => 'पासफ़्रेज़ दिखाएँ';
+
+  @override
+  String get backupContinue => 'आगे बढ़ें';
+
+  @override
+  String backupFound(String date, int records, int photos) {
+    return '$date का बैकअप: $records रिकॉर्ड, $photos फ़ोटो।';
+  }
+
+  @override
+  String get backupMergeInfo =>
+      'जोड़ें: इस फ़ोन का डेटा रखता है और जो नहीं है वह जोड़ता है।';
+
+  @override
+  String get backupReplaceInfo =>
+      'बदलें: इस फ़ोन का डेटा बैकअप से बदल दिया जाता है।';
+
+  @override
+  String get backupMerge => 'जोड़ें';
+
+  @override
+  String get backupReplace => 'बदलें';
+
+  @override
+  String backupRestored(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count रिकॉर्ड रीस्टोर हुए',
+      one: '1 रिकॉर्ड रीस्टोर हुआ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get backupErrorNotBackup => 'यह Personality बैकअप फ़ाइल नहीं है।';
+
+  @override
+  String get backupErrorDamaged => 'बैकअप फ़ाइल खराब या अधूरी है।';
+
+  @override
+  String get backupErrorPassphrase => 'गलत पासफ़्रेज़।';
+
+  @override
+  String get backupErrorTooNew =>
+      'यह बैकअप नए संस्करण का है। ऐप अपडेट करके फिर कोशिश करें।';
 }

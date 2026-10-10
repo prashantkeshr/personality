@@ -3818,4 +3818,152 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sourcePhone => 'Phone sensor';
+
+  @override
+  String get backupTitle => 'Backup & export';
+
+  @override
+  String get backupSubtitle =>
+      'Move to a new phone, keep a safe copy, or open your data elsewhere';
+
+  @override
+  String get backupIntro =>
+      'There\'s no account and no cloud, so your data lives only on this phone. Make a backup file and keep it somewhere safe, or send it to your other phone.';
+
+  @override
+  String get backupEncrypted => 'Encrypted backup';
+
+  @override
+  String get backupEncryptedInfo =>
+      'Everything in the app, locked with a passphrase you choose. Restore it on any phone with Personality.';
+
+  @override
+  String get backupIncludePhotos => 'Include progress photos';
+
+  @override
+  String get backupIncludePhotosInfo => 'Makes the file larger.';
+
+  @override
+  String get backupSaveFile => 'Save to file';
+
+  @override
+  String get backupShare => 'Send';
+
+  @override
+  String get backupNever => 'No backup made on this phone yet';
+
+  @override
+  String backupLast(String time) {
+    return 'Last backup $time';
+  }
+
+  @override
+  String get backupSaved => 'Saved';
+
+  @override
+  String get backupFailed => 'That didn\'t work. Please try again.';
+
+  @override
+  String get backupRestoreTitle => 'Restore a backup';
+
+  @override
+  String get backupRestoreInfo =>
+      'Open a .personality file from your other phone, a drive or a chat.';
+
+  @override
+  String get backupChooseFile => 'Choose backup file';
+
+  @override
+  String get backupExportTitle => 'Export for other apps';
+
+  @override
+  String get backupExportInfo =>
+      'Readable copies to open in a spreadsheet or another app. Not encrypted and without photos.';
+
+  @override
+  String get backupCsv => 'Spreadsheet (CSV)';
+
+  @override
+  String get backupCsvInfo => 'A zip with one table per kind of record';
+
+  @override
+  String get backupJson => 'JSON';
+
+  @override
+  String get backupJsonInfo => 'Everything in one file, for developers';
+
+  @override
+  String get backupPrivacy =>
+      'Files go only where you send them. Without the passphrase a backup can\'t be read by anyone, including us, and a lost passphrase can\'t be recovered.';
+
+  @override
+  String get backupPassphrase => 'Passphrase';
+
+  @override
+  String get backupPassphraseAgain => 'Repeat passphrase';
+
+  @override
+  String get backupPassphraseCreate => 'Choose a passphrase';
+
+  @override
+  String get backupPassphraseEnter => 'Enter the backup\'s passphrase';
+
+  @override
+  String get backupPassphraseWarning =>
+      'You\'ll need it to restore. Write it down: it can\'t be reset.';
+
+  @override
+  String get backupPassphraseShort => 'Use at least 8 characters';
+
+  @override
+  String get backupPassphraseMismatch => 'The passphrases don\'t match';
+
+  @override
+  String get backupShowPassphrase => 'Show passphrase';
+
+  @override
+  String get backupContinue => 'Continue';
+
+  @override
+  String backupFound(String date, int records, int photos) {
+    return 'Backup from $date: $records records, $photos photos.';
+  }
+
+  @override
+  String get backupMergeInfo =>
+      'Add: keeps what\'s on this phone and adds anything missing.';
+
+  @override
+  String get backupReplaceInfo =>
+      'Replace: this phone\'s data is swapped for the backup.';
+
+  @override
+  String get backupMerge => 'Add';
+
+  @override
+  String get backupReplace => 'Replace';
+
+  @override
+  String backupRestored(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Restored $count records',
+      one: 'Restored 1 record',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get backupErrorNotBackup => 'That isn\'t a Personality backup file.';
+
+  @override
+  String get backupErrorDamaged => 'The backup file is damaged or incomplete.';
+
+  @override
+  String get backupErrorPassphrase => 'Wrong passphrase.';
+
+  @override
+  String get backupErrorTooNew =>
+      'This backup is from a newer version. Update the app, then try again.';
 }

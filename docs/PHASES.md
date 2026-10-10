@@ -390,3 +390,43 @@ Verification:
 - `flutter analyze`: no issues. `flutter test`: 320/320 pass (step day-splitting with reboot and glitch, session pairing, sleep merging, larger-of-two steps, importer de-duplication and source precedence, disconnect, Connected data screen with permission and sync).
 - Emulator (Android 16): Health Connect permission screen, Physical activity prompt, and sync all work.
 - Release APK on the phone launches cleanly. Permissions were checked with a direct aapt2 dump: no INTERNET.
+
+## Phase 16 — data portability (2026-10-10)
+
+There's no server, so moving to another phone or keeping a safe copy is done with files the user controls. Find it at Settings → Backup & export.
+
+- **Encrypted backup** (`.personality`):
+  - Contains every table, with progress photos optional.
+  - Layout: `PRSNLTY1` magic, then a JSON header (format, PBKDF2-HMAC-SHA256 with 210,000 rounds, salt, nonce), then the AES-256-GCM ciphertext of gzipped JSON.
+  - Key stretching and encryption run in a background isolate.
+  - A lost passphrase can't be recovered.
+  - Device-only settings (`sync.*`, `backup.*`) stay on the phone.
+- **Restore** has two modes:
+  - **Add**: `INSERT OR IGNORE`. It never duplicates.
+  - **Replace**: wipes this phone's data, then inserts the backup.
+  - Restore runs in one transaction with deferred foreign keys.
+  - It writes only the tables and columns this version knows, so older backups restore and newer-schema backups are refused.
+  - Settings reload afterwards.
+  - Clear errors cover: not a backup, damaged file, wrong passphrase, newer version.
+- **Export for other apps**:
+  - CSV zip: one file per table, `*_at` columns as readable local times, plus a README. No photos.
+  - JSON with everything.
+- **Moving files**:
+  - Android's own pickers (`ACTION_CREATE_DOCUMENT` / `ACTION_OPEN_DOCUMENT`) and the share sheet, through a `personality/files` channel and a FileProvider limited to `cache/share/`.
+  - No storage permission and still no INTERNET.
+- Packages: `cryptography` 2.9 and `archive` 4.4.
+
+Verification:
+- `flutter analyze`: no issues.
+- `flutter test`: 326/326 pass. The new tests cover:
+  - encrypted round trip with photos and settings;
+  - wrong passphrase, foreign, truncated and tampered files;
+  - merging twice without duplicates;
+  - an older backup with retired columns and tables;
+  - CSV quoting and times;
+  - the screen flow (passphrase rules, save, wrong passphrase, restore).
+- Emulator, release build:
+  - Saved through the system picker; the file starts with `PRSNLTY1`.
+  - Restored through the open picker; "Restored 8 records".
+  - The CSV share sheet opens.
+- Release APK installed on the phone. aapt2 shows no INTERNET or storage permission.

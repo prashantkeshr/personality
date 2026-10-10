@@ -51,6 +51,15 @@ class SettingsScreen extends StatelessWidget {
           body(l10n.privacyStorageSummary),
           const SizedBox(height: AppSpacing.sm),
           body(l10n.privacyCameraSummary),
+          header(l10n.backupTitle),
+          ListTile(
+            key: const Key('settings-backup'),
+            leading: const Icon(Icons.backup_outlined),
+            title: Text(l10n.backupTitle),
+            subtitle: Text(l10n.backupSubtitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRoutes.backup),
+          ),
           header(l10n.deviceInfoTitle),
           ListTile(
             leading: const Icon(Icons.memory),

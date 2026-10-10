@@ -2051,5 +2051,74 @@
     }
   },
   "connectedPrivacy": "Read only and on this device. Steps from several sources never add up twice: the larger daily total is used.",
-  "sourcePhone": "Phone sensor"
+  "sourcePhone": "Phone sensor",
+  "backupTitle": "Backup & export",
+  "backupSubtitle": "Move to a new phone, keep a safe copy, or open your data elsewhere",
+  "backupIntro": "There's no account and no cloud, so your data lives only on this phone. Make a backup file and keep it somewhere safe, or send it to your other phone.",
+  "backupEncrypted": "Encrypted backup",
+  "backupEncryptedInfo": "Everything in the app, locked with a passphrase you choose. Restore it on any phone with Personality.",
+  "backupIncludePhotos": "Include progress photos",
+  "backupIncludePhotosInfo": "Makes the file larger.",
+  "backupSaveFile": "Save to file",
+  "backupShare": "Send",
+  "backupNever": "No backup made on this phone yet",
+  "backupLast": "Last backup {time}",
+  "@backupLast": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSaved": "Saved",
+  "backupFailed": "That didn't work. Please try again.",
+  "backupRestoreTitle": "Restore a backup",
+  "backupRestoreInfo": "Open a .personality file from your other phone, a drive or a chat.",
+  "backupChooseFile": "Choose backup file",
+  "backupExportTitle": "Export for other apps",
+  "backupExportInfo": "Readable copies to open in a spreadsheet or another app. Not encrypted and without photos.",
+  "backupCsv": "Spreadsheet (CSV)",
+  "backupCsvInfo": "A zip with one table per kind of record",
+  "backupJson": "JSON",
+  "backupJsonInfo": "Everything in one file, for developers",
+  "backupPrivacy": "Files go only where you send them. Without the passphrase a backup can't be read by anyone, including us, and a lost passphrase can't be recovered.",
+  "backupPassphrase": "Passphrase",
+  "backupPassphraseAgain": "Repeat passphrase",
+  "backupPassphraseCreate": "Choose a passphrase",
+  "backupPassphraseEnter": "Enter the backup's passphrase",
+  "backupPassphraseWarning": "You'll need it to restore. Write it down: it can't be reset.",
+  "backupPassphraseShort": "Use at least 8 characters",
+  "backupPassphraseMismatch": "The passphrases don't match",
+  "backupShowPassphrase": "Show passphrase",
+  "backupContinue": "Continue",
+  "backupFound": "Backup from {date}: {records} records, {photos} photos.",
+  "@backupFound": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "records": {
+        "type": "int"
+      },
+      "photos": {
+        "type": "int"
+      }
+    }
+  },
+  "backupMergeInfo": "Add: keeps what's on this phone and adds anything missing.",
+  "backupReplaceInfo": "Replace: this phone's data is swapped for the backup.",
+  "backupMerge": "Add",
+  "backupReplace": "Replace",
+  "backupRestored": "{count, plural, =1{Restored 1 record} other{Restored {count} records}}",
+  "@backupRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "backupErrorNotBackup": "That isn't a Personality backup file.",
+  "backupErrorDamaged": "The backup file is damaged or incomplete.",
+  "backupErrorPassphrase": "Wrong passphrase.",
+  "backupErrorTooNew": "This backup is from a newer version. Update the app, then try again."
 }

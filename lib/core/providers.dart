@@ -36,6 +36,12 @@ class SettingsController extends Notifier<AppSettings> {
     await ref.read(settingsRepositoryProvider).save(next);
     state = next;
   }
+
+  /// Re-reads saved settings, e.g. after a restore. Onboarding stays done.
+  Future<void> reload() async {
+    final loaded = await ref.read(settingsRepositoryProvider).load();
+    state = loaded.copyWith(onboardingCompleted: state.onboardingCompleted || loaded.onboardingCompleted);
+  }
 }
 
 final featureRegistryProvider = Provider<FeatureRegistry>(

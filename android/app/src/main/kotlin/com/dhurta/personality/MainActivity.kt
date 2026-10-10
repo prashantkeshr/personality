@@ -37,6 +37,9 @@ class MainActivity : FlutterFragmentActivity() {
         }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/sensors")
             .setMethodCallHandler { call, result -> onSensors(call.method, call.arguments, result) }
+        val files = FileChannel(this)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/files")
+            .setMethodCallHandler { call, result -> files.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/device")
             .setMethodCallHandler { call, result ->
                 if (call.method == "probe") {
