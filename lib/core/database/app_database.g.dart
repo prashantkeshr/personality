@@ -14303,6 +14303,313 @@ class MoodLogsCompanion extends UpdateCompanion<MoodRow> {
   }
 }
 
+class $MilestoneNotesTable extends MilestoneNotes
+    with TableInfo<$MilestoneNotesTable, MilestoneNoteRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MilestoneNotesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dayMeta = const VerificationMeta('day');
+  @override
+  late final GeneratedColumn<int> day = GeneratedColumn<int>(
+    'day',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bodyMeta = const VerificationMeta('body');
+  @override
+  late final GeneratedColumn<String> body = GeneratedColumn<String>(
+    'body',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, day, body, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'milestone_note';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MilestoneNoteRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('day')) {
+      context.handle(
+        _dayMeta,
+        day.isAcceptableOrUnknown(data['day']!, _dayMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dayMeta);
+    }
+    if (data.containsKey('body')) {
+      context.handle(
+        _bodyMeta,
+        body.isAcceptableOrUnknown(data['body']!, _bodyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bodyMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MilestoneNoteRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MilestoneNoteRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      day: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}day'],
+      )!,
+      body: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}body'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $MilestoneNotesTable createAlias(String alias) {
+    return $MilestoneNotesTable(attachedDatabase, alias);
+  }
+}
+
+class MilestoneNoteRow extends DataClass
+    implements Insertable<MilestoneNoteRow> {
+  final String id;
+  final int day;
+  final String body;
+  final int createdAt;
+  const MilestoneNoteRow({
+    required this.id,
+    required this.day,
+    required this.body,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['day'] = Variable<int>(day);
+    map['body'] = Variable<String>(body);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  MilestoneNotesCompanion toCompanion(bool nullToAbsent) {
+    return MilestoneNotesCompanion(
+      id: Value(id),
+      day: Value(day),
+      body: Value(body),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory MilestoneNoteRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MilestoneNoteRow(
+      id: serializer.fromJson<String>(json['id']),
+      day: serializer.fromJson<int>(json['day']),
+      body: serializer.fromJson<String>(json['body']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'day': serializer.toJson<int>(day),
+      'body': serializer.toJson<String>(body),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  MilestoneNoteRow copyWith({
+    String? id,
+    int? day,
+    String? body,
+    int? createdAt,
+  }) => MilestoneNoteRow(
+    id: id ?? this.id,
+    day: day ?? this.day,
+    body: body ?? this.body,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  MilestoneNoteRow copyWithCompanion(MilestoneNotesCompanion data) {
+    return MilestoneNoteRow(
+      id: data.id.present ? data.id.value : this.id,
+      day: data.day.present ? data.day.value : this.day,
+      body: data.body.present ? data.body.value : this.body,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MilestoneNoteRow(')
+          ..write('id: $id, ')
+          ..write('day: $day, ')
+          ..write('body: $body, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, day, body, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MilestoneNoteRow &&
+          other.id == this.id &&
+          other.day == this.day &&
+          other.body == this.body &&
+          other.createdAt == this.createdAt);
+}
+
+class MilestoneNotesCompanion extends UpdateCompanion<MilestoneNoteRow> {
+  final Value<String> id;
+  final Value<int> day;
+  final Value<String> body;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const MilestoneNotesCompanion({
+    this.id = const Value.absent(),
+    this.day = const Value.absent(),
+    this.body = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MilestoneNotesCompanion.insert({
+    required String id,
+    required int day,
+    required String body,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       day = Value(day),
+       body = Value(body),
+       createdAt = Value(createdAt);
+  static Insertable<MilestoneNoteRow> custom({
+    Expression<String>? id,
+    Expression<int>? day,
+    Expression<String>? body,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (day != null) 'day': day,
+      if (body != null) 'body': body,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MilestoneNotesCompanion copyWith({
+    Value<String>? id,
+    Value<int>? day,
+    Value<String>? body,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return MilestoneNotesCompanion(
+      id: id ?? this.id,
+      day: day ?? this.day,
+      body: body ?? this.body,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (day.present) {
+      map['day'] = Variable<int>(day.value);
+    }
+    if (body.present) {
+      map['body'] = Variable<String>(body.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MilestoneNotesCompanion(')
+          ..write('id: $id, ')
+          ..write('day: $day, ')
+          ..write('body: $body, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -14344,6 +14651,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $OutfitWearsTable outfitWears = $OutfitWearsTable(this);
   late final $BodyPlansTable bodyPlans = $BodyPlansTable(this);
   late final $MoodLogsTable moodLogs = $MoodLogsTable(this);
+  late final $MilestoneNotesTable milestoneNotes = $MilestoneNotesTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -14438,6 +14746,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     outfitWears,
     bodyPlans,
     moodLogs,
+    milestoneNotes,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -23698,6 +24007,202 @@ typedef $$MoodLogsTableProcessedTableManager =
       MoodRow,
       PrefetchHooks Function()
     >;
+typedef $$MilestoneNotesTableCreateCompanionBuilder =
+    MilestoneNotesCompanion Function({
+      required String id,
+      required int day,
+      required String body,
+      required int createdAt,
+      Value<int> rowid,
+    });
+typedef $$MilestoneNotesTableUpdateCompanionBuilder =
+    MilestoneNotesCompanion Function({
+      Value<String> id,
+      Value<int> day,
+      Value<String> body,
+      Value<int> createdAt,
+      Value<int> rowid,
+    });
+
+class $$MilestoneNotesTableFilterComposer
+    extends Composer<_$AppDatabase, $MilestoneNotesTable> {
+  $$MilestoneNotesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MilestoneNotesTableOrderingComposer
+    extends Composer<_$AppDatabase, $MilestoneNotesTable> {
+  $$MilestoneNotesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MilestoneNotesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MilestoneNotesTable> {
+  $$MilestoneNotesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get day =>
+      $composableBuilder(column: $table.day, builder: (column) => column);
+
+  GeneratedColumn<String> get body =>
+      $composableBuilder(column: $table.body, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$MilestoneNotesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MilestoneNotesTable,
+          MilestoneNoteRow,
+          $$MilestoneNotesTableFilterComposer,
+          $$MilestoneNotesTableOrderingComposer,
+          $$MilestoneNotesTableAnnotationComposer,
+          $$MilestoneNotesTableCreateCompanionBuilder,
+          $$MilestoneNotesTableUpdateCompanionBuilder,
+          (
+            MilestoneNoteRow,
+            BaseReferences<
+              _$AppDatabase,
+              $MilestoneNotesTable,
+              MilestoneNoteRow
+            >,
+          ),
+          MilestoneNoteRow,
+          PrefetchHooks Function()
+        > {
+  $$MilestoneNotesTableTableManager(
+    _$AppDatabase db,
+    $MilestoneNotesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MilestoneNotesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MilestoneNotesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MilestoneNotesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<int> day = const Value.absent(),
+                Value<String> body = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MilestoneNotesCompanion(
+                id: id,
+                day: day,
+                body: body,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required int day,
+                required String body,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => MilestoneNotesCompanion.insert(
+                id: id,
+                day: day,
+                body: body,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MilestoneNotesTable, MilestoneNoteRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $MilestoneNotesTable,
+                    MilestoneNoteRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MilestoneNotesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MilestoneNotesTable,
+      MilestoneNoteRow,
+      $$MilestoneNotesTableFilterComposer,
+      $$MilestoneNotesTableOrderingComposer,
+      $$MilestoneNotesTableAnnotationComposer,
+      $$MilestoneNotesTableCreateCompanionBuilder,
+      $$MilestoneNotesTableUpdateCompanionBuilder,
+      (
+        MilestoneNoteRow,
+        BaseReferences<_$AppDatabase, $MilestoneNotesTable, MilestoneNoteRow>,
+      ),
+      MilestoneNoteRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -23760,4 +24265,6 @@ class $AppDatabaseManager {
       $$BodyPlansTableTableManager(_db, _db.bodyPlans);
   $$MoodLogsTableTableManager get moodLogs =>
       $$MoodLogsTableTableManager(_db, _db.moodLogs);
+  $$MilestoneNotesTableTableManager get milestoneNotes =>
+      $$MilestoneNotesTableTableManager(_db, _db.milestoneNotes);
 }

@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
+import '../features/insights/evolution_screen.dart';
+import '../features/insights/insights_screen.dart';
 import '../features/journey/goal_finder_screen.dart';
 import '../features/plans/body_plan_screen.dart';
 import '../features/journey/journey_screen.dart';
@@ -46,6 +48,8 @@ abstract final class AppRoutes {
   static const home = '/home';
   static const journey = '/home/journey';
   static const goalFinder = '/home/goals';
+  static const insights = '/home/insights';
+  static const evolution = '/home/evolution';
   static const health = '/health';
   static const analyze = '/analyze';
   static const coach = '/coach';
@@ -127,6 +131,12 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'goals',
                     builder: (_, _) => const GoalFinderScreen()),
+                GoRoute(
+                    path: 'insights',
+                    builder: (_, _) => const InsightsScreen()),
+                GoRoute(
+                    path: 'evolution',
+                    builder: (_, _) => const EvolutionScreen()),
               ],
             ),
           ]),

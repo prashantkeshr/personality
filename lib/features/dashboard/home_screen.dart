@@ -14,6 +14,7 @@ import '../journey/home_journey.dart';
 import '../../domain/services/health_stats.dart';
 import '../today/today_providers.dart';
 import '../today/today_widgets.dart';
+import '../insights/insights_screen.dart' show WeeklyReviewCard;
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import '../routines/plan_screen.dart';
@@ -22,16 +23,15 @@ import '../routines/routine_providers.dart';
 /// The daily command center: what matters today, in time order, with the
 /// next action first. Journey, quests and stats follow.
 class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key, this.clock = DateTime.now});
-
-  final DateTime Function() clock;
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final locale = Localizations.localeOf(context).toLanguageTag();
-    final date = DateFormat.yMMMMEEEEd(locale).format(clock());
+    final date =
+        DateFormat.yMMMMEEEEd(locale).format(ref.watch(clockProvider)());
 
     return Scaffold(
       appBar: AppBar(
@@ -59,7 +59,7 @@ class HomeScreen extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _Greeting(clock: clock),
+                  const _Greeting(),
                   Semantics(
                     header: true,
                     child: Text(l10n.todayTitle,
@@ -79,6 +79,7 @@ class HomeScreen extends ConsumerWidget {
           const SizedBox(height: AppSpacing.lg),
           const BadgeCelebrationHost(),
           const _CompleteProfileCard(),
+          const WeeklyReviewCard(),
           const _TodayOnly(children: [
             MoodCheckInCard(),
             SizedBox(height: AppSpacing.md),
@@ -91,6 +92,17 @@ class HomeScreen extends ConsumerWidget {
           const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.xl),
           const JourneyCard(),
+          const SizedBox(height: AppSpacing.md),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.insights_outlined,
+                  color: theme.colorScheme.primary),
+              title: Text(l10n.insightsTitle),
+              subtitle: Text(l10n.insightsHomeInfo),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.insights),
+            ),
+          ),
           const SizedBox(height: AppSpacing.md),
           const QuestsCard(),
           const SizedBox(height: AppSpacing.lg),
@@ -312,14 +324,13 @@ class _HomeSuggestions extends ConsumerWidget {
 
 /// "Good morning, Name" by local time.
 class _Greeting extends ConsumerWidget {
-  const _Greeting({required this.clock});
-  final DateTime Function() clock;
+  const _Greeting();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final hour = clock().hour;
+    final hour = ref.watch(clockProvider)().hour;
     final greeting = hour < 12
         ? l10n.greetingMorning
         : hour < 17

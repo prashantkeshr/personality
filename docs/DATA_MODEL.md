@@ -38,6 +38,7 @@ Canonical storage units: cm, kg, ml, minutes, steps. Imperial is display-only.
 | 11 Journey | No new tables: XP, levels, streaks, quests and badges are derived from existing records (`ProgressRepository` digest per local day). `app_settings` key `progress.badges_seen` remembers which badge celebrations were shown. |
 | 12 Personal + plans | `user_profile` gains `gender`, `diet_preference`, `style_fit`, `region` (all optional). `body_plan` (kind, pace, diet, start day/weight, optional target, calories, macros, water; one active, ended plans kept). Targets are stored as calculated at the start so history stays stable. |
 | 13 Today | `mood_log` (PK local day; mood and energy 1–5). Day mode is an `app_settings` key `day.mode` = `<dayKey>:<mode>` (applies to that day only). Quiet hours: `reminders.quiet` = `<start>-<end>` minutes. |
+| 14 Evolution | `milestone_note` (id, day, body ≤ 500 chars). Other milestones and all insights are derived, never stored. `app_settings` key `review.dismissed` = Monday of the last closed weekly review. |
 | 10 Recommendations | `recommendation`, `recommendation_history`, `evolution_event` |
 | 11 AI | `ai_model`, `model_version`, `ai_conversation`, `ai_message` |
 | 12 Health integrations | `health_platform_data` |

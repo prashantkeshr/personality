@@ -78,7 +78,8 @@ void main() {
           'outfit_wear',
           'body_plan',
           'mood_log',
+          'milestone_note',
         ]));
-    expect(db.schemaVersion, 11);
+    expect(db.schemaVersion, 12);
   });
 }

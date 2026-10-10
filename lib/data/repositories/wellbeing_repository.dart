@@ -1,7 +1,9 @@
 import 'package:drift/drift.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../core/database/app_database.dart';
 import '../../domain/services/day_agenda.dart';
+import '../../domain/services/evolution_engine.dart';
 import '../../domain/services/health_stats.dart';
 import 'body_record_repository.dart';
 
@@ -23,6 +25,7 @@ class WellbeingRepository {
   final Clock _clock;
 
   static const _mode = 'day.mode';
+  static const _review = 'review.dismissed';
 
   Stream<List<MoodCheckIn>> watchMoods({int days = 60}) {
     final since = Days.key(_clock().subtract(Duration(days: days)));
@@ -56,6 +59,44 @@ class WellbeingRepository {
       return DayMode.values.asNameMap()[parts[1]] ?? DayMode.normal;
     });
   }
+
+  // ---------- evolution notes ----------
+
+  Stream<List<Milestone>> watchNotes() => (_db.select(_db.milestoneNotes)
+        ..orderBy([(t) => OrderingTerm.desc(t.day)]))
+      .watch()
+      .map((rows) => [
+            for (final r in rows)
+              Milestone(r.day, MilestoneKind.note, text: r.body, noteId: r.id),
+          ]);
+
+  Future<void> addNote(String text, {int? dayKey}) {
+    final t = text.trim();
+    if (t.isEmpty) throw ArgumentError('Note is empty');
+    return _db.into(_db.milestoneNotes).insert(MilestoneNotesCompanion.insert(
+        id: const Uuid().v4(),
+        day: dayKey ?? Days.key(_clock()),
+        body: t.length > 500 ? t.substring(0, 500) : t,
+        createdAt: _clock().toUtc().millisecondsSinceEpoch));
+  }
+
+  Future<void> deleteNote(String id) =>
+      (_db.delete(_db.milestoneNotes)..where((t) => t.id.equals(id))).go();
+
+  // ---------- weekly review ----------
+
+  /// The Monday (day key) of the last review the user closed.
+  Stream<int?> watchReviewDismissed() => (_db.select(_db.appSettingsEntries)
+        ..where((t) => t.key.equals(_review)))
+      .watchSingleOrNull()
+      .map((r) => int.tryParse(r?.value ?? ''));
+
+  Future<void> dismissReview(int weekStart) =>
+      _db.into(_db.appSettingsEntries).insertOnConflictUpdate(
+          AppSettingsEntriesCompanion.insert(
+              key: _review,
+              value: '$weekStart',
+              updatedAt: _clock().toUtc().millisecondsSinceEpoch));
 
   Future<void> setTodayMode(DayMode mode) =>
       _db.into(_db.appSettingsEntries).insertOnConflictUpdate(

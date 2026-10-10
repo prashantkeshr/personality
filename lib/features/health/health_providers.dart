@@ -11,7 +11,8 @@ import '../../domain/services/health_stats.dart';
 final clockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 
 /// History screens show the last [historyDays] days.
-const historyDays = 30;
+/// Two months, so insights can compare a 30-day period with the one before.
+const historyDays = 62;
 
 DateTime _since(Ref ref) =>
     ref.read(clockProvider)().subtract(const Duration(days: historyDays + 1));

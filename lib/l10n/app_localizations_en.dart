@@ -3426,4 +3426,289 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remindersQuietOff => 'Off: reminders can arrive at any time.';
+
+  @override
+  String get insightsTitle => 'Insights';
+
+  @override
+  String get insightsIntro =>
+      'Plan versus what actually happened. Days without records show as no data, never as misses.';
+
+  @override
+  String get insightsHomeInfo => 'Plan versus actual, sleep score and trends';
+
+  @override
+  String get rangeWeek => 'Week';
+
+  @override
+  String get rangeMonth => 'Month';
+
+  @override
+  String get metricPlan => 'Plan items';
+
+  @override
+  String get metricHabits => 'Habits';
+
+  @override
+  String get metricWater => 'Water';
+
+  @override
+  String get metricSleep => 'Sleep';
+
+  @override
+  String get metricActivity => 'Active minutes';
+
+  @override
+  String get metricMeals => 'Meals logged';
+
+  @override
+  String get metricMood => 'Mood';
+
+  @override
+  String insightsMet(int met, int logged) {
+    return 'Met on $met of $logged logged days';
+  }
+
+  @override
+  String insightsLogged(int logged) {
+    return 'Logged on $logged days';
+  }
+
+  @override
+  String get insightsNoData => 'No records in this period yet.';
+
+  @override
+  String insightsAverage(String value) {
+    return 'Average $value';
+  }
+
+  @override
+  String insightsUp(String value, String period) {
+    return 'Up $value vs previous $period';
+  }
+
+  @override
+  String insightsDown(String value, String period) {
+    return 'Down $value vs previous $period';
+  }
+
+  @override
+  String insightsSame(String period) {
+    return 'Same as previous $period';
+  }
+
+  @override
+  String get insightsPeriodWeek => 'week';
+
+  @override
+  String get insightsPeriodMonth => 'month';
+
+  @override
+  String get legendMet => 'Met';
+
+  @override
+  String get legendPartial => 'Partly';
+
+  @override
+  String get legendMissed => 'Not met';
+
+  @override
+  String get legendNoData => 'No data';
+
+  @override
+  String get sleepScoreTitle => 'Sleep score';
+
+  @override
+  String get sleepScoreInfo =>
+      'From your logged bed and wake times over the last 7 nights: duration (70 points) and regular bedtimes (30). No sleep stages; those need a wearable.';
+
+  @override
+  String sleepAverage(String value) {
+    return '$value a night on average';
+  }
+
+  @override
+  String sleepSpread(int minutes) {
+    return 'Bedtime varies by about $minutes min';
+  }
+
+  @override
+  String sleepNights(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count nights logged',
+      one: '1 night logged',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get sleepExcellent => 'Excellent';
+
+  @override
+  String get sleepGood => 'Good';
+
+  @override
+  String get sleepFair => 'Fair';
+
+  @override
+  String get sleepCare => 'Needs care';
+
+  @override
+  String get sleepScoreEmpty => 'Log a few nights of sleep to see your score.';
+
+  @override
+  String get evolutionTitle => 'Evolution';
+
+  @override
+  String get evolutionIntro =>
+      'Moments along your way, from what you\'ve done. Add your own notes too.';
+
+  @override
+  String get evolutionEmpty =>
+      'Your milestones will appear here as you use the app.';
+
+  @override
+  String get evolutionAddNote => 'Add a note';
+
+  @override
+  String get evolutionNoteHint => 'What changed, how you feel…';
+
+  @override
+  String get evolutionSeeAll => 'See all';
+
+  @override
+  String get msFirstStep => 'First step: you logged something';
+
+  @override
+  String get msFirstPosture => 'First posture check';
+
+  @override
+  String get msFirstFace => 'First face analysis';
+
+  @override
+  String get msFirstSnapshot => 'First progress snapshot';
+
+  @override
+  String get msFirstOutfit => 'First outfit saved';
+
+  @override
+  String msPlanStarted(String plan) {
+    return 'Started a plan: $plan';
+  }
+
+  @override
+  String get msStreak7 => 'Reached a 7-day streak';
+
+  @override
+  String get msStreak30 => 'Reached a 30-day streak';
+
+  @override
+  String get msHabits30 => '30 habits completed';
+
+  @override
+  String msWeightDown(String value) {
+    return '$value down since your first weigh-in';
+  }
+
+  @override
+  String msWeightUp(String value) {
+    return '$value up since your first weigh-in';
+  }
+
+  @override
+  String get reviewTitle => 'Your week';
+
+  @override
+  String reviewWeekOf(String date) {
+    return 'Week of $date';
+  }
+
+  @override
+  String reviewActive(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count active days',
+      one: '1 active day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String reviewWater(int met) {
+    return 'Water target met on $met days';
+  }
+
+  @override
+  String reviewSleep(String value) {
+    return 'Average sleep $value';
+  }
+
+  @override
+  String reviewActivity(int count) {
+    return 'Active on $count days';
+  }
+
+  @override
+  String reviewBest(String day) {
+    return 'Best day: $day';
+  }
+
+  @override
+  String get reviewTipPlan =>
+      'Next week: move plan items to times that suit your day better.';
+
+  @override
+  String get reviewTipHabits =>
+      'Next week: keep habits small. One you never miss beats three you skip.';
+
+  @override
+  String get reviewTipWater =>
+      'Next week: keep a bottle in sight and add a glass with each meal.';
+
+  @override
+  String get reviewTipSleep =>
+      'Next week: aim for a regular bedtime, even on weekends.';
+
+  @override
+  String get reviewTipActivity =>
+      'Next week: a 10-minute walk after a meal counts.';
+
+  @override
+  String get reviewTipMeals =>
+      'Next week: logging meals helps your plan fit you better.';
+
+  @override
+  String get reviewTipKeep => 'Next week: keep the rhythm you\'ve built.';
+
+  @override
+  String get reviewClose => 'Close';
+
+  @override
+  String get reviewSeeInsights => 'See insights';
+
+  @override
+  String get postureCompare => 'Compare';
+
+  @override
+  String get postureCompareTitle => 'Compare sessions';
+
+  @override
+  String get postureCompareSetup =>
+      'For a fair comparison use the same setup: same spot and distance, similar light, fitted clothes and a similar time of day.';
+
+  @override
+  String get postureCompareEarlier => 'Earlier';
+
+  @override
+  String get postureCompareLater => 'Later';
+
+  @override
+  String get postureCompareChange => 'Change';
+
+  @override
+  String get postureCompareNeedTwo =>
+      'Save two checks from the same view to compare them.';
 }

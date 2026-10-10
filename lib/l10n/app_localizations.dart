@@ -6121,6 +6121,456 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Off: reminders can arrive at any time.'**
   String get remindersQuietOff;
+
+  /// No description provided for @insightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights'**
+  String get insightsTitle;
+
+  /// No description provided for @insightsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan versus what actually happened. Days without records show as no data, never as misses.'**
+  String get insightsIntro;
+
+  /// No description provided for @insightsHomeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan versus actual, sleep score and trends'**
+  String get insightsHomeInfo;
+
+  /// No description provided for @rangeWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get rangeWeek;
+
+  /// No description provided for @rangeMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get rangeMonth;
+
+  /// No description provided for @metricPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan items'**
+  String get metricPlan;
+
+  /// No description provided for @metricHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Habits'**
+  String get metricHabits;
+
+  /// No description provided for @metricWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get metricWater;
+
+  /// No description provided for @metricSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get metricSleep;
+
+  /// No description provided for @metricActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Active minutes'**
+  String get metricActivity;
+
+  /// No description provided for @metricMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Meals logged'**
+  String get metricMeals;
+
+  /// No description provided for @metricMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood'**
+  String get metricMood;
+
+  /// No description provided for @insightsMet.
+  ///
+  /// In en, this message translates to:
+  /// **'Met on {met} of {logged} logged days'**
+  String insightsMet(int met, int logged);
+
+  /// No description provided for @insightsLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged on {logged} days'**
+  String insightsLogged(int logged);
+
+  /// No description provided for @insightsNoData.
+  ///
+  /// In en, this message translates to:
+  /// **'No records in this period yet.'**
+  String get insightsNoData;
+
+  /// No description provided for @insightsAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Average {value}'**
+  String insightsAverage(String value);
+
+  /// No description provided for @insightsUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Up {value} vs previous {period}'**
+  String insightsUp(String value, String period);
+
+  /// No description provided for @insightsDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Down {value} vs previous {period}'**
+  String insightsDown(String value, String period);
+
+  /// No description provided for @insightsSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Same as previous {period}'**
+  String insightsSame(String period);
+
+  /// No description provided for @insightsPeriodWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'week'**
+  String get insightsPeriodWeek;
+
+  /// No description provided for @insightsPeriodMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'month'**
+  String get insightsPeriodMonth;
+
+  /// No description provided for @legendMet.
+  ///
+  /// In en, this message translates to:
+  /// **'Met'**
+  String get legendMet;
+
+  /// No description provided for @legendPartial.
+  ///
+  /// In en, this message translates to:
+  /// **'Partly'**
+  String get legendPartial;
+
+  /// No description provided for @legendMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Not met'**
+  String get legendMissed;
+
+  /// No description provided for @legendNoData.
+  ///
+  /// In en, this message translates to:
+  /// **'No data'**
+  String get legendNoData;
+
+  /// No description provided for @sleepScoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep score'**
+  String get sleepScoreTitle;
+
+  /// No description provided for @sleepScoreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'From your logged bed and wake times over the last 7 nights: duration (70 points) and regular bedtimes (30). No sleep stages; those need a wearable.'**
+  String get sleepScoreInfo;
+
+  /// No description provided for @sleepAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} a night on average'**
+  String sleepAverage(String value);
+
+  /// No description provided for @sleepSpread.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedtime varies by about {minutes} min'**
+  String sleepSpread(int minutes);
+
+  /// No description provided for @sleepNights.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 night logged} other{{count} nights logged}}'**
+  String sleepNights(int count);
+
+  /// No description provided for @sleepExcellent.
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent'**
+  String get sleepExcellent;
+
+  /// No description provided for @sleepGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get sleepGood;
+
+  /// No description provided for @sleepFair.
+  ///
+  /// In en, this message translates to:
+  /// **'Fair'**
+  String get sleepFair;
+
+  /// No description provided for @sleepCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs care'**
+  String get sleepCare;
+
+  /// No description provided for @sleepScoreEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Log a few nights of sleep to see your score.'**
+  String get sleepScoreEmpty;
+
+  /// No description provided for @evolutionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Evolution'**
+  String get evolutionTitle;
+
+  /// No description provided for @evolutionIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Moments along your way, from what you\'ve done. Add your own notes too.'**
+  String get evolutionIntro;
+
+  /// No description provided for @evolutionEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your milestones will appear here as you use the app.'**
+  String get evolutionEmpty;
+
+  /// No description provided for @evolutionAddNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a note'**
+  String get evolutionAddNote;
+
+  /// No description provided for @evolutionNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What changed, how you feel…'**
+  String get evolutionNoteHint;
+
+  /// No description provided for @evolutionSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get evolutionSeeAll;
+
+  /// No description provided for @msFirstStep.
+  ///
+  /// In en, this message translates to:
+  /// **'First step: you logged something'**
+  String get msFirstStep;
+
+  /// No description provided for @msFirstPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'First posture check'**
+  String get msFirstPosture;
+
+  /// No description provided for @msFirstFace.
+  ///
+  /// In en, this message translates to:
+  /// **'First face analysis'**
+  String get msFirstFace;
+
+  /// No description provided for @msFirstSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'First progress snapshot'**
+  String get msFirstSnapshot;
+
+  /// No description provided for @msFirstOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'First outfit saved'**
+  String get msFirstOutfit;
+
+  /// No description provided for @msPlanStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Started a plan: {plan}'**
+  String msPlanStarted(String plan);
+
+  /// No description provided for @msStreak7.
+  ///
+  /// In en, this message translates to:
+  /// **'Reached a 7-day streak'**
+  String get msStreak7;
+
+  /// No description provided for @msStreak30.
+  ///
+  /// In en, this message translates to:
+  /// **'Reached a 30-day streak'**
+  String get msStreak30;
+
+  /// No description provided for @msHabits30.
+  ///
+  /// In en, this message translates to:
+  /// **'30 habits completed'**
+  String get msHabits30;
+
+  /// No description provided for @msWeightDown.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} down since your first weigh-in'**
+  String msWeightDown(String value);
+
+  /// No description provided for @msWeightUp.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} up since your first weigh-in'**
+  String msWeightUp(String value);
+
+  /// No description provided for @reviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your week'**
+  String get reviewTitle;
+
+  /// No description provided for @reviewWeekOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Week of {date}'**
+  String reviewWeekOf(String date);
+
+  /// No description provided for @reviewActive.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 active day} other{{count} active days}}'**
+  String reviewActive(int count);
+
+  /// No description provided for @reviewWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water target met on {met} days'**
+  String reviewWater(int met);
+
+  /// No description provided for @reviewSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Average sleep {value}'**
+  String reviewSleep(String value);
+
+  /// No description provided for @reviewActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Active on {count} days'**
+  String reviewActivity(int count);
+
+  /// No description provided for @reviewBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best day: {day}'**
+  String reviewBest(String day);
+
+  /// No description provided for @reviewTipPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: move plan items to times that suit your day better.'**
+  String get reviewTipPlan;
+
+  /// No description provided for @reviewTipHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: keep habits small. One you never miss beats three you skip.'**
+  String get reviewTipHabits;
+
+  /// No description provided for @reviewTipWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: keep a bottle in sight and add a glass with each meal.'**
+  String get reviewTipWater;
+
+  /// No description provided for @reviewTipSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: aim for a regular bedtime, even on weekends.'**
+  String get reviewTipSleep;
+
+  /// No description provided for @reviewTipActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: a 10-minute walk after a meal counts.'**
+  String get reviewTipActivity;
+
+  /// No description provided for @reviewTipMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: logging meals helps your plan fit you better.'**
+  String get reviewTipMeals;
+
+  /// No description provided for @reviewTipKeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next week: keep the rhythm you\'ve built.'**
+  String get reviewTipKeep;
+
+  /// No description provided for @reviewClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get reviewClose;
+
+  /// No description provided for @reviewSeeInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'See insights'**
+  String get reviewSeeInsights;
+
+  /// No description provided for @postureCompare.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare'**
+  String get postureCompare;
+
+  /// No description provided for @postureCompareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare sessions'**
+  String get postureCompareTitle;
+
+  /// No description provided for @postureCompareSetup.
+  ///
+  /// In en, this message translates to:
+  /// **'For a fair comparison use the same setup: same spot and distance, similar light, fitted clothes and a similar time of day.'**
+  String get postureCompareSetup;
+
+  /// No description provided for @postureCompareEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get postureCompareEarlier;
+
+  /// No description provided for @postureCompareLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get postureCompareLater;
+
+  /// No description provided for @postureCompareChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get postureCompareChange;
+
+  /// No description provided for @postureCompareNeedTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Save two checks from the same view to compare them.'**
+  String get postureCompareNeedTwo;
 }
 
 class _AppLocalizationsDelegate

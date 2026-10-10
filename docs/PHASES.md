@@ -353,3 +353,18 @@ Verification:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 293/293 pass (agenda grouping, completion, missed/skipped, busy and low-energy transforms, five-minute picks, quiet hours incl. midnight, check-ins and today-only mode, v10 → v11 migration, Home flow: check-in → low-energy switch, skip a missed item, tick a habit, quick-add water, look back, quiet-hours toggle).
 - Checked on the emulator.
+
+## Phase 14 — Insights & evolution (2026-10-10)
+
+- **Insights** (Home → Insights, Journey, weekly review): Week / Month for plan items, habits, water, sleep, active minutes, meals and mood.
+  - Each day is met, partly or not met, or **no data** (drawn as an empty outline), so unrecorded days never look like failures.
+  - Shows met-on-N-of-M logged days, the average, and the trend against the previous period. Skipped plan items and habits leave the count; mood is never a goal.
+- **Sleep score** (0–100): duration against the target (70) plus regular bedtimes (30) over the last 7 nights, with an honest note that sleep stages need a wearable.
+- **Weekly review** (Home, Monday–Wednesday until closed): active days, water days met, average sleep, active days, best day, and one gentle suggestion for the area met least often.
+- **Evolution timeline**: milestones derived from records (first log, first posture/face/snapshot/outfit, 7- and 30-day streaks, 30 habits, plan starts, every 2 kg weight change since the first weigh-in) plus the user's own notes (schema v12 `milestone_note`). Preview on the Journey screen; full screen with "Add a note".
+- **Posture compare**: two checks of the same view side by side with the change per metric, and a same-setup reminder.
+- Health history window widened to 62 days so a month can be compared with the one before.
+- Fixed: Home's greeting and date used the device clock instead of the app clock.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 314/314 pass (day marks incl. no-data, week and month series with trends, sleep score, weekly review window and tip, milestone derivation, v11 → v12 migration, Monday review → insights → close, notes from Journey and Evolution, posture compare).

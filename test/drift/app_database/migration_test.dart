@@ -18,6 +18,7 @@ import 'generated/schema_v8.dart' as v8;
 import 'generated/schema_v9.dart' as v9;
 import 'generated/schema_v10.dart' as v10;
 import 'generated/schema_v11.dart' as v11;
+import 'generated/schema_v12.dart' as v12;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -382,6 +383,26 @@ void main() {
         final p = await newDb.select(newDb.bodyPlan).getSingle();
         expect((p.id, p.calories), ('p1', 2010));
         expect(await newDb.select(newDb.moodLog).get(), isEmpty);
+      },
+    );
+  });
+
+  // Check-ins from v11 survive the v12 upgrade (which adds milestone notes).
+  test('migration from v11 to v12 keeps check-ins', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 11,
+      newVersion: 12,
+      createOld: v11.DatabaseAtV11.new,
+      createNew: v12.DatabaseAtV12.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(oldDb.moodLog,
+            const v11.MoodLogData(day: 20261010, mood: 4, energy: 3, recordedAt: 1));
+      },
+      validateItems: (newDb) async {
+        final m = await newDb.select(newDb.moodLog).getSingle();
+        expect((m.day, m.mood, m.energy), (20261010, 4, 3));
+        expect(await newDb.select(newDb.milestoneNote).get(), isEmpty);
       },
     );
   });

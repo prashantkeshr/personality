@@ -1794,5 +1794,215 @@
       }
     }
   },
-  "remindersQuietOff": "Off: reminders can arrive at any time."
+  "remindersQuietOff": "Off: reminders can arrive at any time.",
+  "insightsTitle": "Insights",
+  "insightsIntro": "Plan versus what actually happened. Days without records show as no data, never as misses.",
+  "insightsHomeInfo": "Plan versus actual, sleep score and trends",
+  "rangeWeek": "Week",
+  "rangeMonth": "Month",
+  "metricPlan": "Plan items",
+  "metricHabits": "Habits",
+  "metricWater": "Water",
+  "metricSleep": "Sleep",
+  "metricActivity": "Active minutes",
+  "metricMeals": "Meals logged",
+  "metricMood": "Mood",
+  "insightsMet": "Met on {met} of {logged} logged days",
+  "@insightsMet": {
+    "placeholders": {
+      "met": {
+        "type": "int"
+      },
+      "logged": {
+        "type": "int"
+      }
+    }
+  },
+  "insightsLogged": "Logged on {logged} days",
+  "@insightsLogged": {
+    "placeholders": {
+      "logged": {
+        "type": "int"
+      }
+    }
+  },
+  "insightsNoData": "No records in this period yet.",
+  "insightsAverage": "Average {value}",
+  "@insightsAverage": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsUp": "Up {value} vs previous {period}",
+  "@insightsUp": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsDown": "Down {value} vs previous {period}",
+  "@insightsDown": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsSame": "Same as previous {period}",
+  "@insightsSame": {
+    "placeholders": {
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "insightsPeriodWeek": "week",
+  "insightsPeriodMonth": "month",
+  "legendMet": "Met",
+  "legendPartial": "Partly",
+  "legendMissed": "Not met",
+  "legendNoData": "No data",
+  "sleepScoreTitle": "Sleep score",
+  "sleepScoreInfo": "From your logged bed and wake times over the last 7 nights: duration (70 points) and regular bedtimes (30). No sleep stages; those need a wearable.",
+  "sleepAverage": "{value} a night on average",
+  "@sleepAverage": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "sleepSpread": "Bedtime varies by about {minutes} min",
+  "@sleepSpread": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sleepNights": "{count, plural, =1{1 night logged} other{{count} nights logged}}",
+  "@sleepNights": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sleepExcellent": "Excellent",
+  "sleepGood": "Good",
+  "sleepFair": "Fair",
+  "sleepCare": "Needs care",
+  "sleepScoreEmpty": "Log a few nights of sleep to see your score.",
+  "evolutionTitle": "Evolution",
+  "evolutionIntro": "Moments along your way, from what you've done. Add your own notes too.",
+  "evolutionEmpty": "Your milestones will appear here as you use the app.",
+  "evolutionAddNote": "Add a note",
+  "evolutionNoteHint": "What changed, how you feel…",
+  "evolutionSeeAll": "See all",
+  "msFirstStep": "First step: you logged something",
+  "msFirstPosture": "First posture check",
+  "msFirstFace": "First face analysis",
+  "msFirstSnapshot": "First progress snapshot",
+  "msFirstOutfit": "First outfit saved",
+  "msPlanStarted": "Started a plan: {plan}",
+  "@msPlanStarted": {
+    "placeholders": {
+      "plan": {
+        "type": "String"
+      }
+    }
+  },
+  "msStreak7": "Reached a 7-day streak",
+  "msStreak30": "Reached a 30-day streak",
+  "msHabits30": "30 habits completed",
+  "msWeightDown": "{value} down since your first weigh-in",
+  "@msWeightDown": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "msWeightUp": "{value} up since your first weigh-in",
+  "@msWeightUp": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewTitle": "Your week",
+  "reviewWeekOf": "Week of {date}",
+  "@reviewWeekOf": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewActive": "{count, plural, =1{1 active day} other{{count} active days}}",
+  "@reviewActive": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reviewWater": "Water target met on {met} days",
+  "@reviewWater": {
+    "placeholders": {
+      "met": {
+        "type": "int"
+      }
+    }
+  },
+  "reviewSleep": "Average sleep {value}",
+  "@reviewSleep": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewActivity": "Active on {count} days",
+  "@reviewActivity": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reviewBest": "Best day: {day}",
+  "@reviewBest": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewTipPlan": "Next week: move plan items to times that suit your day better.",
+  "reviewTipHabits": "Next week: keep habits small. One you never miss beats three you skip.",
+  "reviewTipWater": "Next week: keep a bottle in sight and add a glass with each meal.",
+  "reviewTipSleep": "Next week: aim for a regular bedtime, even on weekends.",
+  "reviewTipActivity": "Next week: a 10-minute walk after a meal counts.",
+  "reviewTipMeals": "Next week: logging meals helps your plan fit you better.",
+  "reviewTipKeep": "Next week: keep the rhythm you've built.",
+  "reviewClose": "Close",
+  "reviewSeeInsights": "See insights",
+  "postureCompare": "Compare",
+  "postureCompareTitle": "Compare sessions",
+  "postureCompareSetup": "For a fair comparison use the same setup: same spot and distance, similar light, fitted clothes and a similar time of day.",
+  "postureCompareEarlier": "Earlier",
+  "postureCompareLater": "Later",
+  "postureCompareChange": "Change",
+  "postureCompareNeedTwo": "Save two checks from the same view to compare them."
 }

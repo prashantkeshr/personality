@@ -3414,4 +3414,289 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get remindersQuietOff => 'बंद: रिमाइंडर कभी भी आ सकते हैं।';
+
+  @override
+  String get insightsTitle => 'अंतर्दृष्टि';
+
+  @override
+  String get insightsIntro =>
+      'योजना बनाम असल में क्या हुआ। जिन दिनों कुछ दर्ज नहीं, वे \'डेटा नहीं\' दिखते हैं, चूक नहीं।';
+
+  @override
+  String get insightsHomeInfo => 'योजना बनाम असल, नींद स्कोर और रुझान';
+
+  @override
+  String get rangeWeek => 'सप्ताह';
+
+  @override
+  String get rangeMonth => 'महीना';
+
+  @override
+  String get metricPlan => 'योजना के काम';
+
+  @override
+  String get metricHabits => 'आदतें';
+
+  @override
+  String get metricWater => 'पानी';
+
+  @override
+  String get metricSleep => 'नींद';
+
+  @override
+  String get metricActivity => 'सक्रिय मिनट';
+
+  @override
+  String get metricMeals => 'दर्ज भोजन';
+
+  @override
+  String get metricMood => 'मूड';
+
+  @override
+  String insightsMet(int met, int logged) {
+    return '$logged दर्ज दिनों में से $met दिन पूरा';
+  }
+
+  @override
+  String insightsLogged(int logged) {
+    return '$logged दिन दर्ज';
+  }
+
+  @override
+  String get insightsNoData => 'इस अवधि में अभी कोई रिकॉर्ड नहीं।';
+
+  @override
+  String insightsAverage(String value) {
+    return 'औसत $value';
+  }
+
+  @override
+  String insightsUp(String value, String period) {
+    return 'पिछले $period से $value अधिक';
+  }
+
+  @override
+  String insightsDown(String value, String period) {
+    return 'पिछले $period से $value कम';
+  }
+
+  @override
+  String insightsSame(String period) {
+    return 'पिछले $period जैसा';
+  }
+
+  @override
+  String get insightsPeriodWeek => 'सप्ताह';
+
+  @override
+  String get insightsPeriodMonth => 'महीने';
+
+  @override
+  String get legendMet => 'पूरा';
+
+  @override
+  String get legendPartial => 'आंशिक';
+
+  @override
+  String get legendMissed => 'पूरा नहीं';
+
+  @override
+  String get legendNoData => 'डेटा नहीं';
+
+  @override
+  String get sleepScoreTitle => 'नींद स्कोर';
+
+  @override
+  String get sleepScoreInfo =>
+      'पिछली 7 रातों के दर्ज सोने-जागने के समय से: अवधि (70 अंक) और नियमित सोने का समय (30)। नींद के चरण नहीं; उनके लिए वियरेबल चाहिए।';
+
+  @override
+  String sleepAverage(String value) {
+    return 'औसतन $value प्रति रात';
+  }
+
+  @override
+  String sleepSpread(int minutes) {
+    return 'सोने का समय लगभग $minutes मिनट बदलता है';
+  }
+
+  @override
+  String sleepNights(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count रातें दर्ज',
+      one: '1 रात दर्ज',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get sleepExcellent => 'उत्कृष्ट';
+
+  @override
+  String get sleepGood => 'अच्छा';
+
+  @override
+  String get sleepFair => 'ठीक';
+
+  @override
+  String get sleepCare => 'ध्यान दें';
+
+  @override
+  String get sleepScoreEmpty =>
+      'स्कोर देखने के लिए कुछ रातों की नींद दर्ज करें।';
+
+  @override
+  String get evolutionTitle => 'आपका सफ़र';
+
+  @override
+  String get evolutionIntro =>
+      'आपके कामों से बने आपके सफ़र के पल। अपने नोट भी जोड़ें।';
+
+  @override
+  String get evolutionEmpty => 'ऐप इस्तेमाल करते-करते आपके पड़ाव यहाँ दिखेंगे।';
+
+  @override
+  String get evolutionAddNote => 'नोट जोड़ें';
+
+  @override
+  String get evolutionNoteHint => 'क्या बदला, कैसा लग रहा है…';
+
+  @override
+  String get evolutionSeeAll => 'सब देखें';
+
+  @override
+  String get msFirstStep => 'पहला कदम: आपने कुछ दर्ज किया';
+
+  @override
+  String get msFirstPosture => 'पहली पोस्चर जाँच';
+
+  @override
+  String get msFirstFace => 'पहला चेहरा विश्लेषण';
+
+  @override
+  String get msFirstSnapshot => 'पहली प्रगति स्नैपशॉट';
+
+  @override
+  String get msFirstOutfit => 'पहला आउटफ़िट सहेजा';
+
+  @override
+  String msPlanStarted(String plan) {
+    return 'योजना शुरू की: $plan';
+  }
+
+  @override
+  String get msStreak7 => '7 दिन की स्ट्रीक पूरी';
+
+  @override
+  String get msStreak30 => '30 दिन की स्ट्रीक पूरी';
+
+  @override
+  String get msHabits30 => '30 आदतें पूरी';
+
+  @override
+  String msWeightDown(String value) {
+    return 'पहले वज़न से $value कम';
+  }
+
+  @override
+  String msWeightUp(String value) {
+    return 'पहले वज़न से $value अधिक';
+  }
+
+  @override
+  String get reviewTitle => 'आपका सप्ताह';
+
+  @override
+  String reviewWeekOf(String date) {
+    return '$date का सप्ताह';
+  }
+
+  @override
+  String reviewActive(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count सक्रिय दिन',
+      one: '1 सक्रिय दिन',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String reviewWater(int met) {
+    return '$met दिन पानी का लक्ष्य पूरा';
+  }
+
+  @override
+  String reviewSleep(String value) {
+    return 'औसत नींद $value';
+  }
+
+  @override
+  String reviewActivity(int count) {
+    return '$count दिन सक्रिय';
+  }
+
+  @override
+  String reviewBest(String day) {
+    return 'सबसे अच्छा दिन: $day';
+  }
+
+  @override
+  String get reviewTipPlan =>
+      'अगले सप्ताह: योजना के कामों को ऐसे समय रखें जो आपके दिन के अनुकूल हों।';
+
+  @override
+  String get reviewTipHabits =>
+      'अगले सप्ताह: आदतें छोटी रखें। रोज़ होने वाली एक आदत, छूटने वाली तीन से बेहतर।';
+
+  @override
+  String get reviewTipWater =>
+      'अगले सप्ताह: बोतल सामने रखें और हर भोजन के साथ एक गिलास पानी लें।';
+
+  @override
+  String get reviewTipSleep =>
+      'अगले सप्ताह: सप्ताहांत पर भी सोने का एक नियमित समय रखें।';
+
+  @override
+  String get reviewTipActivity =>
+      'अगले सप्ताह: भोजन के बाद 10 मिनट की सैर भी गिनी जाती है।';
+
+  @override
+  String get reviewTipMeals =>
+      'अगले सप्ताह: भोजन दर्ज करने से योजना आपके अनुकूल बनती है।';
+
+  @override
+  String get reviewTipKeep => 'अगले सप्ताह: जो लय बनी है उसे बनाए रखें।';
+
+  @override
+  String get reviewClose => 'बंद करें';
+
+  @override
+  String get reviewSeeInsights => 'अंतर्दृष्टि देखें';
+
+  @override
+  String get postureCompare => 'तुलना करें';
+
+  @override
+  String get postureCompareTitle => 'जाँचों की तुलना';
+
+  @override
+  String get postureCompareSetup =>
+      'सही तुलना के लिए एक जैसा सेटअप रखें: वही जगह और दूरी, मिलती-जुलती रोशनी, फ़िट कपड़े और लगभग वही समय।';
+
+  @override
+  String get postureCompareEarlier => 'पहले';
+
+  @override
+  String get postureCompareLater => 'बाद में';
+
+  @override
+  String get postureCompareChange => 'बदलाव';
+
+  @override
+  String get postureCompareNeedTwo =>
+      'तुलना के लिए एक ही दृश्य की दो जाँचें सहेजें।';
 }

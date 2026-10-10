@@ -78,6 +78,15 @@ class BodyPlanRepository {
     return q.watchSingleOrNull().map((r) => r == null ? null : _toPlan(r));
   }
 
+  /// Every plan ever started (start day and kind), oldest first.
+  Stream<List<(int, PlanKind)>> watchStarts() => (_db.select(_db.bodyPlans)
+        ..orderBy([(t) => OrderingTerm.asc(t.createdAt)]))
+      .watch()
+      .map((rows) => [
+            for (final r in rows)
+              (r.startDay, _enum(PlanKind.values, r.kind, PlanKind.maintain)),
+          ]);
+
   /// Starts a plan from calculated [targets]; any active plan is ended.
   Future<String> start({
     required PlanTargets targets,

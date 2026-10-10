@@ -13,6 +13,8 @@ import '../../shared/format/body_format.dart';
 import '../../shared/visual/reveal.dart';
 import '../health/body_providers.dart';
 import '../health/health_providers.dart';
+import '../insights/evolution_screen.dart';
+import '../insights/insights_providers.dart';
 import 'journey_labels.dart';
 import 'journey_providers.dart';
 import 'journey_widgets.dart';
@@ -68,6 +70,8 @@ class JourneyScreen extends ConsumerWidget {
                     child: _ActivitySection(summary, history, today)),
                 const SizedBox(height: AppSpacing.xl),
                 const Reveal(index: 3, child: _WeightTrend()),
+                const SizedBox(height: AppSpacing.xl),
+                const _MilestonesPreview(),
                 const SizedBox(height: AppSpacing.xl),
                 Semantics(
                   header: true,
@@ -451,5 +455,44 @@ class _BadgeGrid extends StatelessWidget {
         ],
       );
     });
+  }
+}
+
+/// The latest milestones, with links to the full timeline and insights.
+class _MilestonesPreview extends ConsumerWidget {
+  const _MilestonesPreview();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final ms = ref.watch(evolutionProvider);
+    final top = ms.take(4).toList();
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Row(children: [
+        Expanded(
+            child: Text(l10n.evolutionTitle, style: theme.textTheme.titleMedium)),
+        TextButton(
+          onPressed: () => context.push(AppRoutes.evolution),
+          child: Text(l10n.evolutionSeeAll),
+        ),
+      ]),
+      const SizedBox(height: AppSpacing.sm),
+      if (top.isEmpty) Text(l10n.evolutionEmpty, style: theme.textTheme.bodySmall),
+      for (final (i, m) in top.indexed)
+        MilestoneTile(m: m, last: i == top.length - 1),
+      Wrap(spacing: AppSpacing.sm, children: [
+        OutlinedButton.icon(
+          icon: const Icon(Icons.edit_note),
+          label: Text(l10n.evolutionAddNote),
+          onPressed: () => addMilestoneNote(context, ref),
+        ),
+        OutlinedButton.icon(
+          icon: const Icon(Icons.insights_outlined),
+          label: Text(l10n.insightsTitle),
+          onPressed: () => context.push(AppRoutes.insights),
+        ),
+      ]),
+    ]);
   }
 }

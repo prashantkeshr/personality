@@ -465,6 +465,21 @@ class MoodLogs extends Table {
   Set<Column> get primaryKey => {day};
 }
 
+/// A user's own note on their evolution timeline (v12).
+@DataClassName('MilestoneNoteRow')
+class MilestoneNotes extends Table {
+  @override
+  String get tableName => 'milestone_note';
+
+  TextColumn get id => text()();
+  IntColumn get day => integer()();
+  TextColumn get body => text()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 /// A garment in the user's wardrobe. The optional photo is stored inside
 /// this encrypted database, never as a file.
 @DataClassName('WardrobeRow')
@@ -562,6 +577,7 @@ class OutfitWears extends Table {
   OutfitWears,
   BodyPlans,
   MoodLogs,
+  MilestoneNotes,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -569,7 +585,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -647,6 +663,9 @@ class AppDatabase extends _$AppDatabase {
           },
           from10To11: (m, schema) async {
             await m.createTable(schema.moodLog);
+          },
+          from11To12: (m, schema) async {
+            await m.createTable(schema.milestoneNote);
           },
         ),
         beforeOpen: (details) async {
