@@ -11,21 +11,23 @@ import '../../shared/format/body_format.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../health/body_providers.dart';
 import '../journey/home_journey.dart';
+import '../../domain/services/health_stats.dart';
+import '../today/today_providers.dart';
+import '../today/today_widgets.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import '../routines/plan_screen.dart';
-import '../routines/reminder_sync_host.dart';
 import '../routines/routine_providers.dart';
-import '../../domain/services/plan_engine.dart';
 
-/// Today-first dashboard (spec §63). Summary cards appear as features ship.
-class HomeScreen extends StatelessWidget {
+/// The daily command center: what matters today, in time order, with the
+/// next action first. Journey, quests and stats follow.
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key, this.clock = DateTime.now});
 
   final DateTime Function() clock;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final locale = Localizations.localeOf(context).toLanguageTag();
@@ -42,27 +44,55 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        key: const Key('quick-add'),
+        tooltip: l10n.quickAdd,
+        onPressed: () => showQuickAdd(context, ref),
+        child: const Icon(Icons.add),
+      ),
       body: ListView(
-        padding: const EdgeInsets.all(AppSpacing.lg),
+        padding: const EdgeInsets.fromLTRB(
+            AppSpacing.lg, AppSpacing.lg, AppSpacing.lg, 96),
         children: [
-          _Greeting(clock: clock),
-          Semantics(
-            header: true,
-            child: Text(l10n.todayTitle, style: theme.textTheme.headlineSmall),
-          ),
-          const SizedBox(height: AppSpacing.xs),
-          Text(date,
-              style: theme.textTheme.bodyMedium
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _Greeting(clock: clock),
+                  Semantics(
+                    header: true,
+                    child: Text(l10n.todayTitle,
+                        style: theme.textTheme.headlineSmall),
+                  ),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(date,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant)),
+                ],
+              ),
+            ),
+            const DailyPlanRing(),
+          ]),
+          const SizedBox(height: AppSpacing.md),
+          const DayStrip(),
           const SizedBox(height: AppSpacing.lg),
           const BadgeCelebrationHost(),
           const _CompleteProfileCard(),
+          const _TodayOnly(children: [
+            MoodCheckInCard(),
+            SizedBox(height: AppSpacing.md),
+            DayModeSelector(),
+            SizedBox(height: AppSpacing.md),
+            FiveMinuteCard(),
+            SizedBox(height: AppSpacing.lg),
+          ]),
+          const AgendaTimeline(),
+          const _HomeSuggestions(),
+          const SizedBox(height: AppSpacing.xl),
           const JourneyCard(),
           const SizedBox(height: AppSpacing.md),
           const QuestsCard(),
-          const SizedBox(height: AppSpacing.md),
-          const _PlanCard(),
-          const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.lg),
           const _TodaySection(),
           const SizedBox(height: AppSpacing.xl),
@@ -77,6 +107,20 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+/// Shown only while today is selected (not when looking back).
+class _TodayOnly extends ConsumerWidget {
+  const _TodayOnly({required this.children});
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final today = Days.key(ref.watch(clockProvider)());
+    if (ref.watch(selectedDayProvider) != today) return const SizedBox.shrink();
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch, children: children);
   }
 }
 
@@ -262,61 +306,6 @@ class _HomeSuggestions extends ConsumerWidget {
           SuggestionCard(suggestion: s),
         ],
       ],
-    );
-  }
-}
-
-/// "Next: Posture break — 16:00" and today's plan adherence (spec §81).
-class _PlanCard extends ConsumerWidget {
-  const _PlanCard();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-    final entries = ref.watch(todayPlanProvider);
-    final summary = PlanSummary.of(entries);
-    final next = PlanEngine.next(entries);
-
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => context.push(
-            entries.isEmpty ? AppRoutes.routines : AppRoutes.plan),
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.lg),
-          child: Row(
-            children: [
-              Icon(Icons.schedule, color: theme.colorScheme.primary),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(l10n.planTitle, style: theme.textTheme.labelLarge),
-                    const SizedBox(height: AppSpacing.xs),
-                    Text(
-                      entries.isEmpty
-                          ? l10n.planHomeEmpty
-                          : next == null
-                              ? l10n.planAllDone
-                              : l10n.planNext(next.item.title,
-                                  formatMinute(context, next.minute)),
-                      style: theme.textTheme.titleMedium,
-                    ),
-                    if (entries.isNotEmpty)
-                      Text(
-                          l10n.planSummary(
-                              summary.completed, summary.scheduled),
-                          style: theme.textTheme.bodySmall),
-                  ],
-                ),
-              ),
-              const Icon(Icons.chevron_right),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

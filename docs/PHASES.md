@@ -337,3 +337,19 @@ Bugs found and fixed:
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 272/272 pass (nutrition maths and safety blocks, menus for every region × diet, variety, training rules, plan flow end to end, onboarding with imperial units, style-fit filtering, v9 → v10 migration).
 - Visually checked on the emulator in light and dark mode.
+
+## Phase 13 — Today command center (2026-10-10)
+
+- **Home as a timeline** (`DayAgenda`, pure Dart): plan items, habits, water, planned meals (with the dish for each slot) and the day's workout, grouped Morning / Afternoon / Evening / Any time on a rail, the next task highlighted.
+  - The header shows a "Daily plan" % ring and a 7-day strip to look back (read-only).
+  - One-tap actions: tick plan items and habits, +250 ml water, open the meal or workout.
+  - Missed plan items offer **Reschedule** or **Skip today**; skipped items don't count against the day.
+- **Day modes** (today only, reset tomorrow): Normal; Busy (essentials only, a 5-minute workout, extras moved to "optional today"); Low energy (gentle mobility instead of training).
+- **Mood and energy check-in** (schema v11 `mood_log`): two rows of five, saved automatically. Low energy offers a low-energy day.
+- **The 5-minute improvement**: one small step for right now (water if behind for the time of day, an open habit, 5-minute mobility, tomorrow's outfit in the evening, or a posture check).
+- **Quick add "+"**: water 250/500 ml, meal, weight, sleep.
+- **Smarter reminders**: quiet hours (e.g. 22:00–07:00, crossing midnight) suppress alerts but keep items in the plan; reminders are grouped; snooze already existed.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 293/293 pass (agenda grouping, completion, missed/skipped, busy and low-energy transforms, five-minute picks, quiet hours incl. midnight, check-ins and today-only mode, v10 → v11 migration, Home flow: check-in → low-energy switch, skip a missed item, tick a habit, quick-add water, look back, quiet-hours toggle).
+- Checked on the emulator.

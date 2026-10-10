@@ -82,6 +82,12 @@ class AppHarness {
     await settle();
   }
 
+  /// Scrolls the current page's main list until [finder] can be tapped
+  /// (Home is long: timeline first, journey and stats below).
+  Future<void> reveal(Finder finder, {double step = 250}) => tester
+      .scrollUntilVisible(finder.hitTestable(), step,
+          scrollable: find.byType(Scrollable).first);
+
   /// Runs real async work (e.g. seeding the database) outside the fake clock.
   Future<T?> run<T>(Future<T> Function() body) => tester.runAsync(body);
 

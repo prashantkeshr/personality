@@ -92,6 +92,7 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
         items: inputs.items,
         records: inputs.records,
         now: ref.read(clockProvider)(),
+        quiet: settings.quietHours,
       );
       await scheduler.sync(
         occurrences,

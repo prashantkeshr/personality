@@ -5743,6 +5743,384 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Meals chosen from {region} cuisine where possible.'**
   String bodyPlanLocalMenu(String region);
+
+  /// No description provided for @dailyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily plan'**
+  String get dailyPlan;
+
+  /// No description provided for @partMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get partMorning;
+
+  /// No description provided for @partAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon'**
+  String get partAfternoon;
+
+  /// No description provided for @partEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening'**
+  String get partEvening;
+
+  /// No description provided for @partAnytime.
+  ///
+  /// In en, this message translates to:
+  /// **'Any time'**
+  String get partAnytime;
+
+  /// No description provided for @agendaWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink {target}'**
+  String agendaWater(String target);
+
+  /// No description provided for @agendaWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'{workout} · {minutes} min'**
+  String agendaWorkout(String workout, int minutes);
+
+  /// No description provided for @agendaOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 optional today} other{{count} optional today}}'**
+  String agendaOptional(int count);
+
+  /// No description provided for @agendaMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get agendaMissed;
+
+  /// No description provided for @agendaReschedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule'**
+  String get agendaReschedule;
+
+  /// No description provided for @agendaSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip today'**
+  String get agendaSkip;
+
+  /// No description provided for @agendaDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark done'**
+  String get agendaDone;
+
+  /// No description provided for @agendaUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get agendaUndo;
+
+  /// No description provided for @agendaLookingBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking back at {date}'**
+  String agendaLookingBack(String date);
+
+  /// No description provided for @agendaEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing planned yet. Add a routine, habits or a diet plan to build your day.'**
+  String get agendaEmpty;
+
+  /// No description provided for @agendaProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} done'**
+  String agendaProgress(int done, int total);
+
+  /// No description provided for @dayModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How\'s today?'**
+  String get dayModeTitle;
+
+  /// No description provided for @dayModeNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get dayModeNormal;
+
+  /// No description provided for @dayModeBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Busy'**
+  String get dayModeBusy;
+
+  /// No description provided for @dayModeLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low energy'**
+  String get dayModeLow;
+
+  /// No description provided for @dayModeNormalInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Your full plan.'**
+  String get dayModeNormalInfo;
+
+  /// No description provided for @dayModeBusyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Essentials only, with a 5-minute workout.'**
+  String get dayModeBusyInfo;
+
+  /// No description provided for @dayModeLowInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle mobility instead of training. Rest counts too.'**
+  String get dayModeLowInfo;
+
+  /// No description provided for @moodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check in'**
+  String get moodTitle;
+
+  /// No description provided for @moodQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling?'**
+  String get moodQuestion;
+
+  /// No description provided for @energyQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Energy level'**
+  String get energyQuestion;
+
+  /// No description provided for @mood1.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get mood1;
+
+  /// No description provided for @mood2.
+  ///
+  /// In en, this message translates to:
+  /// **'Meh'**
+  String get mood2;
+
+  /// No description provided for @mood3.
+  ///
+  /// In en, this message translates to:
+  /// **'Okay'**
+  String get mood3;
+
+  /// No description provided for @mood4.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get mood4;
+
+  /// No description provided for @mood5.
+  ///
+  /// In en, this message translates to:
+  /// **'Great'**
+  String get mood5;
+
+  /// No description provided for @energy1.
+  ///
+  /// In en, this message translates to:
+  /// **'Drained'**
+  String get energy1;
+
+  /// No description provided for @energy2.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get energy2;
+
+  /// No description provided for @energy3.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady'**
+  String get energy3;
+
+  /// No description provided for @energy4.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get energy4;
+
+  /// No description provided for @energy5.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get energy5;
+
+  /// No description provided for @moodSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save check-in'**
+  String get moodSave;
+
+  /// No description provided for @moodSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks for checking in'**
+  String get moodSaved;
+
+  /// No description provided for @moodSuggestLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Energy is low today. Make it a low-energy day?'**
+  String get moodSuggestLow;
+
+  /// No description provided for @moodSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch'**
+  String get moodSwitch;
+
+  /// No description provided for @moodToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: {mood} · energy {energy}'**
+  String moodToday(String mood, String energy);
+
+  /// No description provided for @fiveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Got 5 minutes?'**
+  String get fiveTitle;
+
+  /// No description provided for @fiveWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink a glass of water'**
+  String get fiveWater;
+
+  /// No description provided for @fiveWaterInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re a little behind on water for this time of day.'**
+  String get fiveWaterInfo;
+
+  /// No description provided for @fiveHabit.
+  ///
+  /// In en, this message translates to:
+  /// **'Do it now: {habit}'**
+  String fiveHabit(String habit);
+
+  /// No description provided for @fiveHabitInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'One habit, ticked off in a few minutes.'**
+  String get fiveHabitInfo;
+
+  /// No description provided for @fiveMobility.
+  ///
+  /// In en, this message translates to:
+  /// **'5-minute mobility'**
+  String get fiveMobility;
+
+  /// No description provided for @fiveMobilityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Neck, shoulders and posture: a quick reset.'**
+  String get fiveMobilityInfo;
+
+  /// No description provided for @fiveOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan tomorrow\'s outfit'**
+  String get fiveOutfit;
+
+  /// No description provided for @fiveOutfitInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose it tonight, decide less tomorrow.'**
+  String get fiveOutfitInfo;
+
+  /// No description provided for @fivePosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick posture check'**
+  String get fivePosture;
+
+  /// No description provided for @fivePostureInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Two minutes with the camera, tips for you.'**
+  String get fivePostureInfo;
+
+  /// No description provided for @fiveDo.
+  ///
+  /// In en, this message translates to:
+  /// **'Do it'**
+  String get fiveDo;
+
+  /// No description provided for @quickAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick add'**
+  String get quickAdd;
+
+  /// No description provided for @quickWater.
+  ///
+  /// In en, this message translates to:
+  /// **'+{ml} ml water'**
+  String quickWater(int ml);
+
+  /// No description provided for @quickMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Log a meal'**
+  String get quickMeal;
+
+  /// No description provided for @quickWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log weight'**
+  String get quickWeight;
+
+  /// No description provided for @quickSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Log sleep'**
+  String get quickSleep;
+
+  /// No description provided for @quickMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood check-in'**
+  String get quickMood;
+
+  /// No description provided for @quickAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added'**
+  String get quickAdded;
+
+  /// No description provided for @remindersQuiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet hours'**
+  String get remindersQuiet;
+
+  /// No description provided for @remindersQuietInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders from {start} to {end}. Items stay in your plan.'**
+  String remindersQuietInfo(String start, String end);
+
+  /// No description provided for @remindersQuietOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off: reminders can arrive at any time.'**
+  String get remindersQuietOff;
 }
 
 class _AppLocalizationsDelegate

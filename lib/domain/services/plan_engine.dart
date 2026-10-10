@@ -157,6 +157,27 @@ abstract final class PlanEngine {
       };
 }
 
+/// A daily window without reminders. [start] and [end] are minutes of the
+/// day; the window may cross midnight (22:00–07:00).
+class QuietHours {
+  const QuietHours(this.start, this.end);
+
+  final int start;
+  final int end;
+
+  bool contains(int minute) => start <= end
+      ? minute >= start && minute < end
+      : minute >= start || minute < end;
+
+  static QuietHours? parse(String? v) {
+    final parts = (v ?? '').split('-');
+    if (parts.length != 2) return null;
+    final a = int.tryParse(parts[0]), b = int.tryParse(parts[1]);
+    if (a == null || b == null || a == b) return null;
+    return QuietHours(a, b);
+  }
+}
+
 /// A reminder notification to schedule.
 class ReminderOccurrence {
   const ReminderOccurrence({
@@ -198,6 +219,7 @@ abstract final class ReminderPlanner {
     required List<PlanRecord> records,
     required DateTime now,
     int days = windowDays,
+    QuietHours? quiet,
   }) {
     final result = <ReminderOccurrence>[];
     final l = now.toLocal();
@@ -211,6 +233,8 @@ abstract final class ReminderPlanner {
           now: now);
       for (final e in plan) {
         if (!e.item.reminder || !e.isOpen) continue;
+        // Quiet hours: the item stays in the app's plan, just no alert.
+        if (quiet != null && quiet.contains(e.minute)) continue;
         final at = Minutes.on(dayKey, e.minute);
         if (!at.isAfter(now)) continue;
         result.add(ReminderOccurrence(

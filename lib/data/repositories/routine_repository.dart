@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 import '../../core/database/app_database.dart';
 import '../../domain/entities/health.dart';
 import '../../domain/entities/routine.dart';
+import '../../domain/services/plan_engine.dart' show QuietHours;
 import 'body_record_repository.dart';
 
 T _enum<T extends Enum>(List<T> values, String name, T fallback) {
@@ -241,17 +242,20 @@ class ReminderSettingsRepository {
 
   static const _enabled = 'reminders.enabled';
   static const _adaptive = 'reminders.adaptive';
+  static const _quiet = 'reminders.quiet';
   static const _dismissPrefix = 'suggestion.dismissed.';
 
   Stream<ReminderSettings> watch() {
     final q = _db.select(_db.appSettingsEntries)
       ..where((t) =>
-          t.key.isIn([_enabled, _adaptive]) | t.key.like('$_dismissPrefix%'));
+          t.key.isIn([_enabled, _adaptive, _quiet]) |
+          t.key.like('$_dismissPrefix%'));
     return q.watch().map((rows) {
       final m = {for (final r in rows) r.key: r.value};
       return ReminderSettings(
         enabled: m[_enabled] == 'true',
         adaptive: m[_adaptive] != 'false',
+        quietHours: QuietHours.parse(m[_quiet]),
         dismissedOn: {
           for (final e in m.entries)
             if (e.key.startsWith(_dismissPrefix))
@@ -272,6 +276,10 @@ class ReminderSettingsRepository {
 
   Future<void> setEnabled(bool on) => _put(_enabled, '$on');
   Future<void> setAdaptive(bool on) => _put(_adaptive, '$on');
+
+  /// Null turns quiet hours off.
+  Future<void> setQuietHours(QuietHours? q) =>
+      _put(_quiet, q == null ? '' : '${q.start}-${q.end}');
   Future<void> dismissSuggestion(String itemId, int dayKey) =>
       _put('$_dismissPrefix$itemId', '$dayKey');
 }
@@ -280,8 +288,12 @@ class ReminderSettings {
   const ReminderSettings({
     this.enabled = false,
     this.adaptive = true,
+    this.quietHours,
     this.dismissedOn = const {},
   });
+
+  /// No reminders inside this window (e.g. 22:00–07:00).
+  final QuietHours? quietHours;
 
   /// Off until the user turns reminders on (and grants permission).
   final bool enabled;

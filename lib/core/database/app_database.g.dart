@@ -14011,6 +14011,298 @@ class BodyPlansCompanion extends UpdateCompanion<BodyPlanRow> {
   }
 }
 
+class $MoodLogsTable extends MoodLogs with TableInfo<$MoodLogsTable, MoodRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MoodLogsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _dayMeta = const VerificationMeta('day');
+  @override
+  late final GeneratedColumn<int> day = GeneratedColumn<int>(
+    'day',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _moodMeta = const VerificationMeta('mood');
+  @override
+  late final GeneratedColumn<int> mood = GeneratedColumn<int>(
+    'mood',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyMeta = const VerificationMeta('energy');
+  @override
+  late final GeneratedColumn<int> energy = GeneratedColumn<int>(
+    'energy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _recordedAtMeta = const VerificationMeta(
+    'recordedAt',
+  );
+  @override
+  late final GeneratedColumn<int> recordedAt = GeneratedColumn<int>(
+    'recorded_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [day, mood, energy, recordedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'mood_log';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MoodRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('day')) {
+      context.handle(
+        _dayMeta,
+        day.isAcceptableOrUnknown(data['day']!, _dayMeta),
+      );
+    }
+    if (data.containsKey('mood')) {
+      context.handle(
+        _moodMeta,
+        mood.isAcceptableOrUnknown(data['mood']!, _moodMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_moodMeta);
+    }
+    if (data.containsKey('energy')) {
+      context.handle(
+        _energyMeta,
+        energy.isAcceptableOrUnknown(data['energy']!, _energyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_energyMeta);
+    }
+    if (data.containsKey('recorded_at')) {
+      context.handle(
+        _recordedAtMeta,
+        recordedAt.isAcceptableOrUnknown(data['recorded_at']!, _recordedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recordedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {day};
+  @override
+  MoodRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MoodRow(
+      day: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}day'],
+      )!,
+      mood: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}mood'],
+      )!,
+      energy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy'],
+      )!,
+      recordedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}recorded_at'],
+      )!,
+    );
+  }
+
+  @override
+  $MoodLogsTable createAlias(String alias) {
+    return $MoodLogsTable(attachedDatabase, alias);
+  }
+}
+
+class MoodRow extends DataClass implements Insertable<MoodRow> {
+  final int day;
+  final int mood;
+  final int energy;
+  final int recordedAt;
+  const MoodRow({
+    required this.day,
+    required this.mood,
+    required this.energy,
+    required this.recordedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['day'] = Variable<int>(day);
+    map['mood'] = Variable<int>(mood);
+    map['energy'] = Variable<int>(energy);
+    map['recorded_at'] = Variable<int>(recordedAt);
+    return map;
+  }
+
+  MoodLogsCompanion toCompanion(bool nullToAbsent) {
+    return MoodLogsCompanion(
+      day: Value(day),
+      mood: Value(mood),
+      energy: Value(energy),
+      recordedAt: Value(recordedAt),
+    );
+  }
+
+  factory MoodRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MoodRow(
+      day: serializer.fromJson<int>(json['day']),
+      mood: serializer.fromJson<int>(json['mood']),
+      energy: serializer.fromJson<int>(json['energy']),
+      recordedAt: serializer.fromJson<int>(json['recordedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'day': serializer.toJson<int>(day),
+      'mood': serializer.toJson<int>(mood),
+      'energy': serializer.toJson<int>(energy),
+      'recordedAt': serializer.toJson<int>(recordedAt),
+    };
+  }
+
+  MoodRow copyWith({int? day, int? mood, int? energy, int? recordedAt}) =>
+      MoodRow(
+        day: day ?? this.day,
+        mood: mood ?? this.mood,
+        energy: energy ?? this.energy,
+        recordedAt: recordedAt ?? this.recordedAt,
+      );
+  MoodRow copyWithCompanion(MoodLogsCompanion data) {
+    return MoodRow(
+      day: data.day.present ? data.day.value : this.day,
+      mood: data.mood.present ? data.mood.value : this.mood,
+      energy: data.energy.present ? data.energy.value : this.energy,
+      recordedAt: data.recordedAt.present
+          ? data.recordedAt.value
+          : this.recordedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MoodRow(')
+          ..write('day: $day, ')
+          ..write('mood: $mood, ')
+          ..write('energy: $energy, ')
+          ..write('recordedAt: $recordedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(day, mood, energy, recordedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MoodRow &&
+          other.day == this.day &&
+          other.mood == this.mood &&
+          other.energy == this.energy &&
+          other.recordedAt == this.recordedAt);
+}
+
+class MoodLogsCompanion extends UpdateCompanion<MoodRow> {
+  final Value<int> day;
+  final Value<int> mood;
+  final Value<int> energy;
+  final Value<int> recordedAt;
+  const MoodLogsCompanion({
+    this.day = const Value.absent(),
+    this.mood = const Value.absent(),
+    this.energy = const Value.absent(),
+    this.recordedAt = const Value.absent(),
+  });
+  MoodLogsCompanion.insert({
+    this.day = const Value.absent(),
+    required int mood,
+    required int energy,
+    required int recordedAt,
+  }) : mood = Value(mood),
+       energy = Value(energy),
+       recordedAt = Value(recordedAt);
+  static Insertable<MoodRow> custom({
+    Expression<int>? day,
+    Expression<int>? mood,
+    Expression<int>? energy,
+    Expression<int>? recordedAt,
+  }) {
+    return RawValuesInsertable({
+      if (day != null) 'day': day,
+      if (mood != null) 'mood': mood,
+      if (energy != null) 'energy': energy,
+      if (recordedAt != null) 'recorded_at': recordedAt,
+    });
+  }
+
+  MoodLogsCompanion copyWith({
+    Value<int>? day,
+    Value<int>? mood,
+    Value<int>? energy,
+    Value<int>? recordedAt,
+  }) {
+    return MoodLogsCompanion(
+      day: day ?? this.day,
+      mood: mood ?? this.mood,
+      energy: energy ?? this.energy,
+      recordedAt: recordedAt ?? this.recordedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (day.present) {
+      map['day'] = Variable<int>(day.value);
+    }
+    if (mood.present) {
+      map['mood'] = Variable<int>(mood.value);
+    }
+    if (energy.present) {
+      map['energy'] = Variable<int>(energy.value);
+    }
+    if (recordedAt.present) {
+      map['recorded_at'] = Variable<int>(recordedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MoodLogsCompanion(')
+          ..write('day: $day, ')
+          ..write('mood: $mood, ')
+          ..write('energy: $energy, ')
+          ..write('recordedAt: $recordedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -14051,6 +14343,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $OutfitItemsTable outfitItems = $OutfitItemsTable(this);
   late final $OutfitWearsTable outfitWears = $OutfitWearsTable(this);
   late final $BodyPlansTable bodyPlans = $BodyPlansTable(this);
+  late final $MoodLogsTable moodLogs = $MoodLogsTable(this);
   late final Index idxHeightRecordedAt = Index(
     'idx_height_recorded_at',
     'CREATE INDEX idx_height_recorded_at ON height_record (recorded_at)',
@@ -14144,6 +14437,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     outfitItems,
     outfitWears,
     bodyPlans,
+    moodLogs,
     idxHeightRecordedAt,
     idxWeightRecordedAt,
     idxMeasurementTypeRecordedAt,
@@ -23226,6 +23520,184 @@ typedef $$BodyPlansTableProcessedTableManager =
       BodyPlanRow,
       PrefetchHooks Function()
     >;
+typedef $$MoodLogsTableCreateCompanionBuilder = MoodLogsCompanion Function({
+  Value<int> day,
+  required int mood,
+  required int energy,
+  required int recordedAt,
+});
+typedef $$MoodLogsTableUpdateCompanionBuilder = MoodLogsCompanion Function({
+  Value<int> day,
+  Value<int> mood,
+  Value<int> energy,
+  Value<int> recordedAt,
+});
+
+class $$MoodLogsTableFilterComposer
+    extends Composer<_$AppDatabase, $MoodLogsTable> {
+  $$MoodLogsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mood => $composableBuilder(
+    column: $table.mood,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energy => $composableBuilder(
+    column: $table.energy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MoodLogsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MoodLogsTable> {
+  $$MoodLogsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get day => $composableBuilder(
+    column: $table.day,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mood => $composableBuilder(
+    column: $table.mood,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energy => $composableBuilder(
+    column: $table.energy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MoodLogsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MoodLogsTable> {
+  $$MoodLogsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get day =>
+      $composableBuilder(column: $table.day, builder: (column) => column);
+
+  GeneratedColumn<int> get mood =>
+      $composableBuilder(column: $table.mood, builder: (column) => column);
+
+  GeneratedColumn<int> get energy =>
+      $composableBuilder(column: $table.energy, builder: (column) => column);
+
+  GeneratedColumn<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => column,
+  );
+}
+
+class $$MoodLogsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MoodLogsTable,
+          MoodRow,
+          $$MoodLogsTableFilterComposer,
+          $$MoodLogsTableOrderingComposer,
+          $$MoodLogsTableAnnotationComposer,
+          $$MoodLogsTableCreateCompanionBuilder,
+          $$MoodLogsTableUpdateCompanionBuilder,
+          (MoodRow, BaseReferences<_$AppDatabase, $MoodLogsTable, MoodRow>),
+          MoodRow,
+          PrefetchHooks Function()
+        > {
+  $$MoodLogsTableTableManager(_$AppDatabase db, $MoodLogsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MoodLogsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MoodLogsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MoodLogsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> day = const Value.absent(),
+                Value<int> mood = const Value.absent(),
+                Value<int> energy = const Value.absent(),
+                Value<int> recordedAt = const Value.absent(),
+              }) => MoodLogsCompanion(
+                day: day,
+                mood: mood,
+                energy: energy,
+                recordedAt: recordedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> day = const Value.absent(),
+                required int mood,
+                required int energy,
+                required int recordedAt,
+              }) => MoodLogsCompanion.insert(
+                day: day,
+                mood: mood,
+                energy: energy,
+                recordedAt: recordedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MoodLogsTable, MoodRow>(table),
+                  BaseReferences<_$AppDatabase, $MoodLogsTable, MoodRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MoodLogsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MoodLogsTable,
+      MoodRow,
+      $$MoodLogsTableFilterComposer,
+      $$MoodLogsTableOrderingComposer,
+      $$MoodLogsTableAnnotationComposer,
+      $$MoodLogsTableCreateCompanionBuilder,
+      $$MoodLogsTableUpdateCompanionBuilder,
+      (MoodRow, BaseReferences<_$AppDatabase, $MoodLogsTable, MoodRow>),
+      MoodRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -23286,4 +23758,6 @@ class $AppDatabaseManager {
       $$OutfitWearsTableTableManager(_db, _db.outfitWears);
   $$BodyPlansTableTableManager get bodyPlans =>
       $$BodyPlansTableTableManager(_db, _db.bodyPlans);
+  $$MoodLogsTableTableManager get moodLogs =>
+      $$MoodLogsTableTableManager(_db, _db.moodLogs);
 }

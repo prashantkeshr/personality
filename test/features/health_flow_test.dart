@@ -20,7 +20,9 @@ void main() {
   testWidgets('Home shows today tiles with default targets', (tester) async {
     final app = AppHarness(tester);
     await app.start(onboarded);
-    expect(find.text('0 ml / 2.0 L'), findsOneWidget);
+    // The tiles sit below the timeline (which also shows water progress).
+    await app.reveal(find.text('None logged'));
+    expect(find.text('0 ml / 2.0 L'), findsWidgets);
     expect(find.text('0 / 8,000'), findsOneWidget);
     expect(find.text('None today'), findsOneWidget);
     expect(find.text('None logged'), findsOneWidget);
@@ -70,6 +72,7 @@ void main() {
     expect(find.textContaining('1 of 1 this week'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Home'));
+    await app.reveal(find.text('1 / 1'));
     expect(find.text('1 / 1'), findsOneWidget);
     await app.dispose();
   });
@@ -90,6 +93,7 @@ void main() {
     expect(find.text('Poha'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Home'));
+    await app.reveal(find.text('1 meal'));
     expect(find.text('1 meal'), findsOneWidget);
     await app.dispose();
   });

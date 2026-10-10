@@ -77,7 +77,8 @@ void main() {
           'outfit_item',
           'outfit_wear',
           'body_plan',
+          'mood_log',
         ]));
-    expect(db.schemaVersion, 10);
+    expect(db.schemaVersion, 11);
   });
 }

@@ -3210,4 +3210,220 @@ class AppLocalizationsEn extends AppLocalizations {
   String bodyPlanLocalMenu(String region) {
     return 'Meals chosen from $region cuisine where possible.';
   }
+
+  @override
+  String get dailyPlan => 'Daily plan';
+
+  @override
+  String get partMorning => 'Morning';
+
+  @override
+  String get partAfternoon => 'Afternoon';
+
+  @override
+  String get partEvening => 'Evening';
+
+  @override
+  String get partAnytime => 'Any time';
+
+  @override
+  String agendaWater(String target) {
+    return 'Drink $target';
+  }
+
+  @override
+  String agendaWorkout(String workout, int minutes) {
+    return '$workout · $minutes min';
+  }
+
+  @override
+  String agendaOptional(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count optional today',
+      one: '1 optional today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get agendaMissed => 'Missed';
+
+  @override
+  String get agendaReschedule => 'Reschedule';
+
+  @override
+  String get agendaSkip => 'Skip today';
+
+  @override
+  String get agendaDone => 'Mark done';
+
+  @override
+  String get agendaUndo => 'Undo';
+
+  @override
+  String agendaLookingBack(String date) {
+    return 'Looking back at $date';
+  }
+
+  @override
+  String get agendaEmpty =>
+      'Nothing planned yet. Add a routine, habits or a diet plan to build your day.';
+
+  @override
+  String agendaProgress(int done, int total) {
+    return '$done of $total done';
+  }
+
+  @override
+  String get dayModeTitle => 'How\'s today?';
+
+  @override
+  String get dayModeNormal => 'Normal';
+
+  @override
+  String get dayModeBusy => 'Busy';
+
+  @override
+  String get dayModeLow => 'Low energy';
+
+  @override
+  String get dayModeNormalInfo => 'Your full plan.';
+
+  @override
+  String get dayModeBusyInfo => 'Essentials only, with a 5-minute workout.';
+
+  @override
+  String get dayModeLowInfo =>
+      'Gentle mobility instead of training. Rest counts too.';
+
+  @override
+  String get moodTitle => 'Check in';
+
+  @override
+  String get moodQuestion => 'How are you feeling?';
+
+  @override
+  String get energyQuestion => 'Energy level';
+
+  @override
+  String get mood1 => 'Low';
+
+  @override
+  String get mood2 => 'Meh';
+
+  @override
+  String get mood3 => 'Okay';
+
+  @override
+  String get mood4 => 'Good';
+
+  @override
+  String get mood5 => 'Great';
+
+  @override
+  String get energy1 => 'Drained';
+
+  @override
+  String get energy2 => 'Low';
+
+  @override
+  String get energy3 => 'Steady';
+
+  @override
+  String get energy4 => 'Good';
+
+  @override
+  String get energy5 => 'High';
+
+  @override
+  String get moodSave => 'Save check-in';
+
+  @override
+  String get moodSaved => 'Thanks for checking in';
+
+  @override
+  String get moodSuggestLow => 'Energy is low today. Make it a low-energy day?';
+
+  @override
+  String get moodSwitch => 'Switch';
+
+  @override
+  String moodToday(String mood, String energy) {
+    return 'Today: $mood · energy $energy';
+  }
+
+  @override
+  String get fiveTitle => 'Got 5 minutes?';
+
+  @override
+  String get fiveWater => 'Drink a glass of water';
+
+  @override
+  String get fiveWaterInfo =>
+      'You\'re a little behind on water for this time of day.';
+
+  @override
+  String fiveHabit(String habit) {
+    return 'Do it now: $habit';
+  }
+
+  @override
+  String get fiveHabitInfo => 'One habit, ticked off in a few minutes.';
+
+  @override
+  String get fiveMobility => '5-minute mobility';
+
+  @override
+  String get fiveMobilityInfo => 'Neck, shoulders and posture: a quick reset.';
+
+  @override
+  String get fiveOutfit => 'Plan tomorrow\'s outfit';
+
+  @override
+  String get fiveOutfitInfo => 'Choose it tonight, decide less tomorrow.';
+
+  @override
+  String get fivePosture => 'Quick posture check';
+
+  @override
+  String get fivePostureInfo => 'Two minutes with the camera, tips for you.';
+
+  @override
+  String get fiveDo => 'Do it';
+
+  @override
+  String get quickAdd => 'Quick add';
+
+  @override
+  String quickWater(int ml) {
+    return '+$ml ml water';
+  }
+
+  @override
+  String get quickMeal => 'Log a meal';
+
+  @override
+  String get quickWeight => 'Log weight';
+
+  @override
+  String get quickSleep => 'Log sleep';
+
+  @override
+  String get quickMood => 'Mood check-in';
+
+  @override
+  String get quickAdded => 'Added';
+
+  @override
+  String get remindersQuiet => 'Quiet hours';
+
+  @override
+  String remindersQuietInfo(String start, String end) {
+    return 'No reminders from $start to $end. Items stay in your plan.';
+  }
+
+  @override
+  String get remindersQuietOff => 'Off: reminders can arrive at any time.';
 }

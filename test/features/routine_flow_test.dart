@@ -61,7 +61,7 @@ void main() {
 
   testWidgets('example routine feeds the plan and Home', (tester) async {
     final app = await start(tester, FakeScheduler());
-    expect(find.text('No plan for today yet'), findsOneWidget);
+    expect(find.textContaining('Nothing planned yet'), findsOneWidget);
 
     await openHealthFeature(app, 'Routines');
     await app.tapAndSettle(find.text('Start from an example'));
@@ -85,8 +85,10 @@ void main() {
     expect(find.text('Completed 1 of 6 planned'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Home'));
+    await app.reveal(find.text('Next: Lunch — ${hm(13)}'));
     expect(find.text('Next: Lunch — ${hm(13)}'), findsOneWidget);
-    expect(find.text('Completed 1 of 6 planned'), findsOneWidget);
+    // Six plan items plus the water target; the posture break is done.
+    expect(find.text('1 of 7 done'), findsOneWidget);
     await app.dispose();
   });
 
@@ -158,6 +160,7 @@ void main() {
       clockProvider.overrideWithValue(() => now),
     ]);
 
+    await app.reveal(find.text('Move it to ${hm(16)}?'));
     expect(find.text('Move it to ${hm(16)}?'), findsOneWidget);
     expect(find.textContaining('missed on 10 of the last 14'), findsOneWidget);
 

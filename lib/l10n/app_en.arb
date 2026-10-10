@@ -1656,5 +1656,143 @@
         "type": "String"
       }
     }
-  }
+  },
+  "dailyPlan": "Daily plan",
+  "partMorning": "Morning",
+  "partAfternoon": "Afternoon",
+  "partEvening": "Evening",
+  "partAnytime": "Any time",
+  "agendaWater": "Drink {target}",
+  "@agendaWater": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaWorkout": "{workout} · {minutes} min",
+  "@agendaWorkout": {
+    "placeholders": {
+      "workout": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaOptional": "{count, plural, =1{1 optional today} other{{count} optional today}}",
+  "@agendaOptional": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "agendaMissed": "Missed",
+  "agendaReschedule": "Reschedule",
+  "agendaSkip": "Skip today",
+  "agendaDone": "Mark done",
+  "agendaUndo": "Undo",
+  "agendaLookingBack": "Looking back at {date}",
+  "@agendaLookingBack": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaEmpty": "Nothing planned yet. Add a routine, habits or a diet plan to build your day.",
+  "agendaProgress": "{done} of {total} done",
+  "@agendaProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "dayModeTitle": "How's today?",
+  "dayModeNormal": "Normal",
+  "dayModeBusy": "Busy",
+  "dayModeLow": "Low energy",
+  "dayModeNormalInfo": "Your full plan.",
+  "dayModeBusyInfo": "Essentials only, with a 5-minute workout.",
+  "dayModeLowInfo": "Gentle mobility instead of training. Rest counts too.",
+  "moodTitle": "Check in",
+  "moodQuestion": "How are you feeling?",
+  "energyQuestion": "Energy level",
+  "mood1": "Low",
+  "mood2": "Meh",
+  "mood3": "Okay",
+  "mood4": "Good",
+  "mood5": "Great",
+  "energy1": "Drained",
+  "energy2": "Low",
+  "energy3": "Steady",
+  "energy4": "Good",
+  "energy5": "High",
+  "moodSave": "Save check-in",
+  "moodSaved": "Thanks for checking in",
+  "moodSuggestLow": "Energy is low today. Make it a low-energy day?",
+  "moodSwitch": "Switch",
+  "moodToday": "Today: {mood} · energy {energy}",
+  "@moodToday": {
+    "placeholders": {
+      "mood": {
+        "type": "String"
+      },
+      "energy": {
+        "type": "String"
+      }
+    }
+  },
+  "fiveTitle": "Got 5 minutes?",
+  "fiveWater": "Drink a glass of water",
+  "fiveWaterInfo": "You're a little behind on water for this time of day.",
+  "fiveHabit": "Do it now: {habit}",
+  "@fiveHabit": {
+    "placeholders": {
+      "habit": {
+        "type": "String"
+      }
+    }
+  },
+  "fiveHabitInfo": "One habit, ticked off in a few minutes.",
+  "fiveMobility": "5-minute mobility",
+  "fiveMobilityInfo": "Neck, shoulders and posture: a quick reset.",
+  "fiveOutfit": "Plan tomorrow's outfit",
+  "fiveOutfitInfo": "Choose it tonight, decide less tomorrow.",
+  "fivePosture": "Quick posture check",
+  "fivePostureInfo": "Two minutes with the camera, tips for you.",
+  "fiveDo": "Do it",
+  "quickAdd": "Quick add",
+  "quickWater": "+{ml} ml water",
+  "@quickWater": {
+    "placeholders": {
+      "ml": {
+        "type": "int"
+      }
+    }
+  },
+  "quickMeal": "Log a meal",
+  "quickWeight": "Log weight",
+  "quickSleep": "Log sleep",
+  "quickMood": "Mood check-in",
+  "quickAdded": "Added",
+  "remindersQuiet": "Quiet hours",
+  "remindersQuietInfo": "No reminders from {start} to {end}. Items stay in your plan.",
+  "@remindersQuietInfo": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "remindersQuietOff": "Off: reminders can arrive at any time."
 }

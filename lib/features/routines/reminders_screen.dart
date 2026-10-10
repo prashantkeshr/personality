@@ -82,6 +82,7 @@ class RemindersScreen extends ConsumerWidget {
                       .read(reminderSettingsRepositoryProvider)
                       .setAdaptive(on),
                 ),
+                _QuietHoursTile(quiet: settings.quietHours),
                 Padding(
                   padding: const EdgeInsets.all(AppSpacing.lg),
                   child: Text(l10n.remindersTimingNote,
@@ -108,5 +109,67 @@ class RemindersScreen extends ConsumerWidget {
               ],
             ),
     );
+  }
+}
+
+/// Quiet hours: on/off, then start and end times.
+class _QuietHoursTile extends ConsumerWidget {
+  const _QuietHoursTile({required this.quiet});
+  final QuietHours? quiet;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final repo = ref.read(reminderSettingsRepositoryProvider);
+    Future<int?> pick(int minute) async {
+      final t = await showTimePicker(
+          context: context,
+          initialTime: TimeOfDay(hour: minute ~/ 60, minute: minute % 60));
+      return t == null ? null : t.hour * 60 + t.minute;
+    }
+
+    final q = quiet;
+    return Column(children: [
+      SwitchListTile(
+        key: const Key('quiet-hours'),
+        secondary: const Icon(Icons.do_not_disturb_on_outlined),
+        title: Text(l10n.remindersQuiet),
+        subtitle: Text(q == null
+            ? l10n.remindersQuietOff
+            : l10n.remindersQuietInfo(
+                formatMinute(context, q.start), formatMinute(context, q.end))),
+        value: q != null,
+        onChanged: (on) =>
+            repo.setQuietHours(on ? const QuietHours(22 * 60, 7 * 60) : null),
+      ),
+      if (q != null)
+        Padding(
+          padding: const EdgeInsets.only(left: 72, right: AppSpacing.lg),
+          child: Row(children: [
+            OutlinedButton(
+              onPressed: () async {
+                final m = await pick(q.start);
+                if (m != null && m != q.end) {
+                  await repo.setQuietHours(QuietHours(m, q.end));
+                }
+              },
+              child: Text(formatMinute(context, q.start)),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm),
+              child: Icon(Icons.arrow_forward, size: 18),
+            ),
+            OutlinedButton(
+              onPressed: () async {
+                final m = await pick(q.end);
+                if (m != null && m != q.start) {
+                  await repo.setQuietHours(QuietHours(q.start, m));
+                }
+              },
+              child: Text(formatMinute(context, q.end)),
+            ),
+          ]),
+        ),
+    ]);
   }
 }

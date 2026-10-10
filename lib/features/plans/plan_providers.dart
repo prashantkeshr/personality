@@ -44,6 +44,21 @@ final nutritionInputProvider = Provider<NutritionInput?>((ref) {
   );
 });
 
+/// The planned dishes for a day under the active plan (swaps not applied).
+final dayMenuProvider = Provider.family<DayMenu?, int>((ref, dayKey) {
+  final plan = ref.watch(activeBodyPlanProvider).value;
+  final library = ref.watch(mealLibraryProvider).value;
+  if (plan == null || library == null) return null;
+  final d = Days.fromKey(dayKey);
+  return MealPlanner.day(
+      library: library,
+      calories: plan.calories,
+      proteinG: plan.proteinG,
+      diet: plan.diet,
+      day: DateTime(d.year, d.month, d.day).difference(DateTime(2020)).inDays,
+      region: ref.watch(profileProvider).value?.region);
+});
+
 /// Calories logged in meals today (only meals with a calorie value count).
 final todayCaloriesProvider = Provider<int>((ref) {
   final today = Days.key(ref.watch(clockProvider)());

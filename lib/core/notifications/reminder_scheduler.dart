@@ -99,6 +99,8 @@ AndroidNotificationDetails _details(Map<String, dynamic> p) =>
       p['channel'] as String,
       channelDescription: p['channelDescription'] as String,
       category: AndroidNotificationCategory.reminder,
+      // Several reminders at once collapse into one group.
+      groupKey: 'com.dhurta.personality.reminders',
       actions: [
         AndroidNotificationAction(
             ReminderScheduler.actionDone, p['done'] as String,

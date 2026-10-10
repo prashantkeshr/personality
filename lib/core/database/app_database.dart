@@ -450,6 +450,21 @@ class BodyPlans extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+/// Daily mood and energy check-in (v11): one row per local day, 1–5 each.
+@DataClassName('MoodRow')
+class MoodLogs extends Table {
+  @override
+  String get tableName => 'mood_log';
+
+  IntColumn get day => integer()();
+  IntColumn get mood => integer()();
+  IntColumn get energy => integer()();
+  IntColumn get recordedAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {day};
+}
+
 /// A garment in the user's wardrobe. The optional photo is stored inside
 /// this encrypted database, never as a file.
 @DataClassName('WardrobeRow')
@@ -546,6 +561,7 @@ class OutfitWears extends Table {
   OutfitItems,
   OutfitWears,
   BodyPlans,
+  MoodLogs,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -553,7 +569,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -628,6 +644,9 @@ class AppDatabase extends _$AppDatabase {
             await m.addColumn(p, p.styleFit);
             await m.addColumn(p, p.region);
             await m.createTable(schema.bodyPlan);
+          },
+          from10To11: (m, schema) async {
+            await m.createTable(schema.moodLog);
           },
         ),
         beforeOpen: (details) async {

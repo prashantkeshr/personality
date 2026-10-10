@@ -3199,4 +3199,219 @@ class AppLocalizationsHi extends AppLocalizations {
   String bodyPlanLocalMenu(String region) {
     return 'जहाँ संभव हो, $region के भोजन से चुने गए व्यंजन।';
   }
+
+  @override
+  String get dailyPlan => 'आज की योजना';
+
+  @override
+  String get partMorning => 'सुबह';
+
+  @override
+  String get partAfternoon => 'दोपहर';
+
+  @override
+  String get partEvening => 'शाम';
+
+  @override
+  String get partAnytime => 'कभी भी';
+
+  @override
+  String agendaWater(String target) {
+    return '$target पानी पिएँ';
+  }
+
+  @override
+  String agendaWorkout(String workout, int minutes) {
+    return '$workout · $minutes मिनट';
+  }
+
+  @override
+  String agendaOptional(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'आज $count वैकल्पिक',
+      one: 'आज 1 वैकल्पिक',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get agendaMissed => 'छूट गया';
+
+  @override
+  String get agendaReschedule => 'समय बदलें';
+
+  @override
+  String get agendaSkip => 'आज छोड़ें';
+
+  @override
+  String get agendaDone => 'पूरा करें';
+
+  @override
+  String get agendaUndo => 'वापस लें';
+
+  @override
+  String agendaLookingBack(String date) {
+    return '$date की झलक';
+  }
+
+  @override
+  String get agendaEmpty =>
+      'अभी कुछ योजना नहीं। अपना दिन बनाने के लिए दिनचर्या, आदतें या डाइट प्लान जोड़ें।';
+
+  @override
+  String agendaProgress(int done, int total) {
+    return '$total में से $done पूरे';
+  }
+
+  @override
+  String get dayModeTitle => 'आज का दिन कैसा है?';
+
+  @override
+  String get dayModeNormal => 'सामान्य';
+
+  @override
+  String get dayModeBusy => 'व्यस्त';
+
+  @override
+  String get dayModeLow => 'कम ऊर्जा';
+
+  @override
+  String get dayModeNormalInfo => 'आपकी पूरी योजना।';
+
+  @override
+  String get dayModeBusyInfo => 'केवल ज़रूरी काम, 5 मिनट के व्यायाम के साथ।';
+
+  @override
+  String get dayModeLowInfo =>
+      'व्यायाम की जगह हल्का स्ट्रेच। आराम भी गिना जाता है।';
+
+  @override
+  String get moodTitle => 'हाल बताएँ';
+
+  @override
+  String get moodQuestion => 'आप कैसा महसूस कर रहे हैं?';
+
+  @override
+  String get energyQuestion => 'ऊर्जा स्तर';
+
+  @override
+  String get mood1 => 'उदास';
+
+  @override
+  String get mood2 => 'ठीक-ठाक नहीं';
+
+  @override
+  String get mood3 => 'ठीक';
+
+  @override
+  String get mood4 => 'अच्छा';
+
+  @override
+  String get mood5 => 'बहुत अच्छा';
+
+  @override
+  String get energy1 => 'थका हुआ';
+
+  @override
+  String get energy2 => 'कम';
+
+  @override
+  String get energy3 => 'स्थिर';
+
+  @override
+  String get energy4 => 'अच्छी';
+
+  @override
+  String get energy5 => 'भरपूर';
+
+  @override
+  String get moodSave => 'सहेजें';
+
+  @override
+  String get moodSaved => 'हाल बताने के लिए धन्यवाद';
+
+  @override
+  String get moodSuggestLow => 'आज ऊर्जा कम है। इसे कम-ऊर्जा वाला दिन बनाएँ?';
+
+  @override
+  String get moodSwitch => 'बदलें';
+
+  @override
+  String moodToday(String mood, String energy) {
+    return 'आज: $mood · ऊर्जा $energy';
+  }
+
+  @override
+  String get fiveTitle => '5 मिनट हैं?';
+
+  @override
+  String get fiveWater => 'एक गिलास पानी पिएँ';
+
+  @override
+  String get fiveWaterInfo => 'इस समय के हिसाब से पानी थोड़ा कम है।';
+
+  @override
+  String fiveHabit(String habit) {
+    return 'अभी करें: $habit';
+  }
+
+  @override
+  String get fiveHabitInfo => 'एक आदत, कुछ मिनट में पूरी।';
+
+  @override
+  String get fiveMobility => '5 मिनट का स्ट्रेच';
+
+  @override
+  String get fiveMobilityInfo => 'गर्दन, कंधे और पोस्चर: झटपट ताज़गी।';
+
+  @override
+  String get fiveOutfit => 'कल का आउटफ़िट चुनें';
+
+  @override
+  String get fiveOutfitInfo => 'आज रात चुनें, कल कम सोचें।';
+
+  @override
+  String get fivePosture => 'झटपट पोस्चर जाँच';
+
+  @override
+  String get fivePostureInfo => 'कैमरे के साथ दो मिनट, आपके लिए सुझाव।';
+
+  @override
+  String get fiveDo => 'करें';
+
+  @override
+  String get quickAdd => 'झटपट जोड़ें';
+
+  @override
+  String quickWater(int ml) {
+    return '+$ml मिली पानी';
+  }
+
+  @override
+  String get quickMeal => 'भोजन दर्ज करें';
+
+  @override
+  String get quickWeight => 'वज़न दर्ज करें';
+
+  @override
+  String get quickSleep => 'नींद दर्ज करें';
+
+  @override
+  String get quickMood => 'मूड बताएँ';
+
+  @override
+  String get quickAdded => 'जोड़ा गया';
+
+  @override
+  String get remindersQuiet => 'शांत समय';
+
+  @override
+  String remindersQuietInfo(String start, String end) {
+    return '$start से $end तक कोई रिमाइंडर नहीं। काम आपकी योजना में रहेंगे।';
+  }
+
+  @override
+  String get remindersQuietOff => 'बंद: रिमाइंडर कभी भी आ सकते हैं।';
 }

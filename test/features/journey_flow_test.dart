@@ -85,6 +85,7 @@ void main() {
     final seen = await app.run(() => ProgressRepository(app.db).seenBadges());
     expect(seen, contains('firstSteps'));
 
+    await app.reveal(find.text("Today's quests"));
     expect(find.text('Your journey'), findsOneWidget);
     expect(find.text('Level 1'), findsOneWidget);
     expect(find.text("Today's quests"), findsOneWidget);
@@ -117,6 +118,7 @@ void main() {
     });
     await app.start(onboarded,
         overrides: [clockProvider.overrideWithValue(() => now)]);
+    await app.reveal(find.text('2 snapshots'));
     expect(find.text('2 snapshots'), findsOneWidget);
     await app.tapAndSettle(find.text('Your journey'));
     expect(find.byType(Slider), findsOneWidget);

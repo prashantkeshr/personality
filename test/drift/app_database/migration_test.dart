@@ -17,6 +17,7 @@ import 'generated/schema_v7.dart' as v7;
 import 'generated/schema_v8.dart' as v8;
 import 'generated/schema_v9.dart' as v9;
 import 'generated/schema_v10.dart' as v10;
+import 'generated/schema_v11.dart' as v11;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -347,6 +348,40 @@ void main() {
         expect((p.displayName, p.activityLevel, p.gender, p.dietPreference),
             ('Prashant', 'moderate', null, null));
         expect(await newDb.select(newDb.bodyPlan).get(), isEmpty);
+      },
+    );
+  });
+
+  // Body plans from v10 survive the v11 upgrade (which adds mood_log).
+  test('migration from v10 to v11 keeps body plans', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 10,
+      newVersion: 11,
+      createOld: v10.DatabaseAtV10.new,
+      createNew: v11.DatabaseAtV11.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.bodyPlan,
+            const v10.BodyPlanData(
+                id: 'p1',
+                kind: 'loseFat',
+                pace: 'steady',
+                diet: 'vegetarian',
+                startDay: 20261010,
+                startWeightKg: 70,
+                calories: 2010,
+                proteinG: 140,
+                carbsG: 228,
+                fatG: 60,
+                waterMl: 2500,
+                active: 1,
+                createdAt: 1));
+      },
+      validateItems: (newDb) async {
+        final p = await newDb.select(newDb.bodyPlan).getSingle();
+        expect((p.id, p.calories), ('p1', 2010));
+        expect(await newDb.select(newDb.moodLog).get(), isEmpty);
       },
     );
   });
