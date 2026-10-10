@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/providers.dart';
+import '../features/connected/connected_screen.dart';
 import '../features/insights/evolution_screen.dart';
 import '../features/insights/insights_screen.dart';
 import '../features/journey/goal_finder_screen.dart';
@@ -84,6 +85,7 @@ abstract final class AppRoutes {
   static const outfits = '/style/wardrobe/outfits';
   static const garmentPhoto = '/style/wardrobe/photo';
   static const deviceInfo = '/settings/device';
+  static const connected = '/settings/connected';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -115,6 +117,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         routes: [
           GoRoute(
               path: 'device', builder: (_, _) => const DeviceInfoScreen()),
+          GoRoute(
+              path: 'connected',
+              builder: (_, _) => const ConnectedDataScreen()),
         ],
       ),
       StatefulShellRoute.indexedStack(

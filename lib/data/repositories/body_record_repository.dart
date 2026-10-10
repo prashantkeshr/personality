@@ -89,6 +89,23 @@ class BodyRecordRepository<T extends ProvenanceColumns,
   Future<void> delete(String id) =>
       (_db.delete(_table)..where((t) => t.id.equals(id))).go();
 
+  /// Insert or replace a record with a stable [id] (imports), so syncing
+  /// again never duplicates it.
+  Future<void> upsert(String id, Measurement m) async {
+    if (m.unit != unit) {
+      throw ArgumentError('Expected canonical unit $unit, got ${m.unit}');
+    }
+    await _db.into(_table).insert(
+        RawValuesInsertable(provenanceValues(
+            id: id, m: m, notes: null,
+            now: _clock().toUtc().millisecondsSinceEpoch)),
+        mode: InsertMode.insertOrReplace);
+  }
+
+  /// Removes imported records whose id starts with [prefix].
+  Future<int> deleteImported(String prefix) =>
+      (_db.delete(_table)..where((t) => t.id.like('$prefix%'))).go();
+
   BodyRecord _toRecord(R row) {
     final j = row.toJson();
     return BodyRecord(

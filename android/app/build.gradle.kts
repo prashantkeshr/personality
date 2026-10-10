@@ -21,7 +21,8 @@ android {
         applicationId = "com.dhurta.personality"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        // Health Connect's client needs Android 8.0+.
+        minSdk = maxOf(26, flutter.minSdkVersion)
         targetSdk = flutter.targetSdkVersion
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
@@ -56,4 +57,10 @@ flutter {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+    // On-device health data (Phase 15): no accounts, no network.
+    implementation("androidx.health.connect:connect-client:1.1.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("androidx.work:work-runtime-ktx:2.10.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("androidx.activity:activity-ktx:1.9.3")
 }

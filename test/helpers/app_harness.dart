@@ -9,6 +9,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:personality/app/personality_app.dart';
 import 'package:personality/core/database/app_database.dart';
 import 'package:personality/core/providers.dart';
+import 'package:personality/core/device/sensor_bridge.dart';
+import 'package:personality/features/connected/data_import.dart';
 import 'package:personality/features/journey/journey_providers.dart';
 import 'package:personality/features/settings/app_settings.dart';
 
@@ -54,12 +56,14 @@ class AppHarness {
     AppSettings settings, {
     List<Override> overrides = const [],
     bool celebrateBadges = false,
+    SensorBridge sensors = const NoSensorBridge(),
   }) async {
     await tester.pumpWidget(ProviderScope(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         initialSettingsProvider.overrideWithValue(settings),
         if (!celebrateBadges) badgeCelebrationsProvider.overrideWithValue(false),
+        sensorBridgeProvider.overrideWithValue(sensors),
         ...overrides,
       ],
       child: const PersonalityApp(),

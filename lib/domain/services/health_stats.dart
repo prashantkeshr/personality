@@ -4,6 +4,7 @@ library;
 import 'dart:math' as math;
 
 import '../entities/body.dart';
+import '../entities/provenance.dart';
 import '../entities/health.dart';
 
 /// Local calendar day helpers. Records are stored in UTC; days are the
@@ -83,9 +84,21 @@ abstract final class HealthStats {
     return math.sqrt(sumSq / angles.length);
   }
 
-  static int stepsOn(List<ActivityEntry> entries, int dayKey) => entries
-      .where((e) => Days.key(e.recordedAt) == dayKey)
-      .fold(0, (sum, e) => sum + (e.steps ?? 0));
+  /// Steps for a day. Your own entries add up; an imported daily total
+  /// (phone sensor or Health Connect) is a whole-day count, so the larger
+  /// of the two is used — never the sum, which would double count.
+  static int stepsOn(List<ActivityEntry> entries, int dayKey) {
+    var manual = 0, imported = 0;
+    for (final e in entries) {
+      if (Days.key(e.recordedAt) != dayKey || e.steps == null) continue;
+      if (e.source == DataSource.userEntered) {
+        manual += e.steps!;
+      } else if (e.steps! > imported) {
+        imported = e.steps!;
+      }
+    }
+    return manual > imported ? manual : imported;
+  }
 
   /// Active minutes from activity entries and exercise sessions.
   static int activeMinutesOn(

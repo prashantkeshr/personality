@@ -119,6 +119,28 @@ class SleepRepository {
   Future<void> delete(String id) =>
       (_db.delete(_db.sleepLogs)..where((t) => t.id.equals(id))).go();
 
+  /// Insert or replace an imported night with a stable [id].
+  Future<void> upsertImported({
+    required String id,
+    required DateTime bedAt,
+    required DateTime wakeAt,
+    required DataSource source,
+  }) async {
+    final entry = SleepEntry(id: id, bedAt: bedAt, wakeAt: wakeAt);
+    final now = _ms(_clock());
+    await _db.into(_db.sleepLogs).insertOnConflictUpdate(SleepLogsCompanion.insert(
+          id: entry.id,
+          bedAt: _ms(entry.bedAt),
+          wakeAt: _ms(entry.wakeAt),
+          source: source.wireName,
+          createdAt: now,
+          updatedAt: now,
+        ));
+  }
+
+  Future<int> deleteImported(String prefix) =>
+      (_db.delete(_db.sleepLogs)..where((t) => t.id.like('$prefix%'))).go();
+
   SleepEntry _toEntry(SleepRow r) => SleepEntry(
         id: r.id,
         bedAt: _time(r.bedAt),
@@ -172,6 +194,33 @@ class ActivityRepository {
 
   Future<void> delete(String id) =>
       (_db.delete(_db.activityLogs)..where((t) => t.id.equals(id))).go();
+
+  /// Insert or replace an imported entry with a stable [id].
+  Future<void> upsertImported({
+    required String id,
+    required ActivityKind kind,
+    required DateTime recordedAt,
+    required DataSource source,
+    int? durationMinutes,
+    int? steps,
+    double? distanceKm,
+  }) async {
+    final now = _ms(_clock());
+    await _db.into(_db.activityLogs).insertOnConflictUpdate(ActivityLogsCompanion.insert(
+          id: id,
+          kind: kind.name,
+          durationMinutes: Value(durationMinutes),
+          steps: Value(steps),
+          distanceKm: Value(distanceKm),
+          recordedAt: _ms(recordedAt),
+          source: source.wireName,
+          createdAt: now,
+          updatedAt: now,
+        ));
+  }
+
+  Future<int> deleteImported(String prefix) =>
+      (_db.delete(_db.activityLogs)..where((t) => t.id.like('$prefix%'))).go();
 
   ActivityEntry _toEntry(ActivityRow r) => ActivityEntry(
         id: r.id,

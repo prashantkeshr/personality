@@ -36,4 +36,6 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.progress,
   // Phase 12
   AppFeature.bodyPlan,
+  // Phase 15
+  AppFeature.healthIntegration,
 };

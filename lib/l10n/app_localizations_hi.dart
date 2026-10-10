@@ -137,7 +137,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get featureAiCoach => 'AI कोच';
 
   @override
-  String get featureHealthIntegration => 'Health Connect';
+  String get featureHealthIntegration => 'जुड़ा डेटा';
 
   @override
   String get featureBackup => 'एन्क्रिप्टेड बैकअप';
@@ -3699,4 +3699,110 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get postureCompareNeedTwo =>
       'तुलना के लिए एक ही दृश्य की दो जाँचें सहेजें।';
+
+  @override
+  String get connectedTitle => 'जुड़ा डेटा';
+
+  @override
+  String get connectedIntro =>
+      'इस फ़ोन के अपने सेंसर से कदम, सैर, दौड़ और नींद ट्रैक करें। सब कुछ इसी डिवाइस पर रहता है: कोई खाता नहीं, कोई क्लाउड नहीं, कुछ भी अपलोड नहीं।';
+
+  @override
+  String get connectedPhoneSensors => 'इस फ़ोन के सेंसर';
+
+  @override
+  String get connectedSteps => 'कदम';
+
+  @override
+  String get connectedStepsInfo => 'फ़ोन के स्टेप सेंसर से, हर 15 मिनट में।';
+
+  @override
+  String get connectedActivity => 'सैर, दौड़ और साइकिल';
+
+  @override
+  String get connectedActivityInfo =>
+      '10 मिनट या अधिक चलने पर फ़ोन पर ही पहचाना जाता है।';
+
+  @override
+  String get connectedSleep => 'सोने-जागने का समय';
+
+  @override
+  String get connectedSleepInfo =>
+      'रात में फ़ोन द्वारा अनुमानित। आप किसी भी रात को बदल या हटा सकते हैं।';
+
+  @override
+  String get connectedNoSensor => 'इस फ़ोन में स्टेप सेंसर नहीं है।';
+
+  @override
+  String get connectedNoPlay =>
+      'सैर और नींद की पहचान के लिए इस फ़ोन पर Google Play services चाहिए।';
+
+  @override
+  String get connectedPermission =>
+      'कदम और गतिविधि गिनने के लिए \"शारीरिक गतिविधि\" की अनुमति दें।';
+
+  @override
+  String get connectedAllow => 'अनुमति दें';
+
+  @override
+  String get connectedHealthConnect => 'Health Connect';
+
+  @override
+  String get connectedHcInfo =>
+      'Android का ऑन-डिवाइस हेल्थ स्टोर इस फ़ोन पर है। अन्य ऐप्स द्वारा सहेजे कदम, व्यायाम, नींद, वज़न, लंबाई और पानी बिना किसी खाते के पढ़ें।';
+
+  @override
+  String get connectedHcAbsent =>
+      'इस फ़ोन पर Health Connect नहीं है। कोई बात नहीं: फ़ोन के अपने सेंसर कदम, सैर और नींद संभाल लेते हैं।';
+
+  @override
+  String get connectedHcConnect => 'क्या पढ़ना है चुनें';
+
+  @override
+  String get connectedSyncNow => 'अभी सिंक करें';
+
+  @override
+  String connectedLastSync(String time) {
+    return 'अंतिम सिंक $time';
+  }
+
+  @override
+  String get connectedNeverSynced => 'अभी सिंक नहीं हुआ';
+
+  @override
+  String connectedSynced(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count आइटम अपडेट',
+      one: '1 आइटम अपडेट',
+      zero: 'अद्यतन है',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get connectedRemove => 'आयात किया डेटा हटाएँ';
+
+  @override
+  String get connectedRemoveConfirm =>
+      'इस स्रोत से आया सब हटाएँ? आपकी अपनी प्रविष्टियाँ बनी रहेंगी।';
+
+  @override
+  String connectedRemoved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count आइटम हटाए',
+      one: '1 आइटम हटाया',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get connectedPrivacy =>
+      'केवल पढ़ना, इसी डिवाइस पर। कई स्रोतों के कदम दो बार नहीं जुड़ते: बड़ा दैनिक कुल लिया जाता है।';
+
+  @override
+  String get sourcePhone => 'फ़ोन सेंसर';
 }

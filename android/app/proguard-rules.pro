@@ -18,3 +18,6 @@
 -keep class com.google.research.xeno.** { *; }
 -keep class com.google.mediapipe.** { *; }
 -keep class com.google_mlkit_face_detection.** { *; }
+
+# Phase 15: sensor worker/receivers are created by the system by name.
+-keep class com.dhurta.personality.sensors.** { *; }

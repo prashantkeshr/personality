@@ -347,7 +347,7 @@ abstract class AppLocalizations {
   /// No description provided for @featureHealthIntegration.
   ///
   /// In en, this message translates to:
-  /// **'Health Connect'**
+  /// **'Connected data'**
   String get featureHealthIntegration;
 
   /// No description provided for @featureBackup.
@@ -6571,6 +6571,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save two checks from the same view to compare them.'**
   String get postureCompareNeedTwo;
+
+  /// No description provided for @connectedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected data'**
+  String get connectedTitle;
+
+  /// No description provided for @connectedIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Track steps, walks, runs and sleep from this phone\'s own sensors. Everything stays on this device: no account, no cloud, nothing uploaded.'**
+  String get connectedIntro;
+
+  /// No description provided for @connectedPhoneSensors.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone\'s sensors'**
+  String get connectedPhoneSensors;
+
+  /// No description provided for @connectedSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get connectedSteps;
+
+  /// No description provided for @connectedStepsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Counted by the phone\'s step sensor, checked every 15 minutes.'**
+  String get connectedStepsInfo;
+
+  /// No description provided for @connectedActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Walks, runs and rides'**
+  String get connectedActivity;
+
+  /// No description provided for @connectedActivityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Detected on the phone when you move for 10 minutes or more.'**
+  String get connectedActivityInfo;
+
+  /// No description provided for @connectedSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Bed and wake times'**
+  String get connectedSleep;
+
+  /// No description provided for @connectedSleepInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated by the phone overnight. You can edit or delete any night.'**
+  String get connectedSleepInfo;
+
+  /// No description provided for @connectedNoSensor.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no step sensor.'**
+  String get connectedNoSensor;
+
+  /// No description provided for @connectedNoPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk and sleep detection needs Google Play services on this phone.'**
+  String get connectedNoPlay;
+
+  /// No description provided for @connectedPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow \"Physical activity\" so the phone can count steps and movement.'**
+  String get connectedPermission;
+
+  /// No description provided for @connectedAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get connectedAllow;
+
+  /// No description provided for @connectedHealthConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Connect'**
+  String get connectedHealthConnect;
+
+  /// No description provided for @connectedHcInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Android\'s on-device health store is on this phone. Read steps, workouts, sleep, weight, height and water that other apps saved there, without any account.'**
+  String get connectedHcInfo;
+
+  /// No description provided for @connectedHcAbsent.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Connect isn\'t on this phone. That\'s fine: the phone\'s own sensors cover steps, walks and sleep.'**
+  String get connectedHcAbsent;
+
+  /// No description provided for @connectedHcConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what to read'**
+  String get connectedHcConnect;
+
+  /// No description provided for @connectedSyncNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync now'**
+  String get connectedSyncNow;
+
+  /// No description provided for @connectedLastSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Last synced {time}'**
+  String connectedLastSync(String time);
+
+  /// No description provided for @connectedNeverSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Not synced yet'**
+  String get connectedNeverSynced;
+
+  /// No description provided for @connectedSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Up to date} =1{1 item updated} other{{count} items updated}}'**
+  String connectedSynced(int count);
+
+  /// No description provided for @connectedRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove imported data'**
+  String get connectedRemove;
+
+  /// No description provided for @connectedRemoveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove everything imported from this source? Your own entries stay.'**
+  String get connectedRemoveConfirm;
+
+  /// No description provided for @connectedRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item removed} other{{count} items removed}}'**
+  String connectedRemoved(int count);
+
+  /// No description provided for @connectedPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Read only and on this device. Steps from several sources never add up twice: the larger daily total is used.'**
+  String get connectedPrivacy;
+
+  /// No description provided for @sourcePhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone sensor'**
+  String get sourcePhone;
 }
 
 class _AppLocalizationsDelegate

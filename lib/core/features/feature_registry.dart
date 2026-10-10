@@ -113,8 +113,6 @@ class FeatureRegistry {
         if (!ctx.installedModels.contains(ModelIds.localLlm)) {
           return FeatureState.modelRequired;
         }
-      case AppFeature.healthIntegration:
-        if (!ctx.healthPlatformAvailable) return FeatureState.deviceRequired;
       case AppFeature.commerce:
         if (!ctx.isOnline) return FeatureState.onlineRequired;
       default:

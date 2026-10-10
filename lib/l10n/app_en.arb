@@ -41,7 +41,7 @@
   "featureStyle": "Style recommendations",
   "featureWardrobe": "Wardrobe",
   "featureAiCoach": "AI Coach",
-  "featureHealthIntegration": "Health Connect",
+  "featureHealthIntegration": "Connected data",
   "featureBackup": "Encrypted backup",
   "featureCommerce": "Shopping",
   "onboardingWelcomeTitle": "A private space for your wellbeing",
@@ -2004,5 +2004,52 @@
   "postureCompareEarlier": "Earlier",
   "postureCompareLater": "Later",
   "postureCompareChange": "Change",
-  "postureCompareNeedTwo": "Save two checks from the same view to compare them."
+  "postureCompareNeedTwo": "Save two checks from the same view to compare them.",
+  "connectedTitle": "Connected data",
+  "connectedIntro": "Track steps, walks, runs and sleep from this phone's own sensors. Everything stays on this device: no account, no cloud, nothing uploaded.",
+  "connectedPhoneSensors": "This phone's sensors",
+  "connectedSteps": "Steps",
+  "connectedStepsInfo": "Counted by the phone's step sensor, checked every 15 minutes.",
+  "connectedActivity": "Walks, runs and rides",
+  "connectedActivityInfo": "Detected on the phone when you move for 10 minutes or more.",
+  "connectedSleep": "Bed and wake times",
+  "connectedSleepInfo": "Estimated by the phone overnight. You can edit or delete any night.",
+  "connectedNoSensor": "This phone has no step sensor.",
+  "connectedNoPlay": "Walk and sleep detection needs Google Play services on this phone.",
+  "connectedPermission": "Allow \"Physical activity\" so the phone can count steps and movement.",
+  "connectedAllow": "Allow",
+  "connectedHealthConnect": "Health Connect",
+  "connectedHcInfo": "Android's on-device health store is on this phone. Read steps, workouts, sleep, weight, height and water that other apps saved there, without any account.",
+  "connectedHcAbsent": "Health Connect isn't on this phone. That's fine: the phone's own sensors cover steps, walks and sleep.",
+  "connectedHcConnect": "Choose what to read",
+  "connectedSyncNow": "Sync now",
+  "connectedLastSync": "Last synced {time}",
+  "@connectedLastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "connectedNeverSynced": "Not synced yet",
+  "connectedSynced": "{count, plural, =0{Up to date} =1{1 item updated} other{{count} items updated}}",
+  "@connectedSynced": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "connectedRemove": "Remove imported data",
+  "connectedRemoveConfirm": "Remove everything imported from this source? Your own entries stay.",
+  "connectedRemoved": "{count, plural, =1{1 item removed} other{{count} items removed}}",
+  "@connectedRemoved": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "connectedPrivacy": "Read only and on this device. Steps from several sources never add up twice: the larger daily total is used.",
+  "sourcePhone": "Phone sensor"
 }

@@ -18,6 +18,16 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Reschedules pending reminders after a reboot or app update. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- On-device step counter, activity and sleep recognition (Phase 15). -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- Read-only Health Connect access, used only if it's already on the phone. -->
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_DISTANCE" />
+    <uses-permission android:name="android.permission.health.READ_EXERCISE" />
+    <uses-permission android:name="android.permission.health.READ_SLEEP" />
+    <uses-permission android:name="android.permission.health.READ_WEIGHT" />
+    <uses-permission android:name="android.permission.health.READ_HEIGHT" />
+    <uses-permission android:name="android.permission.health.READ_HYDRATION" />
     <application
         android:label="Personality"
         android:name="${applicationName}"
@@ -46,7 +56,29 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- Health Connect: why the app asks for access (Android 13). -->
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
         </activity>
+        <!-- Health Connect permission usage screen (Android 14+). -->
+        <activity-alias
+            android:name="ViewPermissionUsageActivity"
+            android:exported="true"
+            android:targetActivity=".MainActivity"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+            </intent-filter>
+        </activity-alias>
+        <receiver android:exported="false" android:name=".sensors.MotionReceiver" />
+        <receiver android:exported="false" android:name=".sensors.SensorBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
         <!-- Local reminder notifications (flutter_local_notifications). -->
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
@@ -69,6 +101,7 @@
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <package android:name="com.google.android.apps.healthdata" />
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>

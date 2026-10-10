@@ -138,7 +138,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get featureAiCoach => 'AI Coach';
 
   @override
-  String get featureHealthIntegration => 'Health Connect';
+  String get featureHealthIntegration => 'Connected data';
 
   @override
   String get featureBackup => 'Encrypted backup';
@@ -3711,4 +3711,111 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get postureCompareNeedTwo =>
       'Save two checks from the same view to compare them.';
+
+  @override
+  String get connectedTitle => 'Connected data';
+
+  @override
+  String get connectedIntro =>
+      'Track steps, walks, runs and sleep from this phone\'s own sensors. Everything stays on this device: no account, no cloud, nothing uploaded.';
+
+  @override
+  String get connectedPhoneSensors => 'This phone\'s sensors';
+
+  @override
+  String get connectedSteps => 'Steps';
+
+  @override
+  String get connectedStepsInfo =>
+      'Counted by the phone\'s step sensor, checked every 15 minutes.';
+
+  @override
+  String get connectedActivity => 'Walks, runs and rides';
+
+  @override
+  String get connectedActivityInfo =>
+      'Detected on the phone when you move for 10 minutes or more.';
+
+  @override
+  String get connectedSleep => 'Bed and wake times';
+
+  @override
+  String get connectedSleepInfo =>
+      'Estimated by the phone overnight. You can edit or delete any night.';
+
+  @override
+  String get connectedNoSensor => 'This phone has no step sensor.';
+
+  @override
+  String get connectedNoPlay =>
+      'Walk and sleep detection needs Google Play services on this phone.';
+
+  @override
+  String get connectedPermission =>
+      'Allow \"Physical activity\" so the phone can count steps and movement.';
+
+  @override
+  String get connectedAllow => 'Allow';
+
+  @override
+  String get connectedHealthConnect => 'Health Connect';
+
+  @override
+  String get connectedHcInfo =>
+      'Android\'s on-device health store is on this phone. Read steps, workouts, sleep, weight, height and water that other apps saved there, without any account.';
+
+  @override
+  String get connectedHcAbsent =>
+      'Health Connect isn\'t on this phone. That\'s fine: the phone\'s own sensors cover steps, walks and sleep.';
+
+  @override
+  String get connectedHcConnect => 'Choose what to read';
+
+  @override
+  String get connectedSyncNow => 'Sync now';
+
+  @override
+  String connectedLastSync(String time) {
+    return 'Last synced $time';
+  }
+
+  @override
+  String get connectedNeverSynced => 'Not synced yet';
+
+  @override
+  String connectedSynced(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items updated',
+      one: '1 item updated',
+      zero: 'Up to date',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get connectedRemove => 'Remove imported data';
+
+  @override
+  String get connectedRemoveConfirm =>
+      'Remove everything imported from this source? Your own entries stay.';
+
+  @override
+  String connectedRemoved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items removed',
+      one: '1 item removed',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get connectedPrivacy =>
+      'Read only and on this device. Steps from several sources never add up twice: the larger daily total is used.';
+
+  @override
+  String get sourcePhone => 'Phone sensor';
 }

@@ -31,6 +31,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.routines,
         AppFeature.reminders,
         AppFeature.progress,
+        AppFeature.healthIntegration,
       ],
       routes: const {
         AppFeature.profile: AppRoutes.profile,
@@ -48,6 +49,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.reminders: AppRoutes.reminders,
         AppFeature.progress: AppRoutes.journey,
         AppFeature.bodyPlan: AppRoutes.bodyPlan,
+        AppFeature.healthIntegration: AppRoutes.connected,
       },
     );
   }

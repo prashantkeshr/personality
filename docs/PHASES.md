@@ -368,3 +368,25 @@ Verification:
 
 Verification:
 - `flutter analyze`: no issues. `flutter test`: 314/314 pass (day marks incl. no-data, week and month series with trends, sleep score, weekly review window and tip, milestone derivation, v11 → v12 migration, Monday review → insights → close, notes from Journey and Evolution, posture compare).
+
+## Phase 15 — on-device health data (2026-10-10)
+
+No extra app to install, no account, no cloud, and still no internet permission.
+
+- **Phone sensors** (Health → Connected data):
+  - **Steps**: the hardware step counter, sampled every 15 minutes by WorkManager and split by local day; reboots and glitches are handled.
+  - **Walks, runs and rides**: Google Play services' on-device activity transitions; sessions of 10 minutes to 6 hours.
+  - **Bed and wake times**: Play services' on-device sleep segments, merged across short wakes and labelled as estimates. The user's own nights always win.
+  - Raw events wait in app-private storage until imported, are pruned after 3 days, and re-register after a reboot.
+- **Health Connect** is used only if it's already on the phone (Android 14+ has it built in), never installed by us. Read-only: steps, workouts with distance, sleep, weight, height and water, through Android's own permission screen.
+- **Import rules**:
+  - Every imported row has a stable id (`ext:sensor:…` / `ext:hc:…`), so re-syncing updates rather than duplicates.
+  - Steps use the larger of the user's own total and an imported daily total, never the sum. A Health Connect workout replaces the sensor's matching session.
+  - Sync runs at start and on resume, plus "Sync now"; "Remove imported data" deletes exactly what a source brought in.
+- Android: `FlutterFragmentActivity`, minSdk 26, connect-client 1.1.0, play-services-location 21.3.0, WorkManager; Health Connect rationale intent and permission-usage alias; R8 keeps the sensors package.
+- Fixed: reading an unwatched provider's `future` could hang (Riverpod 3 pauses unwatched providers), so the importer reads the repository directly.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 320/320 pass (step day-splitting with reboot and glitch, session pairing, sleep merging, larger-of-two steps, importer de-duplication and source precedence, disconnect, Connected data screen with permission and sync).
+- Emulator (Android 16): Health Connect permission screen, Physical activity prompt, and sync all work.
+- Release APK on the phone launches cleanly. Permissions were checked with a direct aapt2 dump: no INTERNET.
