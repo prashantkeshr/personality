@@ -9,11 +9,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove" />
     <!-- Implied by the plugin's (removed) write permission; not needed. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
-    <!-- ML Kit declares INTERNET only to upload Google usage telemetry; pose
-         detection itself is bundled and fully offline. Removing it means the
-         OS blocks any upload (spec §2: no data leaves the device). Verified
-         on device that ML Kit's upload job fails quietly without crashing. -->
-    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <!-- Internet is used for ONE thing: downloading optional content packs
+         from github.com/prashantkeshr/personality-content when the user taps
+         Download (Phase 17). No user data is ever sent. ML Kit's telemetry
+         uploader (Google datatransport) is removed below so nothing else can
+         use the network. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Lets the user limit downloads to Wi-Fi. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Reminders: requested only when the user turns reminders on. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Reschedules pending reminders after a reboot or app update. -->
@@ -72,6 +75,20 @@
                 <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
             </intent-filter>
         </activity-alias>
+        <!-- No telemetry: remove the components that upload ML Kit usage logs.
+             Pose and face detection are bundled and run fully offline. -->
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            tools:node="remove" />
+        <service
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+            tools:node="remove" />
+        <receiver
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+            tools:node="remove" />
+        <service
+            android:name="com.google.mlkit.acceleration.internal.MlKitRemoteWorkerService"
+            tools:node="remove" />
         <!-- Hands a backup or export to the app the user picks in the share sheet. -->
         <provider
             android:name="androidx.core.content.FileProvider"

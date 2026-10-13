@@ -2120,5 +2120,132 @@
   "backupErrorNotBackup": "That isn't a Personality backup file.",
   "backupErrorDamaged": "The backup file is damaged or incomplete.",
   "backupErrorPassphrase": "Wrong passphrase.",
-  "backupErrorTooNew": "This backup is from a newer version. Update the app, then try again."
+  "backupErrorTooNew": "This backup is from a newer version. Update the app, then try again.",
+  "exMartialArts": "Martial arts",
+  "exFace": "Face & jaw",
+  "actionDone": "Done",
+  "levelBeginner": "Beginner",
+  "levelIntermediate": "Intermediate",
+  "levelAdvanced": "Advanced",
+  "exerciseSearch": "Search exercises, muscles or equipment",
+  "filterNoEquipment": "No equipment",
+  "exerciseCount": "{count, plural, =1{1 exercise} other{{count} exercises}}",
+  "@exerciseCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exerciseAlsoWorks": "Also works: {muscles}",
+  "@exerciseAlsoWorks": {
+    "placeholders": {
+      "muscles": {
+        "type": "String"
+      }
+    }
+  },
+  "workoutsTitle": "Guided workouts",
+  "workoutsSubtitle": "Follow along with a timer and moving figure",
+  "workoutsMore": "Get more workouts",
+  "workoutMinutes": "{count} min",
+  "@workoutMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutRounds": "{count} rounds",
+  "@workoutRounds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutSeconds": "{count} s",
+  "@workoutSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutReps": "{count} reps",
+  "@workoutReps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutEachSide": "each side",
+  "workoutStart": "Start workout",
+  "workoutGetReady": "Get ready",
+  "workoutRoundOf": "Round {round} of {total}",
+  "@workoutRoundOf": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutSide": "Side {side} of 2",
+  "@workoutSide": {
+    "placeholders": {
+      "side": {
+        "type": "int"
+      }
+    }
+  },
+  "workoutUpNext": "Up next: {name}",
+  "@workoutUpNext": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "workoutPrevious": "Previous",
+  "workoutPause": "Pause",
+  "workoutResume": "Resume",
+  "workoutSkip": "Skip",
+  "workoutDone": "Workout complete. Well done!",
+  "workoutDoneMinutes": "{count, plural, =1{1 minute of movement} other{{count} minutes of movement}}",
+  "@workoutDoneMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentTitle": "Content packs",
+  "contentSubtitle": "Download more exercises, illustrations and routines",
+  "contentGetMore": "Get more exercises",
+  "contentGetMoreInfo": "1,500+ exercises, illustrations, yoga, martial arts and face & jaw routines. Free, download only what you need.",
+  "contentIntro": "Packs are free and optional. Download only what you need; once on your phone they work offline, and you can remove them any time.",
+  "contentWifiOnly": "Download over Wi-Fi only",
+  "contentDownload": "Download",
+  "contentUpdate": "Update",
+  "contentRemove": "Remove",
+  "contentOnPhone": "On this phone",
+  "contentInstalled": "Pack ready to use",
+  "contentRemoveConfirm": "Remove \"{name}\" from this phone? You can download it again later.",
+  "@contentRemoveConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contentOffline": "You're offline. Connect to the internet to see packs.",
+  "contentWifiNeeded": "Connect to Wi-Fi, or turn off \"Wi-Fi only\".",
+  "contentDamaged": "The download didn't check out, so it wasn't used. Please try again.",
+  "contentFailed": "Couldn't download right now. Please try again.",
+  "contentRetry": "Retry",
+  "contentPrivacy": "Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet."
 }

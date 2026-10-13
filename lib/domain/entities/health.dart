@@ -96,6 +96,8 @@ enum ExerciseCategory {
   generalFitness,
   strength,
   cardio,
+  martialArts,
+  face,
 }
 
 class ExerciseEntry {

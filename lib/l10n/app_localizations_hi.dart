@@ -3953,4 +3953,185 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get backupErrorTooNew =>
       'यह बैकअप नए संस्करण का है। ऐप अपडेट करके फिर कोशिश करें।';
+
+  @override
+  String get exMartialArts => 'मार्शल आर्ट';
+
+  @override
+  String get exFace => 'चेहरा और जबड़ा';
+
+  @override
+  String get actionDone => 'हो गया';
+
+  @override
+  String get levelBeginner => 'शुरुआती';
+
+  @override
+  String get levelIntermediate => 'मध्यम';
+
+  @override
+  String get levelAdvanced => 'उन्नत';
+
+  @override
+  String get exerciseSearch => 'व्यायाम, मांसपेशी या उपकरण खोजें';
+
+  @override
+  String get filterNoEquipment => 'बिना उपकरण';
+
+  @override
+  String exerciseCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count व्यायाम',
+      one: '1 व्यायाम',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String exerciseAlsoWorks(String muscles) {
+    return 'साथ में: $muscles';
+  }
+
+  @override
+  String get workoutsTitle => 'गाइडेड वर्कआउट';
+
+  @override
+  String get workoutsSubtitle => 'टाइमर और चलती आकृति के साथ करें';
+
+  @override
+  String get workoutsMore => 'और वर्कआउट पाएँ';
+
+  @override
+  String workoutMinutes(int count) {
+    return '$count मिनट';
+  }
+
+  @override
+  String workoutRounds(int count) {
+    return '$count राउंड';
+  }
+
+  @override
+  String workoutSeconds(int count) {
+    return '$count सेकंड';
+  }
+
+  @override
+  String workoutReps(int count) {
+    return '$count बार';
+  }
+
+  @override
+  String get workoutEachSide => 'हर तरफ़';
+
+  @override
+  String get workoutStart => 'वर्कआउट शुरू करें';
+
+  @override
+  String get workoutGetReady => 'तैयार हो जाएँ';
+
+  @override
+  String workoutRoundOf(int round, int total) {
+    return 'राउंड $round / $total';
+  }
+
+  @override
+  String workoutSide(int side) {
+    return 'तरफ़ $side / 2';
+  }
+
+  @override
+  String workoutUpNext(String name) {
+    return 'अगला: $name';
+  }
+
+  @override
+  String get workoutPrevious => 'पिछला';
+
+  @override
+  String get workoutPause => 'रोकें';
+
+  @override
+  String get workoutResume => 'जारी रखें';
+
+  @override
+  String get workoutSkip => 'छोड़ें';
+
+  @override
+  String get workoutDone => 'वर्कआउट पूरा। शाबाश!';
+
+  @override
+  String workoutDoneMinutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count मिनट की गतिविधि',
+      one: '1 मिनट की गतिविधि',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get contentTitle => 'कंटेंट पैक';
+
+  @override
+  String get contentSubtitle => 'और व्यायाम, चित्र और रूटीन डाउनलोड करें';
+
+  @override
+  String get contentGetMore => 'और व्यायाम पाएँ';
+
+  @override
+  String get contentGetMoreInfo =>
+      '1,500+ व्यायाम, चित्र, योग, मार्शल आर्ट और चेहरे-जबड़े के रूटीन। मुफ़्त, सिर्फ़ ज़रूरत का डाउनलोड करें।';
+
+  @override
+  String get contentIntro =>
+      'पैक मुफ़्त और वैकल्पिक हैं। सिर्फ़ ज़रूरत का डाउनलोड करें; फ़ोन पर आने के बाद ये ऑफ़लाइन चलते हैं, और आप इन्हें कभी भी हटा सकते हैं।';
+
+  @override
+  String get contentWifiOnly => 'केवल Wi-Fi पर डाउनलोड करें';
+
+  @override
+  String get contentDownload => 'डाउनलोड';
+
+  @override
+  String get contentUpdate => 'अपडेट';
+
+  @override
+  String get contentRemove => 'हटाएँ';
+
+  @override
+  String get contentOnPhone => 'इस फ़ोन पर';
+
+  @override
+  String get contentInstalled => 'पैक इस्तेमाल के लिए तैयार';
+
+  @override
+  String contentRemoveConfirm(String name) {
+    return '\"$name\" इस फ़ोन से हटाएँ? आप इसे बाद में फिर डाउनलोड कर सकते हैं।';
+  }
+
+  @override
+  String get contentOffline =>
+      'आप ऑफ़लाइन हैं। पैक देखने के लिए इंटरनेट से जुड़ें।';
+
+  @override
+  String get contentWifiNeeded =>
+      'Wi-Fi से जुड़ें, या \"केवल Wi-Fi\" बंद करें।';
+
+  @override
+  String get contentDamaged =>
+      'डाउनलोड जाँच में सही नहीं निकला, इसलिए इस्तेमाल नहीं हुआ। फिर कोशिश करें।';
+
+  @override
+  String get contentFailed => 'अभी डाउनलोड नहीं हो सका। फिर कोशिश करें।';
+
+  @override
+  String get contentRetry => 'फिर से';
+
+  @override
+  String get contentPrivacy =>
+      'पैक सिर्फ़ github.com/prashantkeshr/personality-content से आते हैं और इस्तेमाल से पहले जाँचे जाते हैं। डाउनलोड करने से आपके बारे में कुछ नहीं भेजा जाता, और आपका स्वास्थ्य डेटा कभी इंटरनेट का उपयोग नहीं करता।';
 }

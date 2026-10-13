@@ -60,6 +60,14 @@ class SettingsScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push(AppRoutes.backup),
           ),
+          ListTile(
+            key: const Key('settings-content'),
+            leading: const Icon(Icons.download_for_offline_outlined),
+            title: Text(l10n.contentTitle),
+            subtitle: Text(l10n.contentSubtitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRoutes.content),
+          ),
           header(l10n.deviceInfoTitle),
           ListTile(
             leading: const Icon(Icons.memory),

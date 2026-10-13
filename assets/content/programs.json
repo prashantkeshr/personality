@@ -1,0 +1,271 @@
+[
+  {
+    "id": "desk_reset",
+    "category": "posture",
+    "level": "beginner",
+    "title": {
+      "en": "Desk reset",
+      "hi": "डेस्क रीसेट"
+    },
+    "summary": {
+      "en": "Undo hours of sitting: neck, shoulders and back.",
+      "hi": "घंटों बैठने का असर कम करें: गर्दन, कंधे और पीठ।"
+    },
+    "steps": [
+      {
+        "exercise": "chin_tuck",
+        "seconds": 40,
+        "rest": 10
+      },
+      {
+        "exercise": "neck_stretch",
+        "seconds": 25,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "shoulder_rolls",
+        "seconds": 30,
+        "rest": 10
+      },
+      {
+        "exercise": "wall_angels",
+        "seconds": 40,
+        "rest": 10
+      },
+      {
+        "exercise": "cat_cow",
+        "seconds": 40,
+        "rest": 10
+      },
+      {
+        "exercise": "hamstring_stretch",
+        "seconds": 25,
+        "sides": true,
+        "rest": 0
+      }
+    ]
+  },
+  {
+    "id": "morning_mobility",
+    "category": "mobility",
+    "level": "beginner",
+    "title": {
+      "en": "Morning mobility",
+      "hi": "सुबह की गतिशीलता"
+    },
+    "summary": {
+      "en": "Wake the body up gently before the day starts.",
+      "hi": "दिन शुरू होने से पहले शरीर को धीरे से जगाएँ।"
+    },
+    "steps": [
+      {
+        "exercise": "arm_raise",
+        "seconds": 30,
+        "rest": 10
+      },
+      {
+        "exercise": "cat_cow",
+        "seconds": 45,
+        "rest": 10
+      },
+      {
+        "exercise": "bird_dog",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "glute_bridge",
+        "reps": 10,
+        "rest": 15
+      },
+      {
+        "exercise": "surya_namaskar",
+        "seconds": 90,
+        "rest": 10
+      },
+      {
+        "exercise": "child_pose",
+        "seconds": 45,
+        "rest": 0
+      }
+    ]
+  },
+  {
+    "id": "five_minute_energy",
+    "category": "cardio",
+    "level": "beginner",
+    "title": {
+      "en": "Quick energy boost",
+      "hi": "झटपट ऊर्जा"
+    },
+    "summary": {
+      "en": "A quick lift when you feel flat. No equipment.",
+      "hi": "सुस्ती लगे तो जल्दी ताज़गी। बिना उपकरण।"
+    },
+    "steps": [
+      {
+        "exercise": "knee_raise",
+        "seconds": 40,
+        "rest": 15
+      },
+      {
+        "exercise": "squat",
+        "seconds": 30,
+        "rest": 15
+      },
+      {
+        "exercise": "arm_raise",
+        "seconds": 30,
+        "rest": 15
+      },
+      {
+        "exercise": "calf_raise",
+        "seconds": 30,
+        "rest": 15
+      },
+      {
+        "exercise": "knee_raise",
+        "seconds": 40,
+        "rest": 0
+      }
+    ]
+  },
+  {
+    "id": "beginner_full_body",
+    "category": "strength",
+    "level": "beginner",
+    "rounds": 2,
+    "title": {
+      "en": "Beginner full body",
+      "hi": "शुरुआती पूरा शरीर"
+    },
+    "summary": {
+      "en": "Every major muscle, at home, in about a quarter of an hour.",
+      "hi": "घर पर, लगभग पंद्रह मिनट में हर मुख्य मांसपेशी।"
+    },
+    "steps": [
+      {
+        "exercise": "squat",
+        "reps": 12,
+        "rest": 30
+      },
+      {
+        "exercise": "incline_push_up",
+        "reps": 10,
+        "rest": 30
+      },
+      {
+        "exercise": "reverse_lunge",
+        "reps": 8,
+        "sides": true,
+        "rest": 30
+      },
+      {
+        "exercise": "backpack_row",
+        "reps": 12,
+        "rest": 30
+      },
+      {
+        "exercise": "glute_bridge",
+        "reps": 12,
+        "rest": 30
+      },
+      {
+        "exercise": "plank",
+        "seconds": 30,
+        "rest": 45
+      }
+    ]
+  },
+  {
+    "id": "home_strength",
+    "category": "strength",
+    "level": "intermediate",
+    "rounds": 3,
+    "title": {
+      "en": "Home strength",
+      "hi": "घरेलू ताकत"
+    },
+    "summary": {
+      "en": "Three rounds with bodyweight and a backpack.",
+      "hi": "शरीर के वज़न और एक बैग से तीन राउंड।"
+    },
+    "steps": [
+      {
+        "exercise": "squat",
+        "reps": 15,
+        "rest": 30
+      },
+      {
+        "exercise": "push_up",
+        "reps": 10,
+        "rest": 30
+      },
+      {
+        "exercise": "reverse_lunge",
+        "reps": 10,
+        "sides": true,
+        "rest": 30
+      },
+      {
+        "exercise": "chair_dip",
+        "reps": 10,
+        "rest": 30
+      },
+      {
+        "exercise": "backpack_row",
+        "reps": 12,
+        "rest": 30
+      },
+      {
+        "exercise": "plank",
+        "seconds": 40,
+        "rest": 60
+      }
+    ]
+  },
+  {
+    "id": "wind_down",
+    "category": "stretching",
+    "level": "beginner",
+    "title": {
+      "en": "Wind down for sleep",
+      "hi": "नींद से पहले शांत हों"
+    },
+    "summary": {
+      "en": "Slow stretches to settle before bed.",
+      "hi": "सोने से पहले शांत होने के लिए धीमे स्ट्रेच।"
+    },
+    "steps": [
+      {
+        "exercise": "child_pose",
+        "seconds": 60,
+        "rest": 10
+      },
+      {
+        "exercise": "cat_cow",
+        "seconds": 45,
+        "rest": 10
+      },
+      {
+        "exercise": "hamstring_stretch",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "neck_stretch",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "child_pose",
+        "seconds": 60,
+        "rest": 0
+      }
+    ]
+  }
+]

@@ -260,6 +260,8 @@ String exerciseCategoryLabel(AppLocalizations l10n, ExerciseCategory c) =>
       ExerciseCategory.generalFitness => l10n.exGeneralFitness,
       ExerciseCategory.strength => l10n.exStrength,
       ExerciseCategory.cardio => l10n.exCardio,
+      ExerciseCategory.martialArts => l10n.exMartialArts,
+      ExerciseCategory.face => l10n.exFace,
     };
 
 /// Parses a positive number typed in the user's locale.

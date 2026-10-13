@@ -32,6 +32,11 @@ class ExerciseLogScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.featureExercise),
         actions: [
+          IconButton(
+            tooltip: l10n.workoutsTitle,
+            onPressed: () => context.push(AppRoutes.programs),
+            icon: const Icon(Icons.play_circle_outline),
+          ),
           TextButton.icon(
             onPressed: () => context.push(AppRoutes.exerciseLibrary),
             icon: const Icon(Icons.menu_book_outlined),

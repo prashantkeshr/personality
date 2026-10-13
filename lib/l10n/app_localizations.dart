@@ -6979,6 +6979,288 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This backup is from a newer version. Update the app, then try again.'**
   String get backupErrorTooNew;
+
+  /// No description provided for @exMartialArts.
+  ///
+  /// In en, this message translates to:
+  /// **'Martial arts'**
+  String get exMartialArts;
+
+  /// No description provided for @exFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face & jaw'**
+  String get exFace;
+
+  /// No description provided for @actionDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get actionDone;
+
+  /// No description provided for @levelBeginner.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner'**
+  String get levelBeginner;
+
+  /// No description provided for @levelIntermediate.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermediate'**
+  String get levelIntermediate;
+
+  /// No description provided for @levelAdvanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get levelAdvanced;
+
+  /// No description provided for @exerciseSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search exercises, muscles or equipment'**
+  String get exerciseSearch;
+
+  /// No description provided for @filterNoEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'No equipment'**
+  String get filterNoEquipment;
+
+  /// No description provided for @exerciseCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 exercise} other{{count} exercises}}'**
+  String exerciseCount(int count);
+
+  /// No description provided for @exerciseAlsoWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'Also works: {muscles}'**
+  String exerciseAlsoWorks(String muscles);
+
+  /// No description provided for @workoutsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided workouts'**
+  String get workoutsTitle;
+
+  /// No description provided for @workoutsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow along with a timer and moving figure'**
+  String get workoutsSubtitle;
+
+  /// No description provided for @workoutsMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Get more workouts'**
+  String get workoutsMore;
+
+  /// No description provided for @workoutMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String workoutMinutes(int count);
+
+  /// No description provided for @workoutRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} rounds'**
+  String workoutRounds(int count);
+
+  /// No description provided for @workoutSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} s'**
+  String workoutSeconds(int count);
+
+  /// No description provided for @workoutReps.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reps'**
+  String workoutReps(int count);
+
+  /// No description provided for @workoutEachSide.
+  ///
+  /// In en, this message translates to:
+  /// **'each side'**
+  String get workoutEachSide;
+
+  /// No description provided for @workoutStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start workout'**
+  String get workoutStart;
+
+  /// No description provided for @workoutGetReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Get ready'**
+  String get workoutGetReady;
+
+  /// No description provided for @workoutRoundOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {round} of {total}'**
+  String workoutRoundOf(int round, int total);
+
+  /// No description provided for @workoutSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Side {side} of 2'**
+  String workoutSide(int side);
+
+  /// No description provided for @workoutUpNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Up next: {name}'**
+  String workoutUpNext(String name);
+
+  /// No description provided for @workoutPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get workoutPrevious;
+
+  /// No description provided for @workoutPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get workoutPause;
+
+  /// No description provided for @workoutResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get workoutResume;
+
+  /// No description provided for @workoutSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get workoutSkip;
+
+  /// No description provided for @workoutDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout complete. Well done!'**
+  String get workoutDone;
+
+  /// No description provided for @workoutDoneMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 minute of movement} other{{count} minutes of movement}}'**
+  String workoutDoneMinutes(int count);
+
+  /// No description provided for @contentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Content packs'**
+  String get contentTitle;
+
+  /// No description provided for @contentSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Download more exercises, illustrations and routines'**
+  String get contentSubtitle;
+
+  /// No description provided for @contentGetMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Get more exercises'**
+  String get contentGetMore;
+
+  /// No description provided for @contentGetMoreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'1,500+ exercises, illustrations, yoga, martial arts and face & jaw routines. Free, download only what you need.'**
+  String get contentGetMoreInfo;
+
+  /// No description provided for @contentIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Packs are free and optional. Download only what you need; once on your phone they work offline, and you can remove them any time.'**
+  String get contentIntro;
+
+  /// No description provided for @contentWifiOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Download over Wi-Fi only'**
+  String get contentWifiOnly;
+
+  /// No description provided for @contentDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get contentDownload;
+
+  /// No description provided for @contentUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get contentUpdate;
+
+  /// No description provided for @contentRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get contentRemove;
+
+  /// No description provided for @contentOnPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'On this phone'**
+  String get contentOnPhone;
+
+  /// No description provided for @contentInstalled.
+  ///
+  /// In en, this message translates to:
+  /// **'Pack ready to use'**
+  String get contentInstalled;
+
+  /// No description provided for @contentRemoveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove \"{name}\" from this phone? You can download it again later.'**
+  String contentRemoveConfirm(String name);
+
+  /// No description provided for @contentOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re offline. Connect to the internet to see packs.'**
+  String get contentOffline;
+
+  /// No description provided for @contentWifiNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to Wi-Fi, or turn off \"Wi-Fi only\".'**
+  String get contentWifiNeeded;
+
+  /// No description provided for @contentDamaged.
+  ///
+  /// In en, this message translates to:
+  /// **'The download didn\'t check out, so it wasn\'t used. Please try again.'**
+  String get contentDamaged;
+
+  /// No description provided for @contentFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t download right now. Please try again.'**
+  String get contentFailed;
+
+  /// No description provided for @contentRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get contentRetry;
+
+  /// No description provided for @contentPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.'**
+  String get contentPrivacy;
 }
 
 class _AppLocalizationsDelegate

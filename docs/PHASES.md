@@ -430,3 +430,47 @@ Verification:
   - Restored through the open picker; "Restored 8 records".
   - The CSV share sheet opens.
 - Release APK installed on the phone. aapt2 shows no INTERNET or storage permission.
+
+## Phase 17 — content packs and exercise studio (2026-10-13)
+
+The exercise library goes from 22 to 1,526 exercises without growing the app: optional packs download from the public repo [prashantkeshr/personality-content](https://github.com/prashantkeshr/personality-content) only when the user taps Download.
+
+- **Privacy change — INTERNET is now declared**, for one purpose: downloading packs.
+  - Only HTTPS to `raw.githubusercontent.com` / `github.com` / `objects.githubusercontent.com` is allowed, redirects included, and it's enforced in code.
+  - Requests carry no identifiers, and nothing about the user is ever sent. Health data and backups never touch the network.
+  - "Wi-Fi only" is on by default, using `ACCESS_NETWORK_STATE`.
+  - ML Kit's telemetry uploader is removed from the merged manifest: Google datatransport's `TransportBackendDiscovery`, `JobInfoSchedulerService`, `AlarmManagerSchedulerBroadcastReceiver`, and `MlKitRemoteWorkerService`. The merged release manifest has none of them.
+- **Packs** (Settings → Content packs, or the download icon in the library):
+  - Each pack is a zip listed in `manifest.json` with its size and SHA-256. Every download is verified before use and unzipped off the UI thread with a path-traversal check. A pack replaces its older version only once the new one is fully in place.
+  - Packs are stored in app support, so they're not part of backups. The `content.*` settings stay on the device.
+  - The packs:
+    - `exercise-library`: 1,324 exercises, text only, from hasaneyldrm/exercises-dataset (MIT). Steps are in English, Hindi and Spanish. Its GIFs are © Gym visual and are **not** used.
+    - `illustrations`: Everkinetic start/end drawings (CC BY-SA 4.0), converted to 360 px grayscale and tinted with the theme colour at runtime. 139 are matched to library exercises, plus 130 more illustrated exercises.
+    - `yoga-stretch`, `cardio-hiit`, `martial-arts`, `face-jaw-neck`: our own content (MIT), in English and Hindi.
+  - The face, jaw and neck routines carry an honest note: they relax and mobilise, but don't change bone, move teeth, or reshape the face, and "mewing" claims are unproven.
+- **Animated figure**: our own vector figure (`lib/features/exercise/figure/`) draws 80+ motions from keyframes in `assets/content/motions.json`.
+  - Views: side and front body, plus face and profile rigs for jaw, tongue posture, neck and face work.
+  - Props: bench, box and step.
+  - Reduced motion shows the key poses side by side instead of animating.
+  - The pack builder maps 887 of the 1,324 dataset exercises to a figure motion by name, and gives no figure where it would be misleading (machines, twists).
+- **Library**: search by name, muscle or equipment; filters for camera-tracked, no equipment and category; a lazy list with figure or illustration thumbnails. The detail page adds muscles, equipment and credits.
+- **Guided workouts**: 6 built-in programs plus 9 from packs. The player runs get-ready, work and rest with a countdown, sides and rounds, next-up, pause, skip and previous, with haptics. A finished workout is logged automatically.
+- New categories: Martial arts, and Face & jaw.
+- Fixed during testing:
+  - Closures passed to `Isolate.run` captured the progress callback, which holds UI state, so installs from the screen failed. Isolate work now goes through static helpers.
+  - The catalog no longer waits on pack storage to show built-in content.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 337 pass, 1 skipped (the opt-in figure renderer). New tests cover:
+  - every motion and interpolation;
+  - workout segments (sides, rounds, rests);
+  - installing the real face/jaw/neck pack;
+  - update and remove;
+  - checksum failure;
+  - zip-slip rejection;
+  - host allow-list;
+  - the player run end to end and logged;
+  - download → Wi-Fi gate → library and workouts.
+- Live check: the manifest fetched from GitHub, and a downloaded pack matched its size and SHA-256.
+- Emulator, release build: all 6 packs downloaded from GitHub; the library showed 1,526 exercises; Everkinetic illustrations rendered (after a tint fix); the jaw routine played with the face figure.
+- Not yet verified: camera pose detection on a release build with the telemetry components removed. The emulator hung before that check; it needs a run on the phone.

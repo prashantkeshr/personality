@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../core/providers.dart';
 import '../features/backup/backup_screen.dart';
 import '../features/connected/connected_screen.dart';
+import '../features/content/content_screen.dart';
+import '../features/exercise/workouts_screen.dart';
 import '../features/insights/evolution_screen.dart';
 import '../features/insights/insights_screen.dart';
 import '../features/journey/goal_finder_screen.dart';
@@ -68,6 +70,7 @@ abstract final class AppRoutes {
   static const activity = '/health/activity';
   static const exercise = '/health/exercise';
   static const exerciseLibrary = '/health/exercise/library';
+  static const programs = '/health/exercise/programs';
   static const habits = '/health/habits';
   static const routines = '/health/routines';
   static const plan = '/health/plan';
@@ -87,6 +90,7 @@ abstract final class AppRoutes {
   static const garmentPhoto = '/style/wardrobe/photo';
   static const deviceInfo = '/settings/device';
   static const connected = '/settings/connected';
+  static const content = '/settings/content';
   static const backup = '/settings/backup';
 }
 
@@ -123,6 +127,7 @@ final routerProvider = Provider<GoRouter>((ref) {
               path: 'connected',
               builder: (_, _) => const ConnectedDataScreen()),
           GoRoute(path: 'backup', builder: (_, _) => const BackupScreen()),
+          GoRoute(path: 'content', builder: (_, _) => const ContentScreen()),
         ],
       ),
       StatefulShellRoute.indexedStack(
@@ -179,6 +184,24 @@ final routerProvider = Provider<GoRouter>((ref) {
                   path: 'exercise',
                   builder: (_, _) => const ExerciseLogScreen(),
                   routes: [
+                    GoRoute(
+                      path: 'programs',
+                      builder: (_, _) => const WorkoutsScreen(),
+                      routes: [
+                        GoRoute(
+                          path: ':id',
+                          builder: (_, state) =>
+                              ProgramDetailScreen(id: state.pathParameters['id']!),
+                          routes: [
+                            GoRoute(
+                              path: 'play',
+                              builder: (_, state) =>
+                                  WorkoutPlayerScreen(id: state.pathParameters['id']!),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                     GoRoute(
                       path: 'library',
                       builder: (_, state) => ExerciseLibraryScreen(

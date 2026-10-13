@@ -1,0 +1,272 @@
+{
+  "$about": "Keyframes for the in-app figure. Side view faces right. Limbs: 0 down, 90 forward, 180 overhead, negative backward. Torso: 0 upright, + forward. Head is relative to the torso. Pairs are [near, far] (side) or [left, right] (front). ms = time to move to the next frame.",
+
+  "stand": {"view": "side", "ms": 1600, "frames": [{"ua": 4}, {"ua": 6, "t": 1}]},
+  "rest": {"view": "front", "ms": 1800, "frames": [{"ua": 8}, {"ua": 10, "th": 2}]},
+  "march": {"view": "side", "ms": 450, "frames": [
+    {"th": [70, 0], "sh": [-10, 0], "ua": [-25, 30], "fa": [40, 70]},
+    {"th": [0, 70], "sh": [0, -10], "ua": [30, -25], "fa": [70, 40]}]},
+  "walk": {"view": "side", "ms": 500, "frames": [
+    {"th": [25, -20], "sh": [5, -40], "ua": [-25, 25], "fa": [-10, 40]},
+    {"th": [-20, 25], "sh": [-40, 5], "ua": [25, -25], "fa": [40, -10]}]},
+  "run": {"view": "side", "ms": 330, "frames": [
+    {"t": 10, "th": [60, -30], "sh": [-10, -110], "ua": [-45, 50], "fa": [45, 130], "y": 0.02},
+    {"t": 10, "th": [-30, 60], "sh": [-110, -10], "ua": [50, -45], "fa": [130, 45], "y": 0.02}]},
+  "high_knees": {"view": "side", "ms": 300, "frames": [
+    {"th": [95, 0], "sh": [0, 0], "ua": [-35, 45], "fa": [60, 120], "y": 0.02},
+    {"th": [0, 95], "sh": [0, 0], "ua": [45, -35], "fa": [120, 60], "y": 0.02}]},
+  "butt_kicks": {"view": "side", "ms": 300, "frames": [
+    {"th": [-10, 0], "sh": [-160, 0], "ua": [-30, 40], "fa": [60, 110], "y": 0.02},
+    {"th": [0, -10], "sh": [0, -160], "ua": [40, -30], "fa": [110, 60], "y": 0.02}]},
+  "jumping_jack": {"view": "front", "ms": 380, "frames": [
+    {"ua": 12, "fa": 8, "th": 3},
+    {"ua": 160, "fa": 172, "th": 20, "y": 0.035}]},
+  "squat": {"view": "side", "ms": 1000, "frames": [
+    {"ua": 6},
+    {"t": 38, "h": -25, "th": 88, "sh": -22, "ua": 85, "fa": 88}]},
+  "jump_squat": {"view": "side", "ms": 450, "frames": [
+    {"t": 38, "h": -25, "th": 88, "sh": -22, "ua": -30, "fa": -10},
+    {"ua": 160, "fa": 170, "y": 0.07, "th": 2, "sh": -8}]},
+  "sumo_squat": {"view": "front", "ms": 1000, "frames": [
+    {"th": 18, "ua": 6},
+    {"th": 62, "sh": 6, "ua": 20, "fa": -60}]},
+  "lunge": {"view": "side", "ms": 1000, "frames": [
+    {"th": [4, -4], "ua": 4},
+    {"t": 4, "th": [78, -28], "sh": [-6, -100], "ua": 4}]},
+  "reverse_lunge": {"view": "side", "ms": 1000, "frames": [
+    {"th": [0, 0], "ua": [4, 4]},
+    {"t": 6, "th": [80, -30], "sh": [-4, -102], "ua": [30, 30], "fa": [90, 90]}]},
+  "step_up": {"view": "side", "prop": "box_feet", "ms": 800, "frames": [
+    {"th": [65, 0], "sh": [-5, 0], "ua": 4},
+    {"th": [0, -20], "sh": [0, -60], "ua": 4, "y": 0.12}]},
+  "wall_sit": {"view": "side", "ms": 1600, "frames": [
+    {"t": 0, "th": 90, "sh": 0, "ua": 4},
+    {"t": 0, "th": 92, "sh": 0, "ua": 4}]},
+  "calf_raise": {"view": "side", "ms": 800, "frames": [{"ua": 4}, {"ua": 4, "y": 0.035}]},
+  "hip_hinge": {"view": "side", "ms": 1100, "frames": [
+    {"ua": 0},
+    {"t": 78, "h": -60, "th": 12, "sh": -6, "ua": 2, "fa": 2}]},
+  "good_morning": {"view": "side", "ms": 1100, "frames": [
+    {"ua": -150, "fa": 160},
+    {"t": 75, "h": -55, "th": 12, "sh": -6, "ua": -75, "fa": 85}]},
+  "row": {"view": "side", "ms": 900, "frames": [
+    {"t": 50, "h": -30, "th": 22, "sh": -12, "ua": 0, "fa": 0},
+    {"t": 50, "h": -30, "th": 22, "sh": -12, "ua": -70, "fa": 0}]},
+  "pulldown": {"view": "front", "ms": 900, "frames": [
+    {"ua": 165, "fa": 172},
+    {"ua": 100, "fa": 175}]},
+  "pull_up": {"view": "front", "ms": 1000, "frames": [
+    {"ua": 170, "fa": 175, "y": 0.04},
+    {"ua": 105, "fa": 178, "y": 0.16}]},
+  "overhead_press": {"view": "front", "ms": 900, "frames": [
+    {"ua": 88, "fa": 178},
+    {"ua": 172, "fa": 176}]},
+  "lateral_raise": {"view": "front", "ms": 900, "frames": [
+    {"ua": 8, "fa": 10},
+    {"ua": 88, "fa": 92}]},
+  "front_raise": {"view": "side", "ms": 900, "frames": [{"ua": 2}, {"ua": 90}]},
+  "curl": {"view": "side", "ms": 800, "frames": [
+    {"ua": 2, "fa": 4},
+    {"ua": 6, "fa": 150}]},
+  "triceps_extension": {"view": "side", "ms": 800, "frames": [
+    {"ua": 175, "fa": 20},
+    {"ua": 175, "fa": 178}]},
+  "chest_fly": {"view": "front", "ms": 1000, "frames": [
+    {"ua": 85, "fa": 95},
+    {"ua": 45, "fa": -10}]},
+  "push_up": {"view": "side", "ms": 900, "frames": [
+    {"t": 78, "th": -78, "ua": 2, "fa": 2},
+    {"t": 86, "th": -86, "ua": -62, "fa": 4}]},
+  "incline_push_up": {"view": "side", "prop": "box_hands", "ms": 900, "frames": [
+    {"t": 50, "th": -50, "ua": 28, "fa": 28},
+    {"t": 56, "th": -56, "ua": -30, "fa": 40}]},
+  "bench_press": {"view": "side", "prop": "bench", "ms": 900, "frames": [
+    {"t": -90, "th": 70, "sh": 0, "ua": 180, "fa": 180},
+    {"t": -90, "th": 70, "sh": 0, "ua": 245, "fa": 180}]},
+  "dip": {"view": "side", "prop": "box_hands", "ms": 900, "frames": [
+    {"t": 0, "th": 90, "sh": 0, "ua": -12, "fa": 0, "y": 0.1},
+    {"t": 0, "th": 90, "sh": 0, "ua": -70, "fa": 0, "y": 0.03}]},
+  "plank": {"view": "side", "ms": 1600, "frames": [
+    {"t": 82, "th": -82, "ua": 0, "fa": 90},
+    {"t": 81, "th": -81, "ua": 0, "fa": 90}]},
+  "high_plank": {"view": "side", "ms": 1600, "frames": [
+    {"t": 78, "th": -78, "ua": 2},
+    {"t": 77, "th": -77, "ua": 2}]},
+  "mountain_climber": {"view": "side", "ms": 320, "frames": [
+    {"t": 72, "th": [55, -72], "sh": [-50, -72], "ua": 2},
+    {"t": 72, "th": [-72, 55], "sh": [-72, -50], "ua": 2}]},
+  "burpee": {"view": "side", "ms": 450, "frames": [
+    {"ua": 4},
+    {"t": 70, "h": -40, "th": 110, "sh": -30, "ua": 0},
+    {"t": 78, "th": -78, "ua": 2},
+    {"t": 70, "h": -40, "th": 110, "sh": -30, "ua": 0},
+    {"ua": 170, "fa": 175, "y": 0.07}]},
+  "crunch": {"view": "side", "ms": 900, "frames": [
+    {"t": -88, "th": 135, "sh": 15, "ua": 92},
+    {"t": -55, "h": 20, "th": 135, "sh": 15, "ua": 75}]},
+  "sit_up": {"view": "side", "ms": 1000, "frames": [
+    {"t": -88, "th": 135, "sh": 15, "ua": 92},
+    {"t": -5, "h": 10, "th": 135, "sh": 15, "ua": 120}]},
+  "leg_raise": {"view": "side", "ms": 1100, "frames": [
+    {"t": -90, "th": 92, "ua": 92},
+    {"t": -90, "th": 170, "ua": 92}]},
+  "dead_bug": {"view": "side", "ms": 900, "frames": [
+    {"t": -90, "th": [180, 180], "sh": [90, 90], "ua": [180, 180]},
+    {"t": -90, "th": [100, 180], "sh": [100, 90], "ua": [180, 270]}]},
+  "glute_bridge": {"view": "side", "ms": 1000, "frames": [
+    {"t": -90, "th": 132, "sh": 12, "ua": 92},
+    {"t": -112, "h": 20, "th": 112, "sh": 4, "ua": 70}]},
+  "superman": {"view": "side", "ms": 1100, "frames": [
+    {"t": 90, "th": -90, "ua": 90},
+    {"t": 80, "h": -8, "th": -82, "ua": 100}]},
+  "bird_dog": {"view": "side", "ms": 1000, "frames": [
+    {"t": 90, "ua": 0, "th": 0, "sh": -90},
+    {"t": 90, "ua": [90, 0], "th": [0, -90], "sh": [-90, -90]},
+    {"t": 90, "ua": 0, "th": 0, "sh": -90},
+    {"t": 90, "ua": [0, 90], "th": [-90, 0], "sh": [-90, -90]}]},
+  "cat_cow": {"view": "side", "ms": 1400, "frames": [
+    {"t": 84, "h": -25, "ua": 0, "th": 0, "sh": -90},
+    {"t": 97, "h": 30, "ua": 0, "th": 0, "sh": -90}]},
+  "hip_circle": {"view": "front", "ms": 600, "frames": [
+    {"x": 0.02, "t": -4, "ua": 40, "fa": -40, "th": 8},
+    {"x": 0, "t": 0, "ua": 40, "fa": -40, "th": 8, "y": 0.01},
+    {"x": -0.02, "t": 4, "ua": 40, "fa": -40, "th": 8},
+    {"x": 0, "t": 0, "ua": 40, "fa": -40, "th": 8}]},
+  "arm_circles": {"view": "front", "ms": 300, "frames": [
+    {"ua": 88, "fa": 88}, {"ua": 98, "fa": 98}, {"ua": 92, "fa": 92}, {"ua": 82, "fa": 82}]},
+  "side_bend": {"view": "front", "ms": 1300, "frames": [
+    {"t": 0, "ua": [8, 175], "th": 6},
+    {"t": 22, "ua": [8, 150], "fa": [8, 140], "th": 6},
+    {"t": 0, "ua": [175, 8], "th": 6},
+    {"t": -22, "ua": [150, 8], "fa": [140, 8], "th": 6}]},
+  "chest_opener": {"view": "side", "ms": 1400, "frames": [
+    {"ua": 4},
+    {"h": -15, "ua": -55, "fa": -60}]},
+  "shoulder_roll": {"view": "side", "ms": 500, "frames": [
+    {"ua": 4, "t": 2}, {"ua": 10, "t": -2}, {"ua": -6, "t": -3}, {"ua": 0, "t": 1}]},
+  "forward_fold": {"view": "side", "ms": 1600, "frames": [
+    {"ua": 175, "fa": 178},
+    {"t": 150, "h": 10, "ua": 2, "fa": 2}]},
+  "quad_stretch": {"view": "side", "ms": 1500, "frames": [
+    {"ua": [4, 4]},
+    {"th": [0, -12], "sh": [0, -165], "ua": [92, -35], "fa": [92, -150]}]},
+  "hamstring_stretch": {"view": "side", "ms": 1500, "frames": [
+    {"t": -88, "th": [92, 132], "sh": [92, 12], "ua": 92},
+    {"t": -88, "th": [175, 132], "sh": [175, 12], "ua": [160, 92], "fa": [175, 92]}]},
+  "calf_stretch": {"view": "side", "ms": 1500, "frames": [
+    {"t": 12, "th": [28, -22], "sh": [-6, -22], "ua": 85},
+    {"t": 18, "th": [40, -26], "sh": [-10, -26], "ua": 80}]},
+  "child_pose": {"view": "side", "ms": 1800, "frames": [
+    {"t": 100, "h": 15, "th": 82, "sh": -90, "ua": 92},
+    {"t": 104, "h": 15, "th": 82, "sh": -90, "ua": 95}]},
+  "cobra": {"view": "side", "ms": 1400, "frames": [
+    {"t": 88, "th": -90, "sh": -90, "ua": -35, "fa": 90},
+    {"t": 38, "h": -15, "th": -90, "sh": -90, "ua": -5, "fa": 5}]},
+  "downward_dog": {"view": "side", "ms": 1600, "frames": [
+    {"t": 130, "h": 15, "ua": 40, "fa": 40, "th": -45, "sh": -45},
+    {"t": 135, "h": 15, "ua": 42, "fa": 42, "th": -42, "sh": -42}]},
+  "mountain_pose": {"view": "front", "ms": 1600, "frames": [
+    {"ua": 8},
+    {"ua": 178, "fa": 180}]},
+  "tree_pose": {"view": "front", "ms": 1800, "frames": [
+    {"th": [0, 62], "sh": [0, -55], "ua": 150, "fa": 205},
+    {"th": [0, 62], "sh": [0, -55], "ua": 172, "fa": 186}]},
+  "warrior_1": {"view": "side", "ms": 1600, "frames": [
+    {"t": 0, "th": [65, -40], "sh": [-8, -40], "ua": 178, "fa": 180},
+    {"t": -4, "h": -10, "th": [70, -42], "sh": [-10, -42], "ua": 182, "fa": 186}]},
+  "warrior_2": {"view": "front", "ms": 1600, "frames": [
+    {"th": [60, 32], "sh": [-4, 32], "ua": 90, "fa": 90},
+    {"th": [64, 32], "sh": [-6, 32], "ua": 92, "fa": 92}]},
+  "triangle": {"view": "front", "ms": 1600, "frames": [
+    {"th": 32, "ua": [8, 8]},
+    {"t": 55, "th": 32, "ua": [0, 180], "fa": [0, 180]}]},
+  "chair_pose": {"view": "side", "ms": 1600, "frames": [
+    {"t": 25, "h": -15, "th": 65, "sh": -15, "ua": 170, "fa": 175},
+    {"t": 27, "h": -15, "th": 68, "sh": -16, "ua": 172, "fa": 177}]},
+  "seated_fold": {"view": "side", "ms": 1600, "frames": [
+    {"t": 0, "th": 90, "sh": 90, "ua": 175},
+    {"t": 62, "h": 15, "th": 90, "sh": 90, "ua": 95, "fa": 95}]},
+  "seated_breath": {"view": "side", "ms": 2400, "frames": [
+    {"t": 0, "th": 100, "sh": -60, "ua": 30, "fa": 80},
+    {"t": -2, "h": -4, "th": 100, "sh": -60, "ua": 34, "fa": 84}]},
+  "bridge_pose": {"view": "side", "ms": 1800, "frames": [
+    {"t": -112, "h": 20, "th": 112, "sh": 4, "ua": 70},
+    {"t": -115, "h": 20, "th": 110, "sh": 3, "ua": 70}]},
+  "surya_namaskar": {"view": "side", "ms": 1100, "frames": [
+    {"ua": 30, "fa": 150},
+    {"t": -12, "h": -10, "ua": 178, "fa": 185},
+    {"t": 150, "h": 10, "ua": 2, "fa": 2},
+    {"t": 20, "th": [75, -30], "sh": [-10, -100], "ua": 0},
+    {"t": 130, "h": 15, "ua": 40, "fa": 40, "th": -45, "sh": -45},
+    {"t": 38, "h": -15, "th": -90, "sh": -90, "ua": -5, "fa": 5},
+    {"t": 130, "h": 15, "ua": 40, "fa": 40, "th": -45, "sh": -45},
+    {"t": 150, "h": 10, "ua": 2, "fa": 2},
+    {"t": -12, "h": -10, "ua": 178, "fa": 185}]},
+
+  "guard": {"view": "side", "ms": 900, "frames": [
+    {"t": 8, "h": -8, "th": [14, -16], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145]},
+    {"t": 8, "h": -8, "th": [16, -16], "sh": [-6, -12], "ua": [28, 18], "fa": [150, 145], "y": 0.006}]},
+  "jab_cross": {"view": "side", "ms": 260, "frames": [
+    {"t": 8, "h": -8, "th": [14, -16], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145], "hold": 120},
+    {"t": 12, "h": -8, "th": [16, -16], "sh": [-4, -12], "ua": [90, 18], "fa": [90, 145]},
+    {"t": 8, "h": -8, "th": [14, -16], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145], "hold": 120},
+    {"t": 16, "h": -8, "th": [16, -12], "sh": [-4, -14], "ua": [28, 88], "fa": [150, 90]}]},
+  "hook": {"view": "front", "ms": 300, "frames": [
+    {"ua": 30, "fa": 150, "th": 10, "hold": 120},
+    {"t": 8, "ua": [92, 30], "fa": [60, 150], "th": 10}]},
+  "uppercut": {"view": "side", "ms": 300, "frames": [
+    {"t": 8, "h": -8, "th": [14, -16], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145], "hold": 120},
+    {"t": 0, "h": -8, "th": [12, -14], "sh": [-2, -10], "ua": [40, 18], "fa": [170, 145], "y": 0.01}]},
+  "front_kick": {"view": "side", "ms": 340, "frames": [
+    {"t": 6, "th": [14, -12], "sh": [-2, -10], "ua": [25, 20], "fa": [150, 140], "hold": 150},
+    {"t": 0, "th": [100, -4], "sh": [-10, -4], "ua": [25, 20], "fa": [150, 140]},
+    {"t": -8, "th": [100, -4], "sh": [98, -4], "ua": [25, 20], "fa": [150, 140]},
+    {"t": 0, "th": [100, -4], "sh": [-10, -4], "ua": [25, 20], "fa": [150, 140]}]},
+  "knee_strike": {"view": "side", "ms": 320, "frames": [
+    {"t": 6, "th": [-10, 8], "sh": [-20, 0], "ua": [120, 120], "fa": [160, 160], "hold": 120},
+    {"t": -6, "th": [115, 0], "sh": [-30, 0], "ua": [70, 70], "fa": [10, 10]}]},
+  "front_stance_punch": {"view": "side", "ms": 420, "frames": [
+    {"t": 0, "th": [58, -34], "sh": [-2, -34], "ua": [-40, 90], "fa": [85, 90], "hold": 200},
+    {"t": 0, "th": [58, -34], "sh": [-2, -34], "ua": [90, -40], "fa": [90, 85], "hold": 200}]},
+  "horse_stance": {"view": "front", "ms": 1600, "frames": [
+    {"th": 64, "sh": 4, "ua": 18, "fa": -40},
+    {"th": 66, "sh": 5, "ua": 18, "fa": -40, "y": -0.004}]},
+  "horse_stance_punch": {"view": "front", "ms": 380, "frames": [
+    {"th": 64, "sh": 4, "ua": [18, 60], "fa": [-40, -10], "hold": 200},
+    {"th": 64, "sh": 4, "ua": [60, 18], "fa": [-10, -40], "hold": 200}]},
+  "rising_block": {"view": "side", "ms": 420, "frames": [
+    {"th": [58, -34], "sh": [-2, -34], "ua": [-40, 30], "fa": [85, 150], "hold": 160},
+    {"th": [58, -34], "sh": [-2, -34], "ua": [150, -40], "fa": [110, 85], "hold": 200}]},
+  "crane_stance": {"view": "side", "ms": 1800, "frames": [
+    {"th": [100, 0], "sh": [-12, 0], "ua": [130, 110], "fa": [200, 190]},
+    {"th": [104, 0], "sh": [-14, 0], "ua": [134, 112], "fa": [205, 194]}]},
+  "bow_stance_palm": {"view": "side", "ms": 700, "frames": [
+    {"th": [8, -8], "ua": [-30, -30], "fa": [70, 70], "hold": 200},
+    {"t": 6, "th": [62, -38], "sh": [-4, -38], "ua": [90, -30], "fa": [80, 70], "hold": 300}]},
+  "shuffle": {"view": "side", "ms": 260, "frames": [
+    {"t": 8, "h": -8, "th": [16, -14], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145], "x": 0, "y": 0.012},
+    {"t": 8, "h": -8, "th": [12, -18], "sh": [-4, -12], "ua": [28, 18], "fa": [150, 145], "x": 0.03}]},
+
+  "jaw_open": {"view": "face", "ms": 900, "frames": [{"jaw": 0}, {"jaw": 0.75, "hold": 1200}]},
+  "jaw_side": {"view": "face", "ms": 900, "frames": [
+    {"jaw": 0.15, "jawSide": -0.8, "hold": 600}, {"jaw": 0.15, "jawSide": 0.8, "hold": 600}]},
+  "jaw_relax": {"view": "face", "ms": 1600, "frames": [
+    {"jaw": 0.08, "eyes": 0.6, "brows": -0.1}, {"jaw": 0.14, "eyes": 0.4, "brows": -0.2}]},
+  "tongue_posture": {"view": "profile", "ms": 1200, "frames": [
+    {"tongue": 0}, {"tongue": 1, "hold": 1800}]},
+  "chin_tuck": {"view": "profile", "ms": 900, "frames": [{"chin": 0}, {"chin": 1, "hold": 1500}]},
+  "neck_nod": {"view": "profile", "ms": 1300, "frames": [{"nod": -18}, {"nod": 26}]},
+  "neck_tilt": {"view": "face", "ms": 1300, "frames": [
+    {"tilt": 0}, {"tilt": 32, "hold": 1200}, {"tilt": 0}, {"tilt": -32, "hold": 1200}]},
+  "neck_turn": {"view": "face", "ms": 1300, "frames": [
+    {"turn": 0}, {"turn": 0.95, "hold": 1000}, {"turn": 0}, {"turn": -0.95, "hold": 1000}]},
+  "cheek_puff": {"view": "face", "ms": 700, "frames": [{"cheeks": 0}, {"cheeks": 1, "lips": 0.2, "hold": 1200}]},
+  "smile": {"view": "face", "ms": 800, "frames": [{"smile": 0}, {"smile": 1, "brows": 0.2, "hold": 1200}]},
+  "lip_pucker": {"view": "face", "ms": 800, "frames": [{"lips": 0}, {"lips": 1, "cheeks": -0.2, "hold": 1200}]},
+  "vowels": {"view": "face", "ms": 650, "frames": [
+    {"jaw": 0.7}, {"jaw": 0.25, "smile": 0.8}, {"jaw": 0.4, "lips": 1}, {"jaw": 0.1, "lips": 1}]},
+  "brow_raise": {"view": "face", "ms": 700, "frames": [{"brows": 0}, {"brows": 1, "eyes": 1.2, "hold": 1000}]},
+  "eye_squeeze": {"view": "face", "ms": 700, "frames": [{"eyes": 1}, {"eyes": 0, "brows": -0.6, "smile": -0.2, "hold": 1000}]},
+  "breathing": {"view": "face", "ms": 3000, "frames": [
+    {"eyes": 0, "jaw": 0.04, "nod": 2}, {"eyes": 0, "jaw": 0.04, "nod": -3, "brows": 0.1}]}
+}

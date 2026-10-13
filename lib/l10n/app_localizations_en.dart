@@ -3966,4 +3966,186 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get backupErrorTooNew =>
       'This backup is from a newer version. Update the app, then try again.';
+
+  @override
+  String get exMartialArts => 'Martial arts';
+
+  @override
+  String get exFace => 'Face & jaw';
+
+  @override
+  String get actionDone => 'Done';
+
+  @override
+  String get levelBeginner => 'Beginner';
+
+  @override
+  String get levelIntermediate => 'Intermediate';
+
+  @override
+  String get levelAdvanced => 'Advanced';
+
+  @override
+  String get exerciseSearch => 'Search exercises, muscles or equipment';
+
+  @override
+  String get filterNoEquipment => 'No equipment';
+
+  @override
+  String exerciseCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count exercises',
+      one: '1 exercise',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String exerciseAlsoWorks(String muscles) {
+    return 'Also works: $muscles';
+  }
+
+  @override
+  String get workoutsTitle => 'Guided workouts';
+
+  @override
+  String get workoutsSubtitle => 'Follow along with a timer and moving figure';
+
+  @override
+  String get workoutsMore => 'Get more workouts';
+
+  @override
+  String workoutMinutes(int count) {
+    return '$count min';
+  }
+
+  @override
+  String workoutRounds(int count) {
+    return '$count rounds';
+  }
+
+  @override
+  String workoutSeconds(int count) {
+    return '$count s';
+  }
+
+  @override
+  String workoutReps(int count) {
+    return '$count reps';
+  }
+
+  @override
+  String get workoutEachSide => 'each side';
+
+  @override
+  String get workoutStart => 'Start workout';
+
+  @override
+  String get workoutGetReady => 'Get ready';
+
+  @override
+  String workoutRoundOf(int round, int total) {
+    return 'Round $round of $total';
+  }
+
+  @override
+  String workoutSide(int side) {
+    return 'Side $side of 2';
+  }
+
+  @override
+  String workoutUpNext(String name) {
+    return 'Up next: $name';
+  }
+
+  @override
+  String get workoutPrevious => 'Previous';
+
+  @override
+  String get workoutPause => 'Pause';
+
+  @override
+  String get workoutResume => 'Resume';
+
+  @override
+  String get workoutSkip => 'Skip';
+
+  @override
+  String get workoutDone => 'Workout complete. Well done!';
+
+  @override
+  String workoutDoneMinutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count minutes of movement',
+      one: '1 minute of movement',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get contentTitle => 'Content packs';
+
+  @override
+  String get contentSubtitle =>
+      'Download more exercises, illustrations and routines';
+
+  @override
+  String get contentGetMore => 'Get more exercises';
+
+  @override
+  String get contentGetMoreInfo =>
+      '1,500+ exercises, illustrations, yoga, martial arts and face & jaw routines. Free, download only what you need.';
+
+  @override
+  String get contentIntro =>
+      'Packs are free and optional. Download only what you need; once on your phone they work offline, and you can remove them any time.';
+
+  @override
+  String get contentWifiOnly => 'Download over Wi-Fi only';
+
+  @override
+  String get contentDownload => 'Download';
+
+  @override
+  String get contentUpdate => 'Update';
+
+  @override
+  String get contentRemove => 'Remove';
+
+  @override
+  String get contentOnPhone => 'On this phone';
+
+  @override
+  String get contentInstalled => 'Pack ready to use';
+
+  @override
+  String contentRemoveConfirm(String name) {
+    return 'Remove \"$name\" from this phone? You can download it again later.';
+  }
+
+  @override
+  String get contentOffline =>
+      'You\'re offline. Connect to the internet to see packs.';
+
+  @override
+  String get contentWifiNeeded =>
+      'Connect to Wi-Fi, or turn off \"Wi-Fi only\".';
+
+  @override
+  String get contentDamaged =>
+      'The download didn\'t check out, so it wasn\'t used. Please try again.';
+
+  @override
+  String get contentFailed => 'Couldn\'t download right now. Please try again.';
+
+  @override
+  String get contentRetry => 'Retry';
+
+  @override
+  String get contentPrivacy =>
+      'Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.';
 }

@@ -31,7 +31,7 @@ class BackupService {
   static const format = 1;
 
   /// Settings that belong to this device, not to the person.
-  static const _deviceKeys = ['sync.', 'backup.'];
+  static const _deviceKeys = ['sync.', 'backup.', 'content.'];
 
   static bool _deviceSetting(String key) => _deviceKeys.any(key.startsWith);
 
@@ -181,7 +181,8 @@ class BackupService {
       if (mode == RestoreMode.replace) {
         for (final name in known.keys) {
           await _db.customStatement(name == 'app_settings'
-              ? "DELETE FROM app_settings WHERE key NOT LIKE 'sync.%' AND key NOT LIKE 'backup.%'"
+              ? "DELETE FROM app_settings WHERE key NOT LIKE 'sync.%' AND key NOT LIKE 'backup.%' "
+                  "AND key NOT LIKE 'content.%'"
               : 'DELETE FROM "$name"');
         }
       }

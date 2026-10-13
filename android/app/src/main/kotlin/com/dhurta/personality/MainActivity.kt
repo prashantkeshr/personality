@@ -3,6 +3,8 @@ package com.dhurta.personality
 import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.StatFs
 import android.Manifest
@@ -44,6 +46,8 @@ class MainActivity : FlutterFragmentActivity() {
             .setMethodCallHandler { call, result ->
                 if (call.method == "probe") {
                     result.success(probe())
+                } else if (call.method == "network") {
+                    result.success(network())
                 } else {
                     result.notImplemented()
                 }
@@ -152,6 +156,16 @@ class MainActivity : FlutterFragmentActivity() {
                 grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             permissionResult = null
         }
+    }
+
+    /** Whether a download can start now, and whether it would use mobile data. */
+    private fun network(): Map<String, Boolean> {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val caps = cm.getNetworkCapabilities(cm.activeNetwork)
+        return mapOf(
+            "online" to (caps?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true),
+            "unmetered" to (caps?.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED) == true),
+        )
     }
 
     /** Hardware facts used to pick processing quality. No identifiers. */
