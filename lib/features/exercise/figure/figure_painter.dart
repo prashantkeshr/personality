@@ -142,6 +142,25 @@ class BodySkeleton {
   }
 }
 
+/// Ends of a held stick, staff or club for this pose, in world units.
+(Offset, Offset)? heldLine(BodySkeleton s, String? held) {
+  Offset unit(Offset o) => o.distance == 0 ? const Offset(0, 1) : o / o.distance;
+  switch (held) {
+    case 'stick':
+      final d = unit(s.hands.$1 - s.elbows.$1);
+      return (s.hands.$1 - d * 0.12, s.hands.$1 + d * 0.62);
+    case 'club':
+      final d = unit(s.hands.$1 - s.elbows.$1);
+      return (s.hands.$1 - d * 0.03, s.hands.$1 + d * 0.3);
+    case 'staff':
+      var d = s.hands.$1 - s.hands.$2;
+      // Hands together (side view): follow the near forearm instead.
+      d = d.distance < 0.04 ? unit(s.hands.$1 - s.elbows.$1) : unit(d);
+      return (s.hands.$2 - d * 0.38, s.hands.$1 + d * 0.38);
+  }
+  return null;
+}
+
 /// The support a motion leans on (bench, box), placed from its first frame.
 Rect? propRect(Motion m) {
   if (m.prop == null || m.isFace) return null;
@@ -165,7 +184,9 @@ Rect motionBounds(Motion m) {
   final n = math.max(12, m.frames.length * 8);
   for (var i = 0; i < n; i++) {
     final pose = m.poseAt((m.cycleMs * i / n).round()) as BodyPose;
-    for (final p in BodySkeleton.of(pose, m.view).points) {
+    final skel = BodySkeleton.of(pose, m.view);
+    final held = heldLine(skel, m.held);
+    for (final p in [...skel.points, ?held?.$1, ?held?.$2]) {
       final box = Rect.fromCenter(center: p, width: _Body.limb, height: _Body.limb);
       r = first ? box : r.expandToInclude(box);
       first = false;
@@ -202,7 +223,12 @@ class FigureColors {
 /// Paints one pose of a motion, fitted into the canvas.
 class FigurePainter extends CustomPainter {
   FigurePainter(
-      {required this.pose, required this.view, required this.bounds, required this.colors, this.prop});
+      {required this.pose,
+      required this.view,
+      required this.bounds,
+      required this.colors,
+      this.prop,
+      this.held});
 
   final Object pose;
   final MotionView view;
@@ -211,6 +237,9 @@ class FigurePainter extends CustomPainter {
 
   /// World-space support to draw behind the figure.
   final Rect? prop;
+
+  /// Equipment carried in the hands (see [heldLine]).
+  final String? held;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -303,6 +332,13 @@ class FigurePainter extends CustomPainter {
     }
 
     final t = s.toes;
+    void equipment() {
+      final line = heldLine(s, held);
+      if (line == null) return;
+      canvas.drawLine(map(line.$1), map(line.$2),
+          stroke(colors.accent, held == 'club' ? _Body.limb * 1.1 : _Body.lowerLimb * 0.55));
+    }
+
     if (view == MotionView.side) {
       limb(s.shoulders.$2, s.elbows.$2, s.hands.$2, colors.far);
       hand(s.hands.$2, colors.far);
@@ -310,6 +346,7 @@ class FigurePainter extends CustomPainter {
       torso();
       head();
       limb(s.hips.$1, s.knees.$1, s.ankles.$1, colors.body, d: t?.$1);
+      equipment();
       limb(s.shoulders.$1, s.elbows.$1, s.hands.$1, colors.body);
       hand(s.hands.$1, colors.body);
     } else {
@@ -318,6 +355,7 @@ class FigurePainter extends CustomPainter {
       torso();
       limb(s.shoulders.$1, s.elbows.$1, s.hands.$1, colors.body);
       limb(s.shoulders.$2, s.elbows.$2, s.hands.$2, colors.body);
+      equipment();
       hand(s.hands.$1, colors.body);
       hand(s.hands.$2, colors.body);
       head();

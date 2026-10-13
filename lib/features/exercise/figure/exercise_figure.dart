@@ -10,7 +10,7 @@ import 'figure_painter.dart';
 
 /// Every movement the figure knows (built in; packs only reference ids).
 final motionLibraryProvider = FutureProvider<Map<String, Motion>>((ref) async {
-  final raw = await rootBundle.loadString('assets/content/motions.json');
+  final raw = await rootBundle.loadString('assets/content/motions.json', cache: false);
   return parseMotions(jsonDecode(raw) as Map<String, dynamic>);
 });
 
@@ -106,7 +106,12 @@ class _MotionFigureState extends State<MotionFigure> with SingleTickerProviderSt
 
   Widget _paint(Object pose, FigureColors colors) => CustomPaint(
         painter: FigurePainter(
-            pose: pose, view: widget.motion.view, bounds: _bounds, colors: colors, prop: _prop),
+            pose: pose,
+            view: widget.motion.view,
+            bounds: _bounds,
+            colors: colors,
+            prop: _prop,
+            held: widget.motion.held),
         size: Size.infinite,
       );
 

@@ -85,21 +85,6 @@ class AnalyzeTab extends StatelessWidget {
   }
 }
 
-class CoachTab extends StatelessWidget {
-  const CoachTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    return FeatureOverviewScreen(
-      title: l10n.navCoach,
-      intro: l10n.coachIntro,
-      heroImage: 'assets/images/goals/habits.jpg',
-      features: const [AppFeature.aiCoach],
-    );
-  }
-}
-
 class StyleTab extends StatelessWidget {
   const StyleTab({super.key});
 

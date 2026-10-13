@@ -178,7 +178,7 @@ class Keyframe<P> {
 
 /// A looping sequence of keyframes.
 class Motion {
-  const Motion({required this.id, required this.view, required this.frames, this.prop});
+  const Motion({required this.id, required this.view, required this.frames, this.prop, this.held});
 
   final String id;
   final MotionView view;
@@ -188,6 +188,10 @@ class Motion {
 
   /// Optional support drawn under the figure: `box_hands`, `box_feet` or `bench`.
   final String? prop;
+
+  /// Equipment in the hands, moving with them: `stick` (near hand),
+  /// `staff` (both hands) or `club` (near hand, short and heavy).
+  final String? held;
 
   bool get isFace => view == MotionView.face || view == MotionView.profile;
 
@@ -201,6 +205,7 @@ class Motion {
       id: id,
       view: view,
       prop: j['prop'] as String?,
+      held: j['held'] as String?,
       frames: [
         for (final f in j['frames'] as List)
           Keyframe<Object>(

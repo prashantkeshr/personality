@@ -4148,4 +4148,302 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get contentPrivacy =>
       'Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.';
+
+  @override
+  String get navGrowth => 'My Growth';
+
+  @override
+  String get growthSearchHint => 'Search exercises, techniques and tips';
+
+  @override
+  String get growthProgress => 'Your progress';
+
+  @override
+  String get growthCoachSoon => 'Coming soon: a private, on-device coach.';
+
+  @override
+  String get profileMenu => 'You';
+
+  @override
+  String get blueprintTitle => 'Your blueprint';
+
+  @override
+  String get blueprintIntro =>
+      'Each area on its own, with no single score. Just what\'s going well and the next small step.';
+
+  @override
+  String get blueprintNextStep => 'Your next step';
+
+  @override
+  String get blueprintGo => 'Let\'s go';
+
+  @override
+  String get blueprintFocus => 'Your focus';
+
+  @override
+  String get blueprintExplore => 'More areas';
+
+  @override
+  String get blueprintPickGoals => 'Pick your goals to shape your blueprint';
+
+  @override
+  String get blueprintNoData => 'No records yet';
+
+  @override
+  String blueprintDaysMet(int count) {
+    return '$count of 7 days';
+  }
+
+  @override
+  String blueprintPercent(int percent) {
+    return '$percent% this fortnight';
+  }
+
+  @override
+  String get areaBody => 'Body & weight';
+
+  @override
+  String get areaFitness => 'Fitness';
+
+  @override
+  String get areaPosture => 'Posture';
+
+  @override
+  String get areaSleep => 'Sleep';
+
+  @override
+  String get areaHydration => 'Hydration';
+
+  @override
+  String get areaHabits => 'Habits';
+
+  @override
+  String get areaStyle => 'Style';
+
+  @override
+  String get areaGrooming => 'Grooming';
+
+  @override
+  String get areaSkills => 'Skills & martial arts';
+
+  @override
+  String get actSetBodyPlan => 'Set up your body plan';
+
+  @override
+  String get actLogWeight => 'Log your weight';
+
+  @override
+  String get actStartWorkout => 'Start a guided workout';
+
+  @override
+  String get actCheckPosture => 'Check your posture';
+
+  @override
+  String get actLogSleep => 'Log last night\'s sleep';
+
+  @override
+  String get actAddWater => 'Have a glass of water';
+
+  @override
+  String get actDoHabits => 'Tick off today\'s habits';
+
+  @override
+  String get actAddClothes => 'Add clothes to your wardrobe';
+
+  @override
+  String get actBuildOutfit => 'Put together an outfit';
+
+  @override
+  String get actTakeSnapshot => 'Take this week\'s snapshot';
+
+  @override
+  String get actPractiseSkill => 'Practise a martial art';
+
+  @override
+  String get whyTitle => 'Why am I seeing this?';
+
+  @override
+  String get whyBenefit => 'What it helps with';
+
+  @override
+  String get whyAlternatives => 'Other ways';
+
+  @override
+  String get whyYourGoal =>
+      'You chose this as one of your goals, and there\'s nothing recorded yet. One small start is enough.';
+
+  @override
+  String get whyNoRecords =>
+      'There\'s nothing recorded here yet, so it\'s an easy place to start if it interests you.';
+
+  @override
+  String get whyOnTrack => 'You\'re on track this week. Keep the rhythm going.';
+
+  @override
+  String get whyPartly => 'You\'re part of the way there this week.';
+
+  @override
+  String get whyBehind =>
+      'This area has had less attention lately. One small step brings it back.';
+
+  @override
+  String get benefitBody =>
+      'Regular weigh-ins show the real trend, so daily ups and downs stop worrying you.';
+
+  @override
+  String get benefitFitness => 'Moving most days lifts energy, mood and sleep.';
+
+  @override
+  String get benefitPosture =>
+      'A quick check now and then keeps neck and back strain from building up.';
+
+  @override
+  String get benefitSleep => 'Steady sleep helps focus, appetite and recovery.';
+
+  @override
+  String get benefitHydration =>
+      'Enough water helps energy, skin and concentration.';
+
+  @override
+  String get benefitHabits =>
+      'Small daily habits add up to the biggest changes.';
+
+  @override
+  String get benefitStyle =>
+      'Knowing what you own makes getting ready faster and more confident.';
+
+  @override
+  String get benefitGrooming =>
+      'A weekly photo shows how routines change things over time.';
+
+  @override
+  String get benefitSkills =>
+      'Martial arts build fitness, balance, focus and confidence together.';
+
+  @override
+  String get altBody =>
+      'Track measurements instead of weight, or follow your diet and body plan.';
+
+  @override
+  String get altFitness =>
+      'A brisk walk, a yoga routine, or a martial arts drill all count.';
+
+  @override
+  String get altPosture =>
+      'Do the Desk reset workout, or set a posture reminder.';
+
+  @override
+  String get altSleep =>
+      'Try the Wind down workout, or set a bedtime reminder.';
+
+  @override
+  String get altHydration =>
+      'Set water reminders, or keep a bottle within reach.';
+
+  @override
+  String get altHabits =>
+      'Start with one tiny habit, or use a ready-made routine.';
+
+  @override
+  String get altStyle => 'Find your colours, or browse looks that suit you.';
+
+  @override
+  String get altGrooming => 'Check your face shape for hairstyle ideas.';
+
+  @override
+  String get altSkills =>
+      'Start with Kalaripayattu leg swings, Kushti dand-baithak or boxing basics.';
+
+  @override
+  String get skillsTitle => 'Skills & martial arts';
+
+  @override
+  String get skillsIntro =>
+      'Indian and world martial arts, each with its own techniques, drills and tips.';
+
+  @override
+  String get skillsIndian => 'Indian martial arts';
+
+  @override
+  String get skillsWorld => 'World martial arts';
+
+  @override
+  String get skillsSeeAll => 'See all';
+
+  @override
+  String skillsTechniques(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count techniques',
+      one: '1 technique',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get skillsTechniquesTitle => 'Techniques & drills';
+
+  @override
+  String get skillsGetPackShort => 'Tips · techniques to download';
+
+  @override
+  String get skillsGetPack => 'Download the techniques';
+
+  @override
+  String get skillsGetPackInfo => 'Free and small. Opens Content packs.';
+
+  @override
+  String get skillsTrains => 'Trains';
+
+  @override
+  String get skillsTips => 'Tips & tricks';
+
+  @override
+  String get skillsWorkouts => 'Guided drills';
+
+  @override
+  String get skillsSafety =>
+      'Solo practice only: stances, footwork, shadow drills and conditioning. Learn sparring, partner work and weapons from a qualified teacher.';
+
+  @override
+  String get kindStance => 'Stances';
+
+  @override
+  String get kindTechnique => 'Techniques';
+
+  @override
+  String get kindDrill => 'Drills';
+
+  @override
+  String get kindConditioning => 'Conditioning';
+
+  @override
+  String get searchEmpty =>
+      'Search all exercises, martial arts techniques, tips and workouts.';
+
+  @override
+  String searchNoResults(String query) {
+    return 'Nothing found for \"$query\".';
+  }
+
+  @override
+  String get searchSkills => 'Martial arts';
+
+  @override
+  String get searchExercises => 'Exercises & techniques';
+
+  @override
+  String get searchWorkouts => 'Workouts';
+
+  @override
+  String get searchTips => 'Tips & tricks';
+
+  @override
+  String searchMore(int count) {
+    return '$count more: refine your search';
+  }
+
+  @override
+  String get searchClear => 'Clear';
 }

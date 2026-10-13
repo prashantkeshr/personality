@@ -2247,5 +2247,127 @@
   "contentDamaged": "The download didn't check out, so it wasn't used. Please try again.",
   "contentFailed": "Couldn't download right now. Please try again.",
   "contentRetry": "Retry",
-  "contentPrivacy": "Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet."
+  "contentPrivacy": "Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.",
+  "navGrowth": "My Growth",
+  "growthSearchHint": "Search exercises, techniques and tips",
+  "growthProgress": "Your progress",
+  "growthCoachSoon": "Coming soon: a private, on-device coach.",
+  "profileMenu": "You",
+  "blueprintTitle": "Your blueprint",
+  "blueprintIntro": "Each area on its own, with no single score. Just what's going well and the next small step.",
+  "blueprintNextStep": "Your next step",
+  "blueprintGo": "Let's go",
+  "blueprintFocus": "Your focus",
+  "blueprintExplore": "More areas",
+  "blueprintPickGoals": "Pick your goals to shape your blueprint",
+  "blueprintNoData": "No records yet",
+  "blueprintDaysMet": "{count} of 7 days",
+  "@blueprintDaysMet": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "blueprintPercent": "{percent}% this fortnight",
+  "@blueprintPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "areaBody": "Body & weight",
+  "areaFitness": "Fitness",
+  "areaPosture": "Posture",
+  "areaSleep": "Sleep",
+  "areaHydration": "Hydration",
+  "areaHabits": "Habits",
+  "areaStyle": "Style",
+  "areaGrooming": "Grooming",
+  "areaSkills": "Skills & martial arts",
+  "actSetBodyPlan": "Set up your body plan",
+  "actLogWeight": "Log your weight",
+  "actStartWorkout": "Start a guided workout",
+  "actCheckPosture": "Check your posture",
+  "actLogSleep": "Log last night's sleep",
+  "actAddWater": "Have a glass of water",
+  "actDoHabits": "Tick off today's habits",
+  "actAddClothes": "Add clothes to your wardrobe",
+  "actBuildOutfit": "Put together an outfit",
+  "actTakeSnapshot": "Take this week's snapshot",
+  "actPractiseSkill": "Practise a martial art",
+  "whyTitle": "Why am I seeing this?",
+  "whyBenefit": "What it helps with",
+  "whyAlternatives": "Other ways",
+  "whyYourGoal": "You chose this as one of your goals, and there's nothing recorded yet. One small start is enough.",
+  "whyNoRecords": "There's nothing recorded here yet, so it's an easy place to start if it interests you.",
+  "whyOnTrack": "You're on track this week. Keep the rhythm going.",
+  "whyPartly": "You're part of the way there this week.",
+  "whyBehind": "This area has had less attention lately. One small step brings it back.",
+  "benefitBody": "Regular weigh-ins show the real trend, so daily ups and downs stop worrying you.",
+  "benefitFitness": "Moving most days lifts energy, mood and sleep.",
+  "benefitPosture": "A quick check now and then keeps neck and back strain from building up.",
+  "benefitSleep": "Steady sleep helps focus, appetite and recovery.",
+  "benefitHydration": "Enough water helps energy, skin and concentration.",
+  "benefitHabits": "Small daily habits add up to the biggest changes.",
+  "benefitStyle": "Knowing what you own makes getting ready faster and more confident.",
+  "benefitGrooming": "A weekly photo shows how routines change things over time.",
+  "benefitSkills": "Martial arts build fitness, balance, focus and confidence together.",
+  "altBody": "Track measurements instead of weight, or follow your diet and body plan.",
+  "altFitness": "A brisk walk, a yoga routine, or a martial arts drill all count.",
+  "altPosture": "Do the Desk reset workout, or set a posture reminder.",
+  "altSleep": "Try the Wind down workout, or set a bedtime reminder.",
+  "altHydration": "Set water reminders, or keep a bottle within reach.",
+  "altHabits": "Start with one tiny habit, or use a ready-made routine.",
+  "altStyle": "Find your colours, or browse looks that suit you.",
+  "altGrooming": "Check your face shape for hairstyle ideas.",
+  "altSkills": "Start with Kalaripayattu leg swings, Kushti dand-baithak or boxing basics.",
+  "skillsTitle": "Skills & martial arts",
+  "skillsIntro": "Indian and world martial arts, each with its own techniques, drills and tips.",
+  "skillsIndian": "Indian martial arts",
+  "skillsWorld": "World martial arts",
+  "skillsSeeAll": "See all",
+  "skillsTechniques": "{count, plural, =1{1 technique} other{{count} techniques}}",
+  "@skillsTechniques": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "skillsTechniquesTitle": "Techniques & drills",
+  "skillsGetPackShort": "Tips · techniques to download",
+  "skillsGetPack": "Download the techniques",
+  "skillsGetPackInfo": "Free and small. Opens Content packs.",
+  "skillsTrains": "Trains",
+  "skillsTips": "Tips & tricks",
+  "skillsWorkouts": "Guided drills",
+  "skillsSafety": "Solo practice only: stances, footwork, shadow drills and conditioning. Learn sparring, partner work and weapons from a qualified teacher.",
+  "kindStance": "Stances",
+  "kindTechnique": "Techniques",
+  "kindDrill": "Drills",
+  "kindConditioning": "Conditioning",
+  "searchEmpty": "Search all exercises, martial arts techniques, tips and workouts.",
+  "searchNoResults": "Nothing found for \"{query}\".",
+  "@searchNoResults": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSkills": "Martial arts",
+  "searchExercises": "Exercises & techniques",
+  "searchWorkouts": "Workouts",
+  "searchTips": "Tips & tricks",
+  "searchMore": "{count} more: refine your search",
+  "@searchMore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchClear": "Clear"
 }

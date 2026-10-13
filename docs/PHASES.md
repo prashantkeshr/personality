@@ -474,3 +474,53 @@ Verification:
 - Live check: the manifest fetched from GitHub, and a downloaded pack matched its size and SHA-256.
 - Emulator, release build: all 6 packs downloaded from GitHub; the library showed 1,526 exercises; Everkinetic illustrations rendered (after a tint fix); the jaw routine played with the face figure.
 - Not yet verified: camera pose detection on a release build with the telemetry components removed. The emulator hung before that check; it needs a run on the phone.
+
+## Phase 18 — My Growth, Blueprint and skills (2026-10-13)
+
+- **Tabs**: Home · Health · Analyze · Style · **My Growth**. My Growth replaces the Coach tab; the AI coach is shown there as "coming soon".
+- **My Growth** has:
+  - one search bar;
+  - the Blueprint;
+  - the skills strip;
+  - links to guided workouts, journey, insights, evolution, habits, routines and goals;
+  - an avatar menu for profile, goals, backup, content packs and settings.
+- **Blueprint** (`domain/services/blueprint_engine.dart`):
+  - There is no overall score. Each of 9 areas (body, fitness, posture, sleep, hydration, habits, style, grooming, skills) shows its own progress for the last week or fortnight.
+  - "No data" is never shown as a failure.
+  - Focus areas come from the user's goals and are listed first, weakest first. The single "next step" picks the weakest focus area.
+- **Explainable recommendations**: tapping any area opens "Why am I seeing this?" with:
+  - why it's shown (your goal, nothing recorded, on track, partly, falling behind);
+  - what it helps with;
+  - other ways to do it;
+  - the action itself.
+- **Skills & martial arts**: 13 disciplines, each on its own coloured card with its signature move.
+  - **Indian**: Kalaripayattu, Silambam, Gatka, Mardani Khel, Thang-ta, Kushti (Pehlwani), Musti Yuddha, Lathi Khela.
+  - **World**: boxing, kickboxing & Muay Thai, karate, kung fu, self-defence basics.
+  - The overviews are built in (`assets/content/disciplines.json`): origin, what each trains, an honest safety note, and 46 tips & tricks in English and Hindi.
+  - Each discipline page lists its techniques by kind (stances, techniques, drills, conditioning), its guided drills, and its tips.
+  - Solo practice only. Partner work, sparring and weapons are left to a qualified teacher, and stick arts use a light bamboo or PVC stick.
+- **Packs**:
+  - `martial-arts` v2 tags every technique by discipline and adds Muay Thai and self-defence: 20 items, 5 routines.
+  - New `indian-martial-arts` pack: 22 techniques and 4 routines (Kalari basics, akhara dand-baithak, stick drills, Gatka & Mardani Khel).
+  - Installed v1 packs show "Update" — verified on the emulator.
+- **Figure**: 18 new motions, including Kalari leg swing, the elephant, lion and horse stances, Silambam staff spin, Gatka and lathi strikes, stick twirl, dand, baithak, mugdar swing, wrestler's stance and sprawl, palm and elbow strikes. The figure can now hold a stick, staff or club that moves with its hands.
+- **Global search** covers disciplines, every exercise and technique (including by discipline name, muscle or equipment), workouts, and tips.
+- Fixed:
+  - Discipline cards overflowed in the horizontal strip; they now have a fixed height.
+  - Assets loaded with `rootBundle`'s cache never resolve in a later widget test, so the new loaders use `cache: false`, as the existing ones do.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 343 pass, 1 skipped. New tests cover:
+  - Blueprint rules: no data isn't failure, focus-first ordering, next step, targets;
+  - discipline content: bilingual, real motions;
+  - My Growth end to end: why-sheet → action, skills hub → discipline → tips, search, avatar menu;
+  - a discipline with the real Indian pack installed, including the kind filter, technique detail and drill.
+- Live packs verified (size and SHA-256).
+- Emulator, release build:
+  - the My Growth tab and Blueprint;
+  - discipline cards;
+  - the martial-arts update and Indian pack download from GitHub;
+  - the Kalaripayattu page with techniques, drill and tips;
+  - searching "lathi";
+  - no crashes in the log.
+- Still to verify on the phone: Phase 15 sensors, and Phase 17/18 camera features with telemetry components removed.

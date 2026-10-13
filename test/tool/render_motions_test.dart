@@ -39,7 +39,8 @@ void main() {
               Paint()
                 ..style = PaintingStyle.stroke
                 ..color = Colors.black12);
-          FigurePainter(pose: f.pose, view: m.view, bounds: bounds, colors: colors, prop: propRect(m))
+          FigurePainter(
+                  pose: f.pose, view: m.view, bounds: bounds, colors: colors, prop: propRect(m), held: m.held)
               .paint(canvas, const Size(cell, cell));
           canvas.restore();
         }

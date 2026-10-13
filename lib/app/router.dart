@@ -6,6 +6,8 @@ import '../core/providers.dart';
 import '../features/backup/backup_screen.dart';
 import '../features/connected/connected_screen.dart';
 import '../features/content/content_screen.dart';
+import '../features/growth/growth_screen.dart';
+import '../features/growth/skills_screens.dart';
 import '../features/exercise/workouts_screen.dart';
 import '../features/insights/evolution_screen.dart';
 import '../features/insights/insights_screen.dart';
@@ -56,7 +58,9 @@ abstract final class AppRoutes {
   static const evolution = '/home/evolution';
   static const health = '/health';
   static const analyze = '/analyze';
-  static const coach = '/coach';
+  static const growth = '/growth';
+  static const search = '/growth/search';
+  static const skills = '/growth/skills';
   static const style = '/style';
   static const settings = '/settings';
   static const profile = '/health/profile';
@@ -300,9 +304,6 @@ final routerProvider = Provider<GoRouter>((ref) {
             ),
           ]),
           StatefulShellBranch(routes: [
-            GoRoute(path: AppRoutes.coach, builder: (_, _) => const CoachTab()),
-          ]),
-          StatefulShellBranch(routes: [
             GoRoute(
               path: AppRoutes.style,
               builder: (_, _) => const StyleTab(),
@@ -328,6 +329,22 @@ final routerProvider = Provider<GoRouter>((ref) {
                     GoRoute(
                         path: 'photo',
                         builder: (_, _) => const GarmentPhotoScreen()),
+                  ],
+                ),
+              ],
+            ),
+          ]),
+          StatefulShellBranch(routes: [
+            GoRoute(
+              path: AppRoutes.growth,
+              builder: (_, _) => const GrowthScreen(),
+              routes: [
+                GoRoute(path: 'search', builder: (_, state) => SearchScreen(initial: state.uri.queryParameters['q'] ?? '')),
+                GoRoute(
+                  path: 'skills',
+                  builder: (_, _) => const SkillsScreen(),
+                  routes: [
+                    GoRoute(path: ':id', builder: (_, state) => DisciplineScreen(id: state.pathParameters['id']!)),
                   ],
                 ),
               ],

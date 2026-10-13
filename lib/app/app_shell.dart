@@ -22,8 +22,8 @@ class AppShell extends StatelessWidget {
       (Icons.today_outlined, Icons.today, l10n.navHome),
       (Icons.favorite_outline, Icons.favorite, l10n.navHealth),
       (Icons.center_focus_weak, Icons.center_focus_strong, l10n.navAnalyze),
-      (Icons.lightbulb_outline, Icons.lightbulb, l10n.navCoach),
       (Icons.checkroom_outlined, Icons.checkroom, l10n.navStyle),
+      (Icons.spa_outlined, Icons.spa, l10n.navGrowth),
     ];
     final width = MediaQuery.sizeOf(context).width;
 

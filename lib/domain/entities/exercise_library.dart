@@ -22,6 +22,8 @@ class LibraryExercise {
     this.images = const [],
     this.credit,
     this.pack,
+    this.discipline,
+    this.kind,
     this.pattern,
     this.view,
     this.target,
@@ -55,6 +57,12 @@ class LibraryExercise {
 
   /// The content pack it came from; null for built-in exercises.
   final String? pack;
+
+  /// Martial-art or skill it belongs to (e.g. `kalaripayattu`).
+  final String? discipline;
+
+  /// stance, technique, drill or conditioning (skills only).
+  final String? kind;
 
   /// Set when the camera can count reps or time a hold.
   final TrackingPattern? pattern;
@@ -95,6 +103,8 @@ class LibraryExercise {
       images: list('images'),
       credit: j['credit'] as String?,
       pack: pack,
+      discipline: j['discipline'] as String?,
+      kind: j['kind'] as String?,
       pattern: TrackingPattern.fromName(t?['pattern'] as String?),
       view: t == null ? null : (t['view'] == 'side' ? PostureView.side : PostureView.front),
       target: t?['target'] as int?,
@@ -140,6 +150,7 @@ class WorkoutProgram {
     this.rounds = 1,
     this.pack,
     this.note = const {},
+    this.discipline,
   });
 
   final String id;
@@ -153,6 +164,9 @@ class WorkoutProgram {
 
   /// Honest expectations (e.g. what jaw exercises can't do).
   final Map<String, String> note;
+
+  /// Martial-art or skill it trains, if any.
+  final String? discipline;
 
   int get totalSeconds =>
       rounds * steps.fold(0, (s, x) => s + x.workSeconds + x.rest * (x.sides ? 2 : 1));
@@ -170,6 +184,7 @@ class WorkoutProgram {
       level: j['level'] as String? ?? 'beginner',
       rounds: j['rounds'] as int? ?? 1,
       pack: pack,
+      discipline: j['discipline'] as String?,
       steps: [for (final s in j['steps'] as List) ProgramStep.fromJson(s as Map<String, dynamic>)],
     );
   }

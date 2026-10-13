@@ -7261,6 +7261,528 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.'**
   String get contentPrivacy;
+
+  /// No description provided for @navGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'My Growth'**
+  String get navGrowth;
+
+  /// No description provided for @growthSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search exercises, techniques and tips'**
+  String get growthSearchHint;
+
+  /// No description provided for @growthProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress'**
+  String get growthProgress;
+
+  /// No description provided for @growthCoachSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon: a private, on-device coach.'**
+  String get growthCoachSoon;
+
+  /// No description provided for @profileMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get profileMenu;
+
+  /// No description provided for @blueprintTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your blueprint'**
+  String get blueprintTitle;
+
+  /// No description provided for @blueprintIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each area on its own, with no single score. Just what\'s going well and the next small step.'**
+  String get blueprintIntro;
+
+  /// No description provided for @blueprintNextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Your next step'**
+  String get blueprintNextStep;
+
+  /// No description provided for @blueprintGo.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s go'**
+  String get blueprintGo;
+
+  /// No description provided for @blueprintFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'Your focus'**
+  String get blueprintFocus;
+
+  /// No description provided for @blueprintExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'More areas'**
+  String get blueprintExplore;
+
+  /// No description provided for @blueprintPickGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick your goals to shape your blueprint'**
+  String get blueprintPickGoals;
+
+  /// No description provided for @blueprintNoData.
+  ///
+  /// In en, this message translates to:
+  /// **'No records yet'**
+  String get blueprintNoData;
+
+  /// No description provided for @blueprintDaysMet.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of 7 days'**
+  String blueprintDaysMet(int count);
+
+  /// No description provided for @blueprintPercent.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% this fortnight'**
+  String blueprintPercent(int percent);
+
+  /// No description provided for @areaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Body & weight'**
+  String get areaBody;
+
+  /// No description provided for @areaFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness'**
+  String get areaFitness;
+
+  /// No description provided for @areaPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture'**
+  String get areaPosture;
+
+  /// No description provided for @areaSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get areaSleep;
+
+  /// No description provided for @areaHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Hydration'**
+  String get areaHydration;
+
+  /// No description provided for @areaHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Habits'**
+  String get areaHabits;
+
+  /// No description provided for @areaStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Style'**
+  String get areaStyle;
+
+  /// No description provided for @areaGrooming.
+  ///
+  /// In en, this message translates to:
+  /// **'Grooming'**
+  String get areaGrooming;
+
+  /// No description provided for @areaSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills & martial arts'**
+  String get areaSkills;
+
+  /// No description provided for @actSetBodyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up your body plan'**
+  String get actSetBodyPlan;
+
+  /// No description provided for @actLogWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log your weight'**
+  String get actLogWeight;
+
+  /// No description provided for @actStartWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a guided workout'**
+  String get actStartWorkout;
+
+  /// No description provided for @actCheckPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your posture'**
+  String get actCheckPosture;
+
+  /// No description provided for @actLogSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Log last night\'s sleep'**
+  String get actLogSleep;
+
+  /// No description provided for @actAddWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Have a glass of water'**
+  String get actAddWater;
+
+  /// No description provided for @actDoHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Tick off today\'s habits'**
+  String get actDoHabits;
+
+  /// No description provided for @actAddClothes.
+  ///
+  /// In en, this message translates to:
+  /// **'Add clothes to your wardrobe'**
+  String get actAddClothes;
+
+  /// No description provided for @actBuildOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Put together an outfit'**
+  String get actBuildOutfit;
+
+  /// No description provided for @actTakeSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Take this week\'s snapshot'**
+  String get actTakeSnapshot;
+
+  /// No description provided for @actPractiseSkill.
+  ///
+  /// In en, this message translates to:
+  /// **'Practise a martial art'**
+  String get actPractiseSkill;
+
+  /// No description provided for @whyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why am I seeing this?'**
+  String get whyTitle;
+
+  /// No description provided for @whyBenefit.
+  ///
+  /// In en, this message translates to:
+  /// **'What it helps with'**
+  String get whyBenefit;
+
+  /// No description provided for @whyAlternatives.
+  ///
+  /// In en, this message translates to:
+  /// **'Other ways'**
+  String get whyAlternatives;
+
+  /// No description provided for @whyYourGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'You chose this as one of your goals, and there\'s nothing recorded yet. One small start is enough.'**
+  String get whyYourGoal;
+
+  /// No description provided for @whyNoRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'There\'s nothing recorded here yet, so it\'s an easy place to start if it interests you.'**
+  String get whyNoRecords;
+
+  /// No description provided for @whyOnTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re on track this week. Keep the rhythm going.'**
+  String get whyOnTrack;
+
+  /// No description provided for @whyPartly.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re part of the way there this week.'**
+  String get whyPartly;
+
+  /// No description provided for @whyBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'This area has had less attention lately. One small step brings it back.'**
+  String get whyBehind;
+
+  /// No description provided for @benefitBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular weigh-ins show the real trend, so daily ups and downs stop worrying you.'**
+  String get benefitBody;
+
+  /// No description provided for @benefitFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Moving most days lifts energy, mood and sleep.'**
+  String get benefitFitness;
+
+  /// No description provided for @benefitPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'A quick check now and then keeps neck and back strain from building up.'**
+  String get benefitPosture;
+
+  /// No description provided for @benefitSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady sleep helps focus, appetite and recovery.'**
+  String get benefitSleep;
+
+  /// No description provided for @benefitHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Enough water helps energy, skin and concentration.'**
+  String get benefitHydration;
+
+  /// No description provided for @benefitHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Small daily habits add up to the biggest changes.'**
+  String get benefitHabits;
+
+  /// No description provided for @benefitStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Knowing what you own makes getting ready faster and more confident.'**
+  String get benefitStyle;
+
+  /// No description provided for @benefitGrooming.
+  ///
+  /// In en, this message translates to:
+  /// **'A weekly photo shows how routines change things over time.'**
+  String get benefitGrooming;
+
+  /// No description provided for @benefitSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Martial arts build fitness, balance, focus and confidence together.'**
+  String get benefitSkills;
+
+  /// No description provided for @altBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Track measurements instead of weight, or follow your diet and body plan.'**
+  String get altBody;
+
+  /// No description provided for @altFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'A brisk walk, a yoga routine, or a martial arts drill all count.'**
+  String get altFitness;
+
+  /// No description provided for @altPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Do the Desk reset workout, or set a posture reminder.'**
+  String get altPosture;
+
+  /// No description provided for @altSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Try the Wind down workout, or set a bedtime reminder.'**
+  String get altSleep;
+
+  /// No description provided for @altHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Set water reminders, or keep a bottle within reach.'**
+  String get altHydration;
+
+  /// No description provided for @altHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with one tiny habit, or use a ready-made routine.'**
+  String get altHabits;
+
+  /// No description provided for @altStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your colours, or browse looks that suit you.'**
+  String get altStyle;
+
+  /// No description provided for @altGrooming.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your face shape for hairstyle ideas.'**
+  String get altGrooming;
+
+  /// No description provided for @altSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with Kalaripayattu leg swings, Kushti dand-baithak or boxing basics.'**
+  String get altSkills;
+
+  /// No description provided for @skillsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills & martial arts'**
+  String get skillsTitle;
+
+  /// No description provided for @skillsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Indian and world martial arts, each with its own techniques, drills and tips.'**
+  String get skillsIntro;
+
+  /// No description provided for @skillsIndian.
+  ///
+  /// In en, this message translates to:
+  /// **'Indian martial arts'**
+  String get skillsIndian;
+
+  /// No description provided for @skillsWorld.
+  ///
+  /// In en, this message translates to:
+  /// **'World martial arts'**
+  String get skillsWorld;
+
+  /// No description provided for @skillsSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get skillsSeeAll;
+
+  /// No description provided for @skillsTechniques.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 technique} other{{count} techniques}}'**
+  String skillsTechniques(int count);
+
+  /// No description provided for @skillsTechniquesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Techniques & drills'**
+  String get skillsTechniquesTitle;
+
+  /// No description provided for @skillsGetPackShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips · techniques to download'**
+  String get skillsGetPackShort;
+
+  /// No description provided for @skillsGetPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Download the techniques'**
+  String get skillsGetPack;
+
+  /// No description provided for @skillsGetPackInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Free and small. Opens Content packs.'**
+  String get skillsGetPackInfo;
+
+  /// No description provided for @skillsTrains.
+  ///
+  /// In en, this message translates to:
+  /// **'Trains'**
+  String get skillsTrains;
+
+  /// No description provided for @skillsTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips & tricks'**
+  String get skillsTips;
+
+  /// No description provided for @skillsWorkouts.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided drills'**
+  String get skillsWorkouts;
+
+  /// No description provided for @skillsSafety.
+  ///
+  /// In en, this message translates to:
+  /// **'Solo practice only: stances, footwork, shadow drills and conditioning. Learn sparring, partner work and weapons from a qualified teacher.'**
+  String get skillsSafety;
+
+  /// No description provided for @kindStance.
+  ///
+  /// In en, this message translates to:
+  /// **'Stances'**
+  String get kindStance;
+
+  /// No description provided for @kindTechnique.
+  ///
+  /// In en, this message translates to:
+  /// **'Techniques'**
+  String get kindTechnique;
+
+  /// No description provided for @kindDrill.
+  ///
+  /// In en, this message translates to:
+  /// **'Drills'**
+  String get kindDrill;
+
+  /// No description provided for @kindConditioning.
+  ///
+  /// In en, this message translates to:
+  /// **'Conditioning'**
+  String get kindConditioning;
+
+  /// No description provided for @searchEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Search all exercises, martial arts techniques, tips and workouts.'**
+  String get searchEmpty;
+
+  /// No description provided for @searchNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing found for \"{query}\".'**
+  String searchNoResults(String query);
+
+  /// No description provided for @searchSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Martial arts'**
+  String get searchSkills;
+
+  /// No description provided for @searchExercises.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises & techniques'**
+  String get searchExercises;
+
+  /// No description provided for @searchWorkouts.
+  ///
+  /// In en, this message translates to:
+  /// **'Workouts'**
+  String get searchWorkouts;
+
+  /// No description provided for @searchTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips & tricks'**
+  String get searchTips;
+
+  /// No description provided for @searchMore.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} more: refine your search'**
+  String searchMore(int count);
+
+  /// No description provided for @searchClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get searchClear;
 }
 
 class _AppLocalizationsDelegate

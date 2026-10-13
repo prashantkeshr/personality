@@ -4134,4 +4134,304 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get contentPrivacy =>
       'पैक सिर्फ़ github.com/prashantkeshr/personality-content से आते हैं और इस्तेमाल से पहले जाँचे जाते हैं। डाउनलोड करने से आपके बारे में कुछ नहीं भेजा जाता, और आपका स्वास्थ्य डेटा कभी इंटरनेट का उपयोग नहीं करता।';
+
+  @override
+  String get navGrowth => 'मेरी प्रगति';
+
+  @override
+  String get growthSearchHint => 'व्यायाम, तकनीक और टिप्स खोजें';
+
+  @override
+  String get growthProgress => 'आपकी प्रगति';
+
+  @override
+  String get growthCoachSoon =>
+      'जल्द आ रहा है: निजी, इसी डिवाइस पर चलने वाला कोच।';
+
+  @override
+  String get profileMenu => 'आप';
+
+  @override
+  String get blueprintTitle => 'आपका ब्लूप्रिंट';
+
+  @override
+  String get blueprintIntro =>
+      'हर क्षेत्र अपनी जगह, कोई एक अंक नहीं। बस क्या अच्छा चल रहा है और अगला छोटा कदम।';
+
+  @override
+  String get blueprintNextStep => 'आपका अगला कदम';
+
+  @override
+  String get blueprintGo => 'चलें';
+
+  @override
+  String get blueprintFocus => 'आपका फ़ोकस';
+
+  @override
+  String get blueprintExplore => 'और क्षेत्र';
+
+  @override
+  String get blueprintPickGoals => 'अपना ब्लूप्रिंट बनाने के लिए लक्ष्य चुनें';
+
+  @override
+  String get blueprintNoData => 'अभी कोई रिकॉर्ड नहीं';
+
+  @override
+  String blueprintDaysMet(int count) {
+    return '7 में से $count दिन';
+  }
+
+  @override
+  String blueprintPercent(int percent) {
+    return 'इस पखवाड़े $percent%';
+  }
+
+  @override
+  String get areaBody => 'शरीर और वज़न';
+
+  @override
+  String get areaFitness => 'फ़िटनेस';
+
+  @override
+  String get areaPosture => 'मुद्रा';
+
+  @override
+  String get areaSleep => 'नींद';
+
+  @override
+  String get areaHydration => 'पानी';
+
+  @override
+  String get areaHabits => 'आदतें';
+
+  @override
+  String get areaStyle => 'स्टाइल';
+
+  @override
+  String get areaGrooming => 'ग्रूमिंग';
+
+  @override
+  String get areaSkills => 'कौशल और युद्ध-कला';
+
+  @override
+  String get actSetBodyPlan => 'अपना बॉडी प्लान बनाएँ';
+
+  @override
+  String get actLogWeight => 'अपना वज़न दर्ज करें';
+
+  @override
+  String get actStartWorkout => 'गाइडेड वर्कआउट शुरू करें';
+
+  @override
+  String get actCheckPosture => 'अपनी मुद्रा जाँचें';
+
+  @override
+  String get actLogSleep => 'पिछली रात की नींद दर्ज करें';
+
+  @override
+  String get actAddWater => 'एक गिलास पानी पिएँ';
+
+  @override
+  String get actDoHabits => 'आज की आदतें पूरी करें';
+
+  @override
+  String get actAddClothes => 'अपनी वॉर्डरोब में कपड़े जोड़ें';
+
+  @override
+  String get actBuildOutfit => 'एक आउटफ़िट बनाएँ';
+
+  @override
+  String get actTakeSnapshot => 'इस हफ़्ते का स्नैपशॉट लें';
+
+  @override
+  String get actPractiseSkill => 'कोई युद्ध-कला अभ्यास करें';
+
+  @override
+  String get whyTitle => 'मुझे यह क्यों दिख रहा है?';
+
+  @override
+  String get whyBenefit => 'इससे क्या फ़ायदा';
+
+  @override
+  String get whyAlternatives => 'दूसरे तरीके';
+
+  @override
+  String get whyYourGoal =>
+      'आपने इसे अपने लक्ष्यों में चुना है, और अभी कुछ दर्ज नहीं है। एक छोटी शुरुआत काफ़ी है।';
+
+  @override
+  String get whyNoRecords =>
+      'यहाँ अभी कुछ दर्ज नहीं है, अगर रुचि हो तो शुरू करने की आसान जगह है।';
+
+  @override
+  String get whyOnTrack => 'इस हफ़्ते आप सही राह पर हैं। लय बनाए रखें।';
+
+  @override
+  String get whyPartly => 'इस हफ़्ते आप आधे रास्ते पर हैं।';
+
+  @override
+  String get whyBehind =>
+      'हाल में इस क्षेत्र पर कम ध्यान गया है। एक छोटा कदम इसे वापस लाता है।';
+
+  @override
+  String get benefitBody =>
+      'नियमित वज़न असली रुझान दिखाता है, ताकि रोज़ का उतार-चढ़ाव परेशान न करे।';
+
+  @override
+  String get benefitFitness =>
+      'ज़्यादातर दिन चलने-फिरने से ऊर्जा, मूड और नींद बेहतर होती है।';
+
+  @override
+  String get benefitPosture =>
+      'कभी-कभार की जाँच गर्दन और पीठ के तनाव को बढ़ने से रोकती है।';
+
+  @override
+  String get benefitSleep =>
+      'नियमित नींद एकाग्रता, भूख और रिकवरी में मदद करती है।';
+
+  @override
+  String get benefitHydration =>
+      'पर्याप्त पानी ऊर्जा, त्वचा और एकाग्रता में मदद करता है।';
+
+  @override
+  String get benefitHabits =>
+      'छोटी रोज़ की आदतें मिलकर सबसे बड़े बदलाव लाती हैं।';
+
+  @override
+  String get benefitStyle =>
+      'आपके पास क्या है यह जानने से तैयार होना तेज़ और आत्मविश्वास भरा होता है।';
+
+  @override
+  String get benefitGrooming =>
+      'हफ़्ते की एक फ़ोटो दिखाती है कि रूटीन समय के साथ क्या बदलते हैं।';
+
+  @override
+  String get benefitSkills =>
+      'युद्ध-कलाएँ फ़िटनेस, संतुलन, एकाग्रता और आत्मविश्वास एक साथ बढ़ाती हैं।';
+
+  @override
+  String get altBody =>
+      'वज़न की जगह शरीर के माप दर्ज करें, या अपना डाइट और बॉडी प्लान अपनाएँ।';
+
+  @override
+  String get altFitness =>
+      'तेज़ सैर, योग रूटीन या युद्ध-कला अभ्यास, सब गिने जाते हैं।';
+
+  @override
+  String get altPosture =>
+      'डेस्क रीसेट वर्कआउट करें, या मुद्रा का रिमाइंडर लगाएँ।';
+
+  @override
+  String get altSleep =>
+      'विंड डाउन वर्कआउट आज़माएँ, या सोने का रिमाइंडर लगाएँ।';
+
+  @override
+  String get altHydration => 'पानी के रिमाइंडर लगाएँ, या बोतल पास रखें।';
+
+  @override
+  String get altHabits => 'एक छोटी आदत से शुरू करें, या तैयार रूटीन अपनाएँ।';
+
+  @override
+  String get altStyle => 'अपने रंग खोजें, या आप पर जँचने वाले लुक देखें।';
+
+  @override
+  String get altGrooming =>
+      'हेयरस्टाइल के सुझावों के लिए अपने चेहरे का आकार देखें।';
+
+  @override
+  String get altSkills =>
+      'कलरीपयट्टु पैर उछाल, कुश्ती दंड-बैठक या बॉक्सिंग की बुनियाद से शुरू करें।';
+
+  @override
+  String get skillsTitle => 'कौशल और युद्ध-कला';
+
+  @override
+  String get skillsIntro =>
+      'भारतीय और विश्व की युद्ध-कलाएँ, हर एक की अपनी तकनीक, अभ्यास और टिप्स।';
+
+  @override
+  String get skillsIndian => 'भारतीय युद्ध-कलाएँ';
+
+  @override
+  String get skillsWorld => 'विश्व की युद्ध-कलाएँ';
+
+  @override
+  String get skillsSeeAll => 'सभी देखें';
+
+  @override
+  String skillsTechniques(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count तकनीकें',
+      one: '1 तकनीक',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get skillsTechniquesTitle => 'तकनीक और अभ्यास';
+
+  @override
+  String get skillsGetPackShort => 'टिप्स · तकनीकें डाउनलोड करें';
+
+  @override
+  String get skillsGetPack => 'तकनीकें डाउनलोड करें';
+
+  @override
+  String get skillsGetPackInfo => 'मुफ़्त और छोटा। कंटेंट पैक खुलेगा।';
+
+  @override
+  String get skillsTrains => 'क्या बढ़ाता है';
+
+  @override
+  String get skillsTips => 'टिप्स और तरकीबें';
+
+  @override
+  String get skillsWorkouts => 'गाइडेड अभ्यास';
+
+  @override
+  String get skillsSafety =>
+      'केवल अकेले अभ्यास: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कसरत। स्पारिंग, साथी के साथ अभ्यास और हथियार योग्य गुरु से सीखें।';
+
+  @override
+  String get kindStance => 'मुद्राएँ';
+
+  @override
+  String get kindTechnique => 'तकनीकें';
+
+  @override
+  String get kindDrill => 'अभ्यास';
+
+  @override
+  String get kindConditioning => 'कसरत';
+
+  @override
+  String get searchEmpty =>
+      'सभी व्यायाम, युद्ध-कला तकनीकें, टिप्स और वर्कआउट खोजें।';
+
+  @override
+  String searchNoResults(String query) {
+    return '\"$query\" के लिए कुछ नहीं मिला।';
+  }
+
+  @override
+  String get searchSkills => 'युद्ध-कलाएँ';
+
+  @override
+  String get searchExercises => 'व्यायाम और तकनीकें';
+
+  @override
+  String get searchWorkouts => 'वर्कआउट';
+
+  @override
+  String get searchTips => 'टिप्स और तरकीबें';
+
+  @override
+  String searchMore(int count) {
+    return '$count और: खोज और सटीक करें';
+  }
+
+  @override
+  String get searchClear => 'साफ़ करें';
 }
