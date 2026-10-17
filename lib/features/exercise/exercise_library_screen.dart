@@ -73,7 +73,7 @@ class _ExerciseLibraryScreenState extends ConsumerState<ExerciseLibraryScreen> {
             ..sort((a, b) => a.index.compareTo(b.index));
           final list = all.where((e) => _matches(e, lang)).toList();
           Widget chip(String label, bool selected, VoidCallback onTap, {IconData? icon}) => Padding(
-                padding: const EdgeInsets.only(right: AppSpacing.sm),
+                padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                 child: ChoiceChip(
                   avatar: icon == null ? null : Icon(icon, size: 18),
                   label: Text(label),

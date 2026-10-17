@@ -86,7 +86,7 @@ class _WardrobeScreenState extends ConsumerState<WardrobeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: AppSpacing.sm),
+                      padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                       child: ChoiceChip(
                         label: Text('${l10n.filterAll} · ${all.length}'),
                         selected: _filter == null,
@@ -96,7 +96,7 @@ class _WardrobeScreenState extends ConsumerState<WardrobeScreen> {
                     for (final c in GarmentCategory.values)
                       if (present.contains(c))
                         Padding(
-                          padding: const EdgeInsets.only(right: AppSpacing.sm),
+                          padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                           child: ChoiceChip(
                             label: Text(l10n.categoryName(c)),
                             selected: _filter == c,

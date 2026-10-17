@@ -4980,4 +4980,188 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get fitReasonUnknownShape =>
       'Analyse your face to see how this frame balances your shape.';
+
+  @override
+  String get whyFeedBodyPlan => 'You haven\'t set up a diet and body plan yet.';
+
+  @override
+  String get benefitFeedBodyPlan =>
+      'A plan turns your goal into daily calories, meals and training that fit your region.';
+
+  @override
+  String get whyFeedGoals =>
+      'Your goals decide which quests, tips and areas you see first.';
+
+  @override
+  String get benefitFeedGoals =>
+      'Picking a focus keeps the app about what matters to you.';
+
+  @override
+  String get whyFeedSnapshot => 'There\'s no progress photo for this week yet.';
+
+  @override
+  String get benefitFeedSnapshot =>
+      'A weekly photo shows real change that the mirror misses.';
+
+  @override
+  String get whyFeedFace => 'Your face shape hasn\'t been analysed yet.';
+
+  @override
+  String get benefitFeedFace =>
+      'It tailors hairstyle, beard and glasses ideas to you.';
+
+  @override
+  String get whyFeedHairstyles => 'These follow from your face shape.';
+
+  @override
+  String get benefitFeedHairstyles =>
+      'Styles that balance your features, with reasons for each.';
+
+  @override
+  String get whyFeedTryOn =>
+      'You can preview glasses and beards live before changing anything.';
+
+  @override
+  String get benefitFeedTryOn =>
+      'See it on your own face, privately, on this phone.';
+
+  @override
+  String get whyFeedColours => 'Your colour palette isn\'t set yet.';
+
+  @override
+  String get benefitFeedColours =>
+      'Knowing your colours makes outfits and shopping easier.';
+
+  @override
+  String get whyFeedOutfit => 'You have enough clothes for outfit ideas.';
+
+  @override
+  String get benefitFeedOutfit =>
+      'Ideas from what you already own, with reasons.';
+
+  @override
+  String get whyFeedPosture =>
+      'A quick posture check is useful every week or two.';
+
+  @override
+  String get benefitFeedPosture =>
+      'Catch neck and back strain early, with exercises to help.';
+
+  @override
+  String get whyFeedExercise => 'Moving most days helps every other goal.';
+
+  @override
+  String get benefitFeedExercise =>
+      'Guided workouts and 1,500+ exercises, with no equipment needed for many.';
+
+  @override
+  String get onboardingGoalsTitle => 'What would you like to work on?';
+
+  @override
+  String get onboardingGoalsBody =>
+      'Pick any that matter to you. We\'ll only ask what these goals need, and you can change them any time.';
+
+  @override
+  String get onboardingAboutFocused =>
+      'Only what your goals need. You can add the rest later in Profile.';
+
+  @override
+  String get settingsTimeFormat => 'Time format';
+
+  @override
+  String get timeFormatDevice => 'Same as device';
+
+  @override
+  String get timeFormat12 => '12-hour';
+
+  @override
+  String get timeFormat24 => '24-hour';
+
+  @override
+  String get settingsSecurity => 'Security';
+
+  @override
+  String get actionOk => 'OK';
+
+  @override
+  String get lockTitle => 'App lock';
+
+  @override
+  String get lockSubtitle => 'Ask for a PIN or fingerprint when the app opens';
+
+  @override
+  String get lockEnterPin => 'Enter your PIN';
+
+  @override
+  String get lockSetPin => 'Choose a PIN';
+
+  @override
+  String get lockConfirmPin => 'Enter the PIN again';
+
+  @override
+  String get lockPinRules =>
+      '4 to 8 digits. If you forget it, the app can\'t be opened without clearing its data, so pick one you\'ll remember.';
+
+  @override
+  String get lockPinMismatch => 'The PINs didn\'t match. Try again.';
+
+  @override
+  String get lockWrongPin => 'Wrong PIN';
+
+  @override
+  String lockWait(int seconds) {
+    return 'Too many tries. Wait $seconds s.';
+  }
+
+  @override
+  String get lockUseFingerprint => 'Unlock with fingerprint';
+
+  @override
+  String get lockBiometricReason => 'Unlock Personality';
+
+  @override
+  String get lockForgot => 'Forgot PIN?';
+
+  @override
+  String get lockForgotInfo =>
+      'For your privacy the PIN can\'t be reset or recovered, not even by us. If fingerprint unlock is on, use it, then change the PIN in Settings. Otherwise, clearing the app\'s data (Android Settings → Apps) removes the lock and everything in the app; restore from a backup afterwards.';
+
+  @override
+  String get lockOn => 'App lock is on';
+
+  @override
+  String get lockOff => 'App lock is off';
+
+  @override
+  String get lockChangePin => 'Change PIN';
+
+  @override
+  String get lockChanged => 'PIN changed';
+
+  @override
+  String get lockDelete => 'Delete';
+
+  @override
+  String lockDigits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count digits entered',
+      one: '1 digit entered',
+      zero: 'No digits entered',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get widgetNext => 'Next';
+
+  @override
+  String get widgetAddGlass => '+ Glass';
+
+  @override
+  String get widgetLocked => 'Unlock the app to see your next task';
+
+  @override
+  String get widgetNothingNext => 'Nothing planned right now';
 }

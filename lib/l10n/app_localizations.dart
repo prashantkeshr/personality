@@ -5,8 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_hi.dart';
+import 'app_localizations_id.dart';
+import 'app_localizations_pt.dart';
 
 // ignore_for_file: type=lint
 
@@ -94,8 +98,12 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
     Locale('en'),
+    Locale('es'),
     Locale('hi'),
+    Locale('id'),
+    Locale('pt'),
   ];
 
   /// No description provided for @appTitle.
@@ -8737,6 +8745,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Analyse your face to see how this frame balances your shape.'**
   String get fitReasonUnknownShape;
+
+  /// No description provided for @whyFeedBodyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t set up a diet and body plan yet.'**
+  String get whyFeedBodyPlan;
+
+  /// No description provided for @benefitFeedBodyPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'A plan turns your goal into daily calories, meals and training that fit your region.'**
+  String get benefitFeedBodyPlan;
+
+  /// No description provided for @whyFeedGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Your goals decide which quests, tips and areas you see first.'**
+  String get whyFeedGoals;
+
+  /// No description provided for @benefitFeedGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Picking a focus keeps the app about what matters to you.'**
+  String get benefitFeedGoals;
+
+  /// No description provided for @whyFeedSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'There\'s no progress photo for this week yet.'**
+  String get whyFeedSnapshot;
+
+  /// No description provided for @benefitFeedSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'A weekly photo shows real change that the mirror misses.'**
+  String get benefitFeedSnapshot;
+
+  /// No description provided for @whyFeedFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Your face shape hasn\'t been analysed yet.'**
+  String get whyFeedFace;
+
+  /// No description provided for @benefitFeedFace.
+  ///
+  /// In en, this message translates to:
+  /// **'It tailors hairstyle, beard and glasses ideas to you.'**
+  String get benefitFeedFace;
+
+  /// No description provided for @whyFeedHairstyles.
+  ///
+  /// In en, this message translates to:
+  /// **'These follow from your face shape.'**
+  String get whyFeedHairstyles;
+
+  /// No description provided for @benefitFeedHairstyles.
+  ///
+  /// In en, this message translates to:
+  /// **'Styles that balance your features, with reasons for each.'**
+  String get benefitFeedHairstyles;
+
+  /// No description provided for @whyFeedTryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'You can preview glasses and beards live before changing anything.'**
+  String get whyFeedTryOn;
+
+  /// No description provided for @benefitFeedTryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'See it on your own face, privately, on this phone.'**
+  String get benefitFeedTryOn;
+
+  /// No description provided for @whyFeedColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Your colour palette isn\'t set yet.'**
+  String get whyFeedColours;
+
+  /// No description provided for @benefitFeedColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Knowing your colours makes outfits and shopping easier.'**
+  String get benefitFeedColours;
+
+  /// No description provided for @whyFeedOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'You have enough clothes for outfit ideas.'**
+  String get whyFeedOutfit;
+
+  /// No description provided for @benefitFeedOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas from what you already own, with reasons.'**
+  String get benefitFeedOutfit;
+
+  /// No description provided for @whyFeedPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'A quick posture check is useful every week or two.'**
+  String get whyFeedPosture;
+
+  /// No description provided for @benefitFeedPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Catch neck and back strain early, with exercises to help.'**
+  String get benefitFeedPosture;
+
+  /// No description provided for @whyFeedExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Moving most days helps every other goal.'**
+  String get whyFeedExercise;
+
+  /// No description provided for @benefitFeedExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided workouts and 1,500+ exercises, with no equipment needed for many.'**
+  String get benefitFeedExercise;
+
+  /// No description provided for @onboardingGoalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to work on?'**
+  String get onboardingGoalsTitle;
+
+  /// No description provided for @onboardingGoalsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick any that matter to you. We\'ll only ask what these goals need, and you can change them any time.'**
+  String get onboardingGoalsBody;
+
+  /// No description provided for @onboardingAboutFocused.
+  ///
+  /// In en, this message translates to:
+  /// **'Only what your goals need. You can add the rest later in Profile.'**
+  String get onboardingAboutFocused;
+
+  /// No description provided for @settingsTimeFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Time format'**
+  String get settingsTimeFormat;
+
+  /// No description provided for @timeFormatDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Same as device'**
+  String get timeFormatDevice;
+
+  /// No description provided for @timeFormat12.
+  ///
+  /// In en, this message translates to:
+  /// **'12-hour'**
+  String get timeFormat12;
+
+  /// No description provided for @timeFormat24.
+  ///
+  /// In en, this message translates to:
+  /// **'24-hour'**
+  String get timeFormat24;
+
+  /// No description provided for @settingsSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get settingsSecurity;
+
+  /// No description provided for @actionOk.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get actionOk;
+
+  /// No description provided for @lockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock'**
+  String get lockTitle;
+
+  /// No description provided for @lockSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask for a PIN or fingerprint when the app opens'**
+  String get lockSubtitle;
+
+  /// No description provided for @lockEnterPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your PIN'**
+  String get lockEnterPin;
+
+  /// No description provided for @lockSetPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a PIN'**
+  String get lockSetPin;
+
+  /// No description provided for @lockConfirmPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the PIN again'**
+  String get lockConfirmPin;
+
+  /// No description provided for @lockPinRules.
+  ///
+  /// In en, this message translates to:
+  /// **'4 to 8 digits. If you forget it, the app can\'t be opened without clearing its data, so pick one you\'ll remember.'**
+  String get lockPinRules;
+
+  /// No description provided for @lockPinMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The PINs didn\'t match. Try again.'**
+  String get lockPinMismatch;
+
+  /// No description provided for @lockWrongPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong PIN'**
+  String get lockWrongPin;
+
+  /// No description provided for @lockWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many tries. Wait {seconds} s.'**
+  String lockWait(int seconds);
+
+  /// No description provided for @lockUseFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock with fingerprint'**
+  String get lockUseFingerprint;
+
+  /// No description provided for @lockBiometricReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Personality'**
+  String get lockBiometricReason;
+
+  /// No description provided for @lockForgot.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot PIN?'**
+  String get lockForgot;
+
+  /// No description provided for @lockForgotInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'For your privacy the PIN can\'t be reset or recovered, not even by us. If fingerprint unlock is on, use it, then change the PIN in Settings. Otherwise, clearing the app\'s data (Android Settings → Apps) removes the lock and everything in the app; restore from a backup afterwards.'**
+  String get lockForgotInfo;
+
+  /// No description provided for @lockOn.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock is on'**
+  String get lockOn;
+
+  /// No description provided for @lockOff.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock is off'**
+  String get lockOff;
+
+  /// No description provided for @lockChangePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Change PIN'**
+  String get lockChangePin;
+
+  /// No description provided for @lockChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN changed'**
+  String get lockChanged;
+
+  /// No description provided for @lockDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get lockDelete;
+
+  /// No description provided for @lockDigits.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No digits entered} =1{1 digit entered} other{{count} digits entered}}'**
+  String lockDigits(int count);
+
+  /// No description provided for @widgetNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get widgetNext;
+
+  /// No description provided for @widgetAddGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'+ Glass'**
+  String get widgetAddGlass;
+
+  /// No description provided for @widgetLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock the app to see your next task'**
+  String get widgetLocked;
+
+  /// No description provided for @widgetNothingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing planned right now'**
+  String get widgetNothingNext;
 }
 
 class _AppLocalizationsDelegate
@@ -8749,8 +9069,14 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'hi'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'ar',
+    'en',
+    'es',
+    'hi',
+    'id',
+    'pt',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -8759,10 +9085,18 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar':
+      return AppLocalizationsAr();
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
     case 'hi':
       return AppLocalizationsHi();
+    case 'id':
+      return AppLocalizationsId();
+    case 'pt':
+      return AppLocalizationsPt();
   }
 
   throw FlutterError(

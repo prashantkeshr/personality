@@ -186,12 +186,12 @@ class FeatureCard extends ConsumerWidget {
                 ),
               ),
               if (state != FeatureState.available)
-                Positioned(
+                PositionedDirectional(
                   top: 10,
-                  right: 10,
-                  left: 52,
+                  end: 10,
+                  start: 52,
                   child: Align(
-                    alignment: Alignment.topRight,
+                    alignment: AlignmentDirectional.topEnd,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: scheme.surface.withValues(alpha: 0.9),

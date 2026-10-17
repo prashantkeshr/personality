@@ -10,6 +10,8 @@ import 'package:personality/app/personality_app.dart';
 import 'package:personality/core/database/app_database.dart';
 import 'package:personality/core/providers.dart';
 import 'package:personality/core/device/sensor_bridge.dart';
+import 'package:personality/core/security/app_lock.dart';
+import 'package:personality/features/widget/home_widget_sync.dart';
 import 'package:personality/features/connected/data_import.dart';
 import 'package:personality/features/journey/journey_providers.dart';
 import 'package:personality/features/settings/app_settings.dart';
@@ -52,11 +54,16 @@ class AppHarness {
   final WidgetTester tester;
   final AppDatabase db;
 
+  /// App-lock secrets, kept in memory for tests.
+  final lockStore = MemoryLockStore();
+
   Future<void> start(
     AppSettings settings, {
     List<Override> overrides = const [],
     bool celebrateBadges = false,
     SensorBridge sensors = const NoSensorBridge(),
+    Biometrics biometrics = const NoBiometrics(),
+    HomeWidgetBridge widget = const NoHomeWidgetBridge(),
   }) async {
     await tester.pumpWidget(ProviderScope(
       overrides: [
@@ -64,6 +71,9 @@ class AppHarness {
         initialSettingsProvider.overrideWithValue(settings),
         if (!celebrateBadges) badgeCelebrationsProvider.overrideWithValue(false),
         sensorBridgeProvider.overrideWithValue(sensors),
+        lockStoreProvider.overrideWithValue(lockStore),
+        biometricsProvider.overrideWithValue(biometrics),
+        homeWidgetBridgeProvider.overrideWithValue(widget),
         ...overrides,
       ],
       child: const PersonalityApp(),

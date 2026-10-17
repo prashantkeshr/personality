@@ -555,3 +555,35 @@ Verification:
   - the repository round trip: DNA, prices, plans, cascade;
   - 5 end-to-end flows: DNA save, Get ready with ticks kept, calendar plan and worn, glasses sheet, stats gaps and price.
 - Emulator, release build: the Style tab's new cards, the Interview checklist, and the glasses finder. No crashes.
+
+## Phase 20 — Lock, widget, languages (2026-10-17)
+
+- **App lock** (Settings → Security): a 4–8 digit PIN, with optional fingerprint unlock.
+  - The PIN is stored only as a PBKDF2 hash (60,000 iterations) in Android secure storage and checked in constant time.
+  - The app locks on start and after 30 seconds away. While you switch apps, a cover hides the screen.
+  - Every 5 wrong tries adds a 30-second wait, growing each time.
+  - While locked, the app behind the cover is hidden from screen readers and keyboard focus.
+  - A forgotten PIN can't be reset. The screen explains the options: fingerprint, or clear the app's data and restore a backup.
+- **Home-screen widget** (3×2): water today with a "+ Glass" button that adds 250 ml, and the next plan item. The next item is hidden while the app lock is on.
+- **12/24-hour time**: Same as device, 12-hour or 24-hour, applied across the app (reminders, backups, posture history, connected data).
+- **Goals-first onboarding**: goals come straight after the welcome screen. The body questions (height, weight) are asked only when a goal needs them (weight, fitness, flexibility, hydration) or when no goal is picked.
+- **"Why am I seeing this?"** on every For-you card: why it was suggested and what it helps with.
+- **New languages**: Spanish, Portuguese, Indonesian and Arabic. All 1,492 strings are translated, with placeholders and plural forms checked by script.
+  - Language names are shown in their own script.
+  - The widget's description is translated too.
+  - Arabic lays out right to left: start/end padding and alignment throughout, and `supportsRtl` for the widget.
+  - The PIN keypad keeps 1-2-3 order. Day chips use the one-letter Arabic weekday, because every Arabic weekday begins with "ال".
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 383 pass, 2 skipped. New tests cover:
+  - PIN hashing; lock on start, unlock, and the wrong-PIN wait; fingerprint unlock;
+  - nothing from the app reaches the semantics tree while locked (this test fails without the fix);
+  - the keypad order in Arabic;
+  - the widget bridge (adding water; hiding the next item when locked);
+  - goals-first onboarding, including a style-only path;
+  - each new locale, Arabic right-to-left, and short weekday names.
+- Emulator, release build:
+  - Arabic home: mirrored layout, Arabic numerals, distinct day letters.
+  - Lock: set a PIN, relock after 36 s away, unlock with the PIN; only the lock is visible to accessibility.
+  - Widget: added from the launcher; shows in Arabic; "+ Glass" added 250 ml after unlocking.
+- Release permissions: `USE_BIOMETRIC` and `USE_FINGERPRINT` are new (fingerprint unlock). Nothing else changed.

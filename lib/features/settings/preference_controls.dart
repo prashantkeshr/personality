@@ -8,7 +8,7 @@ import '../../l10n/app_localizations.dart';
 import 'app_settings.dart';
 
 /// Supported UI languages, as language codes. Keep in sync with lib/l10n.
-const supportedLanguageCodes = ['en', 'hi'];
+const supportedLanguageCodes = ['en', 'hi', 'es', 'pt', 'id', 'ar'];
 
 Future<void> _save(
   BuildContext context,
@@ -31,21 +31,26 @@ class ThemeModeSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final mode = ref.watch(settingsControllerProvider.select((s) => s.themeMode));
+    final mode = ref.watch(
+      settingsControllerProvider.select((s) => s.themeMode),
+    );
     return SegmentedButton<ThemeMode>(
       segments: [
         ButtonSegment(
-            value: ThemeMode.system,
-            label: Text(l10n.themeSystem),
-            icon: const Icon(Icons.brightness_auto_outlined)),
+          value: ThemeMode.system,
+          label: Text(l10n.themeSystem),
+          icon: const Icon(Icons.brightness_auto_outlined),
+        ),
         ButtonSegment(
-            value: ThemeMode.light,
-            label: Text(l10n.themeLight),
-            icon: const Icon(Icons.light_mode_outlined)),
+          value: ThemeMode.light,
+          label: Text(l10n.themeLight),
+          icon: const Icon(Icons.light_mode_outlined),
+        ),
         ButtonSegment(
-            value: ThemeMode.dark,
-            label: Text(l10n.themeDark),
-            icon: const Icon(Icons.dark_mode_outlined)),
+          value: ThemeMode.dark,
+          label: Text(l10n.themeDark),
+          icon: const Icon(Icons.dark_mode_outlined),
+        ),
       ],
       selected: {mode},
       showSelectedIcon: false,
@@ -61,8 +66,9 @@ class UnitSystemSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final units =
-        ref.watch(settingsControllerProvider.select((s) => s.unitSystem));
+    final units = ref.watch(
+      settingsControllerProvider.select((s) => s.unitSystem),
+    );
     return RadioGroup<UnitSystem>(
       groupValue: units,
       onChanged: (u) {
@@ -70,9 +76,14 @@ class UnitSystemSelector extends ConsumerWidget {
       },
       child: Column(
         children: [
-          RadioListTile(value: UnitSystem.metric, title: Text(l10n.unitsMetric)),
           RadioListTile(
-              value: UnitSystem.imperial, title: Text(l10n.unitsImperial)),
+            value: UnitSystem.metric,
+            title: Text(l10n.unitsMetric),
+          ),
+          RadioListTile(
+            value: UnitSystem.imperial,
+            title: Text(l10n.unitsImperial),
+          ),
         ],
       ),
     );
@@ -85,22 +96,64 @@ class LanguageSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final code =
-        ref.watch(settingsControllerProvider.select((s) => s.localeCode));
+    final code = ref.watch(
+      settingsControllerProvider.select((s) => s.localeCode),
+    );
     String name(String c) => switch (c) {
-          'hi' => l10n.languageHindi,
-          _ => l10n.languageEnglish,
-        };
+      'hi' => l10n.languageHindi,
+      // Endonyms: each language is named in its own script.
+      'es' => 'Español',
+      'pt' => 'Português',
+      'id' => 'Bahasa Indonesia',
+      'ar' => 'العربية',
+      _ => l10n.languageEnglish,
+    };
 
     return RadioGroup<String?>(
       groupValue: code,
-      onChanged: (c) => _save(context, ref, (s) => s.copyWith(localeCode: () => c)),
+      onChanged: (c) =>
+          _save(context, ref, (s) => s.copyWith(localeCode: () => c)),
       child: Column(
         children: [
           RadioListTile<String?>(value: null, title: Text(l10n.languageSystem)),
           for (final c in supportedLanguageCodes)
             RadioListTile<String?>(value: c, title: Text(name(c))),
         ],
+      ),
+    );
+  }
+}
+
+class TimeFormatSelector extends ConsumerWidget {
+  const TimeFormatSelector({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final value = ref.watch(
+      settingsControllerProvider.select((s) => s.use24Hour),
+    );
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SegmentedButton<int>(
+        key: const Key('time-format'),
+        segments: [
+          ButtonSegment(value: 0, label: Text(l10n.timeFormatDevice)),
+          ButtonSegment(value: 12, label: Text(l10n.timeFormat12)),
+          ButtonSegment(value: 24, label: Text(l10n.timeFormat24)),
+        ],
+        selected: {value == null ? 0 : (value ? 24 : 12)},
+        onSelectionChanged: (s) => _save(
+          context,
+          ref,
+          (cur) => cur.copyWith(
+            use24Hour: () => switch (s.first) {
+              24 => true,
+              12 => false,
+              _ => null,
+            },
+          ),
+        ),
       ),
     );
   }

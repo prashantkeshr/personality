@@ -30,6 +30,7 @@ dependencies:
   image: ^4.10.1
   cryptography: ^2.9.0
   archive: ^4.4.0
+  local_auth: ^3.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

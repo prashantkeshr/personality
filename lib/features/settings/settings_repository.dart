@@ -14,6 +14,7 @@ class SettingsRepository {
   static const _units = 'units.system';
   static const _theme = 'theme.mode';
   static const _locale = 'locale.code';
+  static const _clock = 'time.format';
 
   Future<AppSettings> load() async {
     final rows = await _db.select(_db.appSettingsEntries).get();
@@ -26,6 +27,11 @@ class SettingsRepository {
         orElse: () => ThemeMode.system,
       ),
       localeCode: map[_locale],
+      use24Hour: switch (map[_clock]) {
+        '24' => true,
+        '12' => false,
+        _ => null,
+      },
     );
   }
 
@@ -43,6 +49,13 @@ class SettingsRepository {
       await put(_onboarding, '${settings.onboardingCompleted}');
       await put(_units, settings.unitSystem.name);
       await put(_theme, settings.themeMode.name);
+      if (settings.use24Hour case final h24?) {
+        await put(_clock, h24 ? '24' : '12');
+      } else {
+        await (_db.delete(
+          _db.appSettingsEntries,
+        )..where((t) => t.key.equals(_clock))).go();
+      }
       if (settings.localeCode case final code?) {
         await put(_locale, code);
       } else {

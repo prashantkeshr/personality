@@ -86,7 +86,7 @@ class _OutfitsScreenState extends ConsumerState<OutfitsScreen> {
                 child: Row(children: [
                   for (final o in Occasion.values)
                     Padding(
-                      padding: const EdgeInsets.only(right: AppSpacing.sm),
+                      padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                       child: ChoiceChip(
                         label: Text(l10n.occasionName(o)),
                         selected: _occasion == o,

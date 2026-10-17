@@ -15,6 +15,7 @@ import '../health/widgets/add_record_sheet.dart' show confirmDelete;
 import 'posture_labels.dart';
 import 'posture_providers.dart';
 import 'posture_screen.dart' show MetricTile;
+import '../../shared/format/clock_format.dart';
 
 /// Saved posture checks, newest first, each compared with the previous
 /// check of the same view (spec §17 "Compare").
@@ -34,8 +35,11 @@ class PostureHistoryScreen extends ConsumerWidget {
             key: const Key('posture-compare'),
             icon: const Icon(Icons.compare_arrows),
             label: Text(l10n.postureCompare),
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => const PostureCompareScreen())),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const PostureCompareScreen(),
+              ),
+            ),
           ),
         ],
       ),
@@ -66,18 +70,22 @@ class PostureHistoryScreen extends ConsumerWidget {
             itemBuilder: (context, i) {
               final s = sessions[i];
               final prev = previousOf(i);
-              final flagged =
-                  s.result.metrics.where((m) => m.band != AlignmentBand.aligned).length;
+              final flagged = s.result.metrics
+                  .where((m) => m.band != AlignmentBand.aligned)
+                  .length;
               return Card(
                 margin: const EdgeInsets.only(bottom: AppSpacing.md),
                 child: ExpansionTile(
                   title: Text(
-                      '${DateFormat.yMMMd(tag).format(s.recordedAt.toLocal())} · ${DateFormat.jm(tag).format(s.recordedAt.toLocal())}'),
-                  subtitle: Text([
-                    l10n.viewLabel(s.result.view),
-                    l10n.confidenceLabel(s.result.confidence),
-                    l10n.postureFlaggedCount(flagged),
-                  ].join(' · ')),
+                    '${DateFormat.yMMMd(tag).format(s.recordedAt.toLocal())} · ${clockFormat(context).format(s.recordedAt.toLocal())}',
+                  ),
+                  subtitle: Text(
+                    [
+                      l10n.viewLabel(s.result.view),
+                      l10n.confidenceLabel(s.result.confidence),
+                      l10n.postureFlaggedCount(flagged),
+                    ].join(' · '),
+                  ),
                   children: [
                     for (final m in s.result.metrics)
                       MetricTile(
@@ -88,12 +96,15 @@ class PostureHistoryScreen extends ConsumerWidget {
                       ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
+                        horizontal: AppSpacing.lg,
+                        vertical: AppSpacing.sm,
+                      ),
                       child: Row(
                         children: [
                           ProvenanceChip(
-                              source: s.result.source,
-                              confidence: s.result.confidence),
+                            source: s.result.source,
+                            confidence: s.result.confidence,
+                          ),
                           const Spacer(),
                           IconButton(
                             tooltip: l10n.actionDelete,
@@ -108,8 +119,9 @@ class PostureHistoryScreen extends ConsumerWidget {
                                 }
                               } catch (e, st) {
                                 AppLogger.error('posture.delete', e, st);
-                                messenger.showSnackBar(SnackBar(
-                                    content: Text(l10n.recordSaveError)));
+                                messenger.showSnackBar(
+                                  SnackBar(content: Text(l10n.recordSaveError)),
+                                );
                               }
                             },
                           ),
@@ -148,19 +160,22 @@ class _PostureCompareScreenState extends ConsumerState<PostureCompareScreen> {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final tag = Localizations.localeOf(context).toLanguageTag();
-    final all = ref.watch(postureHistoryProvider).value ?? const <SavedPosture>[];
+    final all =
+        ref.watch(postureHistoryProvider).value ?? const <SavedPosture>[];
     final views = {
       for (final v in PostureView.values)
-        if (all.where((s) => s.result.view == v).length >= 2) v
+        if (all.where((s) => s.result.view == v).length >= 2) v,
     };
     final view = _view ?? (views.isEmpty ? null : views.first);
     // Oldest first.
     final sessions = [
       for (final s in all.reversed)
-        if (s.result.view == view) s
+        if (s.result.view == view) s,
     ];
-    String label(SavedPosture s) =>
-        DateFormat.yMMMd(tag).add_jm().format(s.recordedAt.toLocal());
+    String label(SavedPosture s) => withClock(
+      context,
+      DateFormat.yMMMd(tag),
+    ).format(s.recordedAt.toLocal());
     SavedPosture? byId(String? id) {
       for (final s in sessions) {
         if (s.id == id) return s;
@@ -223,44 +238,59 @@ class _PostureCompareScreenState extends ConsumerState<PostureCompareScreen> {
                   columnWidths: const {0: FlexColumnWidth(2)},
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: [
-                    TableRow(children: [
-                      const SizedBox(),
-                      for (final h in [
-                        l10n.postureCompareEarlier,
-                        l10n.postureCompareLater,
-                        l10n.postureCompareChange,
-                      ])
-                        Text(h,
+                    TableRow(
+                      children: [
+                        const SizedBox(),
+                        for (final h in [
+                          l10n.postureCompareEarlier,
+                          l10n.postureCompareLater,
+                          l10n.postureCompareChange,
+                        ])
+                          Text(
+                            h,
                             textAlign: TextAlign.end,
-                            style: theme.textTheme.labelMedium),
-                    ]),
+                            style: theme.textTheme.labelMedium,
+                          ),
+                      ],
+                    ),
                     for (final m in a.result.metrics)
                       if (b.result[m.metric] case final later?)
-                        TableRow(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Text(l10n.postureMetricName(m.metric)),
-                          ),
-                          Text('${m.degrees.toStringAsFixed(1)}°',
-                              textAlign: TextAlign.end),
-                          Text('${later.degrees.toStringAsFixed(1)}°',
-                              textAlign: TextAlign.end),
-                          Text(
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: Text(l10n.postureMetricName(m.metric)),
+                            ),
+                            Text(
+                              '${m.degrees.toStringAsFixed(1)}°',
+                              textAlign: TextAlign.end,
+                            ),
+                            Text(
+                              '${later.degrees.toStringAsFixed(1)}°',
+                              textAlign: TextAlign.end,
+                            ),
+                            Text(
                               '${later.degrees - m.degrees >= 0 ? '+' : '−'}'
                               '${(later.degrees - m.degrees).abs().toStringAsFixed(1)}°',
                               textAlign: TextAlign.end,
                               style: TextStyle(
-                                  color: later.degrees.abs() < m.degrees.abs()
-                                      ? scheme.primary
-                                      : null,
-                                  fontWeight: FontWeight.w600)),
-                        ]),
+                                color: later.degrees.abs() < m.degrees.abs()
+                                    ? scheme.primary
+                                    : null,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                   ],
                 ),
               ),
             ),
             const SizedBox(height: AppSpacing.sm),
-            ProvenanceChip(source: b.result.source, confidence: b.result.confidence),
+            ProvenanceChip(
+              source: b.result.source,
+              confidence: b.result.confidence,
+            ),
           ],
         ],
       ),

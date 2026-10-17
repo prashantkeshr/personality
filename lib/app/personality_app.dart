@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/providers.dart';
 import '../core/theme/app_theme.dart';
 import '../features/connected/data_import.dart' show DataSyncHost;
+import '../features/lock/app_lock_ui.dart';
 import '../features/routines/reminder_sync_host.dart';
+import '../features/widget/home_widget_sync.dart';
 import '../l10n/app_localizations.dart';
 import 'router.dart';
 
@@ -26,8 +28,21 @@ class PersonalityApp extends ConsumerWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: ref.watch(routerProvider),
-      builder: (context, child) =>
-          ReminderSyncHost(child: DataSyncHost(child: child!)),
+      builder: (context, child) {
+        final mq = MediaQuery.of(context);
+        return MediaQuery(
+          // The app's own 12/24-hour choice wins over the device's.
+          data: mq.copyWith(
+            alwaysUse24HourFormat:
+                settings.use24Hour ?? mq.alwaysUse24HourFormat,
+          ),
+          child: LockGate(
+            child: HomeWidgetHost(
+              child: ReminderSyncHost(child: DataSyncHost(child: child!)),
+            ),
+          ),
+        );
+      },
     );
   }
 }

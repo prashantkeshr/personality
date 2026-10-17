@@ -24,6 +24,20 @@ class AboutYouData {
   DietPreference? diet;
   Region? region;
 
+  /// Chosen on the goals page; decides which questions are asked.
+  final goals = <GoalType>{};
+
+  static const _bodyGoals = {
+    GoalType.weightManagement,
+    GoalType.fitness,
+    GoalType.flexibility,
+    GoalType.hydration,
+  };
+
+  /// Height, weight, activity and diet are only asked when a goal needs
+  /// them, or when no goal was picked (then everything is offered).
+  bool get asksBody => goals.isEmpty || goals.any(_bodyGoals.contains);
+
   void dispose() {
     for (final c in [name, heightCm, heightFt, heightIn, weight]) {
       c.dispose();
@@ -49,7 +63,9 @@ class AboutYouData {
         cm = UnitConversions.inchesToCm(ft * 12 + inch);
       }
     }
-    if (cm == null || cm < BodyLimits.minHeightCm || cm > BodyLimits.maxHeightCm) {
+    if (cm == null ||
+        cm < BodyLimits.minHeightCm ||
+        cm > BodyLimits.maxHeightCm) {
       throw const FormatException('height');
     }
     return cm;
@@ -62,9 +78,11 @@ class AboutYouData {
     final kg = v == null
         ? null
         : units == UnitSystem.metric
-            ? v
-            : UnitConversions.poundsToKg(v);
-    if (kg == null || kg < BodyLimits.minWeightKg || kg > BodyLimits.maxWeightKg) {
+        ? v
+        : UnitConversions.poundsToKg(v);
+    if (kg == null ||
+        kg < BodyLimits.minWeightKg ||
+        kg > BodyLimits.maxWeightKg) {
       throw const FormatException('weight');
     }
     return kg;
@@ -84,31 +102,42 @@ class AboutYouData {
     final at = (now ?? DateTime.now()).toUtc();
     final profiles = ref.read(profileRepositoryProvider);
     final current = await profiles.load();
-    await profiles.save(current.copyWith(
-      displayName: () => name.text.trim().isEmpty ? null : name.text.trim(),
-      gender: () => gender,
-      ageRange: () => ageRange,
-      activityLevel: () => activity,
-      dietPreference: () => diet,
-      region: () => region,
-    ));
+    await profiles.save(
+      current.copyWith(
+        displayName: () => name.text.trim().isEmpty ? null : name.text.trim(),
+        gender: () => gender,
+        ageRange: () => ageRange,
+        activityLevel: () => activity,
+        dietPreference: () => diet,
+        region: () => region,
+      ),
+    );
+    if (goals.isNotEmpty) await profiles.setGoals(goals);
     if (cm != null) {
-      await ref.read(heightRepositoryProvider).add(Measurement(
-            value: cm,
-            unit: CanonicalUnits.length,
-            source: DataSource.userEntered,
-            method: MeasurementMethod.selfMeasured.wireName,
-            recordedAt: at,
-          ));
+      await ref
+          .read(heightRepositoryProvider)
+          .add(
+            Measurement(
+              value: cm,
+              unit: CanonicalUnits.length,
+              source: DataSource.userEntered,
+              method: MeasurementMethod.selfMeasured.wireName,
+              recordedAt: at,
+            ),
+          );
     }
     if (kg != null) {
-      await ref.read(weightRepositoryProvider).add(Measurement(
-            value: kg,
-            unit: CanonicalUnits.mass,
-            source: DataSource.userEntered,
-            method: MeasurementMethod.scale.wireName,
-            recordedAt: at,
-          ));
+      await ref
+          .read(weightRepositoryProvider)
+          .add(
+            Measurement(
+              value: kg,
+              unit: CanonicalUnits.mass,
+              source: DataSource.userEntered,
+              method: MeasurementMethod.scale.wireName,
+              recordedAt: at,
+            ),
+          );
     }
     return true;
   }
@@ -133,23 +162,26 @@ class _AboutYouPageState extends ConsumerState<AboutYouPage> {
         ref.watch(settingsControllerProvider).unitSystem == UnitSystem.metric;
     final number = [FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]'))];
     Widget label(String text) => Padding(
-          padding: const EdgeInsets.only(top: AppSpacing.xl, bottom: AppSpacing.sm),
-          child: Text(text, style: theme.textTheme.labelLarge),
-        );
-    Widget chips<T>(List<T> values, T? selected, String Function(T) name,
-            void Function(T?) pick) =>
-        Wrap(
-          spacing: AppSpacing.sm,
-          runSpacing: AppSpacing.sm,
-          children: [
-            for (final v in values)
-              ChoiceChip(
-                label: Text(name(v)),
-                selected: selected == v,
-                onSelected: (on) => setState(() => pick(on ? v : null)),
-              ),
-          ],
-        );
+      padding: const EdgeInsets.only(top: AppSpacing.xl, bottom: AppSpacing.sm),
+      child: Text(text, style: theme.textTheme.labelLarge),
+    );
+    Widget chips<T>(
+      List<T> values,
+      T? selected,
+      String Function(T) name,
+      void Function(T?) pick,
+    ) => Wrap(
+      spacing: AppSpacing.sm,
+      runSpacing: AppSpacing.sm,
+      children: [
+        for (final v in values)
+          ChoiceChip(
+            label: Text(name(v)),
+            selected: selected == v,
+            onSelected: (on) => setState(() => pick(on ? v : null)),
+          ),
+      ],
+    );
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
@@ -159,10 +191,22 @@ class _AboutYouPageState extends ConsumerState<AboutYouPage> {
         const SizedBox(height: AppSpacing.xl),
         Semantics(
           header: true,
-          child: Text(l10n.onboardingAboutTitle, style: theme.textTheme.headlineSmall),
+          child: Text(
+            l10n.onboardingAboutTitle,
+            style: theme.textTheme.headlineSmall,
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         Text(l10n.onboardingAboutBody, style: theme.textTheme.bodyMedium),
+        if (!d.asksBody) ...[
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            l10n.onboardingAboutFocused,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
+        ],
         const SizedBox(height: AppSpacing.xl),
         TextField(
           key: const Key('about-name'),
@@ -177,51 +221,81 @@ class _AboutYouPageState extends ConsumerState<AboutYouPage> {
         label(l10n.profileGender),
         chips(Gender.values, d.gender, l10n.genderLabel, (v) => d.gender = v),
         label(l10n.profileAgeRange),
-        chips(AgeRange.values, d.ageRange, l10n.ageRangeLabel, (v) => d.ageRange = v),
-        const SizedBox(height: AppSpacing.xl),
-        if (metric)
+        chips(
+          AgeRange.values,
+          d.ageRange,
+          l10n.ageRangeLabel,
+          (v) => d.ageRange = v,
+        ),
+        if (d.asksBody) ...[
+          const SizedBox(height: AppSpacing.xl),
+          if (metric)
+            TextField(
+              key: const Key('about-height-cm'),
+              controller: d.heightCm,
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
+              inputFormatters: number,
+              decoration: InputDecoration(labelText: l10n.onboardingHeightCm),
+            )
+          else
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    key: const Key('about-height-ft'),
+                    controller: d.heightFt,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: number,
+                    decoration: InputDecoration(
+                      labelText: l10n.onboardingHeightFt,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: TextField(
+                    key: const Key('about-height-in'),
+                    controller: d.heightIn,
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    inputFormatters: number,
+                    decoration: InputDecoration(
+                      labelText: l10n.onboardingHeightIn,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          const SizedBox(height: AppSpacing.lg),
           TextField(
-            key: const Key('about-height-cm'),
-            controller: d.heightCm,
+            key: const Key('about-weight'),
+            controller: d.weight,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             inputFormatters: number,
-            decoration: InputDecoration(labelText: l10n.onboardingHeightCm),
-          )
-        else
-          Row(children: [
-            Expanded(
-              child: TextField(
-                key: const Key('about-height-ft'),
-                controller: d.heightFt,
-                keyboardType: TextInputType.number,
-                inputFormatters: number,
-                decoration: InputDecoration(labelText: l10n.onboardingHeightFt),
-              ),
+            decoration: InputDecoration(
+              labelText: metric
+                  ? l10n.onboardingWeightKg
+                  : l10n.onboardingWeightLb,
             ),
-            const SizedBox(width: AppSpacing.md),
-            Expanded(
-              child: TextField(
-                key: const Key('about-height-in'),
-                controller: d.heightIn,
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                inputFormatters: number,
-                decoration: InputDecoration(labelText: l10n.onboardingHeightIn),
-              ),
-            ),
-          ]),
-        const SizedBox(height: AppSpacing.lg),
-        TextField(
-          key: const Key('about-weight'),
-          controller: d.weight,
-          keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          inputFormatters: number,
-          decoration: InputDecoration(
-              labelText: metric ? l10n.onboardingWeightKg : l10n.onboardingWeightLb),
-        ),
-        label(l10n.profileActivityLevel),
-        chips(ActivityLevel.values, d.activity, l10n.activityLabel, (v) => d.activity = v),
-        label(l10n.profileDiet),
-        chips(DietPreference.values, d.diet, l10n.dietLabel, (v) => d.diet = v),
+          ),
+          label(l10n.profileActivityLevel),
+          chips(
+            ActivityLevel.values,
+            d.activity,
+            l10n.activityLabel,
+            (v) => d.activity = v,
+          ),
+          label(l10n.profileDiet),
+          chips(
+            DietPreference.values,
+            d.diet,
+            l10n.dietLabel,
+            (v) => d.diet = v,
+          ),
+        ],
         const SizedBox(height: AppSpacing.xl),
       ],
     );

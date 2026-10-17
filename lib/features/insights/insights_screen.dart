@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:personality/shared/format/clock_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -423,11 +424,7 @@ class DayMarkBars extends StatelessWidget {
               for (final d in series.days)
                 Expanded(
                   child: Text(
-                    DateFormat.E(locale)
-                        .format(Days.fromKey(d.dayKey))
-                        .characters
-                        .take(2)
-                        .toString(),
+                    shortWeekday(locale, Days.fromKey(d.dayKey)),
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
@@ -556,7 +553,7 @@ class WeeklyReviewCard extends ConsumerWidget {
                 ),
               ),
               Align(
-                alignment: Alignment.centerRight,
+                alignment: AlignmentDirectional.centerEnd,
                 child: Wrap(
                   spacing: AppSpacing.sm,
                   children: [

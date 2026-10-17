@@ -12,27 +12,39 @@ import '../../core/theme/app_theme.dart';
 import '../../data/backup/backup_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../health/health_providers.dart';
+import '../../shared/format/clock_format.dart';
 
-final fileBridgeProvider = Provider<FileBridge>((ref) => const PlatformFileBridge());
+final fileBridgeProvider = Provider<FileBridge>(
+  (ref) => const PlatformFileBridge(),
+);
 
 final backupServiceProvider = Provider(
-    (ref) => BackupService(ref.watch(appDatabaseProvider), clock: ref.watch(clockProvider)));
+  (ref) => BackupService(
+    ref.watch(appDatabaseProvider),
+    clock: ref.watch(clockProvider),
+  ),
+);
 
 /// When this phone last made an encrypted backup (device setting, never backed up).
 final lastBackupProvider = StreamProvider<DateTime?>((ref) {
   final db = ref.watch(appDatabaseProvider);
-  return (db.select(db.appSettingsEntries)..where((t) => t.key.equals(_lastKey)))
+  return (db.select(db.appSettingsEntries)
+        ..where((t) => t.key.equals(_lastKey)))
       .watchSingleOrNull()
       .map((r) => r == null ? null : DateTime.tryParse(r.value));
 });
 
 const _lastKey = 'backup.last';
 
-Future<void> _markBackedUp(AppDatabase db, DateTime at) =>
-    db.into(db.appSettingsEntries).insertOnConflictUpdate(AppSettingsEntriesCompanion.insert(
+Future<void> _markBackedUp(AppDatabase db, DateTime at) => db
+    .into(db.appSettingsEntries)
+    .insertOnConflictUpdate(
+      AppSettingsEntriesCompanion.insert(
         key: _lastKey,
         value: at.toUtc().toIso8601String(),
-        updatedAt: at.toUtc().millisecondsSinceEpoch));
+        updatedAt: at.toUtc().millisecondsSinceEpoch,
+      ),
+    );
 
 /// Move everything to another phone, keep a safe copy, or open it elsewhere.
 class BackupScreen extends ConsumerStatefulWidget {
@@ -67,7 +79,8 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
     }
   }
 
-  static String _errorText(AppLocalizations l10n, BackupErrorKind k) => switch (k) {
+  static String _errorText(AppLocalizations l10n, BackupErrorKind k) =>
+      switch (k) {
         BackupErrorKind.notABackup => l10n.backupErrorNotBackup,
         BackupErrorKind.damaged => l10n.backupErrorDamaged,
         BackupErrorKind.wrongPassphrase => l10n.backupErrorPassphrase,
@@ -76,12 +89,16 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
 
   Future<void> _backup({required bool share}) async {
     final pass = await showDialog<String>(
-        context: context, builder: (_) => const _PassphraseDialog(create: true));
+      context: context,
+      builder: (_) => const _PassphraseDialog(create: true),
+    );
     if (pass == null || !mounted) return;
     final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     await _run(share ? 'share' : 'save', () async {
-      final bytes = await ref.read(backupServiceProvider).createBackup(pass, photos: _photos);
+      final bytes = await ref
+          .read(backupServiceProvider)
+          .createBackup(pass, photos: _photos);
       final name = 'personality-${_stamp()}.personality';
       const mime = 'application/octet-stream';
       final files = ref.read(fileBridgeProvider);
@@ -90,8 +107,13 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
       } else if (!await files.save(name, mime, bytes)) {
         return;
       }
-      await _markBackedUp(ref.read(appDatabaseProvider), ref.read(clockProvider)());
-      if (!share) messenger.showSnackBar(SnackBar(content: Text(l10n.backupSaved)));
+      await _markBackedUp(
+        ref.read(appDatabaseProvider),
+        ref.read(clockProvider)(),
+      );
+      if (!share) {
+        messenger.showSnackBar(SnackBar(content: Text(l10n.backupSaved)));
+      }
     });
   }
 
@@ -108,7 +130,9 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
     }
     if (bytes == null || !mounted) return;
     final pass = await showDialog<String>(
-        context: context, builder: (_) => const _PassphraseDialog(create: false));
+      context: context,
+      builder: (_) => const _PassphraseDialog(create: false),
+    );
     if (pass == null || !mounted) return;
     BackupContents? contents;
     await _run('open', () async {
@@ -117,32 +141,36 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
     final c = contents;
     if (c == null || !mounted) return;
     final mode = await showDialog<RestoreMode>(
-        context: context, builder: (_) => _RestoreDialog(contents: c));
+      context: context,
+      builder: (_) => _RestoreDialog(contents: c),
+    );
     if (mode == null || !mounted) return;
     await _run('restore', () async {
       await ref.read(backupServiceProvider).restore(c, mode: mode);
       await ref.read(settingsControllerProvider.notifier).reload();
-      messenger.showSnackBar(SnackBar(content: Text(l10n.backupRestored(c.records))));
+      messenger.showSnackBar(
+        SnackBar(content: Text(l10n.backupRestored(c.records))),
+      );
     });
   }
 
-  Future<void> _export({required bool csv, required bool share}) => _run(
-        '${csv ? 'csv' : 'json'}-${share ? 'share' : 'save'}',
-        () async {
-          final l10n = AppLocalizations.of(context);
-          final messenger = ScaffoldMessenger.of(context);
-          final service = ref.read(backupServiceProvider);
-          final bytes = csv ? await service.exportCsvZip() : await service.exportJson();
-          final name = 'personality-${_stamp()}.${csv ? 'zip' : 'json'}';
-          final mime = csv ? 'application/zip' : 'application/json';
-          final files = ref.read(fileBridgeProvider);
-          if (share) {
-            await files.share(name, mime, bytes);
-          } else if (await files.save(name, mime, bytes)) {
-            messenger.showSnackBar(SnackBar(content: Text(l10n.backupSaved)));
-          }
-        },
-      );
+  Future<void> _export({required bool csv, required bool share}) =>
+      _run('${csv ? 'csv' : 'json'}-${share ? 'share' : 'save'}', () async {
+        final l10n = AppLocalizations.of(context);
+        final messenger = ScaffoldMessenger.of(context);
+        final service = ref.read(backupServiceProvider);
+        final bytes = csv
+            ? await service.exportCsvZip()
+            : await service.exportJson();
+        final name = 'personality-${_stamp()}.${csv ? 'zip' : 'json'}';
+        final mime = csv ? 'application/zip' : 'application/json';
+        final files = ref.read(fileBridgeProvider);
+        if (share) {
+          await files.share(name, mime, bytes);
+        } else if (await files.save(name, mime, bytes)) {
+          messenger.showSnackBar(SnackBar(content: Text(l10n.backupSaved)));
+        }
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -153,22 +181,32 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
     final locale = Localizations.localeOf(context).toLanguageTag();
 
     Widget spinnerOr(String id, IconData icon) => _busy == id
-        ? const SizedBox.square(dimension: 18, child: CircularProgressIndicator(strokeWidth: 2))
+        ? const SizedBox.square(
+            dimension: 18,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          )
         : Icon(icon);
 
     Widget section(String title, String info, List<Widget> children) => Card(
-          child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(title, style: theme.textTheme.titleMedium),
-              const SizedBox(height: AppSpacing.xs),
-              Text(info,
-                  style: theme.textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
-              const SizedBox(height: AppSpacing.md),
-              ...children,
-            ]),
-          ),
-        );
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: theme.textTheme.titleMedium),
+            const SizedBox(height: AppSpacing.xs),
+            Text(
+              info,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            ...children,
+          ],
+        ),
+      ),
+    );
 
     final idle = _busy == null;
     return Scaffold(
@@ -176,8 +214,12 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         children: [
-          Text(l10n.backupIntro,
-              style: theme.textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
+          Text(
+            l10n.backupIntro,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
           const SizedBox(height: AppSpacing.lg),
           section(l10n.backupEncrypted, l10n.backupEncryptedInfo, [
             SwitchListTile(
@@ -188,33 +230,46 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
               value: _photos,
               onChanged: (v) => setState(() => _photos = v),
             ),
-            Wrap(spacing: AppSpacing.sm, runSpacing: AppSpacing.sm, children: [
-              FilledButton.icon(
-                key: const Key('backup-save'),
-                onPressed: idle ? () => _backup(share: false) : null,
-                icon: spinnerOr('save', Icons.save_alt),
-                label: Text(l10n.backupSaveFile),
-              ),
-              OutlinedButton.icon(
-                key: const Key('backup-share'),
-                onPressed: idle ? () => _backup(share: true) : null,
-                icon: spinnerOr('share', Icons.share),
-                label: Text(l10n.backupShare),
-              ),
-            ]),
+            Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: [
+                FilledButton.icon(
+                  key: const Key('backup-save'),
+                  onPressed: idle ? () => _backup(share: false) : null,
+                  icon: spinnerOr('save', Icons.save_alt),
+                  label: Text(l10n.backupSaveFile),
+                ),
+                OutlinedButton.icon(
+                  key: const Key('backup-share'),
+                  onPressed: idle ? () => _backup(share: true) : null,
+                  icon: spinnerOr('share', Icons.share),
+                  label: Text(l10n.backupShare),
+                ),
+              ],
+            ),
             const SizedBox(height: AppSpacing.sm),
             Text(
-                last == null
-                    ? l10n.backupNever
-                    : l10n.backupLast(DateFormat.yMMMd(locale).add_jm().format(last.toLocal())),
-                style: theme.textTheme.bodySmall),
+              last == null
+                  ? l10n.backupNever
+                  : l10n.backupLast(
+                      withClock(
+                        context,
+                        DateFormat.yMMMd(locale),
+                      ).format(last.toLocal()),
+                    ),
+              style: theme.textTheme.bodySmall,
+            ),
           ]),
           const SizedBox(height: AppSpacing.md),
           section(l10n.backupRestoreTitle, l10n.backupRestoreInfo, [
             FilledButton.tonalIcon(
               key: const Key('backup-restore'),
               onPressed: idle ? _restore : null,
-              icon: spinnerOr(_busy == 'open' ? 'open' : 'restore', Icons.restore),
+              icon: spinnerOr(
+                _busy == 'open' ? 'open' : 'restore',
+                Icons.restore,
+              ),
               label: Text(l10n.backupChooseFile),
             ),
           ]),
@@ -223,30 +278,53 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
             for (final csv in [true, false])
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                leading: Icon(csv ? Icons.table_chart_outlined : Icons.data_object),
+                leading: Icon(
+                  csv ? Icons.table_chart_outlined : Icons.data_object,
+                ),
                 title: Text(csv ? l10n.backupCsv : l10n.backupJson),
                 subtitle: Text(csv ? l10n.backupCsvInfo : l10n.backupJsonInfo),
-                trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-                  IconButton(
-                    key: Key('export-${csv ? 'csv' : 'json'}-save'),
-                    tooltip: l10n.backupSaveFile,
-                    onPressed: idle ? () => _export(csv: csv, share: false) : null,
-                    icon: spinnerOr('${csv ? 'csv' : 'json'}-save', Icons.save_alt),
-                  ),
-                  IconButton(
-                    tooltip: l10n.backupShare,
-                    onPressed: idle ? () => _export(csv: csv, share: true) : null,
-                    icon: spinnerOr('${csv ? 'csv' : 'json'}-share', Icons.share),
-                  ),
-                ]),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      key: Key('export-${csv ? 'csv' : 'json'}-save'),
+                      tooltip: l10n.backupSaveFile,
+                      onPressed: idle
+                          ? () => _export(csv: csv, share: false)
+                          : null,
+                      icon: spinnerOr(
+                        '${csv ? 'csv' : 'json'}-save',
+                        Icons.save_alt,
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: l10n.backupShare,
+                      onPressed: idle
+                          ? () => _export(csv: csv, share: true)
+                          : null,
+                      icon: spinnerOr(
+                        '${csv ? 'csv' : 'json'}-share',
+                        Icons.share,
+                      ),
+                    ),
+                  ],
+                ),
               ),
           ]),
           const SizedBox(height: AppSpacing.lg),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Icon(Icons.lock_outline, size: 18, color: scheme.primary),
-            const SizedBox(width: AppSpacing.sm),
-            Expanded(child: Text(l10n.backupPrivacy, style: theme.textTheme.bodySmall)),
-          ]),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.lock_outline, size: 18, color: scheme.primary),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: Text(
+                  l10n.backupPrivacy,
+                  style: theme.textTheme.bodySmall,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -295,48 +373,63 @@ class _PassphraseDialogState extends State<_PassphraseDialog> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return AlertDialog(
-      title: Text(widget.create ? l10n.backupPassphraseCreate : l10n.backupPassphraseEnter),
+      title: Text(
+        widget.create
+            ? l10n.backupPassphraseCreate
+            : l10n.backupPassphraseEnter,
+      ),
       content: SingleChildScrollView(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          if (widget.create) ...[
-            Text(l10n.backupPassphraseWarning),
-            const SizedBox(height: AppSpacing.md),
-          ],
-          TextField(
-            key: const Key('passphrase'),
-            controller: _pass,
-            obscureText: _hidden,
-            autofocus: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            decoration: InputDecoration(
-              labelText: l10n.backupPassphrase,
-              errorText: widget.create ? null : _error,
-              suffixIcon: IconButton(
-                tooltip: l10n.backupShowPassphrase,
-                icon: Icon(_hidden ? Icons.visibility : Icons.visibility_off),
-                onPressed: () => setState(() => _hidden = !_hidden),
-              ),
-            ),
-            onSubmitted: widget.create ? null : (_) => _submit(),
-          ),
-          if (widget.create)
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (widget.create) ...[
+              Text(l10n.backupPassphraseWarning),
+              const SizedBox(height: AppSpacing.md),
+            ],
             TextField(
-              key: const Key('passphrase-again'),
-              controller: _again,
+              key: const Key('passphrase'),
+              controller: _pass,
               obscureText: _hidden,
+              autofocus: true,
               enableSuggestions: false,
               autocorrect: false,
               decoration: InputDecoration(
-                  labelText: l10n.backupPassphraseAgain, errorText: _error),
-              onSubmitted: (_) => _submit(),
+                labelText: l10n.backupPassphrase,
+                errorText: widget.create ? null : _error,
+                suffixIcon: IconButton(
+                  tooltip: l10n.backupShowPassphrase,
+                  icon: Icon(_hidden ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () => setState(() => _hidden = !_hidden),
+                ),
+              ),
+              onSubmitted: widget.create ? null : (_) => _submit(),
             ),
-        ]),
+            if (widget.create)
+              TextField(
+                key: const Key('passphrase-again'),
+                controller: _again,
+                obscureText: _hidden,
+                enableSuggestions: false,
+                autocorrect: false,
+                decoration: InputDecoration(
+                  labelText: l10n.backupPassphraseAgain,
+                  errorText: _error,
+                ),
+                onSubmitted: (_) => _submit(),
+              ),
+          ],
+        ),
       ),
       actions: [
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(l10n.actionCancel)),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.actionCancel),
+        ),
         FilledButton(
-            key: const Key('passphrase-ok'), onPressed: _submit, child: Text(l10n.backupContinue)),
+          key: const Key('passphrase-ok'),
+          onPressed: _submit,
+          child: Text(l10n.backupContinue),
+        ),
       ],
     );
   }
@@ -352,20 +445,31 @@ class _RestoreDialog extends StatelessWidget {
     final locale = Localizations.localeOf(context).toLanguageTag();
     return AlertDialog(
       title: Text(l10n.backupRestoreTitle),
-      content: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-        Text(l10n.backupFound(
-          DateFormat.yMMMd(locale).add_jm().format(contents.createdAt.toLocal()),
-          contents.records,
-          contents.photos,
-        )),
-        const SizedBox(height: AppSpacing.md),
-        Text(l10n.backupMergeInfo),
-        const SizedBox(height: AppSpacing.sm),
-        Text(l10n.backupReplaceInfo),
-      ]),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            l10n.backupFound(
+              withClock(
+                context,
+                DateFormat.yMMMd(locale),
+              ).format(contents.createdAt.toLocal()),
+              contents.records,
+              contents.photos,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          Text(l10n.backupMergeInfo),
+          const SizedBox(height: AppSpacing.sm),
+          Text(l10n.backupReplaceInfo),
+        ],
+      ),
       actions: [
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(l10n.actionCancel)),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.actionCancel),
+        ),
         TextButton(
           key: const Key('restore-replace'),
           onPressed: () => Navigator.of(context).pop(RestoreMode.replace),

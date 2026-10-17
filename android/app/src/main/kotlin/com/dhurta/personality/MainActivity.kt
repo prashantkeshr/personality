@@ -28,6 +28,21 @@ class MainActivity : FlutterFragmentActivity() {
     private var permissionResult: MethodChannel.Result? = null
     private var hcResult: MethodChannel.Result? = null
     private lateinit var hcLauncher: ActivityResultLauncher<Set<String>>
+    private var pendingWidgetAction: String? = null
+
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        super.onCreate(savedInstanceState)
+        takeWidgetAction(intent)
+    }
+
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        takeWidgetAction(intent)
+    }
+
+    private fun takeWidgetAction(intent: android.content.Intent?) {
+        if (intent?.action == TodayWidget.ACTION_ADD_WATER) pendingWidgetAction = "add_water"
+    }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -39,6 +54,21 @@ class MainActivity : FlutterFragmentActivity() {
         }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/sensors")
             .setMethodCallHandler { call, result -> onSensors(call.method, call.arguments, result) }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/widget")
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "update" -> {
+                        TodayWidget.save(applicationContext, call.arguments as Map<*, *>)
+                        result.success(null)
+                    }
+                    // A tap on the widget's "+ glass" button, handled once.
+                    "takeAction" -> {
+                        result.success(pendingWidgetAction)
+                        pendingWidgetAction = null
+                    }
+                    else -> result.notImplemented()
+                }
+            }
         val files = FileChannel(this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/files")
             .setMethodCallHandler { call, result -> files.handle(call, result) }

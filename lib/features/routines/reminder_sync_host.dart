@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 
 import '../../app/router.dart';
 import '../../core/logging/app_logger.dart';
@@ -12,6 +11,7 @@ import '../../domain/services/plan_engine.dart';
 import '../../l10n/app_localizations.dart';
 import '../health/health_providers.dart';
 import 'routine_providers.dart';
+import '../../shared/format/clock_format.dart';
 
 /// Keeps scheduled notifications equal to the plan and handles responses.
 ///
@@ -36,13 +36,14 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
   void initState() {
     super.initState();
     _responses = reminderResponses.stream.listen(_handle);
-    _lifecycle = AppLifecycleListener(onResume: () {
-      ref.invalidate(notificationsAllowedProvider);
-      _schedule();
-    });
+    _lifecycle = AppLifecycleListener(
+      onResume: () {
+        ref.invalidate(notificationsAllowedProvider);
+        _schedule();
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final launch =
-          await ref.read(reminderSchedulerProvider).launchResponse();
+      final launch = await ref.read(reminderSchedulerProvider).launchResponse();
       if (launch != null) _handle(launch);
     });
   }
@@ -86,7 +87,7 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
       }
       if (!mounted) return;
       final l10n = AppLocalizations.of(context);
-      final tag = Localizations.localeOf(context).toLanguageTag();
+      final clock = clockFormat(context);
       final occurrences = ReminderPlanner.upcoming(
         routines: inputs.routines,
         items: inputs.items,
@@ -101,7 +102,7 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
           channelDescription: l10n.remindersChannelDescription,
           actionDone: l10n.reminderActionDone,
           actionSnooze: l10n.reminderActionSnooze,
-          body: (o) => l10n.reminderBody(DateFormat.jm(tag).format(o.at)),
+          body: (o) => l10n.reminderBody(clock.format(o.at)),
         ),
       );
     } catch (e, st) {
@@ -119,23 +120,23 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
 
 /// "07:30" style in the user's locale.
 String formatMinute(BuildContext context, int minute) {
-  final tag = Localizations.localeOf(context).toLanguageTag();
-  return DateFormat.jm(tag).format(DateTime(2000, 1, 1, minute ~/ 60, minute % 60));
+  return clockFormat(context)
+      .format(DateTime(2000, 1, 1, minute ~/ 60, minute % 60));
 }
 
 IconData routineKindIcon(RoutineItemKind k) => switch (k) {
-      RoutineItemKind.wake => Icons.wb_twilight,
-      RoutineItemKind.water => Icons.water_drop_outlined,
-      RoutineItemKind.meal => Icons.restaurant_outlined,
-      RoutineItemKind.exercise => Icons.fitness_center,
-      RoutineItemKind.mobility => Icons.self_improvement,
-      RoutineItemKind.posture => Icons.accessibility_new,
-      RoutineItemKind.habit => Icons.check_circle_outline,
-      RoutineItemKind.grooming => Icons.face_retouching_natural,
-      RoutineItemKind.windDown => Icons.nights_stay_outlined,
-      RoutineItemKind.sleep => Icons.bedtime_outlined,
-      RoutineItemKind.custom => Icons.event_note_outlined,
-    };
+  RoutineItemKind.wake => Icons.wb_twilight,
+  RoutineItemKind.water => Icons.water_drop_outlined,
+  RoutineItemKind.meal => Icons.restaurant_outlined,
+  RoutineItemKind.exercise => Icons.fitness_center,
+  RoutineItemKind.mobility => Icons.self_improvement,
+  RoutineItemKind.posture => Icons.accessibility_new,
+  RoutineItemKind.habit => Icons.check_circle_outline,
+  RoutineItemKind.grooming => Icons.face_retouching_natural,
+  RoutineItemKind.windDown => Icons.nights_stay_outlined,
+  RoutineItemKind.sleep => Icons.bedtime_outlined,
+  RoutineItemKind.custom => Icons.event_note_outlined,
+};
 
 String routineKindLabel(AppLocalizations l10n, RoutineItemKind k) =>
     switch (k) {
@@ -153,14 +154,14 @@ String routineKindLabel(AppLocalizations l10n, RoutineItemKind k) =>
     };
 
 String templateStepTitle(AppLocalizations l10n, TemplateStep s) => switch (s) {
-      TemplateStep.wake => l10n.kindWake,
-      TemplateStep.water => l10n.featureWater,
-      TemplateStep.mobility => l10n.exMobility,
-      TemplateStep.grooming => l10n.goalGrooming,
-      TemplateStep.breakfast => l10n.mealBreakfast,
-      TemplateStep.postureBreak => l10n.templatePostureBreak,
-      TemplateStep.lunch => l10n.mealLunch,
-      TemplateStep.exercise => l10n.featureExercise,
-      TemplateStep.windDown => l10n.kindWindDown,
-      TemplateStep.sleep => l10n.featureSleep,
-    };
+  TemplateStep.wake => l10n.kindWake,
+  TemplateStep.water => l10n.featureWater,
+  TemplateStep.mobility => l10n.exMobility,
+  TemplateStep.grooming => l10n.goalGrooming,
+  TemplateStep.breakfast => l10n.mealBreakfast,
+  TemplateStep.postureBreak => l10n.templatePostureBreak,
+  TemplateStep.lunch => l10n.mealLunch,
+  TemplateStep.exercise => l10n.featureExercise,
+  TemplateStep.windDown => l10n.kindWindDown,
+  TemplateStep.sleep => l10n.featureSleep,
+};

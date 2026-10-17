@@ -108,7 +108,7 @@ class StreakDots extends StatelessWidget {
       children: [
         for (final s in days)
           Padding(
-            padding: const EdgeInsets.only(right: 5),
+            padding: const EdgeInsetsDirectional.only(end: 5),
             child: SizedBox.square(
               dimension: 10,
               child: DecoratedBox(

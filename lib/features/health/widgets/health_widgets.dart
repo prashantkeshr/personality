@@ -7,23 +7,32 @@ import '../../../core/units/units.dart';
 import '../../../domain/entities/health.dart';
 import '../../../domain/services/health_stats.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/format/clock_format.dart';
 
 /// Locale- and unit-aware formatting for daily health values.
 class HealthFormat {
-  HealthFormat(this.l10n, this.system, Locale locale)
-      : _tag = locale.toLanguageTag();
+  HealthFormat(this.l10n, this.system, Locale locale, {this.h24 = false})
+    : _tag = locale.toLanguageTag();
 
   factory HealthFormat.of(BuildContext context, UnitSystem system) =>
-      HealthFormat(AppLocalizations.of(context), system,
-          Localizations.localeOf(context));
+      HealthFormat(
+        AppLocalizations.of(context),
+        system,
+        Localizations.localeOf(context),
+        h24: use24h(context),
+      );
+
+  /// 24-hour clock.
+  final bool h24;
 
   final AppLocalizations l10n;
   final UnitSystem system;
   final String _tag;
 
-  String _num(num v, int decimals) =>
-      NumberFormat.decimalPatternDigits(locale: _tag, decimalDigits: decimals)
-          .format(v);
+  String _num(num v, int decimals) => NumberFormat.decimalPatternDigits(
+    locale: _tag,
+    decimalDigits: decimals,
+  ).format(v);
 
   /// "1.8 L" / "750 ml" or "61 fl oz".
   String water(double ml) {
@@ -49,16 +58,21 @@ class HealthFormat {
       ? l10n.valueKm(_num(km, 1))
       : l10n.valueMiles(_num(UnitConversions.kmToMiles(km), 1));
 
-  String time(DateTime t) => DateFormat.jm(_tag).format(t.toLocal());
+  String time(DateTime t) =>
+      (h24 ? DateFormat.Hm(_tag) : DateFormat.jm(_tag)).format(t.toLocal());
 
   String day(DateTime t) => DateFormat.MMMEd(_tag).format(t.toLocal());
 
-  String shortDay(int dayKey) => DateFormat.E(_tag).format(Days.fromKey(dayKey));
+  String shortDay(int dayKey) =>
+      DateFormat.E(_tag).format(Days.fromKey(dayKey));
 
   /// Quick-add amounts for water, in ml.
   List<double> get waterQuickAdds => system == UnitSystem.metric
       ? const [250, 500]
-      : [UnitConversions.fluidOuncesToMl(8), UnitConversions.fluidOuncesToMl(16)];
+      : [
+          UnitConversions.fluidOuncesToMl(8),
+          UnitConversions.fluidOuncesToMl(16),
+        ];
 }
 
 /// Progress towards a daily target. Shows numbers, not judgement.
@@ -115,9 +129,12 @@ class DailyProgressCard extends StatelessWidget {
                   Text(title, style: theme.textTheme.labelLarge),
                   const SizedBox(height: AppSpacing.xs),
                   Text(value, style: theme.textTheme.headlineSmall),
-                  Text(target,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant)),
+                  Text(
+                    target,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -160,8 +177,9 @@ class WeekBarChart extends StatelessWidget {
       child: SizedBox(
         height: 160,
         child: BarChart(
-          duration:
-              reduceMotion ? Duration.zero : const Duration(milliseconds: 200),
+          duration: reduceMotion
+              ? Duration.zero
+              : const Duration(milliseconds: 200),
           BarChartData(
             maxY: maxValue == 0 ? 1 : maxValue * 1.15,
             gridData: const FlGridData(show: false),
@@ -176,32 +194,40 @@ class WeekBarChart extends StatelessWidget {
                   showTitles: true,
                   getTitlesWidget: (v, meta) => SideTitleWidget(
                     meta: meta,
-                    child: Text(format.shortDay(dayKeys[v.toInt()]),
-                        style: Theme.of(context).textTheme.bodySmall),
+                    child: Text(
+                      format.shortDay(dayKeys[v.toInt()]),
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ),
                 ),
               ),
             ),
-            extraLinesData: ExtraLinesData(horizontalLines: [
-              if (target != null)
-                HorizontalLine(
-                  y: target!,
-                  color: scheme.outline,
-                  strokeWidth: 1,
-                  dashArray: [4, 4],
-                ),
-            ]),
+            extraLinesData: ExtraLinesData(
+              horizontalLines: [
+                if (target != null)
+                  HorizontalLine(
+                    y: target!,
+                    color: scheme.outline,
+                    strokeWidth: 1,
+                    dashArray: [4, 4],
+                  ),
+              ],
+            ),
             barGroups: [
               for (var i = 0; i < dayKeys.length; i++)
-                BarChartGroupData(x: i, barRods: [
-                  BarChartRodData(
-                    toY: values[dayKeys[i]] ?? 0,
-                    width: 18,
-                    color: scheme.primary,
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(4)),
-                  ),
-                ]),
+                BarChartGroupData(
+                  x: i,
+                  barRods: [
+                    BarChartRodData(
+                      toY: values[dayKeys[i]] ?? 0,
+                      width: 18,
+                      color: scheme.primary,
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(4),
+                      ),
+                    ),
+                  ],
+                ),
             ],
           ),
         ),
@@ -211,8 +237,11 @@ class WeekBarChart extends StatelessWidget {
 }
 
 /// Picks a date and time; returns null when cancelled.
-Future<DateTime?> pickDateTime(BuildContext context, DateTime initial,
-    {DateTime? last}) async {
+Future<DateTime?> pickDateTime(
+  BuildContext context,
+  DateTime initial, {
+  DateTime? last,
+}) async {
   final lastDate = last ?? DateTime.now();
   final date = await showDatePicker(
     context: context,
@@ -230,21 +259,21 @@ Future<DateTime?> pickDateTime(BuildContext context, DateTime initial,
 }
 
 String mealTypeLabel(AppLocalizations l10n, MealType t) => switch (t) {
-      MealType.breakfast => l10n.mealBreakfast,
-      MealType.lunch => l10n.mealLunch,
-      MealType.snack => l10n.mealSnack,
-      MealType.dinner => l10n.mealDinner,
-      MealType.custom => l10n.mealCustom,
-    };
+  MealType.breakfast => l10n.mealBreakfast,
+  MealType.lunch => l10n.mealLunch,
+  MealType.snack => l10n.mealSnack,
+  MealType.dinner => l10n.mealDinner,
+  MealType.custom => l10n.mealCustom,
+};
 
 String activityKindLabel(AppLocalizations l10n, ActivityKind k) => switch (k) {
-      ActivityKind.walking => l10n.activityWalking,
-      ActivityKind.running => l10n.activityRunning,
-      ActivityKind.cycling => l10n.activityCycling,
-      ActivityKind.swimming => l10n.activitySwimming,
-      ActivityKind.sports => l10n.activitySports,
-      ActivityKind.other => l10n.activityOther,
-    };
+  ActivityKind.walking => l10n.activityWalking,
+  ActivityKind.running => l10n.activityRunning,
+  ActivityKind.cycling => l10n.activityCycling,
+  ActivityKind.swimming => l10n.activitySwimming,
+  ActivityKind.sports => l10n.activitySports,
+  ActivityKind.other => l10n.activityOther,
+};
 
 String exerciseCategoryLabel(AppLocalizations l10n, ExerciseCategory c) =>
     switch (c) {

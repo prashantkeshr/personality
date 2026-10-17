@@ -106,7 +106,7 @@ class ProfileMenuButton extends ConsumerWidget {
       (Icons.settings_outlined, l.settingsTitle, AppRoutes.settings),
     ];
     return Padding(
-      padding: const EdgeInsets.only(right: AppSpacing.sm),
+      padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
       child: PopupMenuButton<String>(
         key: const Key('profile-menu'),
         tooltip: l.profileMenu,

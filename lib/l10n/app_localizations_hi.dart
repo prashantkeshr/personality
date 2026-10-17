@@ -4968,4 +4968,188 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get fitReasonUnknownShape =>
       'यह फ़्रेम आपके चेहरे को कैसे संतुलित करता है, यह देखने के लिए चेहरा जाँचें।';
+
+  @override
+  String get whyFeedBodyPlan => 'आपने अभी डाइट और बॉडी प्लान नहीं बनाया है।';
+
+  @override
+  String get benefitFeedBodyPlan =>
+      'प्लान आपके लक्ष्य को आपके क्षेत्र के अनुसार रोज़ की कैलोरी, भोजन और व्यायाम में बदलता है।';
+
+  @override
+  String get whyFeedGoals =>
+      'आपके लक्ष्य तय करते हैं कि कौन-से क्वेस्ट, टिप्स और क्षेत्र पहले दिखें।';
+
+  @override
+  String get benefitFeedGoals =>
+      'फ़ोकस चुनने से ऐप वही दिखाता है जो आपके लिए मायने रखता है।';
+
+  @override
+  String get whyFeedSnapshot => 'इस हफ़्ते की प्रगति फ़ोटो अभी नहीं है।';
+
+  @override
+  String get benefitFeedSnapshot =>
+      'हफ़्ते की एक फ़ोटो वह असली बदलाव दिखाती है जो आईने में छूट जाता है।';
+
+  @override
+  String get whyFeedFace => 'आपके चेहरे का आकार अभी नहीं जाँचा गया।';
+
+  @override
+  String get benefitFeedFace =>
+      'इससे हेयरस्टाइल, दाढ़ी और चश्मे के सुझाव आपके अनुसार बनते हैं।';
+
+  @override
+  String get whyFeedHairstyles => 'ये आपके चेहरे के आकार पर आधारित हैं।';
+
+  @override
+  String get benefitFeedHairstyles =>
+      'आपकी बनावट को संतुलित करने वाले स्टाइल, हर एक के कारण के साथ।';
+
+  @override
+  String get whyFeedTryOn =>
+      'कुछ बदलने से पहले चश्मा और दाढ़ी लाइव देख सकते हैं।';
+
+  @override
+  String get benefitFeedTryOn =>
+      'इसी फ़ोन पर, निजी तौर पर, अपने चेहरे पर देखें।';
+
+  @override
+  String get whyFeedColours => 'आपके रंगों की पैलेट अभी तय नहीं है।';
+
+  @override
+  String get benefitFeedColours =>
+      'अपने रंग जानने से आउटफ़िट और ख़रीदारी आसान होती है।';
+
+  @override
+  String get whyFeedOutfit =>
+      'आपके पास आउटफ़िट सुझावों के लिए काफ़ी कपड़े हैं।';
+
+  @override
+  String get benefitFeedOutfit => 'जो आपके पास है उसी से सुझाव, कारणों के साथ।';
+
+  @override
+  String get whyFeedPosture => 'हर एक-दो हफ़्ते में मुद्रा की जाँच उपयोगी है।';
+
+  @override
+  String get benefitFeedPosture =>
+      'गर्दन और पीठ का तनाव जल्दी पकड़ें, मदद वाले व्यायामों के साथ।';
+
+  @override
+  String get whyFeedExercise =>
+      'ज़्यादातर दिन चलना-फिरना हर दूसरे लक्ष्य में मदद करता है।';
+
+  @override
+  String get benefitFeedExercise =>
+      'गाइडेड वर्कआउट और 1,500+ व्यायाम, कई बिना उपकरण के।';
+
+  @override
+  String get onboardingGoalsTitle => 'आप किस पर काम करना चाहेंगे?';
+
+  @override
+  String get onboardingGoalsBody =>
+      'जो आपके लिए मायने रखते हैं उन्हें चुनें। हम केवल वही पूछेंगे जो इन लक्ष्यों के लिए ज़रूरी है, और आप इन्हें कभी भी बदल सकते हैं।';
+
+  @override
+  String get onboardingAboutFocused =>
+      'केवल वही जो आपके लक्ष्यों के लिए ज़रूरी है। बाकी बाद में प्रोफ़ाइल में जोड़ सकते हैं।';
+
+  @override
+  String get settingsTimeFormat => 'समय का प्रारूप';
+
+  @override
+  String get timeFormatDevice => 'डिवाइस जैसा';
+
+  @override
+  String get timeFormat12 => '12-घंटे';
+
+  @override
+  String get timeFormat24 => '24-घंटे';
+
+  @override
+  String get settingsSecurity => 'सुरक्षा';
+
+  @override
+  String get actionOk => 'ठीक है';
+
+  @override
+  String get lockTitle => 'ऐप लॉक';
+
+  @override
+  String get lockSubtitle => 'ऐप खुलने पर PIN या फ़िंगरप्रिंट माँगें';
+
+  @override
+  String get lockEnterPin => 'अपना PIN डालें';
+
+  @override
+  String get lockSetPin => 'PIN चुनें';
+
+  @override
+  String get lockConfirmPin => 'PIN फिर से डालें';
+
+  @override
+  String get lockPinRules =>
+      '4 से 8 अंक। भूल जाने पर डेटा मिटाए बिना ऐप नहीं खुलेगा, इसलिए ऐसा चुनें जो याद रहे।';
+
+  @override
+  String get lockPinMismatch => 'PIN मेल नहीं खाए। फिर कोशिश करें।';
+
+  @override
+  String get lockWrongPin => 'गलत PIN';
+
+  @override
+  String lockWait(int seconds) {
+    return 'बहुत कोशिशें। $seconds सेकंड रुकें।';
+  }
+
+  @override
+  String get lockUseFingerprint => 'फ़िंगरप्रिंट से खोलें';
+
+  @override
+  String get lockBiometricReason => 'Personality खोलें';
+
+  @override
+  String get lockForgot => 'PIN भूल गए?';
+
+  @override
+  String get lockForgotInfo =>
+      'आपकी निजता के लिए PIN न रीसेट होता है न वापस मिलता है, हम भी नहीं कर सकते। अगर फ़िंगरप्रिंट चालू है तो उससे खोलें, फिर सेटिंग्स में PIN बदलें। नहीं तो ऐप का डेटा मिटाने (Android सेटिंग्स → ऐप्स) से लॉक और ऐप का सब कुछ हट जाता है; बाद में बैकअप से रीस्टोर करें।';
+
+  @override
+  String get lockOn => 'ऐप लॉक चालू है';
+
+  @override
+  String get lockOff => 'ऐप लॉक बंद है';
+
+  @override
+  String get lockChangePin => 'PIN बदलें';
+
+  @override
+  String get lockChanged => 'PIN बदल गया';
+
+  @override
+  String get lockDelete => 'मिटाएँ';
+
+  @override
+  String lockDigits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count अंक डाले',
+      one: '1 अंक डाला',
+      zero: 'कोई अंक नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get widgetNext => 'अगला';
+
+  @override
+  String get widgetAddGlass => '+ गिलास';
+
+  @override
+  String get widgetLocked => 'अगला काम देखने के लिए ऐप खोलें';
+
+  @override
+  String get widgetNothingNext => 'अभी कुछ तय नहीं है';
 }

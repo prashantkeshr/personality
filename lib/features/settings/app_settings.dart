@@ -10,6 +10,7 @@ class AppSettings {
     this.unitSystem = UnitSystem.metric,
     this.themeMode = ThemeMode.system,
     this.localeCode,
+    this.use24Hour,
   });
 
   final bool onboardingCompleted;
@@ -19,6 +20,9 @@ class AppSettings {
   /// Language code such as `en` or `hi`; null follows the device language.
   final String? localeCode;
 
+  /// Clock style; null follows the device.
+  final bool? use24Hour;
+
   Locale? get locale => localeCode == null ? null : Locale(localeCode!);
 
   AppSettings copyWith({
@@ -26,12 +30,14 @@ class AppSettings {
     UnitSystem? unitSystem,
     ThemeMode? themeMode,
     String? Function()? localeCode,
+    bool? Function()? use24Hour,
   }) {
     return AppSettings(
       onboardingCompleted: onboardingCompleted ?? this.onboardingCompleted,
       unitSystem: unitSystem ?? this.unitSystem,
       themeMode: themeMode ?? this.themeMode,
       localeCode: localeCode != null ? localeCode() : this.localeCode,
+      use24Hour: use24Hour != null ? use24Hour() : this.use24Hour,
     );
   }
 
@@ -41,9 +47,15 @@ class AppSettings {
       other.onboardingCompleted == onboardingCompleted &&
       other.unitSystem == unitSystem &&
       other.themeMode == themeMode &&
-      other.localeCode == localeCode;
+      other.localeCode == localeCode &&
+      other.use24Hour == use24Hour;
 
   @override
-  int get hashCode =>
-      Object.hash(onboardingCompleted, unitSystem, themeMode, localeCode);
+  int get hashCode => Object.hash(
+    onboardingCompleted,
+    unitSystem,
+    themeMode,
+    localeCode,
+    use24Hour,
+  );
 }

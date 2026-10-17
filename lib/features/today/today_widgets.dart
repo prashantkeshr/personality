@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:personality/shared/format/clock_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -47,7 +48,7 @@ class DailyPlanRing extends ConsumerWidget {
         children: [
           Text(
             l10n.dailyPlan,
-            textAlign: TextAlign.right,
+            textAlign: TextAlign.end,
             style: theme.textTheme.labelMedium,
           ),
           const SizedBox(width: AppSpacing.sm),
@@ -149,11 +150,7 @@ class DayStrip extends ConsumerWidget {
                     child: Column(
                       children: [
                         Text(
-                          DateFormat.E(locale)
-                              .format(d)
-                              .characters
-                              .take(2)
-                              .toString(),
+                          shortWeekday(locale, d),
                           style: theme.textTheme.labelSmall?.copyWith(
                             color: Days.key(d) == selected
                                 ? scheme.onPrimary
@@ -884,7 +881,7 @@ class _TaskRow extends ConsumerWidget {
                       // Missed plan items: move or let go, without blame.
                       if (task.missed && !readOnly)
                         Align(
-                          alignment: Alignment.centerRight,
+                          alignment: AlignmentDirectional.centerEnd,
                           child: Wrap(
                             spacing: AppSpacing.xs,
                             children: [

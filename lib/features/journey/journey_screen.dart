@@ -184,7 +184,7 @@ class _TimelapseSectionState extends ConsumerState<_TimelapseSection> {
               ),
             ]),
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: AlignmentDirectional.centerStart,
             child: TextButton.icon(
               icon: Icon(_compare ? Icons.slideshow : Icons.compare),
               label: Text(_compare ? l10n.journeyPlay : l10n.journeyCompare),

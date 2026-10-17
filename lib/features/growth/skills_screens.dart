@@ -241,7 +241,7 @@ class _DisciplineScreenState extends ConsumerState<DisciplineScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: AppSpacing.sm),
+                      padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                       child: ChoiceChip(
                           label: Text(l.filterAll),
                           selected: _kind == null,
@@ -249,7 +249,7 @@ class _DisciplineScreenState extends ConsumerState<DisciplineScreen> {
                     ),
                     for (final k in kinds)
                       Padding(
-                        padding: const EdgeInsets.only(right: AppSpacing.sm),
+                        padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
                         child: ChoiceChip(
                             label: Text(kindLabel(l, k)),
                             selected: _kind == k,

@@ -115,7 +115,7 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
     Widget chip(String label, bool selected, VoidCallback onTap,
             {Widget? avatar}) =>
         Padding(
-          padding: const EdgeInsets.only(right: AppSpacing.sm),
+          padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
           child: ChoiceChip(
             avatar: avatar,
             label: Text(label),

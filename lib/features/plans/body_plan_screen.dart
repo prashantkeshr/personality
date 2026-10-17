@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:personality/shared/format/clock_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -874,11 +875,7 @@ class _PlanDashboardState extends ConsumerState<_PlanDashboard> {
                   ),
                   child: Column(children: [
                     Text(
-                        DateFormat.E(locale)
-                            .format(DateTime(2024, 1, d.weekday))
-                            .characters
-                            .take(2)
-                            .toString(),
+                        shortWeekday(locale, DateTime(2024, 1, d.weekday)),
                         style: theme.textTheme.labelSmall?.copyWith(
                             color: d.weekday == now.weekday
                                 ? scheme.onPrimary

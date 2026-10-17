@@ -272,6 +272,69 @@ class ForYouFeed extends ConsumerWidget {
   }
 }
 
+/// "Why am I seeing this?" for a For-you card.
+void _showFeedWhy(
+  BuildContext context,
+  String title,
+  String why,
+  String benefit,
+  String route,
+) {
+  final l10n = AppLocalizations.of(context);
+  final theme = Theme.of(context);
+  Widget section(IconData icon, String head, String body) => Padding(
+    padding: const EdgeInsets.only(bottom: AppSpacing.md),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 20, color: theme.colorScheme.primary),
+        const SizedBox(width: AppSpacing.md),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(head, style: theme.textTheme.titleSmall),
+              Text(body, style: theme.textTheme.bodyMedium),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+  showModalBottomSheet<void>(
+    context: context,
+    showDragHandle: true,
+    builder: (c) => Padding(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.lg,
+        0,
+        AppSpacing.lg,
+        AppSpacing.xl,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: theme.textTheme.titleLarge),
+          const SizedBox(height: AppSpacing.md),
+          section(Icons.help_outline, l10n.whyTitle, why),
+          section(Icons.favorite_outline, l10n.whyBenefit, benefit),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () {
+                Navigator.of(c).pop();
+                context.push(route);
+              },
+              child: Text(l10n.blueprintGo),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
 class _FeedCard extends StatelessWidget {
   const _FeedCard(this.kind);
   final _Feed kind;
@@ -280,6 +343,18 @@ class _FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final scheme = Theme.of(context).colorScheme;
+    final (why, benefit) = switch (kind) {
+      _Feed.bodyPlan => (l10n.whyFeedBodyPlan, l10n.benefitFeedBodyPlan),
+      _Feed.goals => (l10n.whyFeedGoals, l10n.benefitFeedGoals),
+      _Feed.snapshot => (l10n.whyFeedSnapshot, l10n.benefitFeedSnapshot),
+      _Feed.faceShape => (l10n.whyFeedFace, l10n.benefitFeedFace),
+      _Feed.hairstyles => (l10n.whyFeedHairstyles, l10n.benefitFeedHairstyles),
+      _Feed.tryOn => (l10n.whyFeedTryOn, l10n.benefitFeedTryOn),
+      _Feed.colours => (l10n.whyFeedColours, l10n.benefitFeedColours),
+      _Feed.outfit => (l10n.whyFeedOutfit, l10n.benefitFeedOutfit),
+      _Feed.posture => (l10n.whyFeedPosture, l10n.benefitFeedPosture),
+      _Feed.exercise => (l10n.whyFeedExercise, l10n.benefitFeedExercise),
+    };
     final (title, info, route) = switch (kind) {
       _Feed.bodyPlan => (l10n.forYouBodyPlan, l10n.forYouBodyPlanInfo, AppRoutes.bodyPlan),
       _Feed.goals => (l10n.forYouGoals, l10n.forYouGoalsInfo, AppRoutes.goalFinder),
@@ -334,6 +409,24 @@ class _FeedCard extends StatelessWidget {
                     stops: [0.3, 1],
                     colors: [Color(0x00000000), Color(0xE6000000)],
                   ),
+                ),
+              ),
+              Positioned(
+                top: 4,
+                right: 4,
+                child: IconButton(
+                  key: Key('feed-why-${kind.name}'),
+                  tooltip: l10n.whyTitle,
+                  style: IconButton.styleFrom(
+                    backgroundColor: const Color(0x66000000),
+                  ),
+                  icon: const Icon(
+                    Icons.info_outline,
+                    color: Colors.white,
+                    size: 18,
+                  ),
+                  onPressed: () =>
+                      _showFeedWhy(context, title, why, benefit, route),
                 ),
               ),
               Positioned(

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
+import '../lock/app_lock_ui.dart';
 import 'preference_controls.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -45,8 +46,12 @@ class SettingsScreen extends StatelessWidget {
           ),
           header(l10n.settingsUnits),
           const UnitSystemSelector(),
+          header(l10n.settingsTimeFormat),
+          const TimeFormatSelector(),
           header(l10n.settingsLanguage),
           const LanguageSelector(),
+          header(l10n.settingsSecurity),
+          const AppLockSettings(),
           header(l10n.settingsPrivacy),
           body(l10n.privacyStorageSummary),
           const SizedBox(height: AppSpacing.sm),

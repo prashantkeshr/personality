@@ -17,6 +17,12 @@ void main() {
     expect(find.text('A private space for your wellbeing'), findsOneWidget);
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
+
+    // Goals first.
+    expect(find.text('What would you like to work on?'), findsOneWidget);
+    await app.tapAndSettle(find.byKey(const Key('onboard-goal-fitness')));
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
     expect(find.text('Your data stays on this device'), findsOneWidget);
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
@@ -59,6 +65,8 @@ void main() {
     expect((profile!.displayName, profile.gender, profile.region),
         ('Asha Rao', Gender.female, Region.indiaSouth));
     expect(profile.effectiveStyleFit, StyleFit.womenswear);
+    final goals = await app.run(() => ProfileRepository(app.db).watchGoals().first);
+    expect(goals, {GoalType.fitness});
     final heights = await app.run(() => BodyRecordRepository(
             app.db, app.db.heightRecords, unit: 'cm')
         .watchAll()
@@ -69,6 +77,26 @@ void main() {
         .watchAll()
         .first);
     expect(weights!.single.value, closeTo(58.97, 0.01));
+    await app.dispose();
+  });
+
+  testWidgets('a style-only goal skips the body questions', (tester) async {
+    final app = AppHarness(tester);
+    await app.start(const AppSettings());
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
+    await app.tapAndSettle(find.byKey(const Key('onboard-goal-style')));
+    for (var i = 0; i < 3; i++) {
+      await tester.tap(find.text('Next'));
+      await tester.pumpAndSettle();
+    }
+    expect(find.text('About you'), findsOneWidget);
+    expect(find.textContaining('Only what your goals need'), findsOneWidget);
+    expect(find.byKey(const Key('about-weight')), findsNothing);
+    await app.tapAndSettle(find.text('Get started'));
+    expect(find.text('Today'), findsOneWidget);
+    final goals = await app.run(() => ProfileRepository(app.db).watchGoals().first);
+    expect(goals, {GoalType.style});
     await app.dispose();
   });
 
@@ -93,6 +121,33 @@ void main() {
         const AppSettings(onboardingCompleted: true, localeCode: 'hi'));
     expect(find.text('आज'), findsOneWidget);
     expect(find.text('स्वास्थ्य'), findsOneWidget);
+    await app.dispose();
+  });
+
+  for (final (code, health) in [
+    ('es', 'Salud'),
+    ('pt', 'Saúde'),
+    ('id', 'Kesehatan'),
+  ]) {
+    testWidgets('$code locale is applied', (tester) async {
+      final app = AppHarness(tester);
+      await app.start(AppSettings(onboardingCompleted: true, localeCode: code));
+      expect(find.text(health), findsOneWidget);
+      await app.dispose();
+    });
+  }
+
+  testWidgets('Arabic locale lays out right to left', (tester) async {
+    final app = AppHarness(tester);
+    await app.start(
+        const AppSettings(onboardingCompleted: true, localeCode: 'ar'));
+    expect(find.text('الصحة'), findsOneWidget);
+    final health = find.text('الصحة');
+    expect(Directionality.of(tester.element(health)), TextDirection.rtl);
+    // Tabs run from the right in RTL: Home sits right of Health.
+    expect(tester.getCenter(find.text('الرئيسية')).dx,
+        greaterThan(tester.getCenter(health).dx));
+    expect(tester.takeException(), isNull);
     await app.dispose();
   });
 

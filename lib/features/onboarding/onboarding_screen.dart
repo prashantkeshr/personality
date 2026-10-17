@@ -6,6 +6,9 @@ import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../settings/preference_controls.dart';
+import '../../domain/entities/body.dart';
+import '../../shared/format/body_format.dart';
+import '../journey/goal_finder_screen.dart' show goalIcon, goalImages;
 import 'about_you.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -16,7 +19,7 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pageCount = 4;
+  static const _pageCount = 5;
   final _controller = PageController();
   final _about = AboutYouData();
   int _page = 0;
@@ -89,6 +92,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     onPageChanged: (p) => setState(() => _page = p),
                     children: [
                       const _WelcomePage(),
+                      _GoalsPage(data: _about),
                       const _PrivacyPage(),
                       const _PreferencesPage(),
                       AboutYouPage(data: _about),
@@ -225,6 +229,118 @@ class _PreferencesPage extends StatelessWidget {
         const LanguageSelector(),
         label(l10n.settingsAppearance),
         const ThemeModeSelector(),
+        const SizedBox(height: AppSpacing.xl),
+      ],
+    );
+  }
+}
+
+/// Goals first: everything after this page follows from them.
+class _GoalsPage extends StatefulWidget {
+  const _GoalsPage({required this.data});
+  final AboutYouData data;
+
+  @override
+  State<_GoalsPage> createState() => _GoalsPageState();
+}
+
+class _GoalsPageState extends State<_GoalsPage> {
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final goals = widget.data.goals;
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+      children: [
+        const SizedBox(height: AppSpacing.lg),
+        Semantics(
+          header: true,
+          child: Text(
+            l10n.onboardingGoalsTitle,
+            style: theme.textTheme.headlineSmall,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        Text(l10n.onboardingGoalsBody, style: theme.textTheme.bodyMedium),
+        const SizedBox(height: AppSpacing.lg),
+        LayoutBuilder(
+          builder: (context, c) {
+            final w = (c.maxWidth - AppSpacing.sm) / 2;
+            return Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: [
+                for (final g in GoalType.values)
+                  SizedBox(
+                    width: w,
+                    height: 96,
+                    child: Semantics(
+                      selected: goals.contains(g),
+                      button: true,
+                      child: Card(
+                        margin: EdgeInsets.zero,
+                        clipBehavior: Clip.antiAlias,
+                        child: InkWell(
+                          key: Key('onboard-goal-${g.name}'),
+                          onTap: () => setState(
+                            () => goals.contains(g)
+                                ? goals.remove(g)
+                                : goals.add(g),
+                          ),
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              Image.asset(goalImages[g]!, fit: BoxFit.cover),
+                              DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: goals.contains(g)
+                                      ? theme.colorScheme.primary.withValues(
+                                          alpha: 0.55,
+                                        )
+                                      : const Color(0x8A000000),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(AppSpacing.sm),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      goalIcon(g),
+                                      color: Colors.white,
+                                      size: 20,
+                                    ),
+                                    const SizedBox(width: AppSpacing.xs),
+                                    Expanded(
+                                      child: Text(
+                                        l10n.goalLabel(g),
+                                        maxLines: 2,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                    if (goals.contains(g))
+                                      const Icon(
+                                        Icons.check_circle,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          },
+        ),
         const SizedBox(height: AppSpacing.xl),
       ],
     );

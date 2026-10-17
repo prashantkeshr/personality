@@ -2587,5 +2587,71 @@
   "fitReasonLiftsCheekbones": "Upswept or oval frames highlight the cheekbones.",
   "fitReasonSuitsMost": "Balanced proportions suit most frames; go with what you love.",
   "fitReasonEchoesShape": "This shape repeats your face's own lines, so it balances less. Still yours to choose.",
-  "fitReasonUnknownShape": "Analyse your face to see how this frame balances your shape."
+  "fitReasonUnknownShape": "Analyse your face to see how this frame balances your shape.",
+  "whyFeedBodyPlan": "You haven't set up a diet and body plan yet.",
+  "benefitFeedBodyPlan": "A plan turns your goal into daily calories, meals and training that fit your region.",
+  "whyFeedGoals": "Your goals decide which quests, tips and areas you see first.",
+  "benefitFeedGoals": "Picking a focus keeps the app about what matters to you.",
+  "whyFeedSnapshot": "There's no progress photo for this week yet.",
+  "benefitFeedSnapshot": "A weekly photo shows real change that the mirror misses.",
+  "whyFeedFace": "Your face shape hasn't been analysed yet.",
+  "benefitFeedFace": "It tailors hairstyle, beard and glasses ideas to you.",
+  "whyFeedHairstyles": "These follow from your face shape.",
+  "benefitFeedHairstyles": "Styles that balance your features, with reasons for each.",
+  "whyFeedTryOn": "You can preview glasses and beards live before changing anything.",
+  "benefitFeedTryOn": "See it on your own face, privately, on this phone.",
+  "whyFeedColours": "Your colour palette isn't set yet.",
+  "benefitFeedColours": "Knowing your colours makes outfits and shopping easier.",
+  "whyFeedOutfit": "You have enough clothes for outfit ideas.",
+  "benefitFeedOutfit": "Ideas from what you already own, with reasons.",
+  "whyFeedPosture": "A quick posture check is useful every week or two.",
+  "benefitFeedPosture": "Catch neck and back strain early, with exercises to help.",
+  "whyFeedExercise": "Moving most days helps every other goal.",
+  "benefitFeedExercise": "Guided workouts and 1,500+ exercises, with no equipment needed for many.",
+  "onboardingGoalsTitle": "What would you like to work on?",
+  "onboardingGoalsBody": "Pick any that matter to you. We'll only ask what these goals need, and you can change them any time.",
+  "onboardingAboutFocused": "Only what your goals need. You can add the rest later in Profile.",
+  "settingsTimeFormat": "Time format",
+  "timeFormatDevice": "Same as device",
+  "timeFormat12": "12-hour",
+  "timeFormat24": "24-hour",
+  "settingsSecurity": "Security",
+  "actionOk": "OK",
+  "lockTitle": "App lock",
+  "lockSubtitle": "Ask for a PIN or fingerprint when the app opens",
+  "lockEnterPin": "Enter your PIN",
+  "lockSetPin": "Choose a PIN",
+  "lockConfirmPin": "Enter the PIN again",
+  "lockPinRules": "4 to 8 digits. If you forget it, the app can't be opened without clearing its data, so pick one you'll remember.",
+  "lockPinMismatch": "The PINs didn't match. Try again.",
+  "lockWrongPin": "Wrong PIN",
+  "lockWait": "Too many tries. Wait {seconds} s.",
+  "@lockWait": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "lockUseFingerprint": "Unlock with fingerprint",
+  "lockBiometricReason": "Unlock Personality",
+  "lockForgot": "Forgot PIN?",
+  "lockForgotInfo": "For your privacy the PIN can't be reset or recovered, not even by us. If fingerprint unlock is on, use it, then change the PIN in Settings. Otherwise, clearing the app's data (Android Settings → Apps) removes the lock and everything in the app; restore from a backup afterwards.",
+  "lockOn": "App lock is on",
+  "lockOff": "App lock is off",
+  "lockChangePin": "Change PIN",
+  "lockChanged": "PIN changed",
+  "lockDelete": "Delete",
+  "lockDigits": "{count, plural, =0{No digits entered} =1{1 digit entered} other{{count} digits entered}}",
+  "@lockDigits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetNext": "Next",
+  "widgetAddGlass": "+ Glass",
+  "widgetLocked": "Unlock the app to see your next task",
+  "widgetNothingNext": "Nothing planned right now"
 }
