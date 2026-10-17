@@ -5189,4 +5189,22 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get widgetNothingNext => 'Tidak ada rencana saat ini';
+
+  @override
+  String get contactTitle => 'Kontak & dukungan';
+
+  @override
+  String get contactBody =>
+      'Ada pertanyaan, ide, atau masalah? Tulis kepada kami.';
+
+  @override
+  String aboutMadeBy(String company) {
+    return 'Dibuat oleh $company';
+  }
+
+  @override
+  String get contactEmailCopied => 'Alamat email disalin';
+
+  @override
+  String get contactEmailSubject => 'Aplikasi Personality';
 }

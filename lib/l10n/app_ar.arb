@@ -1491,5 +1491,10 @@
   "widgetNext": "التالي",
   "widgetAddGlass": "+ كوب",
   "widgetLocked": "افتح التطبيق لترى مهمتك التالية",
-  "widgetNothingNext": "لا شيء مخطط الآن"
+  "widgetNothingNext": "لا شيء مخطط الآن",
+  "contactTitle": "التواصل والدعم",
+  "contactBody": "أسئلة أو أفكار أو مشكلة؟ راسلنا.",
+  "aboutMadeBy": "من إنتاج {company}",
+  "contactEmailCopied": "تم نسخ عنوان البريد",
+  "contactEmailSubject": "تطبيق Personality"
 }

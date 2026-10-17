@@ -1491,5 +1491,10 @@
   "widgetNext": "Berikutnya",
   "widgetAddGlass": "+ Gelas",
   "widgetLocked": "Buka aplikasi untuk melihat tugas berikutnya",
-  "widgetNothingNext": "Tidak ada rencana saat ini"
+  "widgetNothingNext": "Tidak ada rencana saat ini",
+  "contactTitle": "Kontak & dukungan",
+  "contactBody": "Ada pertanyaan, ide, atau masalah? Tulis kepada kami.",
+  "aboutMadeBy": "Dibuat oleh {company}",
+  "contactEmailCopied": "Alamat email disalin",
+  "contactEmailSubject": "Aplikasi Personality"
 }

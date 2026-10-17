@@ -6,6 +6,7 @@ import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../lock/app_lock_ui.dart';
+import 'about_section.dart';
 import 'preference_controls.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -82,6 +83,8 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => context.push(AppRoutes.deviceInfo),
           ),
           header(l10n.settingsAbout),
+          const AboutSection(),
+          const SizedBox(height: AppSpacing.sm),
           body(l10n.wellnessDisclaimer),
         ],
       ),

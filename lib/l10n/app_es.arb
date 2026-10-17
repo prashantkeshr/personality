@@ -1491,5 +1491,10 @@
   "widgetNext": "Siguiente",
   "widgetAddGlass": "+ Vaso",
   "widgetLocked": "Desbloquea la app para ver tu próxima tarea",
-  "widgetNothingNext": "Nada planeado ahora mismo"
+  "widgetNothingNext": "Nada planeado ahora mismo",
+  "contactTitle": "Contacto y soporte",
+  "contactBody": "¿Preguntas, ideas o algún problema? Escríbenos.",
+  "aboutMadeBy": "Hecho por {company}",
+  "contactEmailCopied": "Dirección de correo copiada",
+  "contactEmailSubject": "App Personality"
 }

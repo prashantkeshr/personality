@@ -2653,5 +2653,17 @@
   "widgetNext": "Next",
   "widgetAddGlass": "+ Glass",
   "widgetLocked": "Unlock the app to see your next task",
-  "widgetNothingNext": "Nothing planned right now"
+  "widgetNothingNext": "Nothing planned right now",
+  "contactTitle": "Contact & support",
+  "contactBody": "Questions, ideas or a problem? Write to us.",
+  "aboutMadeBy": "Made by {company}",
+  "contactEmailCopied": "Email address copied",
+  "contactEmailSubject": "Personality app",
+  "@aboutMadeBy": {
+    "placeholders": {
+      "company": {
+        "type": "String"
+      }
+    }
+  }
 }

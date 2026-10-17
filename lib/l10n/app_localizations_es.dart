@@ -5221,4 +5221,21 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get widgetNothingNext => 'Nada planeado ahora mismo';
+
+  @override
+  String get contactTitle => 'Contacto y soporte';
+
+  @override
+  String get contactBody => '¿Preguntas, ideas o algún problema? Escríbenos.';
+
+  @override
+  String aboutMadeBy(String company) {
+    return 'Hecho por $company';
+  }
+
+  @override
+  String get contactEmailCopied => 'Dirección de correo copiada';
+
+  @override
+  String get contactEmailSubject => 'App Personality';
 }

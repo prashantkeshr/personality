@@ -1491,5 +1491,10 @@
   "widgetNext": "Próximo",
   "widgetAddGlass": "+ Copo",
   "widgetLocked": "Desbloqueie o app para ver a próxima tarefa",
-  "widgetNothingNext": "Nada planejado agora"
+  "widgetNothingNext": "Nada planejado agora",
+  "contactTitle": "Contato e suporte",
+  "contactBody": "Dúvidas, ideias ou algum problema? Escreva para nós.",
+  "aboutMadeBy": "Feito por {company}",
+  "contactEmailCopied": "Endereço de e-mail copiado",
+  "contactEmailSubject": "App Personality"
 }

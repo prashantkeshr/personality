@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Splash before Flutter draws: brand teal with the emblem. -->
+<!-- Splash before Flutter draws: the brand artwork on deep navy. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_launcher_background" />
+    <item android:drawable="@color/splash_background" />
     <item
-        android:drawable="@drawable/ic_launcher_foreground"
+        android:drawable="@drawable/splash_logo"
         android:gravity="center"
         android:width="216dp"
         android:height="216dp" />

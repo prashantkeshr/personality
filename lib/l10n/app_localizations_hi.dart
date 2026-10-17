@@ -5152,4 +5152,21 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get widgetNothingNext => 'अभी कुछ तय नहीं है';
+
+  @override
+  String get contactTitle => 'संपर्क और सहायता';
+
+  @override
+  String get contactBody => 'सवाल, सुझाव या कोई समस्या? हमें लिखें।';
+
+  @override
+  String aboutMadeBy(String company) {
+    return '$company द्वारा बनाया गया';
+  }
+
+  @override
+  String get contactEmailCopied => 'ईमेल पता कॉपी हो गया';
+
+  @override
+  String get contactEmailSubject => 'Personality ऐप';
 }

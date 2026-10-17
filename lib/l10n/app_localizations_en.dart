@@ -5164,4 +5164,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get widgetNothingNext => 'Nothing planned right now';
+
+  @override
+  String get contactTitle => 'Contact & support';
+
+  @override
+  String get contactBody => 'Questions, ideas or a problem? Write to us.';
+
+  @override
+  String aboutMadeBy(String company) {
+    return 'Made by $company';
+  }
+
+  @override
+  String get contactEmailCopied => 'Email address copied';
+
+  @override
+  String get contactEmailSubject => 'Personality app';
 }

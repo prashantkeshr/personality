@@ -78,10 +78,25 @@ class MainActivity : FlutterFragmentActivity() {
                     result.success(probe())
                 } else if (call.method == "network") {
                     result.success(network())
+                } else if (call.method == "email") {
+                    result.success(email(call.argument<String>("to")!!, call.argument<String>("subject") ?: ""))
                 } else {
                     result.notImplemented()
                 }
             }
+    }
+
+    /** Opens the user's own mail app with a new message; false if there is none. */
+    private fun email(to: String, subject: String): Boolean = try {
+        startActivity(
+            android.content.Intent(android.content.Intent.ACTION_SENDTO, android.net.Uri.parse("mailto:")).apply {
+                putExtra(android.content.Intent.EXTRA_EMAIL, arrayOf(to))
+                putExtra(android.content.Intent.EXTRA_SUBJECT, subject)
+            }
+        )
+        true
+    } catch (e: android.content.ActivityNotFoundException) {
+        false
     }
 
     private fun activityGranted() = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ||

@@ -5096,4 +5096,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get widgetNothingNext => 'لا شيء مخطط الآن';
+
+  @override
+  String get contactTitle => 'التواصل والدعم';
+
+  @override
+  String get contactBody => 'أسئلة أو أفكار أو مشكلة؟ راسلنا.';
+
+  @override
+  String aboutMadeBy(String company) {
+    return 'من إنتاج $company';
+  }
+
+  @override
+  String get contactEmailCopied => 'تم نسخ عنوان البريد';
+
+  @override
+  String get contactEmailSubject => 'تطبيق Personality';
 }

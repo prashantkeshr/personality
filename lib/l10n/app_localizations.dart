@@ -9057,6 +9057,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nothing planned right now'**
   String get widgetNothingNext;
+
+  /// No description provided for @contactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact & support'**
+  String get contactTitle;
+
+  /// No description provided for @contactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions, ideas or a problem? Write to us.'**
+  String get contactBody;
+
+  /// No description provided for @aboutMadeBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Made by {company}'**
+  String aboutMadeBy(String company);
+
+  /// No description provided for @contactEmailCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address copied'**
+  String get contactEmailCopied;
+
+  /// No description provided for @contactEmailSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Personality app'**
+  String get contactEmailSubject;
 }
 
 class _AppLocalizationsDelegate

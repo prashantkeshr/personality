@@ -120,7 +120,7 @@ Future<void> reminderBackgroundResponse(NotificationResponse r) async {
     final plugin = FlutterLocalNotificationsPlugin();
     await plugin.initialize(
         settings: const InitializationSettings(
-            android: AndroidInitializationSettings('@mipmap/ic_launcher')));
+            android: AndroidInitializationSettings('@drawable/ic_notification')));
     final p = jsonDecode(r.payload ?? '{}') as Map<String, dynamic>;
     await plugin.zonedSchedule(
       id: r.id! | _snoozeBit,
@@ -149,7 +149,7 @@ class LocalNotificationScheduler implements ReminderScheduler {
     tz_data.initializeTimeZones();
     await _plugin.initialize(
       settings: const InitializationSettings(
-          android: AndroidInitializationSettings('@mipmap/ic_launcher')),
+          android: AndroidInitializationSettings('@drawable/ic_notification')),
       onDidReceiveNotificationResponse: (r) {
         final parsed = _parse(r);
         if (parsed != null) onResponse(parsed);

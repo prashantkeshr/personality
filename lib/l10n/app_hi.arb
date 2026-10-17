@@ -1491,5 +1491,10 @@
   "widgetNext": "अगला",
   "widgetAddGlass": "+ गिलास",
   "widgetLocked": "अगला काम देखने के लिए ऐप खोलें",
-  "widgetNothingNext": "अभी कुछ तय नहीं है"
+  "widgetNothingNext": "अभी कुछ तय नहीं है",
+  "contactTitle": "संपर्क और सहायता",
+  "contactBody": "सवाल, सुझाव या कोई समस्या? हमें लिखें।",
+  "aboutMadeBy": "{company} द्वारा बनाया गया",
+  "contactEmailCopied": "ईमेल पता कॉपी हो गया",
+  "contactEmailSubject": "Personality ऐप"
 }
