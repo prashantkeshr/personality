@@ -96,13 +96,23 @@ class StyleTab extends StatelessWidget {
       intro: l10n.styleIntro,
       heroImage: 'assets/images/looks/smart_1.jpg',
       features: const [
+        AppFeature.styleDna,
+        AppFeature.getReady,
         AppFeature.styleRecommendations,
         AppFeature.wardrobe,
+        AppFeature.outfitCalendar,
+        AppFeature.wardrobeStats,
+        AppFeature.glassesFinder,
         AppFeature.commerce,
       ],
       routes: const {
+        AppFeature.styleDna: AppRoutes.styleDna,
+        AppFeature.getReady: AppRoutes.getReady,
         AppFeature.styleRecommendations: AppRoutes.colours,
         AppFeature.wardrobe: AppRoutes.wardrobe,
+        AppFeature.outfitCalendar: AppRoutes.outfitCalendar,
+        AppFeature.wardrobeStats: AppRoutes.wardrobeStats,
+        AppFeature.glassesFinder: AppRoutes.glasses,
       },
     );
   }

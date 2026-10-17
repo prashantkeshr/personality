@@ -19,6 +19,7 @@ import 'generated/schema_v9.dart' as v9;
 import 'generated/schema_v10.dart' as v10;
 import 'generated/schema_v11.dart' as v11;
 import 'generated/schema_v12.dart' as v12;
+import 'generated/schema_v13.dart' as v13;
 
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
@@ -403,6 +404,39 @@ void main() {
         final m = await newDb.select(newDb.moodLog).getSingle();
         expect((m.day, m.mood, m.energy), (20261010, 4, 3));
         expect(await newDb.select(newDb.milestoneNote).get(), isEmpty);
+      },
+    );
+  });
+
+  // Wardrobe and outfits survive the v13 upgrade (price column, outfit plans).
+  test('migration from v12 to v13 keeps the wardrobe and outfits', () async {
+    await verifier.testWithDataIntegrity(
+      oldVersion: 12,
+      newVersion: 13,
+      createOld: v12.DatabaseAtV12.new,
+      createNew: v13.DatabaseAtV13.new,
+      openTestedDatabase: AppDatabase.new,
+      createItems: (batch, oldDb) {
+        batch.insert(
+            oldDb.wardrobeItem,
+            const v12.WardrobeItemData(
+                id: 'w1',
+                name: 'Navy shirt',
+                category: 'top',
+                colorHex: '#1F2A44',
+                pattern: 'solid',
+                formality: 3,
+                occasions: 'work',
+                favorite: 1,
+                createdAt: 1,
+                updatedAt: 1));
+        batch.insert(oldDb.outfit, const v12.OutfitData(id: 'o1', occasion: 'work', createdAt: 1));
+      },
+      validateItems: (newDb) async {
+        final w = await newDb.select(newDb.wardrobeItem).getSingle();
+        expect((w.id, w.name, w.favorite, w.price), ('w1', 'Navy shirt', 1, null));
+        expect((await newDb.select(newDb.outfit).getSingle()).id, 'o1');
+        expect(await newDb.select(newDb.outfitPlan).get(), isEmpty);
       },
     );
   });

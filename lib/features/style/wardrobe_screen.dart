@@ -20,6 +20,7 @@ import '../camera/camera_source.dart';
 import '../camera/portrait_lock.dart';
 import '../health/widgets/add_record_sheet.dart' show confirmDelete;
 import 'style_labels.dart';
+import '../health/widgets/health_widgets.dart' show parsePositive;
 import 'style_providers.dart';
 import 'style_widgets.dart';
 
@@ -46,6 +47,11 @@ class _WardrobeScreenState extends ConsumerState<WardrobeScreen> {
       appBar: AppBar(
         title: Text(l10n.featureWardrobe),
         actions: [
+          IconButton(
+            tooltip: l10n.featureWardrobeStats,
+            onPressed: () => context.push(AppRoutes.wardrobeStats),
+            icon: const Icon(Icons.bar_chart),
+          ),
           TextButton.icon(
             onPressed: all.length < 2 ? null : () => context.push(AppRoutes.outfits),
             icon: const Icon(Icons.auto_awesome_outlined),
@@ -174,6 +180,7 @@ class AddGarmentSheet extends ConsumerStatefulWidget {
 class _AddGarmentSheetState extends ConsumerState<AddGarmentSheet> {
   final _form = GlobalKey<FormState>();
   final _name = TextEditingController();
+  final _price = TextEditingController();
   GarmentCategory _category = GarmentCategory.top;
   GarmentPattern _pattern = GarmentPattern.solid;
   String _hex = '#1F2A44';
@@ -185,6 +192,7 @@ class _AddGarmentSheetState extends ConsumerState<AddGarmentSheet> {
   @override
   void dispose() {
     _name.dispose();
+    _price.dispose();
     super.dispose();
   }
 
@@ -215,6 +223,7 @@ class _AddGarmentSheetState extends ConsumerState<AddGarmentSheet> {
             formality: _formality.round(),
             occasions: _occasions,
             photo: _photo,
+            price: parsePositive(_price.text),
           );
       navigator.pop();
     } catch (e, st) {
@@ -338,6 +347,13 @@ class _AddGarmentSheetState extends ConsumerState<AddGarmentSheet> {
                         setState(() => on ? _occasions.add(o) : _occasions.remove(o)),
                   ),
               ]),
+              const SizedBox(height: AppSpacing.md),
+              TextFormField(
+                key: const Key('garment-price'),
+                controller: _price,
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                decoration: InputDecoration(labelText: l10n.statsPrice, helperText: l10n.statsPriceHelp),
+              ),
               const SizedBox(height: AppSpacing.lg),
               FilledButton(
                 onPressed: _saving ? null : _save,

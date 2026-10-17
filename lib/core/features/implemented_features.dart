@@ -38,4 +38,10 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.bodyPlan,
   // Phase 15
   AppFeature.healthIntegration,
+  // Phase 19
+  AppFeature.styleDna,
+  AppFeature.getReady,
+  AppFeature.outfitCalendar,
+  AppFeature.wardrobeStats,
+  AppFeature.glassesFinder,
 };

@@ -46,6 +46,11 @@ enum AppFeature {
   healthIntegration,
   encryptedBackup,
   commerce,
+  styleDna,
+  getReady,
+  outfitCalendar,
+  wardrobeStats,
+  glassesFinder,
 }
 
 /// ML model identifiers referenced by capability rules.

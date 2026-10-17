@@ -20,9 +20,12 @@ import 'try_on_painter.dart';
 /// Live try-on (front camera): glasses and beard previews that follow the
 /// face. Nothing is recorded; frames are analyzed in memory and discarded.
 class TryOnScreen extends ConsumerStatefulWidget {
-  const TryOnScreen({super.key, this.initialItem});
+  const TryOnScreen({super.key, this.initialItem, this.initialColor});
 
   final String? initialItem;
+
+  /// Frame colour as `RRGGBB` (from the glasses finder).
+  final String? initialColor;
 
   @override
   ConsumerState<TryOnScreen> createState() => _TryOnScreenState();
@@ -37,6 +40,10 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
   late GlassesStyle? _glasses = glassesStyleFor(widget.initialItem ?? '');
   late BeardStyle? _beard = beardStyleFor(widget.initialItem ?? '');
   bool _compare = false;
+  late final Color _frameColor = switch (int.tryParse(widget.initialColor ?? '', radix: 16)) {
+    final v? when (widget.initialColor?.length ?? 0) == 6 => Color(0xFF000000 | v),
+    _ => const Color(0xFF1C1C1E),
+  };
 
   @override
   void initState() {
@@ -142,6 +149,7 @@ class _TryOnScreenState extends ConsumerState<TryOnScreen> {
                     face: _compare ? null : _face,
                     glasses: _glasses,
                     beard: _beard,
+                    frameColor: _frameColor,
                   ),
                 ),
               ),

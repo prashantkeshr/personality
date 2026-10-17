@@ -4434,4 +4434,538 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get searchClear => 'साफ़ करें';
+
+  @override
+  String get featureStyleDna => 'स्टाइल DNA';
+
+  @override
+  String get featureGetReady => 'तैयार हों…';
+
+  @override
+  String get featureOutfitCalendar => 'आउटफ़िट कैलेंडर';
+
+  @override
+  String get featureWardrobeStats => 'वॉर्डरोब आँकड़े';
+
+  @override
+  String get featureGlasses => 'चश्मा खोजें';
+
+  @override
+  String get dnaSaved => 'स्टाइल DNA सहेजा गया';
+
+  @override
+  String get dnaYour => 'आपका स्टाइल DNA';
+
+  @override
+  String get dnaEmpty =>
+      'नीचे जो आप जैसा लगे चुनें। ऐप का हर सुझाव इसी के अनुसार होगा।';
+
+  @override
+  String get dnaPaletteDone => 'आपके रंग';
+
+  @override
+  String get dnaFindPalette => 'अपने रंग खोजें';
+
+  @override
+  String get dnaFindShape => 'चेहरे का आकार खोजें';
+
+  @override
+  String get dnaStyles => 'पसंदीदा स्टाइल';
+
+  @override
+  String get dnaStylesHelp => 'जितने चाहें चुनें।';
+
+  @override
+  String get dnaFits => 'कपड़ों की फ़िटिंग';
+
+  @override
+  String get dnaFitsHelp => 'आउटफ़िट टिप्स और कमियों के लिए।';
+
+  @override
+  String get dnaOccasions => 'किसके लिए सबसे ज़्यादा तैयार होते हैं';
+
+  @override
+  String get dnaOccasionsHelp =>
+      'वॉर्डरोब की कमियाँ और कैलेंडर इसी से बनते हैं।';
+
+  @override
+  String get dnaCultural => 'सांस्कृतिक और पारंपरिक पहनावा';
+
+  @override
+  String get dnaCulturalHelp =>
+      'ताकि त्योहार और शादी के सुझाव आपकी परंपरा से मेल खाएँ।';
+
+  @override
+  String get dnaModesty => 'आप कितना ढका पहनावा पसंद करते हैं';
+
+  @override
+  String get dnaModestyHelp => 'हर आउटफ़िट सुझाव इसका ध्यान रखता है।';
+
+  @override
+  String get dnaBudget => 'बजट';
+
+  @override
+  String get dnaBudgetHelp =>
+      'केवल कमियों और नई ख़रीद के सुझावों के लिए। कभी साझा नहीं।';
+
+  @override
+  String get fitPrefSlim => 'स्लिम';
+
+  @override
+  String get fitPrefRegular => 'रेगुलर';
+
+  @override
+  String get fitPrefRelaxed => 'ढीला';
+
+  @override
+  String get fitPrefOversized => 'ओवरसाइज़्ड';
+
+  @override
+  String get fitPrefTailored => 'टेलर्ड';
+
+  @override
+  String get culturalIndianEthnic => 'भारतीय पारंपरिक';
+
+  @override
+  String get culturalModest => 'मॉडेस्ट फ़ैशन';
+
+  @override
+  String get culturalWestern => 'पश्चिमी';
+
+  @override
+  String get culturalFusion => 'इंडो-वेस्टर्न फ़्यूज़न';
+
+  @override
+  String get modestyRelaxed => 'आरामदायक';
+
+  @override
+  String get modestyModerate => 'मध्यम';
+
+  @override
+  String get modestyCovered => 'पूरी तरह ढका';
+
+  @override
+  String get budgetValue => 'किफ़ायती';
+
+  @override
+  String get budgetMidRange => 'मध्यम';
+
+  @override
+  String get budgetPremium => 'प्रीमियम';
+
+  @override
+  String get readyIntro =>
+      'चुनें कि आप किसके लिए तैयार हो रहे हैं। एक सूची मिलेगी: आउटफ़िट, ग्रूमिंग और ख़ुद को कैसे प्रस्तुत करें।';
+
+  @override
+  String readyProgress(int done, int total) {
+    return '$total में से $done तैयार';
+  }
+
+  @override
+  String get readyOpen => 'खोलें';
+
+  @override
+  String get readyEvInterview => 'इंटरव्यू';
+
+  @override
+  String get readyEvPresentation => 'प्रेज़ेंटेशन';
+
+  @override
+  String get readyEvOffice => 'ऑफ़िस का दिन';
+
+  @override
+  String get readyEvDate => 'डेट';
+
+  @override
+  String get readyEvWedding => 'शादी';
+
+  @override
+  String get readyEvFestival => 'त्योहार';
+
+  @override
+  String get readyEvParty => 'पार्टी';
+
+  @override
+  String get readyEvCasual => 'घूमना';
+
+  @override
+  String get readyEvGym => 'जिम';
+
+  @override
+  String get readyEvTravel => 'यात्रा';
+
+  @override
+  String get readySecOutfit => 'आउटफ़िट';
+
+  @override
+  String get readySecGrooming => 'ग्रूमिंग';
+
+  @override
+  String get readySecPresentation => 'मुद्रा, साँस और आवाज़';
+
+  @override
+  String get readySecFinalChecks => 'निकलने से पहले';
+
+  @override
+  String get readyPlanned => 'आज के लिए तय आउटफ़िट पहनें';
+
+  @override
+  String get readySuggested => 'अपनी वॉर्डरोब से यह पहनें';
+
+  @override
+  String get readyGuideInterview =>
+      'साफ़-सुथरा और सादा: इस्त्री की शर्ट या ब्लाउज़, टेलर्ड पैंट या स्कर्ट, बंद जूते';
+
+  @override
+  String get readyGuidePresentation =>
+      'एक स्मार्ट परत जिसमें आराम से चल सकें, एक-दो शांत रंगों में';
+
+  @override
+  String get readyGuideOffice =>
+      'स्मार्ट कैज़ुअल: कॉलर या साफ़ टॉप, सही फ़िट पैंट, साफ़ जूते';
+
+  @override
+  String get readyGuideDate =>
+      'कुछ जिसमें आप आत्मविश्वासी महसूस करें, रोज़ से थोड़ा बेहतर';
+
+  @override
+  String get readyGuideWedding =>
+      'उत्सवी और सजीला: गहरे रंग या पारंपरिक पहनावा, चमकते जूते';
+
+  @override
+  String get readyGuideFestival =>
+      'चमकीला या पारंपरिक, लंबे दिन के लिए आरामदायक';
+
+  @override
+  String get readyGuideParty => 'सादे कपड़ों के साथ एक ख़ास चीज़';
+
+  @override
+  String get readyGuideCasual => 'मौसम के अनुसार आरामदायक और साफ़';
+
+  @override
+  String get readyGuideGym => 'हवादार कसरत के कपड़े और सहारा देने वाले जूते';
+
+  @override
+  String get readyGuideTravel => 'आरामदायक परतें और आसान जूते';
+
+  @override
+  String get readyGuideEthnic =>
+      'पारंपरिक पहनावा: उत्सवी रंगों में कुर्ता, साड़ी, शेरवानी या लहंगा';
+
+  @override
+  String get readyModest => 'अपनी पसंद के अनुसार पूरी तरह ढके कपड़े चुनें';
+
+  @override
+  String get readyFitSlim => 'स्लिम, साफ़ फ़िट चुनें';
+
+  @override
+  String get readyFitRegular => 'रेगुलर, आरामदायक फ़िट चुनें';
+
+  @override
+  String get readyFitRelaxed => 'ढीला रखें, पर कंधों पर साफ़';
+
+  @override
+  String get readyFitOversized => 'ओवरसाइज़्ड के साथ एक फ़िटेड चीज़ रखें';
+
+  @override
+  String get readyFitTailored => 'टेलर्ड कपड़े: आस्तीन और किनारे जाँचें';
+
+  @override
+  String get readyColours => 'अपने सबसे अच्छे रंग चेहरे के पास रखें';
+
+  @override
+  String get readyPress => 'आउटफ़िट पर इस्त्री या भाप करें';
+
+  @override
+  String get readyShoes => 'जूते साफ़ या पॉलिश करें';
+
+  @override
+  String get readyLayer => 'मौसम के लिए एक परत साथ रखें';
+
+  @override
+  String readyHairStyle(String style) {
+    return 'बाल: $style आपके चेहरे पर जँचता है';
+  }
+
+  @override
+  String get readyHairTidy => 'बाल सँवारें';
+
+  @override
+  String readyBeardStyle(String style) {
+    return 'दाढ़ी: $style जैसी आकार दें';
+  }
+
+  @override
+  String get readyBeardTidy => 'ट्रिम या शेव करें; गर्दन की रेखा साफ़ करें';
+
+  @override
+  String get readySkin => 'चेहरा साफ़ करें और मॉइस्चराइज़ करें';
+
+  @override
+  String get readySunscreen => 'बाहर के लिए सनस्क्रीन';
+
+  @override
+  String get readyNails => 'नाख़ून साफ़ और काटें';
+
+  @override
+  String get readyScentLight => 'हल्की ख़ुशबू, या बिल्कुल नहीं';
+
+  @override
+  String get readyGymHair => 'बाल बाँधें; तौलिया साथ लें';
+
+  @override
+  String get readyPosture => 'सीधे खड़े हों: कंधे पीछे और नीचे, ठुड्डी सीधी';
+
+  @override
+  String get readyBreath => 'एक मिनट धीमी साँस: 4 तक अंदर, 6 तक बाहर';
+
+  @override
+  String get readyFaceWarmup => 'दो मिनट चेहरे और आवाज़ को तैयार करें';
+
+  @override
+  String get readyVoice => 'स्वाभाविक से थोड़ा धीरे बोलें, और रुकें';
+
+  @override
+  String get readyEyeContact => 'मैत्रीपूर्ण नज़र मिलाएँ, फिर थोड़ा हटाएँ';
+
+  @override
+  String get readyThreePoints => 'अपने तीन मुख्य बिंदु याद रखें';
+
+  @override
+  String get readyDocuments => 'दस्तावेज़ या स्लाइड की कॉपी, और पेन';
+
+  @override
+  String get readyTravelDocs => 'पहचान पत्र, टिकट, चार्जर और दवाएँ';
+
+  @override
+  String get readyGymKit => 'पानी, तौलिया, जूते और बदलने के कपड़े';
+
+  @override
+  String get readyGift => 'उपहार या शगुन';
+
+  @override
+  String get readyWater => 'पानी की बोतल';
+
+  @override
+  String get readyPhone => 'फ़ोन चार्ज, चाबियाँ और बटुआ';
+
+  @override
+  String get readyEarly => 'जल्दी निकलें ताकि शांत पहुँचें';
+
+  @override
+  String get calendarEarlier => 'पहले';
+
+  @override
+  String get calendarLater => 'बाद में';
+
+  @override
+  String get calendarNoOutfits =>
+      'पहले कुछ आउटफ़िट सहेजें, फिर यहाँ योजना बनाएँ।';
+
+  @override
+  String get calendarToday => 'आज';
+
+  @override
+  String get calendarPlan => 'योजना';
+
+  @override
+  String get calendarWorn => 'पहना';
+
+  @override
+  String get calendarWoreIt => 'पहन लिया';
+
+  @override
+  String get calendarRemove => 'हटाएँ';
+
+  @override
+  String get calendarPickTitle => 'आउटफ़िट चुनें';
+
+  @override
+  String get calendarNoneForOccasion =>
+      'इस मौके के लिए अभी कोई आउटफ़िट सहेजा नहीं गया।';
+
+  @override
+  String statsPriceTitle(String name) {
+    return '$name कितने का था?';
+  }
+
+  @override
+  String get statsPrice => 'क़ीमत';
+
+  @override
+  String get statsPriceHelp =>
+      'वैकल्पिक। इसी फ़ोन पर रहता है; हटाने के लिए खाली छोड़ें।';
+
+  @override
+  String statsWears(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count बार पहना',
+      one: 'एक बार पहना',
+      zero: 'अभी नहीं पहना',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statsLastWorn(String date) {
+    return 'पिछली बार $date';
+  }
+
+  @override
+  String get statsAddPrice => 'क़ीमत जोड़ें';
+
+  @override
+  String get statsEmpty =>
+      'वॉर्डरोब में कपड़े जोड़ें और आउटफ़िट को पहना हुआ चिह्नित करें, ताकि दिखे कि आप वास्तव में क्या पहनते हैं।';
+
+  @override
+  String get statsItems => 'चीज़ें';
+
+  @override
+  String get statsTotalWears => 'बार पहना';
+
+  @override
+  String get statsNeutrals => 'न्यूट्रल बेसिक्स';
+
+  @override
+  String get statsGaps => 'क्या कम है';
+
+  @override
+  String get statsMostWorn => 'सबसे ज़्यादा पहना';
+
+  @override
+  String get statsBestValue => 'सबसे अच्छा मूल्य';
+
+  @override
+  String get statsBestValueHelp => 'अब तक प्रति पहनावा सबसे कम लागत।';
+
+  @override
+  String statsPerWear(String price) {
+    return '$price प्रति बार';
+  }
+
+  @override
+  String get statsNeverWorn => 'अभी तक नहीं पहना';
+
+  @override
+  String get statsNeverWornHelp =>
+      'इस हफ़्ते इनमें से कोई पहनें, या किसी को दे दें।';
+
+  @override
+  String get gapBottoms => 'नीचे के कपड़े';
+
+  @override
+  String get gapAdviceBottoms =>
+      'पैंट, जींस या स्कर्ट जोड़ें ताकि टॉप से आउटफ़िट बन सकें।';
+
+  @override
+  String get gapFootwear => 'जूते';
+
+  @override
+  String get gapAdviceFootwear =>
+      'एक बहुउपयोगी जोड़ी (सफ़ेद स्नीकर्स या सादे लोफ़र) ज़्यादातर आउटफ़िट पूरा करती है।';
+
+  @override
+  String get gapWorkTop => 'काम के लिए टॉप';
+
+  @override
+  String get gapAdviceWorkTop =>
+      'सफ़ेद, हल्के नीले या हल्के न्यूट्रल रंग की सादी शर्ट या ब्लाउज़।';
+
+  @override
+  String get gapFormalWear => 'कुछ औपचारिक';
+
+  @override
+  String get gapAdviceFormalWear =>
+      'ज़रूरी दिनों के लिए ब्लेज़र, सूट या औपचारिक ड्रेस।';
+
+  @override
+  String get gapFestiveEthnic => 'उत्सवी या पारंपरिक पहनावा';
+
+  @override
+  String get gapAdviceFestiveEthnic =>
+      'आपके रंगों में एक कुर्ता, साड़ी या पारंपरिक सेट।';
+
+  @override
+  String get gapNeutralBasics => 'न्यूट्रल बेसिक्स';
+
+  @override
+  String get gapAdviceNeutralBasics =>
+      'दो न्यूट्रल चीज़ें (नेवी, बेज, ग्रे, सफ़ेद) जोड़ें ताकि रंगीन चीज़ें आसानी से मेल खाएँ।';
+
+  @override
+  String get gapSportwear => 'कसरत के कपड़े';
+
+  @override
+  String get gapAdviceSportwear =>
+      'कसरत के लिए हवादार टॉप और शॉर्ट्स या लेगिंग्स।';
+
+  @override
+  String get gapOuterwear => 'जैकेट या परत';
+
+  @override
+  String get gapAdviceOuterwear => 'ठंडे दिनों के लिए जैकेट या कार्डिगन।';
+
+  @override
+  String get glassesSizeTip =>
+      'आकार जितना ही माप भी ज़रूरी है: फ़्रेम कनपटियों पर आपके चेहरे जितना चौड़ा हो, और आँखें हर लेंस के बीच के पास हों।';
+
+  @override
+  String get glassesTryOn => 'लाइव पहनकर देखें';
+
+  @override
+  String get glassesNoShape => 'व्यक्तिगत सुझावों के लिए चेहरे का आकार जाँचें';
+
+  @override
+  String glassesForShape(String shape) {
+    return 'आपके $shape चेहरे के लिए क्रम में';
+  }
+
+  @override
+  String get glassesHonest =>
+      'कंट्रास्ट नियमों पर आधारित फ़िट सलाह, सुंदरता का मूल्यांकन नहीं। जो पसंद हो वही पहनें।';
+
+  @override
+  String get fitGreat => 'बढ़िया फ़िट';
+
+  @override
+  String get fitGood => 'अच्छा फ़िट';
+
+  @override
+  String get fitLess => 'कम संतुलन';
+
+  @override
+  String get fitReasonAddsAngles =>
+      'कोणीय रेखाएँ नरम, गोल चेहरे को परिभाषा देती हैं।';
+
+  @override
+  String get fitReasonSoftensAngles =>
+      'गोल फ़्रेम मज़बूत जबड़े और माथे को नरम करते हैं।';
+
+  @override
+  String get fitReasonAddsLength =>
+      'गहरे फ़्रेम लंबाई को संतुलित कर चौड़ाई जोड़ते हैं।';
+
+  @override
+  String get fitReasonBalancesForehead =>
+      'हल्के या नीचे से भारी फ़्रेम चौड़े माथे को संतुलित करते हैं।';
+
+  @override
+  String get fitReasonLiftsCheekbones =>
+      'ऊपर उठे या अंडाकार फ़्रेम गालों की हड्डियाँ उभारते हैं।';
+
+  @override
+  String get fitReasonSuitsMost =>
+      'संतुलित अनुपात पर ज़्यादातर फ़्रेम जँचते हैं; जो पसंद हो वही चुनें।';
+
+  @override
+  String get fitReasonEchoesShape =>
+      'यह आकार आपके चेहरे की रेखाओं को दोहराता है, इसलिए कम संतुलन देता है। फिर भी चुनाव आपका है।';
+
+  @override
+  String get fitReasonUnknownShape =>
+      'यह फ़्रेम आपके चेहरे को कैसे संतुलित करता है, यह देखने के लिए चेहरा जाँचें।';
 }

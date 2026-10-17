@@ -2369,5 +2369,223 @@
       }
     }
   },
-  "searchClear": "Clear"
+  "searchClear": "Clear",
+  "featureStyleDna": "Style DNA",
+  "featureGetReady": "Get ready for…",
+  "featureOutfitCalendar": "Outfit calendar",
+  "featureWardrobeStats": "Wardrobe stats",
+  "featureGlasses": "Glasses finder",
+  "dnaSaved": "Style DNA saved",
+  "dnaYour": "Your Style DNA",
+  "dnaEmpty": "Pick what feels like you below. Every suggestion in the app follows it.",
+  "dnaPaletteDone": "Your colours",
+  "dnaFindPalette": "Find your colours",
+  "dnaFindShape": "Find face shape",
+  "dnaStyles": "Styles you like",
+  "dnaStylesHelp": "Pick as many as you like.",
+  "dnaFits": "How you like clothes to fit",
+  "dnaFitsHelp": "Used for outfit tips and shopping gaps.",
+  "dnaOccasions": "What you dress for most",
+  "dnaOccasionsHelp": "Shapes wardrobe gaps and the outfit calendar.",
+  "dnaCultural": "Cultural and traditional wear",
+  "dnaCulturalHelp": "So festive and wedding ideas fit your traditions.",
+  "dnaModesty": "Coverage you prefer",
+  "dnaModestyHelp": "Every outfit idea respects this.",
+  "dnaBudget": "Budget",
+  "dnaBudgetHelp": "For gaps and new-buy ideas only. Never shared.",
+  "fitPrefSlim": "Slim",
+  "fitPrefRegular": "Regular",
+  "fitPrefRelaxed": "Relaxed",
+  "fitPrefOversized": "Oversized",
+  "fitPrefTailored": "Tailored",
+  "culturalIndianEthnic": "Indian ethnic",
+  "culturalModest": "Modest fashion",
+  "culturalWestern": "Western",
+  "culturalFusion": "Indo-western fusion",
+  "modestyRelaxed": "Relaxed",
+  "modestyModerate": "Moderate",
+  "modestyCovered": "Fully covered",
+  "budgetValue": "Value",
+  "budgetMidRange": "Mid-range",
+  "budgetPremium": "Premium",
+  "readyIntro": "Pick what you're getting ready for. You'll get one checklist: outfit, grooming and how to carry yourself.",
+  "readyProgress": "{done} of {total} ready",
+  "@readyProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "readyOpen": "Open",
+  "readyEvInterview": "Interview",
+  "readyEvPresentation": "Presentation",
+  "readyEvOffice": "Office day",
+  "readyEvDate": "Date",
+  "readyEvWedding": "Wedding",
+  "readyEvFestival": "Festival",
+  "readyEvParty": "Party",
+  "readyEvCasual": "Day out",
+  "readyEvGym": "Gym",
+  "readyEvTravel": "Travel",
+  "readySecOutfit": "Outfit",
+  "readySecGrooming": "Grooming",
+  "readySecPresentation": "Posture, breath and voice",
+  "readySecFinalChecks": "Before you leave",
+  "readyPlanned": "Wear the outfit you planned for today",
+  "readySuggested": "Wear this from your wardrobe",
+  "readyGuideInterview": "Smart and plain: a pressed shirt or blouse, tailored trousers or skirt, closed shoes",
+  "readyGuidePresentation": "A smart layer that you can move in comfortably, in one or two calm colours",
+  "readyGuideOffice": "Smart casual: collar or neat top, well-fitting trousers, clean shoes",
+  "readyGuideDate": "Something you feel confident in, a step smarter than everyday",
+  "readyGuideWedding": "Festive and dressy: rich colours or traditional wear, polished shoes",
+  "readyGuideFestival": "Bright or traditional, comfortable for a long day",
+  "readyGuideParty": "One statement piece with simple basics",
+  "readyGuideCasual": "Comfortable and neat for the weather",
+  "readyGuideGym": "Breathable workout clothes and supportive shoes",
+  "readyGuideTravel": "Comfortable layers and easy shoes",
+  "readyGuideEthnic": "Traditional wear: kurta, saree, sherwani or lehenga in festive colours",
+  "readyModest": "Choose full-coverage pieces, as you prefer",
+  "readyFitSlim": "Go for a slim, clean fit",
+  "readyFitRegular": "Go for a regular, comfortable fit",
+  "readyFitRelaxed": "Keep it relaxed, but neat at the shoulders",
+  "readyFitOversized": "Balance oversized pieces with one fitted piece",
+  "readyFitTailored": "Tailored pieces: check sleeves and hems",
+  "readyColours": "Keep your best colours near your face",
+  "readyPress": "Iron or steam the outfit",
+  "readyShoes": "Clean or polish your shoes",
+  "readyLayer": "Bring a layer for the weather",
+  "readyHairStyle": "Hair: {style} suits your face shape",
+  "@readyHairStyle": {
+    "placeholders": {
+      "style": {
+        "type": "String"
+      }
+    }
+  },
+  "readyHairTidy": "Style or tidy your hair",
+  "readyBeardStyle": "Beard: shape it as {style}",
+  "@readyBeardStyle": {
+    "placeholders": {
+      "style": {
+        "type": "String"
+      }
+    }
+  },
+  "readyBeardTidy": "Trim or shave; clean the neckline",
+  "readySkin": "Cleanse and moisturise",
+  "readySunscreen": "Sunscreen for time outdoors",
+  "readyNails": "Clean and trim nails",
+  "readyScentLight": "A light fragrance, or none",
+  "readyGymHair": "Tie hair back; bring a towel",
+  "readyPosture": "Stand tall: shoulders back and down, chin level",
+  "readyBreath": "Slow breathing for a minute: in 4, out 6",
+  "readyFaceWarmup": "Warm up your face and voice for two minutes",
+  "readyVoice": "Speak a little slower than feels natural, and pause",
+  "readyEyeContact": "Friendly eye contact, then look away briefly",
+  "readyThreePoints": "Know your three key points by heart",
+  "readyDocuments": "Copies of documents or slides, and a pen",
+  "readyTravelDocs": "ID, tickets, chargers and medicines",
+  "readyGymKit": "Water, towel, shoes and a change of clothes",
+  "readyGift": "The gift or shagun",
+  "readyWater": "A bottle of water",
+  "readyPhone": "Phone charged, keys and wallet",
+  "readyEarly": "Leave early so you arrive calm",
+  "calendarEarlier": "Earlier",
+  "calendarLater": "Later",
+  "calendarNoOutfits": "Save a few outfits first, then plan them here.",
+  "calendarToday": "Today",
+  "calendarPlan": "Plan",
+  "calendarWorn": "Worn",
+  "calendarWoreIt": "Wore it",
+  "calendarRemove": "Remove",
+  "calendarPickTitle": "Pick an outfit",
+  "calendarNoneForOccasion": "No saved outfits for this occasion yet.",
+  "statsPriceTitle": "What did {name} cost?",
+  "@statsPriceTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "statsPrice": "Price",
+  "statsPriceHelp": "Optional. Stays on this phone; leave empty to clear.",
+  "statsWears": "{count, plural, =0{not worn yet} =1{worn once} other{worn {count} times}}",
+  "@statsWears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsLastWorn": "last {date}",
+  "@statsLastWorn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "statsAddPrice": "Add price",
+  "statsEmpty": "Add clothes to your wardrobe and mark outfits as worn to see what you really wear.",
+  "statsItems": "items",
+  "statsTotalWears": "times worn",
+  "statsNeutrals": "neutral basics",
+  "statsGaps": "What's missing",
+  "statsMostWorn": "Most worn",
+  "statsBestValue": "Best value",
+  "statsBestValueHelp": "Lowest cost per wear so far.",
+  "statsPerWear": "{price} a wear",
+  "@statsPerWear": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "statsNeverWorn": "Not worn yet",
+  "statsNeverWornHelp": "Try one of these this week, or pass it on.",
+  "gapBottoms": "Bottoms",
+  "gapAdviceBottoms": "Add trousers, jeans or a skirt so tops can become outfits.",
+  "gapFootwear": "Shoes",
+  "gapAdviceFootwear": "One versatile pair (white sneakers or plain loafers) completes most outfits.",
+  "gapWorkTop": "A work top",
+  "gapAdviceWorkTop": "A plain shirt or blouse in white, light blue or a soft neutral.",
+  "gapFormalWear": "Something formal",
+  "gapAdviceFormalWear": "A blazer, suit or formal dress for important days.",
+  "gapFestiveEthnic": "Festive or traditional wear",
+  "gapAdviceFestiveEthnic": "One kurta, saree or ethnic set in a colour from your palette.",
+  "gapNeutralBasics": "Neutral basics",
+  "gapAdviceNeutralBasics": "Add two neutral pieces (navy, beige, grey, white) so colourful ones pair easily.",
+  "gapSportwear": "Workout clothes",
+  "gapAdviceSportwear": "Breathable tops and shorts or leggings for exercise.",
+  "gapOuterwear": "A jacket or layer",
+  "gapAdviceOuterwear": "A jacket or cardigan for cooler days.",
+  "glassesSizeTip": "Size matters as much as shape: the frame should be about as wide as your face at the temples, with your eyes near the centre of each lens.",
+  "glassesTryOn": "Try on live",
+  "glassesNoShape": "Analyse your face shape for personal fits",
+  "glassesForShape": "Ranked for your {shape} face",
+  "@glassesForShape": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "glassesHonest": "Fit guidance from contrast rules, not a judgement of looks. Wear what you love.",
+  "fitGreat": "Great fit",
+  "fitGood": "Good fit",
+  "fitLess": "Less balancing",
+  "fitReasonAddsAngles": "Angular lines add definition to softer, rounder features.",
+  "fitReasonSoftensAngles": "Curved frames soften a strong jaw and forehead.",
+  "fitReasonAddsLength": "Deeper frames break up length and add width.",
+  "fitReasonBalancesForehead": "Lighter or bottom-heavy frames balance a wider forehead.",
+  "fitReasonLiftsCheekbones": "Upswept or oval frames highlight the cheekbones.",
+  "fitReasonSuitsMost": "Balanced proportions suit most frames; go with what you love.",
+  "fitReasonEchoesShape": "This shape repeats your face's own lines, so it balances less. Still yours to choose.",
+  "fitReasonUnknownShape": "Analyse your face to see how this frame balances your shape."
 }

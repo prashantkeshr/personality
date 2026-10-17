@@ -1,0 +1,222 @@
+[
+ {
+  "id": "slim_rect_black",
+  "name": {
+   "en": "Slim rectangle, black",
+   "hi": "पतला आयताकार, काला"
+  },
+  "shape": "rectangular",
+  "color": "#1C1C1E",
+  "thick": false,
+  "size": "medium"
+ },
+ {
+  "id": "bold_rect_tortoise",
+  "name": {
+   "en": "Bold rectangle, tortoiseshell",
+   "hi": "मोटा आयताकार, कछुआ-शेल"
+  },
+  "shape": "rectangular",
+  "color": "#6B3E26",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "wayfarer_black",
+  "name": {
+   "en": "Classic wayfarer, black",
+   "hi": "क्लासिक वेफ़ेरर, काला"
+  },
+  "shape": "classic",
+  "color": "#111111",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "wayfarer_havana",
+  "name": {
+   "en": "Classic wayfarer, havana",
+   "hi": "क्लासिक वेफ़ेरर, हवाना"
+  },
+  "shape": "classic",
+  "color": "#7A4A2A",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "round_gold",
+  "name": {
+   "en": "Round wire, gold",
+   "hi": "गोल तार, सुनहरा"
+  },
+  "shape": "round",
+  "color": "#B8913A",
+  "thick": false,
+  "size": "medium"
+ },
+ {
+  "id": "round_tortoise",
+  "name": {
+   "en": "Round acetate, tortoiseshell",
+   "hi": "गोल एसीटेट, कछुआ-शेल"
+  },
+  "shape": "round",
+  "color": "#5C3A21",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "browline_black_gold",
+  "name": {
+   "en": "Browline, black and gold",
+   "hi": "ब्राउलाइन, काला और सुनहरा"
+  },
+  "shape": "browline",
+  "color": "#1C1C1E",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "browline_tortoise",
+  "name": {
+   "en": "Browline, tortoiseshell",
+   "hi": "ब्राउलाइन, कछुआ-शेल"
+  },
+  "shape": "browline",
+  "color": "#6B3E26",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "aviator_gold",
+  "name": {
+   "en": "Aviator, gold",
+   "hi": "एविएटर, सुनहरा"
+  },
+  "shape": "aviator",
+  "color": "#B8913A",
+  "thick": false,
+  "size": "wide"
+ },
+ {
+  "id": "aviator_gunmetal",
+  "name": {
+   "en": "Aviator, gunmetal",
+   "hi": "एविएटर, गनमेटल"
+  },
+  "shape": "aviator",
+  "color": "#4A4F55",
+  "thick": false,
+  "size": "wide"
+ },
+ {
+  "id": "cateye_black",
+  "name": {
+   "en": "Cat-eye, black",
+   "hi": "कैट-आई, काला"
+  },
+  "shape": "catEye",
+  "color": "#1C1C1E",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "cateye_burgundy",
+  "name": {
+   "en": "Cat-eye, burgundy",
+   "hi": "कैट-आई, बरगंडी"
+  },
+  "shape": "catEye",
+  "color": "#6E1F2E",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "oval_silver",
+  "name": {
+   "en": "Soft oval, silver",
+   "hi": "नरम अंडाकार, चाँदी"
+  },
+  "shape": "oval",
+  "color": "#9AA0A6",
+  "thick": false,
+  "size": "medium"
+ },
+ {
+  "id": "oval_clear",
+  "name": {
+   "en": "Soft oval, crystal",
+   "hi": "नरम अंडाकार, क्रिस्टल"
+  },
+  "shape": "oval",
+  "color": "#B7C4C9",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "square_bold_black",
+  "name": {
+   "en": "Bold square, black",
+   "hi": "मोटा चौकोर, काला"
+  },
+  "shape": "square",
+  "color": "#111111",
+  "thick": true,
+  "size": "wide"
+ },
+ {
+  "id": "square_navy",
+  "name": {
+   "en": "Square, navy",
+   "hi": "चौकोर, नेवी"
+  },
+  "shape": "square",
+  "color": "#1F2A44",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "geo_gold",
+  "name": {
+   "en": "Geometric, gold",
+   "hi": "ज्यामितीय, सुनहरा"
+  },
+  "shape": "geometric",
+  "color": "#B8913A",
+  "thick": false,
+  "size": "medium"
+ },
+ {
+  "id": "deep_black",
+  "name": {
+   "en": "Deep rectangle, black",
+   "hi": "गहरा आयताकार, काला"
+  },
+  "shape": "deep",
+  "color": "#1C1C1E",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "deep_olive",
+  "name": {
+   "en": "Deep rectangle, olive",
+   "hi": "गहरा आयताकार, ऑलिव"
+  },
+  "shape": "deep",
+  "color": "#4E5B31",
+  "thick": true,
+  "size": "medium"
+ },
+ {
+  "id": "rimless_titanium",
+  "name": {
+   "en": "Rimless, titanium",
+   "hi": "बिना फ़्रेम, टाइटेनियम"
+  },
+  "shape": "rimless",
+  "color": "#8A8F96",
+  "thick": false,
+  "size": "narrow"
+ }
+]

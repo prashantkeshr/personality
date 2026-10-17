@@ -16,17 +16,52 @@ T _enum<T extends Enum>(List<T> values, String name, T fallback) {
 
 enum StylePreference { classic, minimal, smartCasual, street, traditional, sporty }
 
-/// The user's colour and style profile (stored as app settings).
+/// How clothes should sit on the body.
+enum FitPreference { slim, regular, relaxed, oversized, tailored }
+
+enum BudgetLevel { value, midRange, premium }
+
+/// How much coverage the user prefers; shapes every suggestion.
+enum Modesty { relaxed, moderate, covered }
+
+enum CulturalWear { indianEthnic, modest, western, fusion }
+
+/// The user's colour and style profile ("Style DNA"), stored as app settings.
 class StyleProfile {
   const StyleProfile({
     this.undertone,
     this.depth,
     this.styles = const {},
+    this.fits = const {},
+    this.budget,
+    this.modesty,
+    this.cultural = const {},
+    this.occasions = const {},
   });
 
   final Undertone? undertone;
   final SkinDepth? depth;
   final Set<StylePreference> styles;
+  final Set<FitPreference> fits;
+  final BudgetLevel? budget;
+  final Modesty? modesty;
+  final Set<CulturalWear> cultural;
+
+  /// Occasions the user dresses for most.
+  final Set<Occasion> occasions;
+
+  /// How much of the Style DNA is filled in (0–1), for gentle prompts.
+  double get completeness =>
+      [
+        hasPalette,
+        styles.isNotEmpty,
+        fits.isNotEmpty,
+        budget != null,
+        modesty != null,
+        cultural.isNotEmpty,
+        occasions.isNotEmpty,
+      ].where((b) => b).length /
+      7;
 
   bool get hasPalette => undertone != null && depth != null;
   Palette? get palette =>
@@ -47,6 +82,16 @@ class SavedOutfit {
   final List<int> wornDays;
 }
 
+/// An outfit planned for a day in the outfit calendar.
+class OutfitPlan {
+  const OutfitPlan({required this.id, required this.day, required this.outfitId, required this.occasion, this.note});
+  final String id;
+  final int day;
+  final String outfitId;
+  final Occasion occasion;
+  final String? note;
+}
+
 /// Wardrobe, outfits and style profile. Photos stay in the encrypted DB.
 class StyleRepository {
   StyleRepository(this._db, {Clock? clock, Uuid? uuid})
@@ -62,12 +107,23 @@ class StyleRepository {
   static const _kUndertone = 'style.undertone';
   static const _kDepth = 'style.depth';
   static const _kStyles = 'style.preferences';
+  static const _kFits = 'style.fits';
+  static const _kBudget = 'style.budget';
+  static const _kModesty = 'style.modesty';
+  static const _kCultural = 'style.cultural';
+  static const _kOccasions = 'style.occasions';
+
+  static Set<T> _set<T extends Enum>(List<T> values, String? csv) => {
+        for (final n in (csv ?? '').split(','))
+          if (n.isNotEmpty && values.any((v) => v.name == n)) values.byName(n),
+      };
 
   // ---------- profile ----------
 
   Stream<StyleProfile> watchProfile() {
     final q = _db.select(_db.appSettingsEntries)
-      ..where((t) => t.key.isIn([_kUndertone, _kDepth, _kStyles]));
+      ..where((t) => t.key
+          .isIn([_kUndertone, _kDepth, _kStyles, _kFits, _kBudget, _kModesty, _kCultural, _kOccasions]));
     return q.watch().map((rows) {
       final m = {for (final r in rows) r.key: r.value};
       return StyleProfile(
@@ -82,6 +138,11 @@ class StyleRepository {
             if (n.isNotEmpty)
               _enum(StylePreference.values, n, StylePreference.classic),
         },
+        fits: _set(FitPreference.values, m[_kFits]),
+        budget: m[_kBudget] == null ? null : _enum(BudgetLevel.values, m[_kBudget]!, BudgetLevel.midRange),
+        modesty: m[_kModesty] == null ? null : _enum(Modesty.values, m[_kModesty]!, Modesty.moderate),
+        cultural: _set(CulturalWear.values, m[_kCultural]),
+        occasions: _set(Occasion.values, m[_kOccasions]),
       );
     });
   }
@@ -101,6 +162,22 @@ class StyleRepository {
   Future<void> setStyles(Set<StylePreference> s) =>
       _put(_kStyles, s.map((e) => e.name).join(','));
 
+  /// Saves the rest of the Style DNA in one go.
+  Future<void> setDna({
+    required Set<FitPreference> fits,
+    BudgetLevel? budget,
+    Modesty? modesty,
+    required Set<CulturalWear> cultural,
+    required Set<Occasion> occasions,
+  }) =>
+      _db.transaction(() async {
+        await _put(_kFits, fits.map((e) => e.name).join(','));
+        await _put(_kCultural, cultural.map((e) => e.name).join(','));
+        await _put(_kOccasions, occasions.map((e) => e.name).join(','));
+        if (budget != null) await _put(_kBudget, budget.name);
+        if (modesty != null) await _put(_kModesty, modesty.name);
+      });
+
   // ---------- wardrobe ----------
 
   WardrobeItem _toItem(WardrobeRow r) => WardrobeItem(
@@ -115,6 +192,7 @@ class StyleRepository {
             if (n.isNotEmpty) _enum(Occasion.values, n, Occasion.casual),
         },
         favorite: r.favorite,
+        price: r.price,
       );
 
   Stream<List<WardrobeItem>> watchWardrobe() {
@@ -150,6 +228,7 @@ class StyleRepository {
     int formality = 3,
     Set<Occasion> occasions = const {},
     Uint8List? photo,
+    double? price,
   }) async {
     _validate(name, colorHex, formality);
     final id = _uuid.v4();
@@ -162,11 +241,16 @@ class StyleRepository {
           formality: formality,
           occasions: Value(occasions.map((o) => o.name).join(',')),
           photo: Value(photo),
+          price: Value(price),
           createdAt: _now,
           updatedAt: _now,
         ));
     return id;
   }
+
+  Future<void> setPrice(String id, double? price) =>
+      (_db.update(_db.wardrobeItems)..where((t) => t.id.equals(id))).write(
+          WardrobeItemsCompanion(price: Value(price), updatedAt: Value(_now)));
 
   Future<void> setFavorite(String id, bool on) =>
       (_db.update(_db.wardrobeItems)..where((t) => t.id.equals(id))).write(
@@ -252,6 +336,45 @@ class StyleRepository {
       ];
     });
   }
+
+  // ---------- outfit calendar ----------
+
+  /// Plans [outfitId] for [day] (yyyymmdd). One plan per day and occasion.
+  Future<String> planOutfit(int day, String outfitId, Occasion occasion, {String? note}) async {
+    final id = '$day:${occasion.name}';
+    final n = note?.trim();
+    await _db.into(_db.outfitPlans).insertOnConflictUpdate(OutfitPlansCompanion.insert(
+        id: id,
+        day: day,
+        outfitId: outfitId,
+        occasion: occasion.name,
+        note: Value(n == null || n.isEmpty ? null : n),
+        createdAt: _now));
+    return id;
+  }
+
+  Future<void> removePlan(String id) => (_db.delete(_db.outfitPlans)..where((t) => t.id.equals(id))).go();
+
+  /// Plans from [fromDay] to [toDay] inclusive, by day.
+  Stream<List<OutfitPlan>> watchPlans(int fromDay, int toDay) {
+    final q = _db.select(_db.outfitPlans)
+      ..where((t) => t.day.isBetweenValues(fromDay, toDay))
+      ..orderBy([(t) => OrderingTerm.asc(t.day)]);
+    return q.watch().map((rows) => [
+          for (final r in rows)
+            OutfitPlan(
+                id: r.id,
+                day: r.day,
+                outfitId: r.outfitId,
+                occasion: _enum(Occasion.values, r.occasion, Occasion.casual),
+                note: r.note),
+        ]);
+  }
+
+  /// Records that an outfit was worn on a given day.
+  Future<void> markWornOn(String outfitId, int day) => _db
+      .into(_db.outfitWears)
+      .insertOnConflictUpdate(OutfitWearsCompanion.insert(outfitId: outfitId, day: day));
 
   /// Item ids worn within the last [days] days (for variety).
   Future<Set<String>> recentlyWornItems({int days = 7}) async {

@@ -7783,6 +7783,960 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear'**
   String get searchClear;
+
+  /// No description provided for @featureStyleDna.
+  ///
+  /// In en, this message translates to:
+  /// **'Style DNA'**
+  String get featureStyleDna;
+
+  /// No description provided for @featureGetReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Get ready for…'**
+  String get featureGetReady;
+
+  /// No description provided for @featureOutfitCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit calendar'**
+  String get featureOutfitCalendar;
+
+  /// No description provided for @featureWardrobeStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Wardrobe stats'**
+  String get featureWardrobeStats;
+
+  /// No description provided for @featureGlasses.
+  ///
+  /// In en, this message translates to:
+  /// **'Glasses finder'**
+  String get featureGlasses;
+
+  /// No description provided for @dnaSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Style DNA saved'**
+  String get dnaSaved;
+
+  /// No description provided for @dnaYour.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Style DNA'**
+  String get dnaYour;
+
+  /// No description provided for @dnaEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick what feels like you below. Every suggestion in the app follows it.'**
+  String get dnaEmpty;
+
+  /// No description provided for @dnaPaletteDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your colours'**
+  String get dnaPaletteDone;
+
+  /// No description provided for @dnaFindPalette.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your colours'**
+  String get dnaFindPalette;
+
+  /// No description provided for @dnaFindShape.
+  ///
+  /// In en, this message translates to:
+  /// **'Find face shape'**
+  String get dnaFindShape;
+
+  /// No description provided for @dnaStyles.
+  ///
+  /// In en, this message translates to:
+  /// **'Styles you like'**
+  String get dnaStyles;
+
+  /// No description provided for @dnaStylesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick as many as you like.'**
+  String get dnaStylesHelp;
+
+  /// No description provided for @dnaFits.
+  ///
+  /// In en, this message translates to:
+  /// **'How you like clothes to fit'**
+  String get dnaFits;
+
+  /// No description provided for @dnaFitsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Used for outfit tips and shopping gaps.'**
+  String get dnaFitsHelp;
+
+  /// No description provided for @dnaOccasions.
+  ///
+  /// In en, this message translates to:
+  /// **'What you dress for most'**
+  String get dnaOccasions;
+
+  /// No description provided for @dnaOccasionsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Shapes wardrobe gaps and the outfit calendar.'**
+  String get dnaOccasionsHelp;
+
+  /// No description provided for @dnaCultural.
+  ///
+  /// In en, this message translates to:
+  /// **'Cultural and traditional wear'**
+  String get dnaCultural;
+
+  /// No description provided for @dnaCulturalHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'So festive and wedding ideas fit your traditions.'**
+  String get dnaCulturalHelp;
+
+  /// No description provided for @dnaModesty.
+  ///
+  /// In en, this message translates to:
+  /// **'Coverage you prefer'**
+  String get dnaModesty;
+
+  /// No description provided for @dnaModestyHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Every outfit idea respects this.'**
+  String get dnaModestyHelp;
+
+  /// No description provided for @dnaBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget'**
+  String get dnaBudget;
+
+  /// No description provided for @dnaBudgetHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'For gaps and new-buy ideas only. Never shared.'**
+  String get dnaBudgetHelp;
+
+  /// No description provided for @fitPrefSlim.
+  ///
+  /// In en, this message translates to:
+  /// **'Slim'**
+  String get fitPrefSlim;
+
+  /// No description provided for @fitPrefRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular'**
+  String get fitPrefRegular;
+
+  /// No description provided for @fitPrefRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get fitPrefRelaxed;
+
+  /// No description provided for @fitPrefOversized.
+  ///
+  /// In en, this message translates to:
+  /// **'Oversized'**
+  String get fitPrefOversized;
+
+  /// No description provided for @fitPrefTailored.
+  ///
+  /// In en, this message translates to:
+  /// **'Tailored'**
+  String get fitPrefTailored;
+
+  /// No description provided for @culturalIndianEthnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Indian ethnic'**
+  String get culturalIndianEthnic;
+
+  /// No description provided for @culturalModest.
+  ///
+  /// In en, this message translates to:
+  /// **'Modest fashion'**
+  String get culturalModest;
+
+  /// No description provided for @culturalWestern.
+  ///
+  /// In en, this message translates to:
+  /// **'Western'**
+  String get culturalWestern;
+
+  /// No description provided for @culturalFusion.
+  ///
+  /// In en, this message translates to:
+  /// **'Indo-western fusion'**
+  String get culturalFusion;
+
+  /// No description provided for @modestyRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxed'**
+  String get modestyRelaxed;
+
+  /// No description provided for @modestyModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get modestyModerate;
+
+  /// No description provided for @modestyCovered.
+  ///
+  /// In en, this message translates to:
+  /// **'Fully covered'**
+  String get modestyCovered;
+
+  /// No description provided for @budgetValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get budgetValue;
+
+  /// No description provided for @budgetMidRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Mid-range'**
+  String get budgetMidRange;
+
+  /// No description provided for @budgetPremium.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get budgetPremium;
+
+  /// No description provided for @readyIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick what you\'re getting ready for. You\'ll get one checklist: outfit, grooming and how to carry yourself.'**
+  String get readyIntro;
+
+  /// No description provided for @readyProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} ready'**
+  String readyProgress(int done, int total);
+
+  /// No description provided for @readyOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get readyOpen;
+
+  /// No description provided for @readyEvInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview'**
+  String get readyEvInterview;
+
+  /// No description provided for @readyEvPresentation.
+  ///
+  /// In en, this message translates to:
+  /// **'Presentation'**
+  String get readyEvPresentation;
+
+  /// No description provided for @readyEvOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Office day'**
+  String get readyEvOffice;
+
+  /// No description provided for @readyEvDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get readyEvDate;
+
+  /// No description provided for @readyEvWedding.
+  ///
+  /// In en, this message translates to:
+  /// **'Wedding'**
+  String get readyEvWedding;
+
+  /// No description provided for @readyEvFestival.
+  ///
+  /// In en, this message translates to:
+  /// **'Festival'**
+  String get readyEvFestival;
+
+  /// No description provided for @readyEvParty.
+  ///
+  /// In en, this message translates to:
+  /// **'Party'**
+  String get readyEvParty;
+
+  /// No description provided for @readyEvCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Day out'**
+  String get readyEvCasual;
+
+  /// No description provided for @readyEvGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym'**
+  String get readyEvGym;
+
+  /// No description provided for @readyEvTravel.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel'**
+  String get readyEvTravel;
+
+  /// No description provided for @readySecOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit'**
+  String get readySecOutfit;
+
+  /// No description provided for @readySecGrooming.
+  ///
+  /// In en, this message translates to:
+  /// **'Grooming'**
+  String get readySecGrooming;
+
+  /// No description provided for @readySecPresentation.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture, breath and voice'**
+  String get readySecPresentation;
+
+  /// No description provided for @readySecFinalChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'Before you leave'**
+  String get readySecFinalChecks;
+
+  /// No description provided for @readyPlanned.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear the outfit you planned for today'**
+  String get readyPlanned;
+
+  /// No description provided for @readySuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear this from your wardrobe'**
+  String get readySuggested;
+
+  /// No description provided for @readyGuideInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart and plain: a pressed shirt or blouse, tailored trousers or skirt, closed shoes'**
+  String get readyGuideInterview;
+
+  /// No description provided for @readyGuidePresentation.
+  ///
+  /// In en, this message translates to:
+  /// **'A smart layer that you can move in comfortably, in one or two calm colours'**
+  String get readyGuidePresentation;
+
+  /// No description provided for @readyGuideOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart casual: collar or neat top, well-fitting trousers, clean shoes'**
+  String get readyGuideOffice;
+
+  /// No description provided for @readyGuideDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Something you feel confident in, a step smarter than everyday'**
+  String get readyGuideDate;
+
+  /// No description provided for @readyGuideWedding.
+  ///
+  /// In en, this message translates to:
+  /// **'Festive and dressy: rich colours or traditional wear, polished shoes'**
+  String get readyGuideWedding;
+
+  /// No description provided for @readyGuideFestival.
+  ///
+  /// In en, this message translates to:
+  /// **'Bright or traditional, comfortable for a long day'**
+  String get readyGuideFestival;
+
+  /// No description provided for @readyGuideParty.
+  ///
+  /// In en, this message translates to:
+  /// **'One statement piece with simple basics'**
+  String get readyGuideParty;
+
+  /// No description provided for @readyGuideCasual.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable and neat for the weather'**
+  String get readyGuideCasual;
+
+  /// No description provided for @readyGuideGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathable workout clothes and supportive shoes'**
+  String get readyGuideGym;
+
+  /// No description provided for @readyGuideTravel.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable layers and easy shoes'**
+  String get readyGuideTravel;
+
+  /// No description provided for @readyGuideEthnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional wear: kurta, saree, sherwani or lehenga in festive colours'**
+  String get readyGuideEthnic;
+
+  /// No description provided for @readyModest.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose full-coverage pieces, as you prefer'**
+  String get readyModest;
+
+  /// No description provided for @readyFitSlim.
+  ///
+  /// In en, this message translates to:
+  /// **'Go for a slim, clean fit'**
+  String get readyFitSlim;
+
+  /// No description provided for @readyFitRegular.
+  ///
+  /// In en, this message translates to:
+  /// **'Go for a regular, comfortable fit'**
+  String get readyFitRegular;
+
+  /// No description provided for @readyFitRelaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep it relaxed, but neat at the shoulders'**
+  String get readyFitRelaxed;
+
+  /// No description provided for @readyFitOversized.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance oversized pieces with one fitted piece'**
+  String get readyFitOversized;
+
+  /// No description provided for @readyFitTailored.
+  ///
+  /// In en, this message translates to:
+  /// **'Tailored pieces: check sleeves and hems'**
+  String get readyFitTailored;
+
+  /// No description provided for @readyColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your best colours near your face'**
+  String get readyColours;
+
+  /// No description provided for @readyPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Iron or steam the outfit'**
+  String get readyPress;
+
+  /// No description provided for @readyShoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean or polish your shoes'**
+  String get readyShoes;
+
+  /// No description provided for @readyLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a layer for the weather'**
+  String get readyLayer;
+
+  /// No description provided for @readyHairStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hair: {style} suits your face shape'**
+  String readyHairStyle(String style);
+
+  /// No description provided for @readyHairTidy.
+  ///
+  /// In en, this message translates to:
+  /// **'Style or tidy your hair'**
+  String get readyHairTidy;
+
+  /// No description provided for @readyBeardStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Beard: shape it as {style}'**
+  String readyBeardStyle(String style);
+
+  /// No description provided for @readyBeardTidy.
+  ///
+  /// In en, this message translates to:
+  /// **'Trim or shave; clean the neckline'**
+  String get readyBeardTidy;
+
+  /// No description provided for @readySkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Cleanse and moisturise'**
+  String get readySkin;
+
+  /// No description provided for @readySunscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunscreen for time outdoors'**
+  String get readySunscreen;
+
+  /// No description provided for @readyNails.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean and trim nails'**
+  String get readyNails;
+
+  /// No description provided for @readyScentLight.
+  ///
+  /// In en, this message translates to:
+  /// **'A light fragrance, or none'**
+  String get readyScentLight;
+
+  /// No description provided for @readyGymHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Tie hair back; bring a towel'**
+  String get readyGymHair;
+
+  /// No description provided for @readyPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand tall: shoulders back and down, chin level'**
+  String get readyPosture;
+
+  /// No description provided for @readyBreath.
+  ///
+  /// In en, this message translates to:
+  /// **'Slow breathing for a minute: in 4, out 6'**
+  String get readyBreath;
+
+  /// No description provided for @readyFaceWarmup.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm up your face and voice for two minutes'**
+  String get readyFaceWarmup;
+
+  /// No description provided for @readyVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak a little slower than feels natural, and pause'**
+  String get readyVoice;
+
+  /// No description provided for @readyEyeContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Friendly eye contact, then look away briefly'**
+  String get readyEyeContact;
+
+  /// No description provided for @readyThreePoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Know your three key points by heart'**
+  String get readyThreePoints;
+
+  /// No description provided for @readyDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'Copies of documents or slides, and a pen'**
+  String get readyDocuments;
+
+  /// No description provided for @readyTravelDocs.
+  ///
+  /// In en, this message translates to:
+  /// **'ID, tickets, chargers and medicines'**
+  String get readyTravelDocs;
+
+  /// No description provided for @readyGymKit.
+  ///
+  /// In en, this message translates to:
+  /// **'Water, towel, shoes and a change of clothes'**
+  String get readyGymKit;
+
+  /// No description provided for @readyGift.
+  ///
+  /// In en, this message translates to:
+  /// **'The gift or shagun'**
+  String get readyGift;
+
+  /// No description provided for @readyWater.
+  ///
+  /// In en, this message translates to:
+  /// **'A bottle of water'**
+  String get readyWater;
+
+  /// No description provided for @readyPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone charged, keys and wallet'**
+  String get readyPhone;
+
+  /// No description provided for @readyEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave early so you arrive calm'**
+  String get readyEarly;
+
+  /// No description provided for @calendarEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get calendarEarlier;
+
+  /// No description provided for @calendarLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get calendarLater;
+
+  /// No description provided for @calendarNoOutfits.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a few outfits first, then plan them here.'**
+  String get calendarNoOutfits;
+
+  /// No description provided for @calendarToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get calendarToday;
+
+  /// No description provided for @calendarPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan'**
+  String get calendarPlan;
+
+  /// No description provided for @calendarWorn.
+  ///
+  /// In en, this message translates to:
+  /// **'Worn'**
+  String get calendarWorn;
+
+  /// No description provided for @calendarWoreIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Wore it'**
+  String get calendarWoreIt;
+
+  /// No description provided for @calendarRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get calendarRemove;
+
+  /// No description provided for @calendarPickTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick an outfit'**
+  String get calendarPickTitle;
+
+  /// No description provided for @calendarNoneForOccasion.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved outfits for this occasion yet.'**
+  String get calendarNoneForOccasion;
+
+  /// No description provided for @statsPriceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What did {name} cost?'**
+  String statsPriceTitle(String name);
+
+  /// No description provided for @statsPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get statsPrice;
+
+  /// No description provided for @statsPriceHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Stays on this phone; leave empty to clear.'**
+  String get statsPriceHelp;
+
+  /// No description provided for @statsWears.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{not worn yet} =1{worn once} other{worn {count} times}}'**
+  String statsWears(int count);
+
+  /// No description provided for @statsLastWorn.
+  ///
+  /// In en, this message translates to:
+  /// **'last {date}'**
+  String statsLastWorn(String date);
+
+  /// No description provided for @statsAddPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Add price'**
+  String get statsAddPrice;
+
+  /// No description provided for @statsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add clothes to your wardrobe and mark outfits as worn to see what you really wear.'**
+  String get statsEmpty;
+
+  /// No description provided for @statsItems.
+  ///
+  /// In en, this message translates to:
+  /// **'items'**
+  String get statsItems;
+
+  /// No description provided for @statsTotalWears.
+  ///
+  /// In en, this message translates to:
+  /// **'times worn'**
+  String get statsTotalWears;
+
+  /// No description provided for @statsNeutrals.
+  ///
+  /// In en, this message translates to:
+  /// **'neutral basics'**
+  String get statsNeutrals;
+
+  /// No description provided for @statsGaps.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s missing'**
+  String get statsGaps;
+
+  /// No description provided for @statsMostWorn.
+  ///
+  /// In en, this message translates to:
+  /// **'Most worn'**
+  String get statsMostWorn;
+
+  /// No description provided for @statsBestValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Best value'**
+  String get statsBestValue;
+
+  /// No description provided for @statsBestValueHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest cost per wear so far.'**
+  String get statsBestValueHelp;
+
+  /// No description provided for @statsPerWear.
+  ///
+  /// In en, this message translates to:
+  /// **'{price} a wear'**
+  String statsPerWear(String price);
+
+  /// No description provided for @statsNeverWorn.
+  ///
+  /// In en, this message translates to:
+  /// **'Not worn yet'**
+  String get statsNeverWorn;
+
+  /// No description provided for @statsNeverWornHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Try one of these this week, or pass it on.'**
+  String get statsNeverWornHelp;
+
+  /// No description provided for @gapBottoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottoms'**
+  String get gapBottoms;
+
+  /// No description provided for @gapAdviceBottoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Add trousers, jeans or a skirt so tops can become outfits.'**
+  String get gapAdviceBottoms;
+
+  /// No description provided for @gapFootwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoes'**
+  String get gapFootwear;
+
+  /// No description provided for @gapAdviceFootwear.
+  ///
+  /// In en, this message translates to:
+  /// **'One versatile pair (white sneakers or plain loafers) completes most outfits.'**
+  String get gapAdviceFootwear;
+
+  /// No description provided for @gapWorkTop.
+  ///
+  /// In en, this message translates to:
+  /// **'A work top'**
+  String get gapWorkTop;
+
+  /// No description provided for @gapAdviceWorkTop.
+  ///
+  /// In en, this message translates to:
+  /// **'A plain shirt or blouse in white, light blue or a soft neutral.'**
+  String get gapAdviceWorkTop;
+
+  /// No description provided for @gapFormalWear.
+  ///
+  /// In en, this message translates to:
+  /// **'Something formal'**
+  String get gapFormalWear;
+
+  /// No description provided for @gapAdviceFormalWear.
+  ///
+  /// In en, this message translates to:
+  /// **'A blazer, suit or formal dress for important days.'**
+  String get gapAdviceFormalWear;
+
+  /// No description provided for @gapFestiveEthnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Festive or traditional wear'**
+  String get gapFestiveEthnic;
+
+  /// No description provided for @gapAdviceFestiveEthnic.
+  ///
+  /// In en, this message translates to:
+  /// **'One kurta, saree or ethnic set in a colour from your palette.'**
+  String get gapAdviceFestiveEthnic;
+
+  /// No description provided for @gapNeutralBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral basics'**
+  String get gapNeutralBasics;
+
+  /// No description provided for @gapAdviceNeutralBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Add two neutral pieces (navy, beige, grey, white) so colourful ones pair easily.'**
+  String get gapAdviceNeutralBasics;
+
+  /// No description provided for @gapSportwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout clothes'**
+  String get gapSportwear;
+
+  /// No description provided for @gapAdviceSportwear.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathable tops and shorts or leggings for exercise.'**
+  String get gapAdviceSportwear;
+
+  /// No description provided for @gapOuterwear.
+  ///
+  /// In en, this message translates to:
+  /// **'A jacket or layer'**
+  String get gapOuterwear;
+
+  /// No description provided for @gapAdviceOuterwear.
+  ///
+  /// In en, this message translates to:
+  /// **'A jacket or cardigan for cooler days.'**
+  String get gapAdviceOuterwear;
+
+  /// No description provided for @glassesSizeTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Size matters as much as shape: the frame should be about as wide as your face at the temples, with your eyes near the centre of each lens.'**
+  String get glassesSizeTip;
+
+  /// No description provided for @glassesTryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Try on live'**
+  String get glassesTryOn;
+
+  /// No description provided for @glassesNoShape.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyse your face shape for personal fits'**
+  String get glassesNoShape;
+
+  /// No description provided for @glassesForShape.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranked for your {shape} face'**
+  String glassesForShape(String shape);
+
+  /// No description provided for @glassesHonest.
+  ///
+  /// In en, this message translates to:
+  /// **'Fit guidance from contrast rules, not a judgement of looks. Wear what you love.'**
+  String get glassesHonest;
+
+  /// No description provided for @fitGreat.
+  ///
+  /// In en, this message translates to:
+  /// **'Great fit'**
+  String get fitGreat;
+
+  /// No description provided for @fitGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good fit'**
+  String get fitGood;
+
+  /// No description provided for @fitLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Less balancing'**
+  String get fitLess;
+
+  /// No description provided for @fitReasonAddsAngles.
+  ///
+  /// In en, this message translates to:
+  /// **'Angular lines add definition to softer, rounder features.'**
+  String get fitReasonAddsAngles;
+
+  /// No description provided for @fitReasonSoftensAngles.
+  ///
+  /// In en, this message translates to:
+  /// **'Curved frames soften a strong jaw and forehead.'**
+  String get fitReasonSoftensAngles;
+
+  /// No description provided for @fitReasonAddsLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Deeper frames break up length and add width.'**
+  String get fitReasonAddsLength;
+
+  /// No description provided for @fitReasonBalancesForehead.
+  ///
+  /// In en, this message translates to:
+  /// **'Lighter or bottom-heavy frames balance a wider forehead.'**
+  String get fitReasonBalancesForehead;
+
+  /// No description provided for @fitReasonLiftsCheekbones.
+  ///
+  /// In en, this message translates to:
+  /// **'Upswept or oval frames highlight the cheekbones.'**
+  String get fitReasonLiftsCheekbones;
+
+  /// No description provided for @fitReasonSuitsMost.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced proportions suit most frames; go with what you love.'**
+  String get fitReasonSuitsMost;
+
+  /// No description provided for @fitReasonEchoesShape.
+  ///
+  /// In en, this message translates to:
+  /// **'This shape repeats your face\'s own lines, so it balances less. Still yours to choose.'**
+  String get fitReasonEchoesShape;
+
+  /// No description provided for @fitReasonUnknownShape.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyse your face to see how this frame balances your shape.'**
+  String get fitReasonUnknownShape;
 }
 
 class _AppLocalizationsDelegate

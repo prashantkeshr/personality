@@ -4446,4 +4446,538 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchClear => 'Clear';
+
+  @override
+  String get featureStyleDna => 'Style DNA';
+
+  @override
+  String get featureGetReady => 'Get ready for…';
+
+  @override
+  String get featureOutfitCalendar => 'Outfit calendar';
+
+  @override
+  String get featureWardrobeStats => 'Wardrobe stats';
+
+  @override
+  String get featureGlasses => 'Glasses finder';
+
+  @override
+  String get dnaSaved => 'Style DNA saved';
+
+  @override
+  String get dnaYour => 'Your Style DNA';
+
+  @override
+  String get dnaEmpty =>
+      'Pick what feels like you below. Every suggestion in the app follows it.';
+
+  @override
+  String get dnaPaletteDone => 'Your colours';
+
+  @override
+  String get dnaFindPalette => 'Find your colours';
+
+  @override
+  String get dnaFindShape => 'Find face shape';
+
+  @override
+  String get dnaStyles => 'Styles you like';
+
+  @override
+  String get dnaStylesHelp => 'Pick as many as you like.';
+
+  @override
+  String get dnaFits => 'How you like clothes to fit';
+
+  @override
+  String get dnaFitsHelp => 'Used for outfit tips and shopping gaps.';
+
+  @override
+  String get dnaOccasions => 'What you dress for most';
+
+  @override
+  String get dnaOccasionsHelp =>
+      'Shapes wardrobe gaps and the outfit calendar.';
+
+  @override
+  String get dnaCultural => 'Cultural and traditional wear';
+
+  @override
+  String get dnaCulturalHelp =>
+      'So festive and wedding ideas fit your traditions.';
+
+  @override
+  String get dnaModesty => 'Coverage you prefer';
+
+  @override
+  String get dnaModestyHelp => 'Every outfit idea respects this.';
+
+  @override
+  String get dnaBudget => 'Budget';
+
+  @override
+  String get dnaBudgetHelp => 'For gaps and new-buy ideas only. Never shared.';
+
+  @override
+  String get fitPrefSlim => 'Slim';
+
+  @override
+  String get fitPrefRegular => 'Regular';
+
+  @override
+  String get fitPrefRelaxed => 'Relaxed';
+
+  @override
+  String get fitPrefOversized => 'Oversized';
+
+  @override
+  String get fitPrefTailored => 'Tailored';
+
+  @override
+  String get culturalIndianEthnic => 'Indian ethnic';
+
+  @override
+  String get culturalModest => 'Modest fashion';
+
+  @override
+  String get culturalWestern => 'Western';
+
+  @override
+  String get culturalFusion => 'Indo-western fusion';
+
+  @override
+  String get modestyRelaxed => 'Relaxed';
+
+  @override
+  String get modestyModerate => 'Moderate';
+
+  @override
+  String get modestyCovered => 'Fully covered';
+
+  @override
+  String get budgetValue => 'Value';
+
+  @override
+  String get budgetMidRange => 'Mid-range';
+
+  @override
+  String get budgetPremium => 'Premium';
+
+  @override
+  String get readyIntro =>
+      'Pick what you\'re getting ready for. You\'ll get one checklist: outfit, grooming and how to carry yourself.';
+
+  @override
+  String readyProgress(int done, int total) {
+    return '$done of $total ready';
+  }
+
+  @override
+  String get readyOpen => 'Open';
+
+  @override
+  String get readyEvInterview => 'Interview';
+
+  @override
+  String get readyEvPresentation => 'Presentation';
+
+  @override
+  String get readyEvOffice => 'Office day';
+
+  @override
+  String get readyEvDate => 'Date';
+
+  @override
+  String get readyEvWedding => 'Wedding';
+
+  @override
+  String get readyEvFestival => 'Festival';
+
+  @override
+  String get readyEvParty => 'Party';
+
+  @override
+  String get readyEvCasual => 'Day out';
+
+  @override
+  String get readyEvGym => 'Gym';
+
+  @override
+  String get readyEvTravel => 'Travel';
+
+  @override
+  String get readySecOutfit => 'Outfit';
+
+  @override
+  String get readySecGrooming => 'Grooming';
+
+  @override
+  String get readySecPresentation => 'Posture, breath and voice';
+
+  @override
+  String get readySecFinalChecks => 'Before you leave';
+
+  @override
+  String get readyPlanned => 'Wear the outfit you planned for today';
+
+  @override
+  String get readySuggested => 'Wear this from your wardrobe';
+
+  @override
+  String get readyGuideInterview =>
+      'Smart and plain: a pressed shirt or blouse, tailored trousers or skirt, closed shoes';
+
+  @override
+  String get readyGuidePresentation =>
+      'A smart layer that you can move in comfortably, in one or two calm colours';
+
+  @override
+  String get readyGuideOffice =>
+      'Smart casual: collar or neat top, well-fitting trousers, clean shoes';
+
+  @override
+  String get readyGuideDate =>
+      'Something you feel confident in, a step smarter than everyday';
+
+  @override
+  String get readyGuideWedding =>
+      'Festive and dressy: rich colours or traditional wear, polished shoes';
+
+  @override
+  String get readyGuideFestival =>
+      'Bright or traditional, comfortable for a long day';
+
+  @override
+  String get readyGuideParty => 'One statement piece with simple basics';
+
+  @override
+  String get readyGuideCasual => 'Comfortable and neat for the weather';
+
+  @override
+  String get readyGuideGym => 'Breathable workout clothes and supportive shoes';
+
+  @override
+  String get readyGuideTravel => 'Comfortable layers and easy shoes';
+
+  @override
+  String get readyGuideEthnic =>
+      'Traditional wear: kurta, saree, sherwani or lehenga in festive colours';
+
+  @override
+  String get readyModest => 'Choose full-coverage pieces, as you prefer';
+
+  @override
+  String get readyFitSlim => 'Go for a slim, clean fit';
+
+  @override
+  String get readyFitRegular => 'Go for a regular, comfortable fit';
+
+  @override
+  String get readyFitRelaxed => 'Keep it relaxed, but neat at the shoulders';
+
+  @override
+  String get readyFitOversized =>
+      'Balance oversized pieces with one fitted piece';
+
+  @override
+  String get readyFitTailored => 'Tailored pieces: check sleeves and hems';
+
+  @override
+  String get readyColours => 'Keep your best colours near your face';
+
+  @override
+  String get readyPress => 'Iron or steam the outfit';
+
+  @override
+  String get readyShoes => 'Clean or polish your shoes';
+
+  @override
+  String get readyLayer => 'Bring a layer for the weather';
+
+  @override
+  String readyHairStyle(String style) {
+    return 'Hair: $style suits your face shape';
+  }
+
+  @override
+  String get readyHairTidy => 'Style or tidy your hair';
+
+  @override
+  String readyBeardStyle(String style) {
+    return 'Beard: shape it as $style';
+  }
+
+  @override
+  String get readyBeardTidy => 'Trim or shave; clean the neckline';
+
+  @override
+  String get readySkin => 'Cleanse and moisturise';
+
+  @override
+  String get readySunscreen => 'Sunscreen for time outdoors';
+
+  @override
+  String get readyNails => 'Clean and trim nails';
+
+  @override
+  String get readyScentLight => 'A light fragrance, or none';
+
+  @override
+  String get readyGymHair => 'Tie hair back; bring a towel';
+
+  @override
+  String get readyPosture => 'Stand tall: shoulders back and down, chin level';
+
+  @override
+  String get readyBreath => 'Slow breathing for a minute: in 4, out 6';
+
+  @override
+  String get readyFaceWarmup => 'Warm up your face and voice for two minutes';
+
+  @override
+  String get readyVoice =>
+      'Speak a little slower than feels natural, and pause';
+
+  @override
+  String get readyEyeContact => 'Friendly eye contact, then look away briefly';
+
+  @override
+  String get readyThreePoints => 'Know your three key points by heart';
+
+  @override
+  String get readyDocuments => 'Copies of documents or slides, and a pen';
+
+  @override
+  String get readyTravelDocs => 'ID, tickets, chargers and medicines';
+
+  @override
+  String get readyGymKit => 'Water, towel, shoes and a change of clothes';
+
+  @override
+  String get readyGift => 'The gift or shagun';
+
+  @override
+  String get readyWater => 'A bottle of water';
+
+  @override
+  String get readyPhone => 'Phone charged, keys and wallet';
+
+  @override
+  String get readyEarly => 'Leave early so you arrive calm';
+
+  @override
+  String get calendarEarlier => 'Earlier';
+
+  @override
+  String get calendarLater => 'Later';
+
+  @override
+  String get calendarNoOutfits =>
+      'Save a few outfits first, then plan them here.';
+
+  @override
+  String get calendarToday => 'Today';
+
+  @override
+  String get calendarPlan => 'Plan';
+
+  @override
+  String get calendarWorn => 'Worn';
+
+  @override
+  String get calendarWoreIt => 'Wore it';
+
+  @override
+  String get calendarRemove => 'Remove';
+
+  @override
+  String get calendarPickTitle => 'Pick an outfit';
+
+  @override
+  String get calendarNoneForOccasion =>
+      'No saved outfits for this occasion yet.';
+
+  @override
+  String statsPriceTitle(String name) {
+    return 'What did $name cost?';
+  }
+
+  @override
+  String get statsPrice => 'Price';
+
+  @override
+  String get statsPriceHelp =>
+      'Optional. Stays on this phone; leave empty to clear.';
+
+  @override
+  String statsWears(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'worn $count times',
+      one: 'worn once',
+      zero: 'not worn yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statsLastWorn(String date) {
+    return 'last $date';
+  }
+
+  @override
+  String get statsAddPrice => 'Add price';
+
+  @override
+  String get statsEmpty =>
+      'Add clothes to your wardrobe and mark outfits as worn to see what you really wear.';
+
+  @override
+  String get statsItems => 'items';
+
+  @override
+  String get statsTotalWears => 'times worn';
+
+  @override
+  String get statsNeutrals => 'neutral basics';
+
+  @override
+  String get statsGaps => 'What\'s missing';
+
+  @override
+  String get statsMostWorn => 'Most worn';
+
+  @override
+  String get statsBestValue => 'Best value';
+
+  @override
+  String get statsBestValueHelp => 'Lowest cost per wear so far.';
+
+  @override
+  String statsPerWear(String price) {
+    return '$price a wear';
+  }
+
+  @override
+  String get statsNeverWorn => 'Not worn yet';
+
+  @override
+  String get statsNeverWornHelp => 'Try one of these this week, or pass it on.';
+
+  @override
+  String get gapBottoms => 'Bottoms';
+
+  @override
+  String get gapAdviceBottoms =>
+      'Add trousers, jeans or a skirt so tops can become outfits.';
+
+  @override
+  String get gapFootwear => 'Shoes';
+
+  @override
+  String get gapAdviceFootwear =>
+      'One versatile pair (white sneakers or plain loafers) completes most outfits.';
+
+  @override
+  String get gapWorkTop => 'A work top';
+
+  @override
+  String get gapAdviceWorkTop =>
+      'A plain shirt or blouse in white, light blue or a soft neutral.';
+
+  @override
+  String get gapFormalWear => 'Something formal';
+
+  @override
+  String get gapAdviceFormalWear =>
+      'A blazer, suit or formal dress for important days.';
+
+  @override
+  String get gapFestiveEthnic => 'Festive or traditional wear';
+
+  @override
+  String get gapAdviceFestiveEthnic =>
+      'One kurta, saree or ethnic set in a colour from your palette.';
+
+  @override
+  String get gapNeutralBasics => 'Neutral basics';
+
+  @override
+  String get gapAdviceNeutralBasics =>
+      'Add two neutral pieces (navy, beige, grey, white) so colourful ones pair easily.';
+
+  @override
+  String get gapSportwear => 'Workout clothes';
+
+  @override
+  String get gapAdviceSportwear =>
+      'Breathable tops and shorts or leggings for exercise.';
+
+  @override
+  String get gapOuterwear => 'A jacket or layer';
+
+  @override
+  String get gapAdviceOuterwear => 'A jacket or cardigan for cooler days.';
+
+  @override
+  String get glassesSizeTip =>
+      'Size matters as much as shape: the frame should be about as wide as your face at the temples, with your eyes near the centre of each lens.';
+
+  @override
+  String get glassesTryOn => 'Try on live';
+
+  @override
+  String get glassesNoShape => 'Analyse your face shape for personal fits';
+
+  @override
+  String glassesForShape(String shape) {
+    return 'Ranked for your $shape face';
+  }
+
+  @override
+  String get glassesHonest =>
+      'Fit guidance from contrast rules, not a judgement of looks. Wear what you love.';
+
+  @override
+  String get fitGreat => 'Great fit';
+
+  @override
+  String get fitGood => 'Good fit';
+
+  @override
+  String get fitLess => 'Less balancing';
+
+  @override
+  String get fitReasonAddsAngles =>
+      'Angular lines add definition to softer, rounder features.';
+
+  @override
+  String get fitReasonSoftensAngles =>
+      'Curved frames soften a strong jaw and forehead.';
+
+  @override
+  String get fitReasonAddsLength =>
+      'Deeper frames break up length and add width.';
+
+  @override
+  String get fitReasonBalancesForehead =>
+      'Lighter or bottom-heavy frames balance a wider forehead.';
+
+  @override
+  String get fitReasonLiftsCheekbones =>
+      'Upswept or oval frames highlight the cheekbones.';
+
+  @override
+  String get fitReasonSuitsMost =>
+      'Balanced proportions suit most frames; go with what you love.';
+
+  @override
+  String get fitReasonEchoesShape =>
+      'This shape repeats your face\'s own lines, so it balances less. Still yours to choose.';
+
+  @override
+  String get fitReasonUnknownShape =>
+      'Analyse your face to see how this frame balances your shape.';
 }

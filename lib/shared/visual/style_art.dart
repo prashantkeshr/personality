@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import '../../domain/services/face_engine.dart';
 
 /// Frame styles drawn as precise vector art (no bitmap assets).
-enum GlassesStyle { rectangular, round, browline, deep, classic }
+enum GlassesStyle { rectangular, round, browline, deep, classic, aviator, catEye, oval, square, geometric, rimless }
 
 GlassesStyle? glassesStyleFor(String itemId) => switch (itemId) {
+      // From the glasses finder: `frame:<GlassesStyle name>`.
+      _ when itemId.startsWith('frame:') =>
+        GlassesStyle.values.asNameMap()[itemId.substring(6)],
       'rect_frames' => GlassesStyle.rectangular,
       'round_frames' => GlassesStyle.round,
       'browline_frames' => GlassesStyle.browline,
@@ -20,13 +23,18 @@ GlassesStyle? glassesStyleFor(String itemId) => switch (itemId) {
 /// Draws a pair of glasses centred in [rect]. Used both for suggestion cards
 /// and, scaled and rotated, for live try-on.
 void paintGlasses(Canvas canvas, Rect rect, GlassesStyle style, Color frame,
-    {bool lensTint = true}) {
+    {bool lensTint = true, double weight = 1}) {
   final w = rect.width;
   final lensW = w * 0.38;
   final lensH = switch (style) {
     GlassesStyle.deep => lensW * 0.85,
     GlassesStyle.round => lensW * 0.92,
     GlassesStyle.browline => lensW * 0.62,
+    GlassesStyle.aviator => lensW * 0.82,
+    GlassesStyle.catEye => lensW * 0.6,
+    GlassesStyle.oval => lensW * 0.68,
+    GlassesStyle.square => lensW * 0.8,
+    GlassesStyle.geometric => lensW * 0.76,
     _ => lensW * 0.66,
   };
   final cy = rect.center.dy;
@@ -37,8 +45,38 @@ void paintGlasses(Canvas canvas, Rect rect, GlassesStyle style, Color frame,
       height: lensH);
   final right = left.shift(Offset(lensW + gap, 0));
 
-  Path lens(Rect r) => switch (style) {
+  // [outer] is the side away from the nose: -1 for the left lens, +1 right.
+  Path lens(Rect r, double outer) {
+    final (l, t, rt, b, lw, h) = (r.left, r.top, r.right, r.bottom, r.width, r.height);
+    final ox = outer < 0 ? l : rt, ix = outer < 0 ? rt : l;
+    return switch (style) {
         GlassesStyle.round => Path()..addOval(r),
+        GlassesStyle.oval => Path()..addOval(r),
+        GlassesStyle.square => Path()..addRRect(RRect.fromRectAndRadius(r, Radius.circular(h * 0.06))),
+        GlassesStyle.rimless => Path()..addRRect(RRect.fromRectAndRadius(r, Radius.circular(h * 0.3))),
+        // Teardrop that dips towards the nose.
+        GlassesStyle.aviator => Path()
+          ..moveTo(ix, t + h * 0.05)
+          ..lineTo(ox, t)
+          ..cubicTo(ox + outer * lw * 0.04, t + h * 0.55, ox - outer * lw * 0.12, b, ox - outer * lw * 0.45, b)
+          ..cubicTo(ix + outer * lw * 0.08, b, ix, t + h * 0.5, ix, t + h * 0.05)
+          ..close(),
+        // Outer top corners sweep upwards.
+        GlassesStyle.catEye => Path()
+          ..moveTo(ix, t + h * 0.15)
+          ..quadraticBezierTo((ix + ox) / 2, t, ox + outer * lw * 0.06, t - h * 0.12)
+          ..quadraticBezierTo(ox, t + h * 0.6, ox - outer * lw * 0.25, b)
+          ..quadraticBezierTo((ix + ox) / 2, b + h * 0.05, ix + outer * lw * 0.08, b - h * 0.1)
+          ..quadraticBezierTo(ix, b - h * 0.4, ix, t + h * 0.15)
+          ..close(),
+        GlassesStyle.geometric => Path()
+          ..moveTo(l + lw * 0.25, t)
+          ..lineTo(rt - lw * 0.25, t)
+          ..lineTo(rt, t + h * 0.5)
+          ..lineTo(rt - lw * 0.25, b)
+          ..lineTo(l + lw * 0.25, b)
+          ..lineTo(l, t + h * 0.5)
+          ..close(),
         GlassesStyle.rectangular => Path()
           ..addRRect(RRect.fromRectAndRadius(r, Radius.circular(r.height * 0.18))),
         GlassesStyle.deep => Path()
@@ -56,14 +94,17 @@ void paintGlasses(Canvas canvas, Rect rect, GlassesStyle style, Color frame,
               bottomLeft: Radius.circular(r.height * 0.55),
               bottomRight: Radius.circular(r.height * 0.55))),
       };
+  }
 
   final stroke = Paint()
     ..color = frame
     ..style = PaintingStyle.stroke
-    ..strokeWidth = math.max(2, w * 0.022)
+    ..strokeWidth = style == GlassesStyle.rimless
+        ? math.max(1, w * 0.008)
+        : math.max(2, w * 0.022 * weight)
     ..strokeJoin = StrokeJoin.round;
-  for (final r in [left, right]) {
-    final p = lens(r);
+  for (final (r, outer) in [(left, -1.0), (right, 1.0)]) {
+    final p = lens(r, outer);
     if (lensTint) {
       canvas.drawPath(
         p,

@@ -502,6 +502,9 @@ class WardrobeItems extends Table {
   IntColumn get createdAt => integer()();
   IntColumn get updatedAt => integer()();
 
+  /// What it cost, in the user's own currency (v13), for cost per wear.
+  RealColumn get price => real().nullable()();
+
   @override
   Set<Column> get primaryKey => {id};
 }
@@ -531,6 +534,27 @@ class OutfitItems extends Table {
 
   @override
   Set<Column> get primaryKey => {outfitId, itemId};
+}
+
+/// An outfit planned for a day (outfit calendar, v13).
+@DataClassName('OutfitPlanRow')
+@TableIndex(name: 'idx_outfit_plan_day', columns: {#day})
+class OutfitPlans extends Table {
+  @override
+  String get tableName => 'outfit_plan';
+
+  TextColumn get id => text()();
+
+  /// yyyymmdd.
+  IntColumn get day => integer()();
+  TextColumn get outfitId =>
+      text().references(Outfits, #id, onDelete: KeyAction.cascade)();
+  TextColumn get occasion => text()();
+  TextColumn get note => text().nullable()();
+  IntColumn get createdAt => integer()();
+
+  @override
+  Set<Column> get primaryKey => {id};
 }
 
 /// Days an outfit was worn (for variety in suggestions).
@@ -578,6 +602,7 @@ class OutfitWears extends Table {
   BodyPlans,
   MoodLogs,
   MilestoneNotes,
+  OutfitPlans,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
@@ -585,7 +610,7 @@ class AppDatabase extends _$AppDatabase {
   /// Bump together with `dart run drift_dev make-migrations` and a new step
   /// below. Destructive migrations are forbidden (docs/DATA_MODEL.md).
   @override
-  int get schemaVersion => 12;
+  int get schemaVersion => 13;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -666,6 +691,12 @@ class AppDatabase extends _$AppDatabase {
           },
           from11To12: (m, schema) async {
             await m.createTable(schema.milestoneNote);
+          },
+          from12To13: (m, schema) async {
+            final w = schema.wardrobeItem;
+            await m.addColumn(w, w.price);
+            await m.createTable(schema.outfitPlan);
+            await m.createIndex(schema.idxOutfitPlanDay);
           },
         ),
         beforeOpen: (details) async {

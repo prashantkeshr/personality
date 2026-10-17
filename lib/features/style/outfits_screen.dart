@@ -9,6 +9,9 @@ import '../../shared/visual/reveal.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../health/widgets/add_record_sheet.dart' show confirmDelete;
 import 'style_labels.dart';
+import '../../domain/entities/body.dart' show StyleFit;
+import '../../shared/visual/outfit_silhouette.dart';
+import 'style_studio_providers.dart' show styleFitProvider;
 import 'style_providers.dart';
 import 'style_widgets.dart';
 
@@ -166,7 +169,17 @@ class _OutfitsScreenState extends ConsumerState<OutfitsScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              OutfitCollage(items: s.items, photos: photos, height: 180),
+                              Row(children: [
+                                SizedBox(
+                                  width: 84,
+                                  height: 180,
+                                  child: OutfitSilhouette(
+                                      items: s.items,
+                                      womenswear: ref.watch(styleFitProvider) == StyleFit.womenswear),
+                                ),
+                                const SizedBox(width: AppSpacing.sm),
+                                Expanded(child: OutfitCollage(items: s.items, photos: photos, height: 180)),
+                              ]),
                               const SizedBox(height: AppSpacing.sm),
                               Text(
                                   '${l10n.occasionName(s.occasion)} · ${l10n.outfitWornCount(s.wornDays.length)}',

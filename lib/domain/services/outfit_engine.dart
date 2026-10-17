@@ -34,6 +34,7 @@ class WardrobeItem {
     this.formality = 3,
     this.occasions = const {},
     this.favorite = false,
+    this.price,
   }) : assert(formality >= 1 && formality <= 5);
 
   final String id;
@@ -48,6 +49,9 @@ class WardrobeItem {
   /// Empty means "any occasion".
   final Set<Occasion> occasions;
   final bool favorite;
+
+  /// What it cost, in the user's currency (optional, for cost per wear).
+  final double? price;
 
   Rgb get color => Rgb.hex(colorHex);
   bool suits(Occasion o) => occasions.isEmpty || occasions.contains(o);

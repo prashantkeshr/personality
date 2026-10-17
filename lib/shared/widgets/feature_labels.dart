@@ -32,6 +32,11 @@ extension FeatureLabels on AppLocalizations {
         AppFeature.healthIntegration => featureHealthIntegration,
         AppFeature.encryptedBackup => featureBackup,
         AppFeature.commerce => featureCommerce,
+        AppFeature.styleDna => featureStyleDna,
+        AppFeature.getReady => featureGetReady,
+        AppFeature.outfitCalendar => featureOutfitCalendar,
+        AppFeature.wardrobeStats => featureWardrobeStats,
+        AppFeature.glassesFinder => featureGlasses,
       };
 
   String featureStateLabel(FeatureState state) => switch (state) {
@@ -73,6 +78,11 @@ IconData featureIcon(AppFeature feature) => switch (feature) {
       AppFeature.healthIntegration => Icons.health_and_safety_outlined,
       AppFeature.encryptedBackup => Icons.lock_outline,
       AppFeature.commerce => Icons.shopping_bag_outlined,
+      AppFeature.styleDna => Icons.fingerprint,
+      AppFeature.getReady => Icons.checklist,
+      AppFeature.outfitCalendar => Icons.calendar_month_outlined,
+      AppFeature.wardrobeStats => Icons.bar_chart,
+      AppFeature.glassesFinder => Icons.visibility_outlined,
     };
 
 /// Bundled photo for a feature card, or null to use vector art.
@@ -89,5 +99,9 @@ String? featureImage(AppFeature f) => switch (f) {
       AppFeature.faceAnalysis => 'assets/images/styles/side_part.jpg',
       AppFeature.styleRecommendations => 'assets/images/goals/feed_colours.jpg',
       AppFeature.wardrobe => 'assets/images/goals/feed_wardrobe.jpg',
+      AppFeature.styleDna => 'assets/images/looks/smart_1.jpg',
+      AppFeature.getReady => 'assets/images/looks/classic_1.jpg',
+      AppFeature.outfitCalendar => 'assets/images/looks/minimal_1.jpg',
+      AppFeature.wardrobeStats => 'assets/images/looks/street_1.jpg',
       _ => null,
     };

@@ -6,6 +6,11 @@ import '../core/providers.dart';
 import '../features/backup/backup_screen.dart';
 import '../features/connected/connected_screen.dart';
 import '../features/content/content_screen.dart';
+import '../features/style/get_ready_screen.dart';
+import '../features/style/glasses_screen.dart';
+import '../features/style/outfit_calendar_screen.dart';
+import '../features/style/style_dna_screen.dart';
+import '../features/style/wardrobe_stats_screen.dart';
 import '../features/growth/growth_screen.dart';
 import '../features/growth/skills_screens.dart';
 import '../features/exercise/workouts_screen.dart';
@@ -92,6 +97,11 @@ abstract final class AppRoutes {
   static const wardrobe = '/style/wardrobe';
   static const outfits = '/style/wardrobe/outfits';
   static const garmentPhoto = '/style/wardrobe/photo';
+  static const wardrobeStats = '/style/wardrobe/stats';
+  static const styleDna = '/style/dna';
+  static const getReady = '/style/ready';
+  static const outfitCalendar = '/style/calendar';
+  static const glasses = '/style/glasses';
   static const deviceInfo = '/settings/device';
   static const connected = '/settings/connected';
   static const content = '/settings/content';
@@ -287,7 +297,8 @@ final routerProvider = Provider<GoRouter>((ref) {
                     GoRoute(
                       path: 'try-on',
                       builder: (_, state) => TryOnScreen(
-                          initialItem: state.uri.queryParameters['item']),
+                          initialItem: state.uri.queryParameters['item'],
+                          initialColor: state.uri.queryParameters['color']),
                     ),
                   ],
                 ),
@@ -329,8 +340,13 @@ final routerProvider = Provider<GoRouter>((ref) {
                     GoRoute(
                         path: 'photo',
                         builder: (_, _) => const GarmentPhotoScreen()),
+                    GoRoute(path: 'stats', builder: (_, _) => const WardrobeStatsScreen()),
                   ],
                 ),
+                GoRoute(path: 'dna', builder: (_, _) => const StyleDnaScreen()),
+                GoRoute(path: 'ready', builder: (_, _) => const GetReadyScreen()),
+                GoRoute(path: 'calendar', builder: (_, _) => const OutfitCalendarScreen()),
+                GoRoute(path: 'glasses', builder: (_, _) => const GlassesScreen()),
               ],
             ),
           ]),

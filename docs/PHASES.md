@@ -524,3 +524,34 @@ Verification:
   - searching "lathi";
   - no crashes in the log.
 - Still to verify on the phone: Phase 15 sensors, and Phase 17/18 camera features with telemetry components removed.
+
+## Phase 19 — Style DNA (2026-10-17)
+
+- **Style DNA** (Style → Style DNA): the colour palette, face shape and style picks the app already had, plus new choices: fits (slim → tailored), occasions, cultural wear (Indian ethnic, modest, western, fusion), coverage (relaxed → fully covered) and budget.
+  - Works for every gender and can be edited any time.
+  - A completeness ring shows how much is filled in.
+  - Every suggestion follows it.
+- **"Get ready for…"**: 10 events (interview, presentation, office day, date, wedding, festival, party, day out, gym, travel). Each gives one checklist:
+  - **Outfit**: the outfit planned for today, else the best one from your wardrobe, else written guidance. Traditional wear for weddings and festivals if you chose Indian ethnic. Your coverage and fit preferences. Ironing and shoe care.
+  - **Grooming**: the hairstyle and beard style that suit your face shape and style fit, plus skin, sunscreen and nails.
+  - **Posture, breath and voice** for speaking events: stand tall, 4-6 breathing, a face and voice warm-up, pace, eye contact, three key points.
+  - **Before you leave**: documents, gift, water, phone, leaving early.
+  - Outfits are drawn on a body silhouette. Ticks are kept for the day, and lines link to the screen that helps.
+- **Outfit calendar**: two weeks at a time, occasion tabs, plan a saved outfit for any day, "Wore it" for today and past days (counted in wear stats). One plan per day and occasion.
+- **Wardrobe stats**: items, total wears, neutral share; gaps based on your Style DNA and climate (bottoms, shoes, work top, formal wear, festive or traditional wear, neutral basics, workout clothes, outerwear) with advice; most worn; best value (cost per wear); not worn yet. Prices are optional and shown in your region's currency.
+- **Glasses finder**: 20 frames across 11 shapes. Six shapes are new: aviator, cat-eye, oval, square, geometric, rimless.
+  - Frames are ranked "Great / Good / Less balancing" for your face shape, using contrast rules.
+  - It says plainly that this is fit guidance, not a judgement of looks, and adds a sizing tip.
+  - "Try on live" opens the camera try-on with that frame shape and colour.
+- **Outfit silhouette**: outfits drawn on a neutral mannequin, with layering by category (trousers, dress, kurta with churidar, top, open jacket, shoes) and stripes, checks or print shown. Used on saved outfits, the calendar and Get ready.
+- **Schema v13**: `wardrobe_item.price` and an `outfit_plan` table, which is cascade-deleted with its outfit. A data-integrity migration test covers v12 → v13.
+- Fixed: the price dialog disposed its controller during its closing animation. The dialog now owns its controller.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 369 pass, 2 skipped (the opt-in preview renderers). New tests cover:
+  - wear counting and cost per wear, and gaps;
+  - checklist rules: planned outfit first, speaking events, Style DNA, gym;
+  - the glasses catalogue and fit rules (every face shape has at least 4 great frames);
+  - the repository round trip: DNA, prices, plans, cascade;
+  - 5 end-to-end flows: DNA save, Get ready with ticks kept, calendar plan and worn, glasses sheet, stats gaps and price.
+- Emulator, release build: the Style tab's new cards, the Interview checklist, and the glasses finder. No crashes.
