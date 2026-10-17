@@ -5207,4 +5207,226 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get contactEmailSubject => 'Aplikasi Personality';
+
+  @override
+  String get lockMethodTitle => 'Bagaimana kamu ingin membuka kunci?';
+
+  @override
+  String get lockMethodDevice => 'Kunci layar ponsel';
+
+  @override
+  String get lockMethodDeviceInfo =>
+      'Sidik jari, wajah, atau PIN, pola, atau kata sandi ponselmu. Tidak ada yang baru untuk diingat. Disarankan.';
+
+  @override
+  String get lockMethodPin => 'PIN aplikasi';
+
+  @override
+  String get lockMethodPinInfo =>
+      'PIN terpisah 4–8 digit khusus untuk aplikasi ini.';
+
+  @override
+  String get lockUsesDevice => 'Dibuka dengan kunci layar ponselmu';
+
+  @override
+  String get lockUsesPin => 'Dibuka dengan PIN aplikasi';
+
+  @override
+  String get lockSwitchToDevice => 'Gunakan kunci layar ponsel';
+
+  @override
+  String get lockSwitchToPin => 'Gunakan PIN aplikasi';
+
+  @override
+  String get lockUnlock => 'Buka kunci';
+
+  @override
+  String get lockDeviceHint =>
+      'Gunakan sidik jari, wajah, atau PIN, pola, atau kata sandi ponselmu.';
+
+  @override
+  String get lockDeviceFailed => 'Belum terbuka. Coba lagi.';
+
+  @override
+  String get lockNoDeviceLock =>
+      'Ponsel ini tidak memiliki kunci layar. Atur di setelan Android, atau gunakan PIN aplikasi.';
+
+  @override
+  String get lockDeviceRemoved =>
+      'Ponselmu tidak lagi memiliki kunci layar, jadi kunci aplikasi dimatikan.';
+
+  @override
+  String get weightJourneyTitle => 'Perjalanan berat badanmu';
+
+  @override
+  String get weightJourneyNoGoal =>
+      'Tetapkan tujuan untuk memetakan perjalananmu.';
+
+  @override
+  String get weightJourneySetGoal => 'Tetapkan tujuan';
+
+  @override
+  String get weightJourneyMaintain =>
+      'Kamu mulai di dalam rentang tujuanmu, jadi perjalanan ini tentang tetap di sana.';
+
+  @override
+  String weightJourneyProgress(int percent) {
+    return '$percent% perjalanan';
+  }
+
+  @override
+  String get weightJourneyReached => 'Tujuan tercapai';
+
+  @override
+  String get weightJourneyTapHint => 'Ketuk bendera untuk melihat beratnya.';
+
+  @override
+  String weightMilestoneAt(int percent, String weight) {
+    return 'Penanda $percent%: $weight';
+  }
+
+  @override
+  String weightJourneySemantics(int percent, String start, String target) {
+    return 'Perjalanan berat: $percent% dari $start ke $target';
+  }
+
+  @override
+  String get weightStatWeek => 'Minggu ini';
+
+  @override
+  String get weightStatSinceStart => 'Sejak awal';
+
+  @override
+  String get weightStatToGo => 'Tersisa';
+
+  @override
+  String get weightStatStreak => 'Runtutan menimbang';
+
+  @override
+  String weightStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count minggu',
+      one: '1 minggu',
+      zero: 'Belum',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightLogTitle => 'Naik ke timbangan';
+
+  @override
+  String get weightLogHint =>
+      'Geser penggaris, atau gunakan − dan +, untuk mengatur beratmu.';
+
+  @override
+  String get weightLogSave => 'Simpan hasil timbang';
+
+  @override
+  String get weightLogSaved => 'Hasil timbang disimpan';
+
+  @override
+  String get weightDecrease => 'Kurangi';
+
+  @override
+  String get weightIncrease => 'Tambah';
+
+  @override
+  String weightCelebrateMilestone(int percent) {
+    return '$percent% perjalanan!';
+  }
+
+  @override
+  String weightCelebrateBody(String weight) {
+    return 'Sekarang $weight. Langkah konsisten akan terkumpul. Lanjutkan dengan tempomu sendiri.';
+  }
+
+  @override
+  String get weightCelebrateGoal => 'Kamu mencapai tujuanmu!';
+
+  @override
+  String get weightCelebrateGoalBody =>
+      'Kini perjalanannya tentang mempertahankannya. Trenmu akan menunjukkan seberapa stabil.';
+
+  @override
+  String get weightCelebrateOk => 'Lanjutkan';
+
+  @override
+  String get featureGoalReminders => 'Pengingat tujuan';
+
+  @override
+  String get goalRemindersIntro =>
+      'Dorongan lembut untuk tujuanmu. Masing-masing adalah rutinitas, jadi jam tenang, Selesai, dan Tunda tetap berfungsi, dan tidak ada yang keluar dari ponselmu.';
+
+  @override
+  String get goalRemindForYou => 'Tujuanmu';
+
+  @override
+  String get goalRemindWeighIn => 'Menimbang';
+
+  @override
+  String get goalRemindWeighInItem => 'Waktunya menimbang: naik ke timbangan';
+
+  @override
+  String get goalRemindWeighInInfo =>
+      'Hari dan jam yang sama, sebelum sarapan: cara paling adil melihat trenmu.';
+
+  @override
+  String get goalRemindWater => 'Minum air';
+
+  @override
+  String get goalRemindWaterItem => 'Waktunya segelas air';
+
+  @override
+  String get goalRemindWaterInfo =>
+      'Tersebar sepanjang hari agar target minum mudah tercapai.';
+
+  @override
+  String get goalRemindBedtime => 'Bersantai sebelum tidur';
+
+  @override
+  String get goalRemindBedtimeItem => 'Mulai bersantai untuk tidur';
+
+  @override
+  String get goalRemindBedtimeInfo =>
+      'Pengingat untuk meredupkan layar dan bersiap tidur pada jam yang teratur.';
+
+  @override
+  String get goalRemindMove => 'Jeda bergerak';
+
+  @override
+  String get goalRemindMoveItem => 'Berdiri dan bergerak 5 menit';
+
+  @override
+  String get goalRemindMoveInfo =>
+      'Jalan singkat memecah duduk lama di hari kerja.';
+
+  @override
+  String get goalRemindPosture => 'Jeda postur';
+
+  @override
+  String get goalRemindPostureItem => 'Jeda postur: putar bahu dan duduk tegak';
+
+  @override
+  String get goalRemindPostureInfo =>
+      'Penyegaran cepat untuk leher dan punggung saat bekerja.';
+
+  @override
+  String get goalRemindDays => 'Hari';
+
+  @override
+  String get goalRemindTimes => 'Waktu';
+
+  @override
+  String get goalRemindAddTime => 'Tambah waktu';
+
+  @override
+  String goalRemindRemoveTime(String time) {
+    return 'Hapus $time';
+  }
+
+  @override
+  String get goalRemindWeekdays => 'Hari kerja';
 }

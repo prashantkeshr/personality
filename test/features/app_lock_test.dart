@@ -6,15 +6,27 @@ import 'package:personality/features/settings/app_settings.dart';
 import '../helpers/app_harness.dart';
 
 class FakeBiometrics implements Biometrics {
-  FakeBiometrics({this.succeed = true});
+  FakeBiometrics({this.succeed = true, this.device = DeviceAuth.success});
   bool succeed;
+
+  /// What the phone's screen-lock prompt answers.
+  DeviceAuth device;
   var asked = 0;
+  var deviceAsked = 0;
   @override
   Future<bool> available() async => true;
   @override
   Future<bool> authenticate(String reason) async {
     asked++;
     return succeed;
+  }
+
+  @override
+  Future<bool> deviceLockAvailable() async => device != DeviceAuth.noLock;
+  @override
+  Future<DeviceAuth> authenticateDevice(String reason) async {
+    deviceAsked++;
+    return device;
   }
 }
 
@@ -87,7 +99,13 @@ void main() {
       }
 
       visit(
-        tester.binding.renderViews.first.owner!.semanticsOwner!.rootSemanticsNode!,
+        tester
+            .binding
+            .renderViews
+            .first
+            .owner!
+            .semanticsOwner!
+            .rootSemanticsNode!,
       );
       expect(labels.join('|'), contains('Enter your PIN'));
       expect(labels.join('|'), isNot(contains('Health')));
@@ -145,6 +163,100 @@ void main() {
     expect(find.textContaining('Too many tries'), findsOneWidget);
     await type(app, tester, '2468'); // ignored while waiting
     expect(find.text('Enter your PIN'), findsOneWidget);
+    await app.dispose();
+  });
+
+  test('phone screen lock mode keeps no PIN and accepts none', () async {
+    final store = MemoryLockStore();
+    final vault = PinVault(store, iterations: 1000);
+    await vault.setPin('2468');
+    await vault.useDevice();
+    expect(await vault.enabled(), isTrue);
+    expect(await vault.deviceMode(), isTrue);
+    expect(store.values.containsKey('lock.pin'), isFalse);
+    // Nothing typed can stand in for the phone's own lock.
+    expect(await vault.verify('2468'), isFalse);
+    await vault.setPin('1357');
+    expect(await vault.deviceMode(), isFalse);
+    await vault.disable();
+    expect(await vault.enabled(), isFalse);
+  });
+
+  testWidgets('turn on the phone screen lock; it unlocks the app on start', (
+    tester,
+  ) async {
+    final bio = FakeBiometrics();
+    final app = AppHarness(tester);
+    await app.start(onboarded, biometrics: bio);
+    await app.tapAndSettle(find.byTooltip('Settings'));
+    await app.tapAndSettle(find.byKey(const Key('app-lock')));
+    await io(app, tester);
+    await tester.pumpAndSettle();
+    await app.tapAndSettle(find.byKey(const Key('lock-method-device')));
+    await io(app, tester);
+    await tester.pumpAndSettle();
+    expect(bio.deviceAsked, 1); // confirmed once before turning on
+    expect(find.text("Unlocks with your phone's screen lock"), findsOneWidget);
+    expect(find.byKey(const Key('app-lock-biometric')), findsNothing);
+    await app.dispose();
+
+    // Next start: locked, and the phone's prompt opens by itself.
+    final again = AppHarness(tester);
+    again.lockStore.values.addAll(app.lockStore.values);
+    final bio2 = FakeBiometrics(device: DeviceAuth.failed);
+    await again.start(onboarded, biometrics: bio2);
+    await io(again, tester);
+    expect(bio2.deviceAsked, 1);
+    expect(find.byKey(const Key('unlock-pad')), findsNothing);
+    expect(find.text('Not unlocked. Try again.'), findsOneWidget);
+    bio2.device = DeviceAuth.success;
+    await tester.tap(find.byKey(const Key('unlock-device')).last);
+    await io(again, tester);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('unlock-device')), findsNothing);
+    expect(find.text('Today'), findsOneWidget);
+    await again.dispose();
+  });
+
+  testWidgets('if the phone loses its screen lock, the app lock turns off', (
+    tester,
+  ) async {
+    final app = AppHarness(tester);
+    await app.run(() => PinVault(app.lockStore).useDevice());
+    final bio = FakeBiometrics(device: DeviceAuth.noLock);
+    await app.start(onboarded, biometrics: bio);
+    await io(app, tester);
+    expect(find.byKey(const Key('unlock-device')), findsNothing);
+    expect(find.textContaining('no longer has a screen lock'), findsOneWidget);
+    expect(await app.run(() => PinVault(app.lockStore).enabled()), isFalse);
+    // Let the notice time out.
+    await tester.pump(const Duration(seconds: 6));
+    await app.dispose();
+  });
+
+  testWidgets('switching from the phone lock to a PIN asks the phone first', (
+    tester,
+  ) async {
+    final app = AppHarness(tester);
+    await app.run(() => PinVault(app.lockStore).useDevice());
+    final bio = FakeBiometrics();
+    await app.start(onboarded, biometrics: bio);
+    await io(app, tester); // auto-prompt unlocks
+    await tester.pumpAndSettle();
+    await app.tapAndSettle(find.byTooltip('Settings'));
+    bio.device = DeviceAuth.failed;
+    await app.tapAndSettle(find.byKey(const Key('lock-switch-pin')));
+    await io(app, tester);
+    expect(find.byKey(const Key('pin-1')), findsNothing); // refused
+    bio.device = DeviceAuth.success;
+    await app.tapAndSettle(find.byKey(const Key('lock-switch-pin')));
+    await io(app, tester);
+    await tester.pumpAndSettle();
+    await type(app, tester, '1357');
+    await type(app, tester, '1357');
+    await tester.pumpAndSettle();
+    expect(find.text('Unlocks with an app PIN'), findsOneWidget);
+    expect(await app.run(() => PinVault(app.lockStore).deviceMode()), isFalse);
     await app.dispose();
   });
 }

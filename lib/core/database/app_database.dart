@@ -701,6 +701,31 @@ class AppDatabase extends _$AppDatabase {
         ),
         beforeOpen: (details) async {
           await customStatement('PRAGMA foreign_keys = ON');
+          // Only at the current version: migration tests open older ones.
+          if (details.versionNow == schemaVersion) {
+            await _repairMissingColumns();
+          }
         },
       );
+
+  /// Adds back any optional column a table is missing. A healthy database
+  /// has them all and nothing happens; one created by an interrupted or
+  /// pre-release build would otherwise fail every write to that table.
+  /// Only nullable or defaulted columns can be added safely, so others are
+  /// left alone.
+  Future<void> _repairMissingColumns() async {
+    final m = createMigrator();
+    for (final table in allTables) {
+      final rows =
+          await customSelect('PRAGMA table_info("${table.actualTableName}")')
+              .get();
+      if (rows.isEmpty) continue; // table itself missing: not ours to guess
+      final have = {for (final r in rows) r.read<String>('name')};
+      for (final c in table.$columns) {
+        if (have.contains(c.name)) continue;
+        if (!c.$nullable && c.defaultValue == null) continue;
+        await m.addColumn(table, c);
+      }
+    }
+  }
 }

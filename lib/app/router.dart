@@ -44,6 +44,7 @@ import '../features/health/weight/weight_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../features/routines/plan_screen.dart';
+import '../features/reminders/goal_reminders_screen.dart';
 import '../features/routines/reminders_screen.dart';
 import '../features/routines/routines_screen.dart';
 import '../features/settings/device_info_screen.dart';
@@ -85,6 +86,7 @@ abstract final class AppRoutes {
   static const plan = '/health/plan';
   static const bodyPlan = '/health/body-plan';
   static const reminders = '/health/reminders';
+  static const goalReminders = '/health/goal-reminders';
   static const cameraCheck = '/analyze/camera';
   static const posture = '/analyze/posture';
   static const postureHistory = '/analyze/posture/history';
@@ -258,6 +260,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'reminders',
                     builder: (_, _) => const RemindersScreen()),
+                GoRoute(
+                    path: 'goal-reminders',
+                    builder: (_, _) => const GoalRemindersScreen()),
               ],
             ),
           ]),

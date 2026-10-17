@@ -5113,4 +5113,224 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contactEmailSubject => 'تطبيق Personality';
+
+  @override
+  String get lockMethodTitle => 'كيف تريد فتح القفل؟';
+
+  @override
+  String get lockMethodDevice => 'قفل شاشة الهاتف';
+
+  @override
+  String get lockMethodDeviceInfo =>
+      'البصمة أو الوجه أو رمز PIN أو النمط أو كلمة المرور الخاصة بهاتفك. لا شيء جديد لتتذكره. موصى به.';
+
+  @override
+  String get lockMethodPin => 'رمز PIN للتطبيق';
+
+  @override
+  String get lockMethodPinInfo =>
+      'رمز PIN منفصل من 4 إلى 8 أرقام لهذا التطبيق فقط.';
+
+  @override
+  String get lockUsesDevice => 'يُفتح بقفل شاشة هاتفك';
+
+  @override
+  String get lockUsesPin => 'يُفتح برمز PIN للتطبيق';
+
+  @override
+  String get lockSwitchToDevice => 'استخدام قفل شاشة الهاتف بدلًا من ذلك';
+
+  @override
+  String get lockSwitchToPin => 'استخدام رمز PIN للتطبيق بدلًا من ذلك';
+
+  @override
+  String get lockUnlock => 'فتح القفل';
+
+  @override
+  String get lockDeviceHint =>
+      'استخدم بصمتك أو وجهك أو رمز PIN أو النمط أو كلمة مرور هاتفك.';
+
+  @override
+  String get lockDeviceFailed => 'لم يُفتح القفل. حاول مرة أخرى.';
+
+  @override
+  String get lockNoDeviceLock =>
+      'لا يوجد قفل شاشة على هذا الهاتف. اضبط واحدًا من إعدادات Android، أو استخدم رمز PIN للتطبيق.';
+
+  @override
+  String get lockDeviceRemoved =>
+      'لم يعد لهاتفك قفل شاشة، لذا أُوقف قفل التطبيق.';
+
+  @override
+  String get weightJourneyTitle => 'رحلة وزنك';
+
+  @override
+  String get weightJourneyNoGoal => 'حدّد هدفًا لترسم رحلتك.';
+
+  @override
+  String get weightJourneySetGoal => 'تحديد الهدف';
+
+  @override
+  String get weightJourneyMaintain =>
+      'بدأت ضمن نطاق هدفك، لذا تدور هذه الرحلة حول البقاء فيه.';
+
+  @override
+  String weightJourneyProgress(int percent) {
+    return '$percent% من الطريق';
+  }
+
+  @override
+  String get weightJourneyReached => 'تحقق الهدف';
+
+  @override
+  String get weightJourneyTapHint => 'اضغط على علم لترى وزنه.';
+
+  @override
+  String weightMilestoneAt(int percent, String weight) {
+    return 'علامة $percent%: $weight';
+  }
+
+  @override
+  String weightJourneySemantics(int percent, String start, String target) {
+    return 'رحلة الوزن: $percent% من الطريق من $start إلى $target';
+  }
+
+  @override
+  String get weightStatWeek => 'هذا الأسبوع';
+
+  @override
+  String get weightStatSinceStart => 'منذ البداية';
+
+  @override
+  String get weightStatToGo => 'المتبقي';
+
+  @override
+  String get weightStatStreak => 'سلسلة الوزن';
+
+  @override
+  String weightStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count أسابيع',
+      one: 'أسبوع واحد',
+      zero: 'ليس بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightLogTitle => 'اصعد على الميزان';
+
+  @override
+  String get weightLogHint => 'اسحب المسطرة، أو استخدم − و+، لتحديد وزنك.';
+
+  @override
+  String get weightLogSave => 'حفظ الوزن';
+
+  @override
+  String get weightLogSaved => 'تم حفظ الوزن';
+
+  @override
+  String get weightDecrease => 'أقل';
+
+  @override
+  String get weightIncrease => 'أكثر';
+
+  @override
+  String weightCelebrateMilestone(int percent) {
+    return '$percent% من الطريق!';
+  }
+
+  @override
+  String weightCelebrateBody(String weight) {
+    return 'الآن $weight. الخطوات الثابتة تتراكم. واصل بإيقاعك.';
+  }
+
+  @override
+  String get weightCelebrateGoal => 'لقد حققت هدفك!';
+
+  @override
+  String get weightCelebrateGoalBody =>
+      'الآن تدور الرحلة حول الحفاظ عليه. سيُظهر اتجاهك مدى ثباته.';
+
+  @override
+  String get weightCelebrateOk => 'واصل';
+
+  @override
+  String get featureGoalReminders => 'تذكيرات الأهداف';
+
+  @override
+  String get goalRemindersIntro =>
+      'تنبيهات لطيفة لأهدافك. كل واحد منها روتين، لذا تعمل ساعات الهدوء و«تم» و«تأجيل»، ولا يغادر شيء هاتفك.';
+
+  @override
+  String get goalRemindForYou => 'هدفك';
+
+  @override
+  String get goalRemindWeighIn => 'الوزن';
+
+  @override
+  String get goalRemindWeighInItem => 'وقت الوزن: اصعد على الميزان';
+
+  @override
+  String get goalRemindWeighInInfo =>
+      'اليوم والوقت نفسهما، قبل الفطور: أعدل طريقة لرؤية اتجاهك.';
+
+  @override
+  String get goalRemindWater => 'اشرب الماء';
+
+  @override
+  String get goalRemindWaterItem => 'حان وقت كوب ماء';
+
+  @override
+  String get goalRemindWaterInfo => 'موزّعة على اليوم ليتحقق هدف الماء بسهولة.';
+
+  @override
+  String get goalRemindBedtime => 'الاسترخاء قبل النوم';
+
+  @override
+  String get goalRemindBedtimeItem => 'ابدأ الاسترخاء استعدادًا للنوم';
+
+  @override
+  String get goalRemindBedtimeInfo =>
+      'تنبيه لتخفيف الشاشات والاستعداد للنوم في وقت منتظم.';
+
+  @override
+  String get goalRemindMove => 'استراحة للحركة';
+
+  @override
+  String get goalRemindMoveItem => 'قف وتحرّك 5 دقائق';
+
+  @override
+  String get goalRemindMoveInfo =>
+      'المشي القصير يكسر الجلوس الطويل في أيام العمل.';
+
+  @override
+  String get goalRemindPosture => 'استراحة للقوام';
+
+  @override
+  String get goalRemindPostureItem =>
+      'استراحة للقوام: دوّر كتفيك واجلس مستقيمًا';
+
+  @override
+  String get goalRemindPostureInfo =>
+      'استراحة سريعة للرقبة والظهر خلال يوم العمل.';
+
+  @override
+  String get goalRemindDays => 'الأيام';
+
+  @override
+  String get goalRemindTimes => 'الأوقات';
+
+  @override
+  String get goalRemindAddTime => 'إضافة وقت';
+
+  @override
+  String goalRemindRemoveTime(String time) {
+    return 'إزالة $time';
+  }
+
+  @override
+  String get goalRemindWeekdays => 'أيام العمل';
 }

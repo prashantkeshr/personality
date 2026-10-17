@@ -2665,5 +2665,125 @@
         "type": "String"
       }
     }
-  }
+  },
+  "lockMethodTitle": "How do you want to unlock?",
+  "lockMethodDevice": "Phone's screen lock",
+  "lockMethodDeviceInfo": "Fingerprint, face, or your phone's PIN, pattern or password. Nothing new to remember. Recommended.",
+  "lockMethodPin": "App PIN",
+  "lockMethodPinInfo": "A separate 4–8 digit PIN just for this app.",
+  "lockUsesDevice": "Unlocks with your phone's screen lock",
+  "lockUsesPin": "Unlocks with an app PIN",
+  "lockSwitchToDevice": "Use the phone's screen lock instead",
+  "lockSwitchToPin": "Use an app PIN instead",
+  "lockUnlock": "Unlock",
+  "lockDeviceHint": "Use your fingerprint, face, or your phone's PIN, pattern or password.",
+  "lockDeviceFailed": "Not unlocked. Try again.",
+  "lockNoDeviceLock": "This phone has no screen lock. Set one in Android settings, or use an app PIN.",
+  "lockDeviceRemoved": "Your phone no longer has a screen lock, so the app lock was turned off.",
+  "weightJourneyTitle": "Your weight journey",
+  "weightJourneyNoGoal": "Set a goal to map your journey.",
+  "weightJourneySetGoal": "Set goal",
+  "weightJourneyMaintain": "You started inside your goal range, so this journey is about staying there.",
+  "weightJourneyProgress": "{percent}% of the way",
+  "@weightJourneyProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weightJourneyReached": "Goal reached",
+  "weightJourneyTapHint": "Tap a flag to see its weight.",
+  "weightMilestoneAt": "{percent}% mark: {weight}",
+  "@weightMilestoneAt": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      },
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "weightJourneySemantics": "Weight journey: {percent}% of the way from {start} to {target}",
+  "@weightJourneySemantics": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      },
+      "start": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "weightStatWeek": "This week",
+  "weightStatSinceStart": "Since start",
+  "weightStatToGo": "To go",
+  "weightStatStreak": "Weigh-in streak",
+  "weightStreakWeeks": "{count, plural, =0{Not yet} =1{1 week} other{{count} weeks}}",
+  "@weightStreakWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weightLogTitle": "Step on the scale",
+  "weightLogHint": "Drag the ruler, or use − and +, to set your weight.",
+  "weightLogSave": "Save weigh-in",
+  "weightLogSaved": "Weigh-in saved",
+  "weightDecrease": "Less",
+  "weightIncrease": "More",
+  "weightCelebrateMilestone": "{percent}% of the way!",
+  "@weightCelebrateMilestone": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "weightCelebrateBody": "Now at {weight}. Steady steps add up. Keep going at your own pace.",
+  "@weightCelebrateBody": {
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "weightCelebrateGoal": "You reached your goal!",
+  "weightCelebrateGoalBody": "Now the journey is about keeping it. Your trend will show how it holds.",
+  "weightCelebrateOk": "Keep going",
+  "featureGoalReminders": "Goal reminders",
+  "goalRemindersIntro": "Gentle nudges for your goals. Each one is a routine, so quiet hours, Done and Snooze all work, and nothing leaves your phone.",
+  "goalRemindForYou": "Your goal",
+  "goalRemindWeighIn": "Weigh-in",
+  "goalRemindWeighInItem": "Weigh-in time: step on the scale",
+  "goalRemindWeighInInfo": "Same day and time, before breakfast: the fairest way to see your trend.",
+  "goalRemindWater": "Drink water",
+  "goalRemindWaterItem": "Time for a glass of water",
+  "goalRemindWaterInfo": "Spread through the day so your water target comes easily.",
+  "goalRemindBedtime": "Bedtime wind-down",
+  "goalRemindBedtimeItem": "Start winding down for bed",
+  "goalRemindBedtimeInfo": "A nudge to dim screens and get ready for sleep at a regular time.",
+  "goalRemindMove": "Move break",
+  "goalRemindMoveItem": "Stand up and move for 5 minutes",
+  "goalRemindMoveInfo": "Short walks break up long sitting on workdays.",
+  "goalRemindPosture": "Posture break",
+  "goalRemindPostureItem": "Posture break: roll your shoulders and sit tall",
+  "goalRemindPostureInfo": "A quick reset for neck and back during the workday.",
+  "goalRemindDays": "Days",
+  "goalRemindTimes": "Times",
+  "goalRemindAddTime": "Add a time",
+  "goalRemindRemoveTime": "Remove {time}",
+  "@goalRemindRemoveTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "goalRemindWeekdays": "Weekdays"
 }

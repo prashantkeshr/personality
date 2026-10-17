@@ -5169,4 +5169,226 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get contactEmailSubject => 'Personality ऐप';
+
+  @override
+  String get lockMethodTitle => 'आप कैसे अनलॉक करना चाहेंगे?';
+
+  @override
+  String get lockMethodDevice => 'फ़ोन का स्क्रीन लॉक';
+
+  @override
+  String get lockMethodDeviceInfo =>
+      'फ़िंगरप्रिंट, चेहरा, या आपके फ़ोन का PIN, पैटर्न या पासवर्ड। कुछ नया याद नहीं रखना। सुझाया गया।';
+
+  @override
+  String get lockMethodPin => 'ऐप PIN';
+
+  @override
+  String get lockMethodPinInfo => 'सिर्फ़ इस ऐप के लिए अलग 4–8 अंकों का PIN।';
+
+  @override
+  String get lockUsesDevice => 'आपके फ़ोन के स्क्रीन लॉक से खुलता है';
+
+  @override
+  String get lockUsesPin => 'ऐप PIN से खुलता है';
+
+  @override
+  String get lockSwitchToDevice =>
+      'इसके बजाय फ़ोन का स्क्रीन लॉक इस्तेमाल करें';
+
+  @override
+  String get lockSwitchToPin => 'इसके बजाय ऐप PIN इस्तेमाल करें';
+
+  @override
+  String get lockUnlock => 'अनलॉक करें';
+
+  @override
+  String get lockDeviceHint =>
+      'अपना फ़िंगरप्रिंट, चेहरा, या फ़ोन का PIN, पैटर्न या पासवर्ड इस्तेमाल करें।';
+
+  @override
+  String get lockDeviceFailed => 'अनलॉक नहीं हुआ। फिर से कोशिश करें।';
+
+  @override
+  String get lockNoDeviceLock =>
+      'इस फ़ोन में स्क्रीन लॉक नहीं है। Android सेटिंग में एक सेट करें, या ऐप PIN इस्तेमाल करें।';
+
+  @override
+  String get lockDeviceRemoved =>
+      'आपके फ़ोन में अब स्क्रीन लॉक नहीं है, इसलिए ऐप लॉक बंद कर दिया गया।';
+
+  @override
+  String get weightJourneyTitle => 'आपकी वज़न यात्रा';
+
+  @override
+  String get weightJourneyNoGoal =>
+      'अपनी यात्रा का नक्शा बनाने के लिए लक्ष्य तय करें।';
+
+  @override
+  String get weightJourneySetGoal => 'लक्ष्य तय करें';
+
+  @override
+  String get weightJourneyMaintain =>
+      'आपने अपनी लक्ष्य सीमा के भीतर शुरुआत की, इसलिए यह यात्रा वहीं बने रहने की है।';
+
+  @override
+  String weightJourneyProgress(int percent) {
+    return '$percent% रास्ता तय';
+  }
+
+  @override
+  String get weightJourneyReached => 'लक्ष्य पूरा';
+
+  @override
+  String get weightJourneyTapHint => 'किसी झंडे पर टैप करके उसका वज़न देखें।';
+
+  @override
+  String weightMilestoneAt(int percent, String weight) {
+    return '$percent% पड़ाव: $weight';
+  }
+
+  @override
+  String weightJourneySemantics(int percent, String start, String target) {
+    return 'वज़न यात्रा: $start से $target तक $percent% रास्ता तय';
+  }
+
+  @override
+  String get weightStatWeek => 'इस हफ़्ते';
+
+  @override
+  String get weightStatSinceStart => 'शुरुआत से';
+
+  @override
+  String get weightStatToGo => 'बाकी';
+
+  @override
+  String get weightStatStreak => 'वज़न जाँच सिलसिला';
+
+  @override
+  String weightStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count हफ़्ते',
+      one: '1 हफ़्ता',
+      zero: 'अभी नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightLogTitle => 'तराज़ू पर कदम रखें';
+
+  @override
+  String get weightLogHint =>
+      'अपना वज़न सेट करने के लिए पैमाना खिसकाएँ, या − और + इस्तेमाल करें।';
+
+  @override
+  String get weightLogSave => 'वज़न सहेजें';
+
+  @override
+  String get weightLogSaved => 'वज़न सहेजा गया';
+
+  @override
+  String get weightDecrease => 'कम';
+
+  @override
+  String get weightIncrease => 'ज़्यादा';
+
+  @override
+  String weightCelebrateMilestone(int percent) {
+    return '$percent% रास्ता तय!';
+  }
+
+  @override
+  String weightCelebrateBody(String weight) {
+    return 'अभी $weight। छोटे-छोटे कदम जुड़ते हैं। अपनी रफ़्तार से चलते रहें।';
+  }
+
+  @override
+  String get weightCelebrateGoal => 'आपने अपना लक्ष्य पा लिया!';
+
+  @override
+  String get weightCelebrateGoalBody =>
+      'अब यात्रा इसे बनाए रखने की है। आपका रुझान बताएगा कि यह कैसे टिका है।';
+
+  @override
+  String get weightCelebrateOk => 'चलते रहें';
+
+  @override
+  String get featureGoalReminders => 'लक्ष्य रिमाइंडर';
+
+  @override
+  String get goalRemindersIntro =>
+      'आपके लक्ष्यों के लिए हल्के संकेत। हर एक रूटीन है, इसलिए शांत समय, हो गया और स्नूज़ सब काम करते हैं, और कुछ भी फ़ोन से बाहर नहीं जाता।';
+
+  @override
+  String get goalRemindForYou => 'आपका लक्ष्य';
+
+  @override
+  String get goalRemindWeighIn => 'वज़न जाँच';
+
+  @override
+  String get goalRemindWeighInItem => 'वज़न का समय: तराज़ू पर कदम रखें';
+
+  @override
+  String get goalRemindWeighInInfo =>
+      'एक ही दिन और समय, नाश्ते से पहले: अपना रुझान देखने का सबसे सही तरीका।';
+
+  @override
+  String get goalRemindWater => 'पानी पिएँ';
+
+  @override
+  String get goalRemindWaterItem => 'एक गिलास पानी का समय';
+
+  @override
+  String get goalRemindWaterInfo =>
+      'पूरे दिन में बँटा हुआ, ताकि पानी का लक्ष्य आसानी से पूरा हो।';
+
+  @override
+  String get goalRemindBedtime => 'सोने से पहले आराम';
+
+  @override
+  String get goalRemindBedtimeItem => 'सोने की तैयारी शुरू करें';
+
+  @override
+  String get goalRemindBedtimeInfo =>
+      'स्क्रीन धीमी करने और नियमित समय पर सोने की तैयारी का संकेत।';
+
+  @override
+  String get goalRemindMove => 'चलने का ब्रेक';
+
+  @override
+  String get goalRemindMoveItem => 'उठें और 5 मिनट चलें-फिरें';
+
+  @override
+  String get goalRemindMoveInfo =>
+      'कामकाजी दिनों में छोटी सैर लंबे बैठने को तोड़ती है।';
+
+  @override
+  String get goalRemindPosture => 'मुद्रा ब्रेक';
+
+  @override
+  String get goalRemindPostureItem => 'मुद्रा ब्रेक: कंधे घुमाएँ और सीधे बैठें';
+
+  @override
+  String get goalRemindPostureInfo =>
+      'कामकाजी दिन में गर्दन और पीठ के लिए जल्दी आराम।';
+
+  @override
+  String get goalRemindDays => 'दिन';
+
+  @override
+  String get goalRemindTimes => 'समय';
+
+  @override
+  String get goalRemindAddTime => 'समय जोड़ें';
+
+  @override
+  String goalRemindRemoveTime(String time) {
+    return '$time हटाएँ';
+  }
+
+  @override
+  String get goalRemindWeekdays => 'कार्यदिवस';
 }

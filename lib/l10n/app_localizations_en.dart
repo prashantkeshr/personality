@@ -5181,4 +5181,225 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactEmailSubject => 'Personality app';
+
+  @override
+  String get lockMethodTitle => 'How do you want to unlock?';
+
+  @override
+  String get lockMethodDevice => 'Phone\'s screen lock';
+
+  @override
+  String get lockMethodDeviceInfo =>
+      'Fingerprint, face, or your phone\'s PIN, pattern or password. Nothing new to remember. Recommended.';
+
+  @override
+  String get lockMethodPin => 'App PIN';
+
+  @override
+  String get lockMethodPinInfo => 'A separate 4–8 digit PIN just for this app.';
+
+  @override
+  String get lockUsesDevice => 'Unlocks with your phone\'s screen lock';
+
+  @override
+  String get lockUsesPin => 'Unlocks with an app PIN';
+
+  @override
+  String get lockSwitchToDevice => 'Use the phone\'s screen lock instead';
+
+  @override
+  String get lockSwitchToPin => 'Use an app PIN instead';
+
+  @override
+  String get lockUnlock => 'Unlock';
+
+  @override
+  String get lockDeviceHint =>
+      'Use your fingerprint, face, or your phone\'s PIN, pattern or password.';
+
+  @override
+  String get lockDeviceFailed => 'Not unlocked. Try again.';
+
+  @override
+  String get lockNoDeviceLock =>
+      'This phone has no screen lock. Set one in Android settings, or use an app PIN.';
+
+  @override
+  String get lockDeviceRemoved =>
+      'Your phone no longer has a screen lock, so the app lock was turned off.';
+
+  @override
+  String get weightJourneyTitle => 'Your weight journey';
+
+  @override
+  String get weightJourneyNoGoal => 'Set a goal to map your journey.';
+
+  @override
+  String get weightJourneySetGoal => 'Set goal';
+
+  @override
+  String get weightJourneyMaintain =>
+      'You started inside your goal range, so this journey is about staying there.';
+
+  @override
+  String weightJourneyProgress(int percent) {
+    return '$percent% of the way';
+  }
+
+  @override
+  String get weightJourneyReached => 'Goal reached';
+
+  @override
+  String get weightJourneyTapHint => 'Tap a flag to see its weight.';
+
+  @override
+  String weightMilestoneAt(int percent, String weight) {
+    return '$percent% mark: $weight';
+  }
+
+  @override
+  String weightJourneySemantics(int percent, String start, String target) {
+    return 'Weight journey: $percent% of the way from $start to $target';
+  }
+
+  @override
+  String get weightStatWeek => 'This week';
+
+  @override
+  String get weightStatSinceStart => 'Since start';
+
+  @override
+  String get weightStatToGo => 'To go';
+
+  @override
+  String get weightStatStreak => 'Weigh-in streak';
+
+  @override
+  String weightStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count weeks',
+      one: '1 week',
+      zero: 'Not yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightLogTitle => 'Step on the scale';
+
+  @override
+  String get weightLogHint =>
+      'Drag the ruler, or use − and +, to set your weight.';
+
+  @override
+  String get weightLogSave => 'Save weigh-in';
+
+  @override
+  String get weightLogSaved => 'Weigh-in saved';
+
+  @override
+  String get weightDecrease => 'Less';
+
+  @override
+  String get weightIncrease => 'More';
+
+  @override
+  String weightCelebrateMilestone(int percent) {
+    return '$percent% of the way!';
+  }
+
+  @override
+  String weightCelebrateBody(String weight) {
+    return 'Now at $weight. Steady steps add up. Keep going at your own pace.';
+  }
+
+  @override
+  String get weightCelebrateGoal => 'You reached your goal!';
+
+  @override
+  String get weightCelebrateGoalBody =>
+      'Now the journey is about keeping it. Your trend will show how it holds.';
+
+  @override
+  String get weightCelebrateOk => 'Keep going';
+
+  @override
+  String get featureGoalReminders => 'Goal reminders';
+
+  @override
+  String get goalRemindersIntro =>
+      'Gentle nudges for your goals. Each one is a routine, so quiet hours, Done and Snooze all work, and nothing leaves your phone.';
+
+  @override
+  String get goalRemindForYou => 'Your goal';
+
+  @override
+  String get goalRemindWeighIn => 'Weigh-in';
+
+  @override
+  String get goalRemindWeighInItem => 'Weigh-in time: step on the scale';
+
+  @override
+  String get goalRemindWeighInInfo =>
+      'Same day and time, before breakfast: the fairest way to see your trend.';
+
+  @override
+  String get goalRemindWater => 'Drink water';
+
+  @override
+  String get goalRemindWaterItem => 'Time for a glass of water';
+
+  @override
+  String get goalRemindWaterInfo =>
+      'Spread through the day so your water target comes easily.';
+
+  @override
+  String get goalRemindBedtime => 'Bedtime wind-down';
+
+  @override
+  String get goalRemindBedtimeItem => 'Start winding down for bed';
+
+  @override
+  String get goalRemindBedtimeInfo =>
+      'A nudge to dim screens and get ready for sleep at a regular time.';
+
+  @override
+  String get goalRemindMove => 'Move break';
+
+  @override
+  String get goalRemindMoveItem => 'Stand up and move for 5 minutes';
+
+  @override
+  String get goalRemindMoveInfo =>
+      'Short walks break up long sitting on workdays.';
+
+  @override
+  String get goalRemindPosture => 'Posture break';
+
+  @override
+  String get goalRemindPostureItem =>
+      'Posture break: roll your shoulders and sit tall';
+
+  @override
+  String get goalRemindPostureInfo =>
+      'A quick reset for neck and back during the workday.';
+
+  @override
+  String get goalRemindDays => 'Days';
+
+  @override
+  String get goalRemindTimes => 'Times';
+
+  @override
+  String get goalRemindAddTime => 'Add a time';
+
+  @override
+  String goalRemindRemoveTime(String time) {
+    return 'Remove $time';
+  }
+
+  @override
+  String get goalRemindWeekdays => 'Weekdays';
 }

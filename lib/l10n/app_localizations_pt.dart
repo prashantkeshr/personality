@@ -5222,4 +5222,228 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get contactEmailSubject => 'App Personality';
+
+  @override
+  String get lockMethodTitle => 'Como quer desbloquear?';
+
+  @override
+  String get lockMethodDevice => 'Bloqueio de tela do celular';
+
+  @override
+  String get lockMethodDeviceInfo =>
+      'Digital, rosto, ou o PIN, padrão ou senha do seu celular. Nada novo para lembrar. Recomendado.';
+
+  @override
+  String get lockMethodPin => 'PIN do app';
+
+  @override
+  String get lockMethodPinInfo =>
+      'Um PIN separado de 4 a 8 dígitos só para este app.';
+
+  @override
+  String get lockUsesDevice =>
+      'Desbloqueia com o bloqueio de tela do seu celular';
+
+  @override
+  String get lockUsesPin => 'Desbloqueia com um PIN do app';
+
+  @override
+  String get lockSwitchToDevice => 'Usar o bloqueio de tela do celular';
+
+  @override
+  String get lockSwitchToPin => 'Usar um PIN do app';
+
+  @override
+  String get lockUnlock => 'Desbloquear';
+
+  @override
+  String get lockDeviceHint =>
+      'Use a digital, o rosto, ou o PIN, padrão ou senha do celular.';
+
+  @override
+  String get lockDeviceFailed => 'Não desbloqueado. Tente de novo.';
+
+  @override
+  String get lockNoDeviceLock =>
+      'Este celular não tem bloqueio de tela. Defina um nas configurações do Android ou use um PIN do app.';
+
+  @override
+  String get lockDeviceRemoved =>
+      'O seu celular já não tem bloqueio de tela, por isso o bloqueio do app foi desativado.';
+
+  @override
+  String get weightJourneyTitle => 'A sua jornada de peso';
+
+  @override
+  String get weightJourneyNoGoal =>
+      'Defina uma meta para traçar a sua jornada.';
+
+  @override
+  String get weightJourneySetGoal => 'Definir meta';
+
+  @override
+  String get weightJourneyMaintain =>
+      'Você começou dentro da sua faixa-alvo, por isso esta jornada é sobre se manter nela.';
+
+  @override
+  String weightJourneyProgress(int percent) {
+    return '$percent% do caminho';
+  }
+
+  @override
+  String get weightJourneyReached => 'Meta atingida';
+
+  @override
+  String get weightJourneyTapHint => 'Toque numa bandeira para ver o peso.';
+
+  @override
+  String weightMilestoneAt(int percent, String weight) {
+    return 'Marca de $percent%: $weight';
+  }
+
+  @override
+  String weightJourneySemantics(int percent, String start, String target) {
+    return 'Jornada de peso: $percent% do caminho de $start até $target';
+  }
+
+  @override
+  String get weightStatWeek => 'Esta semana';
+
+  @override
+  String get weightStatSinceStart => 'Desde o início';
+
+  @override
+  String get weightStatToGo => 'Falta';
+
+  @override
+  String get weightStatStreak => 'Sequência de pesagens';
+
+  @override
+  String weightStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count semanas',
+      one: '1 semana',
+      zero: 'Ainda não',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weightLogTitle => 'Suba na balança';
+
+  @override
+  String get weightLogHint =>
+      'Arraste a régua, ou use − e +, para definir o seu peso.';
+
+  @override
+  String get weightLogSave => 'Salvar pesagem';
+
+  @override
+  String get weightLogSaved => 'Pesagem salva';
+
+  @override
+  String get weightDecrease => 'Menos';
+
+  @override
+  String get weightIncrease => 'Mais';
+
+  @override
+  String weightCelebrateMilestone(int percent) {
+    return '$percent% do caminho!';
+  }
+
+  @override
+  String weightCelebrateBody(String weight) {
+    return 'Agora com $weight. Passos constantes somam. Continue no seu ritmo.';
+  }
+
+  @override
+  String get weightCelebrateGoal => 'Você atingiu a sua meta!';
+
+  @override
+  String get weightCelebrateGoalBody =>
+      'Agora a jornada é mantê-la. A sua tendência mostrará como se sustenta.';
+
+  @override
+  String get weightCelebrateOk => 'Continuar';
+
+  @override
+  String get featureGoalReminders => 'Lembretes de metas';
+
+  @override
+  String get goalRemindersIntro =>
+      'Lembretes suaves para as suas metas. Cada um é uma rotina, então horário silencioso, Feito e Adiar funcionam, e nada sai do seu celular.';
+
+  @override
+  String get goalRemindForYou => 'Sua meta';
+
+  @override
+  String get goalRemindWeighIn => 'Pesagem';
+
+  @override
+  String get goalRemindWeighInItem => 'Hora da pesagem: suba na balança';
+
+  @override
+  String get goalRemindWeighInInfo =>
+      'Mesmo dia e hora, antes do café da manhã: a forma mais justa de ver a sua tendência.';
+
+  @override
+  String get goalRemindWater => 'Beber água';
+
+  @override
+  String get goalRemindWaterItem => 'Hora de um copo de água';
+
+  @override
+  String get goalRemindWaterInfo =>
+      'Distribuídos ao longo do dia para a meta de água vir com facilidade.';
+
+  @override
+  String get goalRemindBedtime => 'Desacelerar para dormir';
+
+  @override
+  String get goalRemindBedtimeItem => 'Comece a desacelerar para dormir';
+
+  @override
+  String get goalRemindBedtimeInfo =>
+      'Um lembrete para baixar as telas e se preparar para dormir num horário regular.';
+
+  @override
+  String get goalRemindMove => 'Pausa para se mexer';
+
+  @override
+  String get goalRemindMoveItem => 'Levante-se e mexa-se por 5 minutos';
+
+  @override
+  String get goalRemindMoveInfo =>
+      'Caminhadas curtas quebram longos períodos sentado nos dias úteis.';
+
+  @override
+  String get goalRemindPosture => 'Pausa para a postura';
+
+  @override
+  String get goalRemindPostureItem =>
+      'Pausa para a postura: gire os ombros e sente-se ereto';
+
+  @override
+  String get goalRemindPostureInfo =>
+      'Uma pausa rápida para pescoço e costas durante o dia de trabalho.';
+
+  @override
+  String get goalRemindDays => 'Dias';
+
+  @override
+  String get goalRemindTimes => 'Horários';
+
+  @override
+  String get goalRemindAddTime => 'Adicionar horário';
+
+  @override
+  String goalRemindRemoveTime(String time) {
+    return 'Remover $time';
+  }
+
+  @override
+  String get goalRemindWeekdays => 'Dias úteis';
 }

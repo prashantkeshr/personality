@@ -87,7 +87,9 @@ void main() {
     await app.start(onboarded);
     await openHealthFeature(app, 'Weight');
 
-    await tester.tap(find.text('Add weight'));
+    // The detailed form (date, notes) sits in the app bar; the button at
+    // the bottom is the interactive scale.
+    await tester.tap(find.byTooltip('Add weight'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byKey(const Key('record-value')), '70.5');
     await app.tapAndSettle(find.text('Save'));

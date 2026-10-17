@@ -51,6 +51,7 @@ enum AppFeature {
   outfitCalendar,
   wardrobeStats,
   glassesFinder,
+  goalReminders,
 }
 
 /// ML model identifiers referenced by capability rules.

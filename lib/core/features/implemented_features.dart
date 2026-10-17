@@ -19,6 +19,7 @@ const Set<AppFeature> implementedFeatures = {
   // Phase 4
   AppFeature.routines,
   AppFeature.reminders,
+  AppFeature.goalReminders,
   // Phase 5
   AppFeature.cameraCheck,
   // Phase 6

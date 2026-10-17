@@ -587,3 +587,40 @@ Verification:
   - Lock: set a PIN, relock after 36 s away, unlock with the PIN; only the lock is visible to accessibility.
   - Widget: added from the launcher; shows in Arabic; "+ Glass" added 250 ml after unlocking.
 - Release permissions: `USE_BIOMETRIC` and `USE_FINGERPRINT` are new (fingerprint unlock). Nothing else changed.
+
+## Phase 21 — Phone lock, weight journey, goal reminders (2026-10-18)
+
+Also in this release (e73955f): the new app icon generated from tool/branding/icon_source.png, and the dhurta.Inc contact details (support@dhurta.org) in Settings → About.
+
+- **Phone's own screen lock** as the app lock. Turning the lock on now asks how to unlock:
+  - **Phone's screen lock** (recommended): fingerprint, face, or the phone's PIN, pattern or password, through Android's own prompt. The app keeps no secret for this.
+  - **App PIN**: as before.
+  - The lock screen opens the system prompt by itself; cancelling leaves an Unlock button.
+  - Switching method or turning the lock off first asks for whatever unlocks it now.
+  - If the phone's screen lock is removed later, the app lock turns itself off and says so, since there is nothing left to check against.
+- **Weight journey** (Health → Weight):
+  - An illustrated trail from the starting weight to the goal, with flags at 25/50/75%. A walker moves along it as the 7-day trend gets closer. Tap a flag to see its weight.
+  - The start is the active body plan's start, otherwise the first weigh-in. The target is the plan's target, otherwise the nearer edge of the goal range. Moving away from the goal never shows as negative progress.
+  - Stats: this week, since start, to go, and a weigh-in streak in weeks.
+  - **Step on the scale**: a drawn scale and a draggable ruler (0.1 kg or 0.2 lb steps) with haptic ticks and − / + buttons, and slider semantics for screen readers.
+  - Passing a milestone shows a short celebration. Reduced motion is respected.
+  - The chart now has touch tooltips and a dashed target line. The detailed form (date, notes) moved to the app bar.
+- **Goal reminders** (Health → Goal reminders, and a weigh-in card on the weight screen): weigh-in (Mondays 7:30), drink water (4 times a day), bedtime wind-down, move breaks and posture breaks.
+  - Your own goals are listed first.
+  - Each one is an ordinary routine, so quiet hours, Done / Snooze and history all work.
+  - Days and times can be edited in place.
+- **Database self-repair**: when the database opens at the current version, any missing optional column is added back. The emulator's database, made by a pre-release Phase 12 build, lacked `user_profile.region`, so every profile save failed ("Could not save" on the goal range). Published builds were never affected.
+- Fixed: AnimatedSize with reduced motion threw during layout, so reduced motion now skips the animation. The scale sheet opens above the floating tab bar.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 405 pass, 2 skipped. New tests:
+  - phone-lock mode (no PIN stored, a PIN can't stand in, auto-prompt, a failed prompt, the phone lock being removed, switching method);
+  - weight journey maths (range edges, plan override, trend, never-negative progress, streak, milestones, ruler snapping);
+  - weight screen (trail percent, scale buttons and drag, celebration, set-goal link, weigh-in reminder);
+  - goal reminders (on / remove a time / days / off);
+  - schema self-repair (fails without the fix).
+- Emulator, release build (with a test screen-lock PIN):
+  - switched from the app PIN to the phone's lock; relocked after 36 s and unlocked through Android's prompt; cancelling shows Unlock;
+  - set the goal range; weighed in 70 → 67.8 kg and saw "50% of the way!";
+  - turned on the weigh-in reminder, which appears under Next reminders (Mon 7:30).
+- Release permissions unchanged.

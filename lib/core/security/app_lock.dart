@@ -38,10 +38,24 @@ class MemoryLockStore implements LockStore {
       value == null ? values.remove(key) : values[key] = value;
 }
 
-/// Fingerprint / face unlock through the system prompt.
+/// Result of the phone's own screen-lock prompt.
+enum DeviceAuth {
+  success,
+  failed,
+
+  /// The phone has no screen lock at all, so there is nothing to check.
+  noLock,
+}
+
+/// The system unlock prompts: fingerprint / face only, or the phone's whole
+/// screen lock (fingerprint, face, or its PIN, pattern or password).
 abstract interface class Biometrics {
   Future<bool> available();
   Future<bool> authenticate(String reason);
+
+  /// Whether the phone has a screen lock this app can ask for.
+  Future<bool> deviceLockAvailable();
+  Future<DeviceAuth> authenticateDevice(String reason);
 }
 
 class PlatformBiometrics implements Biometrics {
@@ -70,6 +84,34 @@ class PlatformBiometrics implements Biometrics {
       return false; // cancelled, locked out or unavailable: fall back to the PIN
     }
   }
+
+  @override
+  Future<bool> deviceLockAvailable() async {
+    try {
+      return await _auth.isDeviceSupported();
+    } on PlatformException {
+      return false;
+    } on MissingPluginException {
+      return false;
+    }
+  }
+
+  @override
+  Future<DeviceAuth> authenticateDevice(String reason) async {
+    try {
+      final ok = await _auth.authenticate(
+        localizedReason: reason,
+        persistAcrossBackgrounding: true,
+      );
+      return ok ? DeviceAuth.success : DeviceAuth.failed;
+    } on LocalAuthException catch (e) {
+      return e.code == LocalAuthExceptionCode.noCredentialsSet
+          ? DeviceAuth.noLock
+          : DeviceAuth.failed;
+    } catch (_) {
+      return DeviceAuth.failed;
+    }
+  }
 }
 
 class NoBiometrics implements Biometrics {
@@ -78,9 +120,15 @@ class NoBiometrics implements Biometrics {
   Future<bool> available() async => false;
   @override
   Future<bool> authenticate(String reason) async => false;
+  @override
+  Future<bool> deviceLockAvailable() async => false;
+  @override
+  Future<DeviceAuth> authenticateDevice(String reason) async =>
+      DeviceAuth.noLock;
 }
 
-/// PIN hashing and checking. PBKDF2-HMAC-SHA256 with a random salt.
+/// The lock's stored choice: an app PIN (hashed with PBKDF2-HMAC-SHA256 and
+/// a random salt), or the phone's own screen lock, which keeps no secret here.
 class PinVault {
   PinVault(this._store, {this.iterations = 60000});
 
@@ -89,6 +137,7 @@ class PinVault {
 
   static const _kHash = 'lock.pin';
   static const _kBio = 'lock.biometric';
+  static const _kDevice = 'lock.device';
 
   static bool validPin(String pin) => RegExp(r'^\d{4,8}$').hasMatch(pin);
 
@@ -103,7 +152,17 @@ class PinVault {
         ).deriveKeyFromPassword(password: pin, nonce: salt)).extractBytes(),
       );
 
-  Future<bool> enabled() async => await _store.read(_kHash) != null;
+  Future<bool> enabled() async =>
+      await _store.read(_kHash) != null || await deviceMode();
+
+  /// Locked with the phone's screen lock instead of an app PIN.
+  Future<bool> deviceMode() async => await _store.read(_kDevice) == 'true';
+
+  Future<void> useDevice() async {
+    await _store.write(_kHash, null);
+    await _store.write(_kBio, null);
+    await _store.write(_kDevice, 'true');
+  }
 
   Future<void> setPin(String pin) async {
     if (!validPin(pin)) throw ArgumentError('PIN must be 4–8 digits');
@@ -118,11 +177,13 @@ class PinVault {
         'i': iterations,
       }),
     );
+    await _store.write(_kDevice, null);
   }
 
   Future<bool> verify(String pin) async {
     final raw = await _store.read(_kHash);
-    if (raw == null) return true;
+    // No PIN: nothing to check, unless the phone's lock guards the app.
+    if (raw == null) return !await deviceMode();
     final j = jsonDecode(raw) as Map<String, dynamic>;
     final expected = base64Decode(j['h'] as String);
     final got = await _hash(pin, base64Decode(j['s'] as String), j['i'] as int);
@@ -137,6 +198,7 @@ class PinVault {
   Future<void> disable() async {
     await _store.write(_kHash, null);
     await _store.write(_kBio, null);
+    await _store.write(_kDevice, null);
   }
 
   Future<bool> biometricEnabled() async => await _store.read(_kBio) == 'true';
@@ -149,6 +211,7 @@ class AppLockState {
     this.enabled = false,
     this.locked = false,
     this.biometric = false,
+    this.device = false,
     this.failures = 0,
     this.lockedUntil,
   });
@@ -157,6 +220,9 @@ class AppLockState {
   final bool enabled;
   final bool locked;
   final bool biometric;
+
+  /// Unlocks with the phone's screen lock rather than an app PIN.
+  final bool device;
   final int failures;
 
   /// After repeated wrong PINs, entry pauses until then.
@@ -167,6 +233,7 @@ class AppLockState {
     bool? enabled,
     bool? locked,
     bool? biometric,
+    bool? device,
     int? failures,
     DateTime? Function()? lockedUntil,
   }) => AppLockState(
@@ -174,6 +241,7 @@ class AppLockState {
     enabled: enabled ?? this.enabled,
     locked: locked ?? this.locked,
     biometric: biometric ?? this.biometric,
+    device: device ?? this.device,
     failures: failures ?? this.failures,
     lockedUntil: lockedUntil != null ? lockedUntil() : this.lockedUntil,
   );
@@ -188,7 +256,7 @@ final pinVaultProvider = Provider(
 );
 final lockClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 
-/// Lock state for the whole app. Locked on start when a PIN is set.
+/// Lock state for the whole app. Locked on start when a lock is set.
 class AppLockController extends Notifier<AppLockState> {
   @override
   AppLockState build() {
@@ -201,11 +269,13 @@ class AppLockController extends Notifier<AppLockState> {
   Future<void> _load() async {
     final enabled = await _vault.enabled();
     final bio = await _vault.biometricEnabled();
+    final device = await _vault.deviceMode();
     state = state.copyWith(
       ready: true,
       enabled: enabled,
       locked: enabled,
       biometric: bio,
+      device: device,
     );
   }
 
@@ -226,7 +296,7 @@ class AppLockController extends Notifier<AppLockState> {
 
   /// True when unlocked. Five wrong PINs pause entry, longer each time.
   Future<bool> unlockWithPin(String pin) async {
-    if (waitSeconds() > 0) return false;
+    if (state.device || waitSeconds() > 0) return false;
     if (await _vault.verify(pin)) {
       state = state.copyWith(
         locked: false,
@@ -262,14 +332,56 @@ class AppLockController extends Notifier<AppLockState> {
     return ok;
   }
 
+  /// Unlock with the phone's screen lock. If the phone no longer has one,
+  /// there is nothing left to check against, so the lock turns itself off.
+  Future<DeviceAuth> unlockWithDevice(String reason) async {
+    if (!state.device) return DeviceAuth.failed;
+    final r = await ref.read(biometricsProvider).authenticateDevice(reason);
+    switch (r) {
+      case DeviceAuth.success:
+        state = state.copyWith(locked: false);
+      case DeviceAuth.noLock:
+        await disable();
+      case DeviceAuth.failed:
+        break;
+    }
+    return r;
+  }
+
+  /// Asks for the phone's screen lock, e.g. before changing lock settings.
+  Future<bool> confirmDevice(String reason) async =>
+      await ref.read(biometricsProvider).authenticateDevice(reason) ==
+      DeviceAuth.success;
+
+  /// Turns on (or switches to) the phone's screen lock, after one successful
+  /// prompt so the user knows it works.
+  Future<DeviceAuth> enableDevice(String reason) async {
+    final r = await ref.read(biometricsProvider).authenticateDevice(reason);
+    if (r == DeviceAuth.success) {
+      await _vault.useDevice();
+      state = state.copyWith(
+        enabled: true,
+        locked: false,
+        device: true,
+        biometric: false,
+      );
+    }
+    return r;
+  }
+
   Future<void> enable(String pin) async {
     await _vault.setPin(pin);
-    state = state.copyWith(enabled: true, locked: false);
+    state = state.copyWith(enabled: true, locked: false, device: false);
   }
 
   Future<void> disable() async {
     await _vault.disable();
-    state = state.copyWith(enabled: false, locked: false, biometric: false);
+    state = state.copyWith(
+      enabled: false,
+      locked: false,
+      biometric: false,
+      device: false,
+    );
   }
 
   Future<void> setBiometric(bool on) async {

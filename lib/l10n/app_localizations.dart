@@ -9087,6 +9087,378 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Personality app'**
   String get contactEmailSubject;
+
+  /// No description provided for @lockMethodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to unlock?'**
+  String get lockMethodTitle;
+
+  /// No description provided for @lockMethodDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone\'s screen lock'**
+  String get lockMethodDevice;
+
+  /// No description provided for @lockMethodDeviceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint, face, or your phone\'s PIN, pattern or password. Nothing new to remember. Recommended.'**
+  String get lockMethodDeviceInfo;
+
+  /// No description provided for @lockMethodPin.
+  ///
+  /// In en, this message translates to:
+  /// **'App PIN'**
+  String get lockMethodPin;
+
+  /// No description provided for @lockMethodPinInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A separate 4–8 digit PIN just for this app.'**
+  String get lockMethodPinInfo;
+
+  /// No description provided for @lockUsesDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks with your phone\'s screen lock'**
+  String get lockUsesDevice;
+
+  /// No description provided for @lockUsesPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks with an app PIN'**
+  String get lockUsesPin;
+
+  /// No description provided for @lockSwitchToDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the phone\'s screen lock instead'**
+  String get lockSwitchToDevice;
+
+  /// No description provided for @lockSwitchToPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Use an app PIN instead'**
+  String get lockSwitchToPin;
+
+  /// No description provided for @lockUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get lockUnlock;
+
+  /// No description provided for @lockDeviceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your fingerprint, face, or your phone\'s PIN, pattern or password.'**
+  String get lockDeviceHint;
+
+  /// No description provided for @lockDeviceFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Not unlocked. Try again.'**
+  String get lockDeviceFailed;
+
+  /// No description provided for @lockNoDeviceLock.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no screen lock. Set one in Android settings, or use an app PIN.'**
+  String get lockNoDeviceLock;
+
+  /// No description provided for @lockDeviceRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone no longer has a screen lock, so the app lock was turned off.'**
+  String get lockDeviceRemoved;
+
+  /// No description provided for @weightJourneyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your weight journey'**
+  String get weightJourneyTitle;
+
+  /// No description provided for @weightJourneyNoGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a goal to map your journey.'**
+  String get weightJourneyNoGoal;
+
+  /// No description provided for @weightJourneySetGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Set goal'**
+  String get weightJourneySetGoal;
+
+  /// No description provided for @weightJourneyMaintain.
+  ///
+  /// In en, this message translates to:
+  /// **'You started inside your goal range, so this journey is about staying there.'**
+  String get weightJourneyMaintain;
+
+  /// No description provided for @weightJourneyProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% of the way'**
+  String weightJourneyProgress(int percent);
+
+  /// No description provided for @weightJourneyReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal reached'**
+  String get weightJourneyReached;
+
+  /// No description provided for @weightJourneyTapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a flag to see its weight.'**
+  String get weightJourneyTapHint;
+
+  /// No description provided for @weightMilestoneAt.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% mark: {weight}'**
+  String weightMilestoneAt(int percent, String weight);
+
+  /// No description provided for @weightJourneySemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight journey: {percent}% of the way from {start} to {target}'**
+  String weightJourneySemantics(int percent, String start, String target);
+
+  /// No description provided for @weightStatWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get weightStatWeek;
+
+  /// No description provided for @weightStatSinceStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Since start'**
+  String get weightStatSinceStart;
+
+  /// No description provided for @weightStatToGo.
+  ///
+  /// In en, this message translates to:
+  /// **'To go'**
+  String get weightStatToGo;
+
+  /// No description provided for @weightStatStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Weigh-in streak'**
+  String get weightStatStreak;
+
+  /// No description provided for @weightStreakWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Not yet} =1{1 week} other{{count} weeks}}'**
+  String weightStreakWeeks(int count);
+
+  /// No description provided for @weightLogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Step on the scale'**
+  String get weightLogTitle;
+
+  /// No description provided for @weightLogHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag the ruler, or use − and +, to set your weight.'**
+  String get weightLogHint;
+
+  /// No description provided for @weightLogSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save weigh-in'**
+  String get weightLogSave;
+
+  /// No description provided for @weightLogSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Weigh-in saved'**
+  String get weightLogSaved;
+
+  /// No description provided for @weightDecrease.
+  ///
+  /// In en, this message translates to:
+  /// **'Less'**
+  String get weightDecrease;
+
+  /// No description provided for @weightIncrease.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get weightIncrease;
+
+  /// No description provided for @weightCelebrateMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% of the way!'**
+  String weightCelebrateMilestone(int percent);
+
+  /// No description provided for @weightCelebrateBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Now at {weight}. Steady steps add up. Keep going at your own pace.'**
+  String weightCelebrateBody(String weight);
+
+  /// No description provided for @weightCelebrateGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'You reached your goal!'**
+  String get weightCelebrateGoal;
+
+  /// No description provided for @weightCelebrateGoalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Now the journey is about keeping it. Your trend will show how it holds.'**
+  String get weightCelebrateGoalBody;
+
+  /// No description provided for @weightCelebrateOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going'**
+  String get weightCelebrateOk;
+
+  /// No description provided for @featureGoalReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal reminders'**
+  String get featureGoalReminders;
+
+  /// No description provided for @goalRemindersIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle nudges for your goals. Each one is a routine, so quiet hours, Done and Snooze all work, and nothing leaves your phone.'**
+  String get goalRemindersIntro;
+
+  /// No description provided for @goalRemindForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Your goal'**
+  String get goalRemindForYou;
+
+  /// No description provided for @goalRemindWeighIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Weigh-in'**
+  String get goalRemindWeighIn;
+
+  /// No description provided for @goalRemindWeighInItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Weigh-in time: step on the scale'**
+  String get goalRemindWeighInItem;
+
+  /// No description provided for @goalRemindWeighInInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Same day and time, before breakfast: the fairest way to see your trend.'**
+  String get goalRemindWeighInInfo;
+
+  /// No description provided for @goalRemindWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink water'**
+  String get goalRemindWater;
+
+  /// No description provided for @goalRemindWaterItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Time for a glass of water'**
+  String get goalRemindWaterItem;
+
+  /// No description provided for @goalRemindWaterInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Spread through the day so your water target comes easily.'**
+  String get goalRemindWaterInfo;
+
+  /// No description provided for @goalRemindBedtime.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedtime wind-down'**
+  String get goalRemindBedtime;
+
+  /// No description provided for @goalRemindBedtimeItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Start winding down for bed'**
+  String get goalRemindBedtimeItem;
+
+  /// No description provided for @goalRemindBedtimeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A nudge to dim screens and get ready for sleep at a regular time.'**
+  String get goalRemindBedtimeInfo;
+
+  /// No description provided for @goalRemindMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move break'**
+  String get goalRemindMove;
+
+  /// No description provided for @goalRemindMoveItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand up and move for 5 minutes'**
+  String get goalRemindMoveItem;
+
+  /// No description provided for @goalRemindMoveInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Short walks break up long sitting on workdays.'**
+  String get goalRemindMoveInfo;
+
+  /// No description provided for @goalRemindPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture break'**
+  String get goalRemindPosture;
+
+  /// No description provided for @goalRemindPostureItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture break: roll your shoulders and sit tall'**
+  String get goalRemindPostureItem;
+
+  /// No description provided for @goalRemindPostureInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A quick reset for neck and back during the workday.'**
+  String get goalRemindPostureInfo;
+
+  /// No description provided for @goalRemindDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days'**
+  String get goalRemindDays;
+
+  /// No description provided for @goalRemindTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'Times'**
+  String get goalRemindTimes;
+
+  /// No description provided for @goalRemindAddTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a time'**
+  String get goalRemindAddTime;
+
+  /// No description provided for @goalRemindRemoveTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {time}'**
+  String goalRemindRemoveTime(String time);
+
+  /// No description provided for @goalRemindWeekdays.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekdays'**
+  String get goalRemindWeekdays;
 }
 
 class _AppLocalizationsDelegate

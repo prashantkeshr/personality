@@ -9,14 +9,21 @@ import '../../../core/providers.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/units/units.dart';
 import '../../../domain/entities/body.dart';
+import '../../../domain/entities/provenance.dart';
+import '../../../domain/services/health_stats.dart';
+import '../../../domain/services/weight_journey.dart';
 import '../../../domain/services/weight_trends.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/format/body_format.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/provenance_chip.dart';
+import '../../plans/plan_providers.dart' show activeBodyPlanProvider;
+import '../../reminders/goal_reminders.dart';
+import '../../reminders/goal_reminders_screen.dart';
 import '../body_providers.dart';
 import '../widgets/add_record_sheet.dart';
+import 'weight_journey_widgets.dart';
 
 enum WeightPeriod {
   week(7),
@@ -39,6 +46,62 @@ class WeightScreen extends ConsumerStatefulWidget {
 class _WeightScreenState extends ConsumerState<WeightScreen> {
   WeightPeriod _period = WeightPeriod.month;
 
+  WeightJourney? _journey(List<BodyRecord> list, Profile profile) {
+    final plan = ref.read(activeBodyPlanProvider).value;
+    return WeightJourney.build(
+      list,
+      profile,
+      now: widget.clock(),
+      planStartKg: plan?.startWeightKg,
+      planStartDate: plan == null ? null : Days.fromKey(plan.startDay),
+      planTargetKg: plan?.targetWeightKg,
+    );
+  }
+
+  /// "Step on the scale": pick the weight on the ruler, save it, and
+  /// celebrate any milestone it passes.
+  Future<void> _weighIn() async {
+    final l10n = AppLocalizations.of(context);
+    final units = ref.read(settingsControllerProvider).unitSystem;
+    final format = BodyFormat.of(context, units);
+    final messenger = ScaffoldMessenger.of(context);
+    final list = ref.read(weightRecordsProvider).value ?? const [];
+    final profile = ref.read(profileProvider).value ?? const Profile();
+    final before = _journey(list, profile);
+    final kg = await showScaleSheet(
+      context,
+      initialKg: list.isEmpty ? 70 : list.first.value,
+      metric: units == UnitSystem.metric,
+      format: format,
+    );
+    if (kg == null || !mounted) return;
+    try {
+      final m = Measurement(
+        value: kg,
+        unit: CanonicalUnits.mass,
+        source: DataSource.userEntered,
+        method: MeasurementMethod.scale.wireName,
+        recordedAt: widget.clock(),
+      );
+      final id = await ref.read(weightRepositoryProvider).add(m);
+      final after = _journey(
+          [...list, BodyRecord(id: id, measurement: m)], profile);
+      final crossed = after == null
+          ? null
+          : WeightJourney.milestoneCrossed(before, after);
+      if (!mounted) return;
+      if (crossed != null) {
+        await showMilestoneCelebration(context,
+            milestone: crossed, weight: format.weight(kg));
+      } else {
+        messenger.showSnackBar(SnackBar(content: Text(l10n.weightLogSaved)));
+      }
+    } catch (e, st) {
+      AppLogger.error('weight.weighIn', e, st);
+      messenger.showSnackBar(SnackBar(content: Text(l10n.recordSaveError)));
+    }
+  }
+
   Future<void> _add() => showAddRecordSheet(
         context,
         kind: RecordKind.weight,
@@ -51,9 +114,10 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
   Future<void> _delete(BodyRecord r) async {
     final messenger = ScaffoldMessenger.of(context);
     final error = AppLocalizations.of(context).recordSaveError;
+    final repo = ref.read(weightRepositoryProvider);
     try {
       if (await confirmDelete(context)) {
-        await ref.read(weightRepositoryProvider).delete(r.id);
+        await repo.delete(r.id);
       }
     } catch (e, st) {
       AppLogger.error('weight.delete', e, st);
@@ -68,13 +132,28 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
     final format = BodyFormat.of(context, units);
     final records = ref.watch(weightRecordsProvider);
     final profile = ref.watch(profileProvider).value ?? const Profile();
+    ref.watch(activeBodyPlanProvider);
+    final weighInReminder =
+        ref.watch(goalRemindersProvider)?[GoalReminderKind.weighIn];
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.weightTitle)),
+      appBar: AppBar(
+        title: Text(l10n.weightTitle),
+        actions: [
+          // The detailed form: pick a date, add notes.
+          IconButton(
+            key: const Key('weight-add-detailed'),
+            tooltip: l10n.weightAdd,
+            onPressed: _add,
+            icon: const Icon(Icons.edit_calendar_outlined),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _add,
-        icon: const Icon(Icons.add),
-        label: Text(l10n.weightAdd),
+        key: const Key('weight-weigh-in'),
+        onPressed: _weighIn,
+        icon: const Icon(Icons.monitor_weight_outlined),
+        label: Text(l10n.weightLogTitle),
       ),
       body: AsyncView(
         value: records,
@@ -89,10 +168,15 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
                   message: l10n.weightEmpty,
                 ),
                 _GoalCard(profile: profile, format: format, units: units),
+                if (weighInReminder != null) ...[
+                  const SizedBox(height: AppSpacing.md),
+                  GoalReminderCard(reminder: weighInReminder),
+                ],
               ],
             );
           }
           final latest = list.first;
+          final journey = _journey(list, profile)!;
           final window =
               WeightTrends.window(list, widget.clock(), _period.days);
           final change = WeightTrends.change(window);
@@ -101,6 +185,15 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
             padding: const EdgeInsets.fromLTRB(
                 AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, 96),
             children: [
+              JourneyTrail(
+                journey: journey,
+                format: format,
+                maintain: profile.hasWeightGoal && journey.targetKg == null,
+                onSetGoal: () => _GoalCard.edit(context, ref, profile, format, units),
+              ),
+              const SizedBox(height: AppSpacing.md),
+              JourneyStats(journey: journey, format: format),
+              const SizedBox(height: AppSpacing.md),
               _LatestCard(record: latest, profile: profile, format: format),
               const SizedBox(height: AppSpacing.lg),
               SegmentedButton<WeightPeriod>(
@@ -122,6 +215,8 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
                 records: window,
                 profile: profile,
                 units: units,
+                format: format,
+                targetKg: journey.targetKg,
                 start: widget.clock().subtract(Duration(days: _period.days)),
               ),
               const SizedBox(height: AppSpacing.sm),
@@ -133,6 +228,10 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
               ),
               const SizedBox(height: AppSpacing.lg),
               _GoalCard(profile: profile, format: format, units: units),
+              if (weighInReminder != null) ...[
+                const SizedBox(height: AppSpacing.md),
+                GoalReminderCard(reminder: weighInReminder),
+              ],
               const SizedBox(height: AppSpacing.xl),
               Semantics(
                 header: true,
@@ -216,13 +315,19 @@ class _WeightChart extends StatelessWidget {
     required this.records,
     required this.profile,
     required this.units,
+    required this.format,
     required this.start,
+    this.targetKg,
   });
 
   final List<BodyRecord> records;
   final Profile profile;
   final UnitSystem units;
+  final BodyFormat format;
   final DateTime start;
+
+  /// Drawn as a dashed line when the journey has a target.
+  final double? targetKg;
 
   double _display(double kg) =>
       units == UnitSystem.metric ? kg : UnitConversions.kgToPounds(kg);
@@ -253,6 +358,7 @@ class _WeightChart extends StatelessWidget {
         _display(profile.goalWeightMinKg!),
         _display(profile.goalWeightMaxKg!),
       ],
+      if (targetKg != null) _display(targetKg!),
     ];
     final minY = values.reduce(math.min) - 1;
     final maxY = values.reduce(math.max) + 1;
@@ -297,7 +403,46 @@ class _WeightChart extends StatelessWidget {
                       ),
                   ],
                 ),
-                lineTouchData: const LineTouchData(enabled: false),
+                extraLinesData: ExtraLinesData(horizontalLines: [
+                  if (targetKg != null)
+                    HorizontalLine(
+                      y: _display(targetKg!),
+                      color: scheme.tertiary,
+                      strokeWidth: 1.5,
+                      dashArray: const [6, 4],
+                    ),
+                ]),
+                // Touch a weigh-in to see its weight and date.
+                lineTouchData: LineTouchData(
+                  handleBuiltInTouches: true,
+                  getTouchedSpotIndicator: (bar, spots) => [
+                    for (final _ in spots)
+                      TouchedSpotIndicatorData(
+                        FlLine(color: scheme.outlineVariant, strokeWidth: 1),
+                        FlDotData(
+                          getDotPainter: (_, _, _, _) => FlDotCirclePainter(
+                            radius: 5,
+                            color: scheme.primary,
+                            strokeWidth: 2,
+                            strokeColor: scheme.surface,
+                          ),
+                        ),
+                      ),
+                  ],
+                  touchTooltipData: LineTouchTooltipData(
+                    getTooltipColor: (_) => scheme.inverseSurface,
+                    getTooltipItems: (spots) => [
+                      for (final s in spots)
+                        s.barIndex == 0
+                            ? LineTooltipItem(
+                                '${format.weight(records[s.spotIndex].value)}\n'
+                                '${format.date(records[s.spotIndex].recordedAt)}',
+                                TextStyle(color: scheme.onInverseSurface),
+                              )
+                            : null,
+                    ],
+                  ),
+                ),
                 lineBarsData: [
                   LineChartBarData(
                     spots: entries,
@@ -370,16 +515,22 @@ class _GoalCard extends ConsumerWidget {
   final BodyFormat format;
   final UnitSystem units;
 
-  Future<void> _edit(BuildContext context, WidgetRef ref) async {
+  Future<void> _edit(BuildContext context, WidgetRef ref) =>
+      edit(context, ref, profile, format, units);
+
+  static Future<void> edit(BuildContext context, WidgetRef ref,
+      Profile profile, BodyFormat format, UnitSystem units) async {
+    // Read before the dialog: the card may be rebuilt (and its ref retired)
+    // while the keyboard is open.
+    final repo = ref.read(profileRepositoryProvider);
+    final messenger = ScaffoldMessenger.of(context);
+    final error = AppLocalizations.of(context).recordSaveError;
     final result = await showDialog<(double, double)?>(
       context: context,
       builder: (_) => _GoalDialog(profile: profile, units: units, format: format),
     );
-    if (result == null || !context.mounted) return;
-    final messenger = ScaffoldMessenger.of(context);
-    final error = AppLocalizations.of(context).recordSaveError;
+    if (result == null) return;
     try {
-      final repo = ref.read(profileRepositoryProvider);
       final p = await repo.load();
       final clear = result.$1.isNaN;
       await repo.save(p.copyWith(

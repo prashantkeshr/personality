@@ -167,6 +167,9 @@ class _LockGateState extends ConsumerState<LockGate> {
   bool _prompted = false;
   bool _busy = false;
   String? _error;
+
+  /// Shown briefly after the lock turned itself off (phone lock removed).
+  String? _notice;
   Timer? _tick;
   final _overlayKey = GlobalKey<OverlayState>();
 
@@ -176,13 +179,16 @@ class _LockGateState extends ConsumerState<LockGate> {
   late final OverlayEntry _entry = OverlayEntry(
     builder: (_) {
       final lock = ref.read(appLockProvider);
-      if (!_showing(lock)) return const SizedBox.shrink();
+      if (!_showing(lock)) {
+        return _notice == null ? const SizedBox.shrink() : _Notice(_notice!);
+      }
       return _LockCover(
         showPad: lock.enabled && lock.locked && !_covered,
         busy: _busy,
         error: _error,
         onPin: _pin,
         onBiometric: lock.biometric ? _biometric : null,
+        onDevice: lock.device ? _device : null,
       );
     },
   );
@@ -218,6 +224,29 @@ class _LockGateState extends ConsumerState<LockGate> {
         .unlockWithBiometrics(l.lockBiometricReason);
   }
 
+  Future<void> _device() async {
+    if (_busy) return;
+    final l = AppLocalizations.of(context);
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    final r = await ref
+        .read(appLockProvider.notifier)
+        .unlockWithDevice(l.lockBiometricReason);
+    if (!mounted) return;
+    setState(() {
+      _busy = false;
+      _error = r == DeviceAuth.failed ? l.lockDeviceFailed : null;
+      if (r == DeviceAuth.noLock) _notice = l.lockDeviceRemoved;
+    });
+    if (r == DeviceAuth.noLock) {
+      Timer(const Duration(seconds: 5), () {
+        if (mounted) setState(() => _notice = null);
+      });
+    }
+  }
+
   Future<void> _pin(String pin) async {
     final l = AppLocalizations.of(context);
     final c = ref.read(appLockProvider.notifier);
@@ -245,9 +274,11 @@ class _LockGateState extends ConsumerState<LockGate> {
     final lock = ref.watch(appLockProvider);
     final locked = lock.enabled && lock.locked;
     if (!locked) _prompted = false;
-    if (locked && lock.biometric && !_prompted && !_covered) {
+    if (locked && (lock.device || lock.biometric) && !_prompted && !_covered) {
       _prompted = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) => _biometric());
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => lock.device ? _device() : _biometric(),
+      );
     }
     if (_entry.mounted) _entry.markNeedsBuild();
     final hidden = _showing(lock);
@@ -279,6 +310,7 @@ class _LockCover extends StatelessWidget {
     required this.error,
     required this.onPin,
     this.onBiometric,
+    this.onDevice,
   });
 
   final bool showPad;
@@ -286,6 +318,10 @@ class _LockCover extends StatelessWidget {
   final String? error;
   final Future<void> Function(String) onPin;
   final VoidCallback? onBiometric;
+
+  /// Set when the phone's screen lock unlocks the app: no keypad, just the
+  /// system prompt.
+  final VoidCallback? onDevice;
 
   @override
   Widget build(BuildContext context) {
@@ -306,7 +342,44 @@ class _LockCover extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: AppSpacing.lg),
-                if (showPad) ...[
+                if (showPad && onDevice != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppSpacing.xl,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          l.lockDeviceHint,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        SizedBox(
+                          height: 40,
+                          child: Center(
+                            child: busy
+                                ? const SizedBox.square(
+                                    dimension: 20,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                    ),
+                                  )
+                                : Text(
+                                    error ?? '',
+                                    style: TextStyle(color: scheme.error),
+                                  ),
+                          ),
+                        ),
+                        FilledButton.icon(
+                          key: const Key('unlock-device'),
+                          onPressed: busy ? null : onDevice,
+                          icon: const Icon(Icons.fingerprint),
+                          label: Text(l.lockUnlock),
+                        ),
+                      ],
+                    ),
+                  )
+                else if (showPad) ...[
                   PinPad(
                     key: const Key('unlock-pad'),
                     title: l.lockEnterPin,
@@ -347,8 +420,11 @@ class _LockCover extends StatelessWidget {
   }
 }
 
-/// Settings: turn the lock on with a new PIN, change it, use fingerprint,
-/// or turn it off (needs the current PIN).
+enum _Method { device, pin }
+
+/// Settings: turn the lock on with the phone's screen lock or an app PIN,
+/// switch between them, use fingerprint with the PIN, or turn it off. Every
+/// change first asks for the current lock.
 class AppLockSettings extends ConsumerWidget {
   const AppLockSettings({super.key});
 
@@ -360,45 +436,145 @@ class AppLockSettings extends ConsumerWidget {
         ),
       );
 
+  Future<_Method?> _chooseMethod(BuildContext context) {
+    final l = AppLocalizations.of(context);
+    return showModalBottomSheet<_Method>(
+      context: context,
+      showDragHandle: true,
+      builder: (c) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.lg,
+                0,
+                AppSpacing.lg,
+                AppSpacing.sm,
+              ),
+              child: Text(
+                l.lockMethodTitle,
+                style: Theme.of(c).textTheme.titleLarge,
+              ),
+            ),
+            ListTile(
+              key: const Key('lock-method-device'),
+              leading: const Icon(Icons.phonelink_lock),
+              title: Text(l.lockMethodDevice),
+              subtitle: Text(l.lockMethodDeviceInfo),
+              onTap: () => Navigator.pop(c, _Method.device),
+            ),
+            ListTile(
+              key: const Key('lock-method-pin'),
+              leading: const Icon(Icons.pin_outlined),
+              title: Text(l.lockMethodPin),
+              subtitle: Text(l.lockMethodPinInfo),
+              onTap: () => Navigator.pop(c, _Method.pin),
+            ),
+            const SizedBox(height: AppSpacing.md),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Asks for whatever currently unlocks the app.
+  Future<bool> _confirmCurrent(
+    BuildContext context,
+    WidgetRef ref,
+    AppLockState lock,
+  ) async {
+    final l = AppLocalizations.of(context);
+    if (lock.device) {
+      return ref
+          .read(appLockProvider.notifier)
+          .confirmDevice(l.lockBiometricReason);
+    }
+    final pin = await _askPin(context, confirm: false);
+    if (pin == null) return false;
+    return ref.read(pinVaultProvider).verify(pin);
+  }
+
+  Future<void> _useDevice(BuildContext context, WidgetRef ref) async {
+    final l = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final r = await ref
+        .read(appLockProvider.notifier)
+        .enableDevice(l.lockBiometricReason);
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(switch (r) {
+          DeviceAuth.success => l.lockOn,
+          DeviceAuth.noLock => l.lockNoDeviceLock,
+          DeviceAuth.failed => l.lockDeviceFailed,
+        }),
+      ),
+    );
+  }
+
+  Future<void> _usePin(BuildContext context, WidgetRef ref, String done) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final pin = await _askPin(context, confirm: true);
+    if (pin == null) return;
+    await ref.read(appLockProvider.notifier).enable(pin);
+    messenger.showSnackBar(SnackBar(content: Text(done)));
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l = AppLocalizations.of(context);
     final lock = ref.watch(appLockProvider);
     final c = ref.read(appLockProvider.notifier);
     final messenger = ScaffoldMessenger.of(context);
+    final deviceLock = ref.read(biometricsProvider).deviceLockAvailable();
+
+    Future<void> wrong() async => messenger.showSnackBar(
+      SnackBar(
+        content: Text(lock.device ? l.lockDeviceFailed : l.lockWrongPin),
+      ),
+    );
+
     return Column(
       children: [
         SwitchListTile(
           key: const Key('app-lock'),
           secondary: const Icon(Icons.lock_outline),
           title: Text(l.lockTitle),
-          subtitle: Text(l.lockSubtitle),
+          subtitle: Text(
+            !lock.enabled
+                ? l.lockSubtitle
+                : (lock.device ? l.lockUsesDevice : l.lockUsesPin),
+          ),
           value: lock.enabled,
           onChanged: !lock.ready
               ? null
               : (on) async {
                   if (on) {
-                    final pin = await _askPin(context, confirm: true);
-                    if (pin == null) return;
-                    await c.enable(pin);
-                    messenger.showSnackBar(SnackBar(content: Text(l.lockOn)));
+                    final hasDeviceLock = await deviceLock;
+                    if (!context.mounted) return;
+                    final method = hasDeviceLock
+                        ? await _chooseMethod(context)
+                        : _Method.pin;
+                    if (method == null || !context.mounted) return;
+                    if (method == _Method.device) {
+                      await _useDevice(context, ref);
+                    } else {
+                      await _usePin(context, ref, l.lockOn);
+                    }
                   } else {
-                    final pin = await _askPin(context, confirm: false);
-                    if (pin == null) return;
-                    if (await ref.read(pinVaultProvider).verify(pin)) {
+                    if (await _confirmCurrent(context, ref, lock)) {
                       await c.disable();
                       messenger.showSnackBar(
                         SnackBar(content: Text(l.lockOff)),
                       );
                     } else {
-                      messenger.showSnackBar(
-                        SnackBar(content: Text(l.lockWrongPin)),
-                      );
+                      await wrong();
                     }
                   }
                 },
         ),
-        if (lock.enabled) ...[
+        if (lock.enabled && !lock.device) ...[
           FutureBuilder<bool>(
             future: ref.read(biometricsProvider).available(),
             builder: (_, snap) => snap.data != true
@@ -415,23 +591,73 @@ class AppLockSettings extends ConsumerWidget {
             leading: const Icon(Icons.password),
             title: Text(l.lockChangePin),
             onTap: () async {
-              final old = await _askPin(context, confirm: false);
-              if (old == null || !context.mounted) return;
-              if (!await ref.read(pinVaultProvider).verify(old)) {
-                messenger.showSnackBar(SnackBar(content: Text(l.lockWrongPin)));
-                return;
-              }
+              if (!await _confirmCurrent(context, ref, lock)) return wrong();
               if (!context.mounted) return;
-              final pin = await _askPin(context, confirm: true);
-              if (pin == null) return;
-              await c.enable(pin);
-              messenger.showSnackBar(SnackBar(content: Text(l.lockChanged)));
+              await _usePin(context, ref, l.lockChanged);
             },
           ),
+          FutureBuilder<bool>(
+            future: deviceLock,
+            builder: (_, snap) => snap.data != true
+                ? const SizedBox.shrink()
+                : ListTile(
+                    key: const Key('lock-switch-device'),
+                    leading: const Icon(Icons.phonelink_lock),
+                    title: Text(l.lockSwitchToDevice),
+                    onTap: () async {
+                      if (!await _confirmCurrent(context, ref, lock)) {
+                        return wrong();
+                      }
+                      if (!context.mounted) return;
+                      await _useDevice(context, ref);
+                    },
+                  ),
+          ),
         ],
+        if (lock.enabled && lock.device)
+          ListTile(
+            key: const Key('lock-switch-pin'),
+            leading: const Icon(Icons.pin_outlined),
+            title: Text(l.lockSwitchToPin),
+            onTap: () async {
+              if (!await _confirmCurrent(context, ref, lock)) return wrong();
+              if (!context.mounted) return;
+              await _usePin(context, ref, l.lockOn);
+            },
+          ),
       ],
     );
   }
+}
+
+/// A short message at the bottom of the screen, above the app.
+class _Notice extends StatelessWidget {
+  const _Notice(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Align(
+    alignment: Alignment.bottomCenter,
+    child: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        child: Material(
+          elevation: 4,
+          borderRadius: BorderRadius.circular(12),
+          color: Theme.of(context).colorScheme.inverseSurface,
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onInverseSurface,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 /// Full-screen PIN entry; with [confirm] the PIN is asked twice.
