@@ -56,7 +56,8 @@ void main() {
 
     // Skip Sundays.
     final sunday = find.byKey(const Key('goal-reminder-day-water-7'));
-    await app.reveal(sunday);
+    await tester.ensureVisible(sunday); // may be above: scroll either way
+    await tester.pumpAndSettle();
     await app.tapAndSettle(sunday);
     final routine = await app.run(
       () => RoutineRepository(app.db).watchRoutines().first,
@@ -66,7 +67,8 @@ void main() {
 
     // Off removes the routine and its reminders.
     final toggle = find.byKey(const Key('goal-reminder-switch-water'));
-    await app.reveal(toggle);
+    await tester.ensureVisible(toggle);
+    await tester.pumpAndSettle();
     await app.tapAndSettle(toggle);
     expect(await times(), isEmpty);
     await app.dispose();

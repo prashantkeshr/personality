@@ -5429,4 +5429,294 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get goalRemindWeekdays => 'Hari kerja';
+
+  @override
+  String get nowTitle => 'Disarankan untuk sekarang';
+
+  @override
+  String get nowMorning => 'Pilihan pagi';
+
+  @override
+  String get nowAfternoon => 'Pilihan siang';
+
+  @override
+  String get nowEvening => 'Pilihan sore';
+
+  @override
+  String get nowNight => 'Sebelum tidur';
+
+  @override
+  String get nowAllDone => 'Untuk sekarang semuanya beres.';
+
+  @override
+  String get nowNotNow => 'Nanti saja';
+
+  @override
+  String get nowNoThanks => 'Tidak, terima kasih';
+
+  @override
+  String get nowBreakfast => 'Waktunya sarapan';
+
+  @override
+  String get nowBreakfastInfo =>
+      'Awal yang baik menjaga energimu sampai makan siang.';
+
+  @override
+  String get nowLunch => 'Waktunya makan siang';
+
+  @override
+  String get nowLunchInfo =>
+      'Makan sekitar pukul 13.00, lalu catat dengan sekali ketuk.';
+
+  @override
+  String get nowDinner => 'Waktunya makan malam';
+
+  @override
+  String get nowDinnerInfo =>
+      'Makan malam lebih ringan dan lebih awal membantu tidur.';
+
+  @override
+  String get nowPostureCheck => 'Cek postur pagi';
+
+  @override
+  String get nowPostureCheckInfo =>
+      'Dua menit dengan kamera untuk memulai hari dengan tegak.';
+
+  @override
+  String get nowWeighIn => 'Timbang badan';
+
+  @override
+  String get nowWeighInInfo => 'Sebelum sarapan, agar trennya adil.';
+
+  @override
+  String get nowWakeStretch => 'Peregangan bangun tidur';
+
+  @override
+  String get nowWakeStretchInfo => '5 menit mobilitas ringan.';
+
+  @override
+  String get nowWalk => 'Jalan kaki 10 menit';
+
+  @override
+  String get nowWalkInfo => 'Jalan singkat setelah makan membantu pencernaan.';
+
+  @override
+  String get nowWalkStarted =>
+      'Selamat berjalan. Langkah dihitung otomatis jika aktivitas diizinkan.';
+
+  @override
+  String nowMicroInfo(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count set tercatat. Bertambah seiring waktu.',
+      one: '1 set tercatat. Bertambah seiring waktu.',
+      zero: 'Mulai kecil dan bertambah saat kamu mencatat set.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowPushUps(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count push-up',
+      one: '1 push-up',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowSquats(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count squat',
+      one: '1 squat',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowPlank(int count) {
+    return 'Plank $count detik';
+  }
+
+  @override
+  String nowBridges(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count glute bridge',
+      one: '1 glute bridge',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowLunges(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lunge tiap sisi',
+      one: '1 lunge tiap sisi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get nowMicroHint =>
+      'Bergerak dengan tempo stabil dan berhenti jika ada yang sakit. Ketuk Selesai saat beres untuk mencatatnya.';
+
+  @override
+  String get nowSetLogged => 'Set tercatat. Lain kali sedikit bertambah.';
+
+  @override
+  String nowSkill(String skill) {
+    return 'Latih $skill 5 menit';
+  }
+
+  @override
+  String get nowSkillInfo =>
+      'Keterampilan pilihanmu: beberapa menit sehari membuatnya berkembang.';
+
+  @override
+  String get nowYoga => 'Alur yoga 5 menit';
+
+  @override
+  String get nowYogaInfo => 'Pose lembut untuk kelenturan.';
+
+  @override
+  String get nowFaceSnapshot => 'Foto wajah mingguan';
+
+  @override
+  String get nowFaceSnapshotInfo =>
+      'Cahaya dan tempat yang sama: time-lapse-mu bertambah.';
+
+  @override
+  String get nowWindDown => 'Bersantai sebelum tidur';
+
+  @override
+  String get nowWindDownInfo => 'Redupkan layar dan lakukan peregangan ringan.';
+
+  @override
+  String get nowMealReminders => 'Dapatkan pengingat waktu makan';
+
+  @override
+  String nowMealRemindersInfo(String breakfast, String lunch, String dinner) {
+    return 'Sarapan $breakfast, makan siang $lunch, makan malam $dinner. Ubah waktunya kapan saja.';
+  }
+
+  @override
+  String get nowMealRemindersOn => 'Pengingat waktu makan aktif';
+
+  @override
+  String get skillsPractiseRegularly => 'Latih secara rutin';
+
+  @override
+  String get skillsPractiseInfo => 'Muncul di saran Beranda.';
+
+  @override
+  String get goalRemindMeals => 'Waktu makan';
+
+  @override
+  String get goalRemindMealsInfo =>
+      'Sarapan, makan siang, dan makan malam pada waktu teratur.';
+
+  @override
+  String get mealBreakfastTime => 'Waktunya sarapan';
+
+  @override
+  String get mealLunchTime => 'Waktunya makan siang';
+
+  @override
+  String get mealSnackTime => 'Waktunya camilan';
+
+  @override
+  String get mealDinnerTime => 'Waktunya makan malam';
+
+  @override
+  String get goalRemindPostureCheck => 'Cek postur pagi';
+
+  @override
+  String get goalRemindPostureCheckItem =>
+      'Cek postur pagi: 2 menit dengan kamera';
+
+  @override
+  String get goalRemindPostureCheckInfo =>
+      'Mulai setiap hari dengan melihat sekilas cara kamu berdiri.';
+
+  @override
+  String get goalRemindFaceSnapshot => 'Foto wajah mingguan';
+
+  @override
+  String get goalRemindFaceSnapshotItem => 'Ambil foto wajah minggu ini';
+
+  @override
+  String get goalRemindFaceSnapshotInfo =>
+      'Hari yang sama setiap minggu, agar time-lapse menunjukkan perubahan nyata.';
+
+  @override
+  String get permTitle => 'Izinkan yang dibutuhkan Personality';
+
+  @override
+  String get permIntro =>
+      'Semuanya opsional dan tetap di ponselmu. Kamu bisa mengubahnya kapan saja.';
+
+  @override
+  String get permNotifications => 'Notifikasi';
+
+  @override
+  String get permNotificationsInfo =>
+      'Waktu makan, pengingat, dan dorongan lembut.';
+
+  @override
+  String get permCamera => 'Kamera';
+
+  @override
+  String get permCameraInfo =>
+      'Cek postur, bentuk wajah, dan foto kemajuan. Gambar tidak pernah keluar dari ponsel.';
+
+  @override
+  String get permActivity => 'Aktivitas fisik';
+
+  @override
+  String get permActivityInfo =>
+      'Menghitung langkah dan jalan kaki dengan sensor ponsel.';
+
+  @override
+  String get permAllowed => 'Diizinkan';
+
+  @override
+  String get permAllow => 'Izinkan';
+
+  @override
+  String get permOpenSettings => 'Buka setelan';
+
+  @override
+  String get permAllowAll => 'Izinkan semua';
+
+  @override
+  String get permNudgeTitle => 'Beberapa izin masih nonaktif';
+
+  @override
+  String get permNudgeBody =>
+      'Izinkan agar pengingat, cek kamera, dan hitungan langkah bisa berfungsi.';
+
+  @override
+  String get permLater => 'Nanti';
+
+  @override
+  String get permStartReminders => 'Mulai dengan pengingat ini';
+
+  @override
+  String get permStartRemindersNote =>
+      'Butuh notifikasi. Ubah atau matikan kapan saja di Pengingat tujuan.';
+
+  @override
+  String get settingsPermissions => 'Izin';
+
+  @override
+  String get nowStartTimer => 'Mulai pengatur waktu';
 }

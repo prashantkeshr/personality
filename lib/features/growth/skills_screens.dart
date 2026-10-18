@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../today/now_providers.dart';
 import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/content/content_packs.dart' show PackInfo;
@@ -215,6 +216,16 @@ class _DisciplineScreenState extends ConsumerState<DisciplineScreen> {
                     Text('${l.skillsTrains}: ${_t(d.trains, lang)}',
                         style: theme.textTheme.bodySmall?.copyWith(color: scheme.onPrimaryContainer)),
                   ]),
+                ),
+              ),
+              Card(
+                child: SwitchListTile(
+                  key: const Key('skill-practise'),
+                  secondary: const Icon(Icons.event_repeat),
+                  title: Text(l.skillsPractiseRegularly),
+                  subtitle: Text(l.skillsPractiseInfo),
+                  value: (ref.watch(nowStateProvider).value?.skills ?? const []).contains(d.id),
+                  onChanged: (on) => ref.read(nowActionsProvider).setSkill(d.id, on),
                 ),
               ),
               Card(

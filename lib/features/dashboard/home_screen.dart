@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../permissions/permission_widgets.dart';
+import '../today/right_now_section.dart';
 import '../../app/router.dart';
 import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
@@ -78,6 +80,7 @@ class HomeScreen extends ConsumerWidget {
           const DayStrip(),
           const SizedBox(height: AppSpacing.lg),
           const BadgeCelebrationHost(),
+          const PermissionNudgeCard(),
           const _CompleteProfileCard(),
           const WeeklyReviewCard(),
           const _TodayOnly(children: [
@@ -85,7 +88,7 @@ class HomeScreen extends ConsumerWidget {
             SizedBox(height: AppSpacing.md),
             DayModeSelector(),
             SizedBox(height: AppSpacing.md),
-            FiveMinuteCard(),
+            RightNowSection(),
             SizedBox(height: AppSpacing.lg),
           ]),
           const AgendaTimeline(),

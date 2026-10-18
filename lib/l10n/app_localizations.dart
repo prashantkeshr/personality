@@ -9459,6 +9459,456 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Weekdays'**
   String get goalRemindWeekdays;
+
+  /// No description provided for @nowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for now'**
+  String get nowTitle;
+
+  /// No description provided for @nowMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning picks'**
+  String get nowMorning;
+
+  /// No description provided for @nowAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon picks'**
+  String get nowAfternoon;
+
+  /// No description provided for @nowEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening picks'**
+  String get nowEvening;
+
+  /// No description provided for @nowNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Before bed'**
+  String get nowNight;
+
+  /// No description provided for @nowAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re all caught up for now.'**
+  String get nowAllDone;
+
+  /// No description provided for @nowNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get nowNotNow;
+
+  /// No description provided for @nowNoThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'No thanks'**
+  String get nowNoThanks;
+
+  /// No description provided for @nowBreakfast.
+  ///
+  /// In en, this message translates to:
+  /// **'Time for breakfast'**
+  String get nowBreakfast;
+
+  /// No description provided for @nowBreakfastInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A steady start keeps your energy up until lunch.'**
+  String get nowBreakfastInfo;
+
+  /// No description provided for @nowLunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch time'**
+  String get nowLunch;
+
+  /// No description provided for @nowLunchInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat around 1 pm, then log it in a tap.'**
+  String get nowLunchInfo;
+
+  /// No description provided for @nowDinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Dinner time'**
+  String get nowDinner;
+
+  /// No description provided for @nowDinnerInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A lighter, earlier dinner helps you sleep.'**
+  String get nowDinnerInfo;
+
+  /// No description provided for @nowPostureCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning posture check'**
+  String get nowPostureCheck;
+
+  /// No description provided for @nowPostureCheckInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Two minutes with the camera to start the day standing tall.'**
+  String get nowPostureCheckInfo;
+
+  /// No description provided for @nowWeighIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Weigh in'**
+  String get nowWeighIn;
+
+  /// No description provided for @nowWeighInInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Before breakfast, for a fair trend.'**
+  String get nowWeighInInfo;
+
+  /// No description provided for @nowWakeStretch.
+  ///
+  /// In en, this message translates to:
+  /// **'Wake-up stretch'**
+  String get nowWakeStretch;
+
+  /// No description provided for @nowWakeStretchInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'5 minutes of gentle mobility.'**
+  String get nowWakeStretchInfo;
+
+  /// No description provided for @nowWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk for 10 minutes'**
+  String get nowWalk;
+
+  /// No description provided for @nowWalkInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A short walk after eating helps digestion.'**
+  String get nowWalkInfo;
+
+  /// No description provided for @nowWalkStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy your walk. Steps count automatically if activity is allowed.'**
+  String get nowWalkStarted;
+
+  /// No description provided for @nowMicroInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Starts small and grows as you log sets.} =1{1 set logged. It grows as you go.} other{{count} sets logged. It grows as you go.}}'**
+  String nowMicroInfo(int count);
+
+  /// No description provided for @nowPushUps.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 push-up} other{{count} push-ups}}'**
+  String nowPushUps(int count);
+
+  /// No description provided for @nowSquats.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 squat} other{{count} squats}}'**
+  String nowSquats(int count);
+
+  /// No description provided for @nowPlank.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}-second plank'**
+  String nowPlank(int count);
+
+  /// No description provided for @nowBridges.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 glute bridge} other{{count} glute bridges}}'**
+  String nowBridges(int count);
+
+  /// No description provided for @nowLunges.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 lunge each side} other{{count} lunges each side}}'**
+  String nowLunges(int count);
+
+  /// No description provided for @nowMicroHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Move at a steady pace and stop if anything hurts. Tap Done when you finish to log it.'**
+  String get nowMicroHint;
+
+  /// No description provided for @nowSetLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Set logged. Next time it grows a little.'**
+  String get nowSetLogged;
+
+  /// No description provided for @nowSkill.
+  ///
+  /// In en, this message translates to:
+  /// **'Practise {skill} for 5 min'**
+  String nowSkill(String skill);
+
+  /// No description provided for @nowSkillInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Your chosen skill: a few minutes a day keeps it growing.'**
+  String get nowSkillInfo;
+
+  /// No description provided for @nowYoga.
+  ///
+  /// In en, this message translates to:
+  /// **'5-minute yoga flow'**
+  String get nowYoga;
+
+  /// No description provided for @nowYogaInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle poses for flexibility.'**
+  String get nowYogaInfo;
+
+  /// No description provided for @nowFaceSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly face snapshot'**
+  String get nowFaceSnapshot;
+
+  /// No description provided for @nowFaceSnapshotInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Same light, same spot: your time-lapse grows.'**
+  String get nowFaceSnapshotInfo;
+
+  /// No description provided for @nowWindDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind down for bed'**
+  String get nowWindDown;
+
+  /// No description provided for @nowWindDownInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Dim the screens and stretch gently.'**
+  String get nowWindDownInfo;
+
+  /// No description provided for @nowMealReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Get meal-time reminders'**
+  String get nowMealReminders;
+
+  /// No description provided for @nowMealRemindersInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast {breakfast}, lunch {lunch}, dinner {dinner}. Change the times any time.'**
+  String nowMealRemindersInfo(String breakfast, String lunch, String dinner);
+
+  /// No description provided for @nowMealRemindersOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal-time reminders are on'**
+  String get nowMealRemindersOn;
+
+  /// No description provided for @skillsPractiseRegularly.
+  ///
+  /// In en, this message translates to:
+  /// **'Practise regularly'**
+  String get skillsPractiseRegularly;
+
+  /// No description provided for @skillsPractiseInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Shown in your recommendations on Home.'**
+  String get skillsPractiseInfo;
+
+  /// No description provided for @goalRemindMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal times'**
+  String get goalRemindMeals;
+
+  /// No description provided for @goalRemindMealsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast, lunch and dinner at regular times.'**
+  String get goalRemindMealsInfo;
+
+  /// No description provided for @mealBreakfastTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast time'**
+  String get mealBreakfastTime;
+
+  /// No description provided for @mealLunchTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch time'**
+  String get mealLunchTime;
+
+  /// No description provided for @mealSnackTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Snack time'**
+  String get mealSnackTime;
+
+  /// No description provided for @mealDinnerTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Dinner time'**
+  String get mealDinnerTime;
+
+  /// No description provided for @goalRemindPostureCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning posture check'**
+  String get goalRemindPostureCheck;
+
+  /// No description provided for @goalRemindPostureCheckItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning posture check: 2 minutes with the camera'**
+  String get goalRemindPostureCheckItem;
+
+  /// No description provided for @goalRemindPostureCheckInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Start each day with a quick look at how you stand.'**
+  String get goalRemindPostureCheckInfo;
+
+  /// No description provided for @goalRemindFaceSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly face snapshot'**
+  String get goalRemindFaceSnapshot;
+
+  /// No description provided for @goalRemindFaceSnapshotItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Take this week\'s face snapshot'**
+  String get goalRemindFaceSnapshotItem;
+
+  /// No description provided for @goalRemindFaceSnapshotInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Same day each week, so your time-lapse shows real change.'**
+  String get goalRemindFaceSnapshotInfo;
+
+  /// No description provided for @permTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow what Personality needs'**
+  String get permTitle;
+
+  /// No description provided for @permIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each one is optional and everything stays on your phone. You can change them any time.'**
+  String get permIntro;
+
+  /// No description provided for @permNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get permNotifications;
+
+  /// No description provided for @permNotificationsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal times, reminders and gentle nudges.'**
+  String get permNotificationsInfo;
+
+  /// No description provided for @permCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get permCamera;
+
+  /// No description provided for @permCameraInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture checks, face shape and progress photos. Frames never leave your phone.'**
+  String get permCameraInfo;
+
+  /// No description provided for @permActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical activity'**
+  String get permActivity;
+
+  /// No description provided for @permActivityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Counts steps and walks with the phone\'s own sensors.'**
+  String get permActivityInfo;
+
+  /// No description provided for @permAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'Allowed'**
+  String get permAllowed;
+
+  /// No description provided for @permAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get permAllow;
+
+  /// No description provided for @permOpenSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open settings'**
+  String get permOpenSettings;
+
+  /// No description provided for @permAllowAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow all'**
+  String get permAllowAll;
+
+  /// No description provided for @permNudgeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A few permissions are still off'**
+  String get permNudgeTitle;
+
+  /// No description provided for @permNudgeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow them so reminders, camera checks and step counts can work.'**
+  String get permNudgeBody;
+
+  /// No description provided for @permLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get permLater;
+
+  /// No description provided for @permStartReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with these reminders'**
+  String get permStartReminders;
+
+  /// No description provided for @permStartRemindersNote.
+  ///
+  /// In en, this message translates to:
+  /// **'They need notifications. Change or turn them off any time under Goal reminders.'**
+  String get permStartRemindersNote;
+
+  /// No description provided for @settingsPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Permissions'**
+  String get settingsPermissions;
+
+  /// No description provided for @nowStartTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Start timer'**
+  String get nowStartTimer;
 }
 
 class _AppLocalizationsDelegate

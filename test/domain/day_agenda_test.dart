@@ -83,17 +83,6 @@ void main() {
     expect((w.minutes, w.exerciseIds), (10, DayAgenda.gentleMoves));
   });
 
-  test('five-minute idea: water when behind, then habits, then mobility', () {
-    final a = build(DayMode.normal);
-    expect(FiveMinute.pick(a, 17 * 60).kind, FiveMinuteKind.water); // 50% vs 71%
-    expect(FiveMinute.pick(a, 9 * 60).kind, FiveMinuteKind.habit);
-    final noHabits = DayAgenda.build(
-        plan: const [], habits: const [], waterMl: 2000, waterTargetMl: 2000);
-    expect(FiveMinute.pick(noHabits, 20 * 60, hasWardrobe: true).kind,
-        FiveMinuteKind.prepareOutfit);
-    expect(FiveMinute.pick(noHabits, 10 * 60).kind, FiveMinuteKind.posture);
-  });
-
   test('quiet hours across midnight', () {
     const q = QuietHours(22 * 60, 7 * 60);
     expect(q.contains(23 * 60), isTrue);

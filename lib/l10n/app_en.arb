@@ -2785,5 +2785,142 @@
       }
     }
   },
-  "goalRemindWeekdays": "Weekdays"
+  "goalRemindWeekdays": "Weekdays",
+  "nowTitle": "Recommended for now",
+  "nowMorning": "Morning picks",
+  "nowAfternoon": "Afternoon picks",
+  "nowEvening": "Evening picks",
+  "nowNight": "Before bed",
+  "nowAllDone": "You're all caught up for now.",
+  "nowNotNow": "Not now",
+  "nowNoThanks": "No thanks",
+  "nowBreakfast": "Time for breakfast",
+  "nowBreakfastInfo": "A steady start keeps your energy up until lunch.",
+  "nowLunch": "Lunch time",
+  "nowLunchInfo": "Eat around 1 pm, then log it in a tap.",
+  "nowDinner": "Dinner time",
+  "nowDinnerInfo": "A lighter, earlier dinner helps you sleep.",
+  "nowPostureCheck": "Morning posture check",
+  "nowPostureCheckInfo": "Two minutes with the camera to start the day standing tall.",
+  "nowWeighIn": "Weigh in",
+  "nowWeighInInfo": "Before breakfast, for a fair trend.",
+  "nowWakeStretch": "Wake-up stretch",
+  "nowWakeStretchInfo": "5 minutes of gentle mobility.",
+  "nowWalk": "Walk for 10 minutes",
+  "nowWalkInfo": "A short walk after eating helps digestion.",
+  "nowWalkStarted": "Enjoy your walk. Steps count automatically if activity is allowed.",
+  "nowMicroInfo": "{count, plural, =0{Starts small and grows as you log sets.} =1{1 set logged. It grows as you go.} other{{count} sets logged. It grows as you go.}}",
+  "@nowMicroInfo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowPushUps": "{count, plural, =1{1 push-up} other{{count} push-ups}}",
+  "@nowPushUps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowSquats": "{count, plural, =1{1 squat} other{{count} squats}}",
+  "@nowSquats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowPlank": "{count}-second plank",
+  "@nowPlank": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowBridges": "{count, plural, =1{1 glute bridge} other{{count} glute bridges}}",
+  "@nowBridges": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowLunges": "{count, plural, =1{1 lunge each side} other{{count} lunges each side}}",
+  "@nowLunges": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nowMicroHint": "Move at a steady pace and stop if anything hurts. Tap Done when you finish to log it.",
+  "nowSetLogged": "Set logged. Next time it grows a little.",
+  "nowSkill": "Practise {skill} for 5 min",
+  "@nowSkill": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      }
+    }
+  },
+  "nowSkillInfo": "Your chosen skill: a few minutes a day keeps it growing.",
+  "nowYoga": "5-minute yoga flow",
+  "nowYogaInfo": "Gentle poses for flexibility.",
+  "nowFaceSnapshot": "Weekly face snapshot",
+  "nowFaceSnapshotInfo": "Same light, same spot: your time-lapse grows.",
+  "nowWindDown": "Wind down for bed",
+  "nowWindDownInfo": "Dim the screens and stretch gently.",
+  "nowMealReminders": "Get meal-time reminders",
+  "nowMealRemindersInfo": "Breakfast {breakfast}, lunch {lunch}, dinner {dinner}. Change the times any time.",
+  "@nowMealRemindersInfo": {
+    "placeholders": {
+      "breakfast": {
+        "type": "String"
+      },
+      "lunch": {
+        "type": "String"
+      },
+      "dinner": {
+        "type": "String"
+      }
+    }
+  },
+  "nowMealRemindersOn": "Meal-time reminders are on",
+  "skillsPractiseRegularly": "Practise regularly",
+  "skillsPractiseInfo": "Shown in your recommendations on Home.",
+  "goalRemindMeals": "Meal times",
+  "goalRemindMealsInfo": "Breakfast, lunch and dinner at regular times.",
+  "mealBreakfastTime": "Breakfast time",
+  "mealLunchTime": "Lunch time",
+  "mealSnackTime": "Snack time",
+  "mealDinnerTime": "Dinner time",
+  "goalRemindPostureCheck": "Morning posture check",
+  "goalRemindPostureCheckItem": "Morning posture check: 2 minutes with the camera",
+  "goalRemindPostureCheckInfo": "Start each day with a quick look at how you stand.",
+  "goalRemindFaceSnapshot": "Weekly face snapshot",
+  "goalRemindFaceSnapshotItem": "Take this week's face snapshot",
+  "goalRemindFaceSnapshotInfo": "Same day each week, so your time-lapse shows real change.",
+  "permTitle": "Allow what Personality needs",
+  "permIntro": "Each one is optional and everything stays on your phone. You can change them any time.",
+  "permNotifications": "Notifications",
+  "permNotificationsInfo": "Meal times, reminders and gentle nudges.",
+  "permCamera": "Camera",
+  "permCameraInfo": "Posture checks, face shape and progress photos. Frames never leave your phone.",
+  "permActivity": "Physical activity",
+  "permActivityInfo": "Counts steps and walks with the phone's own sensors.",
+  "permAllowed": "Allowed",
+  "permAllow": "Allow",
+  "permOpenSettings": "Open settings",
+  "permAllowAll": "Allow all",
+  "permNudgeTitle": "A few permissions are still off",
+  "permNudgeBody": "Allow them so reminders, camera checks and step counts can work.",
+  "permLater": "Later",
+  "permStartReminders": "Start with these reminders",
+  "permStartRemindersNote": "They need notifications. Change or turn them off any time under Goal reminders.",
+  "settingsPermissions": "Permissions",
+  "nowStartTimer": "Start timer"
 }

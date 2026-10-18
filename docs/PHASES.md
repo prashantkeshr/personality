@@ -624,3 +624,33 @@ Verification:
   - set the goal range; weighed in 70 → 67.8 kg and saw "50% of the way!";
   - turned on the weigh-in reminder, which appears under Next reminders (Mon 7:30).
 - Release permissions unchanged.
+
+## Phase 22 — Recommended for now, meal reminders, permissions (2026-10-19)
+
+- **"Recommended for now" on Home** replaces the single "Got 5 minutes?" card. Up to four swipeable cards suit the time of day, each with an illustration (the animated figure for movement) and **Do it** / ✕ (not now).
+  - **Meals:** breakfast 7:00–10:30, lunch 12:30–15:00, dinner 19:30–22:00, each until a meal is logged. A 10-minute walk is suggested in the hour after a meal.
+  - **Morning:** posture check (until one is saved today), weigh-in (weight goal, until weighed today), wake-up stretch.
+  - **Day:** a micro set, rotating daily and between the two halves of the day: push-ups, squats, plank, glute bridges, lunges.
+  - **Skills:** the user's chosen skills come up in the evening. Skill pages now have a **Practise regularly** switch.
+  - **Other:** a yoga flow for a flexibility goal, the weekly face snapshot, a wind-down at night, water when behind, and a one-off offer of meal-time reminders.
+- **Micro sets start small and grow by themselves**: 5 push-ups, 15 squats or a 20 s plank for a new user (more for active profiles), plus one step every two sets logged, with a cap.
+  - Done logs an exercise session.
+  - Holds count down, buzz and log themselves.
+- **Goal reminder presets added**:
+  - meal times (8:30 breakfast, 13:00 lunch, 20:00 dinner; each notification is named by its time);
+  - morning posture check (8:00 daily);
+  - weekly face snapshot (Sundays 9:00; the snapshots screen's weekly reminder now uses it, so it can't be added twice).
+- **Permissions**:
+  - A 6th onboarding step explains notifications, camera and physical activity, each with Allow (or Open settings once Android stops asking) and Allow all. Two starter reminders, meal times and the morning posture check, are pre-ticked and switched on if notifications are allowed.
+  - The About-you numbers are now checked when leaving that page.
+  - Home shows a gentle card while something is off, at most once every 3 days after "Later". Settings has a Permissions section. Both re-check when the app returns from Android settings.
+  - Android can't deliver a notification about a refused notification permission, so the re-ask is in-app by design.
+- Native (`personality/device`): `permissions` (granted plus askable, tracking "asked before" so a permanent refusal opens settings), `requestCamera`, `markAsked`, `openAppSettings`.
+- Removed the now-unused FiveMinute picker and card.
+
+Verification:
+- `flutter analyze`: no issues. `flutter test`: 419 pass, 2 skipped. New tests:
+  - the engine for every window (meal logged, walk window, weigh-in rules, micro-set growth and cap, rotation, skills, handled and never-again, max four);
+  - Home (lunch / not now, a counted set logged and the counter growing, a plank countdown that logs itself, a chosen skill in the evening, the permission card with Later and Allow);
+  - onboarding (validation on Next, starter reminders created or skipped).
+- Emulator, release build, clock set to 11:05: water, posture check, the meal-reminder offer and a 30 s plank (moderate profile). Revoking the camera showed the Home card; Allow opened Android's prompt and the card went away. The Settings Permissions section shows the ticks.

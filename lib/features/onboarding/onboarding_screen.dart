@@ -10,6 +10,7 @@ import '../../domain/entities/body.dart';
 import '../../shared/format/body_format.dart';
 import '../journey/goal_finder_screen.dart' show goalIcon, goalImages;
 import 'about_you.dart';
+import 'permissions_page.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -19,9 +20,10 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pageCount = 5;
+  static const _pageCount = 6;
   final _controller = PageController();
   final _about = AboutYouData();
+  final _reminders = StarterReminders();
   int _page = 0;
   bool _finishing = false;
 
@@ -29,6 +31,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   void dispose() {
     _controller.dispose();
     _about.dispose();
+    _reminders.dispose();
     super.dispose();
   }
 
@@ -42,6 +45,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     }
   }
 
+  /// About you is checked as you leave it, so a typo is shown right there
+  /// rather than on the last page.
+  void _next() {
+    final aboutPage = _page == _pageCount - 2;
+    final units = ref.read(settingsControllerProvider).unitSystem;
+    if (aboutPage && !_about.valid(units)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context).onboardingInvalid)),
+      );
+      return;
+    }
+    _goTo(_page + 1);
+  }
+
   Future<void> _finish() async {
     setState(() => _finishing = true);
     final messenger = ScaffoldMessenger.of(context);
@@ -53,6 +70,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         if (mounted) setState(() => _finishing = false);
         return;
       }
+      await _reminders.apply(ref, l10n);
       await ref
           .read(settingsControllerProvider.notifier)
           .update((s) => s.copyWith(onboardingCompleted: true));
@@ -96,6 +114,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       const _PrivacyPage(),
                       const _PreferencesPage(),
                       AboutYouPage(data: _about),
+                      PermissionsPage(reminders: _reminders),
                     ],
                   ),
                 ),
@@ -114,7 +133,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                             ? null
                             : isLast
                                 ? _finish
-                                : () => _goTo(_page + 1),
+                                : _next,
                         child: Text(
                             isLast ? l10n.actionGetStarted : l10n.actionNext),
                       ),

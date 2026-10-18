@@ -26,6 +26,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : FlutterFragmentActivity() {
     private var permissionResult: MethodChannel.Result? = null
+    private var cameraResult: MethodChannel.Result? = null
     private var hcResult: MethodChannel.Result? = null
     private lateinit var hcLauncher: ActivityResultLauncher<Set<String>>
     private var pendingWidgetAction: String? = null
@@ -78,12 +79,77 @@ class MainActivity : FlutterFragmentActivity() {
                     result.success(probe())
                 } else if (call.method == "network") {
                     result.success(network())
+                } else if (call.method == "permissions") {
+                    result.success(permissions())
+                } else if (call.method == "requestCamera") {
+                    requestCamera(result)
+                } else if (call.method == "markAsked") {
+                    when (call.argument<String>("permission")) {
+                        "notifications" -> if (Build.VERSION.SDK_INT >= 33)
+                            markAsked(Manifest.permission.POST_NOTIFICATIONS)
+                        "activity" -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                            markAsked(Manifest.permission.ACTIVITY_RECOGNITION)
+                    }
+                    result.success(null)
+                } else if (call.method == "openAppSettings") {
+                    openAppSettings()
+                    result.success(null)
                 } else if (call.method == "email") {
                     result.success(email(call.argument<String>("to")!!, call.argument<String>("subject") ?: ""))
                 } else {
                     result.notImplemented()
                 }
             }
+    }
+
+    private fun granted(p: String) =
+        ContextCompat.checkSelfPermission(this, p) == PackageManager.PERMISSION_GRANTED
+
+    /**
+     * What the app may use now, and for each missing one whether Android will
+     * still show its prompt (false after repeated refusals: then only the
+     * app's settings page can turn it on).
+     */
+    private fun permissions(): Map<String, Any> {
+        val notifications = if (Build.VERSION.SDK_INT >= 33)
+            granted(Manifest.permission.POST_NOTIFICATIONS)
+        else androidx.core.app.NotificationManagerCompat.from(this).areNotificationsEnabled()
+        fun askable(p: String) = !granted(p) &&
+            (!asked(p) || ActivityCompat.shouldShowRequestPermissionRationale(this, p))
+        return mapOf(
+            "notifications" to notifications,
+            "camera" to granted(Manifest.permission.CAMERA),
+            "activity" to activityGranted(),
+            "cameraAskable" to askable(Manifest.permission.CAMERA),
+            "activityAskable" to (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
+                askable(Manifest.permission.ACTIVITY_RECOGNITION)),
+            "notificationsAskable" to (Build.VERSION.SDK_INT >= 33 &&
+                askable(Manifest.permission.POST_NOTIFICATIONS)),
+        )
+    }
+
+    // Android can't tell "never asked" from "refused for good"; remember asks.
+    private val asks by lazy { getSharedPreferences("permission_asks", MODE_PRIVATE) }
+    private fun asked(p: String) = asks.getBoolean(p, false)
+    private fun markAsked(p: String) = asks.edit().putBoolean(p, true).apply()
+
+    private fun requestCamera(result: MethodChannel.Result) {
+        if (granted(Manifest.permission.CAMERA)) {
+            result.success(true)
+            return
+        }
+        cameraResult = result
+        markAsked(Manifest.permission.CAMERA)
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 42)
+    }
+
+    private fun openAppSettings() {
+        startActivity(
+            android.content.Intent(
+                android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                android.net.Uri.fromParts("package", packageName, null),
+            ).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
     }
 
     /** Opens the user's own mail app with a new message; false if there is none. */
@@ -196,6 +262,11 @@ class MainActivity : FlutterFragmentActivity() {
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 42) {
+            cameraResult?.success(
+                grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            cameraResult = null
+        }
         if (requestCode == 41) {
             permissionResult?.success(
                 grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)

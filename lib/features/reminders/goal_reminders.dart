@@ -14,6 +14,14 @@ import '../routines/routine_providers.dart';
 /// reminders, so it shares quiet hours, Done / Snooze, plan history and the
 /// routines screen; this layer only remembers which routine belongs to it.
 enum GoalReminderKind {
+  // Regular meal times help everyone; listed with weight goals.
+  meals(
+    GoalType.weightManagement,
+    RoutineItemKind.meal,
+    Icons.restaurant_outlined,
+    Weekdays.everyDay,
+    [8 * 60 + 30, 13 * 60, 20 * 60],
+  ),
   weighIn(
     GoalType.weightManagement,
     RoutineItemKind.custom,
@@ -48,6 +56,20 @@ enum GoalReminderKind {
     Icons.accessibility_new,
     Weekdays(0x1F),
     [12 * 60, 17 * 60],
+  ),
+  postureCheck(
+    GoalType.posture,
+    RoutineItemKind.posture,
+    Icons.camera_front_outlined,
+    Weekdays.everyDay,
+    [8 * 60],
+  ),
+  faceSnapshot(
+    GoalType.grooming,
+    RoutineItemKind.grooming,
+    Icons.face_retouching_natural,
+    Weekdays(1 << 6), // Sundays
+    [9 * 60],
   );
 
   const GoalReminderKind(
@@ -67,6 +89,9 @@ enum GoalReminderKind {
   final List<int> defaultTimes;
 
   String title(AppLocalizations l) => switch (this) {
+    meals => l.goalRemindMeals,
+    postureCheck => l.goalRemindPostureCheck,
+    faceSnapshot => l.goalRemindFaceSnapshot,
     weighIn => l.goalRemindWeighIn,
     water => l.goalRemindWater,
     bedtime => l.goalRemindBedtime,
@@ -74,8 +99,18 @@ enum GoalReminderKind {
     posture => l.goalRemindPosture,
   };
 
-  /// What the notification says.
-  String itemTitle(AppLocalizations l) => switch (this) {
+  /// What the notification says at [minute]; meals are named by the time
+  /// they fall at (breakfast, lunch, snack, dinner).
+  String itemTitle(AppLocalizations l, int minute) => switch (this) {
+    meals => minute < 11 * 60
+        ? l.mealBreakfastTime
+        : minute < 16 * 60
+        ? l.mealLunchTime
+        : minute < 18 * 60 + 30
+        ? l.mealSnackTime
+        : l.mealDinnerTime,
+    postureCheck => l.goalRemindPostureCheckItem,
+    faceSnapshot => l.goalRemindFaceSnapshotItem,
     weighIn => l.goalRemindWeighInItem,
     water => l.goalRemindWaterItem,
     bedtime => l.goalRemindBedtimeItem,
@@ -84,6 +119,9 @@ enum GoalReminderKind {
   };
 
   String info(AppLocalizations l) => switch (this) {
+    meals => l.goalRemindMealsInfo,
+    postureCheck => l.goalRemindPostureCheckInfo,
+    faceSnapshot => l.goalRemindFaceSnapshotInfo,
     weighIn => l.goalRemindWeighInInfo,
     water => l.goalRemindWaterInfo,
     bedtime => l.goalRemindBedtimeInfo,
@@ -208,7 +246,7 @@ class GoalReminderActions {
     final repo = _ref.read(routineRepositoryProvider);
     final id = await repo.createRoutine(r.kind.title(l), r.days);
     for (final t in r.times) {
-      await repo.addItem(id, t, r.kind.itemTitle(l), r.kind.itemKind);
+      await repo.addItem(id, t, r.kind.itemTitle(l, t), r.kind.itemKind);
     }
     await _ref.read(goalReminderLinksProvider).set(r.kind, id);
     return _ensureRemindersOn();
@@ -238,7 +276,7 @@ class GoalReminderActions {
         await repo.deleteItem(i.id);
       }
       for (final t in {...times}.toList()..sort()) {
-        await repo.addItem(id, t, r.kind.itemTitle(l), r.kind.itemKind);
+        await repo.addItem(id, t, r.kind.itemTitle(l, t), r.kind.itemKind);
       }
     }
   }

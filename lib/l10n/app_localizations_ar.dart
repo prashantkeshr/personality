@@ -5333,4 +5333,286 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get goalRemindWeekdays => 'أيام العمل';
+
+  @override
+  String get nowTitle => 'مقترح الآن';
+
+  @override
+  String get nowMorning => 'اقتراحات الصباح';
+
+  @override
+  String get nowAfternoon => 'اقتراحات بعد الظهر';
+
+  @override
+  String get nowEvening => 'اقتراحات المساء';
+
+  @override
+  String get nowNight => 'قبل النوم';
+
+  @override
+  String get nowAllDone => 'أنجزت كل شيء في الوقت الحالي.';
+
+  @override
+  String get nowNotNow => 'ليس الآن';
+
+  @override
+  String get nowNoThanks => 'لا، شكرًا';
+
+  @override
+  String get nowBreakfast => 'حان وقت الفطور';
+
+  @override
+  String get nowBreakfastInfo => 'البداية الجيدة تحافظ على طاقتك حتى الغداء.';
+
+  @override
+  String get nowLunch => 'وقت الغداء';
+
+  @override
+  String get nowLunchInfo => 'تناول طعامك نحو الساعة 1 ظهرًا، ثم سجّله بلمسة.';
+
+  @override
+  String get nowDinner => 'وقت العشاء';
+
+  @override
+  String get nowDinnerInfo => 'العشاء الأخف والأبكر يساعدك على النوم.';
+
+  @override
+  String get nowPostureCheck => 'فحص القوام الصباحي';
+
+  @override
+  String get nowPostureCheckInfo => 'دقيقتان مع الكاميرا لتبدأ يومك مستقيمًا.';
+
+  @override
+  String get nowWeighIn => 'قِس وزنك';
+
+  @override
+  String get nowWeighInInfo => 'قبل الفطور، لاتجاه عادل.';
+
+  @override
+  String get nowWakeStretch => 'تمدد الاستيقاظ';
+
+  @override
+  String get nowWakeStretchInfo => '5 دقائق من الحركة اللطيفة.';
+
+  @override
+  String get nowWalk => 'امشِ 10 دقائق';
+
+  @override
+  String get nowWalkInfo => 'المشي القصير بعد الأكل يساعد الهضم.';
+
+  @override
+  String get nowWalkStarted =>
+      'استمتع بالمشي. تُحسب الخطوات تلقائيًا إذا سُمح بالنشاط.';
+
+  @override
+  String nowMicroInfo(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'سُجّلت $count مجموعات. يزداد معك.',
+      one: 'سُجّلت مجموعة واحدة. يزداد معك.',
+      zero: 'يبدأ صغيرًا ويزداد كلما سجّلت مجموعات.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowPushUps(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تمارين ضغط',
+      one: 'تمرين ضغط واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowSquats(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قرفصاءات',
+      one: 'قرفصاء واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowPlank(int count) {
+    return 'بلانك لمدة $count ثانية';
+  }
+
+  @override
+  String nowBridges(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count جسور أرداف',
+      one: 'جسر أرداف واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String nowLunges(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count طعنات لكل جانب',
+      one: 'طعنة واحدة لكل جانب',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get nowMicroHint =>
+      'تحرّك بإيقاع ثابت وتوقف إن آلمك شيء. اضغط «تم» عند الانتهاء لتسجيله.';
+
+  @override
+  String get nowSetLogged => 'سُجّلت المجموعة. ستزداد قليلًا في المرة القادمة.';
+
+  @override
+  String nowSkill(String skill) {
+    return 'تدرّب على $skill لمدة 5 دقائق';
+  }
+
+  @override
+  String get nowSkillInfo => 'مهارتك المختارة: دقائق قليلة يوميًا تجعلها تنمو.';
+
+  @override
+  String get nowYoga => 'تدفق يوغا لمدة 5 دقائق';
+
+  @override
+  String get nowYogaInfo => 'وضعيات لطيفة للمرونة.';
+
+  @override
+  String get nowFaceSnapshot => 'صورة الوجه الأسبوعية';
+
+  @override
+  String get nowFaceSnapshotInfo =>
+      'الإضاءة نفسها والمكان نفسه: يكبر فاصلك الزمني.';
+
+  @override
+  String get nowWindDown => 'استرخِ استعدادًا للنوم';
+
+  @override
+  String get nowWindDownInfo => 'خفّف الشاشات وتمدّد بلطف.';
+
+  @override
+  String get nowMealReminders => 'احصل على تذكيرات مواعيد الوجبات';
+
+  @override
+  String nowMealRemindersInfo(String breakfast, String lunch, String dinner) {
+    return 'الفطور $breakfast، الغداء $lunch، العشاء $dinner. غيّر المواعيد متى شئت.';
+  }
+
+  @override
+  String get nowMealRemindersOn => 'تذكيرات مواعيد الوجبات مفعّلة';
+
+  @override
+  String get skillsPractiseRegularly => 'تدرّب بانتظام';
+
+  @override
+  String get skillsPractiseInfo => 'يظهر في اقتراحاتك على الشاشة الرئيسية.';
+
+  @override
+  String get goalRemindMeals => 'مواعيد الوجبات';
+
+  @override
+  String get goalRemindMealsInfo => 'الفطور والغداء والعشاء في مواعيد منتظمة.';
+
+  @override
+  String get mealBreakfastTime => 'وقت الفطور';
+
+  @override
+  String get mealLunchTime => 'وقت الغداء';
+
+  @override
+  String get mealSnackTime => 'وقت الوجبة الخفيفة';
+
+  @override
+  String get mealDinnerTime => 'وقت العشاء';
+
+  @override
+  String get goalRemindPostureCheck => 'فحص القوام الصباحي';
+
+  @override
+  String get goalRemindPostureCheckItem =>
+      'فحص القوام الصباحي: دقيقتان مع الكاميرا';
+
+  @override
+  String get goalRemindPostureCheckInfo => 'ابدأ كل يوم بنظرة سريعة على وقفتك.';
+
+  @override
+  String get goalRemindFaceSnapshot => 'صورة الوجه الأسبوعية';
+
+  @override
+  String get goalRemindFaceSnapshotItem => 'التقط صورة الوجه لهذا الأسبوع';
+
+  @override
+  String get goalRemindFaceSnapshotInfo =>
+      'اليوم نفسه كل أسبوع، ليُظهر فاصلك الزمني تغييرًا حقيقيًا.';
+
+  @override
+  String get permTitle => 'اسمح بما يحتاجه Personality';
+
+  @override
+  String get permIntro =>
+      'كل واحد منها اختياري ويبقى كل شيء على هاتفك. يمكنك تغييرها في أي وقت.';
+
+  @override
+  String get permNotifications => 'الإشعارات';
+
+  @override
+  String get permNotificationsInfo =>
+      'مواعيد الوجبات والتذكيرات والتنبيهات اللطيفة.';
+
+  @override
+  String get permCamera => 'الكاميرا';
+
+  @override
+  String get permCameraInfo =>
+      'فحوص القوام وشكل الوجه وصور التقدم. لا تغادر الصور هاتفك أبدًا.';
+
+  @override
+  String get permActivity => 'النشاط البدني';
+
+  @override
+  String get permActivityInfo => 'يحسب الخطوات والمشي بمستشعرات الهاتف.';
+
+  @override
+  String get permAllowed => 'مسموح';
+
+  @override
+  String get permAllow => 'سماح';
+
+  @override
+  String get permOpenSettings => 'فتح الإعدادات';
+
+  @override
+  String get permAllowAll => 'السماح بالكل';
+
+  @override
+  String get permNudgeTitle => 'بعض الأذونات ما زالت متوقفة';
+
+  @override
+  String get permNudgeBody =>
+      'اسمح بها لتعمل التذكيرات وفحوص الكاميرا وعدّ الخطوات.';
+
+  @override
+  String get permLater => 'لاحقًا';
+
+  @override
+  String get permStartReminders => 'ابدأ بهذه التذكيرات';
+
+  @override
+  String get permStartRemindersNote =>
+      'تحتاج إلى الإشعارات. غيّرها أو أوقفها في أي وقت من تذكيرات الأهداف.';
+
+  @override
+  String get settingsPermissions => 'الأذونات';
+
+  @override
+  String get nowStartTimer => 'بدء المؤقت';
 }

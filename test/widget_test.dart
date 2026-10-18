@@ -5,6 +5,7 @@ import 'package:personality/features/settings/settings_repository.dart';
 import 'package:personality/app/app_shell.dart';
 import 'package:personality/data/repositories/body_record_repository.dart';
 import 'package:personality/data/repositories/profile_repository.dart';
+import 'package:personality/data/repositories/routine_repository.dart';
 import 'package:personality/domain/entities/body.dart';
 
 import 'helpers/app_harness.dart';
@@ -48,12 +49,18 @@ void main() {
     await tester.enterText(find.byKey(const Key('about-height-in')), '4');
     await reveal(find.byKey(const Key('about-weight')));
     await tester.enterText(find.byKey(const Key('about-weight')), '9999');
-    await app.tapAndSettle(find.text('Get started'));
-    // An impossible weight is caught instead of saved.
+    await app.tapAndSettle(find.text('Next'));
+    // An impossible weight is caught right there, before moving on.
     expect(find.text('Check this value'), findsOneWidget);
+    expect(find.byKey(const Key('about-weight')), findsOneWidget); // stayed
     await tester.pump(const Duration(seconds: 5)); // let the message close
     await tester.pumpAndSettle();
     await tester.enterText(find.byKey(const Key('about-weight')), '130');
+    await app.tapAndSettle(find.text('Next'));
+
+    // Last step: permissions and starter reminders, both pre-ticked.
+    expect(find.text('Allow what Personality needs'), findsOneWidget);
+    expect(find.byKey(const Key('perm-camera')), findsOneWidget);
     await app.tapAndSettle(find.text('Get started'));
 
     expect(find.text('Today'), findsOneWidget);
@@ -77,6 +84,11 @@ void main() {
         .watchAll()
         .first);
     expect(weights!.single.value, closeTo(58.97, 0.01));
+    // Meal times and the morning posture check were switched on.
+    final routines = await app.run(
+        () => RoutineRepository(app.db).watchRoutines().first);
+    expect(routines!.map((r) => r.name),
+        containsAll(['Meal times', 'Morning posture check']));
     await app.dispose();
   });
 
@@ -93,7 +105,17 @@ void main() {
     expect(find.text('About you'), findsOneWidget);
     expect(find.textContaining('Only what your goals need'), findsOneWidget);
     expect(find.byKey(const Key('about-weight')), findsNothing);
+    await app.tapAndSettle(find.text('Next'));
+    // Untick both starter reminders: none are created.
+    await app.tapAndSettle(find.byKey(const Key('starter-meals')));
+    await tester.scrollUntilVisible(
+        find.byKey(const Key('starter-posture')).hitTestable(), 150,
+        scrollable: find.byType(Scrollable).last);
+    await app.tapAndSettle(find.byKey(const Key('starter-posture')));
     await app.tapAndSettle(find.text('Get started'));
+    final none = await app.run(
+        () => RoutineRepository(app.db).watchRoutines().first);
+    expect(none, isEmpty);
     expect(find.text('Today'), findsOneWidget);
     final goals = await app.run(() => ProfileRepository(app.db).watchGoals().first);
     expect(goals, {GoalType.style});

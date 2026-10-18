@@ -23,7 +23,6 @@ import '../plans/plan_labels.dart';
 import '../plans/plan_providers.dart';
 import '../routines/reminder_sync_host.dart' show formatMinute;
 import '../routines/routine_providers.dart';
-import '../style/style_providers.dart';
 import 'today_providers.dart';
 
 /// Small "Daily plan %" ring for the Home header.
@@ -403,116 +402,6 @@ const _energyIcons = [
   Icons.battery_5_bar,
   Icons.battery_full,
 ];
-
-/// One small step for right now.
-class FiveMinuteCard extends ConsumerWidget {
-  const FiveMinuteCard({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    final now = ref.watch(clockProvider)();
-    final agenda = ref.watch(agendaProvider(Days.key(now)));
-    if (agenda == null) return const SizedBox.shrink();
-    final hasWardrobe =
-        (ref.watch(wardrobeProvider).value ?? const []).length >= 3;
-    final idea = FiveMinute.pick(
-      agenda,
-      now.hour * 60 + now.minute,
-      hasWardrobe: hasWardrobe,
-    );
-    final (icon, title, info) = switch (idea.kind) {
-      FiveMinuteKind.water => (
-        Icons.water_drop_outlined,
-        l10n.fiveWater,
-        l10n.fiveWaterInfo,
-      ),
-      FiveMinuteKind.habit => (
-        Icons.task_alt,
-        l10n.fiveHabit(idea.task!.title ?? ''),
-        l10n.fiveHabitInfo,
-      ),
-      FiveMinuteKind.mobility => (
-        Icons.self_improvement,
-        l10n.fiveMobility,
-        l10n.fiveMobilityInfo,
-      ),
-      FiveMinuteKind.prepareOutfit => (
-        Icons.checkroom_outlined,
-        l10n.fiveOutfit,
-        l10n.fiveOutfitInfo,
-      ),
-      FiveMinuteKind.posture => (
-        Icons.accessibility_new,
-        l10n.fivePosture,
-        l10n.fivePostureInfo,
-      ),
-    };
-
-    Future<void> act() async {
-      switch (idea.kind) {
-        case FiveMinuteKind.water:
-          await addWater(context, ref, 250);
-        case FiveMinuteKind.habit:
-          await ref
-              .read(habitRepositoryProvider)
-              .setStatus(
-                idea.task!.habitId!,
-                Days.key(now),
-                HabitStatus.completed,
-              );
-        case FiveMinuteKind.mobility:
-          if (context.mounted) {
-            context.push(
-              '${AppRoutes.exerciseLibrary}/${DayAgenda.fiveMinuteMoves.first}',
-            );
-          }
-        case FiveMinuteKind.prepareOutfit:
-          if (context.mounted) context.push(AppRoutes.outfits);
-        case FiveMinuteKind.posture:
-          if (context.mounted) context.push(AppRoutes.posture);
-      }
-    }
-
-    return Card(
-      color: scheme.tertiaryContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.lg),
-        child: Row(
-          children: [
-            CircleAvatar(
-              radius: 24,
-              backgroundColor: scheme.onTertiaryContainer.withValues(
-                alpha: 0.1,
-              ),
-              child: Icon(icon, color: scheme.onTertiaryContainer),
-            ),
-            const SizedBox(width: AppSpacing.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l10n.fiveTitle,
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      color: scheme.onTertiaryContainer,
-                    ),
-                  ),
-                  Text(title, style: theme.textTheme.titleSmall),
-                  Text(info, style: theme.textTheme.bodySmall),
-                ],
-              ),
-            ),
-            const SizedBox(width: AppSpacing.sm),
-            FilledButton(onPressed: act, child: Text(l10n.fiveDo)),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 Future<void> addWater(BuildContext context, WidgetRef ref, int ml) async {
   final l10n = AppLocalizations.of(context);

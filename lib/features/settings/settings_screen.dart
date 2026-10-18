@@ -6,6 +6,7 @@ import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../lock/app_lock_ui.dart';
+import '../permissions/permission_widgets.dart';
 import 'about_section.dart';
 import 'preference_controls.dart';
 
@@ -53,6 +54,11 @@ class SettingsScreen extends StatelessWidget {
           const LanguageSelector(),
           header(l10n.settingsSecurity),
           const AppLockSettings(),
+          header(l10n.settingsPermissions),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+            child: PermissionList(),
+          ),
           header(l10n.settingsPrivacy),
           body(l10n.privacyStorageSummary),
           const SizedBox(height: AppSpacing.sm),

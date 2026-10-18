@@ -11,8 +11,6 @@ import '../../core/logging/app_logger.dart';
 import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/snapshot_repository.dart';
-import '../../domain/entities/health.dart';
-import '../../domain/entities/routine.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/visual/reveal.dart';
 import '../../shared/visual/scan_overlay.dart';
@@ -21,7 +19,7 @@ import '../camera/camera_providers.dart';
 import '../camera/camera_source.dart';
 import '../camera/portrait_lock.dart';
 import '../health/widgets/add_record_sheet.dart' show confirmDelete;
-import '../routines/routine_providers.dart';
+import '../reminders/goal_reminders.dart';
 import 'snapshot_providers.dart';
 
 String snapshotKindLabel(AppLocalizations l10n, SnapshotKind k) => switch (k) {
@@ -46,10 +44,12 @@ class _SnapshotsScreenState extends ConsumerState<SnapshotsScreen> {
     final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      final repo = ref.read(routineRepositoryProvider);
-      final id = await repo.createRoutine(
-          l10n.snapReminderRoutine, const Weekdays(1 << 6)); // Sundays
-      await repo.addItem(id, 9 * 60, l10n.snapReminderItem, RoutineItemKind.custom);
+      // The weekly face-snapshot goal reminder (Sundays 9:00), so it shows
+      // and can be edited under Goal reminders and is never added twice.
+      final r = ref.read(goalRemindersProvider)?[GoalReminderKind.faceSnapshot];
+      if (r != null && !r.on) {
+        await ref.read(goalReminderActionsProvider).turnOn(r, l10n);
+      }
       messenger.showSnackBar(SnackBar(content: Text(l10n.snapReminderAdded)));
     } catch (e, st) {
       AppLogger.error('snapshot.reminder', e, st);
@@ -62,6 +62,7 @@ class _SnapshotsScreenState extends ConsumerState<SnapshotsScreen> {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final consent = ref.watch(snapshotConsentProvider).value;
+    ref.watch(goalRemindersProvider); // ready for the weekly-reminder menu
     final list = ref.watch(snapshotsProvider(_kind)).value ?? const <Snapshot>[];
     final tag = Localizations.localeOf(context).toLanguageTag();
 

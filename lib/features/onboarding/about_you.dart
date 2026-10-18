@@ -88,6 +88,17 @@ class AboutYouData {
     return kg;
   }
 
+  /// Whether the numbers entered (if any) are plausible.
+  bool valid(UnitSystem units) {
+    try {
+      heightInCm(units);
+      weightInKg(units);
+      return true;
+    } on FormatException {
+      return false;
+    }
+  }
+
   /// Validates, then stores the profile and any height/weight entered.
   /// Returns false (and stores nothing) when a number is invalid.
   Future<bool> save(WidgetRef ref, {DateTime? now}) async {
