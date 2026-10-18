@@ -6763,7 +6763,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupEncryptedInfo.
   ///
   /// In en, this message translates to:
-  /// **'Everything in the app, locked with a passphrase you choose. Restore it on any phone with Personality.'**
+  /// **'Everything in the app, locked with a password you set. Restore it on any phone with Personality.'**
   String get backupEncryptedInfo;
 
   /// No description provided for @backupIncludePhotos.
@@ -6871,31 +6871,31 @@ abstract class AppLocalizations {
   /// No description provided for @backupPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Files go only where you send them. Without the passphrase a backup can\'t be read by anyone, including us, and a lost passphrase can\'t be recovered.'**
+  /// **'Files go only where you send them. Without the password a backup can\'t be read by anyone, including us, and a lost password can\'t be recovered.'**
   String get backupPrivacy;
 
   /// No description provided for @backupPassphrase.
   ///
   /// In en, this message translates to:
-  /// **'Passphrase'**
+  /// **'Password'**
   String get backupPassphrase;
 
   /// No description provided for @backupPassphraseAgain.
   ///
   /// In en, this message translates to:
-  /// **'Repeat passphrase'**
+  /// **'Repeat password'**
   String get backupPassphraseAgain;
 
   /// No description provided for @backupPassphraseCreate.
   ///
   /// In en, this message translates to:
-  /// **'Choose a passphrase'**
+  /// **'Set a password for your data'**
   String get backupPassphraseCreate;
 
   /// No description provided for @backupPassphraseEnter.
   ///
   /// In en, this message translates to:
-  /// **'Enter the backup\'s passphrase'**
+  /// **'Enter the backup\'s password'**
   String get backupPassphraseEnter;
 
   /// No description provided for @backupPassphraseWarning.
@@ -6913,13 +6913,13 @@ abstract class AppLocalizations {
   /// No description provided for @backupPassphraseMismatch.
   ///
   /// In en, this message translates to:
-  /// **'The passphrases don\'t match'**
+  /// **'The passwords don\'t match'**
   String get backupPassphraseMismatch;
 
   /// No description provided for @backupShowPassphrase.
   ///
   /// In en, this message translates to:
-  /// **'Show passphrase'**
+  /// **'Show password'**
   String get backupShowPassphrase;
 
   /// No description provided for @backupContinue.
@@ -6979,7 +6979,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupErrorPassphrase.
   ///
   /// In en, this message translates to:
-  /// **'Wrong passphrase.'**
+  /// **'Wrong password.'**
   String get backupErrorPassphrase;
 
   /// No description provided for @backupErrorTooNew.
@@ -9909,6 +9909,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start timer'**
   String get nowStartTimer;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About Your Personality'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutHomeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Your face, body, posture, style and progress in one place'**
+  String get aboutHomeInfo;
+
+  /// No description provided for @aboutIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'What your own checks have shown so far. There\'s no score: just where you are, and where you could go next.'**
+  String get aboutIntro;
+
+  /// No description provided for @aboutFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face'**
+  String get aboutFace;
+
+  /// No description provided for @aboutFaceEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No face analysis yet. It estimates your face shape and suggests styles.'**
+  String get aboutFaceEmpty;
+
+  /// No description provided for @aboutAlsoClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Also close to'**
+  String get aboutAlsoClose;
+
+  /// No description provided for @aboutChecked.
+  ///
+  /// In en, this message translates to:
+  /// **'Last checked'**
+  String get aboutChecked;
+
+  /// No description provided for @aboutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get aboutBody;
+
+  /// No description provided for @aboutBodyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your height and weight to see your body summary.'**
+  String get aboutBodyEmpty;
+
+  /// No description provided for @aboutBmi.
+  ///
+  /// In en, this message translates to:
+  /// **'BMI'**
+  String get aboutBmi;
+
+  /// No description provided for @aboutBmiNote.
+  ///
+  /// In en, this message translates to:
+  /// **'BMI is a rough guide: it says nothing about muscle, shape or health on its own.'**
+  String get aboutBmiNote;
+
+  /// No description provided for @aboutPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture'**
+  String get aboutPosture;
+
+  /// No description provided for @aboutPostureEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No posture check yet. Two minutes with the camera shows your alignment.'**
+  String get aboutPostureEmpty;
+
+  /// No description provided for @aboutView.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get aboutView;
+
+  /// No description provided for @aboutStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Style & colours'**
+  String get aboutStyle;
+
+  /// No description provided for @aboutStyleEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your colours to see the palette that suits you.'**
+  String get aboutStyleEmpty;
+
+  /// No description provided for @aboutUndertone.
+  ///
+  /// In en, this message translates to:
+  /// **'Undertone'**
+  String get aboutUndertone;
+
+  /// No description provided for @aboutDepth.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin depth'**
+  String get aboutDepth;
+
+  /// No description provided for @aboutProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get aboutProgress;
+
+  /// No description provided for @aboutLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get aboutLevel;
+
+  /// No description provided for @aboutStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Current streak'**
+  String get aboutStreak;
+
+  /// No description provided for @aboutPostureChecks.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture checks'**
+  String get aboutPostureChecks;
+
+  /// No description provided for @aboutProgressPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress photos'**
+  String get aboutProgressPhotos;
+
+  /// No description provided for @aboutGrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Room to grow'**
+  String get aboutGrow;
+
+  /// No description provided for @aboutGrowEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Every area is on track this week.'**
+  String get aboutGrowEmpty;
+
+  /// No description provided for @aboutCheckNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Check now'**
+  String get aboutCheckNow;
+
+  /// No description provided for @aboutSeeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See more'**
+  String get aboutSeeMore;
 }
 
 class _AppLocalizationsDelegate

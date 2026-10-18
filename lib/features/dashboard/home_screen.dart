@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../about/about_personality_screen.dart';
 import '../permissions/permission_widgets.dart';
 import '../today/right_now_section.dart';
 import '../../app/router.dart';
@@ -106,6 +107,8 @@ class HomeScreen extends ConsumerWidget {
               onTap: () => context.push(AppRoutes.insights),
             ),
           ),
+          const SizedBox(height: AppSpacing.md),
+          const AboutPersonalityCard(),
           const SizedBox(height: AppSpacing.md),
           const QuestsCard(),
           const SizedBox(height: AppSpacing.lg),

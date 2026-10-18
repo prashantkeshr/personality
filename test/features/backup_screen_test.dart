@@ -78,7 +78,7 @@ void main() {
     await tester.enterText(find.byKey(const Key('passphrase')), 'wrong passphrase');
     await tester.tap(find.byKey(const Key('passphrase-ok')));
     await work();
-    expect(find.text('Wrong passphrase.'), findsOneWidget);
+    expect(find.text('Wrong password.'), findsOneWidget);
     await tester.pump(const Duration(seconds: 5));
     await tester.pumpAndSettle();
 

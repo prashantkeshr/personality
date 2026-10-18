@@ -654,3 +654,19 @@ Verification:
   - Home (lunch / not now, a counted set logged and the counter growing, a plank countdown that logs itself, a chosen skill in the evening, the permission card with Later and Allow);
   - onboarding (validation on Next, starter reminders created or skipped).
 - Emulator, release build, clock set to 11:05: water, posture check, the meal-reminder offer and a 30 s plank (moderate profile). Revoking the camera showed the Home card; Allow opened Android's prompt and the card went away. The Settings Permissions section shows the ticks.
+
+## Phase 23 — About Your Personality, Analyze photo, backup password (2026-10-19)
+
+- **About Your Personality** (Home card → `/home/about`): one read-only page of what the user's own checks have shown, with no score.
+  - **Header:** latest face snapshot (or initial), name and goals.
+  - **Face:** shape, secondary shape, ratios, date.
+  - **Body:** height, weight, change since the first weigh-in, BMI with the caveat that it's a rough guide, and up to four proportions.
+  - **Posture:** view, each metric in degrees with its band colour, date.
+  - **Style:** undertone, depth, best-colour swatches, preferred styles.
+  - **Progress:** total XP, level, current and best streak, posture checks, progress photos.
+  - **Room to grow:** the blueprint areas not on track (your focus first), each with a Go button.
+  - Every part has "Check now" when empty or "See more" when filled.
+- **Analyze tab:** the Exercise tracking card uses a new photo of someone exercising in front of a phone on a tripod (Vitaly Gariev, Unsplash `KvAvnp99-_0`, approved by the user, credited in assets/images/goals/CREDITS.md). The other cards are unchanged, at the user's request.
+- **Backup & restore:** "passphrase" is now "password" in all six languages ("Set a password for your data", "Wrong password.", and so on).
+
+Verification: `flutter analyze` clean; `flutter test` 421 pass, 2 skipped (new: the About page empty and filled, with the BMI value and caveat). Emulator release build: the About page with real data (172 cm, 67.8 kg, BMI 22.9, warm/medium palette) and the new Analyze card.

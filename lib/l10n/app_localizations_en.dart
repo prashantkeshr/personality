@@ -3835,7 +3835,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backupEncryptedInfo =>
-      'Everything in the app, locked with a passphrase you choose. Restore it on any phone with Personality.';
+      'Everything in the app, locked with a password you set. Restore it on any phone with Personality.';
 
   @override
   String get backupIncludePhotos => 'Include progress photos';
@@ -3894,19 +3894,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backupPrivacy =>
-      'Files go only where you send them. Without the passphrase a backup can\'t be read by anyone, including us, and a lost passphrase can\'t be recovered.';
+      'Files go only where you send them. Without the password a backup can\'t be read by anyone, including us, and a lost password can\'t be recovered.';
 
   @override
-  String get backupPassphrase => 'Passphrase';
+  String get backupPassphrase => 'Password';
 
   @override
-  String get backupPassphraseAgain => 'Repeat passphrase';
+  String get backupPassphraseAgain => 'Repeat password';
 
   @override
-  String get backupPassphraseCreate => 'Choose a passphrase';
+  String get backupPassphraseCreate => 'Set a password for your data';
 
   @override
-  String get backupPassphraseEnter => 'Enter the backup\'s passphrase';
+  String get backupPassphraseEnter => 'Enter the backup\'s password';
 
   @override
   String get backupPassphraseWarning =>
@@ -3916,10 +3916,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupPassphraseShort => 'Use at least 8 characters';
 
   @override
-  String get backupPassphraseMismatch => 'The passphrases don\'t match';
+  String get backupPassphraseMismatch => 'The passwords don\'t match';
 
   @override
-  String get backupShowPassphrase => 'Show passphrase';
+  String get backupShowPassphrase => 'Show password';
 
   @override
   String get backupContinue => 'Continue';
@@ -3961,7 +3961,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupErrorDamaged => 'The backup file is damaged or incomplete.';
 
   @override
-  String get backupErrorPassphrase => 'Wrong passphrase.';
+  String get backupErrorPassphrase => 'Wrong password.';
 
   @override
   String get backupErrorTooNew =>
@@ -5690,4 +5690,92 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nowStartTimer => 'Start timer';
+
+  @override
+  String get aboutTitle => 'About Your Personality';
+
+  @override
+  String get aboutHomeInfo =>
+      'Your face, body, posture, style and progress in one place';
+
+  @override
+  String get aboutIntro =>
+      'What your own checks have shown so far. There\'s no score: just where you are, and where you could go next.';
+
+  @override
+  String get aboutFace => 'Face';
+
+  @override
+  String get aboutFaceEmpty =>
+      'No face analysis yet. It estimates your face shape and suggests styles.';
+
+  @override
+  String get aboutAlsoClose => 'Also close to';
+
+  @override
+  String get aboutChecked => 'Last checked';
+
+  @override
+  String get aboutBody => 'Body';
+
+  @override
+  String get aboutBodyEmpty =>
+      'Add your height and weight to see your body summary.';
+
+  @override
+  String get aboutBmi => 'BMI';
+
+  @override
+  String get aboutBmiNote =>
+      'BMI is a rough guide: it says nothing about muscle, shape or health on its own.';
+
+  @override
+  String get aboutPosture => 'Posture';
+
+  @override
+  String get aboutPostureEmpty =>
+      'No posture check yet. Two minutes with the camera shows your alignment.';
+
+  @override
+  String get aboutView => 'View';
+
+  @override
+  String get aboutStyle => 'Style & colours';
+
+  @override
+  String get aboutStyleEmpty =>
+      'Find your colours to see the palette that suits you.';
+
+  @override
+  String get aboutUndertone => 'Undertone';
+
+  @override
+  String get aboutDepth => 'Skin depth';
+
+  @override
+  String get aboutProgress => 'Progress';
+
+  @override
+  String get aboutLevel => 'Level';
+
+  @override
+  String get aboutStreak => 'Current streak';
+
+  @override
+  String get aboutPostureChecks => 'Posture checks';
+
+  @override
+  String get aboutProgressPhotos => 'Progress photos';
+
+  @override
+  String get aboutGrow => 'Room to grow';
+
+  @override
+  String get aboutGrowEmpty => 'Every area is on track this week.';
+
+  @override
+  String get aboutCheckNow => 'Check now';
+
+  @override
+  String get aboutSeeMore => 'See more';
 }

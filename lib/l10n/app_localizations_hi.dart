@@ -3822,7 +3822,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get backupEncryptedInfo =>
-      'ऐप का सब कुछ, आपके चुने पासफ़्रेज़ से लॉक। Personality वाले किसी भी फ़ोन पर रीस्टोर करें।';
+      'ऐप का सब कुछ, आपके रखे पासवर्ड से लॉक। Personality वाले किसी भी फ़ोन पर रीस्टोर करें।';
 
   @override
   String get backupIncludePhotos => 'प्रगति फ़ोटो शामिल करें';
@@ -3881,32 +3881,32 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get backupPrivacy =>
-      'फ़ाइलें वहीं जाती हैं जहाँ आप भेजते हैं। पासफ़्रेज़ के बिना बैकअप कोई नहीं पढ़ सकता, हम भी नहीं, और खोया पासफ़्रेज़ वापस नहीं मिल सकता।';
+      'फ़ाइलें वहीं जाती हैं जहाँ आप भेजते हैं। पासवर्ड के बिना बैकअप कोई नहीं पढ़ सकता, हम भी नहीं, और खोया पासवर्ड वापस नहीं मिल सकता।';
 
   @override
-  String get backupPassphrase => 'पासफ़्रेज़';
+  String get backupPassphrase => 'पासवर्ड';
 
   @override
-  String get backupPassphraseAgain => 'पासफ़्रेज़ दोबारा';
+  String get backupPassphraseAgain => 'पासवर्ड दोबारा';
 
   @override
-  String get backupPassphraseCreate => 'पासफ़्रेज़ चुनें';
+  String get backupPassphraseCreate => 'अपने डेटा के लिए पासवर्ड रखें';
 
   @override
-  String get backupPassphraseEnter => 'बैकअप का पासफ़्रेज़ डालें';
+  String get backupPassphraseEnter => 'बैकअप का पासवर्ड डालें';
 
   @override
   String get backupPassphraseWarning =>
-      'रीस्टोर के लिए इसकी ज़रूरत होगी। इसे लिख लें: यह रीसेट नहीं हो सकता।';
+      'रीस्टोर करने के लिए इसकी ज़रूरत होगी। इसे लिख लें: इसे रीसेट नहीं किया जा सकता।';
 
   @override
   String get backupPassphraseShort => 'कम से कम 8 अक्षर रखें';
 
   @override
-  String get backupPassphraseMismatch => 'पासफ़्रेज़ मेल नहीं खाते';
+  String get backupPassphraseMismatch => 'पासवर्ड मेल नहीं खाते';
 
   @override
-  String get backupShowPassphrase => 'पासफ़्रेज़ दिखाएँ';
+  String get backupShowPassphrase => 'पासवर्ड दिखाएँ';
 
   @override
   String get backupContinue => 'आगे बढ़ें';
@@ -3948,7 +3948,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get backupErrorDamaged => 'बैकअप फ़ाइल खराब या अधूरी है।';
 
   @override
-  String get backupErrorPassphrase => 'गलत पासफ़्रेज़।';
+  String get backupErrorPassphrase => 'गलत पासवर्ड।';
 
   @override
   String get backupErrorTooNew =>
@@ -5676,4 +5676,92 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get nowStartTimer => 'टाइमर शुरू करें';
+
+  @override
+  String get aboutTitle => 'आपकी पर्सनैलिटी के बारे में';
+
+  @override
+  String get aboutHomeInfo =>
+      'आपका चेहरा, शरीर, मुद्रा, स्टाइल और प्रगति एक जगह';
+
+  @override
+  String get aboutIntro =>
+      'आपकी अपनी जाँचों ने अब तक जो दिखाया। कोई स्कोर नहीं: बस आप कहाँ हैं, और आगे कहाँ जा सकते हैं।';
+
+  @override
+  String get aboutFace => 'चेहरा';
+
+  @override
+  String get aboutFaceEmpty =>
+      'अभी कोई चेहरा विश्लेषण नहीं। यह आपके चेहरे का आकार आँकता है और स्टाइल सुझाता है।';
+
+  @override
+  String get aboutAlsoClose => 'इसके भी करीब';
+
+  @override
+  String get aboutChecked => 'पिछली जाँच';
+
+  @override
+  String get aboutBody => 'शरीर';
+
+  @override
+  String get aboutBodyEmpty =>
+      'शरीर का सारांश देखने के लिए अपनी ऊँचाई और वज़न जोड़ें।';
+
+  @override
+  String get aboutBmi => 'BMI';
+
+  @override
+  String get aboutBmiNote =>
+      'BMI एक मोटा अनुमान है: अकेले यह मांसपेशी, आकार या सेहत के बारे में कुछ नहीं बताता।';
+
+  @override
+  String get aboutPosture => 'मुद्रा';
+
+  @override
+  String get aboutPostureEmpty =>
+      'अभी कोई मुद्रा जाँच नहीं। कैमरे के साथ दो मिनट आपका संरेखण दिखाते हैं।';
+
+  @override
+  String get aboutView => 'दृश्य';
+
+  @override
+  String get aboutStyle => 'स्टाइल और रंग';
+
+  @override
+  String get aboutStyleEmpty =>
+      'आप पर जँचने वाले रंग देखने के लिए अपने रंग खोजें।';
+
+  @override
+  String get aboutUndertone => 'अंडरटोन';
+
+  @override
+  String get aboutDepth => 'त्वचा की गहराई';
+
+  @override
+  String get aboutProgress => 'प्रगति';
+
+  @override
+  String get aboutLevel => 'स्तर';
+
+  @override
+  String get aboutStreak => 'मौजूदा सिलसिला';
+
+  @override
+  String get aboutPostureChecks => 'मुद्रा जाँचें';
+
+  @override
+  String get aboutProgressPhotos => 'प्रगति फ़ोटो';
+
+  @override
+  String get aboutGrow => 'बढ़ने की गुंजाइश';
+
+  @override
+  String get aboutGrowEmpty => 'इस हफ़्ते हर क्षेत्र सही रास्ते पर है।';
+
+  @override
+  String get aboutCheckNow => 'अभी जाँचें';
+
+  @override
+  String get aboutSeeMore => 'और देखें';
 }

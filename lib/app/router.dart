@@ -44,6 +44,7 @@ import '../features/health/weight/weight_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../features/routines/plan_screen.dart';
+import '../features/about/about_personality_screen.dart';
 import '../features/reminders/goal_reminders_screen.dart';
 import '../features/routines/reminders_screen.dart';
 import '../features/routines/routines_screen.dart';
@@ -59,6 +60,7 @@ abstract final class AppRoutes {
   static const onboarding = '/onboarding';
   static const home = '/home';
   static const journey = '/home/journey';
+  static const aboutYou = '/home/about';
   static const goalFinder = '/home/goals';
   static const insights = '/home/insights';
   static const evolution = '/home/evolution';
@@ -154,6 +156,9 @@ final routerProvider = Provider<GoRouter>((ref) {
               path: AppRoutes.home,
               builder: (_, _) => const HomeScreen(),
               routes: [
+                GoRoute(
+                    path: 'about',
+                    builder: (_, _) => const AboutPersonalityScreen()),
                 GoRoute(
                     path: 'journey',
                     builder: (_, _) => const JourneyScreen()),

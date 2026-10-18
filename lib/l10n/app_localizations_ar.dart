@@ -3791,7 +3791,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupEncryptedInfo =>
-      'كل ما في التطبيق، مقفل بعبارة مرور تختارها. استعدها على أي هاتف فيه Personality.';
+      'كل ما في التطبيق، مقفل بكلمة مرور تختارها. استعدها على أي هاتف فيه Personality.';
 
   @override
   String get backupIncludePhotos => 'تضمين صور التقدم';
@@ -3850,19 +3850,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupPrivacy =>
-      'تذهب الملفات فقط إلى حيث ترسلها. دون عبارة المرور لا يستطيع أحد قراءة النسخة، ولا نحن، ولا يمكن استرجاع عبارة مرور مفقودة.';
+      'تذهب الملفات فقط إلى حيث ترسلها. دون كلمة المرور لا يستطيع أحد قراءة النسخة، ولا نحن، ولا يمكن استرجاع كلمة مرور مفقودة.';
 
   @override
-  String get backupPassphrase => 'عبارة المرور';
+  String get backupPassphrase => 'كلمة المرور';
 
   @override
-  String get backupPassphraseAgain => 'أعد كتابة عبارة المرور';
+  String get backupPassphraseAgain => 'أعد كتابة كلمة المرور';
 
   @override
-  String get backupPassphraseCreate => 'اختر عبارة مرور';
+  String get backupPassphraseCreate => 'اضبط كلمة مرور لبياناتك';
 
   @override
-  String get backupPassphraseEnter => 'أدخل عبارة مرور النسخة';
+  String get backupPassphraseEnter => 'أدخل كلمة مرور النسخة';
 
   @override
   String get backupPassphraseWarning =>
@@ -3872,10 +3872,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupPassphraseShort => 'استخدم 8 أحرف على الأقل';
 
   @override
-  String get backupPassphraseMismatch => 'عبارتا المرور غير متطابقتين';
+  String get backupPassphraseMismatch => 'كلمتا المرور غير متطابقتين';
 
   @override
-  String get backupShowPassphrase => 'إظهار عبارة المرور';
+  String get backupShowPassphrase => 'إظهار كلمة المرور';
 
   @override
   String get backupContinue => 'متابعة';
@@ -3917,7 +3917,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupErrorDamaged => 'ملف النسخة الاحتياطية تالف أو غير مكتمل.';
 
   @override
-  String get backupErrorPassphrase => 'عبارة المرور خاطئة.';
+  String get backupErrorPassphrase => 'كلمة المرور خاطئة.';
 
   @override
   String get backupErrorTooNew =>
@@ -5615,4 +5615,89 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nowStartTimer => 'بدء المؤقت';
+
+  @override
+  String get aboutTitle => 'عن شخصيتك';
+
+  @override
+  String get aboutHomeInfo => 'وجهك وجسمك وقوامك وأناقتك وتقدّمك في مكان واحد';
+
+  @override
+  String get aboutIntro =>
+      'ما أظهرته فحوصك حتى الآن. لا توجد درجة: فقط أين أنت وإلى أين يمكنك المضي.';
+
+  @override
+  String get aboutFace => 'الوجه';
+
+  @override
+  String get aboutFaceEmpty =>
+      'لا يوجد تحليل للوجه بعد. يقدّر شكل وجهك ويقترح أساليب.';
+
+  @override
+  String get aboutAlsoClose => 'قريب أيضًا من';
+
+  @override
+  String get aboutChecked => 'آخر فحص';
+
+  @override
+  String get aboutBody => 'الجسم';
+
+  @override
+  String get aboutBodyEmpty => 'أضف طولك ووزنك لترى ملخص جسمك.';
+
+  @override
+  String get aboutBmi => 'مؤشر كتلة الجسم';
+
+  @override
+  String get aboutBmiNote =>
+      'مؤشر كتلة الجسم دليل تقريبي: وحده لا يقول شيئًا عن العضلات أو الشكل أو الصحة.';
+
+  @override
+  String get aboutPosture => 'القوام';
+
+  @override
+  String get aboutPostureEmpty =>
+      'لا يوجد فحص للقوام بعد. دقيقتان مع الكاميرا تُظهران استقامتك.';
+
+  @override
+  String get aboutView => 'المنظر';
+
+  @override
+  String get aboutStyle => 'الأناقة والألوان';
+
+  @override
+  String get aboutStyleEmpty => 'اكتشف ألوانك لترى لوحة الألوان التي تناسبك.';
+
+  @override
+  String get aboutUndertone => 'الدرجة التحتية';
+
+  @override
+  String get aboutDepth => 'درجة البشرة';
+
+  @override
+  String get aboutProgress => 'التقدم';
+
+  @override
+  String get aboutLevel => 'المستوى';
+
+  @override
+  String get aboutStreak => 'السلسلة الحالية';
+
+  @override
+  String get aboutPostureChecks => 'فحوص القوام';
+
+  @override
+  String get aboutProgressPhotos => 'صور التقدم';
+
+  @override
+  String get aboutGrow => 'مساحة للنمو';
+
+  @override
+  String get aboutGrowEmpty => 'كل المجالات على المسار هذا الأسبوع.';
+
+  @override
+  String get aboutCheckNow => 'افحص الآن';
+
+  @override
+  String get aboutSeeMore => 'عرض المزيد';
 }

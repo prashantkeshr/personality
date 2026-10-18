@@ -3844,7 +3844,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get backupEncryptedInfo =>
-      'Semua isi aplikasi, dikunci dengan frasa sandi pilihanmu. Pulihkan di ponsel mana pun yang memakai Personality.';
+      'Semua isi aplikasi, dikunci dengan kata sandi yang kamu tetapkan. Pulihkan di ponsel mana pun yang memakai Personality.';
 
   @override
   String get backupIncludePhotos => 'Sertakan foto kemajuan';
@@ -3903,19 +3903,19 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get backupPrivacy =>
-      'File hanya pergi ke tempat yang kamu kirim. Tanpa frasa sandi, cadangan tidak bisa dibaca siapa pun, termasuk kami, dan frasa sandi yang hilang tidak bisa dipulihkan.';
+      'File hanya pergi ke tempat yang kamu kirim. Tanpa kata sandi, cadangan tidak bisa dibaca siapa pun, termasuk kami, dan kata sandi yang hilang tidak bisa dipulihkan.';
 
   @override
-  String get backupPassphrase => 'Frasa sandi';
+  String get backupPassphrase => 'Kata sandi';
 
   @override
-  String get backupPassphraseAgain => 'Ulangi frasa sandi';
+  String get backupPassphraseAgain => 'Ulangi kata sandi';
 
   @override
-  String get backupPassphraseCreate => 'Pilih frasa sandi';
+  String get backupPassphraseCreate => 'Tetapkan kata sandi untuk datamu';
 
   @override
-  String get backupPassphraseEnter => 'Masukkan frasa sandi cadangan';
+  String get backupPassphraseEnter => 'Masukkan kata sandi cadangan';
 
   @override
   String get backupPassphraseWarning =>
@@ -3925,10 +3925,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get backupPassphraseShort => 'Gunakan minimal 8 karakter';
 
   @override
-  String get backupPassphraseMismatch => 'Frasa sandi tidak cocok';
+  String get backupPassphraseMismatch => 'Kata sandi tidak cocok';
 
   @override
-  String get backupShowPassphrase => 'Tampilkan frasa sandi';
+  String get backupShowPassphrase => 'Tampilkan kata sandi';
 
   @override
   String get backupContinue => 'Lanjut';
@@ -3970,7 +3970,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get backupErrorDamaged => 'File cadangan rusak atau tidak lengkap.';
 
   @override
-  String get backupErrorPassphrase => 'Frasa sandi salah.';
+  String get backupErrorPassphrase => 'Kata sandi salah.';
 
   @override
   String get backupErrorTooNew =>
@@ -5719,4 +5719,92 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get nowStartTimer => 'Mulai pengatur waktu';
+
+  @override
+  String get aboutTitle => 'Tentang kepribadianmu';
+
+  @override
+  String get aboutHomeInfo =>
+      'Wajah, tubuh, postur, gaya, dan kemajuanmu di satu tempat';
+
+  @override
+  String get aboutIntro =>
+      'Apa yang ditunjukkan cek-cekmu sejauh ini. Tidak ada skor: hanya posisimu sekarang dan langkah berikutnya.';
+
+  @override
+  String get aboutFace => 'Wajah';
+
+  @override
+  String get aboutFaceEmpty =>
+      'Belum ada analisis wajah. Ini memperkirakan bentuk wajahmu dan menyarankan gaya.';
+
+  @override
+  String get aboutAlsoClose => 'Juga mendekati';
+
+  @override
+  String get aboutChecked => 'Terakhir dicek';
+
+  @override
+  String get aboutBody => 'Tubuh';
+
+  @override
+  String get aboutBodyEmpty =>
+      'Tambahkan tinggi dan berat untuk melihat ringkasan tubuhmu.';
+
+  @override
+  String get aboutBmi => 'BMI';
+
+  @override
+  String get aboutBmiNote =>
+      'BMI hanyalah panduan kasar: sendirian tidak menggambarkan otot, bentuk, atau kesehatan.';
+
+  @override
+  String get aboutPosture => 'Postur';
+
+  @override
+  String get aboutPostureEmpty =>
+      'Belum ada cek postur. Dua menit dengan kamera menunjukkan kelurusanmu.';
+
+  @override
+  String get aboutView => 'Tampilan';
+
+  @override
+  String get aboutStyle => 'Gaya & warna';
+
+  @override
+  String get aboutStyleEmpty =>
+      'Temukan warnamu untuk melihat palet yang cocok.';
+
+  @override
+  String get aboutUndertone => 'Undertone';
+
+  @override
+  String get aboutDepth => 'Kedalaman kulit';
+
+  @override
+  String get aboutProgress => 'Kemajuan';
+
+  @override
+  String get aboutLevel => 'Level';
+
+  @override
+  String get aboutStreak => 'Runtutan saat ini';
+
+  @override
+  String get aboutPostureChecks => 'Cek postur';
+
+  @override
+  String get aboutProgressPhotos => 'Foto kemajuan';
+
+  @override
+  String get aboutGrow => 'Ruang untuk berkembang';
+
+  @override
+  String get aboutGrowEmpty => 'Semua area sesuai jalur minggu ini.';
+
+  @override
+  String get aboutCheckNow => 'Cek sekarang';
+
+  @override
+  String get aboutSeeMore => 'Lihat lebih';
 }

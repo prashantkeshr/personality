@@ -3869,7 +3869,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupEncryptedInfo =>
-      'Todo lo de la app, protegido con una frase de contraseña que tú eliges. Restáurala en cualquier teléfono con Personality.';
+      'Todo lo de la app, protegido con una contraseña que tú eliges. Restáurala en cualquier teléfono con Personality.';
 
   @override
   String get backupIncludePhotos => 'Incluir fotos de progreso';
@@ -3928,20 +3928,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupPrivacy =>
-      'Los archivos solo van adonde tú los envías. Sin la frase de contraseña nadie puede leer una copia, ni siquiera nosotros, y una frase perdida no se puede recuperar.';
+      'Los archivos solo van adonde tú los envías. Sin la contraseña nadie puede leer una copia, ni siquiera nosotros, y una contraseña perdida no se puede recuperar.';
 
   @override
-  String get backupPassphrase => 'Frase de contraseña';
+  String get backupPassphrase => 'Contraseña';
 
   @override
-  String get backupPassphraseAgain => 'Repite la frase de contraseña';
+  String get backupPassphraseAgain => 'Repite la contraseña';
 
   @override
-  String get backupPassphraseCreate => 'Elige una frase de contraseña';
+  String get backupPassphraseCreate => 'Pon una contraseña a tus datos';
 
   @override
-  String get backupPassphraseEnter =>
-      'Introduce la frase de contraseña de la copia';
+  String get backupPassphraseEnter => 'Introduce la contraseña de la copia';
 
   @override
   String get backupPassphraseWarning =>
@@ -3951,11 +3950,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backupPassphraseShort => 'Usa al menos 8 caracteres';
 
   @override
-  String get backupPassphraseMismatch =>
-      'Las frases de contraseña no coinciden';
+  String get backupPassphraseMismatch => 'Las contraseñas no coinciden';
 
   @override
-  String get backupShowPassphrase => 'Mostrar frase de contraseña';
+  String get backupShowPassphrase => 'Mostrar contraseña';
 
   @override
   String get backupContinue => 'Continuar';
@@ -3999,7 +3997,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'El archivo de copia está dañado o incompleto.';
 
   @override
-  String get backupErrorPassphrase => 'Frase de contraseña incorrecta.';
+  String get backupErrorPassphrase => 'Contraseña incorrecta.';
 
   @override
   String get backupErrorTooNew =>
@@ -5752,4 +5750,92 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get nowStartTimer => 'Iniciar temporizador';
+
+  @override
+  String get aboutTitle => 'Sobre tu personalidad';
+
+  @override
+  String get aboutHomeInfo =>
+      'Tu cara, cuerpo, postura, estilo y progreso en un solo lugar';
+
+  @override
+  String get aboutIntro =>
+      'Lo que han mostrado tus propias revisiones. No hay puntuación: solo dónde estás y adónde podrías ir.';
+
+  @override
+  String get aboutFace => 'Cara';
+
+  @override
+  String get aboutFaceEmpty =>
+      'Aún no hay análisis facial. Estima la forma de tu cara y sugiere estilos.';
+
+  @override
+  String get aboutAlsoClose => 'También parecida a';
+
+  @override
+  String get aboutChecked => 'Última revisión';
+
+  @override
+  String get aboutBody => 'Cuerpo';
+
+  @override
+  String get aboutBodyEmpty =>
+      'Añade tu altura y peso para ver el resumen de tu cuerpo.';
+
+  @override
+  String get aboutBmi => 'IMC';
+
+  @override
+  String get aboutBmiNote =>
+      'El IMC es una guía aproximada: por sí solo no dice nada del músculo, la forma ni la salud.';
+
+  @override
+  String get aboutPosture => 'Postura';
+
+  @override
+  String get aboutPostureEmpty =>
+      'Aún no hay revisión de postura. Dos minutos con la cámara muestran tu alineación.';
+
+  @override
+  String get aboutView => 'Vista';
+
+  @override
+  String get aboutStyle => 'Estilo y colores';
+
+  @override
+  String get aboutStyleEmpty =>
+      'Descubre tus colores para ver la paleta que te favorece.';
+
+  @override
+  String get aboutUndertone => 'Subtono';
+
+  @override
+  String get aboutDepth => 'Tono de piel';
+
+  @override
+  String get aboutProgress => 'Progreso';
+
+  @override
+  String get aboutLevel => 'Nivel';
+
+  @override
+  String get aboutStreak => 'Racha actual';
+
+  @override
+  String get aboutPostureChecks => 'Revisiones de postura';
+
+  @override
+  String get aboutProgressPhotos => 'Fotos de progreso';
+
+  @override
+  String get aboutGrow => 'Margen para crecer';
+
+  @override
+  String get aboutGrowEmpty => 'Esta semana todas las áreas van bien.';
+
+  @override
+  String get aboutCheckNow => 'Revisar ahora';
+
+  @override
+  String get aboutSeeMore => 'Ver más';
 }
