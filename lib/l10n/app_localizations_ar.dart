@@ -4100,7 +4100,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contentPrivacy =>
-      'تأتي الحزم فقط من github.com/prashantkeshr/personality-content وتُفحص قبل الاستخدام. التنزيل لا يرسل أي شيء عنك، وبياناتك الصحية لا تستخدم الإنترنت أبدًا.';
+      'تأتي الحزم فقط من مكتبة المحتوى الرسمية لتطبيق Personality وتُفحص قبل الاستخدام. التنزيل لا يرسل أي شيء عنك، وبياناتك الصحية لا تستخدم الإنترنت أبدًا.';
 
   @override
   String get navGrowth => 'نموّي';
@@ -5853,4 +5853,25 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get sampleDayNote =>
       'مضبوط على خطتك أو على احتياجك المقدّر من الطول والوزن. دليل وليس وصفة.';
+
+  @override
+  String get skillsPopular => 'الأكثر شعبية أولًا';
+
+  @override
+  String get contentWifiOnlyInfo =>
+      'الحزم الصغيرة (أقل من 2 ميغابايت) تُنزَّل حتى عبر بيانات الجوال.';
+
+  @override
+  String get contentMobileTitle => 'استخدام بيانات الجوال؟';
+
+  @override
+  String contentMobileBody(String pack, String size) {
+    return 'أنت غير متصل بشبكة Wi-Fi. هل تريد تنزيل $pack ($size) الآن عبر بيانات الجوال؟';
+  }
+
+  @override
+  String get contentMobileUse => 'التنزيل الآن';
+
+  @override
+  String get contentMobileWait => 'انتظار Wi-Fi';
 }

@@ -7267,7 +7267,7 @@ abstract class AppLocalizations {
   /// No description provided for @contentPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.'**
+  /// **'Packs come only from Personality\'s official content library and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.'**
   String get contentPrivacy;
 
   /// No description provided for @navGrowth.
@@ -10341,6 +10341,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription.'**
   String get sampleDayNote;
+
+  /// No description provided for @skillsPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Most popular first'**
+  String get skillsPopular;
+
+  /// No description provided for @contentWifiOnlyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Small packs (under 2 MB) still download on mobile data.'**
+  String get contentWifiOnlyInfo;
+
+  /// No description provided for @contentMobileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use mobile data?'**
+  String get contentMobileTitle;
+
+  /// No description provided for @contentMobileBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re not on Wi-Fi. Download {pack} ({size}) using mobile data now?'**
+  String contentMobileBody(String pack, String size);
+
+  /// No description provided for @contentMobileUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Download now'**
+  String get contentMobileUse;
+
+  /// No description provided for @contentMobileWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait for Wi-Fi'**
+  String get contentMobileWait;
 }
 
 class _AppLocalizationsDelegate

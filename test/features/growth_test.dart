@@ -39,11 +39,13 @@ void main() {
     await tester.pageBack();
     await tester.pumpAndSettle();
 
-    // Skills: Indian and world martial arts, each with its own card.
+    // Skills: one list, most popular first, each with its own card.
     await tester.scrollUntilVisible(find.byKey(const Key('see-all-skills')).hitTestable(), 200,
         scrollable: find.byType(Scrollable).first);
     await app.tapAndSettle(find.byKey(const Key('see-all-skills')));
-    expect(find.text('Indian martial arts'), findsOneWidget);
+    expect(find.text('Most popular first'), findsOneWidget);
+    await tester.scrollUntilVisible(find.byKey(const Key('discipline-kalaripayattu')).hitTestable(), 200,
+        scrollable: find.byType(Scrollable).first);
     expect(find.text('Kalaripayattu'), findsOneWidget);
     await app.tapAndSettle(find.byKey(const Key('discipline-kalaripayattu')));
     expect(find.text('Kerala'), findsOneWidget);
@@ -55,6 +57,8 @@ void main() {
     await tester.pumpAndSettle();
 
     // One search covers skills, tips and the exercise library.
+    await tester.scrollUntilVisible(find.byKey(const Key('growth-search')).hitTestable(), -200,
+        scrollable: find.byType(Scrollable).first);
     await app.tapAndSettle(find.byKey(const Key('growth-search')));
     await tester.enterText(find.byKey(const Key('search-field')), 'kalari');
     await tester.pumpAndSettle();

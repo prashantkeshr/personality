@@ -1193,7 +1193,7 @@
   "contentDamaged": "لم يجتز التنزيل الفحص، لذا لم يُستخدم. حاول مرة أخرى.",
   "contentFailed": "تعذّر التنزيل الآن. حاول مرة أخرى.",
   "contentRetry": "إعادة المحاولة",
-  "contentPrivacy": "تأتي الحزم فقط من github.com/prashantkeshr/personality-content وتُفحص قبل الاستخدام. التنزيل لا يرسل أي شيء عنك، وبياناتك الصحية لا تستخدم الإنترنت أبدًا.",
+  "contentPrivacy": "تأتي الحزم فقط من مكتبة المحتوى الرسمية لتطبيق Personality وتُفحص قبل الاستخدام. التنزيل لا يرسل أي شيء عنك، وبياناتك الصحية لا تستخدم الإنترنت أبدًا.",
   "navGrowth": "نموّي",
   "growthSearchHint": "ابحث عن تمارين وتقنيات ونصائح",
   "growthProgress": "تقدّمك",
@@ -1705,5 +1705,11 @@
   "sampleDayTitle": "يوم نموذجي",
   "sampleDayAnother": "آخر",
   "sampleDayTotals": "نحو {kcal} سعرة و{protein} غ بروتين إجمالًا",
-  "sampleDayNote": "مضبوط على خطتك أو على احتياجك المقدّر من الطول والوزن. دليل وليس وصفة."
+  "sampleDayNote": "مضبوط على خطتك أو على احتياجك المقدّر من الطول والوزن. دليل وليس وصفة.",
+  "skillsPopular": "الأكثر شعبية أولًا",
+  "contentWifiOnlyInfo": "الحزم الصغيرة (أقل من 2 ميغابايت) تُنزَّل حتى عبر بيانات الجوال.",
+  "contentMobileTitle": "استخدام بيانات الجوال؟",
+  "contentMobileBody": "أنت غير متصل بشبكة Wi-Fi. هل تريد تنزيل {pack} ({size}) الآن عبر بيانات الجوال؟",
+  "contentMobileUse": "التنزيل الآن",
+  "contentMobileWait": "انتظار Wi-Fi"
 }

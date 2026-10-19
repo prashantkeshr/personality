@@ -2247,7 +2247,7 @@
   "contentDamaged": "The download didn't check out, so it wasn't used. Please try again.",
   "contentFailed": "Couldn't download right now. Please try again.",
   "contentRetry": "Retry",
-  "contentPrivacy": "Packs come only from github.com/prashantkeshr/personality-content and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.",
+  "contentPrivacy": "Packs come only from Personality's official content library and are checked before use. Downloading never sends anything about you, and your health data never uses the internet.",
   "navGrowth": "My Growth",
   "growthSearchHint": "Search exercises, techniques and tips",
   "growthProgress": "Your progress",
@@ -3052,5 +3052,21 @@
       }
     }
   },
-  "sampleDayNote": "Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription."
+  "sampleDayNote": "Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription.",
+  "skillsPopular": "Most popular first",
+  "contentWifiOnlyInfo": "Small packs (under 2 MB) still download on mobile data.",
+  "contentMobileTitle": "Use mobile data?",
+  "contentMobileBody": "You're not on Wi-Fi. Download {pack} ({size}) using mobile data now?",
+  "@contentMobileBody": {
+    "placeholders": {
+      "pack": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "contentMobileUse": "Download now",
+  "contentMobileWait": "Wait for Wi-Fi"
 }

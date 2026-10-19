@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
@@ -108,8 +109,12 @@ abstract interface class PackFetcher {
 }
 
 class HttpPackFetcher implements PackFetcher {
-  const HttpPackFetcher({this.maxBytes = 64 << 20});
+  const HttpPackFetcher({this.maxBytes = 64 << 20, this.stall = const Duration(seconds: 30)});
   final int maxBytes;
+
+  /// Gives up when a lookup, connection or the data itself stalls this long,
+  /// so a network without real internet shows an error instead of spinning.
+  final Duration stall;
 
   @override
   Future<Uint8List> get(Uri uri, {void Function(int, int?)? onProgress}) async {
@@ -122,8 +127,8 @@ class HttpPackFetcher implements PackFetcher {
         if (u.scheme != 'https' || !ContentSource.hosts.contains(u.host)) {
           throw const PackError(PackErrorKind.blockedHost);
         }
-        final req = await client.getUrl(u)..followRedirects = false;
-        final res = await req.close();
+        final req = await client.getUrl(u).timeout(stall)..followRedirects = false;
+        final res = await req.close().timeout(stall);
         if (res.isRedirect) {
           final loc = res.headers.value(HttpHeaders.locationHeader);
           await res.drain<void>();
@@ -137,7 +142,7 @@ class HttpPackFetcher implements PackFetcher {
         }
         final total = res.contentLength > 0 ? res.contentLength : null;
         final b = BytesBuilder(copy: false);
-        await for (final chunk in res) {
+        await for (final chunk in res.timeout(stall)) {
           b.add(chunk);
           if (b.length > maxBytes) throw const PackError(PackErrorKind.download);
           onProgress?.call(b.length, total);
@@ -148,6 +153,8 @@ class HttpPackFetcher implements PackFetcher {
     } on PackError {
       rethrow;
     } on SocketException {
+      throw const PackError(PackErrorKind.offline);
+    } on TimeoutException {
       throw const PackError(PackErrorKind.offline);
     } on HandshakeException {
       throw const PackError(PackErrorKind.download);

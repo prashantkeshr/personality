@@ -103,20 +103,31 @@ void main() {
     final info = {
       'id': 'martial-arts', 'version': 1, 'kind': 'exercises',
       'title': {'en': 'Martial arts drills'}, 'summary': {'en': 'Solo drills.'},
-      'file': 'packs/martial-arts/martial-arts-1.zip', 'size': bytes.length, 'sha256': digest,
+      // Listed as over 2 MB, so mobile data needs a yes.
+      'file': 'packs/martial-arts/martial-arts-1.zip', 'size': 3 << 20, 'sha256': digest,
       'license': 'MIT', 'credit': 'Personality',
     };
+    final small = utf8.encode(jsonEncode({'id': 'cardio-hiit', 'exercises': []}));
+    final smallZip =
+        Uint8List.fromList(ZipEncoder().encode(Archive()..addFile(ArchiveFile('pack.json', small.length, small))));
+    final smallInfo = {
+      ...info,
+      'id': 'cardio-hiit', 'title': {'en': 'Cardio & HIIT'},
+      'file': 'packs/cardio-hiit/cardio-hiit-1.zip', 'size': smallZip.length,
+      'sha256': (await Sha256().hash(smallZip)).bytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join(),
+    };
     final fetcher = FakeFetcher({
-      ContentSource.manifest.toString(): Uint8List.fromList(utf8.encode(jsonEncode({'schema': 1, 'packs': [info]}))),
+      ContentSource.manifest.toString():
+          Uint8List.fromList(utf8.encode(jsonEncode({'schema': 1, 'packs': [info, smallInfo]}))),
       ContentSource.file(info['file'] as String).toString(): bytes,
+      ContentSource.file(smallInfo['file'] as String).toString(): smallZip,
     });
-    var unmetered = false;
 
     final app = AppHarness(tester);
     await app.start(onboarded, overrides: [
       packsRootProvider.overrideWith((ref) async => root.path),
       packFetcherProvider.overrideWithValue(fetcher),
-      networkStateProvider.overrideWithValue(() async => NetworkState(online: true, unmetered: unmetered)),
+      networkStateProvider.overrideWithValue(() async => const NetworkState(online: true, unmetered: false)),
     ]);
     Future<void> settleIo() async {
       for (var i = 0; i < 10; i++) {
@@ -132,16 +143,26 @@ void main() {
     await settleIo();
     expect(find.text('Martial arts drills'), findsOneWidget);
 
-    // Wi-Fi only (the default) blocks mobile data.
-    await tester.tap(find.byKey(const Key('pack-download-martial-arts')));
-    await settleIo();
-    expect(find.textContaining('Connect to Wi-Fi'), findsOneWidget);
-    unmetered = true;
-    await tester.pump(const Duration(seconds: 5));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const Key('pack-download-martial-arts')));
+    // On mobile data with Wi-Fi only (the default), small packs still download…
+    await tester.ensureVisible(find.byKey(const Key('pack-download-cardio-hiit')));
+    await tester.tap(find.byKey(const Key('pack-download-cardio-hiit')));
     await settleIo();
     expect(find.text('On this phone'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 5));
+    await tester.pumpAndSettle();
+
+    // …and bigger ones ask first.
+    await tester.ensureVisible(find.byKey(const Key('pack-download-martial-arts')));
+    await tester.tap(find.byKey(const Key('pack-download-martial-arts')));
+    await settleIo();
+    expect(find.text('Use mobile data?'), findsOneWidget);
+    await app.tapAndSettle(find.text('Wait for Wi-Fi'));
+    expect(find.text('On this phone'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('pack-download-martial-arts')));
+    await settleIo();
+    await app.tapAndSettle(find.byKey(const Key('content-use-data')));
+    await settleIo();
+    expect(find.text('On this phone'), findsNWidgets(2));
 
     // The library now includes the pack, with its own category filter.
     await tester.pageBack();

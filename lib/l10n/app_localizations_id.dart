@@ -4158,7 +4158,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get contentPrivacy =>
-      'Paket hanya berasal dari github.com/prashantkeshr/personality-content dan diperiksa sebelum dipakai. Mengunduh tidak pernah mengirim apa pun tentangmu, dan data kesehatanmu tidak pernah memakai internet.';
+      'Paket hanya berasal dari pustaka konten resmi Personality dan diperiksa sebelum dipakai. Mengunduh tidak pernah mengirim apa pun tentangmu, dan data kesehatanmu tidak pernah memakai internet.';
 
   @override
   String get navGrowth => 'Pertumbuhanku';
@@ -5960,4 +5960,25 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get sampleDayNote =>
       'Disesuaikan dengan rencanamu, atau kebutuhan perkiraan dari tinggi dan berat. Panduan, bukan resep.';
+
+  @override
+  String get skillsPopular => 'Paling populer lebih dulu';
+
+  @override
+  String get contentWifiOnlyInfo =>
+      'Paket kecil (di bawah 2 MB) tetap diunduh lewat data seluler.';
+
+  @override
+  String get contentMobileTitle => 'Pakai data seluler?';
+
+  @override
+  String contentMobileBody(String pack, String size) {
+    return 'Kamu tidak sedang memakai Wi-Fi. Unduh $pack ($size) sekarang dengan data seluler?';
+  }
+
+  @override
+  String get contentMobileUse => 'Unduh sekarang';
+
+  @override
+  String get contentMobileWait => 'Tunggu Wi-Fi';
 }

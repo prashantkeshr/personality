@@ -1193,7 +1193,7 @@
   "contentDamaged": "La descarga no superó la verificación, así que no se usó. Inténtalo de nuevo.",
   "contentFailed": "No se pudo descargar ahora. Inténtalo de nuevo.",
   "contentRetry": "Reintentar",
-  "contentPrivacy": "Los paquetes solo vienen de github.com/prashantkeshr/personality-content y se verifican antes de usarlos. Descargar nunca envía nada sobre ti, y tus datos de salud nunca usan internet.",
+  "contentPrivacy": "Los paquetes solo vienen de la biblioteca oficial de contenido de Personality y se verifican antes de usarlos. Descargar nunca envía nada sobre ti, y tus datos de salud nunca usan internet.",
   "navGrowth": "Mi crecimiento",
   "growthSearchHint": "Busca ejercicios, técnicas y consejos",
   "growthProgress": "Tu progreso",
@@ -1705,5 +1705,11 @@
   "sampleDayTitle": "Un día de ejemplo",
   "sampleDayAnother": "Otro",
   "sampleDayTotals": "Unas {kcal} kcal y {protein} g de proteína en total",
-  "sampleDayNote": "Ajustado a tu plan o a tus necesidades estimadas por altura y peso. Es una guía, no una prescripción."
+  "sampleDayNote": "Ajustado a tu plan o a tus necesidades estimadas por altura y peso. Es una guía, no una prescripción.",
+  "skillsPopular": "Los más populares primero",
+  "contentWifiOnlyInfo": "Los paquetes pequeños (menos de 2 MB) se descargan igual con datos móviles.",
+  "contentMobileTitle": "¿Usar datos móviles?",
+  "contentMobileBody": "No estás conectado a Wi-Fi. ¿Descargar {pack} ({size}) ahora con datos móviles?",
+  "contentMobileUse": "Descargar ahora",
+  "contentMobileWait": "Esperar Wi-Fi"
 }

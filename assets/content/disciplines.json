@@ -1,5 +1,271 @@
 [
  {
+  "id": "yoga",
+  "family": "mindbody",
+  "hue": 150,
+  "motion": "tree_pose",
+  "pack": "yoga-stretch",
+  "name": {
+   "en": "Yoga",
+   "hi": "योग"
+  },
+  "region": {
+   "en": "India",
+   "hi": "भारत"
+  },
+  "about": {
+   "en": "Poses, flows and breathing from India that build strength, balance and calm.",
+   "hi": "भारत की मुद्राएँ, प्रवाह और श्वास जो ताकत, संतुलन और शांति बढ़ाते हैं।"
+  },
+  "trains": {
+   "en": "Flexibility, balance, core strength, breathing",
+   "hi": "लचीलापन, संतुलन, कोर की ताकत, श्वास"
+  },
+  "safety": {
+   "en": "Practise on a non-slip mat, never force a pose, and skip anything that hurts. If you are pregnant or have a condition, ask a teacher or doctor first.",
+   "hi": "फिसलन-रहित मैट पर अभ्यास करें, मुद्रा में ज़ोर न लगाएँ और दर्द वाली चीज़ छोड़ दें। गर्भावस्था या कोई बीमारी हो तो पहले शिक्षक या डॉक्टर से पूछें।"
+  },
+  "tips": [
+   {
+    "en": "Breathe through the nose and let the breath set the pace.",
+    "hi": "नाक से साँस लें और साँस को गति तय करने दें।"
+   },
+   {
+    "en": "Little and often beats long and rare: 10 minutes a day adds up.",
+    "hi": "थोड़ा-थोड़ा रोज़ बेहतर है: रोज़ 10 मिनट जुड़ते जाते हैं।"
+   },
+   {
+    "en": "Soft knees are fine in folds: the spine matters more than the legs.",
+    "hi": "झुकते समय घुटने हल्के मुड़े रह सकते हैं: रीढ़ ज़्यादा ज़रूरी है।"
+   },
+   {
+    "en": "In balance poses, fix your gaze on one still point.",
+    "hi": "संतुलन की मुद्राओं में नज़र एक स्थिर बिंदु पर रखें।"
+   },
+   {
+    "en": "Practise on an empty or light stomach.",
+    "hi": "खाली या हल्के पेट अभ्यास करें।"
+   },
+   {
+    "en": "End with a minute of calm breathing.",
+    "hi": "एक मिनट की शांत साँस से समाप्त करें।"
+   }
+  ]
+ },
+ {
+  "id": "self_defence",
+  "family": "world",
+  "hue": 260,
+  "motion": "palm_strike",
+  "pack": "martial-arts",
+  "name": {
+   "en": "Self-defence basics",
+   "hi": "आत्मरक्षा की बुनियाद"
+  },
+  "region": {
+   "en": "Everyday safety",
+   "hi": "रोज़ की सुरक्षा"
+  },
+  "about": {
+   "en": "Awareness, a safe stance and simple, high-percentage strikes to create space and get away. Getting away safely is always the goal.",
+   "hi": "जागरूकता, सुरक्षित मुद्रा और जगह बनाकर बच निकलने के लिए सरल, असरदार प्रहार। सुरक्षित बच निकलना ही हमेशा लक्ष्य है।"
+  },
+  "trains": {
+   "en": "Confidence, awareness and quick reactions.",
+   "hi": "आत्मविश्वास, जागरूकता और तेज़ प्रतिक्रिया।"
+  },
+  "safety": {
+   "en": "Avoiding danger and getting away beat any technique. For real scenarios, take an in-person class.",
+   "hi": "ख़तरे से बचना और निकल जाना किसी भी तकनीक से बेहतर है। असली स्थितियों के लिए किसी कक्षा में सीखें।"
+  },
+  "tips": [
+   {
+    "en": "Notice exits and people around you; awareness prevents most trouble.",
+    "hi": "निकास और आसपास के लोगों पर ध्यान दें; जागरूकता ज़्यादातर मुसीबत टालती है।"
+   },
+   {
+    "en": "Keep open hands up in front of you: it looks calm and protects your face.",
+    "hi": "खुले हाथ सामने ऊपर रखें: यह शांत दिखता है और चेहरा बचाता है।"
+   },
+   {
+    "en": "Use a loud voice; shouting 'Stop!' draws attention and help.",
+    "hi": "ज़ोर से बोलें; 'रुको!' चिल्लाने से ध्यान और मदद मिलती है।"
+   },
+   {
+    "en": "Strike only to create space, then leave.",
+    "hi": "प्रहार सिर्फ़ जगह बनाने के लिए करें, फिर निकल जाएँ।"
+   }
+  ]
+ },
+ {
+  "id": "boxing",
+  "family": "world",
+  "hue": 355,
+  "motion": "jab_cross",
+  "pack": "martial-arts",
+  "name": {
+   "en": "Boxing",
+   "hi": "बॉक्सिंग"
+  },
+  "region": {
+   "en": "Worldwide",
+   "hi": "दुनिया भर"
+  },
+  "about": {
+   "en": "Punching, footwork and defence. Shadow boxing is one of the best home workouts for cardio and coordination.",
+   "hi": "पंच, फ़ुटवर्क और बचाव। शैडो बॉक्सिंग कार्डियो और तालमेल के लिए घर के सबसे अच्छे वर्कआउट में से एक है।"
+  },
+  "trains": {
+   "en": "Cardio, hand speed, coordination and stress relief.",
+   "hi": "कार्डियो, हाथों की गति, तालमेल और तनाव से राहत।"
+  },
+  "safety": {
+   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
+   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
+  },
+  "tips": [
+   {
+    "en": "Chin down, hands up, elbows in: always return to this guard.",
+    "hi": "ठुड्डी नीचे, हाथ ऊपर, कोहनियाँ अंदर: हमेशा इसी गार्ड में लौटें।"
+   },
+   {
+    "en": "Never fully lock the elbow when shadow boxing.",
+    "hi": "शैडो बॉक्सिंग में कोहनी कभी पूरी तरह सीधी न झटकें।"
+   },
+   {
+    "en": "Exhale sharply with every punch.",
+    "hi": "हर पंच के साथ तेज़ी से साँस छोड़ें।"
+   },
+   {
+    "en": "Stay on the balls of your feet and keep moving.",
+    "hi": "पंजों के आगे के हिस्से पर रहें और चलते रहें।"
+   }
+  ]
+ },
+ {
+  "id": "karate",
+  "family": "world",
+  "hue": 200,
+  "motion": "front_stance_punch",
+  "pack": "martial-arts",
+  "name": {
+   "en": "Karate",
+   "hi": "कराटे"
+  },
+  "region": {
+   "en": "Okinawa, Japan",
+   "hi": "ओकिनावा, जापान"
+  },
+  "about": {
+   "en": "Built on kihon (basics): stances, punches, blocks and kicks repeated with precision, then linked into kata.",
+   "hi": "किहोन (बुनियाद) पर आधारित: स्टांस, पंच, ब्लॉक और किक सटीकता से दोहराए जाते हैं, फिर काता में जोड़े जाते हैं।"
+  },
+  "trains": {
+   "en": "Precision, leg strength, focus and discipline.",
+   "hi": "सटीकता, पैरों की ताकत, एकाग्रता और अनुशासन।"
+  },
+  "safety": {
+   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
+   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
+  },
+  "tips": [
+   {
+    "en": "Pull the opposite fist back to the hip as you punch (hikite).",
+    "hi": "पंच करते समय दूसरी मुट्ठी कूल्हे पर पीछे खींचें (हिकिते)।"
+   },
+   {
+    "en": "Keep stances low but knees over toes.",
+    "hi": "स्टांस नीचे रखें पर घुटने पंजों के ऊपर।"
+   },
+   {
+    "en": "Slow, perfect reps teach more than fast, sloppy ones.",
+    "hi": "धीमे, सही दोहराव तेज़ और लापरवाह से ज़्यादा सिखाते हैं।"
+   }
+  ]
+ },
+ {
+  "id": "muay_thai",
+  "family": "world",
+  "hue": 10,
+  "motion": "knee_strike",
+  "pack": "martial-arts",
+  "name": {
+   "en": "Kickboxing & Muay Thai",
+   "hi": "किकबॉक्सिंग और मुए थाई"
+  },
+  "region": {
+   "en": "Thailand and worldwide",
+   "hi": "थाईलैंड और दुनिया भर"
+  },
+  "about": {
+   "en": "Striking with fists, elbows, knees and shins. Solo drills build powerful hips and serious conditioning.",
+   "hi": "मुट्ठी, कोहनी, घुटने और पिंडली से प्रहार। अकेले अभ्यास से कूल्हे मज़बूत और ज़बरदस्त फ़िटनेस बनती है।"
+  },
+  "trains": {
+   "en": "Hip power, balance, core and stamina.",
+   "hi": "कूल्हों की शक्ति, संतुलन, कोर और सहनशक्ति।"
+  },
+  "safety": {
+   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
+   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
+  },
+  "tips": [
+   {
+    "en": "Pull the hands down as the knee drives up.",
+    "hi": "घुटना ऊपर लाते समय हाथ नीचे खींचें।"
+   },
+   {
+    "en": "Pivot the standing foot on kicks to protect the knee.",
+    "hi": "घुटने की रक्षा के लिए किक में खड़े पैर को घुमाएँ।"
+   },
+   {
+    "en": "Keep your guard up even when kicking.",
+    "hi": "किक करते समय भी गार्ड ऊपर रखें।"
+   }
+  ]
+ },
+ {
+  "id": "kung_fu",
+  "family": "world",
+  "hue": 330,
+  "motion": "horse_stance_punch",
+  "pack": "martial-arts",
+  "name": {
+   "en": "Kung fu (Wushu)",
+   "hi": "कुंग फ़ू (वुशु)"
+  },
+  "region": {
+   "en": "China",
+   "hi": "चीन"
+  },
+  "about": {
+   "en": "A family of Chinese martial arts. Training starts with stances (ma bu, gong bu) that build the legs for everything else.",
+   "hi": "चीनी युद्ध-कलाओं का परिवार। प्रशिक्षण स्टांस (मा बू, गोंग बू) से शुरू होता है जो बाकी सब के लिए पैर मज़बूत करते हैं।"
+  },
+  "trains": {
+   "en": "Leg strength, flexibility and balance.",
+   "hi": "पैरों की ताकत, लचीलापन और संतुलन।"
+  },
+  "safety": {
+   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
+   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
+  },
+  "tips": [
+   {
+    "en": "Hold horse stance a few seconds longer each week.",
+    "hi": "हर हफ़्ते हॉर्स स्टांस कुछ सेकंड ज़्यादा रोकें।"
+   },
+   {
+    "en": "Sink your weight; don't lean forward over your toes.",
+    "hi": "वज़न नीचे रखें; पंजों के ऊपर आगे न झुकें।"
+   },
+   {
+    "en": "Relaxed shoulders make strikes faster.",
+    "hi": "ढीले कंधे प्रहार तेज़ बनाते हैं।"
+   }
+  ]
+ },
+ {
   "id": "kalaripayattu",
   "family": "indian",
   "hue": 18,
@@ -41,6 +307,96 @@
    {
     "en": "Practise on a non-slip floor, barefoot, as is traditional in the kalari.",
     "hi": "कलरी की परंपरा की तरह, न फिसलने वाले फ़र्श पर नंगे पैर अभ्यास करें।"
+   }
+  ]
+ },
+ {
+  "id": "kushti",
+  "family": "indian",
+  "hue": 40,
+  "motion": "hindu_pushup",
+  "pack": "indian-martial-arts",
+  "name": {
+   "en": "Kushti (Pehlwani)",
+   "hi": "कुश्ती (पहलवानी)"
+  },
+  "region": {
+   "en": "North India and beyond",
+   "hi": "उत्तर भारत और आगे"
+  },
+  "about": {
+   "en": "Traditional Indian wrestling, trained in the akhara. Wrestlers are famous for bodyweight conditioning: dand (Hindu push-ups), baithak (Hindu squats) and swinging the mugdar (Indian club).",
+   "hi": "पारंपरिक भारतीय कुश्ती, अखाड़े में सिखाई जाती है। पहलवान शरीर के वज़न वाली कसरत के लिए जाने जाते हैं: दंड, बैठक और मुग्दर घुमाना।"
+  },
+  "trains": {
+   "en": "Full-body strength, stamina and grip.",
+   "hi": "पूरे शरीर की ताकत, सहनशक्ति और पकड़।"
+  },
+  "safety": {
+   "en": "Wrestling holds and throws need a coach and a mat. Solo conditioning here is safe to start: build reps slowly and keep your back neutral.",
+   "hi": "कुश्ती के दाँव और पटकनी के लिए कोच और मैट चाहिए। यहाँ अकेले की कसरत शुरू करने के लिए सुरक्षित है: धीरे-धीरे गिनती बढ़ाएँ और पीठ सीधी रखें।"
+  },
+  "tips": [
+   {
+    "en": "Breathe out as you swoop forward in dand, in as you push back.",
+    "hi": "दंड में आगे झुकते हुए साँस छोड़ें, पीछे धकेलते हुए लें।"
+   },
+   {
+    "en": "For baithak, let the heels rise and swing the arms for rhythm.",
+    "hi": "बैठक में एड़ियाँ उठने दें और लय के लिए हाथ झुलाएँ।"
+   },
+   {
+    "en": "Traditional sets are high-rep but slow: quality before count.",
+    "hi": "पारंपरिक सेट ज़्यादा गिनती के पर धीमे होते हैं: पहले गुणवत्ता, फिर गिनती।"
+   },
+   {
+    "en": "Start the mugdar swing without any weight to learn the path.",
+    "hi": "रास्ता सीखने के लिए मुग्दर घुमाना पहले बिना वज़न के शुरू करें।"
+   }
+  ]
+ },
+ {
+  "id": "gatka",
+  "family": "indian",
+  "hue": 220,
+  "motion": "gatka_strike",
+  "pack": "indian-martial-arts",
+  "name": {
+   "en": "Gatka",
+   "hi": "गतका"
+  },
+  "region": {
+   "en": "Punjab",
+   "hi": "पंजाब"
+  },
+  "about": {
+   "en": "A Sikh martial art, today often shown as stick fencing with a wooden stick (soti) and small shield (farri). Its rhythmic stepping is called pentra.",
+   "hi": "सिख युद्ध-कला, आज अक्सर लकड़ी की छड़ी (सोटी) और छोटी ढाल (फ़र्री) से दिखाई जाती है। इसके लयबद्ध कदमों को पैंतरा कहते हैं।"
+  },
+  "trains": {
+   "en": "Footwork, reflexes, shoulder endurance and rhythm.",
+   "hi": "फ़ुटवर्क, फुर्ती, कंधों की सहनशक्ति और लय।"
+  },
+  "safety": {
+   "en": "Use a light bamboo or PVC stick, clear space around you, and start slowly. Never practise near other people or pets.",
+   "hi": "हल्की बाँस या PVC की छड़ी लें, आसपास जगह खाली रखें और धीरे शुरू करें। लोगों या पालतू जानवरों के पास कभी अभ्यास न करें।"
+  },
+  "tips": [
+   {
+    "en": "Pentra comes first: step lightly in rhythm before adding strikes.",
+    "hi": "पहले पैंतरा: वार जोड़ने से पहले लय में हल्के कदम रखें।"
+   },
+   {
+    "en": "Strike from the shoulder and hips, not just the wrist.",
+    "hi": "सिर्फ़ कलाई से नहीं, कंधे और कूल्हों से वार करें।"
+   },
+   {
+    "en": "Return the stick to guard after every strike.",
+    "hi": "हर वार के बाद छड़ी वापस गार्ड में लाएँ।"
+   },
+   {
+    "en": "Practise both sides equally so neither shoulder takes all the load.",
+    "hi": "दोनों तरफ़ बराबर अभ्यास करें ताकि एक ही कंधे पर सारा बोझ न आए।"
    }
   ]
  },
@@ -90,26 +446,26 @@
   ]
  },
  {
-  "id": "gatka",
+  "id": "lathi_khela",
   "family": "indian",
-  "hue": 220,
-  "motion": "gatka_strike",
+  "hue": 95,
+  "motion": "lathi_block",
   "pack": "indian-martial-arts",
   "name": {
-   "en": "Gatka",
-   "hi": "गतका"
+   "en": "Lathi Khela",
+   "hi": "लाठी खेला"
   },
   "region": {
-   "en": "Punjab",
-   "hi": "पंजाब"
+   "en": "Bengal",
+   "hi": "बंगाल"
   },
   "about": {
-   "en": "A Sikh martial art, today often shown as stick fencing with a wooden stick (soti) and small shield (farri). Its rhythmic stepping is called pentra.",
-   "hi": "सिख युद्ध-कला, आज अक्सर लकड़ी की छड़ी (सोटी) और छोटी ढाल (फ़र्री) से दिखाई जाती है। इसके लयबद्ध कदमों को पैंतरा कहते हैं।"
+   "en": "Traditional stick fighting from Bengal, once taught in village akharas. Solo practice drills the basic strikes and blocks with a long bamboo lathi.",
+   "hi": "बंगाल की पारंपरिक लाठी-कला, कभी गाँव के अखाड़ों में सिखाई जाती थी। अकेले अभ्यास में लंबी बाँस की लाठी से बुनियादी वार और बचाव।"
   },
   "trains": {
-   "en": "Footwork, reflexes, shoulder endurance and rhythm.",
-   "hi": "फ़ुटवर्क, फुर्ती, कंधों की सहनशक्ति और लय।"
+   "en": "Shoulder strength, coordination and stance.",
+   "hi": "कंधों की ताकत, तालमेल और मुद्रा।"
   },
   "safety": {
    "en": "Use a light bamboo or PVC stick, clear space around you, and start slowly. Never practise near other people or pets.",
@@ -117,20 +473,16 @@
   },
   "tips": [
    {
-    "en": "Pentra comes first: step lightly in rhythm before adding strikes.",
-    "hi": "पहले पैंतरा: वार जोड़ने से पहले लय में हल्के कदम रखें।"
+    "en": "Hold the lathi with both hands about shoulder-width apart.",
+    "hi": "लाठी को दोनों हाथों से लगभग कंधे जितनी दूरी पर पकड़ें।"
    },
    {
-    "en": "Strike from the shoulder and hips, not just the wrist.",
-    "hi": "सिर्फ़ कलाई से नहीं, कंधे और कूल्हों से वार करें।"
+    "en": "Block with the middle of the stick, between your hands.",
+    "hi": "हाथों के बीच, छड़ी के बीच वाले हिस्से से बचाव करें।"
    },
    {
-    "en": "Return the stick to guard after every strike.",
-    "hi": "हर वार के बाद छड़ी वापस गार्ड में लाएँ।"
-   },
-   {
-    "en": "Practise both sides equally so neither shoulder takes all the load.",
-    "hi": "दोनों तरफ़ बराबर अभ्यास करें ताकि एक ही कंधे पर सारा बोझ न आए।"
+    "en": "Step as you strike so the power comes from the legs.",
+    "hi": "वार के साथ कदम रखें ताकि ताकत पैरों से आए।"
    }
   ]
  },
@@ -221,51 +573,6 @@
   ]
  },
  {
-  "id": "kushti",
-  "family": "indian",
-  "hue": 40,
-  "motion": "hindu_pushup",
-  "pack": "indian-martial-arts",
-  "name": {
-   "en": "Kushti (Pehlwani)",
-   "hi": "कुश्ती (पहलवानी)"
-  },
-  "region": {
-   "en": "North India and beyond",
-   "hi": "उत्तर भारत और आगे"
-  },
-  "about": {
-   "en": "Traditional Indian wrestling, trained in the akhara. Wrestlers are famous for bodyweight conditioning: dand (Hindu push-ups), baithak (Hindu squats) and swinging the mugdar (Indian club).",
-   "hi": "पारंपरिक भारतीय कुश्ती, अखाड़े में सिखाई जाती है। पहलवान शरीर के वज़न वाली कसरत के लिए जाने जाते हैं: दंड, बैठक और मुग्दर घुमाना।"
-  },
-  "trains": {
-   "en": "Full-body strength, stamina and grip.",
-   "hi": "पूरे शरीर की ताकत, सहनशक्ति और पकड़।"
-  },
-  "safety": {
-   "en": "Wrestling holds and throws need a coach and a mat. Solo conditioning here is safe to start: build reps slowly and keep your back neutral.",
-   "hi": "कुश्ती के दाँव और पटकनी के लिए कोच और मैट चाहिए। यहाँ अकेले की कसरत शुरू करने के लिए सुरक्षित है: धीरे-धीरे गिनती बढ़ाएँ और पीठ सीधी रखें।"
-  },
-  "tips": [
-   {
-    "en": "Breathe out as you swoop forward in dand, in as you push back.",
-    "hi": "दंड में आगे झुकते हुए साँस छोड़ें, पीछे धकेलते हुए लें।"
-   },
-   {
-    "en": "For baithak, let the heels rise and swing the arms for rhythm.",
-    "hi": "बैठक में एड़ियाँ उठने दें और लय के लिए हाथ झुलाएँ।"
-   },
-   {
-    "en": "Traditional sets are high-rep but slow: quality before count.",
-    "hi": "पारंपरिक सेट ज़्यादा गिनती के पर धीमे होते हैं: पहले गुणवत्ता, फिर गिनती।"
-   },
-   {
-    "en": "Start the mugdar swing without any weight to learn the path.",
-    "hi": "रास्ता सीखने के लिए मुग्दर घुमाना पहले बिना वज़न के शुरू करें।"
-   }
-  ]
- },
- {
   "id": "musti_yuddha",
   "family": "indian",
   "hue": 0,
@@ -303,313 +610,6 @@
    {
     "en": "Keep strikes shoulder-high in shadow work to protect your elbows.",
     "hi": "कोहनियों की रक्षा के लिए शैडो अभ्यास में प्रहार कंधे की ऊँचाई पर रखें।"
-   }
-  ]
- },
- {
-  "id": "lathi_khela",
-  "family": "indian",
-  "hue": 95,
-  "motion": "lathi_block",
-  "pack": "indian-martial-arts",
-  "name": {
-   "en": "Lathi Khela",
-   "hi": "लाठी खेला"
-  },
-  "region": {
-   "en": "Bengal",
-   "hi": "बंगाल"
-  },
-  "about": {
-   "en": "Traditional stick fighting from Bengal, once taught in village akharas. Solo practice drills the basic strikes and blocks with a long bamboo lathi.",
-   "hi": "बंगाल की पारंपरिक लाठी-कला, कभी गाँव के अखाड़ों में सिखाई जाती थी। अकेले अभ्यास में लंबी बाँस की लाठी से बुनियादी वार और बचाव।"
-  },
-  "trains": {
-   "en": "Shoulder strength, coordination and stance.",
-   "hi": "कंधों की ताकत, तालमेल और मुद्रा।"
-  },
-  "safety": {
-   "en": "Use a light bamboo or PVC stick, clear space around you, and start slowly. Never practise near other people or pets.",
-   "hi": "हल्की बाँस या PVC की छड़ी लें, आसपास जगह खाली रखें और धीरे शुरू करें। लोगों या पालतू जानवरों के पास कभी अभ्यास न करें।"
-  },
-  "tips": [
-   {
-    "en": "Hold the lathi with both hands about shoulder-width apart.",
-    "hi": "लाठी को दोनों हाथों से लगभग कंधे जितनी दूरी पर पकड़ें।"
-   },
-   {
-    "en": "Block with the middle of the stick, between your hands.",
-    "hi": "हाथों के बीच, छड़ी के बीच वाले हिस्से से बचाव करें।"
-   },
-   {
-    "en": "Step as you strike so the power comes from the legs.",
-    "hi": "वार के साथ कदम रखें ताकि ताकत पैरों से आए।"
-   }
-  ]
- },
- {
-  "id": "boxing",
-  "family": "world",
-  "hue": 355,
-  "motion": "jab_cross",
-  "pack": "martial-arts",
-  "name": {
-   "en": "Boxing",
-   "hi": "बॉक्सिंग"
-  },
-  "region": {
-   "en": "Worldwide",
-   "hi": "दुनिया भर"
-  },
-  "about": {
-   "en": "Punching, footwork and defence. Shadow boxing is one of the best home workouts for cardio and coordination.",
-   "hi": "पंच, फ़ुटवर्क और बचाव। शैडो बॉक्सिंग कार्डियो और तालमेल के लिए घर के सबसे अच्छे वर्कआउट में से एक है।"
-  },
-  "trains": {
-   "en": "Cardio, hand speed, coordination and stress relief.",
-   "hi": "कार्डियो, हाथों की गति, तालमेल और तनाव से राहत।"
-  },
-  "safety": {
-   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
-   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
-  },
-  "tips": [
-   {
-    "en": "Chin down, hands up, elbows in: always return to this guard.",
-    "hi": "ठुड्डी नीचे, हाथ ऊपर, कोहनियाँ अंदर: हमेशा इसी गार्ड में लौटें।"
-   },
-   {
-    "en": "Never fully lock the elbow when shadow boxing.",
-    "hi": "शैडो बॉक्सिंग में कोहनी कभी पूरी तरह सीधी न झटकें।"
-   },
-   {
-    "en": "Exhale sharply with every punch.",
-    "hi": "हर पंच के साथ तेज़ी से साँस छोड़ें।"
-   },
-   {
-    "en": "Stay on the balls of your feet and keep moving.",
-    "hi": "पंजों के आगे के हिस्से पर रहें और चलते रहें।"
-   }
-  ]
- },
- {
-  "id": "muay_thai",
-  "family": "world",
-  "hue": 10,
-  "motion": "knee_strike",
-  "pack": "martial-arts",
-  "name": {
-   "en": "Kickboxing & Muay Thai",
-   "hi": "किकबॉक्सिंग और मुए थाई"
-  },
-  "region": {
-   "en": "Thailand and worldwide",
-   "hi": "थाईलैंड और दुनिया भर"
-  },
-  "about": {
-   "en": "Striking with fists, elbows, knees and shins. Solo drills build powerful hips and serious conditioning.",
-   "hi": "मुट्ठी, कोहनी, घुटने और पिंडली से प्रहार। अकेले अभ्यास से कूल्हे मज़बूत और ज़बरदस्त फ़िटनेस बनती है।"
-  },
-  "trains": {
-   "en": "Hip power, balance, core and stamina.",
-   "hi": "कूल्हों की शक्ति, संतुलन, कोर और सहनशक्ति।"
-  },
-  "safety": {
-   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
-   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
-  },
-  "tips": [
-   {
-    "en": "Pull the hands down as the knee drives up.",
-    "hi": "घुटना ऊपर लाते समय हाथ नीचे खींचें।"
-   },
-   {
-    "en": "Pivot the standing foot on kicks to protect the knee.",
-    "hi": "घुटने की रक्षा के लिए किक में खड़े पैर को घुमाएँ।"
-   },
-   {
-    "en": "Keep your guard up even when kicking.",
-    "hi": "किक करते समय भी गार्ड ऊपर रखें।"
-   }
-  ]
- },
- {
-  "id": "karate",
-  "family": "world",
-  "hue": 200,
-  "motion": "front_stance_punch",
-  "pack": "martial-arts",
-  "name": {
-   "en": "Karate",
-   "hi": "कराटे"
-  },
-  "region": {
-   "en": "Okinawa, Japan",
-   "hi": "ओकिनावा, जापान"
-  },
-  "about": {
-   "en": "Built on kihon (basics): stances, punches, blocks and kicks repeated with precision, then linked into kata.",
-   "hi": "किहोन (बुनियाद) पर आधारित: स्टांस, पंच, ब्लॉक और किक सटीकता से दोहराए जाते हैं, फिर काता में जोड़े जाते हैं।"
-  },
-  "trains": {
-   "en": "Precision, leg strength, focus and discipline.",
-   "hi": "सटीकता, पैरों की ताकत, एकाग्रता और अनुशासन।"
-  },
-  "safety": {
-   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
-   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
-  },
-  "tips": [
-   {
-    "en": "Pull the opposite fist back to the hip as you punch (hikite).",
-    "hi": "पंच करते समय दूसरी मुट्ठी कूल्हे पर पीछे खींचें (हिकिते)।"
-   },
-   {
-    "en": "Keep stances low but knees over toes.",
-    "hi": "स्टांस नीचे रखें पर घुटने पंजों के ऊपर।"
-   },
-   {
-    "en": "Slow, perfect reps teach more than fast, sloppy ones.",
-    "hi": "धीमे, सही दोहराव तेज़ और लापरवाह से ज़्यादा सिखाते हैं।"
-   }
-  ]
- },
- {
-  "id": "kung_fu",
-  "family": "world",
-  "hue": 330,
-  "motion": "horse_stance_punch",
-  "pack": "martial-arts",
-  "name": {
-   "en": "Kung fu (Wushu)",
-   "hi": "कुंग फ़ू (वुशु)"
-  },
-  "region": {
-   "en": "China",
-   "hi": "चीन"
-  },
-  "about": {
-   "en": "A family of Chinese martial arts. Training starts with stances (ma bu, gong bu) that build the legs for everything else.",
-   "hi": "चीनी युद्ध-कलाओं का परिवार। प्रशिक्षण स्टांस (मा बू, गोंग बू) से शुरू होता है जो बाकी सब के लिए पैर मज़बूत करते हैं।"
-  },
-  "trains": {
-   "en": "Leg strength, flexibility and balance.",
-   "hi": "पैरों की ताकत, लचीलापन और संतुलन।"
-  },
-  "safety": {
-   "en": "Learn partner work, sparring and anything with a weapon only from a qualified teacher. This app covers solo practice: stances, footwork, shadow drills and conditioning.",
-   "hi": "साथी के साथ अभ्यास, स्पारिंग और हथियार वाला कोई भी अभ्यास केवल योग्य गुरु से सीखें। यह ऐप अकेले अभ्यास के लिए है: स्टांस, फ़ुटवर्क, शैडो ड्रिल और कंडीशनिंग।"
-  },
-  "tips": [
-   {
-    "en": "Hold horse stance a few seconds longer each week.",
-    "hi": "हर हफ़्ते हॉर्स स्टांस कुछ सेकंड ज़्यादा रोकें।"
-   },
-   {
-    "en": "Sink your weight; don't lean forward over your toes.",
-    "hi": "वज़न नीचे रखें; पंजों के ऊपर आगे न झुकें।"
-   },
-   {
-    "en": "Relaxed shoulders make strikes faster.",
-    "hi": "ढीले कंधे प्रहार तेज़ बनाते हैं।"
-   }
-  ]
- },
- {
-  "id": "self_defence",
-  "family": "world",
-  "hue": 260,
-  "motion": "palm_strike",
-  "pack": "martial-arts",
-  "name": {
-   "en": "Self-defence basics",
-   "hi": "आत्मरक्षा की बुनियाद"
-  },
-  "region": {
-   "en": "Everyday safety",
-   "hi": "रोज़ की सुरक्षा"
-  },
-  "about": {
-   "en": "Awareness, a safe stance and simple, high-percentage strikes to create space and get away. Getting away safely is always the goal.",
-   "hi": "जागरूकता, सुरक्षित मुद्रा और जगह बनाकर बच निकलने के लिए सरल, असरदार प्रहार। सुरक्षित बच निकलना ही हमेशा लक्ष्य है।"
-  },
-  "trains": {
-   "en": "Confidence, awareness and quick reactions.",
-   "hi": "आत्मविश्वास, जागरूकता और तेज़ प्रतिक्रिया।"
-  },
-  "safety": {
-   "en": "Avoiding danger and getting away beat any technique. For real scenarios, take an in-person class.",
-   "hi": "ख़तरे से बचना और निकल जाना किसी भी तकनीक से बेहतर है। असली स्थितियों के लिए किसी कक्षा में सीखें।"
-  },
-  "tips": [
-   {
-    "en": "Notice exits and people around you; awareness prevents most trouble.",
-    "hi": "निकास और आसपास के लोगों पर ध्यान दें; जागरूकता ज़्यादातर मुसीबत टालती है।"
-   },
-   {
-    "en": "Keep open hands up in front of you: it looks calm and protects your face.",
-    "hi": "खुले हाथ सामने ऊपर रखें: यह शांत दिखता है और चेहरा बचाता है।"
-   },
-   {
-    "en": "Use a loud voice; shouting 'Stop!' draws attention and help.",
-    "hi": "ज़ोर से बोलें; 'रुको!' चिल्लाने से ध्यान और मदद मिलती है।"
-   },
-   {
-    "en": "Strike only to create space, then leave.",
-    "hi": "प्रहार सिर्फ़ जगह बनाने के लिए करें, फिर निकल जाएँ।"
-   }
-  ]
- },
- {
-  "id": "yoga",
-  "family": "mindbody",
-  "hue": 150,
-  "motion": "tree_pose",
-  "pack": "yoga-stretch",
-  "name": {
-   "en": "Yoga",
-   "hi": "योग"
-  },
-  "region": {
-   "en": "India",
-   "hi": "भारत"
-  },
-  "about": {
-   "en": "Poses, flows and breathing from India that build strength, balance and calm.",
-   "hi": "भारत की मुद्राएँ, प्रवाह और श्वास जो ताकत, संतुलन और शांति बढ़ाते हैं।"
-  },
-  "trains": {
-   "en": "Flexibility, balance, core strength, breathing",
-   "hi": "लचीलापन, संतुलन, कोर की ताकत, श्वास"
-  },
-  "safety": {
-   "en": "Practise on a non-slip mat, never force a pose, and skip anything that hurts. If you are pregnant or have a condition, ask a teacher or doctor first.",
-   "hi": "फिसलन-रहित मैट पर अभ्यास करें, मुद्रा में ज़ोर न लगाएँ और दर्द वाली चीज़ छोड़ दें। गर्भावस्था या कोई बीमारी हो तो पहले शिक्षक या डॉक्टर से पूछें।"
-  },
-  "tips": [
-   {
-    "en": "Breathe through the nose and let the breath set the pace.",
-    "hi": "नाक से साँस लें और साँस को गति तय करने दें।"
-   },
-   {
-    "en": "Little and often beats long and rare: 10 minutes a day adds up.",
-    "hi": "थोड़ा-थोड़ा रोज़ बेहतर है: रोज़ 10 मिनट जुड़ते जाते हैं।"
-   },
-   {
-    "en": "Soft knees are fine in folds: the spine matters more than the legs.",
-    "hi": "झुकते समय घुटने हल्के मुड़े रह सकते हैं: रीढ़ ज़्यादा ज़रूरी है।"
-   },
-   {
-    "en": "In balance poses, fix your gaze on one still point.",
-    "hi": "संतुलन की मुद्राओं में नज़र एक स्थिर बिंदु पर रखें।"
-   },
-   {
-    "en": "Practise on an empty or light stomach.",
-    "hi": "खाली या हल्के पेट अभ्यास करें।"
-   },
-   {
-    "en": "End with a minute of calm breathing.",
-    "hi": "एक मिनट की शांत साँस से समाप्त करें।"
    }
   ]
  }

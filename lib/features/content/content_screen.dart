@@ -12,7 +12,10 @@ String _size(int bytes) => bytes >= 1 << 20
     ? '${(bytes / (1 << 20)).toStringAsFixed(1)} MB'
     : '${(bytes / 1024).ceil()} KB';
 
-/// Optional packs from our public GitHub repository. Nothing is downloaded
+/// Packs this small download on mobile data even with "Wi-Fi only" on.
+const smallPackBytes = 2 << 20;
+
+/// Optional packs from our public content library. Nothing is downloaded
 /// until the user taps Download; nothing about the user is ever sent.
 class ContentScreen extends ConsumerStatefulWidget {
   const ContentScreen({super.key});
@@ -26,7 +29,6 @@ class _ContentScreenState extends ConsumerState<ContentScreen> {
 
   String _error(AppLocalizations l10n, Object e) => switch (e) {
         PackError(kind: PackErrorKind.offline) => l10n.contentOffline,
-        PackError(kind: PackErrorKind.wifiOnly) => l10n.contentWifiNeeded,
         PackError(kind: PackErrorKind.checksum || PackErrorKind.damaged) => l10n.contentDamaged,
         _ => l10n.contentFailed,
       };
@@ -38,7 +40,27 @@ class _ContentScreenState extends ConsumerState<ContentScreen> {
       final net = await ref.read(networkStateProvider)();
       if (!net.online) throw const PackError(PackErrorKind.offline);
       final wifiOnly = ref.read(wifiOnlyProvider).value ?? true;
-      if (wifiOnly && !net.unmetered) throw const PackError(PackErrorKind.wifiOnly);
+      if (wifiOnly && !net.unmetered && p.size > smallPackBytes) {
+        // Ask once for this pack rather than failing outright.
+        if (!mounted) return;
+        final lang = Localizations.localeOf(context).languageCode;
+        final useData = await showDialog<bool>(
+          context: context,
+          builder: (c) => AlertDialog(
+            title: Text(l10n.contentMobileTitle),
+            content: Text(l10n.contentMobileBody(PackInfo.pick(p.title, lang), _size(p.size))),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(c, false), child: Text(l10n.contentMobileWait)),
+              FilledButton(
+                key: const Key('content-use-data'),
+                onPressed: () => Navigator.pop(c, true),
+                child: Text(l10n.contentMobileUse),
+              ),
+            ],
+          ),
+        );
+        if (useData != true) return;
+      }
       setState(() => _progress[p.id] = 0);
       final store = await ref.read(contentStoreProvider.future);
       await store.install(p, onProgress: (v) {
@@ -143,6 +165,7 @@ class _ContentScreenState extends ConsumerState<ContentScreen> {
               key: const Key('content-wifi-only'),
               contentPadding: EdgeInsets.zero,
               title: Text(l10n.contentWifiOnly),
+              subtitle: Text(l10n.contentWifiOnlyInfo),
               value: wifiOnly,
               onChanged: (v) => setWifiOnly(ref.read(appDatabaseProvider), v),
             ),

@@ -97,7 +97,7 @@ class DisciplineCard extends ConsumerWidget {
   }
 }
 
-/// All martial arts and skills, Indian first.
+/// All skills, most popular first.
 class SkillsScreen extends ConsumerWidget {
   const SkillsScreen({super.key});
 
@@ -124,17 +124,10 @@ class SkillsScreen extends ConsumerWidget {
               const SizedBox(height: AppSpacing.md),
               Text(l.skillsIntro, style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
               const SizedBox(height: AppSpacing.lg),
-              Text(l.skillsMindBody, style: theme.textTheme.titleMedium),
+              Text(l.skillsPopular, style: theme.textTheme.titleMedium),
               const SizedBox(height: AppSpacing.sm),
-              grid(all.where((d) => d.mindBody).toList()),
-              const SizedBox(height: AppSpacing.lg),
-              Text(l.skillsIndian, style: theme.textTheme.titleMedium),
-              const SizedBox(height: AppSpacing.sm),
-              grid(all.where((d) => d.indian).toList()),
-              const SizedBox(height: AppSpacing.lg),
-              Text(l.skillsWorld, style: theme.textTheme.titleMedium),
-              const SizedBox(height: AppSpacing.sm),
-              grid(all.where((d) => !d.indian && !d.mindBody).toList()),
+              // disciplines.json is kept in order of popularity.
+              grid(all),
               const SizedBox(height: AppSpacing.lg),
               Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Icon(Icons.shield_outlined, size: 18, color: theme.colorScheme.primary),

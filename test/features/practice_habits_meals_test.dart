@@ -59,7 +59,18 @@ void main() {
     final app = AppHarness(tester);
     await app.start(onboarded);
     await go(app, tester, '/growth/skills');
-    expect(find.text('Yoga & mind-body'), findsOneWidget);
+    expect(find.text('Most popular first'), findsOneWidget);
+    // Ordered by popularity: yoga, then self-defence, boxing, karate.
+    final order = [
+      for (final id in ['yoga', 'self_defence', 'boxing', 'karate'])
+        tester.getTopLeft(find.byKey(Key('discipline-$id'))),
+    ];
+    for (var i = 1; i < order.length; i++) {
+      expect(
+        order[i].dy * 10000 + order[i].dx,
+        greaterThan(order[i - 1].dy * 10000 + order[i - 1].dx),
+      );
+    }
     await go(app, tester, '/growth/skills/yoga');
     expect(find.text('Yoga'), findsWidgets);
 

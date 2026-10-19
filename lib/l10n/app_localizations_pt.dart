@@ -4170,7 +4170,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get contentPrivacy =>
-      'Os pacotes vêm só de github.com/prashantkeshr/personality-content e são verificados antes do uso. Baixar nunca envia nada sobre você, e os seus dados de saúde nunca usam a internet.';
+      'Os pacotes vêm só da biblioteca oficial de conteúdo do Personality e são verificados antes do uso. Baixar nunca envia nada sobre você, e os seus dados de saúde nunca usam a internet.';
 
   @override
   String get navGrowth => 'Meu crescimento';
@@ -5977,4 +5977,25 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get sampleDayNote =>
       'Ajustado ao seu plano ou às necessidades estimadas pela altura e peso. É um guia, não uma prescrição.';
+
+  @override
+  String get skillsPopular => 'Os mais populares primeiro';
+
+  @override
+  String get contentWifiOnlyInfo =>
+      'Pacotes pequenos (menos de 2 MB) baixam mesmo com dados móveis.';
+
+  @override
+  String get contentMobileTitle => 'Usar dados móveis?';
+
+  @override
+  String contentMobileBody(String pack, String size) {
+    return 'Você não está no Wi-Fi. Baixar $pack ($size) agora com dados móveis?';
+  }
+
+  @override
+  String get contentMobileUse => 'Baixar agora';
+
+  @override
+  String get contentMobileWait => 'Esperar o Wi-Fi';
 }

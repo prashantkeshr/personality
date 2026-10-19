@@ -1193,7 +1193,7 @@
   "contentDamaged": "Unduhan tidak lolos pemeriksaan, jadi tidak dipakai. Silakan coba lagi.",
   "contentFailed": "Tidak bisa mengunduh sekarang. Silakan coba lagi.",
   "contentRetry": "Coba lagi",
-  "contentPrivacy": "Paket hanya berasal dari github.com/prashantkeshr/personality-content dan diperiksa sebelum dipakai. Mengunduh tidak pernah mengirim apa pun tentangmu, dan data kesehatanmu tidak pernah memakai internet.",
+  "contentPrivacy": "Paket hanya berasal dari pustaka konten resmi Personality dan diperiksa sebelum dipakai. Mengunduh tidak pernah mengirim apa pun tentangmu, dan data kesehatanmu tidak pernah memakai internet.",
   "navGrowth": "Pertumbuhanku",
   "growthSearchHint": "Cari latihan, teknik, dan tips",
   "growthProgress": "Kemajuanmu",
@@ -1705,5 +1705,11 @@
   "sampleDayTitle": "Contoh satu hari",
   "sampleDayAnother": "Lainnya",
   "sampleDayTotals": "Sekitar {kcal} kkal dan {protein} g protein total",
-  "sampleDayNote": "Disesuaikan dengan rencanamu, atau kebutuhan perkiraan dari tinggi dan berat. Panduan, bukan resep."
+  "sampleDayNote": "Disesuaikan dengan rencanamu, atau kebutuhan perkiraan dari tinggi dan berat. Panduan, bukan resep.",
+  "skillsPopular": "Paling populer lebih dulu",
+  "contentWifiOnlyInfo": "Paket kecil (di bawah 2 MB) tetap diunduh lewat data seluler.",
+  "contentMobileTitle": "Pakai data seluler?",
+  "contentMobileBody": "Kamu tidak sedang memakai Wi-Fi. Unduh {pack} ({size}) sekarang dengan data seluler?",
+  "contentMobileUse": "Unduh sekarang",
+  "contentMobileWait": "Tunggu Wi-Fi"
 }

@@ -34,9 +34,11 @@ final installedPacksProvider = FutureProvider<List<InstalledPack>>((ref) async {
   }
 });
 
-/// The online list. Only fetched while the Content screen is open.
+/// The online list. Only fetched while the Content screen is open. No
+/// automatic retries: a failure shows at once, with a Retry button.
 final packManifestProvider = FutureProvider.autoDispose<List<PackInfo>>(
-    (ref) async => (await ref.watch(contentStoreProvider.future)).fetchManifest());
+    (ref) async => (await ref.watch(contentStoreProvider.future)).fetchManifest(),
+    retry: (_, _) => null);
 
 const _wifiKey = 'content.wifiOnly';
 

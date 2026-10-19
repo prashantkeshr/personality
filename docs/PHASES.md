@@ -691,3 +691,13 @@ Verification: `flutter analyze` clean; `flutter test` 421 pass, 2 skipped (new: 
   - **Sample day:** a full day of meals sized to the body plan's targets, or else the estimated maintenance, or else 2,000 kcal. "Another" shows a different combination, and each dish can be logged.
 
 Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (new: content integrity, yoga add-to-day, new goals, habit idea edit, meal idea log and sample day). Emulator release build: Yoga section with 18 techniques; boat pose, low lunge and goddess pose figures checked.
+
+## Phase 26 — Skills by popularity, pack downloads on mobile data (2026-10-19)
+
+- **Skills** is one list ordered by popularity (Yoga, Self-defence, Boxing, Karate, Kickboxing & Muay Thai, Kung fu, then the Indian arts). The order lives in `disciplines.json` and also drives the My Growth carousel.
+- **Content pack downloads:**
+  - On mobile data with "Wi-Fi only" on (the default), every download used to fail, even 7 KB packs. Packs under 2 MB now always download; bigger ones ask "Use mobile data?" (Download now / Wait for Wi-Fi).
+  - Downloads give up after 30 s without progress (DNS, connect or data), and the pack list no longer auto-retries (Riverpod's default retried up to 10 times, so it looked like an endless spinner). Failures show "You're offline" with Retry.
+- The privacy note no longer shows the GitHub address ("Personality's official content library").
+
+Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (download test covers a small pack on mobile data and the mobile-data prompt). Emulator: skills order, new disclaimer, offline error with Retry. Phone: on Airtel 4G (metered) GitHub is reachable; download to be confirmed by hand (MIUI blocks adb taps).

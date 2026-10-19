@@ -4133,7 +4133,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get contentPrivacy =>
-      'पैक सिर्फ़ github.com/prashantkeshr/personality-content से आते हैं और इस्तेमाल से पहले जाँचे जाते हैं। डाउनलोड करने से आपके बारे में कुछ नहीं भेजा जाता, और आपका स्वास्थ्य डेटा कभी इंटरनेट का उपयोग नहीं करता।';
+      'पैक सिर्फ़ Personality की आधिकारिक कंटेंट लाइब्रेरी से आते हैं और इस्तेमाल से पहले जाँचे जाते हैं। डाउनलोड करने से आपके बारे में कुछ नहीं भेजा जाता, और आपका स्वास्थ्य डेटा कभी इंटरनेट का उपयोग नहीं करता।';
 
   @override
   String get navGrowth => 'मेरी प्रगति';
@@ -5917,4 +5917,25 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get sampleDayNote =>
       'आपकी योजना या ऊँचाई-वज़न से आँकी ज़रूरत के अनुसार। यह एक मार्गदर्शन है, नुस्खा नहीं।';
+
+  @override
+  String get skillsPopular => 'सबसे लोकप्रिय पहले';
+
+  @override
+  String get contentWifiOnlyInfo =>
+      'छोटे पैक (2 MB से कम) मोबाइल डेटा पर भी डाउनलोड होते हैं।';
+
+  @override
+  String get contentMobileTitle => 'मोबाइल डेटा इस्तेमाल करें?';
+
+  @override
+  String contentMobileBody(String pack, String size) {
+    return 'आप Wi-Fi पर नहीं हैं। क्या $pack ($size) अभी मोबाइल डेटा से डाउनलोड करें?';
+  }
+
+  @override
+  String get contentMobileUse => 'अभी डाउनलोड करें';
+
+  @override
+  String get contentMobileWait => 'Wi-Fi का इंतज़ार करें';
 }
