@@ -28,7 +28,7 @@ enum ReminderSound {
   };
 
   static ReminderSound fromName(String? n) =>
-      values.firstWhere((s) => s.name == n, orElse: () => system);
+      values.firstWhere((s) => s.name == n, orElse: () => pulse);
 }
 
 enum VibrationLevel {
@@ -51,7 +51,7 @@ enum VibrationLevel {
 /// How reminder notifications look, sound and behave.
 class NotificationStyle {
   const NotificationStyle({
-    this.sound = ReminderSound.system,
+    this.sound = ReminderSound.pulse, // the app's own default
     this.vibration = VibrationLevel.standard,
     this.popUp = true,
     this.hideOnLockScreen = false,

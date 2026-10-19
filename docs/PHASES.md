@@ -715,3 +715,13 @@ Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (downl
   - **Reduce animations**, combined with the phone's own setting through `MediaQuery.disableAnimations`.
 
 Verification: `flutter analyze` clean; `flutter test` 429 pass, 2 skipped (new: style round trip and channel ids, choosing sound/vibration/snooze plus the test notification, accent/text size/reduced motion applied app-wide). Emulator release build: settings render; the preview plays; the test notification pops up on channel `reminders_zenBowl_standard_pop` with `snd_zen_bowl`; the old `reminders` channel was deleted.
+
+## Phase 28 — Pulse by default, About snapshot (2026-10-20)
+
+- **Pulse** is the default reminder sound. Anyone who already picked a sound keeps it.
+- **About Your Personality → Your snapshot** (`domain/services/personal_snapshot.dart`):
+  - **Ratings** (Great / Good / Fair / Needs work, with a four-step meter and the number behind each) for body (BMI), posture (latest check's bands), activity (active minutes a day), sleep (hours a night), hydration (share of logged days on target) and consistency (streak). An area needs 3+ logged days this week before it is rated, and there is still no overall score.
+  - **Key areas to improve:** up to 3, the user's focus goals first and then the worst, each with a practical tip.
+  - **Exercises suggested for you:** up to 6, chosen from posture issues (e.g. forward head → chin tuck, wall angels), BMI (over the range → brisk walk, squat; under → incline push-up, squat), weak areas (sleep → seated breathing, child's pose) and goals. Each says why it was picked and opens the exercise.
+
+Verification: `flutter analyze` clean; `flutter test` 434 pass, 2 skipped (new engine tests; the About test checks the BMI rating and suggestions).

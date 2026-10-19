@@ -6150,4 +6150,118 @@ class AppLocalizationsId extends AppLocalizations {
   String reminderActionSnoozeFor(int minutes) {
     return 'Tunda $minutes mnt';
   }
+
+  @override
+  String get snapshotTitle => 'Ringkasanmu';
+
+  @override
+  String get snapshotInfo =>
+      'Nilai tiap area berasal dari pemeriksaan dan catatanmu sendiri minggu ini. Ini panduan, bukan penilaian.';
+
+  @override
+  String get snapshotEmpty =>
+      'Tambahkan tinggi dan berat badan, lakukan cek postur, atau catat beberapa hari untuk melihat nilai dan saranmu.';
+
+  @override
+  String get snapshotActivity => 'Aktivitas';
+
+  @override
+  String get snapshotHydration => 'Hidrasi';
+
+  @override
+  String get snapshotConsistency => 'Konsistensi';
+
+  @override
+  String get ratingGreat => 'Sangat baik';
+
+  @override
+  String get ratingGood => 'Baik';
+
+  @override
+  String get ratingFair => 'Cukup';
+
+  @override
+  String get ratingNeedsWork => 'Perlu dilatih';
+
+  @override
+  String snapshotBmi(String value) {
+    return 'IMT $value';
+  }
+
+  @override
+  String snapshotMinutes(int minutes) {
+    return '$minutes mnt aktif per hari';
+  }
+
+  @override
+  String snapshotHours(String hours) {
+    return '$hours jam per malam';
+  }
+
+  @override
+  String snapshotOnTarget(int percent) {
+    return 'Tercapai $percent% dari hari yang dicatat';
+  }
+
+  @override
+  String get snapshotImprove => 'Area utama untuk ditingkatkan';
+
+  @override
+  String get improveBody =>
+      'Targetkan perubahan perlahan dan stabil: jalan kaki harian, makan seimbang, dan cukup protein.';
+
+  @override
+  String get improvePosture =>
+      'Jeda postur singkat tiap jam dan peregangan di bawah paling membantu.';
+
+  @override
+  String get improveActivity =>
+      'Mulai dengan jalan kaki 10 menit setelah makan, lalu tingkatkan.';
+
+  @override
+  String get improveSleep =>
+      'Tidur di jam yang sama dan jauhkan layar 30 menit sebelumnya.';
+
+  @override
+  String get improveHydration =>
+      'Simpan botol di dekatmu dan minum segelas setiap makan.';
+
+  @override
+  String get improveConsistency =>
+      'Lakukan satu hal kecil setiap hari — 2 menit pun menjaga runtutanmu.';
+
+  @override
+  String get snapshotSuggested => 'Latihan yang disarankan untukmu';
+
+  @override
+  String reasonPosture(String issue) {
+    return 'Membantu: $issue';
+  }
+
+  @override
+  String get reasonGain => 'Membangun kekuatan untuk berat badan sehat';
+
+  @override
+  String get reasonMove => 'Membakar energi dan ramah sendi';
+
+  @override
+  String get reasonActivity => 'Membuatmu lebih banyak bergerak tiap hari';
+
+  @override
+  String get reasonSleep => 'Menenangkan tubuh dan pikiran sebelum tidur';
+
+  @override
+  String get reasonDaily => 'Cepat dan mudah dilakukan tiap hari';
+
+  @override
+  String get reasonStart => 'Awal yang baik';
+
+  @override
+  String reasonGoal(String goal) {
+    return 'Untuk tujuanmu: $goal';
+  }
+
+  @override
+  String get snapshotNote =>
+      'Panduan kebugaran umum, bukan saran medis. Hentikan latihan yang terasa sakit.';
 }

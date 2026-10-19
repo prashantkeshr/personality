@@ -28,6 +28,9 @@ void main() {
     );
     expect(NotificationStyle.parse(style.encode()), style);
     expect(NotificationStyle.parse('not json'), const NotificationStyle());
+    // Pulse is the app's default sound.
+    expect(NotificationStyle.parse(null).sound, ReminderSound.pulse);
+    expect(const NotificationStyle().channelId, 'reminders_pulse_standard_pop');
     expect(style.sound.resource, 'snd_zen_bowl');
     expect(
       style.channelId,

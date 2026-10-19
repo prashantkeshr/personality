@@ -3135,5 +3135,78 @@
         "type": "int"
       }
     }
-  }
+  },
+  "snapshotTitle": "Your snapshot",
+  "snapshotInfo": "Ratings for each area come from your own checks and logs this week. They're a guide, not a judgement.",
+  "snapshotEmpty": "No ratings yet. Weigh in, run a posture check or log a few days, and your ratings and suggested exercises will appear here.",
+  "snapshotActivity": "Activity",
+  "snapshotHydration": "Hydration",
+  "snapshotConsistency": "Consistency",
+  "ratingGreat": "Great",
+  "ratingGood": "Good",
+  "ratingFair": "Fair",
+  "ratingNeedsWork": "Needs work",
+  "snapshotBmi": "BMI {value}",
+  "@snapshotBmi": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "snapshotMinutes": "{minutes} active min a day",
+  "@snapshotMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "snapshotHours": "{hours} h a night",
+  "@snapshotHours": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "snapshotOnTarget": "On target {percent}% of logged days",
+  "@snapshotOnTarget": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "snapshotImprove": "Key areas to improve",
+  "improveBody": "Aim for steady, gentle change: daily walks, balanced meals and enough protein.",
+  "improvePosture": "Short posture breaks every hour and the stretches below help most.",
+  "improveActivity": "Start with a 10-minute walk after a meal, then build up.",
+  "improveSleep": "Keep the same bedtime and put screens away 30 minutes before.",
+  "improveHydration": "Keep a bottle nearby and drink a glass with each meal.",
+  "improveConsistency": "Do one small thing every day — even 2 minutes keeps your streak going.",
+  "snapshotSuggested": "Exercises suggested for you",
+  "reasonPosture": "Helps with: {issue}",
+  "@reasonPosture": {
+    "placeholders": {
+      "issue": {
+        "type": "String"
+      }
+    }
+  },
+  "reasonGain": "Builds strength for a healthy weight",
+  "reasonMove": "Burns energy and is easy on the joints",
+  "reasonActivity": "Gets you moving more each day",
+  "reasonSleep": "Calms body and mind before bed",
+  "reasonDaily": "Quick and easy to do every day",
+  "reasonStart": "A good place to start",
+  "reasonGoal": "For your goal: {goal}",
+  "@reasonGoal": {
+    "placeholders": {
+      "goal": {
+        "type": "String"
+      }
+    }
+  },
+  "snapshotNote": "General wellness guidance, not medical advice. Stop any exercise that hurts."
 }

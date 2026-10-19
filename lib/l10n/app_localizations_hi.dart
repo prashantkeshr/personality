@@ -6107,4 +6107,118 @@ class AppLocalizationsHi extends AppLocalizations {
   String reminderActionSnoozeFor(int minutes) {
     return '$minutes मिनट बाद';
   }
+
+  @override
+  String get snapshotTitle => 'आपकी झलक';
+
+  @override
+  String get snapshotInfo =>
+      'हर क्षेत्र की रेटिंग इस हफ़्ते की आपकी अपनी जाँचों और लॉग से आती है। यह एक मार्गदर्शन है, फ़ैसला नहीं।';
+
+  @override
+  String get snapshotEmpty =>
+      'अपनी रेटिंग और सुझाव देखने के लिए अपनी लंबाई और वज़न जोड़ें, पोस्चर जाँच करें या कुछ दिन लॉग करें।';
+
+  @override
+  String get snapshotActivity => 'सक्रियता';
+
+  @override
+  String get snapshotHydration => 'पानी';
+
+  @override
+  String get snapshotConsistency => 'नियमितता';
+
+  @override
+  String get ratingGreat => 'बहुत अच्छा';
+
+  @override
+  String get ratingGood => 'अच्छा';
+
+  @override
+  String get ratingFair => 'ठीक-ठाक';
+
+  @override
+  String get ratingNeedsWork => 'सुधार चाहिए';
+
+  @override
+  String snapshotBmi(String value) {
+    return 'BMI $value';
+  }
+
+  @override
+  String snapshotMinutes(int minutes) {
+    return 'रोज़ $minutes मिनट सक्रिय';
+  }
+
+  @override
+  String snapshotHours(String hours) {
+    return 'रात में $hours घंटे';
+  }
+
+  @override
+  String snapshotOnTarget(int percent) {
+    return 'लॉग किए दिनों में से $percent% लक्ष्य पूरा';
+  }
+
+  @override
+  String get snapshotImprove => 'सुधार के मुख्य क्षेत्र';
+
+  @override
+  String get improveBody =>
+      'धीमे, स्थिर बदलाव का लक्ष्य रखें: रोज़ की सैर, संतुलित भोजन और पर्याप्त प्रोटीन।';
+
+  @override
+  String get improvePosture =>
+      'हर घंटे छोटे पोस्चर ब्रेक और नीचे दिए स्ट्रेच सबसे ज़्यादा मदद करते हैं।';
+
+  @override
+  String get improveActivity =>
+      'भोजन के बाद 10 मिनट की सैर से शुरू करें, फिर धीरे-धीरे बढ़ाएँ।';
+
+  @override
+  String get improveSleep =>
+      'रोज़ एक ही समय पर सोएँ और 30 मिनट पहले स्क्रीन दूर रखें।';
+
+  @override
+  String get improveHydration =>
+      'पास में बोतल रखें और हर भोजन के साथ एक गिलास पानी पिएँ।';
+
+  @override
+  String get improveConsistency =>
+      'हर दिन एक छोटा काम करें — 2 मिनट भी आपकी लय बनाए रखते हैं।';
+
+  @override
+  String get snapshotSuggested => 'आपके लिए सुझाए गए व्यायाम';
+
+  @override
+  String reasonPosture(String issue) {
+    return 'इसमें मदद: $issue';
+  }
+
+  @override
+  String get reasonGain => 'स्वस्थ वज़न के लिए ताक़त बढ़ाता है';
+
+  @override
+  String get reasonMove => 'ऊर्जा ख़र्च करता है और जोड़ों पर हल्का है';
+
+  @override
+  String get reasonActivity => 'रोज़ ज़्यादा चलने-फिरने में मदद';
+
+  @override
+  String get reasonSleep => 'सोने से पहले तन-मन को शांत करता है';
+
+  @override
+  String get reasonDaily => 'रोज़ करने में आसान और जल्दी';
+
+  @override
+  String get reasonStart => 'शुरुआत के लिए अच्छा';
+
+  @override
+  String reasonGoal(String goal) {
+    return 'आपके लक्ष्य के लिए: $goal';
+  }
+
+  @override
+  String get snapshotNote =>
+      'सामान्य वेलनेस मार्गदर्शन, चिकित्सा सलाह नहीं। जिस व्यायाम से दर्द हो, उसे रोक दें।';
 }

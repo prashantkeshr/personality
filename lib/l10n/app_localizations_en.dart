@@ -6119,4 +6119,118 @@ class AppLocalizationsEn extends AppLocalizations {
   String reminderActionSnoozeFor(int minutes) {
     return 'Snooze $minutes min';
   }
+
+  @override
+  String get snapshotTitle => 'Your snapshot';
+
+  @override
+  String get snapshotInfo =>
+      'Ratings for each area come from your own checks and logs this week. They\'re a guide, not a judgement.';
+
+  @override
+  String get snapshotEmpty =>
+      'No ratings yet. Weigh in, run a posture check or log a few days, and your ratings and suggested exercises will appear here.';
+
+  @override
+  String get snapshotActivity => 'Activity';
+
+  @override
+  String get snapshotHydration => 'Hydration';
+
+  @override
+  String get snapshotConsistency => 'Consistency';
+
+  @override
+  String get ratingGreat => 'Great';
+
+  @override
+  String get ratingGood => 'Good';
+
+  @override
+  String get ratingFair => 'Fair';
+
+  @override
+  String get ratingNeedsWork => 'Needs work';
+
+  @override
+  String snapshotBmi(String value) {
+    return 'BMI $value';
+  }
+
+  @override
+  String snapshotMinutes(int minutes) {
+    return '$minutes active min a day';
+  }
+
+  @override
+  String snapshotHours(String hours) {
+    return '$hours h a night';
+  }
+
+  @override
+  String snapshotOnTarget(int percent) {
+    return 'On target $percent% of logged days';
+  }
+
+  @override
+  String get snapshotImprove => 'Key areas to improve';
+
+  @override
+  String get improveBody =>
+      'Aim for steady, gentle change: daily walks, balanced meals and enough protein.';
+
+  @override
+  String get improvePosture =>
+      'Short posture breaks every hour and the stretches below help most.';
+
+  @override
+  String get improveActivity =>
+      'Start with a 10-minute walk after a meal, then build up.';
+
+  @override
+  String get improveSleep =>
+      'Keep the same bedtime and put screens away 30 minutes before.';
+
+  @override
+  String get improveHydration =>
+      'Keep a bottle nearby and drink a glass with each meal.';
+
+  @override
+  String get improveConsistency =>
+      'Do one small thing every day — even 2 minutes keeps your streak going.';
+
+  @override
+  String get snapshotSuggested => 'Exercises suggested for you';
+
+  @override
+  String reasonPosture(String issue) {
+    return 'Helps with: $issue';
+  }
+
+  @override
+  String get reasonGain => 'Builds strength for a healthy weight';
+
+  @override
+  String get reasonMove => 'Burns energy and is easy on the joints';
+
+  @override
+  String get reasonActivity => 'Gets you moving more each day';
+
+  @override
+  String get reasonSleep => 'Calms body and mind before bed';
+
+  @override
+  String get reasonDaily => 'Quick and easy to do every day';
+
+  @override
+  String get reasonStart => 'A good place to start';
+
+  @override
+  String reasonGoal(String goal) {
+    return 'For your goal: $goal';
+  }
+
+  @override
+  String get snapshotNote =>
+      'General wellness guidance, not medical advice. Stop any exercise that hurts.';
 }

@@ -64,10 +64,19 @@ void main() {
 
     expect(find.text('Asha'), findsOneWidget);
     expect(find.text('Posture'), findsWidgets); // goal chip + section
-    final body = find.byKey(const Key('about-body'));
-    await tester.ensureVisible(body);
-    await tester.pumpAndSettle();
-    expect(find.text('170 cm'), findsOneWidget);
+    // The snapshot rates the body from the BMI and suggests exercises for
+    // the weight and the posture goal.
+    expect(find.byKey(const Key('rating-body')), findsOneWidget);
+    await app.reveal(find.text('BMI 25.0'));
+    expect(find.text('Fair'), findsWidgets);
+    final walk = find.byKey(const Key('suggest-brisk_walk'));
+    await app.reveal(walk);
+    expect(find.text('Burns energy and is easy on the joints'), findsWidgets);
+    await app.reveal(find.byKey(const Key('suggest-wall_angels')));
+    expect(find.text('For your goal: Posture'), findsWidgets);
+
+    await app.reveal(find.text('170 cm'));
+    expect(find.byKey(const Key('about-body')), findsOneWidget);
     expect(find.text('72.3 kg'), findsOneWidget);
     expect(find.text('25.0'), findsOneWidget); // 72.25 / 1.7²
     expect(find.textContaining('rough guide'), findsOneWidget);

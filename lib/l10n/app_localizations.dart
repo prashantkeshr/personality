@@ -10695,6 +10695,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Snooze {minutes} min'**
   String reminderActionSnoozeFor(int minutes);
+
+  /// No description provided for @snapshotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your snapshot'**
+  String get snapshotTitle;
+
+  /// No description provided for @snapshotInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Ratings for each area come from your own checks and logs this week. They\'re a guide, not a judgement.'**
+  String get snapshotInfo;
+
+  /// No description provided for @snapshotEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No ratings yet. Weigh in, run a posture check or log a few days, and your ratings and suggested exercises will appear here.'**
+  String get snapshotEmpty;
+
+  /// No description provided for @snapshotActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity'**
+  String get snapshotActivity;
+
+  /// No description provided for @snapshotHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Hydration'**
+  String get snapshotHydration;
+
+  /// No description provided for @snapshotConsistency.
+  ///
+  /// In en, this message translates to:
+  /// **'Consistency'**
+  String get snapshotConsistency;
+
+  /// No description provided for @ratingGreat.
+  ///
+  /// In en, this message translates to:
+  /// **'Great'**
+  String get ratingGreat;
+
+  /// No description provided for @ratingGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get ratingGood;
+
+  /// No description provided for @ratingFair.
+  ///
+  /// In en, this message translates to:
+  /// **'Fair'**
+  String get ratingFair;
+
+  /// No description provided for @ratingNeedsWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs work'**
+  String get ratingNeedsWork;
+
+  /// No description provided for @snapshotBmi.
+  ///
+  /// In en, this message translates to:
+  /// **'BMI {value}'**
+  String snapshotBmi(String value);
+
+  /// No description provided for @snapshotMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} active min a day'**
+  String snapshotMinutes(int minutes);
+
+  /// No description provided for @snapshotHours.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours} h a night'**
+  String snapshotHours(String hours);
+
+  /// No description provided for @snapshotOnTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'On target {percent}% of logged days'**
+  String snapshotOnTarget(int percent);
+
+  /// No description provided for @snapshotImprove.
+  ///
+  /// In en, this message translates to:
+  /// **'Key areas to improve'**
+  String get snapshotImprove;
+
+  /// No description provided for @improveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Aim for steady, gentle change: daily walks, balanced meals and enough protein.'**
+  String get improveBody;
+
+  /// No description provided for @improvePosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Short posture breaks every hour and the stretches below help most.'**
+  String get improvePosture;
+
+  /// No description provided for @improveActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with a 10-minute walk after a meal, then build up.'**
+  String get improveActivity;
+
+  /// No description provided for @improveSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the same bedtime and put screens away 30 minutes before.'**
+  String get improveSleep;
+
+  /// No description provided for @improveHydration.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep a bottle nearby and drink a glass with each meal.'**
+  String get improveHydration;
+
+  /// No description provided for @improveConsistency.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one small thing every day — even 2 minutes keeps your streak going.'**
+  String get improveConsistency;
+
+  /// No description provided for @snapshotSuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises suggested for you'**
+  String get snapshotSuggested;
+
+  /// No description provided for @reasonPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Helps with: {issue}'**
+  String reasonPosture(String issue);
+
+  /// No description provided for @reasonGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Builds strength for a healthy weight'**
+  String get reasonGain;
+
+  /// No description provided for @reasonMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Burns energy and is easy on the joints'**
+  String get reasonMove;
+
+  /// No description provided for @reasonActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Gets you moving more each day'**
+  String get reasonActivity;
+
+  /// No description provided for @reasonSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Calms body and mind before bed'**
+  String get reasonSleep;
+
+  /// No description provided for @reasonDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick and easy to do every day'**
+  String get reasonDaily;
+
+  /// No description provided for @reasonStart.
+  ///
+  /// In en, this message translates to:
+  /// **'A good place to start'**
+  String get reasonStart;
+
+  /// No description provided for @reasonGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'For your goal: {goal}'**
+  String reasonGoal(String goal);
+
+  /// No description provided for @snapshotNote.
+  ///
+  /// In en, this message translates to:
+  /// **'General wellness guidance, not medical advice. Stop any exercise that hurts.'**
+  String get snapshotNote;
 }
 
 class _AppLocalizationsDelegate

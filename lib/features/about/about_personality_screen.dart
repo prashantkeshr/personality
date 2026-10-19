@@ -7,11 +7,14 @@ import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/snapshot_repository.dart';
 import '../../domain/entities/body.dart';
+import '../../domain/entities/exercise_library.dart';
 import '../../domain/services/blueprint_engine.dart';
+import '../../domain/services/personal_snapshot.dart';
 import '../../domain/services/posture_engine.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/format/body_format.dart';
 import '../../shared/visual/outfit_silhouette.dart' show hexColor;
+import '../content/content_providers.dart';
 import '../face/face_labels.dart';
 import '../face/face_providers.dart';
 import '../growth/blueprint_widgets.dart';
@@ -26,8 +29,9 @@ import '../style/style_labels.dart';
 import '../style/style_providers.dart';
 
 /// Everything the app has learned about the user, from their own checks,
-/// in one place. Read-only and descriptive: no overall score, no ranking,
-/// and each part links to where it can be checked again.
+/// in one place: per-area ratings from their data (never an overall score),
+/// what to work on, exercises that fit, and each part links to where it can
+/// be checked again.
 class AboutPersonalityScreen extends ConsumerWidget {
   const AboutPersonalityScreen({super.key});
 
@@ -46,6 +50,7 @@ class AboutPersonalityScreen extends ConsumerWidget {
         children: const [
           _Header(),
           SizedBox(height: AppSpacing.md),
+          _SnapshotSection(),
           _FaceSection(),
           _BodySection(),
           _PostureSection(),
@@ -586,6 +591,247 @@ class _GrowSection extends ConsumerWidget {
                   ),
               ],
             ),
+    );
+  }
+}
+
+/// Ratings, improvement areas and suggested exercises from the user's data.
+final personalSnapshotProvider = Provider<PersonalSnapshot>((ref) {
+  final height = ref.watch(primaryHeightProvider).value;
+  final weights = ref.watch(weightRecordsProvider).value ?? const [];
+  final postures = ref.watch(postureHistoryProvider).value ?? const [];
+  final facts = ref.watch(blueprintFactsProvider);
+  final summary = ref.watch(progressSummaryProvider);
+  final latest = postures.isEmpty
+      ? null
+      : postures.reduce((a, b) => a.recordedAt.isAfter(b.recordedAt) ? a : b);
+  final w = weights.isEmpty ? null : weights.first.value; // newest first
+  return PersonalSnapshotEngine.build(
+    bmi: height == null || w == null
+        ? null
+        : w / ((height.value / 100) * (height.value / 100)),
+    posture: latest?.result.metrics ?? const [],
+    activity: facts.activity,
+    sleep: facts.sleep,
+    water: facts.water,
+    streak: summary?.streak.current,
+    goals: facts.goals,
+  );
+});
+
+String snapshotAreaLabel(AppLocalizations l, SnapshotArea a) => switch (a) {
+  SnapshotArea.body => l.aboutBody,
+  SnapshotArea.posture => l.aboutPosture,
+  SnapshotArea.activity => l.snapshotActivity,
+  SnapshotArea.sleep => l.featureSleep,
+  SnapshotArea.hydration => l.snapshotHydration,
+  SnapshotArea.consistency => l.snapshotConsistency,
+};
+
+IconData _snapshotIcon(SnapshotArea a) => switch (a) {
+  SnapshotArea.body => Icons.monitor_weight_outlined,
+  SnapshotArea.posture => Icons.accessibility_new,
+  SnapshotArea.activity => Icons.directions_run,
+  SnapshotArea.sleep => Icons.bedtime_outlined,
+  SnapshotArea.hydration => Icons.water_drop_outlined,
+  SnapshotArea.consistency => Icons.local_fire_department_outlined,
+};
+
+String ratingLabel(AppLocalizations l, RatingLevel r) => switch (r) {
+  RatingLevel.great => l.ratingGreat,
+  RatingLevel.good => l.ratingGood,
+  RatingLevel.fair => l.ratingFair,
+  RatingLevel.needsWork => l.ratingNeedsWork,
+};
+
+Color _ratingColor(ColorScheme s, RatingLevel r) => switch (r) {
+  RatingLevel.great => Colors.green.shade600,
+  RatingLevel.good => s.primary,
+  RatingLevel.fair => Colors.amber.shade700,
+  RatingLevel.needsWork => s.error,
+};
+
+String? _ratingDetail(AppLocalizations l, AreaRating r) {
+  final v = r.value;
+  if (v == null) return null;
+  return switch (r.area) {
+    SnapshotArea.body => l.snapshotBmi(v.toStringAsFixed(1)),
+    SnapshotArea.activity => l.snapshotMinutes(v.round()),
+    SnapshotArea.sleep => l.snapshotHours(v.toStringAsFixed(1)),
+    SnapshotArea.hydration => l.snapshotOnTarget((v * 100).round()),
+    SnapshotArea.consistency => l.journeyStreak(v.round()),
+    SnapshotArea.posture => null,
+  };
+}
+
+String _improveTip(AppLocalizations l, SnapshotArea a) => switch (a) {
+  SnapshotArea.body => l.improveBody,
+  SnapshotArea.posture => l.improvePosture,
+  SnapshotArea.activity => l.improveActivity,
+  SnapshotArea.sleep => l.improveSleep,
+  SnapshotArea.hydration => l.improveHydration,
+  SnapshotArea.consistency => l.improveConsistency,
+};
+
+String _reasonText(AppLocalizations l, SuggestReason r) => switch (r) {
+  ForPosture(:final metric) => l.reasonPosture(l.postureMetricName(metric)),
+  ForWeight(gain: true) => l.reasonGain,
+  ForWeight(gain: false) => l.reasonMove,
+  ForArea(area: SnapshotArea.activity) => l.reasonActivity,
+  ForArea(area: SnapshotArea.sleep) => l.reasonSleep,
+  ForArea(area: SnapshotArea.consistency) => l.reasonDaily,
+  ForArea() => l.reasonStart,
+  ForGoal(:final goal) => l.reasonGoal(l.goalLabel(goal)),
+};
+
+class _SnapshotSection extends ConsumerWidget {
+  const _SnapshotSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final lang = Localizations.localeOf(context).languageCode;
+    final snap = ref.watch(personalSnapshotProvider);
+    final catalog = {
+      for (final e
+          in ref.watch(exerciseCatalogProvider).value ??
+              const <LibraryExercise>[])
+        e.id: e,
+    };
+    final picks = [
+      for (final s in snap.suggestions)
+        if (catalog[s.exerciseId] case final e?) (s, e),
+    ];
+    final muted = theme.textTheme.bodySmall?.copyWith(
+      color: scheme.onSurfaceVariant,
+    );
+
+    return _Section(
+      icon: Icons.insights_outlined,
+      title: l.snapshotTitle,
+      child: Column(
+        key: const Key('about-snapshot'),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(snap.isEmpty ? l.snapshotEmpty : l.snapshotInfo, style: muted),
+          if (!snap.isEmpty) ...[
+            const SizedBox(height: AppSpacing.sm),
+            for (final r in snap.ratings) _RatingRow(r),
+          ],
+          if (snap.improvements.isNotEmpty) ...[
+            const SizedBox(height: AppSpacing.md),
+            Text(l.snapshotImprove, style: theme.textTheme.labelLarge),
+            for (final r in snap.improvements)
+              ListTile(
+                key: Key('improve-${r.area.name}'),
+                contentPadding: EdgeInsets.zero,
+                dense: true,
+                leading: Icon(
+                  _snapshotIcon(r.area),
+                  color: _ratingColor(scheme, r.level),
+                ),
+                title: Text(snapshotAreaLabel(l, r.area)),
+                subtitle: Text(_improveTip(l, r.area)),
+              ),
+          ],
+          if (picks.isNotEmpty) ...[
+            const SizedBox(height: AppSpacing.sm),
+            Text(l.snapshotSuggested, style: theme.textTheme.labelLarge),
+            for (final (s, e) in picks)
+              ListTile(
+                key: Key('suggest-${e.id}'),
+                contentPadding: EdgeInsets.zero,
+                dense: true,
+                leading: CircleAvatar(
+                  backgroundColor: scheme.secondaryContainer,
+                  child: Icon(
+                    Icons.fitness_center,
+                    size: 18,
+                    color: scheme.onSecondaryContainer,
+                  ),
+                ),
+                title: Text(LibraryExercise.pick(e.name, lang)),
+                subtitle: Text(_reasonText(l, s.reason)),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () =>
+                    context.push('${AppRoutes.exerciseLibrary}/${e.id}'),
+              ),
+          ],
+          const SizedBox(height: AppSpacing.xs),
+          Text(l.snapshotNote, style: muted),
+        ],
+      ),
+    );
+  }
+}
+
+/// One area: its name, the number behind it and a four-step meter.
+class _RatingRow extends StatelessWidget {
+  const _RatingRow(this.rating);
+  final AreaRating rating;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final color = _ratingColor(scheme, rating.level);
+    final filled = RatingLevel.values.length - rating.level.index;
+    final detail = _ratingDetail(l, rating);
+    final label = snapshotAreaLabel(l, rating.area);
+    final level = ratingLabel(l, rating.level);
+    return Semantics(
+      label: detail == null ? '$label: $level' : '$label: $level, $detail',
+      excludeSemantics: true,
+      child: Padding(
+        key: Key('rating-${rating.area.name}'),
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: Row(
+          children: [
+            Icon(_snapshotIcon(rating.area), size: 20, color: color),
+            const SizedBox(width: AppSpacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(label, style: theme.textTheme.bodyMedium),
+                  if (detail != null)
+                    Text(
+                      detail,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            for (var i = 0; i < RatingLevel.values.length; i++)
+              Container(
+                width: 14,
+                height: 6,
+                margin: const EdgeInsetsDirectional.only(start: 3),
+                decoration: BoxDecoration(
+                  color: i < filled ? color : scheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(3),
+                ),
+              ),
+            const SizedBox(width: AppSpacing.sm),
+            SizedBox(
+              width: 84,
+              child: Text(
+                level,
+                textAlign: TextAlign.end,
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: color,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
