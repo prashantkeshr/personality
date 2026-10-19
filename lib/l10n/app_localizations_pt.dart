@@ -4388,7 +4388,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get skillsIntro =>
-      'Artes marciais indianas e do mundo, cada uma com as suas técnicas, exercícios e dicas.';
+      'Ioga e artes marciais indianas e do mundo, cada uma com as suas técnicas, exercícios e dicas.';
 
   @override
   String get skillsIndian => 'Artes marciais indianas';
@@ -5824,4 +5824,157 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get aboutSeeMore => 'Ver mais';
+
+  @override
+  String get skillsMindBody => 'Ioga e corpo-mente';
+
+  @override
+  String get practiceRoutine => 'Minha prática';
+
+  @override
+  String practiceItem(String skill, int minutes) {
+    return 'Praticar $skill · $minutes min';
+  }
+
+  @override
+  String practiceAdded(String skill) {
+    return '$skill está no seu dia, com lembrete';
+  }
+
+  @override
+  String practiceAddTitle(String skill) {
+    return 'Adicionar $skill ao meu dia';
+  }
+
+  @override
+  String get practiceAddInfo =>
+      'Um horário diário à sua escolha, com lembrete. Aparece no seu plano do dia.';
+
+  @override
+  String get practiceTime => 'Horário';
+
+  @override
+  String get practiceLength => 'Duração';
+
+  @override
+  String get practiceAddButton => 'Adicionar ao meu dia';
+
+  @override
+  String get goalStrength => 'Ganhar força';
+
+  @override
+  String get goalMindfulness => 'Calma e atenção plena';
+
+  @override
+  String get goalEnergy => 'Mais energia';
+
+  @override
+  String get goalNutrition => 'Comer bem';
+
+  @override
+  String get goalSkinCare => 'Cuidados com a pele';
+
+  @override
+  String get goalConfidence => 'Confiança';
+
+  @override
+  String get ideasTitle => 'Ideias de hábitos';
+
+  @override
+  String get ideasIntro =>
+      'Hábitos comuns que as pessoas acham úteis. Escolha um e mude o nome ou os dias antes de adicionar.';
+
+  @override
+  String get ideasBrowse => 'Ver ideias de hábitos';
+
+  @override
+  String get ideaGroupFood => 'Comida e bebida';
+
+  @override
+  String get ideaGroupBody => 'Movimento';
+
+  @override
+  String get ideaGroupMind => 'Mente';
+
+  @override
+  String get ideaGroupSleep => 'Noite e sono';
+
+  @override
+  String get ideaWaterOnWaking => 'Um copo de água ao acordar';
+
+  @override
+  String get ideaFruitDaily => 'Comer uma fruta';
+
+  @override
+  String get ideaVegEveryMeal => 'Legumes no almoço e no jantar';
+
+  @override
+  String get ideaHomeCooked => 'Comer uma refeição caseira';
+
+  @override
+  String get ideaNoSugaryDrinks => 'Sem bebidas açucaradas';
+
+  @override
+  String get ideaWalkAfterMeals => 'Caminhada de 10 minutos após comer';
+
+  @override
+  String get ideaStretchMorning => 'Alongamento matinal';
+
+  @override
+  String get ideaStairs => 'Usar as escadas';
+
+  @override
+  String get ideaRead10 => 'Ler 10 minutos';
+
+  @override
+  String get ideaBreathe => '2 minutos de respiração lenta';
+
+  @override
+  String get ideaGratitude => 'Anotar uma coisa boa do dia';
+
+  @override
+  String get ideaNoScreensBed => 'Sem telas 30 min antes de dormir';
+
+  @override
+  String get ideaSameBedtime => 'Deitar no mesmo horário';
+
+  @override
+  String get ideaSkincareNight => 'Cuidados com a pele à noite';
+
+  @override
+  String mealIdeasFor(String meal) {
+    return 'Ideias para $meal';
+  }
+
+  @override
+  String get mealIdeasInfo =>
+      'De acordo com a sua dieta e a culinária local. Toque em + para registrar.';
+
+  @override
+  String mealIdeaNutrition(int kcal, int protein) {
+    return '$kcal kcal · $protein g de proteína';
+  }
+
+  @override
+  String get mealIdeaLog => 'Registrar';
+
+  @override
+  String mealIdeaLogged(String dish) {
+    return 'Registrado: $dish';
+  }
+
+  @override
+  String get sampleDayTitle => 'Um dia de exemplo';
+
+  @override
+  String get sampleDayAnother => 'Outro';
+
+  @override
+  String sampleDayTotals(int kcal, int protein) {
+    return 'Cerca de $kcal kcal e $protein g de proteína no total';
+  }
+
+  @override
+  String get sampleDayNote =>
+      'Ajustado ao seu plano ou às necessidades estimadas pela altura e peso. É um guia, não uma prescrição.';
 }

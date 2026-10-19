@@ -39,6 +39,9 @@ class Discipline {
 
   bool get indian => family == 'indian';
 
+  /// Yoga and other mind-body practice, shown in its own section.
+  bool get mindBody => family == 'mindbody';
+
   static Map<String, String> _t(Object? v) =>
       (v as Map<String, dynamic>? ?? const {}).map((k, v) => MapEntry(k, v as String));
 

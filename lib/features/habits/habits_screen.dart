@@ -11,6 +11,7 @@ import '../../shared/widgets/async_view.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/add_record_sheet.dart' show confirmDelete;
+import 'habit_ideas.dart';
 
 /// Habits (spec §30). Reports observable behaviour as counts — never
 /// judgements about the person.
@@ -26,6 +27,24 @@ class HabitsScreen extends ConsumerWidget {
         builder: (_) => _HabitSheet(habit: habit),
       );
 
+  /// Picks a common habit, then opens the editor with it filled in.
+  static Future<void> fromIdeas(BuildContext context, List<Habit> habits) async {
+    final idea = await showHabitIdeas(
+      context,
+      existing: {for (final h in habits) h.name.toLowerCase()},
+    );
+    if (idea == null || !context.mounted) return;
+    final l10n = AppLocalizations.of(context);
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      showDragHandle: true,
+      builder: (_) =>
+          _HabitSheet(initialName: idea.label(l10n), initialDays: idea.days),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
@@ -35,7 +54,18 @@ class HabitsScreen extends ConsumerWidget {
     final completions = ref.watch(habitCompletionsProvider).value ?? const [];
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.featureHabits)),
+      appBar: AppBar(
+        title: Text(l10n.featureHabits),
+        actions: [
+          IconButton(
+            key: const Key('habit-ideas'),
+            tooltip: l10n.ideasTitle,
+            onPressed: () =>
+                fromIdeas(context, ref.read(habitsProvider).value ?? const []),
+            icon: const Icon(Icons.lightbulb_outline),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => edit(context),
         icon: const Icon(Icons.add),
@@ -46,10 +76,21 @@ class HabitsScreen extends ConsumerWidget {
         data: (habits) {
           if (habits.isEmpty) {
             return Center(
-              child: EmptyState(
-                icon: Icons.check_circle_outline,
-                title: l10n.featureHabits,
-                message: l10n.habitsEmpty,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  EmptyState(
+                    icon: Icons.check_circle_outline,
+                    title: l10n.featureHabits,
+                    message: l10n.habitsEmpty,
+                  ),
+                  FilledButton.tonalIcon(
+                    key: const Key('habit-ideas-empty'),
+                    onPressed: () => fromIdeas(context, habits),
+                    icon: const Icon(Icons.lightbulb_outline),
+                    label: Text(l10n.ideasBrowse),
+                  ),
+                ],
               ),
             );
           }
@@ -210,9 +251,13 @@ class _HabitTile extends ConsumerWidget {
 }
 
 class _HabitSheet extends ConsumerStatefulWidget {
-  const _HabitSheet({this.habit});
+  const _HabitSheet({this.habit, this.initialName, this.initialDays});
 
   final Habit? habit;
+
+  /// Starting values for a new habit (from an idea).
+  final String? initialName;
+  final Weekdays? initialDays;
 
   @override
   ConsumerState<_HabitSheet> createState() => _HabitSheetState();
@@ -220,8 +265,10 @@ class _HabitSheet extends ConsumerStatefulWidget {
 
 class _HabitSheetState extends ConsumerState<_HabitSheet> {
   final _form = GlobalKey<FormState>();
-  late final _name = TextEditingController(text: widget.habit?.name);
-  late Weekdays _days = widget.habit?.schedule ?? Weekdays.everyDay;
+  late final _name =
+      TextEditingController(text: widget.habit?.name ?? widget.initialName);
+  late Weekdays _days =
+      widget.habit?.schedule ?? widget.initialDays ?? Weekdays.everyDay;
   bool _saving = false;
   bool _daysError = false;
 

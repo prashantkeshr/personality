@@ -4347,7 +4347,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get skillsIntro =>
-      'भारतीय और विश्व की युद्ध-कलाएँ, हर एक की अपनी तकनीक, अभ्यास और टिप्स।';
+      'योग, भारतीय और विश्व की युद्ध-कलाएँ, हर एक की अपनी तकनीक, अभ्यास और टिप्स।';
 
   @override
   String get skillsIndian => 'भारतीय युद्ध-कलाएँ';
@@ -5764,4 +5764,157 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get aboutSeeMore => 'और देखें';
+
+  @override
+  String get skillsMindBody => 'योग और मन-शरीर';
+
+  @override
+  String get practiceRoutine => 'मेरा अभ्यास';
+
+  @override
+  String practiceItem(String skill, int minutes) {
+    return '$skill का अभ्यास · $minutes मिनट';
+  }
+
+  @override
+  String practiceAdded(String skill) {
+    return '$skill आपके दिन में जुड़ गया, रिमाइंडर के साथ';
+  }
+
+  @override
+  String practiceAddTitle(String skill) {
+    return '$skill को मेरे दिन में जोड़ें';
+  }
+
+  @override
+  String get practiceAddInfo =>
+      'आपके चुने समय पर रोज़ का समय, रिमाइंडर के साथ। यह आपकी दिन की योजना में दिखेगा।';
+
+  @override
+  String get practiceTime => 'समय';
+
+  @override
+  String get practiceLength => 'कितनी देर';
+
+  @override
+  String get practiceAddButton => 'मेरे दिन में जोड़ें';
+
+  @override
+  String get goalStrength => 'ताकत बढ़ाएँ';
+
+  @override
+  String get goalMindfulness => 'शांति और सजगता';
+
+  @override
+  String get goalEnergy => 'ज़्यादा ऊर्जा';
+
+  @override
+  String get goalNutrition => 'अच्छा खाएँ';
+
+  @override
+  String get goalSkinCare => 'त्वचा की देखभाल';
+
+  @override
+  String get goalConfidence => 'आत्मविश्वास';
+
+  @override
+  String get ideasTitle => 'आदतों के सुझाव';
+
+  @override
+  String get ideasIntro =>
+      'आम आदतें जो लोगों को मददगार लगती हैं। एक चुनें, फिर जोड़ने से पहले नाम या दिन बदलें।';
+
+  @override
+  String get ideasBrowse => 'आदतों के सुझाव देखें';
+
+  @override
+  String get ideaGroupFood => 'खाना-पीना';
+
+  @override
+  String get ideaGroupBody => 'चलना-फिरना';
+
+  @override
+  String get ideaGroupMind => 'मन';
+
+  @override
+  String get ideaGroupSleep => 'शाम और नींद';
+
+  @override
+  String get ideaWaterOnWaking => 'उठने के बाद एक गिलास पानी';
+
+  @override
+  String get ideaFruitDaily => 'एक फल खाएँ';
+
+  @override
+  String get ideaVegEveryMeal => 'दोपहर और रात के खाने में सब्ज़ी';
+
+  @override
+  String get ideaHomeCooked => 'घर का बना खाना खाएँ';
+
+  @override
+  String get ideaNoSugaryDrinks => 'मीठे पेय नहीं';
+
+  @override
+  String get ideaWalkAfterMeals => 'खाने के बाद 10 मिनट की सैर';
+
+  @override
+  String get ideaStretchMorning => 'सुबह का स्ट्रेच';
+
+  @override
+  String get ideaStairs => 'सीढ़ियाँ लें';
+
+  @override
+  String get ideaRead10 => '10 मिनट पढ़ें';
+
+  @override
+  String get ideaBreathe => '2 मिनट धीमी साँस';
+
+  @override
+  String get ideaGratitude => 'आज की एक अच्छी बात लिखें';
+
+  @override
+  String get ideaNoScreensBed => 'सोने से 30 मिनट पहले स्क्रीन नहीं';
+
+  @override
+  String get ideaSameBedtime => 'रोज़ एक ही समय पर सोएँ';
+
+  @override
+  String get ideaSkincareNight => 'शाम की त्वचा देखभाल';
+
+  @override
+  String mealIdeasFor(String meal) {
+    return '$meal के लिए सुझाव';
+  }
+
+  @override
+  String get mealIdeasInfo =>
+      'आपके आहार और स्थानीय खाने के अनुसार। दर्ज करने के लिए + दबाएँ।';
+
+  @override
+  String mealIdeaNutrition(int kcal, int protein) {
+    return '$kcal कैलोरी · $protein ग्रा प्रोटीन';
+  }
+
+  @override
+  String get mealIdeaLog => 'इसे दर्ज करें';
+
+  @override
+  String mealIdeaLogged(String dish) {
+    return 'दर्ज: $dish';
+  }
+
+  @override
+  String get sampleDayTitle => 'एक नमूना दिन';
+
+  @override
+  String get sampleDayAnother => 'दूसरा';
+
+  @override
+  String sampleDayTotals(int kcal, int protein) {
+    return 'कुल लगभग $kcal कैलोरी और $protein ग्रा प्रोटीन';
+  }
+
+  @override
+  String get sampleDayNote =>
+      'आपकी योजना या ऊँचाई-वज़न से आँकी ज़रूरत के अनुसार। यह एक मार्गदर्शन है, नुस्खा नहीं।';
 }

@@ -4375,7 +4375,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get skillsIntro =>
-      'Bela diri India dan dunia, masing-masing dengan teknik, latihan, dan tipsnya.';
+      'Yoga, bela diri India dan dunia, masing-masing dengan teknik, latihan, dan tipsnya.';
 
   @override
   String get skillsIndian => 'Bela diri India';
@@ -5807,4 +5807,157 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get aboutSeeMore => 'Lihat lebih';
+
+  @override
+  String get skillsMindBody => 'Yoga & pikiran-tubuh';
+
+  @override
+  String get practiceRoutine => 'Latihanku';
+
+  @override
+  String practiceItem(String skill, int minutes) {
+    return 'Latih $skill · $minutes mnt';
+  }
+
+  @override
+  String practiceAdded(String skill) {
+    return '$skill ada di harimu, dengan pengingat';
+  }
+
+  @override
+  String practiceAddTitle(String skill) {
+    return 'Tambahkan $skill ke hariku';
+  }
+
+  @override
+  String get practiceAddInfo =>
+      'Waktu harian pilihanmu, dengan pengingat. Muncul di rencana harimu.';
+
+  @override
+  String get practiceTime => 'Waktu';
+
+  @override
+  String get practiceLength => 'Berapa lama';
+
+  @override
+  String get practiceAddButton => 'Tambahkan ke hariku';
+
+  @override
+  String get goalStrength => 'Bangun kekuatan';
+
+  @override
+  String get goalMindfulness => 'Tenang & berkesadaran';
+
+  @override
+  String get goalEnergy => 'Lebih berenergi';
+
+  @override
+  String get goalNutrition => 'Makan dengan baik';
+
+  @override
+  String get goalSkinCare => 'Perawatan kulit';
+
+  @override
+  String get goalConfidence => 'Percaya diri';
+
+  @override
+  String get ideasTitle => 'Ide kebiasaan';
+
+  @override
+  String get ideasIntro =>
+      'Kebiasaan umum yang banyak orang anggap membantu. Pilih satu, lalu ubah nama atau harinya sebelum menambahkan.';
+
+  @override
+  String get ideasBrowse => 'Lihat ide kebiasaan';
+
+  @override
+  String get ideaGroupFood => 'Makanan & minuman';
+
+  @override
+  String get ideaGroupBody => 'Bergerak';
+
+  @override
+  String get ideaGroupMind => 'Pikiran';
+
+  @override
+  String get ideaGroupSleep => 'Malam & tidur';
+
+  @override
+  String get ideaWaterOnWaking => 'Segelas air setelah bangun';
+
+  @override
+  String get ideaFruitDaily => 'Makan buah';
+
+  @override
+  String get ideaVegEveryMeal => 'Sayur saat makan siang dan malam';
+
+  @override
+  String get ideaHomeCooked => 'Makan masakan rumah';
+
+  @override
+  String get ideaNoSugaryDrinks => 'Tanpa minuman manis';
+
+  @override
+  String get ideaWalkAfterMeals => 'Jalan 10 menit setelah makan';
+
+  @override
+  String get ideaStretchMorning => 'Peregangan pagi';
+
+  @override
+  String get ideaStairs => 'Naik tangga';
+
+  @override
+  String get ideaRead10 => 'Membaca 10 menit';
+
+  @override
+  String get ideaBreathe => '2 menit napas pelan';
+
+  @override
+  String get ideaGratitude => 'Catat satu hal baik hari ini';
+
+  @override
+  String get ideaNoScreensBed => 'Tanpa layar 30 mnt sebelum tidur';
+
+  @override
+  String get ideaSameBedtime => 'Tidur di jam yang sama';
+
+  @override
+  String get ideaSkincareNight => 'Perawatan kulit malam';
+
+  @override
+  String mealIdeasFor(String meal) {
+    return 'Ide untuk $meal';
+  }
+
+  @override
+  String get mealIdeasInfo =>
+      'Sesuai dietmu dan masakan lokal. Ketuk + untuk mencatat.';
+
+  @override
+  String mealIdeaNutrition(int kcal, int protein) {
+    return '$kcal kkal · $protein g protein';
+  }
+
+  @override
+  String get mealIdeaLog => 'Catat ini';
+
+  @override
+  String mealIdeaLogged(String dish) {
+    return 'Tercatat: $dish';
+  }
+
+  @override
+  String get sampleDayTitle => 'Contoh satu hari';
+
+  @override
+  String get sampleDayAnother => 'Lainnya';
+
+  @override
+  String sampleDayTotals(int kcal, int protein) {
+    return 'Sekitar $kcal kkal dan $protein g protein total';
+  }
+
+  @override
+  String get sampleDayNote =>
+      'Disesuaikan dengan rencanamu, atau kebutuhan perkiraan dari tinggi dan berat. Panduan, bukan resep.';
 }

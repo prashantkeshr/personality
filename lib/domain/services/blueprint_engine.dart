@@ -99,6 +99,12 @@ abstract final class Blueprint {
     GoalType.habits: BlueprintArea.habits,
     GoalType.style: BlueprintArea.style,
     GoalType.grooming: BlueprintArea.grooming,
+    GoalType.strength: BlueprintArea.fitness,
+    GoalType.mindfulness: BlueprintArea.sleep,
+    GoalType.energy: BlueprintArea.fitness,
+    GoalType.nutrition: BlueprintArea.body,
+    GoalType.skinCare: BlueprintArea.grooming,
+    GoalType.confidence: BlueprintArea.style,
   };
 
   static BlueprintArea areaOf(GoalType g) => _goalArea[g]!;

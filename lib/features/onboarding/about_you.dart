@@ -32,6 +32,8 @@ class AboutYouData {
     GoalType.fitness,
     GoalType.flexibility,
     GoalType.hydration,
+    GoalType.strength,
+    GoalType.nutrition,
   };
 
   /// Height, weight, activity and diet are only asked when a goal needs

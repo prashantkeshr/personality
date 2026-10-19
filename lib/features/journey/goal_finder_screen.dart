@@ -80,7 +80,54 @@ IconData goalIcon(GoalType g) => switch (g) {
       GoalType.habits => Icons.task_alt,
       GoalType.style => Icons.checkroom_outlined,
       GoalType.grooming => Icons.content_cut,
+      GoalType.strength => Icons.fitness_center,
+      GoalType.mindfulness => Icons.spa_outlined,
+      GoalType.energy => Icons.bolt,
+      GoalType.nutrition => Icons.restaurant_outlined,
+      GoalType.skinCare => Icons.face_retouching_natural,
+      GoalType.confidence => Icons.emoji_emotions_outlined,
     };
+
+/// Soft colour per goal for the illustrated tile used where there is no
+/// photo yet.
+double goalHue(GoalType g) => switch (g) {
+      GoalType.strength => 12,
+      GoalType.mindfulness => 165,
+      GoalType.energy => 42,
+      GoalType.nutrition => 95,
+      GoalType.skinCare => 330,
+      GoalType.confidence => 265,
+      _ => 190,
+    };
+
+/// A goal's photo, or an illustrated tile (colour wash and a large icon).
+class GoalArt extends StatelessWidget {
+  const GoalArt(this.goal, {super.key});
+  final GoalType goal;
+
+  @override
+  Widget build(BuildContext context) {
+    final image = goalImages[goal];
+    if (image != null) return Image.asset(image, fit: BoxFit.cover);
+    final h = goalHue(goal);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: AlignmentDirectional.topStart,
+          end: AlignmentDirectional.bottomEnd,
+          colors: [
+            HSLColor.fromAHSL(1, h, 0.55, 0.55).toColor(),
+            HSLColor.fromAHSL(1, (h + 40) % 360, 0.5, 0.3).toColor(),
+          ],
+        ),
+      ),
+      child: Align(
+        alignment: const AlignmentDirectional(0.7, -0.3),
+        child: Icon(goalIcon(goal), size: 88, color: Colors.white24),
+      ),
+    );
+  }
+}
 
 /// A visual way to choose goals and style: tap the images that appeal.
 class GoalFinderScreen extends ConsumerStatefulWidget {
@@ -118,7 +165,8 @@ class _GoalFinderScreenState extends ConsumerState<GoalFinderScreen> {
               _Choice(
                 key: 'goal-${g.name}',
                 label: l10n.goalLabel(g),
-                image: goalImages[g]!,
+                image: goalImages[g] ?? '',
+                art: goalImages[g] == null ? GoalArt(g) : null,
                 icon: goalIcon(g),
                 selected: goals.contains(g),
                 onTap: () => setState(() =>
@@ -241,11 +289,15 @@ class _Choice {
     required this.icon,
     required this.selected,
     required this.onTap,
+    this.art,
   });
 
   final String key;
   final String label;
   final String image;
+
+  /// Drawn instead of [image] when there is no photo.
+  final Widget? art;
   final IconData icon;
   final bool selected;
   final VoidCallback onTap;
@@ -289,7 +341,7 @@ class _ChoiceCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Stack(fit: StackFit.expand, children: [
-                Image.asset(
+                if (c.art != null) c.art! else Image.asset(
                   c.image,
                   fit: BoxFit.cover,
                   errorBuilder: (_, _, _) => DecoratedBox(

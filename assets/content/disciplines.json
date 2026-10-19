@@ -559,5 +559,58 @@
     "hi": "प्रहार सिर्फ़ जगह बनाने के लिए करें, फिर निकल जाएँ।"
    }
   ]
+ },
+ {
+  "id": "yoga",
+  "family": "mindbody",
+  "hue": 150,
+  "motion": "tree_pose",
+  "pack": "yoga-stretch",
+  "name": {
+   "en": "Yoga",
+   "hi": "योग"
+  },
+  "region": {
+   "en": "India",
+   "hi": "भारत"
+  },
+  "about": {
+   "en": "Poses, flows and breathing from India that build strength, balance and calm.",
+   "hi": "भारत की मुद्राएँ, प्रवाह और श्वास जो ताकत, संतुलन और शांति बढ़ाते हैं।"
+  },
+  "trains": {
+   "en": "Flexibility, balance, core strength, breathing",
+   "hi": "लचीलापन, संतुलन, कोर की ताकत, श्वास"
+  },
+  "safety": {
+   "en": "Practise on a non-slip mat, never force a pose, and skip anything that hurts. If you are pregnant or have a condition, ask a teacher or doctor first.",
+   "hi": "फिसलन-रहित मैट पर अभ्यास करें, मुद्रा में ज़ोर न लगाएँ और दर्द वाली चीज़ छोड़ दें। गर्भावस्था या कोई बीमारी हो तो पहले शिक्षक या डॉक्टर से पूछें।"
+  },
+  "tips": [
+   {
+    "en": "Breathe through the nose and let the breath set the pace.",
+    "hi": "नाक से साँस लें और साँस को गति तय करने दें।"
+   },
+   {
+    "en": "Little and often beats long and rare: 10 minutes a day adds up.",
+    "hi": "थोड़ा-थोड़ा रोज़ बेहतर है: रोज़ 10 मिनट जुड़ते जाते हैं।"
+   },
+   {
+    "en": "Soft knees are fine in folds: the spine matters more than the legs.",
+    "hi": "झुकते समय घुटने हल्के मुड़े रह सकते हैं: रीढ़ ज़्यादा ज़रूरी है।"
+   },
+   {
+    "en": "In balance poses, fix your gaze on one still point.",
+    "hi": "संतुलन की मुद्राओं में नज़र एक स्थिर बिंदु पर रखें।"
+   },
+   {
+    "en": "Practise on an empty or light stomach.",
+    "hi": "खाली या हल्के पेट अभ्यास करें।"
+   },
+   {
+    "en": "End with a minute of calm breathing.",
+    "hi": "एक मिनट की शांत साँस से समाप्त करें।"
+   }
+  ]
  }
 ]

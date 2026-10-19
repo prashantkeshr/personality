@@ -267,5 +267,141 @@
         "rest": 0
       }
     ]
+  },
+  {
+    "id": "yoga_sun_flow",
+    "category": "yoga",
+    "level": "beginner",
+    "title": {
+      "en": "Morning sun flow",
+      "hi": "सुबह का सूर्य प्रवाह"
+    },
+    "summary": {
+      "en": "Wake up the whole body: sun salutation and standing poses.",
+      "hi": "पूरे शरीर को जगाएँ: सूर्य नमस्कार और खड़ी मुद्राएँ।"
+    },
+    "rounds": 1,
+    "discipline": "yoga",
+    "steps": [
+      {
+        "exercise": "mountain_pose",
+        "seconds": 30,
+        "rest": 5
+      },
+      {
+        "exercise": "surya_namaskar",
+        "seconds": 90,
+        "rest": 10
+      },
+      {
+        "exercise": "warrior_1",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "warrior_2",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "forward_fold",
+        "seconds": 30,
+        "rest": 5
+      }
+    ]
+  },
+  {
+    "id": "yoga_balance",
+    "category": "yoga",
+    "level": "beginner",
+    "title": {
+      "en": "Balance and strength",
+      "hi": "संतुलन और ताकत"
+    },
+    "summary": {
+      "en": "Steady standing poses for focus and leg strength.",
+      "hi": "एकाग्रता और पैरों की ताकत के लिए स्थिर खड़ी मुद्राएँ।"
+    },
+    "rounds": 1,
+    "discipline": "yoga",
+    "steps": [
+      {
+        "exercise": "tree_pose",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "chair_pose",
+        "seconds": 30,
+        "rest": 10
+      },
+      {
+        "exercise": "goddess_pose",
+        "seconds": 30,
+        "rest": 10
+      },
+      {
+        "exercise": "triangle",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "boat_pose",
+        "seconds": 20,
+        "rest": 10
+      }
+    ]
+  },
+  {
+    "id": "yoga_evening_calm",
+    "category": "yoga",
+    "level": "beginner",
+    "title": {
+      "en": "Evening calm",
+      "hi": "शाम की शांति"
+    },
+    "summary": {
+      "en": "Floor poses and slow breathing to wind down.",
+      "hi": "आराम के लिए ज़मीन की मुद्राएँ और धीमी साँस।"
+    },
+    "rounds": 1,
+    "discipline": "yoga",
+    "steps": [
+      {
+        "exercise": "cat_cow",
+        "seconds": 45,
+        "rest": 5
+      },
+      {
+        "exercise": "low_lunge",
+        "seconds": 30,
+        "sides": true,
+        "rest": 10
+      },
+      {
+        "exercise": "cobra",
+        "seconds": 30,
+        "rest": 10
+      },
+      {
+        "exercise": "child_pose",
+        "seconds": 45,
+        "rest": 5
+      },
+      {
+        "exercise": "seated_fold",
+        "seconds": 45,
+        "rest": 5
+      },
+      {
+        "exercise": "seated_breath",
+        "seconds": 90,
+        "rest": 0
+      }
+    ]
   }
 ]

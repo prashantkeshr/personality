@@ -362,7 +362,9 @@
       "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
       "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
     },
-    "motion": "cat_cow"
+    "motion": "cat_cow",
+    "discipline": "yoga",
+    "kind": "technique"
   },
   {
     "id": "glute_bridge",
@@ -430,7 +432,9 @@
       "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
       "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
     },
-    "motion": "child_pose"
+    "motion": "child_pose",
+    "discipline": "yoga",
+    "kind": "technique"
   },
   {
     "id": "hamstring_stretch",
@@ -772,6 +776,600 @@
       "en": "Move within a comfortable range. Stop if you feel pain, dizziness or numbness.",
       "hi": "आरामदायक दायरे में करें। दर्द, चक्कर या सुन्नपन लगे तो रुक जाएँ।"
     },
-    "motion": "surya_namaskar"
+    "motion": "surya_namaskar",
+    "discipline": "yoga",
+    "kind": "drill"
+  },
+  {
+    "id": "mountain_pose",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Mountain pose (Tadasana)",
+      "hi": "ताड़ासन"
+    },
+    "summary": {
+      "en": "The base of every standing pose: tall, steady and even.",
+      "hi": "हर खड़ी मुद्रा का आधार: सीधा, स्थिर और संतुलित।"
+    },
+    "steps": {
+      "en": [
+        "Stand with feet hip-width apart, weight even.",
+        "Lengthen the spine and relax the shoulders.",
+        "Sweep the arms overhead as you breathe in."
+      ],
+      "hi": [
+        "पैर कूल्हे जितनी दूरी पर रखें, वज़न बराबर।",
+        "रीढ़ लंबी करें और कंधे ढीले रखें।",
+        "साँस लेते हुए हाथ ऊपर ले जाएँ।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "mountain_pose",
+    "muscles": [
+      "core"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "tree_pose",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Tree pose (Vrikshasana)",
+      "hi": "वृक्षासन"
+    },
+    "summary": {
+      "en": "Balance on one leg to build focus and ankle strength.",
+      "hi": "एक पैर पर संतुलन: एकाग्रता और टखनों की मज़बूती।"
+    },
+    "steps": {
+      "en": [
+        "Shift weight onto one foot.",
+        "Place the other sole on the calf or inner thigh, never the knee.",
+        "Bring palms together, then overhead."
+      ],
+      "hi": [
+        "वज़न एक पैर पर ले जाएँ।",
+        "दूसरे पैर का तलवा पिंडली या भीतरी जाँघ पर रखें, घुटने पर नहीं।",
+        "हथेलियाँ मिलाएँ, फिर ऊपर ले जाएँ।"
+      ]
+    },
+    "dose": {
+      "en": "5 breaths each side",
+      "hi": "हर तरफ़ 5 साँसें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "tree_pose",
+    "muscles": [
+      "calves",
+      "core"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "warrior_1",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Warrior I (Virabhadrasana I)",
+      "hi": "वीरभद्रासन I"
+    },
+    "summary": {
+      "en": "A strong lunge with arms overhead.",
+      "hi": "हाथ ऊपर करके मज़बूत लंज।"
+    },
+    "steps": {
+      "en": [
+        "Step one foot back, toes slightly out.",
+        "Bend the front knee over the ankle.",
+        "Reach both arms up and lift the chest."
+      ],
+      "hi": [
+        "एक पैर पीछे ले जाएँ, पंजे थोड़े बाहर।",
+        "आगे का घुटना टखने के ऊपर मोड़ें।",
+        "दोनों हाथ ऊपर उठाएँ और छाती खोलें।"
+      ]
+    },
+    "dose": {
+      "en": "5 breaths each side",
+      "hi": "हर तरफ़ 5 साँसें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "warrior_1",
+    "muscles": [
+      "quads",
+      "glutes"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "warrior_2",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Warrior II (Virabhadrasana II)",
+      "hi": "वीरभद्रासन II"
+    },
+    "summary": {
+      "en": "Wide stance, arms out: builds leg strength and stamina.",
+      "hi": "चौड़ा रुख, हाथ फैले: पैरों की ताकत और सहनशक्ति।"
+    },
+    "steps": {
+      "en": [
+        "Step the feet wide, front foot forward.",
+        "Bend the front knee; keep the back leg straight.",
+        "Stretch the arms out at shoulder height, gaze forward."
+      ],
+      "hi": [
+        "पैर चौड़े रखें, आगे का पंजा सामने।",
+        "आगे का घुटना मोड़ें; पीछे का पैर सीधा।",
+        "हाथ कंधे की ऊँचाई पर फैलाएँ, नज़र आगे।"
+      ]
+    },
+    "dose": {
+      "en": "5 breaths each side",
+      "hi": "हर तरफ़ 5 साँसें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "warrior_2",
+    "muscles": [
+      "quads",
+      "shoulders"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "triangle",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Triangle pose (Trikonasana)",
+      "hi": "त्रिकोणासन"
+    },
+    "summary": {
+      "en": "A side stretch for the waist, hamstrings and chest.",
+      "hi": "कमर, हैमस्ट्रिंग और छाती का साइड स्ट्रेच।"
+    },
+    "steps": {
+      "en": [
+        "Stand wide with both legs straight.",
+        "Reach forward over the front leg, then tip down.",
+        "Rest the hand on the shin; the other arm points up."
+      ],
+      "hi": [
+        "दोनों पैर सीधे रखकर चौड़े खड़े हों।",
+        "आगे के पैर की ओर बढ़ें, फिर नीचे झुकें।",
+        "हाथ पिंडली पर रखें; दूसरा हाथ ऊपर।"
+      ]
+    },
+    "dose": {
+      "en": "5 breaths each side",
+      "hi": "हर तरफ़ 5 साँसें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "triangle",
+    "muscles": [
+      "hamstrings",
+      "obliques"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "chair_pose",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Chair pose (Utkatasana)",
+      "hi": "उत्कटासन"
+    },
+    "summary": {
+      "en": "Sit back into an invisible chair to warm the legs.",
+      "hi": "अदृश्य कुर्सी पर बैठने जैसा: पैरों को गर्म करता है।"
+    },
+    "steps": {
+      "en": [
+        "Feet together or hip-width.",
+        "Bend the knees and sit the hips back.",
+        "Raise the arms alongside the ears."
+      ],
+      "hi": [
+        "पैर साथ या कूल्हे जितनी दूरी पर।",
+        "घुटने मोड़ें और कूल्हे पीछे ले जाएँ।",
+        "हाथ कानों के पास ऊपर उठाएँ।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "chair_pose",
+    "muscles": [
+      "quads",
+      "glutes"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "goddess_pose",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Goddess pose (Utkata Konasana)",
+      "hi": "उत्कट कोणासन"
+    },
+    "summary": {
+      "en": "A wide squat that opens the hips and strengthens the legs.",
+      "hi": "चौड़ा स्क्वाट: कूल्हे खोलता है और पैर मज़बूत करता है।"
+    },
+    "steps": {
+      "en": [
+        "Step wide, toes turned out.",
+        "Bend the knees over the toes and lower the hips.",
+        "Bend the elbows to 90°, hands up."
+      ],
+      "hi": [
+        "चौड़े खड़े हों, पंजे बाहर।",
+        "घुटने पंजों की दिशा में मोड़ें और कूल्हे नीचे करें।",
+        "कोहनियाँ 90° पर, हाथ ऊपर।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "goddess_pose",
+    "muscles": [
+      "quads",
+      "adductors"
+    ],
+    "discipline": "yoga",
+    "kind": "stance"
+  },
+  {
+    "id": "downward_dog",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Downward dog (Adho Mukha Svanasana)",
+      "hi": "अधोमुख श्वानासन"
+    },
+    "summary": {
+      "en": "An inverted V that stretches the back and legs.",
+      "hi": "उल्टा V: पीठ और पैरों का खिंचाव।"
+    },
+    "steps": {
+      "en": [
+        "Start on hands and knees.",
+        "Lift the hips up and back.",
+        "Press the heels toward the floor; knees can stay soft."
+      ],
+      "hi": [
+        "हाथों और घुटनों पर शुरू करें।",
+        "कूल्हे ऊपर और पीछे उठाएँ।",
+        "एड़ियाँ ज़मीन की ओर दबाएँ; घुटने हल्के मुड़े रह सकते हैं।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "downward_dog",
+    "muscles": [
+      "hamstrings",
+      "shoulders"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "low_lunge",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Low lunge (Anjaneyasana)",
+      "hi": "अंजनेयासन"
+    },
+    "summary": {
+      "en": "Opens the front of the hips after long sitting.",
+      "hi": "लंबे बैठने के बाद कूल्हों का अगला हिस्सा खोलता है।"
+    },
+    "steps": {
+      "en": [
+        "Step one foot forward and lower the back knee.",
+        "Keep the front knee over the ankle.",
+        "Lift the arms and gently lift the chest."
+      ],
+      "hi": [
+        "एक पैर आगे रखें और पिछला घुटना नीचे टिकाएँ।",
+        "आगे का घुटना टखने के ऊपर रखें।",
+        "हाथ उठाएँ और छाती हल्के से ऊपर उठाएँ।"
+      ]
+    },
+    "dose": {
+      "en": "5 breaths each side",
+      "hi": "हर तरफ़ 5 साँसें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "low_lunge",
+    "muscles": [
+      "hip flexors"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "cobra",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Cobra (Bhujangasana)",
+      "hi": "भुजंगासन"
+    },
+    "summary": {
+      "en": "A gentle backbend for the spine and chest.",
+      "hi": "रीढ़ और छाती के लिए हल्का बैकबेंड।"
+    },
+    "steps": {
+      "en": [
+        "Lie face down, hands under the shoulders.",
+        "Press gently to lift the chest; elbows stay bent.",
+        "Keep the hips down and the neck long."
+      ],
+      "hi": [
+        "पेट के बल लेटें, हाथ कंधों के नीचे।",
+        "छाती हल्के से उठाएँ; कोहनियाँ मुड़ी रहें।",
+        "कूल्हे नीचे और गर्दन लंबी रखें।"
+      ]
+    },
+    "dose": {
+      "en": "3–5 breaths, 3 times",
+      "hi": "3–5 साँसें, 3 बार"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "cobra",
+    "muscles": [
+      "lower back"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "bridge_pose",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Bridge pose (Setu Bandhasana)",
+      "hi": "सेतु बंधासन"
+    },
+    "summary": {
+      "en": "Lifts the hips to strengthen the back and glutes.",
+      "hi": "कूल्हे उठाकर पीठ और ग्लूट्स मज़बूत करता है।"
+    },
+    "steps": {
+      "en": [
+        "Lie on your back, knees bent, feet flat.",
+        "Press through the feet to lift the hips.",
+        "Lower slowly, one vertebra at a time."
+      ],
+      "hi": [
+        "पीठ के बल लेटें, घुटने मुड़े, पैर ज़मीन पर।",
+        "पैरों से दबाकर कूल्हे उठाएँ।",
+        "धीरे-धीरे नीचे आएँ।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "bridge_pose",
+    "muscles": [
+      "glutes",
+      "lower back"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "boat_pose",
+    "category": "yoga",
+    "level": "intermediate",
+    "name": {
+      "en": "Boat pose (Navasana)",
+      "hi": "नौकासन"
+    },
+    "summary": {
+      "en": "Balance on the sit bones to build core strength.",
+      "hi": "बैठने की हड्डियों पर संतुलन: कोर की ताकत।"
+    },
+    "steps": {
+      "en": [
+        "Sit with knees bent, lean back slightly.",
+        "Lift the feet; shins parallel to the floor.",
+        "Reach the arms forward; straighten the legs if easy."
+      ],
+      "hi": [
+        "घुटने मोड़कर बैठें, थोड़ा पीछे झुकें।",
+        "पैर उठाएँ; पिंडलियाँ ज़मीन के समानांतर।",
+        "हाथ आगे बढ़ाएँ; आसान हो तो पैर सीधे करें।"
+      ]
+    },
+    "dose": {
+      "en": "3–5 breaths, 3 times",
+      "hi": "3–5 साँसें, 3 बार"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "boat_pose",
+    "muscles": [
+      "core"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "forward_fold",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Standing forward fold (Uttanasana)",
+      "hi": "उत्तानासन"
+    },
+    "summary": {
+      "en": "Releases the back of the legs and the spine.",
+      "hi": "पैरों के पीछे और रीढ़ को ढीला करता है।"
+    },
+    "steps": {
+      "en": [
+        "Stand tall, then hinge at the hips.",
+        "Let the head and arms hang; knees can bend.",
+        "Roll up slowly to stand."
+      ],
+      "hi": [
+        "सीधे खड़े हों, फिर कूल्हों से झुकें।",
+        "सिर और हाथ लटकने दें; घुटने मुड़ सकते हैं।",
+        "धीरे-धीरे ऊपर आएँ।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "forward_fold",
+    "muscles": [
+      "hamstrings"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "seated_fold",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Seated forward bend (Paschimottanasana)",
+      "hi": "पश्चिमोत्तानासन"
+    },
+    "summary": {
+      "en": "A calming stretch for the back and hamstrings.",
+      "hi": "पीठ और हैमस्ट्रिंग का शांत करने वाला खिंचाव।"
+    },
+    "steps": {
+      "en": [
+        "Sit with legs straight in front.",
+        "Lengthen up as you breathe in.",
+        "Fold forward from the hips as you breathe out."
+      ],
+      "hi": [
+        "पैर सामने सीधे करके बैठें।",
+        "साँस लेते हुए ऊपर लंबे हों।",
+        "साँस छोड़ते हुए कूल्हों से आगे झुकें।"
+      ]
+    },
+    "dose": {
+      "en": "Hold 5 slow breaths",
+      "hi": "5 धीमी साँसों तक रुकें"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "seated_fold",
+    "muscles": [
+      "hamstrings",
+      "lower back"
+    ],
+    "discipline": "yoga",
+    "kind": "technique"
+  },
+  {
+    "id": "seated_breath",
+    "category": "yoga",
+    "level": "beginner",
+    "name": {
+      "en": "Calm breathing (Pranayama)",
+      "hi": "प्राणायाम"
+    },
+    "summary": {
+      "en": "Slow breathing to settle the mind: in for 4, out for 6.",
+      "hi": "मन शांत करने के लिए धीमी साँस: 4 तक लें, 6 तक छोड़ें।"
+    },
+    "steps": {
+      "en": [
+        "Sit comfortably with a tall spine.",
+        "Breathe in through the nose for 4 counts.",
+        "Breathe out slowly for 6 counts."
+      ],
+      "hi": [
+        "रीढ़ सीधी रखकर आराम से बैठें।",
+        "नाक से 4 गिनती तक साँस लें।",
+        "6 गिनती तक धीरे साँस छोड़ें।"
+      ]
+    },
+    "dose": {
+      "en": "2–5 minutes",
+      "hi": "2–5 मिनट"
+    },
+    "safety": {
+      "en": "Move slowly and breathe steadily. Stop if anything hurts; ease off rather than force a pose.",
+      "hi": "धीरे चलें और लगातार साँस लें। दर्द हो तो रुकें; मुद्रा में ज़ोर न लगाएँ।"
+    },
+    "motion": "seated_breath",
+    "muscles": [],
+    "discipline": "yoga",
+    "kind": "conditioning"
   }
 ]

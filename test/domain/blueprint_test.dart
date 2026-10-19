@@ -68,14 +68,16 @@ void main() {
     final motions = (jsonDecode(File('assets/content/motions.json').readAsStringSync()) as Map).keys.toSet();
     expect(list.where((d) => d.indian).map((d) => d.id),
         containsAll(['kalaripayattu', 'silambam', 'gatka', 'mardani_khel', 'thang_ta', 'kushti', 'musti_yuddha', 'lathi_khela']));
-    expect(list.where((d) => !d.indian).length, greaterThanOrEqualTo(5));
+    expect(list.where((d) => !d.indian && !d.mindBody).length, greaterThanOrEqualTo(5));
+    // Yoga has its own mind-body section and a built-in pose library.
+    expect(list.where((d) => d.mindBody).map((d) => d.id), ['yoga']);
     for (final d in list) {
       for (final m in [d.name, d.region, d.about, d.trains, d.safety, ...d.tips]) {
         expect(m.keys, containsAll(['en', 'hi']), reason: d.id);
       }
       expect(d.tips.length, greaterThanOrEqualTo(3), reason: d.id);
       expect(motions, contains(d.motion), reason: d.id);
-      expect(['martial-arts', 'indian-martial-arts'], contains(d.pack));
+      expect(['martial-arts', 'indian-martial-arts', 'yoga-stretch'], contains(d.pack));
     }
   });
 }

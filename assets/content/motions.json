@@ -329,5 +329,9 @@
   "brow_raise": {"view": "face", "ms": 700, "frames": [{"brows": 0}, {"brows": 1, "eyes": 1.2, "hold": 1000}]},
   "eye_squeeze": {"view": "face", "ms": 700, "frames": [{"eyes": 1}, {"eyes": 0, "brows": -0.6, "smile": -0.2, "hold": 1000}]},
   "breathing": {"view": "face", "ms": 3000, "frames": [
-    {"eyes": 0, "jaw": 0.04, "nod": 2}, {"eyes": 0, "jaw": 0.04, "nod": -3, "brows": 0.1}]}
+    {"eyes": 0, "jaw": 0.04, "nod": 2}, {"eyes": 0, "jaw": 0.04, "nod": -3, "brows": 0.1}]},
+
+  "boat_pose": {"view": "side", "ms": 1800, "frames": [{"t": -30, "h": -10, "th": 120, "sh": 90, "ua": 90, "fa": 90}, {"t": -38, "h": -10, "th": 135, "sh": 135, "ua": 92, "fa": 92, "hold": 600}]},
+  "low_lunge": {"view": "side", "ms": 1800, "frames": [{"t": 0, "th": [85, -60], "sh": [0, -95], "ua": 10, "fa": 10}, {"t": -10, "h": -10, "th": [88, -62], "sh": [0, -95], "ua": 178, "fa": 185, "hold": 600}]},
+  "goddess_pose": {"view": "front", "ms": 1800, "frames": [{"th": 45, "sh": 5, "ua": 90, "fa": 170}, {"th": 62, "sh": 0, "ua": 92, "fa": 175, "hold": 500}]}
 }

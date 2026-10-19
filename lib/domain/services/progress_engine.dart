@@ -210,11 +210,17 @@ abstract final class QuestEngine {
   static List<Quest> forDay(DayActivity today, QuestContext ctx) {
     final weighted = <QuestKind, int>{
       QuestKind.drinkTarget: ctx.goals.contains(GoalType.hydration) ? 5 : 3,
-      QuestKind.logMeals: 2,
+      QuestKind.logMeals: ctx.goals.contains(GoalType.nutrition) ? 5 : 2,
       QuestKind.postureCheck: ctx.goals.contains(GoalType.posture) ? 5 : 2,
-      QuestKind.logSleep: ctx.goals.contains(GoalType.sleep) ? 4 : 2,
+      QuestKind.logSleep: ctx.goals.contains(GoalType.sleep) ||
+              ctx.goals.contains(GoalType.mindfulness) ||
+              ctx.goals.contains(GoalType.energy)
+          ? 4
+          : 2,
       QuestKind.workout: ctx.goals.contains(GoalType.fitness) ||
-              ctx.goals.contains(GoalType.flexibility)
+              ctx.goals.contains(GoalType.flexibility) ||
+              ctx.goals.contains(GoalType.strength) ||
+              ctx.goals.contains(GoalType.energy)
           ? 5
           : 2,
       QuestKind.logWeight:
@@ -225,7 +231,10 @@ abstract final class QuestEngine {
       if (ctx.wardrobeItems >= 3)
         QuestKind.wearOutfit: ctx.goals.contains(GoalType.style) ? 4 : 2,
       if (!ctx.snapshotThisWeek)
-        QuestKind.snapshot: ctx.goals.contains(GoalType.grooming) ? 3 : 1,
+        QuestKind.snapshot: ctx.goals.contains(GoalType.grooming) ||
+                ctx.goals.contains(GoalType.skinCare)
+            ? 3
+            : 1,
     };
     // Deterministic per day: same quests all day, different tomorrow.
     final rnd = math.Random(today.dayKey);

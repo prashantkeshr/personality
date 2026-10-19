@@ -2324,7 +2324,7 @@
   "altGrooming": "Check your face shape for hairstyle ideas.",
   "altSkills": "Start with Kalaripayattu leg swings, Kushti dand-baithak or boxing basics.",
   "skillsTitle": "Skills & martial arts",
-  "skillsIntro": "Indian and world martial arts, each with its own techniques, drills and tips.",
+  "skillsIntro": "Yoga, Indian and world martial arts, each with its own techniques, drills and tips.",
   "skillsIndian": "Indian martial arts",
   "skillsWorld": "World martial arts",
   "skillsSeeAll": "See all",
@@ -2949,5 +2949,108 @@
   "aboutGrow": "Room to grow",
   "aboutGrowEmpty": "Every area is on track this week.",
   "aboutCheckNow": "Check now",
-  "aboutSeeMore": "See more"
+  "aboutSeeMore": "See more",
+  "skillsMindBody": "Yoga & mind-body",
+  "practiceRoutine": "My practice",
+  "practiceItem": "Practise {skill} · {minutes} min",
+  "@practiceItem": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "practiceAdded": "{skill} is in your day, with a reminder",
+  "@practiceAdded": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      }
+    }
+  },
+  "practiceAddTitle": "Add {skill} to my day",
+  "@practiceAddTitle": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      }
+    }
+  },
+  "practiceAddInfo": "A daily slot at a time you choose, with a reminder. It shows in your day plan.",
+  "practiceTime": "Time",
+  "practiceLength": "How long",
+  "practiceAddButton": "Add to my day",
+  "goalStrength": "Build strength",
+  "goalMindfulness": "Calm & mindfulness",
+  "goalEnergy": "More energy",
+  "goalNutrition": "Eat well",
+  "goalSkinCare": "Skin care",
+  "goalConfidence": "Confidence",
+  "ideasTitle": "Habit ideas",
+  "ideasIntro": "Common habits people find helpful. Pick one, then change the name or days before adding it.",
+  "ideasBrowse": "Browse habit ideas",
+  "ideaGroupFood": "Food & drink",
+  "ideaGroupBody": "Move",
+  "ideaGroupMind": "Mind",
+  "ideaGroupSleep": "Evening & sleep",
+  "ideaWaterOnWaking": "A glass of water after waking",
+  "ideaFruitDaily": "Eat a fruit",
+  "ideaVegEveryMeal": "Vegetables with lunch and dinner",
+  "ideaHomeCooked": "Eat a home-cooked meal",
+  "ideaNoSugaryDrinks": "No sugary drinks",
+  "ideaWalkAfterMeals": "10-minute walk after a meal",
+  "ideaStretchMorning": "Morning stretch",
+  "ideaStairs": "Take the stairs",
+  "ideaRead10": "Read for 10 minutes",
+  "ideaBreathe": "2 minutes of slow breathing",
+  "ideaGratitude": "Note one good thing from today",
+  "ideaNoScreensBed": "No screens 30 min before bed",
+  "ideaSameBedtime": "Go to bed at the same time",
+  "ideaSkincareNight": "Evening skin care",
+  "mealIdeasFor": "Ideas for {meal}",
+  "@mealIdeasFor": {
+    "placeholders": {
+      "meal": {
+        "type": "String"
+      }
+    }
+  },
+  "mealIdeasInfo": "Matched to your diet and local cuisine. Tap + to log one.",
+  "mealIdeaNutrition": "{kcal} kcal · {protein} g protein",
+  "@mealIdeaNutrition": {
+    "placeholders": {
+      "kcal": {
+        "type": "int"
+      },
+      "protein": {
+        "type": "int"
+      }
+    }
+  },
+  "mealIdeaLog": "Log this",
+  "mealIdeaLogged": "Logged: {dish}",
+  "@mealIdeaLogged": {
+    "placeholders": {
+      "dish": {
+        "type": "String"
+      }
+    }
+  },
+  "sampleDayTitle": "A sample day",
+  "sampleDayAnother": "Another",
+  "sampleDayTotals": "About {kcal} kcal and {protein} g protein in all",
+  "@sampleDayTotals": {
+    "placeholders": {
+      "kcal": {
+        "type": "int"
+      },
+      "protein": {
+        "type": "int"
+      }
+    }
+  },
+  "sampleDayNote": "Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription."
 }

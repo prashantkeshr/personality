@@ -4359,7 +4359,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get skillsIntro =>
-      'Indian and world martial arts, each with its own techniques, drills and tips.';
+      'Yoga, Indian and world martial arts, each with its own techniques, drills and tips.';
 
   @override
   String get skillsIndian => 'Indian martial arts';
@@ -5778,4 +5778,157 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutSeeMore => 'See more';
+
+  @override
+  String get skillsMindBody => 'Yoga & mind-body';
+
+  @override
+  String get practiceRoutine => 'My practice';
+
+  @override
+  String practiceItem(String skill, int minutes) {
+    return 'Practise $skill · $minutes min';
+  }
+
+  @override
+  String practiceAdded(String skill) {
+    return '$skill is in your day, with a reminder';
+  }
+
+  @override
+  String practiceAddTitle(String skill) {
+    return 'Add $skill to my day';
+  }
+
+  @override
+  String get practiceAddInfo =>
+      'A daily slot at a time you choose, with a reminder. It shows in your day plan.';
+
+  @override
+  String get practiceTime => 'Time';
+
+  @override
+  String get practiceLength => 'How long';
+
+  @override
+  String get practiceAddButton => 'Add to my day';
+
+  @override
+  String get goalStrength => 'Build strength';
+
+  @override
+  String get goalMindfulness => 'Calm & mindfulness';
+
+  @override
+  String get goalEnergy => 'More energy';
+
+  @override
+  String get goalNutrition => 'Eat well';
+
+  @override
+  String get goalSkinCare => 'Skin care';
+
+  @override
+  String get goalConfidence => 'Confidence';
+
+  @override
+  String get ideasTitle => 'Habit ideas';
+
+  @override
+  String get ideasIntro =>
+      'Common habits people find helpful. Pick one, then change the name or days before adding it.';
+
+  @override
+  String get ideasBrowse => 'Browse habit ideas';
+
+  @override
+  String get ideaGroupFood => 'Food & drink';
+
+  @override
+  String get ideaGroupBody => 'Move';
+
+  @override
+  String get ideaGroupMind => 'Mind';
+
+  @override
+  String get ideaGroupSleep => 'Evening & sleep';
+
+  @override
+  String get ideaWaterOnWaking => 'A glass of water after waking';
+
+  @override
+  String get ideaFruitDaily => 'Eat a fruit';
+
+  @override
+  String get ideaVegEveryMeal => 'Vegetables with lunch and dinner';
+
+  @override
+  String get ideaHomeCooked => 'Eat a home-cooked meal';
+
+  @override
+  String get ideaNoSugaryDrinks => 'No sugary drinks';
+
+  @override
+  String get ideaWalkAfterMeals => '10-minute walk after a meal';
+
+  @override
+  String get ideaStretchMorning => 'Morning stretch';
+
+  @override
+  String get ideaStairs => 'Take the stairs';
+
+  @override
+  String get ideaRead10 => 'Read for 10 minutes';
+
+  @override
+  String get ideaBreathe => '2 minutes of slow breathing';
+
+  @override
+  String get ideaGratitude => 'Note one good thing from today';
+
+  @override
+  String get ideaNoScreensBed => 'No screens 30 min before bed';
+
+  @override
+  String get ideaSameBedtime => 'Go to bed at the same time';
+
+  @override
+  String get ideaSkincareNight => 'Evening skin care';
+
+  @override
+  String mealIdeasFor(String meal) {
+    return 'Ideas for $meal';
+  }
+
+  @override
+  String get mealIdeasInfo =>
+      'Matched to your diet and local cuisine. Tap + to log one.';
+
+  @override
+  String mealIdeaNutrition(int kcal, int protein) {
+    return '$kcal kcal · $protein g protein';
+  }
+
+  @override
+  String get mealIdeaLog => 'Log this';
+
+  @override
+  String mealIdeaLogged(String dish) {
+    return 'Logged: $dish';
+  }
+
+  @override
+  String get sampleDayTitle => 'A sample day';
+
+  @override
+  String get sampleDayAnother => 'Another';
+
+  @override
+  String sampleDayTotals(int kcal, int protein) {
+    return 'About $kcal kcal and $protein g protein in all';
+  }
+
+  @override
+  String get sampleDayNote =>
+      'Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription.';
 }

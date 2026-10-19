@@ -7645,7 +7645,7 @@ abstract class AppLocalizations {
   /// No description provided for @skillsIntro.
   ///
   /// In en, this message translates to:
-  /// **'Indian and world martial arts, each with its own techniques, drills and tips.'**
+  /// **'Yoga, Indian and world martial arts, each with its own techniques, drills and tips.'**
   String get skillsIntro;
 
   /// No description provided for @skillsIndian.
@@ -10071,6 +10071,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See more'**
   String get aboutSeeMore;
+
+  /// No description provided for @skillsMindBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Yoga & mind-body'**
+  String get skillsMindBody;
+
+  /// No description provided for @practiceRoutine.
+  ///
+  /// In en, this message translates to:
+  /// **'My practice'**
+  String get practiceRoutine;
+
+  /// No description provided for @practiceItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Practise {skill} · {minutes} min'**
+  String practiceItem(String skill, int minutes);
+
+  /// No description provided for @practiceAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'{skill} is in your day, with a reminder'**
+  String practiceAdded(String skill);
+
+  /// No description provided for @practiceAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add {skill} to my day'**
+  String practiceAddTitle(String skill);
+
+  /// No description provided for @practiceAddInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A daily slot at a time you choose, with a reminder. It shows in your day plan.'**
+  String get practiceAddInfo;
+
+  /// No description provided for @practiceTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get practiceTime;
+
+  /// No description provided for @practiceLength.
+  ///
+  /// In en, this message translates to:
+  /// **'How long'**
+  String get practiceLength;
+
+  /// No description provided for @practiceAddButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to my day'**
+  String get practiceAddButton;
+
+  /// No description provided for @goalStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Build strength'**
+  String get goalStrength;
+
+  /// No description provided for @goalMindfulness.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm & mindfulness'**
+  String get goalMindfulness;
+
+  /// No description provided for @goalEnergy.
+  ///
+  /// In en, this message translates to:
+  /// **'More energy'**
+  String get goalEnergy;
+
+  /// No description provided for @goalNutrition.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat well'**
+  String get goalNutrition;
+
+  /// No description provided for @goalSkinCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin care'**
+  String get goalSkinCare;
+
+  /// No description provided for @goalConfidence.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence'**
+  String get goalConfidence;
+
+  /// No description provided for @ideasTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Habit ideas'**
+  String get ideasTitle;
+
+  /// No description provided for @ideasIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Common habits people find helpful. Pick one, then change the name or days before adding it.'**
+  String get ideasIntro;
+
+  /// No description provided for @ideasBrowse.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse habit ideas'**
+  String get ideasBrowse;
+
+  /// No description provided for @ideaGroupFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food & drink'**
+  String get ideaGroupFood;
+
+  /// No description provided for @ideaGroupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Move'**
+  String get ideaGroupBody;
+
+  /// No description provided for @ideaGroupMind.
+  ///
+  /// In en, this message translates to:
+  /// **'Mind'**
+  String get ideaGroupMind;
+
+  /// No description provided for @ideaGroupSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening & sleep'**
+  String get ideaGroupSleep;
+
+  /// No description provided for @ideaWaterOnWaking.
+  ///
+  /// In en, this message translates to:
+  /// **'A glass of water after waking'**
+  String get ideaWaterOnWaking;
+
+  /// No description provided for @ideaFruitDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat a fruit'**
+  String get ideaFruitDaily;
+
+  /// No description provided for @ideaVegEveryMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Vegetables with lunch and dinner'**
+  String get ideaVegEveryMeal;
+
+  /// No description provided for @ideaHomeCooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat a home-cooked meal'**
+  String get ideaHomeCooked;
+
+  /// No description provided for @ideaNoSugaryDrinks.
+  ///
+  /// In en, this message translates to:
+  /// **'No sugary drinks'**
+  String get ideaNoSugaryDrinks;
+
+  /// No description provided for @ideaWalkAfterMeals.
+  ///
+  /// In en, this message translates to:
+  /// **'10-minute walk after a meal'**
+  String get ideaWalkAfterMeals;
+
+  /// No description provided for @ideaStretchMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning stretch'**
+  String get ideaStretchMorning;
+
+  /// No description provided for @ideaStairs.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the stairs'**
+  String get ideaStairs;
+
+  /// No description provided for @ideaRead10.
+  ///
+  /// In en, this message translates to:
+  /// **'Read for 10 minutes'**
+  String get ideaRead10;
+
+  /// No description provided for @ideaBreathe.
+  ///
+  /// In en, this message translates to:
+  /// **'2 minutes of slow breathing'**
+  String get ideaBreathe;
+
+  /// No description provided for @ideaGratitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Note one good thing from today'**
+  String get ideaGratitude;
+
+  /// No description provided for @ideaNoScreensBed.
+  ///
+  /// In en, this message translates to:
+  /// **'No screens 30 min before bed'**
+  String get ideaNoScreensBed;
+
+  /// No description provided for @ideaSameBedtime.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to bed at the same time'**
+  String get ideaSameBedtime;
+
+  /// No description provided for @ideaSkincareNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening skin care'**
+  String get ideaSkincareNight;
+
+  /// No description provided for @mealIdeasFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas for {meal}'**
+  String mealIdeasFor(String meal);
+
+  /// No description provided for @mealIdeasInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Matched to your diet and local cuisine. Tap + to log one.'**
+  String get mealIdeasInfo;
+
+  /// No description provided for @mealIdeaNutrition.
+  ///
+  /// In en, this message translates to:
+  /// **'{kcal} kcal · {protein} g protein'**
+  String mealIdeaNutrition(int kcal, int protein);
+
+  /// No description provided for @mealIdeaLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log this'**
+  String get mealIdeaLog;
+
+  /// No description provided for @mealIdeaLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged: {dish}'**
+  String mealIdeaLogged(String dish);
+
+  /// No description provided for @sampleDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A sample day'**
+  String get sampleDayTitle;
+
+  /// No description provided for @sampleDayAnother.
+  ///
+  /// In en, this message translates to:
+  /// **'Another'**
+  String get sampleDayAnother;
+
+  /// No description provided for @sampleDayTotals.
+  ///
+  /// In en, this message translates to:
+  /// **'About {kcal} kcal and {protein} g protein in all'**
+  String sampleDayTotals(int kcal, int protein);
+
+  /// No description provided for @sampleDayNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Sized to your plan, or to your estimated needs from height and weight. A guide, not a prescription.'**
+  String get sampleDayNote;
 }
 
 class _AppLocalizationsDelegate

@@ -8,7 +8,7 @@ import '../../l10n/app_localizations.dart';
 import '../settings/preference_controls.dart';
 import '../../domain/entities/body.dart';
 import '../../shared/format/body_format.dart';
-import '../journey/goal_finder_screen.dart' show goalIcon, goalImages;
+import '../journey/goal_finder_screen.dart' show GoalArt, goalIcon;
 import 'about_you.dart';
 import 'permissions_page.dart';
 
@@ -310,7 +310,7 @@ class _GoalsPageState extends State<_GoalsPage> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              Image.asset(goalImages[g]!, fit: BoxFit.cover),
+                              GoalArt(g),
                               DecoratedBox(
                                 decoration: BoxDecoration(
                                   color: goals.contains(g)

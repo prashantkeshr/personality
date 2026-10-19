@@ -126,6 +126,12 @@ enum GoalType {
   habits,
   style,
   grooming,
+  strength,
+  mindfulness,
+  energy,
+  nutrition,
+  skinCare,
+  confidence,
 }
 
 /// Profile data. Every field is optional (spec §10: do not require

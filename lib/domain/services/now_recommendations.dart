@@ -230,7 +230,8 @@ abstract final class NowRecommendations {
     }
 
     // Flexibility goal: a short yoga flow morning or evening.
-    if (i.goals.contains(GoalType.flexibility) &&
+    if ((i.goals.contains(GoalType.flexibility) ||
+            i.goals.contains(GoalType.mindfulness)) &&
         (between(6, 0, 9, 30) || between(17, 0, 21, 0))) {
       add(4, const NowRecommendation(NowKind.yoga));
     }

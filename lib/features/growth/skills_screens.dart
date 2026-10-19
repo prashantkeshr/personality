@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'practice_planner.dart';
 import '../today/now_providers.dart';
 import '../../app/router.dart';
 import '../../core/theme/app_theme.dart';
@@ -123,13 +124,17 @@ class SkillsScreen extends ConsumerWidget {
               const SizedBox(height: AppSpacing.md),
               Text(l.skillsIntro, style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
               const SizedBox(height: AppSpacing.lg),
+              Text(l.skillsMindBody, style: theme.textTheme.titleMedium),
+              const SizedBox(height: AppSpacing.sm),
+              grid(all.where((d) => d.mindBody).toList()),
+              const SizedBox(height: AppSpacing.lg),
               Text(l.skillsIndian, style: theme.textTheme.titleMedium),
               const SizedBox(height: AppSpacing.sm),
               grid(all.where((d) => d.indian).toList()),
               const SizedBox(height: AppSpacing.lg),
               Text(l.skillsWorld, style: theme.textTheme.titleMedium),
               const SizedBox(height: AppSpacing.sm),
-              grid(all.where((d) => !d.indian).toList()),
+              grid(all.where((d) => !d.indian && !d.mindBody).toList()),
               const SizedBox(height: AppSpacing.lg),
               Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Icon(Icons.shield_outlined, size: 18, color: theme.colorScheme.primary),
@@ -226,6 +231,16 @@ class _DisciplineScreenState extends ConsumerState<DisciplineScreen> {
                   subtitle: Text(l.skillsPractiseInfo),
                   value: (ref.watch(nowStateProvider).value?.skills ?? const []).contains(d.id),
                   onChanged: (on) => ref.read(nowActionsProvider).setSkill(d.id, on),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  key: const Key('skill-add-to-day'),
+                  leading: const Icon(Icons.event_available),
+                  title: Text(l.practiceAddButton),
+                  subtitle: Text(l.practiceAddInfo),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => showAddToDaySheet(context, skillId: d.id, skillName: _t(d.name, lang)),
                 ),
               ),
               Card(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'meal_ideas.dart';
 import '../../../core/logging/app_logger.dart';
 import '../../../core/providers.dart';
 import '../../../core/theme/app_theme.dart';
@@ -39,13 +40,24 @@ class MealsScreen extends ConsumerWidget {
       body: AsyncView(
         value: ref.watch(mealsProvider),
         data: (meals) {
+          // Ideas first: what to eat now, and a whole sample day.
+          const ideas = [
+            MealIdeasSection(),
+            SizedBox(height: AppSpacing.lg),
+            SampleDayCard(),
+          ];
           if (meals.isEmpty) {
-            return Center(
-              child: EmptyState(
-                icon: Icons.restaurant_outlined,
-                title: l10n.featureMeals,
-                message: l10n.mealsEmpty,
-              ),
+            return ListView(
+              padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, 96),
+              children: [
+                ...ideas,
+                EmptyState(
+                  icon: Icons.restaurant_outlined,
+                  title: l10n.featureMeals,
+                  message: l10n.mealsEmpty,
+                ),
+              ],
             );
           }
           final byDay = <int, List<MealEntry>>{};
@@ -56,6 +68,7 @@ class MealsScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(
                 AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, 96),
             children: [
+              ...ideas,
               for (final entry in byDay.entries) ...[
                 Padding(
                   padding: const EdgeInsets.only(top: AppSpacing.lg),

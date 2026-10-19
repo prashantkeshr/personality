@@ -138,6 +138,12 @@ extension BodyLabels on AppLocalizations {
         GoalType.habits => goalHabits,
         GoalType.style => goalStyle,
         GoalType.grooming => goalGrooming,
+        GoalType.strength => goalStrength,
+        GoalType.mindfulness => goalMindfulness,
+        GoalType.energy => goalEnergy,
+        GoalType.nutrition => goalNutrition,
+        GoalType.skinCare => goalSkinCare,
+        GoalType.confidence => goalConfidence,
       };
 
   String genderLabel(Gender g) => switch (g) {

@@ -670,3 +670,24 @@ Verification:
 - **Backup & restore:** "passphrase" is now "password" in all six languages ("Set a password for your data", "Wrong password.", and so on).
 
 Verification: `flutter analyze` clean; `flutter test` 421 pass, 2 skipped (new: the About page empty and filled, with the BMI value and caveat). Emulator release build: the About page with real data (172 cm, 67.8 kg, BMI 22.9, warm/medium palette) and the new Analyze card.
+
+## Phase 24 — Yoga skill and poses, add a skill to my day, more focus goals (2026-10-19)
+
+- **Yoga & mind-body** is a new section in Skills (before Indian and world martial arts). It is built in, so no pack download is needed. The optional extra pack is `yoga-stretch`.
+  - **15 new poses**, each with an animated figure, steps, dose and safety note: mountain, tree, warrior I, warrior II, triangle, chair, goddess, downward dog, low lunge, cobra, bridge, boat, forward fold, seated fold and seated breathing. Child's pose, cat–cow and sun salutation also belong to yoga now.
+  - **3 new motions:** `boat_pose`, `low_lunge` and `goddess_pose`.
+  - **3 flows:** Sun flow, Balance and Evening calm.
+- **Add to my day** on every skill page: pick a time (default 18:00) and a length (5/10/15/20 min).
+  - The practice goes into one "My practice" routine that runs every day, so it gets a reminder and shows on the day plan.
+  - The skill is also added to the Home recommendations.
+  - Notification permission is asked for once if needed.
+- **Find your focus** has six more goals: strength, calm & mindfulness, energy, eat better, skin care and confidence. Each has its own icon and colour art, a blueprint area and quest weights. Mindfulness also recommends yoga.
+
+## Phase 25 — Habit ideas, meal ideas, sample day (2026-10-19)
+
+- **Habit ideas** (lightbulb in Habits, and on the empty state): 14 common habits in four groups (food, body, mind, sleep). Picking one opens the habit editor already filled in, so the name and days can be changed before saving.
+- **Meals screen:**
+  - **Ideas for <meal>:** dishes for the meal that fits the current time. They are filtered by diet, with local cuisine first, rotate daily, and can be logged with calories in one tap.
+  - **Sample day:** a full day of meals sized to the body plan's targets, or else the estimated maintenance, or else 2,000 kcal. "Another" shows a different combination, and each dish can be logged.
+
+Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (new: content integrity, yoga add-to-day, new goals, habit idea edit, meal idea log and sample day). Emulator release build: Yoga section with 18 techniques; boat pose, low lunge and goddess pose figures checked.
