@@ -43,6 +43,9 @@ class MainActivity : FlutterFragmentActivity() {
 
     private fun takeWidgetAction(intent: android.content.Intent?) {
         if (intent?.action == TodayWidget.ACTION_ADD_WATER) pendingWidgetAction = "add_water"
+        if (intent?.action == InsightWidgets.ACTION_OPEN) {
+            intent.getStringExtra(InsightWidgets.EXTRA_ROUTE)?.let { pendingWidgetAction = "route:$it" }
+        }
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {

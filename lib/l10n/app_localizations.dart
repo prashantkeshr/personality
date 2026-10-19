@@ -10881,6 +10881,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'General wellness guidance, not medical advice. Stop any exercise that hurts.'**
   String get snapshotNote;
+
+  /// No description provided for @widgetGrowthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My growth'**
+  String get widgetGrowthTitle;
+
+  /// No description provided for @widgetLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level {level}'**
+  String widgetLevel(int level);
+
+  /// No description provided for @widgetXpToNext.
+  ///
+  /// In en, this message translates to:
+  /// **'{xp} XP to level {level}'**
+  String widgetXpToNext(int xp, int level);
+
+  /// No description provided for @widgetPlanWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan done, last 7 days'**
+  String get widgetPlanWeek;
+
+  /// No description provided for @widgetMinutesOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {target} min'**
+  String widgetMinutesOf(int done, int target);
+
+  /// No description provided for @widgetWeekMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'This week: {minutes} min'**
+  String widgetWeekMinutes(int minutes);
+
+  /// No description provided for @widgetStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get widgetStart;
+
+  /// No description provided for @widgetSinceStart.
+  ///
+  /// In en, this message translates to:
+  /// **'{change} since start'**
+  String widgetSinceStart(String change);
+
+  /// No description provided for @widgetLogWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log your weight to see a trend'**
+  String get widgetLogWeight;
 }
 
 class _AppLocalizationsDelegate

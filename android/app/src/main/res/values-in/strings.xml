@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Air hari ini dan tugas berikutnya</string>
+    <string name="widget_growth_name">Perkembanganku</string>
+    <string name="widget_growth_description">Level, runtutan, dan minggumu sekilas</string>
+    <string name="widget_exercise_name">Olahraga</string>
+    <string name="widget_exercise_description">Menit aktif hari ini dan minggumu</string>
+    <string name="widget_weight_name">Berat badan</string>
+    <string name="widget_weight_description">Tren berat badanmu</string>
 </resources>

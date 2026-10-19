@@ -6221,4 +6221,41 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get snapshotNote =>
       'सामान्य वेलनेस मार्गदर्शन, चिकित्सा सलाह नहीं। जिस व्यायाम से दर्द हो, उसे रोक दें।';
+
+  @override
+  String get widgetGrowthTitle => 'मेरी प्रगति';
+
+  @override
+  String widgetLevel(int level) {
+    return 'लेवल $level';
+  }
+
+  @override
+  String widgetXpToNext(int xp, int level) {
+    return 'लेवल $level तक $xp XP';
+  }
+
+  @override
+  String get widgetPlanWeek => 'पिछले 7 दिनों में पूरा किया प्लान';
+
+  @override
+  String widgetMinutesOf(int done, int target) {
+    return '$done / $target मिनट';
+  }
+
+  @override
+  String widgetWeekMinutes(int minutes) {
+    return 'इस हफ़्ते: $minutes मिनट';
+  }
+
+  @override
+  String get widgetStart => 'शुरू करें';
+
+  @override
+  String widgetSinceStart(String change) {
+    return 'शुरुआत से $change';
+  }
+
+  @override
+  String get widgetLogWeight => 'रुझान देखने के लिए वज़न दर्ज करें';
 }

@@ -3208,5 +3208,55 @@
       }
     }
   },
-  "snapshotNote": "General wellness guidance, not medical advice. Stop any exercise that hurts."
+  "snapshotNote": "General wellness guidance, not medical advice. Stop any exercise that hurts.",
+  "widgetGrowthTitle": "My growth",
+  "widgetLevel": "Level {level}",
+  "@widgetLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetXpToNext": "{xp} XP to level {level}",
+  "@widgetXpToNext": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      },
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetPlanWeek": "Plan done, last 7 days",
+  "widgetMinutesOf": "{done} / {target} min",
+  "@widgetMinutesOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetWeekMinutes": "This week: {minutes} min",
+  "@widgetWeekMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetStart": "Start",
+  "widgetSinceStart": "{change} since start",
+  "@widgetSinceStart": {
+    "placeholders": {
+      "change": {
+        "type": "String"
+      }
+    }
+  },
+  "widgetLogWeight": "Log your weight to see a trend"
 }

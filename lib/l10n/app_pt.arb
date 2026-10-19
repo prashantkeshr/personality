@@ -1795,5 +1795,14 @@
   "reasonDaily": "Rápido e fácil de fazer todo dia",
   "reasonStart": "Um bom ponto de partida",
   "reasonGoal": "Para sua meta: {goal}",
-  "snapshotNote": "Orientação geral de bem-estar, não conselho médico. Pare qualquer exercício que doa."
+  "snapshotNote": "Orientação geral de bem-estar, não conselho médico. Pare qualquer exercício que doa.",
+  "widgetGrowthTitle": "Meu progresso",
+  "widgetLevel": "Nível {level}",
+  "widgetXpToNext": "{xp} XP para o nível {level}",
+  "widgetPlanWeek": "Plano cumprido, últimos 7 dias",
+  "widgetMinutesOf": "{done} / {target} min",
+  "widgetWeekMinutes": "Esta semana: {minutes} min",
+  "widgetStart": "Começar",
+  "widgetSinceStart": "{change} desde o início",
+  "widgetLogWeight": "Registre seu peso para ver a tendência"
 }

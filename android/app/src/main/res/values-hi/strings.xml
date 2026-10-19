@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">आज का पानी और आपका अगला काम</string>
+    <string name="widget_growth_name">मेरी प्रगति</string>
+    <string name="widget_growth_description">आपका लेवल, लय और हफ़्ता एक नज़र में</string>
+    <string name="widget_exercise_name">व्यायाम</string>
+    <string name="widget_exercise_description">आज के सक्रिय मिनट और आपका हफ़्ता</string>
+    <string name="widget_weight_name">वज़न</string>
+    <string name="widget_weight_description">आपके वज़न का रुझान</string>
 </resources>

@@ -30,11 +30,13 @@ class TodayWidget : AppWidgetProvider() {
                     is String -> e.putString(k as String, v)
                     is Int -> e.putInt(k as String, v)
                     is Long -> e.putInt(k as String, v.toInt())
+                    is Boolean -> e.putBoolean(k as String, v)
                     null -> e.remove(k as String)
                 }
             }
             e.apply()
             refresh(context)
+            InsightWidgets.refreshAll(context)
         }
 
         fun refresh(context: Context) {

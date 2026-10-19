@@ -8,4 +8,15 @@
     <color name="widget_accent">#FF006A6A</color>
     <color name="widget_track">#FFCCE8E7</color>
     <color name="widget_button_text">#FFFFFFFF</color>
+    <color name="widget_on_dark">#FFFFFFFF</color>
+    <color name="widget_on_dark_secondary">#B3FFFFFF</color>
+    <color name="widget_growth_bar">#FFFFFFFF</color>
+    <color name="widget_growth_track">#33FFFFFF</color>
+    <color name="widget_exercise_surface">#FF1F1A17</color>
+    <color name="widget_exercise_accent">#FFFF8A3D</color>
+    <color name="widget_exercise_track">#33FF8A3D</color>
+    <color name="widget_weight_surface">#FFF2F6FC</color>
+    <color name="widget_weight_accent">#FF1565C0</color>
+    <color name="widget_weight_text">#FF14213D</color>
+    <color name="widget_weight_secondary">#FF4A5872</color>
 </resources>

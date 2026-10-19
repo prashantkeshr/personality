@@ -6152,4 +6152,41 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get snapshotNote =>
       'إرشادات عامة للعافية وليست نصيحة طبية. أوقف أي تمرين يسبب ألمًا.';
+
+  @override
+  String get widgetGrowthTitle => 'تقدّمي';
+
+  @override
+  String widgetLevel(int level) {
+    return 'المستوى $level';
+  }
+
+  @override
+  String widgetXpToNext(int xp, int level) {
+    return '$xp نقطة خبرة للمستوى $level';
+  }
+
+  @override
+  String get widgetPlanWeek => 'الخطة المنجزة، آخر 7 أيام';
+
+  @override
+  String widgetMinutesOf(int done, int target) {
+    return '$done / $target د';
+  }
+
+  @override
+  String widgetWeekMinutes(int minutes) {
+    return 'هذا الأسبوع: $minutes د';
+  }
+
+  @override
+  String get widgetStart => 'ابدأ';
+
+  @override
+  String widgetSinceStart(String change) {
+    return '$change منذ البداية';
+  }
+
+  @override
+  String get widgetLogWeight => 'سجّل وزنك لترى الاتجاه';
 }

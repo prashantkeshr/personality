@@ -1795,5 +1795,14 @@
   "reasonDaily": "Cepat dan mudah dilakukan tiap hari",
   "reasonStart": "Awal yang baik",
   "reasonGoal": "Untuk tujuanmu: {goal}",
-  "snapshotNote": "Panduan kebugaran umum, bukan saran medis. Hentikan latihan yang terasa sakit."
+  "snapshotNote": "Panduan kebugaran umum, bukan saran medis. Hentikan latihan yang terasa sakit.",
+  "widgetGrowthTitle": "Perkembanganku",
+  "widgetLevel": "Level {level}",
+  "widgetXpToNext": "{xp} XP lagi ke level {level}",
+  "widgetPlanWeek": "Rencana selesai, 7 hari terakhir",
+  "widgetMinutesOf": "{done} / {target} mnt",
+  "widgetWeekMinutes": "Minggu ini: {minutes} mnt",
+  "widgetStart": "Mulai",
+  "widgetSinceStart": "{change} sejak awal",
+  "widgetLogWeight": "Catat berat badan untuk melihat tren"
 }

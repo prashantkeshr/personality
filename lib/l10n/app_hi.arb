@@ -1795,5 +1795,14 @@
   "reasonDaily": "रोज़ करने में आसान और जल्दी",
   "reasonStart": "शुरुआत के लिए अच्छा",
   "reasonGoal": "आपके लक्ष्य के लिए: {goal}",
-  "snapshotNote": "सामान्य वेलनेस मार्गदर्शन, चिकित्सा सलाह नहीं। जिस व्यायाम से दर्द हो, उसे रोक दें।"
+  "snapshotNote": "सामान्य वेलनेस मार्गदर्शन, चिकित्सा सलाह नहीं। जिस व्यायाम से दर्द हो, उसे रोक दें।",
+  "widgetGrowthTitle": "मेरी प्रगति",
+  "widgetLevel": "लेवल {level}",
+  "widgetXpToNext": "लेवल {level} तक {xp} XP",
+  "widgetPlanWeek": "पिछले 7 दिनों में पूरा किया प्लान",
+  "widgetMinutesOf": "{done} / {target} मिनट",
+  "widgetWeekMinutes": "इस हफ़्ते: {minutes} मिनट",
+  "widgetStart": "शुरू करें",
+  "widgetSinceStart": "शुरुआत से {change}",
+  "widgetLogWeight": "रुझान देखने के लिए वज़न दर्ज करें"
 }

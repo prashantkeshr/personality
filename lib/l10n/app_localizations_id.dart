@@ -6264,4 +6264,41 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get snapshotNote =>
       'Panduan kebugaran umum, bukan saran medis. Hentikan latihan yang terasa sakit.';
+
+  @override
+  String get widgetGrowthTitle => 'Perkembanganku';
+
+  @override
+  String widgetLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String widgetXpToNext(int xp, int level) {
+    return '$xp XP lagi ke level $level';
+  }
+
+  @override
+  String get widgetPlanWeek => 'Rencana selesai, 7 hari terakhir';
+
+  @override
+  String widgetMinutesOf(int done, int target) {
+    return '$done / $target mnt';
+  }
+
+  @override
+  String widgetWeekMinutes(int minutes) {
+    return 'Minggu ini: $minutes mnt';
+  }
+
+  @override
+  String get widgetStart => 'Mulai';
+
+  @override
+  String widgetSinceStart(String change) {
+    return '$change sejak awal';
+  }
+
+  @override
+  String get widgetLogWeight => 'Catat berat badan untuk melihat tren';
 }

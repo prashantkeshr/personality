@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Water today and your next task</string>
+    <string name="widget_growth_name">My growth</string>
+    <string name="widget_growth_description">Your level, streak and week at a glance</string>
+    <string name="widget_exercise_name">Exercise</string>
+    <string name="widget_exercise_description">Today\'s active minutes and your week</string>
+    <string name="widget_weight_name">Weight</string>
+    <string name="widget_weight_description">Your weight trend</string>
 </resources>

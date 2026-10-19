@@ -110,6 +110,30 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_today_info" />
         </receiver>
+        <receiver android:name=".GrowthWidget" android:exported="false" android:label="@string/widget_growth_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_growth_info" />
+        </receiver>
+        <receiver android:name=".ExerciseWidget" android:exported="false" android:label="@string/widget_exercise_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_exercise_info" />
+        </receiver>
+        <receiver android:name=".WeightWidget" android:exported="false" android:label="@string/widget_weight_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_weight_info" />
+        </receiver>
         <receiver android:exported="false" android:name=".sensors.MotionReceiver" />
         <receiver android:exported="false" android:name=".sensors.SensorBootReceiver">
             <intent-filter>

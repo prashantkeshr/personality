@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">ماء اليوم ومهمتك التالية</string>
+    <string name="widget_growth_name">تقدّمي</string>
+    <string name="widget_growth_description">مستواك وسلسلتك وأسبوعك بنظرة</string>
+    <string name="widget_exercise_name">التمارين</string>
+    <string name="widget_exercise_description">دقائق نشاط اليوم وأسبوعك</string>
+    <string name="widget_weight_name">الوزن</string>
+    <string name="widget_weight_description">اتجاه وزنك</string>
 </resources>

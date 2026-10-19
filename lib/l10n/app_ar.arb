@@ -1795,5 +1795,14 @@
   "reasonDaily": "سريع وسهل كل يوم",
   "reasonStart": "بداية جيدة",
   "reasonGoal": "لهدفك: {goal}",
-  "snapshotNote": "إرشادات عامة للعافية وليست نصيحة طبية. أوقف أي تمرين يسبب ألمًا."
+  "snapshotNote": "إرشادات عامة للعافية وليست نصيحة طبية. أوقف أي تمرين يسبب ألمًا.",
+  "widgetGrowthTitle": "تقدّمي",
+  "widgetLevel": "المستوى {level}",
+  "widgetXpToNext": "{xp} نقطة خبرة للمستوى {level}",
+  "widgetPlanWeek": "الخطة المنجزة، آخر 7 أيام",
+  "widgetMinutesOf": "{done} / {target} د",
+  "widgetWeekMinutes": "هذا الأسبوع: {minutes} د",
+  "widgetStart": "ابدأ",
+  "widgetSinceStart": "{change} منذ البداية",
+  "widgetLogWeight": "سجّل وزنك لترى الاتجاه"
 }

@@ -6233,4 +6233,41 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get snapshotNote =>
       'General wellness guidance, not medical advice. Stop any exercise that hurts.';
+
+  @override
+  String get widgetGrowthTitle => 'My growth';
+
+  @override
+  String widgetLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String widgetXpToNext(int xp, int level) {
+    return '$xp XP to level $level';
+  }
+
+  @override
+  String get widgetPlanWeek => 'Plan done, last 7 days';
+
+  @override
+  String widgetMinutesOf(int done, int target) {
+    return '$done / $target min';
+  }
+
+  @override
+  String widgetWeekMinutes(int minutes) {
+    return 'This week: $minutes min';
+  }
+
+  @override
+  String get widgetStart => 'Start';
+
+  @override
+  String widgetSinceStart(String change) {
+    return '$change since start';
+  }
+
+  @override
+  String get widgetLogWeight => 'Log your weight to see a trend';
 }

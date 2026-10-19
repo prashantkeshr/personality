@@ -725,3 +725,19 @@ Verification: `flutter analyze` clean; `flutter test` 429 pass, 2 skipped (new: 
   - **Exercises suggested for you:** up to 6, chosen from posture issues (e.g. forward head → chin tuck, wall angels), BMI (over the range → brisk walk, squat; under → incline push-up, squat), weak areas (sleep → seated breathing, child's pose) and goals. Each says why it was picked and opens the exercise.
 
 Verification: `flutter analyze` clean; `flutter test` 434 pass, 2 skipped (new engine tests; the About test checks the BMI rating and suggestions).
+
+## Phase 29 — Growth, exercise and weight widgets (2026-10-20)
+
+Three new home-screen widgets, each with its own design and a graph drawn to a bitmap in Kotlin (`WidgetCharts.kt`; RemoteViews can't host custom views):
+
+- **My growth:** a purple-to-teal gradient; level, progress bar to the next level with XP left, a streak flame, and a 7-day bar chart of the share of each day's plan completed. Opens My Growth.
+- **Exercise:** a dark card with an orange accent; a progress ring for today's active minutes against the target (with %), "This week: N min", a **Start** button (opens Workouts) and a 7-day minutes chart. Opens the exercise log.
+- **Weight:** a light blue card; the latest weight, change since the first of the last 30 weigh-ins, and a smooth line chart with a soft fill. Opens the weight screen.
+
+How it works:
+- The app writes translated text and chart values into the widget preferences (`g_`, `e_`, `w_` keys plus the shared `days` labels and `locked`). Widgets never read the encrypted database.
+- With app lock on, they show only the "Unlock the app" text.
+- Taps reach the app as `route:<path>` through the existing `takeAction` channel.
+- Widget names and descriptions are in all six languages.
+
+Verification: `flutter analyze` clean; `flutter test` 436 pass, 2 skipped (new: widget data for all three, and the route tap). Release build installed on the phone.
