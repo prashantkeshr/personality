@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/logging/app_logger.dart';
 import '../../core/providers.dart';
+import '../../core/theme/app_theme.dart';
 import '../../core/units/units.dart';
 import '../../l10n/app_localizations.dart';
 import 'app_settings.dart';
@@ -155,6 +156,136 @@ class TimeFormatSelector extends ConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+String accentLabel(AppLocalizations l, AppAccent a) => switch (a) {
+  AppAccent.teal => l.accentTeal,
+  AppAccent.ocean => l.accentOcean,
+  AppAccent.indigo => l.accentIndigo,
+  AppAccent.purple => l.accentPurple,
+  AppAccent.rose => l.accentRose,
+  AppAccent.coral => l.accentCoral,
+  AppAccent.amber => l.accentAmber,
+  AppAccent.forest => l.accentForest,
+};
+
+/// Colour swatches; the whole app re-tints at once.
+class AccentColorSelector extends ConsumerWidget {
+  const AccentColorSelector({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final current = AppAccent.fromName(
+      ref.watch(settingsControllerProvider.select((s) => s.accent)),
+    );
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+      child: Wrap(
+        spacing: AppSpacing.sm,
+        runSpacing: AppSpacing.sm,
+        children: [
+          for (final a in AppAccent.values)
+            Semantics(
+              selected: a == current,
+              button: true,
+              label: accentLabel(l10n, a),
+              child: Tooltip(
+                message: accentLabel(l10n, a),
+                child: InkWell(
+                  key: Key('accent-${a.name}'),
+                  customBorder: const CircleBorder(),
+                  onTap: () =>
+                      _save(context, ref, (c) => c.copyWith(accent: a.name)),
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: a.color,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: a == current ? scheme.onSurface : Colors.transparent,
+                        width: 3,
+                      ),
+                    ),
+                    child: a == current
+                        ? const Icon(Icons.check, color: Colors.white)
+                        : null,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class TextSizeSelector extends ConsumerWidget {
+  const TextSizeSelector({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final scale = ref.watch(
+      settingsControllerProvider.select((s) => s.textScale),
+    );
+    // The phone's own size, times this app's choice.
+    final base = MediaQuery.textScalerOf(context).scale(100) / 100;
+    final labels = [
+      l10n.textSizeSmall,
+      l10n.textSizeDefault,
+      l10n.textSizeLarge,
+      l10n.textSizeLarger,
+    ];
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+      child: SegmentedButton<double>(
+        key: const Key('text-size'),
+        segments: [
+          for (var i = 0; i < AppSettings.textScales.length; i++)
+            ButtonSegment(
+              value: AppSettings.textScales[i],
+              // Each label is drawn at its own size, as a preview.
+              label: Text(
+                labels[i],
+                maxLines: 1,
+                overflow: TextOverflow.fade,
+                softWrap: false,
+                textScaler: TextScaler.linear(
+                  base / scale * AppSettings.textScales[i],
+                ),
+              ),
+            ),
+        ],
+        selected: {scale},
+        showSelectedIcon: false,
+        onSelectionChanged: (s) =>
+            _save(context, ref, (c) => c.copyWith(textScale: s.single)),
+      ),
+    );
+  }
+}
+
+class ReduceMotionSwitch extends ConsumerWidget {
+  const ReduceMotionSwitch({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final on = ref.watch(
+      settingsControllerProvider.select((s) => s.reduceMotion),
+    );
+    return SwitchListTile(
+      key: const Key('reduce-motion'),
+      secondary: const Icon(Icons.motion_photos_off_outlined),
+      title: Text(l10n.settingsReduceMotion),
+      subtitle: Text(l10n.settingsReduceMotionInfo),
+      value: on,
+      onChanged: (v) => _save(context, ref, (c) => c.copyWith(reduceMotion: v)),
     );
   }
 }

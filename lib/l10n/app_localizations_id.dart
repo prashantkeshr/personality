@@ -5981,4 +5981,173 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get contentMobileWait => 'Tunggu Wi-Fi';
+
+  @override
+  String get notifSettingsTitle => 'Notifikasi & suara';
+
+  @override
+  String get notifSettingsSubtitle =>
+      'Suara, getar, pop-up, dan tunda pengingat';
+
+  @override
+  String get notifSound => 'Suara';
+
+  @override
+  String get soundSystem => 'Bawaan ponsel';
+
+  @override
+  String get soundSilent => 'Senyap';
+
+  @override
+  String get soundChime => 'Lonceng angin';
+
+  @override
+  String get soundBell => 'Bel';
+
+  @override
+  String get soundMarimba => 'Marimba';
+
+  @override
+  String get soundKalimba => 'Kalimba';
+
+  @override
+  String get soundZenBowl => 'Mangkuk bernyanyi';
+
+  @override
+  String get soundDroplet => 'Tetesan air';
+
+  @override
+  String get soundPop => 'Pop lembut';
+
+  @override
+  String get soundRise => 'Nada naik';
+
+  @override
+  String get soundHarp => 'Harpa';
+
+  @override
+  String get soundSparkle => 'Kilau';
+
+  @override
+  String get soundPulse => 'Denyut';
+
+  @override
+  String get soundBirdsong => 'Kicau burung';
+
+  @override
+  String get soundPreview => 'Putar';
+
+  @override
+  String get notifVibration => 'Getar';
+
+  @override
+  String get vibrationOff => 'Mati';
+
+  @override
+  String get vibrationGentle => 'Lembut';
+
+  @override
+  String get vibrationStandard => 'Normal';
+
+  @override
+  String get vibrationStrong => 'Kuat';
+
+  @override
+  String get notifBehaviour => 'Cara pengingat muncul';
+
+  @override
+  String get notifPopUp => 'Muncul di layar';
+
+  @override
+  String get notifPopUpInfo =>
+      'Tampilkan pengingat sebentar di atas aplikasi lain';
+
+  @override
+  String get notifHideLock => 'Sembunyikan detail di layar kunci';
+
+  @override
+  String get notifHideLockInfo =>
+      'Layar kunci hanya menunjukkan bahwa ada pengingat';
+
+  @override
+  String get notifSnooze => 'Tunda selama';
+
+  @override
+  String get notifSchedule => 'Waktu pengingat & jam tenang';
+
+  @override
+  String get notifScheduleInfo =>
+      'Nyalakan atau matikan pengingat dan pilih kapan tetap tenang';
+
+  @override
+  String get notifTest => 'Kirim notifikasi uji';
+
+  @override
+  String get notifTestTitle => 'Beginilah tampilan pengingat';
+
+  @override
+  String notifTestBody(String sound) {
+    return 'Suara: $sound';
+  }
+
+  @override
+  String get notifTestSent => 'Notifikasi uji terkirim';
+
+  @override
+  String get notifPhoneNote =>
+      'Pengaturan Jangan Ganggu dan volume ponsel tetap berlaku.';
+
+  @override
+  String get settingsAccent => 'Warna aksen';
+
+  @override
+  String get accentTeal => 'Hijau toska';
+
+  @override
+  String get accentOcean => 'Biru laut';
+
+  @override
+  String get accentIndigo => 'Nila';
+
+  @override
+  String get accentPurple => 'Ungu';
+
+  @override
+  String get accentRose => 'Mawar';
+
+  @override
+  String get accentCoral => 'Koral';
+
+  @override
+  String get accentAmber => 'Kuning amber';
+
+  @override
+  String get accentForest => 'Hijau hutan';
+
+  @override
+  String get settingsTextSize => 'Ukuran teks';
+
+  @override
+  String get textSizeSmall => 'Kecil';
+
+  @override
+  String get textSizeDefault => 'Bawaan';
+
+  @override
+  String get textSizeLarge => 'Besar';
+
+  @override
+  String get textSizeLarger => 'Lebih besar';
+
+  @override
+  String get settingsReduceMotion => 'Kurangi animasi';
+
+  @override
+  String get settingsReduceMotionInfo =>
+      'Lebih sedikit efek gerak di seluruh aplikasi';
+
+  @override
+  String reminderActionSnoozeFor(int minutes) {
+    return 'Tunda $minutes mnt';
+  }
 }

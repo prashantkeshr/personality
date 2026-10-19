@@ -6012,4 +6012,173 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get contentMobileWait => 'Esperar Wi-Fi';
+
+  @override
+  String get notifSettingsTitle => 'Notificaciones y sonidos';
+
+  @override
+  String get notifSettingsSubtitle =>
+      'Sonido, vibración, avisos emergentes y posponer';
+
+  @override
+  String get notifSound => 'Sonido';
+
+  @override
+  String get soundSystem => 'Predeterminado del teléfono';
+
+  @override
+  String get soundSilent => 'Silencio';
+
+  @override
+  String get soundChime => 'Campanilla';
+
+  @override
+  String get soundBell => 'Campana';
+
+  @override
+  String get soundMarimba => 'Marimba';
+
+  @override
+  String get soundKalimba => 'Kalimba';
+
+  @override
+  String get soundZenBowl => 'Cuenco tibetano';
+
+  @override
+  String get soundDroplet => 'Gota de agua';
+
+  @override
+  String get soundPop => 'Pop suave';
+
+  @override
+  String get soundRise => 'Notas ascendentes';
+
+  @override
+  String get soundHarp => 'Arpa';
+
+  @override
+  String get soundSparkle => 'Destello';
+
+  @override
+  String get soundPulse => 'Pulso';
+
+  @override
+  String get soundBirdsong => 'Canto de pájaros';
+
+  @override
+  String get soundPreview => 'Reproducir';
+
+  @override
+  String get notifVibration => 'Vibración';
+
+  @override
+  String get vibrationOff => 'No';
+
+  @override
+  String get vibrationGentle => 'Suave';
+
+  @override
+  String get vibrationStandard => 'Normal';
+
+  @override
+  String get vibrationStrong => 'Fuerte';
+
+  @override
+  String get notifBehaviour => 'Cómo aparecen los recordatorios';
+
+  @override
+  String get notifPopUp => 'Mostrar en pantalla';
+
+  @override
+  String get notifPopUpInfo =>
+      'Muestra los recordatorios un momento sobre otras apps';
+
+  @override
+  String get notifHideLock => 'Ocultar detalles en la pantalla de bloqueo';
+
+  @override
+  String get notifHideLockInfo =>
+      'La pantalla de bloqueo solo muestra que tienes un recordatorio';
+
+  @override
+  String get notifSnooze => 'Posponer durante';
+
+  @override
+  String get notifSchedule => 'Horarios y horas de silencio';
+
+  @override
+  String get notifScheduleInfo =>
+      'Activa o desactiva los recordatorios y elige cuándo callan';
+
+  @override
+  String get notifTest => 'Enviar una notificación de prueba';
+
+  @override
+  String get notifTestTitle => 'Así se verán los recordatorios';
+
+  @override
+  String notifTestBody(String sound) {
+    return 'Sonido: $sound';
+  }
+
+  @override
+  String get notifTestSent => 'Notificación de prueba enviada';
+
+  @override
+  String get notifPhoneNote =>
+      'El modo No molestar y el volumen del teléfono siguen aplicándose.';
+
+  @override
+  String get settingsAccent => 'Color de acento';
+
+  @override
+  String get accentTeal => 'Verde azulado';
+
+  @override
+  String get accentOcean => 'Azul océano';
+
+  @override
+  String get accentIndigo => 'Índigo';
+
+  @override
+  String get accentPurple => 'Morado';
+
+  @override
+  String get accentRose => 'Rosa';
+
+  @override
+  String get accentCoral => 'Coral';
+
+  @override
+  String get accentAmber => 'Ámbar';
+
+  @override
+  String get accentForest => 'Verde bosque';
+
+  @override
+  String get settingsTextSize => 'Tamaño del texto';
+
+  @override
+  String get textSizeSmall => 'Pequeño';
+
+  @override
+  String get textSizeDefault => 'Normal';
+
+  @override
+  String get textSizeLarge => 'Grande';
+
+  @override
+  String get textSizeLarger => 'Más grande';
+
+  @override
+  String get settingsReduceMotion => 'Reducir animaciones';
+
+  @override
+  String get settingsReduceMotionInfo =>
+      'Menos efectos de movimiento en toda la app';
+
+  @override
+  String reminderActionSnoozeFor(int minutes) {
+    return 'Posponer $minutes min';
+  }
 }

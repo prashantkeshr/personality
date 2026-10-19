@@ -5952,4 +5952,171 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contentMobileWait => 'Wait for Wi-Fi';
+
+  @override
+  String get notifSettingsTitle => 'Notifications & sounds';
+
+  @override
+  String get notifSettingsSubtitle =>
+      'Reminder sound, vibration, pop-ups and snooze';
+
+  @override
+  String get notifSound => 'Sound';
+
+  @override
+  String get soundSystem => 'Phone default';
+
+  @override
+  String get soundSilent => 'Silent';
+
+  @override
+  String get soundChime => 'Chime';
+
+  @override
+  String get soundBell => 'Bell';
+
+  @override
+  String get soundMarimba => 'Marimba';
+
+  @override
+  String get soundKalimba => 'Kalimba';
+
+  @override
+  String get soundZenBowl => 'Singing bowl';
+
+  @override
+  String get soundDroplet => 'Water drop';
+
+  @override
+  String get soundPop => 'Soft pop';
+
+  @override
+  String get soundRise => 'Rising notes';
+
+  @override
+  String get soundHarp => 'Harp';
+
+  @override
+  String get soundSparkle => 'Sparkle';
+
+  @override
+  String get soundPulse => 'Pulse';
+
+  @override
+  String get soundBirdsong => 'Birdsong';
+
+  @override
+  String get soundPreview => 'Play';
+
+  @override
+  String get notifVibration => 'Vibration';
+
+  @override
+  String get vibrationOff => 'Off';
+
+  @override
+  String get vibrationGentle => 'Gentle';
+
+  @override
+  String get vibrationStandard => 'Normal';
+
+  @override
+  String get vibrationStrong => 'Strong';
+
+  @override
+  String get notifBehaviour => 'How reminders appear';
+
+  @override
+  String get notifPopUp => 'Pop up on screen';
+
+  @override
+  String get notifPopUpInfo => 'Show reminders briefly over other apps';
+
+  @override
+  String get notifHideLock => 'Hide details on lock screen';
+
+  @override
+  String get notifHideLockInfo =>
+      'The lock screen only shows that you have a reminder';
+
+  @override
+  String get notifSnooze => 'Snooze for';
+
+  @override
+  String get notifSchedule => 'Reminder times & quiet hours';
+
+  @override
+  String get notifScheduleInfo =>
+      'Turn reminders on or off and choose when they stay quiet';
+
+  @override
+  String get notifTest => 'Send a test notification';
+
+  @override
+  String get notifTestTitle => 'This is how reminders will look';
+
+  @override
+  String notifTestBody(String sound) {
+    return 'Sound: $sound';
+  }
+
+  @override
+  String get notifTestSent => 'Test notification sent';
+
+  @override
+  String get notifPhoneNote =>
+      'Your phone’s Do Not Disturb and volume settings still apply.';
+
+  @override
+  String get settingsAccent => 'Accent colour';
+
+  @override
+  String get accentTeal => 'Teal';
+
+  @override
+  String get accentOcean => 'Ocean blue';
+
+  @override
+  String get accentIndigo => 'Indigo';
+
+  @override
+  String get accentPurple => 'Purple';
+
+  @override
+  String get accentRose => 'Rose';
+
+  @override
+  String get accentCoral => 'Coral';
+
+  @override
+  String get accentAmber => 'Amber';
+
+  @override
+  String get accentForest => 'Forest green';
+
+  @override
+  String get settingsTextSize => 'Text size';
+
+  @override
+  String get textSizeSmall => 'Small';
+
+  @override
+  String get textSizeDefault => 'Default';
+
+  @override
+  String get textSizeLarge => 'Large';
+
+  @override
+  String get textSizeLarger => 'Larger';
+
+  @override
+  String get settingsReduceMotion => 'Reduce animations';
+
+  @override
+  String get settingsReduceMotionInfo => 'Fewer moving effects across the app';
+
+  @override
+  String reminderActionSnoozeFor(int minutes) {
+    return 'Snooze $minutes min';
+  }
 }

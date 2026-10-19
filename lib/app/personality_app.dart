@@ -16,13 +16,14 @@ class PersonalityApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settings = ref.watch(settingsControllerProvider);
+    final seed = AppAccent.fromName(settings.accent).color;
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
-      highContrastTheme: AppTheme.highContrastLight(),
-      highContrastDarkTheme: AppTheme.highContrastDark(),
+      theme: AppTheme.light(seed: seed),
+      darkTheme: AppTheme.dark(seed: seed),
+      highContrastTheme: AppTheme.highContrastLight(seed: seed),
+      highContrastDarkTheme: AppTheme.highContrastDark(seed: seed),
       themeMode: settings.themeMode,
       locale: settings.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -32,9 +33,15 @@ class PersonalityApp extends ConsumerWidget {
         final mq = MediaQuery.of(context);
         return MediaQuery(
           // The app's own 12/24-hour choice wins over the device's.
+          // Text size and reduced motion add to the phone's own settings.
           data: mq.copyWith(
             alwaysUse24HourFormat:
                 settings.use24Hour ?? mq.alwaysUse24HourFormat,
+            textScaler: settings.textScale == 1.0
+                ? mq.textScaler
+                : TextScaler.linear(
+                    mq.textScaler.scale(100) / 100 * settings.textScale),
+            disableAnimations: mq.disableAnimations || settings.reduceMotion,
           ),
           child: LockGate(
             child: HomeWidgetHost(

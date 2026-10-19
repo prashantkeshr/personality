@@ -15,6 +15,9 @@ class SettingsRepository {
   static const _theme = 'theme.mode';
   static const _locale = 'locale.code';
   static const _clock = 'time.format';
+  static const _accent = 'theme.accent';
+  static const _textScale = 'text.scale';
+  static const _reduceMotion = 'motion.reduce';
 
   Future<AppSettings> load() async {
     final rows = await _db.select(_db.appSettingsEntries).get();
@@ -32,6 +35,12 @@ class SettingsRepository {
         '12' => false,
         _ => null,
       },
+      accent: map[_accent] ?? 'teal',
+      textScale: switch (double.tryParse(map[_textScale] ?? '')) {
+        final s? when AppSettings.textScales.contains(s) => s,
+        _ => 1.0,
+      },
+      reduceMotion: map[_reduceMotion] == 'true',
     );
   }
 
@@ -49,6 +58,9 @@ class SettingsRepository {
       await put(_onboarding, '${settings.onboardingCompleted}');
       await put(_units, settings.unitSystem.name);
       await put(_theme, settings.themeMode.name);
+      await put(_accent, settings.accent);
+      await put(_textScale, '${settings.textScale}');
+      await put(_reduceMotion, '${settings.reduceMotion}');
       if (settings.use24Hour case final h24?) {
         await put(_clock, h24 ? '24' : '12');
       } else {

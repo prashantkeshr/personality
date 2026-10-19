@@ -3068,5 +3068,72 @@
     }
   },
   "contentMobileUse": "Download now",
-  "contentMobileWait": "Wait for Wi-Fi"
+  "contentMobileWait": "Wait for Wi-Fi",
+  "notifSettingsTitle": "Notifications & sounds",
+  "notifSettingsSubtitle": "Reminder sound, vibration, pop-ups and snooze",
+  "notifSound": "Sound",
+  "soundSystem": "Phone default",
+  "soundSilent": "Silent",
+  "soundChime": "Chime",
+  "soundBell": "Bell",
+  "soundMarimba": "Marimba",
+  "soundKalimba": "Kalimba",
+  "soundZenBowl": "Singing bowl",
+  "soundDroplet": "Water drop",
+  "soundPop": "Soft pop",
+  "soundRise": "Rising notes",
+  "soundHarp": "Harp",
+  "soundSparkle": "Sparkle",
+  "soundPulse": "Pulse",
+  "soundBirdsong": "Birdsong",
+  "soundPreview": "Play",
+  "notifVibration": "Vibration",
+  "vibrationOff": "Off",
+  "vibrationGentle": "Gentle",
+  "vibrationStandard": "Normal",
+  "vibrationStrong": "Strong",
+  "notifBehaviour": "How reminders appear",
+  "notifPopUp": "Pop up on screen",
+  "notifPopUpInfo": "Show reminders briefly over other apps",
+  "notifHideLock": "Hide details on lock screen",
+  "notifHideLockInfo": "The lock screen only shows that you have a reminder",
+  "notifSnooze": "Snooze for",
+  "notifSchedule": "Reminder times & quiet hours",
+  "notifScheduleInfo": "Turn reminders on or off and choose when they stay quiet",
+  "notifTest": "Send a test notification",
+  "notifTestTitle": "This is how reminders will look",
+  "notifTestBody": "Sound: {sound}",
+  "@notifTestBody": {
+    "placeholders": {
+      "sound": {
+        "type": "String"
+      }
+    }
+  },
+  "notifTestSent": "Test notification sent",
+  "notifPhoneNote": "Your phone’s Do Not Disturb and volume settings still apply.",
+  "settingsAccent": "Accent colour",
+  "accentTeal": "Teal",
+  "accentOcean": "Ocean blue",
+  "accentIndigo": "Indigo",
+  "accentPurple": "Purple",
+  "accentRose": "Rose",
+  "accentCoral": "Coral",
+  "accentAmber": "Amber",
+  "accentForest": "Forest green",
+  "settingsTextSize": "Text size",
+  "textSizeSmall": "Small",
+  "textSizeDefault": "Default",
+  "textSizeLarge": "Large",
+  "textSizeLarger": "Larger",
+  "settingsReduceMotion": "Reduce animations",
+  "settingsReduceMotionInfo": "Fewer moving effects across the app",
+  "reminderActionSnoozeFor": "Snooze {minutes} min",
+  "@reminderActionSnoozeFor": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  }
 }

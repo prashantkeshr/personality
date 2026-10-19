@@ -5,11 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/router.dart';
 import '../../core/logging/app_logger.dart';
+import '../../core/notifications/notification_style.dart';
 import '../../core/notifications/reminder_scheduler.dart';
 import '../../domain/entities/routine.dart';
 import '../../domain/services/plan_engine.dart';
 import '../../l10n/app_localizations.dart';
 import '../health/health_providers.dart';
+import '../settings/notification_settings.dart';
 import 'routine_providers.dart';
 import '../../shared/format/clock_format.dart';
 
@@ -95,14 +97,17 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
         now: ref.read(clockProvider)(),
         quiet: settings.quietHours,
       );
+      final style =
+          ref.read(notificationStyleProvider).value ?? const NotificationStyle();
       await scheduler.sync(
         occurrences,
         ReminderTexts(
           channelName: l10n.remindersChannelName,
           channelDescription: l10n.remindersChannelDescription,
           actionDone: l10n.reminderActionDone,
-          actionSnooze: l10n.reminderActionSnooze,
+          actionSnooze: l10n.reminderActionSnoozeFor(style.snoozeMinutes),
           body: (o) => l10n.reminderBody(clock.format(o.at)),
+          style: style,
         ),
       );
     } catch (e, st) {
@@ -114,6 +119,7 @@ class _ReminderSyncHostState extends ConsumerState<ReminderSyncHost> {
   Widget build(BuildContext context) {
     ref.listen(planInputsProvider, (_, _) => _schedule());
     ref.listen(reminderSettingsProvider, (_, _) => _schedule());
+    ref.listen(notificationStyleProvider, (_, _) => _schedule());
     return widget.child;
   }
 }

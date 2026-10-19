@@ -77,6 +77,9 @@ class MainActivity : FlutterFragmentActivity() {
             .setMethodCallHandler { call, result ->
                 if (call.method == "probe") {
                     result.success(probe())
+                } else if (call.method == "playSound") {
+                    playSound(call.argument<String>("name") ?: "system")
+                    result.success(null)
                 } else if (call.method == "network") {
                     result.success(network())
                 } else if (call.method == "permissions") {
@@ -275,6 +278,36 @@ class MainActivity : FlutterFragmentActivity() {
     }
 
     /** Whether a download can start now, and whether it would use mobile data. */
+    private var preview: android.media.MediaPlayer? = null
+
+    /** Plays a reminder sound once, as a preview in Settings. */
+    private fun playSound(name: String) {
+        preview?.release()
+        preview = null
+        if (name == "silent") return
+        val uri = if (name == "system") {
+            android.media.RingtoneManager.getDefaultUri(android.media.RingtoneManager.TYPE_NOTIFICATION)
+        } else {
+            val id = resources.getIdentifier(name, "raw", packageName)
+            if (id == 0) return
+            android.net.Uri.parse("android.resource://$packageName/$id")
+        } ?: return
+        preview = try { android.media.MediaPlayer().apply {
+            setAudioAttributes(
+                android.media.AudioAttributes.Builder()
+                    .setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION)
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build()
+            )
+            setDataSource(applicationContext, uri)
+            setOnCompletionListener { it.release(); if (preview === it) preview = null }
+            setOnPreparedListener { it.start() }
+            prepareAsync()
+        } } catch (e: Exception) {
+            null // a preview is best-effort
+        }
+    }
+
     private fun network(): Map<String, Boolean> {
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val caps = cm.getNetworkCapabilities(cm.activeNetwork)

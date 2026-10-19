@@ -5874,4 +5874,170 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contentMobileWait => 'انتظار Wi-Fi';
+
+  @override
+  String get notifSettingsTitle => 'الإشعارات والأصوات';
+
+  @override
+  String get notifSettingsSubtitle =>
+      'صوت التذكير والاهتزاز والنوافذ المنبثقة والغفوة';
+
+  @override
+  String get notifSound => 'الصوت';
+
+  @override
+  String get soundSystem => 'الافتراضي في الهاتف';
+
+  @override
+  String get soundSilent => 'صامت';
+
+  @override
+  String get soundChime => 'رنين';
+
+  @override
+  String get soundBell => 'جرس';
+
+  @override
+  String get soundMarimba => 'ماريمبا';
+
+  @override
+  String get soundKalimba => 'كاليمبا';
+
+  @override
+  String get soundZenBowl => 'الوعاء المُرنِّم';
+
+  @override
+  String get soundDroplet => 'قطرة ماء';
+
+  @override
+  String get soundPop => 'فرقعة خفيفة';
+
+  @override
+  String get soundRise => 'نغمات صاعدة';
+
+  @override
+  String get soundHarp => 'قيثارة';
+
+  @override
+  String get soundSparkle => 'بريق';
+
+  @override
+  String get soundPulse => 'نبض';
+
+  @override
+  String get soundBirdsong => 'تغريد العصافير';
+
+  @override
+  String get soundPreview => 'تشغيل';
+
+  @override
+  String get notifVibration => 'الاهتزاز';
+
+  @override
+  String get vibrationOff => 'إيقاف';
+
+  @override
+  String get vibrationGentle => 'خفيف';
+
+  @override
+  String get vibrationStandard => 'عادي';
+
+  @override
+  String get vibrationStrong => 'قوي';
+
+  @override
+  String get notifBehaviour => 'كيف تظهر التذكيرات';
+
+  @override
+  String get notifPopUp => 'الظهور على الشاشة';
+
+  @override
+  String get notifPopUpInfo => 'اعرض التذكيرات لحظة فوق التطبيقات الأخرى';
+
+  @override
+  String get notifHideLock => 'إخفاء التفاصيل على شاشة القفل';
+
+  @override
+  String get notifHideLockInfo => 'تُظهر شاشة القفل فقط أن لديك تذكيرًا';
+
+  @override
+  String get notifSnooze => 'مدة الغفوة';
+
+  @override
+  String get notifSchedule => 'أوقات التذكير وساعات الهدوء';
+
+  @override
+  String get notifScheduleInfo =>
+      'شغّل التذكيرات أو أوقفها واختر متى تبقى صامتة';
+
+  @override
+  String get notifTest => 'إرسال إشعار تجريبي';
+
+  @override
+  String get notifTestTitle => 'هكذا ستبدو التذكيرات';
+
+  @override
+  String notifTestBody(String sound) {
+    return 'الصوت: $sound';
+  }
+
+  @override
+  String get notifTestSent => 'تم إرسال الإشعار التجريبي';
+
+  @override
+  String get notifPhoneNote =>
+      'يظل وضع عدم الإزعاج ومستوى الصوت في هاتفك ساريين.';
+
+  @override
+  String get settingsAccent => 'لون التمييز';
+
+  @override
+  String get accentTeal => 'أزرق مخضر';
+
+  @override
+  String get accentOcean => 'أزرق المحيط';
+
+  @override
+  String get accentIndigo => 'نيلي';
+
+  @override
+  String get accentPurple => 'بنفسجي';
+
+  @override
+  String get accentRose => 'وردي';
+
+  @override
+  String get accentCoral => 'مرجاني';
+
+  @override
+  String get accentAmber => 'كهرماني';
+
+  @override
+  String get accentForest => 'أخضر غابي';
+
+  @override
+  String get settingsTextSize => 'حجم النص';
+
+  @override
+  String get textSizeSmall => 'صغير';
+
+  @override
+  String get textSizeDefault => 'افتراضي';
+
+  @override
+  String get textSizeLarge => 'كبير';
+
+  @override
+  String get textSizeLarger => 'أكبر';
+
+  @override
+  String get settingsReduceMotion => 'تقليل الحركة';
+
+  @override
+  String get settingsReduceMotionInfo => 'مؤثرات حركة أقل في التطبيق كله';
+
+  @override
+  String reminderActionSnoozeFor(int minutes) {
+    return 'تأجيل $minutes د';
+  }
 }

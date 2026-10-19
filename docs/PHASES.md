@@ -701,3 +701,17 @@ Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (new: 
 - The privacy note no longer shows the GitHub address ("Personality's official content library").
 
 Verification: `flutter analyze` clean; `flutter test` 426 pass, 2 skipped (download test covers a small pack on mobile data and the mobile-data prompt). Emulator: skills order, new disclaimer, offline error with Retry. Phone: on Airtel 4G (metered) GitHub is reachable; download to be confirmed by hand (MIUI blocks adb taps).
+
+## Phase 27 — Notification sounds and app customisation (2026-10-19)
+
+- **Settings → Notifications & sounds** (`/settings/notifications`, `lib/features/settings/notification_settings.dart`):
+  - **Sound:** phone default, silent, or one of 12 sounds made for the app (chime, bell, marimba, kalimba, singing bowl, water drop, soft pop, rising notes, harp, sparkle, pulse, birdsong). They are synthesised by a script, so there are no licences, and stored as `res/raw/snd_*.wav` (608 KB, kept from resource shrinking in `raw/keep.xml`). Each has a preview (native `playSound` on `personality/device`, MediaPlayer with notification audio attributes).
+  - **Vibration:** off, gentle, normal or strong. **Pop up on screen** (high importance). **Hide details on lock screen** (private visibility). **Snooze** 5/10/15/30 min; the Snooze button shows the chosen length and the background snooze uses it.
+  - **Send a test notification**, and a link to reminder times and quiet hours.
+  - Android fixes a channel's sound, vibration and importance, so each combination gets its own channel (`reminders_<sound>_<vibration>_<pop|quiet>`), and older reminder channels are deleted after each sync. The style is stored as JSON in app_settings (`notif.style`), travels in each notification's payload for snoozes, and a change triggers a re-sync.
+- **Appearance:**
+  - **Accent colour** with 8 choices (`AppAccent`; the whole theme is built from the chosen seed).
+  - **Text size:** Small, Default, Large or Larger, which multiplies the phone's own size. Each label is drawn at its own size.
+  - **Reduce animations**, combined with the phone's own setting through `MediaQuery.disableAnimations`.
+
+Verification: `flutter analyze` clean; `flutter test` 429 pass, 2 skipped (new: style round trip and channel ids, choosing sound/vibration/snooze plus the test notification, accent/text size/reduced motion applied app-wide). Emulator release build: settings render; the preview plays; the test notification pops up on channel `reminders_zenBowl_standard_pop` with `snd_zen_bowl`; the old `reminders` channel was deleted.

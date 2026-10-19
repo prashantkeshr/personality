@@ -10377,6 +10377,324 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wait for Wi-Fi'**
   String get contentMobileWait;
+
+  /// No description provided for @notifSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications & sounds'**
+  String get notifSettingsTitle;
+
+  /// No description provided for @notifSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder sound, vibration, pop-ups and snooze'**
+  String get notifSettingsSubtitle;
+
+  /// No description provided for @notifSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound'**
+  String get notifSound;
+
+  /// No description provided for @soundSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone default'**
+  String get soundSystem;
+
+  /// No description provided for @soundSilent.
+  ///
+  /// In en, this message translates to:
+  /// **'Silent'**
+  String get soundSilent;
+
+  /// No description provided for @soundChime.
+  ///
+  /// In en, this message translates to:
+  /// **'Chime'**
+  String get soundChime;
+
+  /// No description provided for @soundBell.
+  ///
+  /// In en, this message translates to:
+  /// **'Bell'**
+  String get soundBell;
+
+  /// No description provided for @soundMarimba.
+  ///
+  /// In en, this message translates to:
+  /// **'Marimba'**
+  String get soundMarimba;
+
+  /// No description provided for @soundKalimba.
+  ///
+  /// In en, this message translates to:
+  /// **'Kalimba'**
+  String get soundKalimba;
+
+  /// No description provided for @soundZenBowl.
+  ///
+  /// In en, this message translates to:
+  /// **'Singing bowl'**
+  String get soundZenBowl;
+
+  /// No description provided for @soundDroplet.
+  ///
+  /// In en, this message translates to:
+  /// **'Water drop'**
+  String get soundDroplet;
+
+  /// No description provided for @soundPop.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft pop'**
+  String get soundPop;
+
+  /// No description provided for @soundRise.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising notes'**
+  String get soundRise;
+
+  /// No description provided for @soundHarp.
+  ///
+  /// In en, this message translates to:
+  /// **'Harp'**
+  String get soundHarp;
+
+  /// No description provided for @soundSparkle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sparkle'**
+  String get soundSparkle;
+
+  /// No description provided for @soundPulse.
+  ///
+  /// In en, this message translates to:
+  /// **'Pulse'**
+  String get soundPulse;
+
+  /// No description provided for @soundBirdsong.
+  ///
+  /// In en, this message translates to:
+  /// **'Birdsong'**
+  String get soundBirdsong;
+
+  /// No description provided for @soundPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get soundPreview;
+
+  /// No description provided for @notifVibration.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibration'**
+  String get notifVibration;
+
+  /// No description provided for @vibrationOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get vibrationOff;
+
+  /// No description provided for @vibrationGentle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle'**
+  String get vibrationGentle;
+
+  /// No description provided for @vibrationStandard.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get vibrationStandard;
+
+  /// No description provided for @vibrationStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Strong'**
+  String get vibrationStrong;
+
+  /// No description provided for @notifBehaviour.
+  ///
+  /// In en, this message translates to:
+  /// **'How reminders appear'**
+  String get notifBehaviour;
+
+  /// No description provided for @notifPopUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Pop up on screen'**
+  String get notifPopUp;
+
+  /// No description provided for @notifPopUpInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Show reminders briefly over other apps'**
+  String get notifPopUpInfo;
+
+  /// No description provided for @notifHideLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide details on lock screen'**
+  String get notifHideLock;
+
+  /// No description provided for @notifHideLockInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'The lock screen only shows that you have a reminder'**
+  String get notifHideLockInfo;
+
+  /// No description provided for @notifSnooze.
+  ///
+  /// In en, this message translates to:
+  /// **'Snooze for'**
+  String get notifSnooze;
+
+  /// No description provided for @notifSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder times & quiet hours'**
+  String get notifSchedule;
+
+  /// No description provided for @notifScheduleInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn reminders on or off and choose when they stay quiet'**
+  String get notifScheduleInfo;
+
+  /// No description provided for @notifTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a test notification'**
+  String get notifTest;
+
+  /// No description provided for @notifTestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This is how reminders will look'**
+  String get notifTestTitle;
+
+  /// No description provided for @notifTestBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound: {sound}'**
+  String notifTestBody(String sound);
+
+  /// No description provided for @notifTestSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Test notification sent'**
+  String get notifTestSent;
+
+  /// No description provided for @notifPhoneNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone’s Do Not Disturb and volume settings still apply.'**
+  String get notifPhoneNote;
+
+  /// No description provided for @settingsAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'Accent colour'**
+  String get settingsAccent;
+
+  /// No description provided for @accentTeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Teal'**
+  String get accentTeal;
+
+  /// No description provided for @accentOcean.
+  ///
+  /// In en, this message translates to:
+  /// **'Ocean blue'**
+  String get accentOcean;
+
+  /// No description provided for @accentIndigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Indigo'**
+  String get accentIndigo;
+
+  /// No description provided for @accentPurple.
+  ///
+  /// In en, this message translates to:
+  /// **'Purple'**
+  String get accentPurple;
+
+  /// No description provided for @accentRose.
+  ///
+  /// In en, this message translates to:
+  /// **'Rose'**
+  String get accentRose;
+
+  /// No description provided for @accentCoral.
+  ///
+  /// In en, this message translates to:
+  /// **'Coral'**
+  String get accentCoral;
+
+  /// No description provided for @accentAmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Amber'**
+  String get accentAmber;
+
+  /// No description provided for @accentForest.
+  ///
+  /// In en, this message translates to:
+  /// **'Forest green'**
+  String get accentForest;
+
+  /// No description provided for @settingsTextSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get settingsTextSize;
+
+  /// No description provided for @textSizeSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get textSizeSmall;
+
+  /// No description provided for @textSizeDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Default'**
+  String get textSizeDefault;
+
+  /// No description provided for @textSizeLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get textSizeLarge;
+
+  /// No description provided for @textSizeLarger.
+  ///
+  /// In en, this message translates to:
+  /// **'Larger'**
+  String get textSizeLarger;
+
+  /// No description provided for @settingsReduceMotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduce animations'**
+  String get settingsReduceMotion;
+
+  /// No description provided for @settingsReduceMotionInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer moving effects across the app'**
+  String get settingsReduceMotionInfo;
+
+  /// No description provided for @reminderActionSnoozeFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Snooze {minutes} min'**
+  String reminderActionSnoozeFor(int minutes);
 }
 
 class _AppLocalizationsDelegate

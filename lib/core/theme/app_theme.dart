@@ -24,17 +24,41 @@ abstract final class AppBreakpoints {
   static const expanded = 840.0;
 }
 
+/// Accent colours the user can pick; teal is Personality's own.
+enum AppAccent {
+  teal(Color(0xFF0F6E6E)),
+  ocean(Color(0xFF1565C0)),
+  indigo(Color(0xFF3F51B5)),
+  purple(Color(0xFF7B1FA2)),
+  rose(Color(0xFFC2185B)),
+  coral(Color(0xFFE64A19)),
+  amber(Color(0xFFB7791F)),
+  forest(Color(0xFF2E7D32));
+
+  const AppAccent(this.color);
+  final Color color;
+
+  static AppAccent fromName(String? n) =>
+      values.firstWhere((a) => a.name == n, orElse: () => teal);
+}
+
 abstract final class AppTheme {
   static const seed = Color(0xFF0F6E6E);
 
-  static ThemeData light() => _build(Brightness.light, highContrast: false);
-  static ThemeData dark() => _build(Brightness.dark, highContrast: false);
-  static ThemeData highContrastLight() =>
-      _build(Brightness.light, highContrast: true);
-  static ThemeData highContrastDark() =>
-      _build(Brightness.dark, highContrast: true);
+  static ThemeData light({Color seed = seed}) =>
+      _build(Brightness.light, seed, highContrast: false);
+  static ThemeData dark({Color seed = seed}) =>
+      _build(Brightness.dark, seed, highContrast: false);
+  static ThemeData highContrastLight({Color seed = seed}) =>
+      _build(Brightness.light, seed, highContrast: true);
+  static ThemeData highContrastDark({Color seed = seed}) =>
+      _build(Brightness.dark, seed, highContrast: true);
 
-  static ThemeData _build(Brightness brightness, {required bool highContrast}) {
+  static ThemeData _build(
+    Brightness brightness,
+    Color seed, {
+    required bool highContrast,
+  }) {
     final scheme = ColorScheme.fromSeed(
       seedColor: seed,
       brightness: brightness,

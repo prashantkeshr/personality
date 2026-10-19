@@ -72,7 +72,9 @@ void main() {
       final app = AppHarness(tester);
       await app.start(onboarded);
       await app.tapAndSettle(find.byTooltip('Settings'));
-      await app.tapAndSettle(find.byKey(const Key('app-lock')));
+      await app.reveal(find.byKey(const Key('app-lock')));
+      await app.reveal(find.byKey(const Key('app-lock')));
+    await app.tapAndSettle(find.byKey(const Key('app-lock')));
       expect(find.text('Choose a PIN'), findsOneWidget);
       await type(app, tester, '1357');
       expect(find.text('Enter the PIN again'), findsOneWidget);
@@ -189,6 +191,7 @@ void main() {
     final app = AppHarness(tester);
     await app.start(onboarded, biometrics: bio);
     await app.tapAndSettle(find.byTooltip('Settings'));
+    await app.reveal(find.byKey(const Key('app-lock')));
     await app.tapAndSettle(find.byKey(const Key('app-lock')));
     await io(app, tester);
     await tester.pumpAndSettle();
@@ -245,6 +248,7 @@ void main() {
     await tester.pumpAndSettle();
     await app.tapAndSettle(find.byTooltip('Settings'));
     bio.device = DeviceAuth.failed;
+    await app.reveal(find.byKey(const Key('lock-switch-pin')));
     await app.tapAndSettle(find.byKey(const Key('lock-switch-pin')));
     await io(app, tester);
     expect(find.byKey(const Key('pin-1')), findsNothing); // refused

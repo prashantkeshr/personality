@@ -5938,4 +5938,173 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get contentMobileWait => 'Wi-Fi का इंतज़ार करें';
+
+  @override
+  String get notifSettingsTitle => 'सूचनाएँ और ध्वनियाँ';
+
+  @override
+  String get notifSettingsSubtitle =>
+      'रिमाइंडर की ध्वनि, कंपन, पॉप-अप और स्नूज़';
+
+  @override
+  String get notifSound => 'ध्वनि';
+
+  @override
+  String get soundSystem => 'फ़ोन का डिफ़ॉल्ट';
+
+  @override
+  String get soundSilent => 'बिना आवाज़';
+
+  @override
+  String get soundChime => 'झंकार';
+
+  @override
+  String get soundBell => 'घंटी';
+
+  @override
+  String get soundMarimba => 'मारिम्बा';
+
+  @override
+  String get soundKalimba => 'कलिम्बा';
+
+  @override
+  String get soundZenBowl => 'सिंगिंग बाउल';
+
+  @override
+  String get soundDroplet => 'पानी की बूँद';
+
+  @override
+  String get soundPop => 'हल्का पॉप';
+
+  @override
+  String get soundRise => 'उठते सुर';
+
+  @override
+  String get soundHarp => 'वीणा';
+
+  @override
+  String get soundSparkle => 'चमक';
+
+  @override
+  String get soundPulse => 'धड़कन';
+
+  @override
+  String get soundBirdsong => 'चिड़ियों का गीत';
+
+  @override
+  String get soundPreview => 'चलाएँ';
+
+  @override
+  String get notifVibration => 'कंपन';
+
+  @override
+  String get vibrationOff => 'बंद';
+
+  @override
+  String get vibrationGentle => 'हल्का';
+
+  @override
+  String get vibrationStandard => 'सामान्य';
+
+  @override
+  String get vibrationStrong => 'तेज़';
+
+  @override
+  String get notifBehaviour => 'रिमाइंडर कैसे दिखें';
+
+  @override
+  String get notifPopUp => 'स्क्रीन पर पॉप-अप';
+
+  @override
+  String get notifPopUpInfo =>
+      'रिमाइंडर कुछ पल के लिए दूसरे ऐप्स के ऊपर दिखाएँ';
+
+  @override
+  String get notifHideLock => 'लॉक स्क्रीन पर विवरण छिपाएँ';
+
+  @override
+  String get notifHideLockInfo =>
+      'लॉक स्क्रीन पर सिर्फ़ इतना दिखेगा कि रिमाइंडर है';
+
+  @override
+  String get notifSnooze => 'स्नूज़ की अवधि';
+
+  @override
+  String get notifSchedule => 'रिमाइंडर का समय और शांत घंटे';
+
+  @override
+  String get notifScheduleInfo =>
+      'रिमाइंडर चालू या बंद करें और चुनें कि कब शांत रहें';
+
+  @override
+  String get notifTest => 'टेस्ट सूचना भेजें';
+
+  @override
+  String get notifTestTitle => 'रिमाइंडर ऐसे दिखेंगे';
+
+  @override
+  String notifTestBody(String sound) {
+    return 'ध्वनि: $sound';
+  }
+
+  @override
+  String get notifTestSent => 'टेस्ट सूचना भेजी गई';
+
+  @override
+  String get notifPhoneNote =>
+      'आपके फ़ोन की “परेशान न करें” और वॉल्यूम सेटिंग अब भी लागू रहेंगी।';
+
+  @override
+  String get settingsAccent => 'मुख्य रंग';
+
+  @override
+  String get accentTeal => 'टील';
+
+  @override
+  String get accentOcean => 'समुद्री नीला';
+
+  @override
+  String get accentIndigo => 'जामुनी';
+
+  @override
+  String get accentPurple => 'बैंगनी';
+
+  @override
+  String get accentRose => 'गुलाबी';
+
+  @override
+  String get accentCoral => 'मूँगा';
+
+  @override
+  String get accentAmber => 'अम्बर';
+
+  @override
+  String get accentForest => 'गहरा हरा';
+
+  @override
+  String get settingsTextSize => 'अक्षरों का आकार';
+
+  @override
+  String get textSizeSmall => 'छोटा';
+
+  @override
+  String get textSizeDefault => 'सामान्य';
+
+  @override
+  String get textSizeLarge => 'बड़ा';
+
+  @override
+  String get textSizeLarger => 'और बड़ा';
+
+  @override
+  String get settingsReduceMotion => 'एनिमेशन कम करें';
+
+  @override
+  String get settingsReduceMotionInfo =>
+      'पूरे ऐप में कम हिलने-डुलने वाले इफ़ेक्ट';
+
+  @override
+  String reminderActionSnoozeFor(int minutes) {
+    return '$minutes मिनट बाद';
+  }
 }

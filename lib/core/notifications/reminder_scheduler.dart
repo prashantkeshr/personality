@@ -7,6 +7,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 import '../../domain/services/plan_engine.dart';
 import '../logging/app_logger.dart';
+import 'notification_style.dart';
 
 /// Localized notification texts, resolved by the caller.
 class ReminderTexts {
@@ -16,6 +17,7 @@ class ReminderTexts {
     required this.actionDone,
     required this.actionSnooze,
     required this.body,
+    this.style = const NotificationStyle(),
   });
 
   final String channelName;
@@ -25,6 +27,9 @@ class ReminderTexts {
 
   /// Notification body for an occurrence, e.g. "Planned for 16:00".
   final String Function(ReminderOccurrence) body;
+
+  /// Sound, vibration and the rest, from Settings.
+  final NotificationStyle style;
 }
 
 /// A tap or action on a reminder notification.
@@ -53,6 +58,9 @@ abstract interface class ReminderScheduler {
   /// Makes pending reminders exactly [occurrences] (snoozes are left alone).
   Future<void> sync(List<ReminderOccurrence> occurrences, ReminderTexts texts);
   Future<void> cancelAll();
+
+  /// Shows one notification now with [texts]' style, to try it out.
+  Future<void> showTest(String title, String body, ReminderTexts texts);
 }
 
 /// Used in tests and on platforms without notification support.
@@ -75,10 +83,18 @@ class NoopReminderScheduler implements ReminderScheduler {
 
   @override
   Future<void> cancelAll() async => synced = const [];
+
+  /// The last test notification's style, for tests.
+  NotificationStyle? tested;
+
+  @override
+  Future<void> showTest(String title, String body, ReminderTexts texts) async {
+    tested = texts.style;
+  }
 }
 
-const _channelId = 'reminders';
 const _snoozeBit = 0x40000000;
+const _testId = 0x3FFFFFFF;
 
 ReminderResponse? _parse(NotificationResponse r) {
   try {
@@ -93,12 +109,26 @@ ReminderResponse? _parse(NotificationResponse r) {
   }
 }
 
-AndroidNotificationDetails _details(Map<String, dynamic> p) =>
-    AndroidNotificationDetails(
-      _channelId,
+AndroidNotificationDetails _details(Map<String, dynamic> p) {
+  final style = p['style'] is Map
+      ? NotificationStyle.fromJson((p['style'] as Map).cast<String, dynamic>())
+      : const NotificationStyle();
+  return AndroidNotificationDetails(
+      style.channelId,
       p['channel'] as String,
       channelDescription: p['channelDescription'] as String,
       category: AndroidNotificationCategory.reminder,
+      importance: style.popUp ? Importance.high : Importance.defaultImportance,
+      priority: style.popUp ? Priority.high : Priority.defaultPriority,
+      playSound: style.sound != ReminderSound.silent,
+      sound: style.sound.bundled
+          ? RawResourceAndroidNotificationSound(style.sound.resource)
+          : null,
+      enableVibration: style.vibration != VibrationLevel.off,
+      vibrationPattern: style.vibration.pattern,
+      visibility: style.hideOnLockScreen
+          ? NotificationVisibility.private
+          : NotificationVisibility.public,
       // Several reminders at once collapse into one group.
       groupKey: 'com.dhurta.personality.reminders',
       actions: [
@@ -109,6 +139,15 @@ AndroidNotificationDetails _details(Map<String, dynamic> p) =>
             ReminderScheduler.actionSnooze, p['snooze'] as String),
       ],
     );
+}
+
+Map<String, Object?> _payload(ReminderTexts texts) => {
+  'channel': texts.channelName,
+  'channelDescription': texts.channelDescription,
+  'done': texts.actionDone,
+  'snooze': texts.actionSnooze,
+  'style': texts.style.toJson(),
+};
 
 /// Runs in a background isolate when "Snooze" is pressed. It only needs the
 /// notification plugin, so it never opens the encrypted database.
@@ -126,8 +165,9 @@ Future<void> reminderBackgroundResponse(NotificationResponse r) async {
       id: r.id! | _snoozeBit,
       title: p['title'] as String?,
       body: p['body'] as String?,
-      scheduledDate: tz.TZDateTime.now(tz.UTC)
-          .add(const Duration(minutes: ReminderScheduler.snoozeMinutes)),
+      scheduledDate: tz.TZDateTime.now(tz.UTC).add(Duration(
+          minutes: (p['style'] as Map?)?['snooze'] as int? ??
+              ReminderScheduler.snoozeMinutes)),
       notificationDetails: NotificationDetails(android: _details(p)),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       payload: r.payload,
@@ -188,10 +228,7 @@ class LocalNotificationScheduler implements ReminderScheduler {
         'day': o.dayKey,
         'title': o.title,
         'body': texts.body(o),
-        'channel': texts.channelName,
-        'channelDescription': texts.channelDescription,
-        'done': texts.actionDone,
-        'snooze': texts.actionSnooze,
+        ..._payload(texts),
       };
       await _plugin.zonedSchedule(
         id: o.id,
@@ -205,9 +242,33 @@ class LocalNotificationScheduler implements ReminderScheduler {
         payload: jsonEncode(payload),
       );
     }
+    await _dropOldChannels(texts.style.channelId);
     if (kDebugMode) AppLogger.info('reminders.synced ${occurrences.length}');
+  }
+
+  /// Removes reminder channels from earlier sound choices, so the phone's
+  /// own notification settings list only the current one.
+  Future<void> _dropOldChannels(String keep) async {
+    final android = _android;
+    if (android == null) return;
+    for (final c in await android.getNotificationChannels() ?? const []) {
+      if (c.id.startsWith('reminders') && c.id != keep) {
+        await android.deleteNotificationChannel(channelId: c.id);
+      }
+    }
   }
 
   @override
   Future<void> cancelAll() => _plugin.cancelAll();
+
+  @override
+  Future<void> showTest(String title, String body, ReminderTexts texts) async {
+    await _plugin.show(
+      id: _testId,
+      title: title,
+      body: body,
+      notificationDetails: NotificationDetails(android: _details(_payload(texts))),
+    );
+    await _dropOldChannels(texts.style.channelId);
+  }
 }

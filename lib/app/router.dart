@@ -47,6 +47,7 @@ import '../features/routines/plan_screen.dart';
 import '../features/about/about_personality_screen.dart';
 import '../features/reminders/goal_reminders_screen.dart';
 import '../features/routines/reminders_screen.dart';
+import '../features/settings/notification_settings.dart';
 import '../features/routines/routines_screen.dart';
 import '../features/settings/device_info_screen.dart';
 import '../features/settings/settings_screen.dart';
@@ -109,6 +110,7 @@ abstract final class AppRoutes {
   static const deviceInfo = '/settings/device';
   static const connected = '/settings/connected';
   static const content = '/settings/content';
+  static const notifications = '/settings/notifications';
   static const backup = '/settings/backup';
 }
 
@@ -146,6 +148,9 @@ final routerProvider = Provider<GoRouter>((ref) {
               builder: (_, _) => const ConnectedDataScreen()),
           GoRoute(path: 'backup', builder: (_, _) => const BackupScreen()),
           GoRoute(path: 'content', builder: (_, _) => const ContentScreen()),
+          GoRoute(
+              path: 'notifications',
+              builder: (_, _) => const NotificationSettingsScreen()),
         ],
       ),
       StatefulShellRoute.indexedStack(
