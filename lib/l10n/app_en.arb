@@ -3258,5 +3258,37 @@
       }
     }
   },
-  "widgetLogWeight": "Log your weight to see a trend"
+  "widgetLogWeight": "Log your weight to see a trend",
+  "widgetPercentOfGoal": "{percent}% of today's goal",
+  "@widgetPercentOfGoal": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetSleepGoal": "Goal {hours} h a night",
+  "@widgetSleepGoal": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "widgetFocusTitle": "Your focus",
+  "widgetFocusAllGood": "Looking good",
+  "widgetFocusKeepGoing": "Keep logging and checking in to see what to work on next.",
+  "widgetTryToday": "Try today",
+  "widgetHabitsDone": "{done} of {total} done",
+  "@widgetHabitsDone": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "widgetHabitsEmpty": "No habits due today. Add one in the app."
 }

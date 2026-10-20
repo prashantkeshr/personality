@@ -7,4 +7,12 @@
     <string name="widget_exercise_description">Menit aktif hari ini dan minggumu</string>
     <string name="widget_weight_name">Berat badan</string>
     <string name="widget_weight_description">Tren berat badanmu</string>
+    <string name="widget_water_name">Air</string>
+    <string name="widget_water_description">Tambah segelas atau sebotol dari layar utama</string>
+    <string name="widget_sleep_name">Tidur</string>
+    <string name="widget_sleep_description">Tadi malam dan tidurmu seminggu</string>
+    <string name="widget_snapshot_name">Fokusmu</string>
+    <string name="widget_snapshot_description">Area utama untuk ditingkatkan dan latihan hari ini</string>
+    <string name="widget_habits_name">Kebiasaan</string>
+    <string name="widget_habits_description">Centang kebiasaan hari ini</string>
 </resources>

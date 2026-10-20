@@ -19,4 +19,16 @@
     <color name="widget_weight_accent">#FF1565C0</color>
     <color name="widget_weight_text">#FF14213D</color>
     <color name="widget_weight_secondary">#FF4A5872</color>
+    <color name="widget_water_surface">#FFEAF6FF</color>
+    <color name="widget_water_fill">#FF2B8CE0</color>
+    <color name="widget_water_outline">#FF1A5E9A</color>
+    <color name="widget_water_text">#FF0D2B45</color>
+    <color name="widget_sleep_accent">#FFB39DFF</color>
+    <color name="widget_sleep_track">#33B39DFF</color>
+    <color name="widget_snapshot_surface">#FFFFF6EC</color>
+    <color name="widget_snapshot_accent">#FFC2410C</color>
+    <color name="widget_snapshot_text">#FF2B1A0E</color>
+    <color name="widget_habits_surface">#FFF1F8EE</color>
+    <color name="widget_habits_accent">#FF2E7D32</color>
+    <color name="widget_habits_text">#FF15301A</color>
 </resources>

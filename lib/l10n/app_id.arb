@@ -1804,5 +1804,13 @@
   "widgetWeekMinutes": "Minggu ini: {minutes} mnt",
   "widgetStart": "Mulai",
   "widgetSinceStart": "{change} sejak awal",
-  "widgetLogWeight": "Catat berat badan untuk melihat tren"
+  "widgetLogWeight": "Catat berat badan untuk melihat tren",
+  "widgetPercentOfGoal": "{percent}% dari target hari ini",
+  "widgetSleepGoal": "Target {hours} jam per malam",
+  "widgetFocusTitle": "Fokusmu",
+  "widgetFocusAllGood": "Semua baik",
+  "widgetFocusKeepGoing": "Terus catat dan periksa untuk melihat apa yang perlu dilatih.",
+  "widgetTryToday": "Coba hari ini",
+  "widgetHabitsDone": "{done} dari {total} selesai",
+  "widgetHabitsEmpty": "Tidak ada kebiasaan hari ini. Tambahkan di aplikasi."
 }

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:personality/domain/entities/body.dart';
 import 'package:personality/data/repositories/body_record_repository.dart';
+import 'package:personality/data/repositories/health_repositories.dart';
+import 'package:personality/domain/entities/health.dart';
 import 'package:personality/domain/entities/provenance.dart';
 import 'package:personality/features/health/health_providers.dart';
 import 'package:personality/features/settings/app_settings.dart';
@@ -115,6 +117,65 @@ void main() {
     await tester.pumpAndSettle();
     final router = GoRouter.of(tester.element(find.byType(Scaffold).last));
     expect(router.state.uri.path, '/health/weight');
+    await app.dispose();
+  });
+
+  testWidgets('habits widget lists today\'s habits; a tick marks one done', (
+    tester,
+  ) async {
+    final widget = FakeWidget();
+    final app = AppHarness(tester);
+    final id = await app.run(
+      () => HabitRepository(app.db).add('Read 10 pages', Weekdays.everyDay),
+    );
+    // The real clock: the habit starts today.
+    await app.start(onboarded, widget: widget);
+    await wait(app, tester);
+    var last = widget.updates.last;
+    expect(last['hb_n'], 1);
+    expect(last['hb_0_name'], 'Read 10 pages');
+    expect(last['hb_0_done'], isFalse);
+    expect(last['hb_summary'], '0 of 1 done');
+    expect(last['wa_glass'], '+ 250 ml');
+    expect(last['sn_title'], 'Your focus');
+
+    // The widget's tick arrives as an action when the app resumes.
+    widget.action = 'habit:$id';
+    for (final state in [
+      AppLifecycleState.inactive,
+      AppLifecycleState.hidden,
+      AppLifecycleState.paused,
+      AppLifecycleState.hidden,
+      AppLifecycleState.inactive,
+      AppLifecycleState.resumed,
+    ]) {
+      tester.binding.handleAppLifecycleStateChanged(state);
+    }
+    await wait(app, tester);
+    last = widget.updates.last;
+    expect(last['hb_0_done'], isTrue);
+    expect(last['hb_summary'], '1 of 1 done');
+    await app.dispose();
+  });
+
+  testWidgets('the water widget can add a whole bottle', (tester) async {
+    final widget = FakeWidget('add_water:500');
+    final app = AppHarness(tester);
+    await app.start(
+      onboarded,
+      widget: widget,
+      overrides: [clockProvider.overrideWithValue(() => now)],
+    );
+    await wait(app, tester);
+    final water = await app.run(
+      () => BodyRecordRepository(
+        app.db,
+        app.db.waterLogs,
+        unit: 'ml',
+      ).watchAll().first,
+    );
+    expect(water!.single.value, 500);
+    expect(widget.updates.last['wa_percent'], greaterThan(0));
     await app.dispose();
   });
 }

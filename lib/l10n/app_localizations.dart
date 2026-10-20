@@ -10935,6 +10935,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log your weight to see a trend'**
   String get widgetLogWeight;
+
+  /// No description provided for @widgetPercentOfGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% of today\'s goal'**
+  String widgetPercentOfGoal(int percent);
+
+  /// No description provided for @widgetSleepGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal {hours} h a night'**
+  String widgetSleepGoal(String hours);
+
+  /// No description provided for @widgetFocusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your focus'**
+  String get widgetFocusTitle;
+
+  /// No description provided for @widgetFocusAllGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking good'**
+  String get widgetFocusAllGood;
+
+  /// No description provided for @widgetFocusKeepGoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep logging and checking in to see what to work on next.'**
+  String get widgetFocusKeepGoing;
+
+  /// No description provided for @widgetTryToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Try today'**
+  String get widgetTryToday;
+
+  /// No description provided for @widgetHabitsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} done'**
+  String widgetHabitsDone(int done, int total);
+
+  /// No description provided for @widgetHabitsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No habits due today. Add one in the app.'**
+  String get widgetHabitsEmpty;
 }
 
 class _AppLocalizationsDelegate

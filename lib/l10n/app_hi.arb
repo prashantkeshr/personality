@@ -1804,5 +1804,13 @@
   "widgetWeekMinutes": "इस हफ़्ते: {minutes} मिनट",
   "widgetStart": "शुरू करें",
   "widgetSinceStart": "शुरुआत से {change}",
-  "widgetLogWeight": "रुझान देखने के लिए वज़न दर्ज करें"
+  "widgetLogWeight": "रुझान देखने के लिए वज़न दर्ज करें",
+  "widgetPercentOfGoal": "आज के लक्ष्य का {percent}%",
+  "widgetSleepGoal": "लक्ष्य: रात में {hours} घंटे",
+  "widgetFocusTitle": "आपका फ़ोकस",
+  "widgetFocusAllGood": "सब बढ़िया चल रहा है",
+  "widgetFocusKeepGoing": "आगे किस पर काम करें, यह देखने के लिए लॉग और जाँच करते रहें।",
+  "widgetTryToday": "आज आज़माएँ",
+  "widgetHabitsDone": "{total} में से {done} पूरी",
+  "widgetHabitsEmpty": "आज कोई आदत नहीं। ऐप में एक जोड़ें।"
 }

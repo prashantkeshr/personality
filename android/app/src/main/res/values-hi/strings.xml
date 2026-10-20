@@ -7,4 +7,12 @@
     <string name="widget_exercise_description">आज के सक्रिय मिनट और आपका हफ़्ता</string>
     <string name="widget_weight_name">वज़न</string>
     <string name="widget_weight_description">आपके वज़न का रुझान</string>
+    <string name="widget_water_name">पानी</string>
+    <string name="widget_water_description">होम स्क्रीन से गिलास या बोतल जोड़ें</string>
+    <string name="widget_sleep_name">नींद</string>
+    <string name="widget_sleep_description">पिछली रात और हफ़्ते भर की नींद</string>
+    <string name="widget_snapshot_name">आपका फ़ोकस</string>
+    <string name="widget_snapshot_description">सुधार का मुख्य क्षेत्र और आज का व्यायाम</string>
+    <string name="widget_habits_name">आदतें</string>
+    <string name="widget_habits_description">आज की आदतों पर निशान लगाएँ</string>
 </resources>

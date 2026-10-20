@@ -741,3 +741,14 @@ How it works:
 - Widget names and descriptions are in all six languages.
 
 Verification: `flutter analyze` clean; `flutter test` 436 pass, 2 skipped (new: widget data for all three, and the route tap). Release build installed on the phone.
+
+## Phase 30 — Water, sleep, focus and habits widgets (2026-10-20)
+
+- **Water:** a light-blue card with a bottle drawing that fills (with a wave) toward today's target. Shows "1.2 / 2.5 L", "% of today's goal", and **+ 250 ml** and **+ 500 ml** buttons (action `add_water:<ml>`).
+- **Sleep:** a night-sky gradient. Shows last night's duration, the nightly goal and a 7-night bar chart against the goal (lavender).
+- **Your focus:** a warm cream card. Shows the top area to improve from the About snapshot with its tip, and **Try today**: one suggested exercise that changes daily, with its reason. Tapping the exercise opens it; tapping the card opens About.
+- **Habits:** a soft green card. Up to 4 of today's habits with check circles and "2 of 4 done". Tapping a habit marks it done for today, or undoes it (action `habit:<id>`), and opens Habits.
+- Widget taps now carry either a route or an action (`EXTRA_ACT`).
+- With app lock on, sleep, focus and habits show only "Unlock the app". Water stays visible, like the Today widget.
+
+Verification: `flutter analyze` clean; `flutter test` 438 pass, 2 skipped (new: habits data and tick toggle, bottle quick-add).

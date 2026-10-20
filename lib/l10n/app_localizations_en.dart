@@ -6270,4 +6270,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get widgetLogWeight => 'Log your weight to see a trend';
+
+  @override
+  String widgetPercentOfGoal(int percent) {
+    return '$percent% of today\'s goal';
+  }
+
+  @override
+  String widgetSleepGoal(String hours) {
+    return 'Goal $hours h a night';
+  }
+
+  @override
+  String get widgetFocusTitle => 'Your focus';
+
+  @override
+  String get widgetFocusAllGood => 'Looking good';
+
+  @override
+  String get widgetFocusKeepGoing =>
+      'Keep logging and checking in to see what to work on next.';
+
+  @override
+  String get widgetTryToday => 'Try today';
+
+  @override
+  String widgetHabitsDone(int done, int total) {
+    return '$done of $total done';
+  }
+
+  @override
+  String get widgetHabitsEmpty => 'No habits due today. Add one in the app.';
 }

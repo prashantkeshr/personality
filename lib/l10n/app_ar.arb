@@ -1804,5 +1804,13 @@
   "widgetWeekMinutes": "هذا الأسبوع: {minutes} د",
   "widgetStart": "ابدأ",
   "widgetSinceStart": "{change} منذ البداية",
-  "widgetLogWeight": "سجّل وزنك لترى الاتجاه"
+  "widgetLogWeight": "سجّل وزنك لترى الاتجاه",
+  "widgetPercentOfGoal": "{percent}% من هدف اليوم",
+  "widgetSleepGoal": "الهدف {hours} ساعة في الليلة",
+  "widgetFocusTitle": "تركيزك",
+  "widgetFocusAllGood": "كل شيء جيد",
+  "widgetFocusKeepGoing": "واصل التسجيل والفحص لترى ما تعمل عليه بعد ذلك.",
+  "widgetTryToday": "جرّب اليوم",
+  "widgetHabitsDone": "{done} من {total} منجزة",
+  "widgetHabitsEmpty": "لا عادات اليوم. أضف واحدة في التطبيق."
 }

@@ -14,6 +14,10 @@ import '../../app/router.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/format/body_format.dart';
 import '../../shared/format/clock_format.dart';
+import '../../domain/entities/exercise_library.dart';
+import '../../domain/entities/health.dart';
+import '../about/about_personality_screen.dart';
+import '../content/content_providers.dart';
 import '../health/body_providers.dart';
 import '../insights/insights_providers.dart';
 import '../journey/journey_providers.dart';
@@ -118,12 +122,30 @@ class _HomeWidgetHostState extends ConsumerState<HomeWidgetHost> {
         ref.read(routerProvider).go(action.substring('route:'.length));
         return;
       }
-      if (action != 'add_water') return;
+      // "Tick" on the habits widget: done today, or undone if it was.
+      if (action != null && action.startsWith('habit:')) {
+        final id = action.substring('habit:'.length);
+        final today = Days.key(ref.read(clockProvider)());
+        final done = (ref.read(habitCompletionsProvider).value ?? const [])
+            .any((c) => c.habitId == id && c.dayKey == today &&
+                c.status == HabitStatus.completed);
+        await ref.read(habitRepositoryProvider).setStatus(
+              id,
+              today,
+              done ? null : HabitStatus.completed,
+            );
+        ref.read(routerProvider).go(AppRoutes.habits);
+        return;
+      }
+      // "add_water" (the Today widget) or "add_water:<ml>" (the water widget).
+      if (action == null || !action.startsWith('add_water')) return;
+      final ml = int.tryParse(action.split(':').skip(1).firstOrNull ?? '') ??
+          widgetGlassMl;
       await ref
           .read(waterRepositoryProvider)
           .add(
             Measurement(
-              value: widgetGlassMl.toDouble(),
+              value: ml.toDouble(),
               unit: 'ml',
               source: DataSource.userEntered,
               recordedAt: ref.read(clockProvider)().toUtc(),
@@ -166,6 +188,7 @@ class _HomeWidgetHostState extends ConsumerState<HomeWidgetHost> {
       'locked': lock.enabled,
       'lockedText': l10n.widgetLocked,
       ..._insights(l10n, summary),
+      ..._daily(l10n, summary, fmt),
     };
     final key = data.toString();
     if (key == _last) return;
@@ -244,9 +267,114 @@ class _HomeWidgetHostState extends ConsumerState<HomeWidgetHost> {
     };
   }
 
+  /// Data for the water, sleep, snapshot and habits widgets.
+  Map<String, Object?> _daily(
+    AppLocalizations l10n,
+    TodaySummary today,
+    HealthFormat fmt,
+  ) {
+    final now = ref.read(clockProvider)();
+    final todayKey = Days.key(now);
+    final lang = Localizations.localeOf(context).languageCode;
+
+    // Water: the bottle fills toward the daily target.
+    final waterTarget = today.targets.waterMl;
+    final waterPct = waterTarget <= 0
+        ? 0
+        : (today.waterMl * 100 ~/ waterTarget).clamp(0, 100);
+
+    // Sleep: last night against the target, and the week.
+    final sleepTarget = today.targets.sleepMinutes / 60;
+    final sleepWeek = ref
+        .read(insightSeriesProvider((InsightMetric.sleep, InsightRange.week)))
+        .days;
+
+    // Snapshot: the top area to improve and a different exercise each day.
+    final snap = ref.read(personalSnapshotProvider);
+    final catalog = {
+      for (final e
+          in ref.read(exerciseCatalogProvider).value ??
+              const <LibraryExercise>[])
+        e.id: e,
+    };
+    final picks = [
+      for (final s in snap.suggestions)
+        if (catalog[s.exerciseId] case final e?) (s, e),
+    ];
+    final pick = picks.isEmpty ? null : picks[todayKey % picks.length];
+    final focus = snap.improvements.firstOrNull;
+
+    // Habits due today, up to four.
+    final completions = ref.read(habitCompletionsProvider).value ?? const [];
+    final due = [
+      for (final h in ref.read(habitsProvider).value ?? const <Habit>[])
+        if (!h.archived &&
+            h.startDayKey <= todayKey &&
+            h.schedule.includes(now.weekday))
+          h,
+    ];
+    bool done(Habit h) => completions.any(
+      (c) =>
+          c.habitId == h.id &&
+          c.dayKey == todayKey &&
+          c.status == HabitStatus.completed,
+    );
+    final shown = due.take(4).toList();
+
+    return {
+      'wa_title': l10n.featureWater,
+      'wa_value':
+          '${fmt.water(today.waterMl.toDouble())} / ${fmt.water(waterTarget.toDouble())}',
+      'wa_percent': waterPct,
+      'wa_percent_text': l10n.widgetPercentOfGoal(waterPct),
+      'wa_glass': '+ ${fmt.water(250)}',
+      'wa_bottle': '+ ${fmt.water(500)}',
+      'sl_title': l10n.featureSleep,
+      'sl_value': today.lastSleep == null
+          ? '—'
+          : fmt.duration(today.lastSleep!),
+      'sl_sub': l10n.widgetSleepGoal(sleepTarget.toStringAsFixed(1)),
+      'sl_bars': sleepWeek
+          .map(
+            (d) => sleepTarget <= 0
+                ? 0.0
+                : ((d.value ?? 0) / sleepTarget).clamp(0.0, 1.0),
+          )
+          .map((x) => x.toStringAsFixed(3))
+          .join(','),
+      'sn_title': l10n.widgetFocusTitle,
+      'sn_area': focus == null
+          ? l10n.widgetFocusAllGood
+          : snapshotAreaLabel(l10n, focus.area),
+      'sn_tip': focus == null
+          ? l10n.widgetFocusKeepGoing
+          : improveTip(l10n, focus.area),
+      'sn_ex_label': l10n.widgetTryToday,
+      'sn_ex': pick == null ? '' : LibraryExercise.pick(pick.$2.name, lang),
+      'sn_ex_reason': pick == null ? '' : snapshotReasonText(l10n, pick.$1.reason),
+      'sn_ex_route': pick == null
+          ? null
+          : '${AppRoutes.exerciseLibrary}/${pick.$2.id}',
+      'hb_title': l10n.featureHabits,
+      'hb_summary': due.isEmpty
+          ? ''
+          : l10n.widgetHabitsDone(due.where(done).length, due.length),
+      'hb_empty': l10n.widgetHabitsEmpty,
+      'hb_n': shown.length,
+      for (var i = 0; i < shown.length; i++) ...{
+        'hb_${i}_id': shown[i].id,
+        'hb_${i}_name': shown[i].name,
+        'hb_${i}_done': done(shown[i]),
+      },
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     ref.listen(todaySummaryProvider, (_, _) => _schedule());
+    ref.listen(habitsProvider, (_, _) => _schedule());
+    ref.listen(habitCompletionsProvider, (_, _) => _schedule());
+    ref.listen(personalSnapshotProvider, (_, _) => _schedule());
     ref.listen(progressSummaryProvider, (_, _) => _schedule());
     ref.listen(weightRecordsProvider, (_, _) => _schedule());
     ref.listen(appLockProvider, (_, _) => _schedule());

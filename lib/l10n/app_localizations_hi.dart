@@ -6258,4 +6258,35 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get widgetLogWeight => 'रुझान देखने के लिए वज़न दर्ज करें';
+
+  @override
+  String widgetPercentOfGoal(int percent) {
+    return 'आज के लक्ष्य का $percent%';
+  }
+
+  @override
+  String widgetSleepGoal(String hours) {
+    return 'लक्ष्य: रात में $hours घंटे';
+  }
+
+  @override
+  String get widgetFocusTitle => 'आपका फ़ोकस';
+
+  @override
+  String get widgetFocusAllGood => 'सब बढ़िया चल रहा है';
+
+  @override
+  String get widgetFocusKeepGoing =>
+      'आगे किस पर काम करें, यह देखने के लिए लॉग और जाँच करते रहें।';
+
+  @override
+  String get widgetTryToday => 'आज आज़माएँ';
+
+  @override
+  String widgetHabitsDone(int done, int total) {
+    return '$total में से $done पूरी';
+  }
+
+  @override
+  String get widgetHabitsEmpty => 'आज कोई आदत नहीं। ऐप में एक जोड़ें।';
 }

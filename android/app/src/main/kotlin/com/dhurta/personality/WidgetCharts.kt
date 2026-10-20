@@ -134,6 +134,60 @@ object WidgetCharts {
         return bmp
     }
 
+    /** A water bottle filled to [fraction], with a wave on top. */
+    fun bottle(context: Context, fraction: Float, color: Int, outline: Int, widthDp: Float, heightDp: Float): Bitmap {
+        val w = px(context, widthDp).toInt().coerceAtLeast(1)
+        val h = px(context, heightDp).toInt().coerceAtLeast(1)
+        val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        val c = Canvas(bmp)
+        val stroke = px(context, 2.5f)
+        val neckW = w * 0.38f
+        val neckH = h * 0.14f
+        val capH = h * 0.08f
+        val body = RectF(stroke, capH + neckH, w - stroke, h - stroke)
+        val radius = w * 0.22f
+        val shape = Path().apply {
+            addRoundRect(body, radius, radius, Path.Direction.CW)
+            addRect((w - neckW) / 2, capH, (w + neckW) / 2, capH + neckH + radius, Path.Direction.CW)
+        }
+        val f = fraction.coerceIn(0f, 1f)
+        if (f > 0f) {
+            c.save()
+            c.clipPath(shape)
+            val top = body.bottom - (body.bottom - body.top) * f
+            val wave = Path().apply {
+                moveTo(0f, top)
+                val amp = px(context, 3f)
+                var x = 0f
+                val step = w / 4f
+                var up = true
+                while (x < w) {
+                    quadTo(x + step / 2, top + if (up) -amp else amp, x + step, top)
+                    x += step
+                    up = !up
+                }
+                lineTo(w.toFloat(), h.toFloat())
+                lineTo(0f, h.toFloat())
+                close()
+            }
+            c.drawPath(wave, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                shader = LinearGradient(0f, top, 0f, body.bottom,
+                    withAlpha(color, 0.75f), color, Shader.TileMode.CLAMP)
+            })
+            c.restore()
+        }
+        val line = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            this.color = outline
+            style = Paint.Style.STROKE
+            strokeWidth = stroke
+        }
+        c.drawRoundRect(body, radius, radius, line)
+        c.drawRect((w - neckW) / 2, capH, (w + neckW) / 2, capH + neckH, line)
+        c.drawRoundRect(RectF((w - neckW * 1.15f) / 2, stroke, (w + neckW * 1.15f) / 2, capH),
+            px(context, 2f), px(context, 2f), Paint(Paint.ANTI_ALIAS_FLAG).apply { this.color = outline })
+        return bmp
+    }
+
     private fun withAlpha(color: Int, a: Float) =
         Color.argb((Color.alpha(color) * a).toInt(), Color.red(color), Color.green(color), Color.blue(color))
 }

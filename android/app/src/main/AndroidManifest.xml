@@ -134,6 +134,38 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_weight_info" />
         </receiver>
+        <receiver android:name=".WaterWidget" android:exported="false" android:label="@string/widget_water_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_water_info" />
+        </receiver>
+        <receiver android:name=".SleepWidget" android:exported="false" android:label="@string/widget_sleep_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sleep_info" />
+        </receiver>
+        <receiver android:name=".SnapshotWidget" android:exported="false" android:label="@string/widget_snapshot_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_snapshot_info" />
+        </receiver>
+        <receiver android:name=".HabitsWidget" android:exported="false" android:label="@string/widget_habits_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_habits_info" />
+        </receiver>
         <receiver android:exported="false" android:name=".sensors.MotionReceiver" />
         <receiver android:exported="false" android:name=".sensors.SensorBootReceiver">
             <intent-filter>

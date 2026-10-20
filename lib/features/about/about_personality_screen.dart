@@ -664,7 +664,7 @@ String? _ratingDetail(AppLocalizations l, AreaRating r) {
   };
 }
 
-String _improveTip(AppLocalizations l, SnapshotArea a) => switch (a) {
+String improveTip(AppLocalizations l, SnapshotArea a) => switch (a) {
   SnapshotArea.body => l.improveBody,
   SnapshotArea.posture => l.improvePosture,
   SnapshotArea.activity => l.improveActivity,
@@ -673,7 +673,7 @@ String _improveTip(AppLocalizations l, SnapshotArea a) => switch (a) {
   SnapshotArea.consistency => l.improveConsistency,
 };
 
-String _reasonText(AppLocalizations l, SuggestReason r) => switch (r) {
+String snapshotReasonText(AppLocalizations l, SuggestReason r) => switch (r) {
   ForPosture(:final metric) => l.reasonPosture(l.postureMetricName(metric)),
   ForWeight(gain: true) => l.reasonGain,
   ForWeight(gain: false) => l.reasonMove,
@@ -733,7 +733,7 @@ class _SnapshotSection extends ConsumerWidget {
                   color: _ratingColor(scheme, r.level),
                 ),
                 title: Text(snapshotAreaLabel(l, r.area)),
-                subtitle: Text(_improveTip(l, r.area)),
+                subtitle: Text(improveTip(l, r.area)),
               ),
           ],
           if (picks.isNotEmpty) ...[
@@ -753,7 +753,7 @@ class _SnapshotSection extends ConsumerWidget {
                   ),
                 ),
                 title: Text(LibraryExercise.pick(e.name, lang)),
-                subtitle: Text(_reasonText(l, s.reason)),
+                subtitle: Text(snapshotReasonText(l, s.reason)),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () =>
                     context.push('${AppRoutes.exerciseLibrary}/${e.id}'),

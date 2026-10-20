@@ -1804,5 +1804,13 @@
   "widgetWeekMinutes": "Esta semana: {minutes} min",
   "widgetStart": "Começar",
   "widgetSinceStart": "{change} desde o início",
-  "widgetLogWeight": "Registre seu peso para ver a tendência"
+  "widgetLogWeight": "Registre seu peso para ver a tendência",
+  "widgetPercentOfGoal": "{percent}% da meta de hoje",
+  "widgetSleepGoal": "Meta: {hours} h por noite",
+  "widgetFocusTitle": "Seu foco",
+  "widgetFocusAllGood": "Tudo indo bem",
+  "widgetFocusKeepGoing": "Continue registrando e verificando para ver no que trabalhar.",
+  "widgetTryToday": "Experimente hoje",
+  "widgetHabitsDone": "{done} de {total} feitos",
+  "widgetHabitsEmpty": "Nenhum hábito para hoje. Adicione um no app."
 }

@@ -7,4 +7,12 @@
     <string name="widget_exercise_description">Today\'s active minutes and your week</string>
     <string name="widget_weight_name">Weight</string>
     <string name="widget_weight_description">Your weight trend</string>
+    <string name="widget_water_name">Water</string>
+    <string name="widget_water_description">Add a glass or a bottle from your home screen</string>
+    <string name="widget_sleep_name">Sleep</string>
+    <string name="widget_sleep_description">Last night and your week of sleep</string>
+    <string name="widget_snapshot_name">Your focus</string>
+    <string name="widget_snapshot_description">Your top area to improve and an exercise for today</string>
+    <string name="widget_habits_name">Habits</string>
+    <string name="widget_habits_description">Tick off today\u2019s habits</string>
 </resources>

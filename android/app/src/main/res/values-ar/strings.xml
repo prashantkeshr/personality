@@ -7,4 +7,12 @@
     <string name="widget_exercise_description">دقائق نشاط اليوم وأسبوعك</string>
     <string name="widget_weight_name">الوزن</string>
     <string name="widget_weight_description">اتجاه وزنك</string>
+    <string name="widget_water_name">الماء</string>
+    <string name="widget_water_description">أضف كوبًا أو زجاجة من الشاشة الرئيسية</string>
+    <string name="widget_sleep_name">النوم</string>
+    <string name="widget_sleep_description">الليلة الماضية وأسبوع نومك</string>
+    <string name="widget_snapshot_name">تركيزك</string>
+    <string name="widget_snapshot_description">أهم جانب للتحسين وتمرين لليوم</string>
+    <string name="widget_habits_name">العادات</string>
+    <string name="widget_habits_description">ضع علامة على عادات اليوم</string>
 </resources>

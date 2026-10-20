@@ -19,6 +19,9 @@ object InsightWidgets {
     const val ACTION_OPEN = "com.dhurta.personality.OPEN_ROUTE"
     const val EXTRA_ROUTE = "route"
 
+    /** An app action instead of a route, e.g. "habit:<id>" or "add_water:500". */
+    const val EXTRA_ACT = "act"
+
     fun refreshAll(context: Context) {
         val m = AppWidgetManager.getInstance(context)
         fun each(cls: Class<*>, views: (Context) -> RemoteViews) {
@@ -27,16 +30,21 @@ object InsightWidgets {
         each(GrowthWidget::class.java, ::growth)
         each(ExerciseWidget::class.java, ::exercise)
         each(WeightWidget::class.java, ::weight)
+        each(WaterWidget::class.java, ::water)
+        each(SleepWidget::class.java, ::sleep)
+        each(SnapshotWidget::class.java, ::snapshot)
+        each(HabitsWidget::class.java, ::habits)
     }
 
     private fun prefs(context: Context): SharedPreferences =
         context.getSharedPreferences(TodayWidget.PREFS, Context.MODE_PRIVATE)
 
     /** Opens the app at [route] (handled once by the app on start/resume). */
-    private fun open(context: Context, route: String, code: Int): PendingIntent {
+    private fun open(context: Context, route: String, code: Int, act: String? = null): PendingIntent {
         val i = Intent(context, MainActivity::class.java)
             .setAction(ACTION_OPEN)
             .putExtra(EXTRA_ROUTE, route)
+            .putExtra(EXTRA_ACT, act)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
         return PendingIntent.getActivity(context, code, i,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
@@ -116,6 +124,94 @@ object InsightWidgets {
         v.setOnClickPendingIntent(R.id.weight_root, open(context, "/health/weight", 13))
         return v
     }
+
+    fun water(context: Context): RemoteViews {
+        val p = prefs(context)
+        val v = RemoteViews(context.packageName, R.layout.widget_water)
+        v.setTextViewText(R.id.water_title, p.getString("wa_title", "Water"))
+        v.setTextViewText(R.id.water_value, p.getString("wa_value", "—"))
+        v.setTextViewText(R.id.water_percent, p.getString("wa_percent_text", ""))
+        v.setTextViewText(R.id.water_glass, p.getString("wa_glass", "+ 250 ml"))
+        v.setTextViewText(R.id.water_bottle_add, p.getString("wa_bottle", "+ 500 ml"))
+        v.setImageViewBitmap(R.id.water_bottle, WidgetCharts.bottle(context, p.getInt("wa_percent", 0) / 100f,
+            color(context, R.color.widget_water_fill), color(context, R.color.widget_water_outline), 54f, 96f))
+        v.setOnClickPendingIntent(R.id.water_root, open(context, "/health/water", 20))
+        v.setOnClickPendingIntent(R.id.water_glass, open(context, "/health/water", 21, "add_water:250"))
+        v.setOnClickPendingIntent(R.id.water_bottle_add, open(context, "/health/water", 22, "add_water:500"))
+        return v
+    }
+
+    fun sleep(context: Context): RemoteViews {
+        val p = prefs(context)
+        val v = RemoteViews(context.packageName, R.layout.widget_sleep)
+        val locked = p.getBoolean("locked", false)
+        v.setTextViewText(R.id.sleep_title, p.getString("sl_title", "Sleep"))
+        v.setTextViewText(R.id.sleep_value, if (locked) p.getString("lockedText", "") else p.getString("sl_value", "—"))
+        v.setTextViewText(R.id.sleep_sub, if (locked) "" else p.getString("sl_sub", ""))
+        val values = WidgetCharts.floats(p.getString("sl_bars", null))
+        if (locked || values.isEmpty()) {
+            v.setViewVisibility(R.id.sleep_chart, View.GONE)
+        } else {
+            v.setViewVisibility(R.id.sleep_chart, View.VISIBLE)
+            v.setImageViewBitmap(R.id.sleep_chart, WidgetCharts.bars(
+                context, values, WidgetCharts.labels(p.getString("days", null)),
+                color(context, R.color.widget_sleep_accent), color(context, R.color.widget_sleep_track),
+                color(context, R.color.widget_on_dark_secondary), 260f, 60f))
+        }
+        v.setOnClickPendingIntent(R.id.sleep_root, open(context, "/health/sleep", 30))
+        return v
+    }
+
+    fun snapshot(context: Context): RemoteViews {
+        val p = prefs(context)
+        val v = RemoteViews(context.packageName, R.layout.widget_snapshot)
+        val locked = p.getBoolean("locked", false)
+        v.setTextViewText(R.id.snap_title, p.getString("sn_title", "Your focus"))
+        v.setTextViewText(R.id.snap_area, if (locked) p.getString("lockedText", "") else p.getString("sn_area", ""))
+        v.setTextViewText(R.id.snap_tip, if (locked) "" else p.getString("sn_tip", ""))
+        v.setTextViewText(R.id.snap_ex_label, if (locked) "" else p.getString("sn_ex_label", ""))
+        v.setTextViewText(R.id.snap_ex, if (locked) "" else p.getString("sn_ex", ""))
+        v.setTextViewText(R.id.snap_ex_reason, if (locked) "" else p.getString("sn_ex_reason", ""))
+        v.setViewVisibility(R.id.snap_ex_box,
+            if (locked || p.getString("sn_ex", "").isNullOrEmpty()) View.GONE else View.VISIBLE)
+        v.setOnClickPendingIntent(R.id.snap_root, open(context, "/home/about", 40))
+        p.getString("sn_ex_route", null)?.let {
+            v.setOnClickPendingIntent(R.id.snap_ex_box, open(context, it, 41))
+        }
+        return v
+    }
+
+    private val habitRows = listOf(
+        Triple(R.id.habit_row_1, R.id.habit_check_1, R.id.habit_name_1),
+        Triple(R.id.habit_row_2, R.id.habit_check_2, R.id.habit_name_2),
+        Triple(R.id.habit_row_3, R.id.habit_check_3, R.id.habit_name_3),
+        Triple(R.id.habit_row_4, R.id.habit_check_4, R.id.habit_name_4),
+    )
+
+    fun habits(context: Context): RemoteViews {
+        val p = prefs(context)
+        val v = RemoteViews(context.packageName, R.layout.widget_habits)
+        val locked = p.getBoolean("locked", false)
+        val n = if (locked) 0 else p.getInt("hb_n", 0)
+        v.setTextViewText(R.id.habits_title, p.getString("hb_title", "Habits"))
+        v.setTextViewText(R.id.habits_summary, if (locked) "" else p.getString("hb_summary", ""))
+        v.setTextViewText(R.id.habits_empty, if (locked) p.getString("lockedText", "") else p.getString("hb_empty", ""))
+        v.setViewVisibility(R.id.habits_empty, if (n == 0) View.VISIBLE else View.GONE)
+        habitRows.forEachIndexed { i, (row, check, name) ->
+            if (i >= n) {
+                v.setViewVisibility(row, View.GONE)
+                return@forEachIndexed
+            }
+            val done = p.getBoolean("hb_${i}_done", false)
+            v.setViewVisibility(row, View.VISIBLE)
+            v.setImageViewResource(check, if (done) R.drawable.widget_check_on else R.drawable.widget_check_off)
+            v.setTextViewText(name, p.getString("hb_${i}_name", ""))
+            v.setOnClickPendingIntent(row,
+                open(context, "/health/habits", 50 + i, "habit:" + p.getString("hb_${i}_id", "")))
+        }
+        v.setOnClickPendingIntent(R.id.habits_root, open(context, "/health/habits", 49))
+        return v
+    }
 }
 
 class GrowthWidget : AppWidgetProvider() {
@@ -133,5 +229,29 @@ class ExerciseWidget : AppWidgetProvider() {
 class WeightWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
         for (id in ids) manager.updateAppWidget(id, InsightWidgets.weight(context))
+    }
+}
+
+class WaterWidget : AppWidgetProvider() {
+    override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
+        for (id in ids) manager.updateAppWidget(id, InsightWidgets.water(context))
+    }
+}
+
+class SleepWidget : AppWidgetProvider() {
+    override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
+        for (id in ids) manager.updateAppWidget(id, InsightWidgets.sleep(context))
+    }
+}
+
+class SnapshotWidget : AppWidgetProvider() {
+    override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
+        for (id in ids) manager.updateAppWidget(id, InsightWidgets.snapshot(context))
+    }
+}
+
+class HabitsWidget : AppWidgetProvider() {
+    override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
+        for (id in ids) manager.updateAppWidget(id, InsightWidgets.habits(context))
     }
 }

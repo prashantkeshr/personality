@@ -6301,4 +6301,36 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get widgetLogWeight => 'Catat berat badan untuk melihat tren';
+
+  @override
+  String widgetPercentOfGoal(int percent) {
+    return '$percent% dari target hari ini';
+  }
+
+  @override
+  String widgetSleepGoal(String hours) {
+    return 'Target $hours jam per malam';
+  }
+
+  @override
+  String get widgetFocusTitle => 'Fokusmu';
+
+  @override
+  String get widgetFocusAllGood => 'Semua baik';
+
+  @override
+  String get widgetFocusKeepGoing =>
+      'Terus catat dan periksa untuk melihat apa yang perlu dilatih.';
+
+  @override
+  String get widgetTryToday => 'Coba hari ini';
+
+  @override
+  String widgetHabitsDone(int done, int total) {
+    return '$done dari $total selesai';
+  }
+
+  @override
+  String get widgetHabitsEmpty =>
+      'Tidak ada kebiasaan hari ini. Tambahkan di aplikasi.';
 }

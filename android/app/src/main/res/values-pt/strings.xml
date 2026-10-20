@@ -7,4 +7,12 @@
     <string name="widget_exercise_description">Minutos ativos de hoje e sua semana</string>
     <string name="widget_weight_name">Peso</string>
     <string name="widget_weight_description">A evolução do seu peso</string>
+    <string name="widget_water_name">Água</string>
+    <string name="widget_water_description">Adicione um copo ou uma garrafa pela tela inicial</string>
+    <string name="widget_sleep_name">Sono</string>
+    <string name="widget_sleep_description">A noite passada e sua semana de sono</string>
+    <string name="widget_snapshot_name">Seu foco</string>
+    <string name="widget_snapshot_description">Sua principal área para melhorar e um exercício para hoje</string>
+    <string name="widget_habits_name">Hábitos</string>
+    <string name="widget_habits_description">Marque os hábitos de hoje</string>
 </resources>
