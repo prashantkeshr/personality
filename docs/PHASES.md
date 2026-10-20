@@ -752,3 +752,28 @@ Verification: `flutter analyze` clean; `flutter test` 436 pass, 2 skipped (new: 
 - With app lock on, sleep, focus and habits show only "Unlock the app". Water stays visible, like the Today widget.
 
 Verification: `flutter analyze` clean; `flutter test` 438 pass, 2 skipped (new: habits data and tick toggle, bottle quick-add).
+
+## Phases 31–33 — Face balance, 31 hairstyles, hair & makeup try-on, lookbook, style Q&A, trends (2026-10-21)
+
+**Phase 31 — Balance & proportions**
+- The face check now measures left/right **balance** for the eyes, cheeks, jaw and mouth, against a midline between the eye centre and the nose tip. Readings come only from frames turned less than 5°, and the result is a median over at least 3 of them.
+- It also measures **proportions**: eye spacing to cheek width (closer-set / average / wide-set) and mouth width to eye spacing.
+- Shown as "97% even" bars with the note that most faces measure 90–98%. It's for interest, never a score. Values are stored as `face_metric` rows (`balance.*`, `prop.*`), so the schema didn't change.
+
+**Phase 32 — Hair and makeup**
+- **31 hairstyles** (22 new: buzz, crew, French crop, pompadour, slick back, curly top, long-top undercut, top knot, textured fringe, afro, pixie, lob, wavy lob, long straight, long curls, curtain bangs, blunt bangs, shag, wolf cut, high ponytail, top bun, side braid). Each face shape suggests 7–16 of them.
+- New styles have no photos, so they're drawn with the hair-silhouette engine (`shared/visual/hair_art.dart`, 31 shapes covering crown, volume, length, fringe, sweep, texture and buns/ponytail/braid).
+- **Hair try-on** in the live camera: silhouettes fitted to the detected face outline, in 6 natural colours, and opened from any hairstyle card.
+- **Makeup guide** (`/analyze/face/makeup`, `assets/content/makeup.json`):
+  - A face map plus blush, contour and highlight placement for each of the 6 face shapes.
+  - Lip, blush and eye shades for each undertone (warm, cool, neutral), with a note for each skin depth.
+  - Basics, including patch-testing.
+- **Lip and blush try-on:** sheer tints on the detected lips and cheeks. A shade can be opened straight in the try-on or saved with ♡.
+
+**Phase 33 — Lookbook, Q&A, trends**
+- **My lookbook** (`/style/lookbook`): every ♡ in one place, covering hairstyles, beards, glasses, makeup shades (`makeup:<id>` in the style favourites), favourite clothes, saved outfits and best colours. Tap to try on; tap the heart to remove.
+- **Ask about style** (`/style/ask`): 30 built-in answers on skin, hair, makeup, beard, clothes, colour and glasses (en/hi, other languages fall back to English). Searchable and filterable by topic. Fully offline; searches never leave the phone.
+- **Style trends** (`/style/trends`): 16 built-in trends for autumn–winter 2026. A downloaded `style-trends` pack (kind `trends`) replaces them when its `updated` date is newer. The pack is built by `personality-content/tools/build_trends.py` from `src/trends.json` (20 trends in v1).
+- All four are cards on the Style tab.
+
+Verification: `flutter analyze` clean; `flutter test` 451 pass, 2 skipped (new: balance engine, hair and makeup content integrity, saved balance and drawn hairstyle cards, Style tab entries, lookbook add/remove, Q&A search and topics, trends, makeup guide). Emulator release build: Style tab cards and the makeup guide checked visually. Live hair/lip/blush try-on still needs checking on a real phone (the emulator camera has no face).

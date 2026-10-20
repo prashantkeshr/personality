@@ -53,9 +53,14 @@ class FaceRepository {
             method: method,
             createdAt: _now,
           ));
-      for (final e in r.ratios.entries) {
+      final rows = {
+        for (final e in r.ratios.entries) e.key.name: e.value,
+        for (final e in r.balance.entries) 'balance.${e.key.name}': e.value,
+        for (final e in r.proportions.entries) 'prop.${e.key.name}': e.value,
+      };
+      for (final e in rows.entries) {
         await _db.into(_db.faceMetrics).insert(FaceMetricsCompanion.insert(
-            analysisId: id, metric: e.key.name, value: e.value));
+            analysisId: id, metric: e.key, value: e.value));
       }
     });
     return id;
@@ -86,6 +91,18 @@ class FaceRepository {
                     if (m.analysisId == r.id)
                       for (final fr in FaceRatio.values)
                         if (fr.name == m.metric) fr: m.value,
+                },
+                balance: {
+                  for (final m in metrics)
+                    if (m.analysisId == r.id)
+                      for (final b in FaceBalance.values)
+                        if ('balance.${b.name}' == m.metric) b: m.value,
+                },
+                proportions: {
+                  for (final m in metrics)
+                    if (m.analysisId == r.id)
+                      for (final pr in FaceProportion.values)
+                        if ('prop.${pr.name}' == m.metric) pr: m.value,
                 },
               ),
             ),

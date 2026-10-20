@@ -10983,6 +10983,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No habits due today. Add one in the app.'**
   String get widgetHabitsEmpty;
+
+  /// No description provided for @faceBalanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance & proportions'**
+  String get faceBalanceTitle;
+
+  /// No description provided for @faceBalanceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'How evenly each feature sits either side of your face\'s midline. No face is perfectly symmetric — most people measure 90–98%. It\'s for interest, not a score.'**
+  String get faceBalanceInfo;
+
+  /// No description provided for @faceBalanceEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyes'**
+  String get faceBalanceEyes;
+
+  /// No description provided for @faceBalanceCheeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheeks'**
+  String get faceBalanceCheeks;
+
+  /// No description provided for @faceBalanceJaw.
+  ///
+  /// In en, this message translates to:
+  /// **'Jaw'**
+  String get faceBalanceJaw;
+
+  /// No description provided for @faceBalanceMouth.
+  ///
+  /// In en, this message translates to:
+  /// **'Mouth'**
+  String get faceBalanceMouth;
+
+  /// No description provided for @faceBalancePercent.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% even'**
+  String faceBalancePercent(int percent);
+
+  /// No description provided for @faceProportionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Proportions'**
+  String get faceProportionsTitle;
+
+  /// No description provided for @faceEyeSpacing.
+  ///
+  /// In en, this message translates to:
+  /// **'Eye spacing'**
+  String get faceEyeSpacing;
+
+  /// No description provided for @faceEyeSpacingValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} · {kind}'**
+  String faceEyeSpacingValue(String value, String kind);
+
+  /// No description provided for @faceCloseSet.
+  ///
+  /// In en, this message translates to:
+  /// **'closer-set'**
+  String get faceCloseSet;
+
+  /// No description provided for @faceWideSet.
+  ///
+  /// In en, this message translates to:
+  /// **'wide-set'**
+  String get faceWideSet;
+
+  /// No description provided for @faceAverageSet.
+  ///
+  /// In en, this message translates to:
+  /// **'average'**
+  String get faceAverageSet;
+
+  /// No description provided for @faceMouthWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Mouth width to eye spacing'**
+  String get faceMouthWidth;
+
+  /// No description provided for @makeupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Makeup guide'**
+  String get makeupTitle;
+
+  /// No description provided for @makeupIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Where to place blush, contour and highlight for your face shape, and shades that suit your undertone. All optional — wear what you enjoy.'**
+  String get makeupIntro;
+
+  /// No description provided for @makeupNoShape.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your face shape'**
+  String get makeupNoShape;
+
+  /// No description provided for @makeupNoUndertone.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your undertone'**
+  String get makeupNoUndertone;
+
+  /// No description provided for @makeupPlacementFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement for {shape} faces'**
+  String makeupPlacementFor(String shape);
+
+  /// No description provided for @makeupBlush.
+  ///
+  /// In en, this message translates to:
+  /// **'Blush'**
+  String get makeupBlush;
+
+  /// No description provided for @makeupContour.
+  ///
+  /// In en, this message translates to:
+  /// **'Contour'**
+  String get makeupContour;
+
+  /// No description provided for @makeupHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlight'**
+  String get makeupHighlight;
+
+  /// No description provided for @makeupLips.
+  ///
+  /// In en, this message translates to:
+  /// **'Lips'**
+  String get makeupLips;
+
+  /// No description provided for @makeupEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyes'**
+  String get makeupEyes;
+
+  /// No description provided for @makeupShadesFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Shades for your {undertone}'**
+  String makeupShadesFor(String undertone);
+
+  /// No description provided for @makeupShadesAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Shades to explore'**
+  String get makeupShadesAll;
+
+  /// No description provided for @makeupTryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Try on with the camera'**
+  String get makeupTryOn;
+
+  /// No description provided for @makeupBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Basics'**
+  String get makeupBasics;
+
+  /// No description provided for @makeupNote.
+  ///
+  /// In en, this message translates to:
+  /// **'General tips, not medical advice. Check ingredients if you have sensitive skin.'**
+  String get makeupNote;
+
+  /// No description provided for @makeupOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Makeup guide'**
+  String get makeupOpen;
+
+  /// No description provided for @qaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about style'**
+  String get qaTitle;
+
+  /// No description provided for @qaSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search, e.g. frizz, foundation, beard'**
+  String get qaSearchHint;
+
+  /// No description provided for @qaAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get qaAll;
+
+  /// No description provided for @qaSkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin'**
+  String get qaSkin;
+
+  /// No description provided for @qaStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothes & style'**
+  String get qaStyle;
+
+  /// No description provided for @qaColour.
+  ///
+  /// In en, this message translates to:
+  /// **'Colour'**
+  String get qaColour;
+
+  /// No description provided for @qaNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No answers match yet. Try another word or topic.'**
+  String get qaNone;
+
+  /// No description provided for @qaNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers are built into the app and work offline. Your searches never leave your phone. General guidance, not medical advice.'**
+  String get qaNote;
+
+  /// No description provided for @trendsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Style trends'**
+  String get trendsTitle;
+
+  /// No description provided for @trendsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s popular right now — take what suits you and skip the rest. Download the trends pack in Content packs for updates.'**
+  String get trendsInfo;
+
+  /// No description provided for @trendAccessories.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessories'**
+  String get trendAccessories;
+
+  /// No description provided for @lookbookTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My lookbook'**
+  String get lookbookTitle;
+
+  /// No description provided for @lookbookInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you saved with ♡, in one place. Tap a style to try it on.'**
+  String get lookbookInfo;
+
+  /// No description provided for @lookbookEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing saved yet. Tap ♡ on hairstyles, beards, glasses, makeup shades or clothes and they\'ll gather here.'**
+  String get lookbookEmpty;
+
+  /// No description provided for @lookbookFindStyles.
+  ///
+  /// In en, this message translates to:
+  /// **'Find styles for my face'**
+  String get lookbookFindStyles;
+
+  /// No description provided for @lookbookColours.
+  ///
+  /// In en, this message translates to:
+  /// **'My best colours'**
+  String get lookbookColours;
+
+  /// No description provided for @lookbookClothes.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourite clothes'**
+  String get lookbookClothes;
+
+  /// No description provided for @lookbookOutfits.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved outfits'**
+  String get lookbookOutfits;
+
+  /// No description provided for @featureLookbook.
+  ///
+  /// In en, this message translates to:
+  /// **'My lookbook'**
+  String get featureLookbook;
+
+  /// No description provided for @featureMakeup.
+  ///
+  /// In en, this message translates to:
+  /// **'Makeup guide'**
+  String get featureMakeup;
+
+  /// No description provided for @featureStyleQa.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about style'**
+  String get featureStyleQa;
+
+  /// No description provided for @featureTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Style trends'**
+  String get featureTrends;
 }
 
 class _AppLocalizationsDelegate

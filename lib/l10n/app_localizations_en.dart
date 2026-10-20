@@ -6301,4 +6301,175 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get widgetHabitsEmpty => 'No habits due today. Add one in the app.';
+
+  @override
+  String get faceBalanceTitle => 'Balance & proportions';
+
+  @override
+  String get faceBalanceInfo =>
+      'How evenly each feature sits either side of your face\'s midline. No face is perfectly symmetric — most people measure 90–98%. It\'s for interest, not a score.';
+
+  @override
+  String get faceBalanceEyes => 'Eyes';
+
+  @override
+  String get faceBalanceCheeks => 'Cheeks';
+
+  @override
+  String get faceBalanceJaw => 'Jaw';
+
+  @override
+  String get faceBalanceMouth => 'Mouth';
+
+  @override
+  String faceBalancePercent(int percent) {
+    return '$percent% even';
+  }
+
+  @override
+  String get faceProportionsTitle => 'Proportions';
+
+  @override
+  String get faceEyeSpacing => 'Eye spacing';
+
+  @override
+  String faceEyeSpacingValue(String value, String kind) {
+    return '$value · $kind';
+  }
+
+  @override
+  String get faceCloseSet => 'closer-set';
+
+  @override
+  String get faceWideSet => 'wide-set';
+
+  @override
+  String get faceAverageSet => 'average';
+
+  @override
+  String get faceMouthWidth => 'Mouth width to eye spacing';
+
+  @override
+  String get makeupTitle => 'Makeup guide';
+
+  @override
+  String get makeupIntro =>
+      'Where to place blush, contour and highlight for your face shape, and shades that suit your undertone. All optional — wear what you enjoy.';
+
+  @override
+  String get makeupNoShape => 'Find your face shape';
+
+  @override
+  String get makeupNoUndertone => 'Find your undertone';
+
+  @override
+  String makeupPlacementFor(String shape) {
+    return 'Placement for $shape faces';
+  }
+
+  @override
+  String get makeupBlush => 'Blush';
+
+  @override
+  String get makeupContour => 'Contour';
+
+  @override
+  String get makeupHighlight => 'Highlight';
+
+  @override
+  String get makeupLips => 'Lips';
+
+  @override
+  String get makeupEyes => 'Eyes';
+
+  @override
+  String makeupShadesFor(String undertone) {
+    return 'Shades for your $undertone';
+  }
+
+  @override
+  String get makeupShadesAll => 'Shades to explore';
+
+  @override
+  String get makeupTryOn => 'Try on with the camera';
+
+  @override
+  String get makeupBasics => 'Basics';
+
+  @override
+  String get makeupNote =>
+      'General tips, not medical advice. Check ingredients if you have sensitive skin.';
+
+  @override
+  String get makeupOpen => 'Makeup guide';
+
+  @override
+  String get qaTitle => 'Ask about style';
+
+  @override
+  String get qaSearchHint => 'Search, e.g. frizz, foundation, beard';
+
+  @override
+  String get qaAll => 'All';
+
+  @override
+  String get qaSkin => 'Skin';
+
+  @override
+  String get qaStyle => 'Clothes & style';
+
+  @override
+  String get qaColour => 'Colour';
+
+  @override
+  String get qaNone => 'No answers match yet. Try another word or topic.';
+
+  @override
+  String get qaNote =>
+      'Answers are built into the app and work offline. Your searches never leave your phone. General guidance, not medical advice.';
+
+  @override
+  String get trendsTitle => 'Style trends';
+
+  @override
+  String get trendsInfo =>
+      'What\'s popular right now — take what suits you and skip the rest. Download the trends pack in Content packs for updates.';
+
+  @override
+  String get trendAccessories => 'Accessories';
+
+  @override
+  String get lookbookTitle => 'My lookbook';
+
+  @override
+  String get lookbookInfo =>
+      'Everything you saved with ♡, in one place. Tap a style to try it on.';
+
+  @override
+  String get lookbookEmpty =>
+      'Nothing saved yet. Tap ♡ on hairstyles, beards, glasses, makeup shades or clothes and they\'ll gather here.';
+
+  @override
+  String get lookbookFindStyles => 'Find styles for my face';
+
+  @override
+  String get lookbookColours => 'My best colours';
+
+  @override
+  String get lookbookClothes => 'Favourite clothes';
+
+  @override
+  String get lookbookOutfits => 'Saved outfits';
+
+  @override
+  String get featureLookbook => 'My lookbook';
+
+  @override
+  String get featureMakeup => 'Makeup guide';
+
+  @override
+  String get featureStyleQa => 'Ask about style';
+
+  @override
+  String get featureTrends => 'Style trends';
 }

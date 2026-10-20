@@ -25,6 +25,7 @@ import '../camera/camera_stage.dart';
 import '../camera/portrait_lock.dart';
 import '../health/body_providers.dart' show profileProvider;
 import '../../shared/visual/reveal.dart';
+import '../../shared/visual/hair_art.dart';
 import '../../shared/visual/style_art.dart';
 import '../../shared/visual/style_carousel.dart';
 import '../posture/posture_labels.dart';
@@ -249,6 +250,13 @@ class _FaceScreenState extends ConsumerState<FaceScreen> {
                   icon: const Icon(Icons.face_retouching_natural),
                   label: Text(l10n.tryOnOpen),
                 ),
+                const SizedBox(height: AppSpacing.sm),
+                OutlinedButton.icon(
+                  key: const Key('face-makeup'),
+                  onPressed: () => context.push(AppRoutes.makeup),
+                  icon: const Icon(Icons.brush_outlined),
+                  label: Text(l10n.makeupOpen),
+                ),
                 const SizedBox(height: AppSpacing.lg),
                 Text(l10n.faceDisclaimer, style: theme.textTheme.bodySmall),
               ],
@@ -367,6 +375,7 @@ class FaceResultView extends ConsumerWidget {
     if (item.image != null) {
       return Image.asset(item.image!, fit: BoxFit.cover);
     }
+    final hair = HairShape.fromName(item.hair);
     final glasses = glassesStyleFor(item.id);
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -378,7 +387,9 @@ class FaceResultView extends ConsumerWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(28, 28, 28, 70),
-        child: glasses != null
+        child: hair != null
+            ? HairArt(shape: hair, faceShape: result.shape)
+            : glasses != null
             ? GlassesArt(style: glasses, color: scheme.onPrimaryContainer)
             : FaceShapeArt(shape: result.shape),
       ),
@@ -441,7 +452,7 @@ class FaceResultView extends ConsumerWidget {
                       onFavorite: () => ref
                           .read(faceRepositoryProvider)
                           .setFavorite(item.id, !favorites.contains(item.id)),
-                      onTryOn: kind == StyleKind.hair
+                      onTryOn: kind == StyleKind.hair && item.hair == null
                           ? null
                           : () => context.push(
                               '${AppRoutes.tryOn}?item=${item.id}'),
@@ -520,6 +531,13 @@ class FaceResultView extends ConsumerWidget {
             ),
           ),
         ),
+        if (result.balance.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.md),
+          Reveal(
+            index: reveal++,
+            child: FaceBalanceCard(result: result),
+          ),
+        ],
         const SizedBox(height: AppSpacing.sm),
         Text(l10n.faceDisclaimer, style: theme.textTheme.bodySmall),
         if (onSave != null) ...[
@@ -570,6 +588,17 @@ class FaceResultView extends ConsumerWidget {
           ...section(l10n.styleHair, StyleKind.hair),
           ...section(l10n.styleBeard, StyleKind.beard, note: l10n.styleBeardNote),
           ...section(l10n.styleGlasses, StyleKind.glasses),
+          Card(
+            child: ListTile(
+              key: const Key('face-result-makeup'),
+              leading: const Icon(Icons.brush_outlined),
+              title: Text(l10n.makeupTitle),
+              subtitle: Text(l10n.makeupPlacementFor(
+                  l10n.faceShapeName(result.shape).toLowerCase())),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.makeup),
+            ),
+          ),
           const SizedBox(height: AppSpacing.xl),
           Reveal(
             index: reveal++,
@@ -674,4 +703,87 @@ class FaceOutlinePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(FaceOutlinePainter old) => old.face != face;
+}
+
+/// Left/right balance and feature proportions, shown as plain measurements
+/// with what is typical. There is no score and nothing to "fix".
+class FaceBalanceCard extends StatelessWidget {
+  const FaceBalanceCard({super.key, required this.result});
+  final FaceShapeResult result;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final eye = result.proportions[FaceProportion.eyeSpacing];
+    final mouth = result.proportions[FaceProportion.mouthToEyes];
+    return Card(
+      key: const Key('face-balance'),
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(l10n.faceBalanceTitle, style: theme.textTheme.titleMedium),
+            const SizedBox(height: AppSpacing.xs),
+            Text(
+              l10n.faceBalanceInfo,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: AppSpacing.sm),
+            for (final b in FaceBalance.values)
+              if (result.balance[b] case final v?)
+                AnimatedValueBar(
+                  label: l10n.faceBalanceName(b),
+                  valueText: l10n.faceBalancePercent((v * 100).round()),
+                  // 80–100 % spans the bar; everyday faces sit near the end.
+                  value: ((v - 0.8) / 0.2).clamp(0.0, 1.0),
+                ),
+            if (eye != null || mouth != null) ...[
+              const SizedBox(height: AppSpacing.sm),
+              Text(l10n.faceProportionsTitle, style: theme.textTheme.labelLarge),
+              if (eye != null)
+                _Line(l10n.faceEyeSpacing, l10n.faceEyeSpacingValue(
+                  eye.toStringAsFixed(2),
+                  eye < 0.42
+                      ? l10n.faceCloseSet
+                      : eye > 0.5
+                      ? l10n.faceWideSet
+                      : l10n.faceAverageSet,
+                )),
+              if (mouth != null)
+                _Line(l10n.faceMouthWidth, mouth.toStringAsFixed(2)),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Line extends StatelessWidget {
+  const _Line(this.label, this.value);
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        children: [
+          Expanded(child: Text(label, style: theme.textTheme.bodyMedium)),
+          Text(
+            value,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

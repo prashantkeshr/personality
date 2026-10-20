@@ -13,7 +13,8 @@
    },
    "image": "assets/images/styles/textured_crop.jpg",
    "credit": "Photo: Megan Bagshaw / Unsplash",
-   "fit": "menswear"
+   "fit": "menswear",
+   "hair": "crop"
   },
   {
    "id": "side_part",
@@ -28,7 +29,8 @@
    },
    "image": "assets/images/styles/side_part.jpg",
    "credit": "Photo: Negar Nikkhah / Unsplash",
-   "fit": "menswear"
+   "fit": "menswear",
+   "hair": "sidePart"
   },
   {
    "id": "quiff",
@@ -43,7 +45,8 @@
    },
    "image": "assets/images/styles/quiff.jpg",
    "credit": "Photo: Laszlo Barta / Unsplash",
-   "fit": "menswear"
+   "fit": "menswear",
+   "hair": "quiff"
   },
   {
    "id": "long_layers",
@@ -58,7 +61,8 @@
    },
    "image": "assets/images/styles/long_layers.jpg",
    "credit": "Photo: OmAr Taha / Unsplash",
-   "fit": "womenswear"
+   "fit": "womenswear",
+   "hair": "longLayers"
   },
   {
    "id": "side_fringe",
@@ -73,7 +77,8 @@
    },
    "image": "assets/images/styles/side_fringe.jpg",
    "credit": "Photo: Alexander Krivitskiy / Unsplash",
-   "fit": "womenswear"
+   "fit": "womenswear",
+   "hair": "sideFringe"
   },
   {
    "id": "bob_chin",
@@ -88,7 +93,8 @@
    },
    "image": "assets/images/styles/bob_chin.jpg",
    "credit": "Photo: Dev Asangbam / Unsplash",
-   "fit": "womenswear"
+   "fit": "womenswear",
+   "hair": "bob"
   },
   {
    "id": "soft_waves",
@@ -103,7 +109,8 @@
    },
    "image": "assets/images/styles/soft_waves.jpg",
    "credit": "Photo: Rafaella Mendes Diniz / Unsplash",
-   "fit": "womenswear"
+   "fit": "womenswear",
+   "hair": "waves"
   },
   {
    "id": "buzz_fade",
@@ -118,7 +125,8 @@
    },
    "image": "assets/images/styles/buzz_fade.jpg",
    "credit": "Photo: Lizzy Jenkins / Unsplash",
-   "fit": "menswear"
+   "fit": "menswear",
+   "hair": "fade"
   },
   {
    "id": "shoulder_length",
@@ -133,7 +141,316 @@
    },
    "image": "assets/images/styles/shoulder_length.jpg",
    "credit": "Photo: Roksolana Zasiadko / Unsplash",
-   "fit": "all"
+   "fit": "all",
+   "hair": "shoulder"
+  },
+  {
+   "id": "buzz_cut",
+   "kind": "hair",
+   "name": {
+    "en": "Buzz cut",
+    "hi": "बज़ कट"
+   },
+   "desc": {
+    "en": "Very short all over; easy and fresh.",
+    "hi": "पूरे सिर पर बहुत छोटे बाल; आसान और ताज़ा।"
+   },
+   "fit": "menswear",
+   "hair": "buzz"
+  },
+  {
+   "id": "crew_cut",
+   "kind": "hair",
+   "name": {
+    "en": "Crew cut",
+    "hi": "क्रू कट"
+   },
+   "desc": {
+    "en": "Short sides, a little length on top.",
+    "hi": "किनारे छोटे, ऊपर थोड़ी लंबाई।"
+   },
+   "fit": "menswear",
+   "hair": "crew"
+  },
+  {
+   "id": "french_crop",
+   "kind": "hair",
+   "name": {
+    "en": "French crop",
+    "hi": "फ़्रेंच क्रॉप"
+   },
+   "desc": {
+    "en": "Short with a straight, textured fringe.",
+    "hi": "छोटे बाल, सीधी टेक्सचर्ड फ्रिंज के साथ।"
+   },
+   "fit": "menswear",
+   "hair": "frenchCrop"
+  },
+  {
+   "id": "pompadour",
+   "kind": "hair",
+   "name": {
+    "en": "Pompadour",
+    "hi": "पोम्पाडोर"
+   },
+   "desc": {
+    "en": "Tall, swept-back volume on top.",
+    "hi": "ऊपर ऊँचा, पीछे की ओर सँवारा वॉल्यूम।"
+   },
+   "fit": "menswear",
+   "hair": "pompadour"
+  },
+  {
+   "id": "slick_back",
+   "kind": "hair",
+   "name": {
+    "en": "Slick back",
+    "hi": "स्लिक बैक"
+   },
+   "desc": {
+    "en": "Smooth and combed straight back.",
+    "hi": "चिकने और सीधे पीछे की ओर कंघी किए।"
+   },
+   "fit": "menswear",
+   "hair": "slickBack"
+  },
+  {
+   "id": "curly_top",
+   "kind": "hair",
+   "name": {
+    "en": "Curly top",
+    "hi": "कर्ली टॉप"
+   },
+   "desc": {
+    "en": "Natural curls on top, short sides.",
+    "hi": "ऊपर प्राकृतिक घुंघराले बाल, किनारे छोटे।"
+   },
+   "fit": "menswear",
+   "hair": "curlyTop"
+  },
+  {
+   "id": "undercut_long_top",
+   "kind": "hair",
+   "name": {
+    "en": "Undercut, long top",
+    "hi": "अंडरकट, लंबा टॉप"
+   },
+   "desc": {
+    "en": "Close sides with longer hair swept over.",
+    "hi": "किनारे बहुत छोटे, ऊपर लंबे बाल एक ओर सँवारे।"
+   },
+   "fit": "menswear",
+   "hair": "longTop"
+  },
+  {
+   "id": "man_bun",
+   "kind": "hair",
+   "name": {
+    "en": "Top knot",
+    "hi": "टॉप नॉट"
+   },
+   "desc": {
+    "en": "Longer hair tied up in a small bun.",
+    "hi": "लंबे बाल ऊपर छोटे जूड़े में बँधे।"
+   },
+   "fit": "menswear",
+   "hair": "manBun"
+  },
+  {
+   "id": "textured_fringe",
+   "kind": "hair",
+   "name": {
+    "en": "Textured fringe",
+    "hi": "टेक्सचर्ड फ्रिंज"
+   },
+   "desc": {
+    "en": "Messy texture brushed forward.",
+    "hi": "आगे की ओर ब्रश किया हल्का बिखरा टेक्सचर।"
+   },
+   "fit": "menswear",
+   "hair": "texturedFringe"
+  },
+  {
+   "id": "afro",
+   "kind": "hair",
+   "name": {
+    "en": "Natural afro",
+    "hi": "नेचुरल एफ़्रो"
+   },
+   "desc": {
+    "en": "Full, rounded natural texture.",
+    "hi": "भरा, गोल प्राकृतिक टेक्सचर।"
+   },
+   "fit": "all",
+   "hair": "afro"
+  },
+  {
+   "id": "pixie",
+   "kind": "hair",
+   "name": {
+    "en": "Pixie cut",
+    "hi": "पिक्सी कट"
+   },
+   "desc": {
+    "en": "Short and soft with a side-swept fringe.",
+    "hi": "छोटे और मुलायम, एक ओर झुकी फ्रिंज के साथ।"
+   },
+   "fit": "womenswear",
+   "hair": "pixie"
+  },
+  {
+   "id": "lob",
+   "kind": "hair",
+   "name": {
+    "en": "Long bob (lob)",
+    "hi": "लॉन्ग बॉब (लॉब)"
+   },
+   "desc": {
+    "en": "Just above the shoulders, easy to style.",
+    "hi": "कंधों से ठीक ऊपर, सँवारने में आसान।"
+   },
+   "fit": "womenswear",
+   "hair": "lob"
+  },
+  {
+   "id": "wavy_lob",
+   "kind": "hair",
+   "name": {
+    "en": "Wavy lob",
+    "hi": "वेवी लॉब"
+   },
+   "desc": {
+    "en": "A long bob with loose waves.",
+    "hi": "हल्की लहरों वाला लॉन्ग बॉब।"
+   },
+   "fit": "womenswear",
+   "hair": "wavyLob"
+  },
+  {
+   "id": "long_straight",
+   "kind": "hair",
+   "name": {
+    "en": "Long and straight",
+    "hi": "लंबे और सीधे"
+   },
+   "desc": {
+    "en": "Sleek, long and low-fuss.",
+    "hi": "चिकने, लंबे और कम झंझट वाले।"
+   },
+   "fit": "womenswear",
+   "hair": "longStraight"
+  },
+  {
+   "id": "curly_long",
+   "kind": "hair",
+   "name": {
+    "en": "Long curls",
+    "hi": "लंबे घुंघराले बाल"
+   },
+   "desc": {
+    "en": "Defined curls with natural volume.",
+    "hi": "प्राकृतिक वॉल्यूम के साथ उभरे कर्ल।"
+   },
+   "fit": "womenswear",
+   "hair": "curlyLong"
+  },
+  {
+   "id": "curtain_bangs",
+   "kind": "hair",
+   "name": {
+    "en": "Curtain bangs",
+    "hi": "कर्टन बैंग्स"
+   },
+   "desc": {
+    "en": "A centre-parted fringe that frames the face.",
+    "hi": "बीच की मांग वाली फ्रिंज जो चेहरे को फ़्रेम करती है।"
+   },
+   "fit": "womenswear",
+   "hair": "curtain"
+  },
+  {
+   "id": "blunt_bangs",
+   "kind": "hair",
+   "name": {
+    "en": "Blunt bangs",
+    "hi": "ब्लंट बैंग्स"
+   },
+   "desc": {
+    "en": "A straight, full fringe with long hair.",
+    "hi": "लंबे बालों के साथ सीधी, भरी फ्रिंज।"
+   },
+   "fit": "womenswear",
+   "hair": "bluntBangs"
+  },
+  {
+   "id": "shag",
+   "kind": "hair",
+   "name": {
+    "en": "Shag cut",
+    "hi": "शैग कट"
+   },
+   "desc": {
+    "en": "Choppy layers with lots of texture.",
+    "hi": "ढेर सारे टेक्सचर वाली कटी-कटी परतें।"
+   },
+   "fit": "womenswear",
+   "hair": "shag"
+  },
+  {
+   "id": "wolf_cut",
+   "kind": "hair",
+   "name": {
+    "en": "Wolf cut",
+    "hi": "वुल्फ़ कट"
+   },
+   "desc": {
+    "en": "Shaggy layers on top, longer at the back.",
+    "hi": "ऊपर शैगी परतें, पीछे लंबे।"
+   },
+   "fit": "all",
+   "hair": "wolfCut"
+  },
+  {
+   "id": "high_ponytail",
+   "kind": "hair",
+   "name": {
+    "en": "High ponytail",
+    "hi": "ऊँची पोनीटेल"
+   },
+   "desc": {
+    "en": "Pulled back and up; lifts the face.",
+    "hi": "पीछे और ऊपर खींचे; चेहरे को उठाती है।"
+   },
+   "fit": "womenswear",
+   "hair": "ponytail"
+  },
+  {
+   "id": "top_bun",
+   "kind": "hair",
+   "name": {
+    "en": "Top bun",
+    "hi": "टॉप बन"
+   },
+   "desc": {
+    "en": "A neat bun on the crown.",
+    "hi": "सिर के ऊपर सलीकेदार जूड़ा।"
+   },
+   "fit": "womenswear",
+   "hair": "bun"
+  },
+  {
+   "id": "side_braid",
+   "kind": "hair",
+   "name": {
+    "en": "Side braid",
+    "hi": "साइड चोटी"
+   },
+   "desc": {
+    "en": "One braid over the shoulder.",
+    "hi": "कंधे पर एक चोटी।"
+   },
+   "fit": "womenswear",
+   "hair": "braid"
   },
   {
    "id": "short_beard",
@@ -270,7 +587,18 @@
    "hair": [
     "side_part",
     "textured_crop",
-    "long_layers"
+    "long_layers",
+    "pompadour",
+    "slick_back",
+    "crew_cut",
+    "lob",
+    "long_straight",
+    "curtain_bangs",
+    "high_ponytail",
+    "afro",
+    "wolf_cut",
+    "buzz_cut",
+    "buzz_fade"
    ],
    "beard": [
     "short_beard",
@@ -289,7 +617,14 @@
    "hair": [
     "quiff",
     "side_part",
-    "long_layers"
+    "long_layers",
+    "pompadour",
+    "undercut_long_top",
+    "man_bun",
+    "pixie",
+    "long_straight",
+    "high_ponytail",
+    "top_bun"
    ],
    "beard": [
     "chin_beard",
@@ -308,7 +643,16 @@
    "hair": [
     "soft_waves",
     "textured_crop",
-    "side_fringe"
+    "side_fringe",
+    "curly_top",
+    "textured_fringe",
+    "wavy_lob",
+    "curly_long",
+    "curtain_bangs",
+    "shag",
+    "wolf_cut",
+    "buzz_cut",
+    "buzz_fade"
    ],
    "beard": [
     "stubble",
@@ -328,7 +672,14 @@
     "side_fringe",
     "shoulder_length",
     "bob_chin",
-    "side_part"
+    "side_part",
+    "french_crop",
+    "crew_cut",
+    "textured_fringe",
+    "blunt_bangs",
+    "wavy_lob",
+    "curly_long",
+    "afro"
    ],
    "beard": [
     "full_sides",
@@ -348,7 +699,14 @@
     "side_fringe",
     "bob_chin",
     "soft_waves",
-    "side_part"
+    "side_part",
+    "textured_fringe",
+    "crew_cut",
+    "lob",
+    "wavy_lob",
+    "curtain_bangs",
+    "side_braid",
+    "shag"
    ],
    "beard": [
     "full_sides",
@@ -367,7 +725,14 @@
    "hair": [
     "side_fringe",
     "textured_crop",
-    "shoulder_length"
+    "shoulder_length",
+    "french_crop",
+    "textured_fringe",
+    "man_bun",
+    "curtain_bangs",
+    "lob",
+    "side_braid",
+    "afro"
    ],
    "beard": [
     "chin_beard",

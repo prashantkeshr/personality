@@ -1,0 +1,22 @@
+{
+ "updated": "2026-10",
+ "season": {"en": "Autumn–winter 2026", "hi": "शरद–शीत 2026"},
+ "items": [
+  {"id": "curtain_bangs", "kind": "hair", "style": "curtain_bangs", "title": {"en": "Curtain bangs", "hi": "कर्टन बैंग्स"}, "desc": {"en": "Soft, centre-parted fringes that frame the face and grow out easily.", "hi": "बीच की मांग वाली मुलायम फ्रिंज जो चेहरे को फ़्रेम करती है और आसानी से बढ़ती है।"}},
+  {"id": "textured_crop", "kind": "hair", "style": "textured_crop", "title": {"en": "Textured crops", "hi": "टेक्सचर्ड क्रॉप"}, "desc": {"en": "Short sides and a messy, matte top — low effort, still sharp.", "hi": "छोटे किनारे और ऊपर बिखरा, मैट टेक्सचर — कम मेहनत, फिर भी सलीकेदार।"}},
+  {"id": "wolf_cut", "kind": "hair", "style": "wolf_cut", "title": {"en": "Wolf cuts and shags", "hi": "वुल्फ़ कट और शैग"}, "desc": {"en": "Choppy layers with volume on top, worn by everyone.", "hi": "ऊपर वॉल्यूम के साथ कटी-कटी परतें, सब पर।"}},
+  {"id": "natural_curls", "kind": "hair", "style": "curly_long", "title": {"en": "Natural texture", "hi": "प्राकृतिक टेक्सचर"}, "desc": {"en": "Embracing natural curls and waves instead of heat styling.", "hi": "हीट स्टाइलिंग के बजाय प्राकृतिक कर्ल और लहरें अपनाना।"}},
+  {"id": "short_boxed", "kind": "beard", "style": "short_beard", "title": {"en": "Short, shaped beards", "hi": "छोटी, आकार दी दाढ़ी"}, "desc": {"en": "Neat, short beards with clean necklines over long growth.", "hi": "लंबी दाढ़ी की जगह साफ़ गर्दन-रेखा वाली छोटी, सलीकेदार दाढ़ी।"}},
+  {"id": "skin_first", "kind": "makeup", "title": {"en": "Skin-first makeup", "hi": "त्वचा-प्रधान मेकअप"}, "desc": {"en": "Skin tints, cream blush and glossy balms over heavy foundation.", "hi": "भारी फ़ाउंडेशन के बजाय स्किन टिंट, क्रीम ब्लश और चमकदार बाम।"}},
+  {"id": "berry_lips", "kind": "makeup", "colour": "8E2C4E", "title": {"en": "Berry and brown lips", "hi": "बेरी और ब्राउन होंठ"}, "desc": {"en": "Deep berry, cinnamon and brick shades for cooler months.", "hi": "ठंडे महीनों के लिए गहरे बेरी, दालचीनी और ईंट रंग।"}},
+  {"id": "brown_neutrals", "kind": "colour", "colour": "6F4E37", "title": {"en": "Chocolate brown", "hi": "चॉकलेट ब्राउन"}, "desc": {"en": "Rich browns replacing black as the go-to neutral.", "hi": "गहरे भूरे रंग काले की जगह मुख्य न्यूट्रल बन रहे हैं।"}},
+  {"id": "burgundy", "kind": "colour", "colour": "7B1E3A", "title": {"en": "Burgundy", "hi": "बरगंडी"}, "desc": {"en": "Deep wine red in knits, bags and shoes.", "hi": "स्वेटर, बैग और जूतों में गहरा वाइन-लाल।"}},
+  {"id": "butter_yellow", "kind": "colour", "colour": "F3E3A0", "title": {"en": "Butter yellow", "hi": "मक्खनी पीला"}, "desc": {"en": "A soft yellow that brightens neutrals; best near warm undertones.", "hi": "हल्का पीला जो न्यूट्रल को खिलाता है; वार्म अंडरटोन पर सबसे अच्छा।"}},
+  {"id": "relaxed_tailoring", "kind": "style", "title": {"en": "Relaxed tailoring", "hi": "आरामदायक टेलरिंग"}, "desc": {"en": "Looser blazers and wide trousers that still look polished.", "hi": "ढीले ब्लेज़र और चौड़ी पतलून जो फिर भी सलीकेदार दिखें।"}},
+  {"id": "layering", "kind": "style", "title": {"en": "Smart layering", "hi": "समझदारी से लेयरिंग"}, "desc": {"en": "Shirts under knits and light jackets you can remove indoors.", "hi": "स्वेटर के नीचे शर्ट और हल्की जैकेट जो अंदर उतार सकें।"}},
+  {"id": "heritage_textiles", "kind": "style", "title": {"en": "Heritage textiles", "hi": "पारंपरिक वस्त्र"}, "desc": {"en": "Handloom, block prints and ikat worn with everyday basics.", "hi": "हैंडलूम, ब्लॉक प्रिंट और इकत रोज़ के कपड़ों के साथ।"}},
+  {"id": "thin_frames", "kind": "glasses", "style": "round_frames", "title": {"en": "Thin metal frames", "hi": "पतले धातु के फ़्रेम"}, "desc": {"en": "Light round and oval metal frames are back.", "hi": "हल्के गोल और अंडाकार धातु फ़्रेम फिर लौटे।"}},
+  {"id": "chunky_frames", "kind": "glasses", "style": "rect_frames", "title": {"en": "Bold acetate frames", "hi": "मोटे एसीटेट फ़्रेम"}, "desc": {"en": "Thicker rectangular frames as a statement piece.", "hi": "ध्यान खींचने वाले मोटे आयताकार फ़्रेम।"}},
+  {"id": "mini_bags", "kind": "accessory", "title": {"en": "Structured small bags", "hi": "आकार वाले छोटे बैग"}, "desc": {"en": "Compact bags with clean lines; carry only what you need.", "hi": "साफ़ रेखाओं वाले छोटे बैग; सिर्फ़ ज़रूरी सामान।"}}
+ ]
+}

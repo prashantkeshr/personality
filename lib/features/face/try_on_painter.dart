@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../ml/face/face_estimator.dart';
+import '../../shared/visual/hair_art.dart';
 import '../../shared/visual/style_art.dart';
 
 /// Beard styles that can be previewed live.
@@ -23,9 +24,20 @@ class TryOnPainter extends CustomPainter {
     required this.face,
     this.glasses,
     this.beard,
+    this.hair,
+    this.hairColor = const Color(0xFF3B2416),
+    this.lipColor,
+    this.blushColor,
     this.frameColor = const Color(0xFF1C1C1E),
     this.beardColor = const Color(0xFF2A1F17),
   });
+
+  final HairShape? hair;
+  final Color hairColor;
+
+  /// Sheer tints, so the lips and skin show through.
+  final Color? lipColor;
+  final Color? blushColor;
 
   final FaceDetected? face;
   final GlassesStyle? glasses;
@@ -43,6 +55,55 @@ class TryOnPainter extends CustomPainter {
           p.$2 / f.imageHeight * size.height);
     }
 
+    if (blushColor != null &&
+        f.leftEye != null &&
+        f.rightEye != null &&
+        f.noseBottom != null) {
+      final a = at(f.leftEye!), b = at(f.rightEye!), nose = at(f.noseBottom!);
+      final mid = (a + b) / 2;
+      final d = (b - a).distance;
+      for (final eye in [a, b]) {
+        final out = eye + (eye - mid) * 0.32;
+        final c = Offset(out.dx, (eye.dy + nose.dy) / 2 + d * 0.12);
+        final r = d * 0.42;
+        canvas.drawOval(
+          Rect.fromCenter(center: c, width: r * 2.1, height: r * 1.5),
+          Paint()
+            ..shader = RadialGradient(colors: [
+              blushColor!.withValues(alpha: 0.38),
+              blushColor!.withValues(alpha: 0),
+            ]).createShader(Rect.fromCircle(center: c, radius: r * 1.05)),
+        );
+      }
+    }
+    if (lipColor != null &&
+        (f.upperLip?.length ?? 0) >= 3 &&
+        (f.lowerLip?.length ?? 0) >= 3) {
+      final pts = [
+        for (final p in f.upperLip!) at(p),
+        for (final p in f.lowerLip!.reversed) at(p),
+      ];
+      canvas.drawPath(
+        Path()..addPolygon(pts, true),
+        Paint()
+          ..isAntiAlias = true
+          ..color = lipColor!.withValues(alpha: 0.5)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.5),
+      );
+    }
+    if (hair != null && f.outline.length >= 20) {
+      final pts = [for (final p in f.outline) at(p)];
+      final face = Path()..addPolygon(pts, true);
+      final b = face.getBounds();
+      paintHair(
+        canvas,
+        HairFrame(centreX: b.center.dx, top: b.top, width: b.width, length: b.height),
+        hair!,
+        hairColor,
+        face,
+        opacity: 0.9,
+      );
+    }
     if (beard != null && f.upperLip != null && f.noseBottom != null) {
       _paintBeard(canvas, f, at);
     }
@@ -137,5 +198,11 @@ class TryOnPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TryOnPainter o) =>
-      o.face != face || o.glasses != glasses || o.beard != beard;
+      o.face != face ||
+      o.glasses != glasses ||
+      o.beard != beard ||
+      o.hair != hair ||
+      o.hairColor != hairColor ||
+      o.lipColor != lipColor ||
+      o.blushColor != blushColor;
 }

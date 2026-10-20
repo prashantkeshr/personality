@@ -7,6 +7,7 @@ import '../../core/features/feature_registry.dart';
 import '../../core/providers.dart';
 import '../../data/repositories/face_repository.dart';
 import '../../domain/entities/grooming.dart';
+import '../../domain/entities/makeup.dart';
 import '../../ml/face/face_estimator.dart';
 import '../../ml/face/mlkit_face_estimator.dart';
 import '../../ml/model_manager/bundled_models.dart';
@@ -37,4 +38,10 @@ final groomingContentProvider = FutureProvider<GroomingContent>((ref) async {
   final raw =
       await rootBundle.loadString('assets/content/grooming.json', cache: false);
   return GroomingContent.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+});
+
+final makeupContentProvider = FutureProvider<MakeupContent>((ref) async {
+  final raw =
+      await rootBundle.loadString('assets/content/makeup.json', cache: false);
+  return MakeupContent.fromJson(jsonDecode(raw) as Map<String, dynamic>);
 });

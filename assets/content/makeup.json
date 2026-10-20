@@ -1,0 +1,103 @@
+{
+ "shapes": {
+  "oval": {
+   "blush": {"en": "Sweep blush on the apples of the cheeks, blending up toward the temples.", "hi": "ब्लश गालों के उभरे हिस्से पर लगाएँ और कनपटी की ओर ऊपर मिलाएँ।"},
+   "contour": {"en": "Keep contour light, just under the cheekbones; balanced features need little.", "hi": "कंटूर हल्का रखें, बस गाल की हड्डी के नीचे; संतुलित चेहरे को कम चाहिए।"},
+   "highlight": {"en": "Highlight the tops of the cheekbones, the bridge of the nose and the cupid's bow.", "hi": "गाल की हड्डियों के ऊपर, नाक की रेखा और ऊपरी होंठ के बीच हाइलाइट करें।"}
+  },
+  "round": {
+   "blush": {"en": "Place blush slightly above the apples and sweep it diagonally toward the ears.", "hi": "ब्लश गालों के उभार से थोड़ा ऊपर लगाएँ और तिरछा कानों की ओर ले जाएँ।"},
+   "contour": {"en": "Contour from the ear toward the mouth corner, under the cheekbone, to add angles.", "hi": "कोण जोड़ने के लिए कान से होंठ के कोने की ओर, गाल की हड्डी के नीचे कंटूर करें।"},
+   "highlight": {"en": "Highlight down the centre: forehead, nose and chin, to add length.", "hi": "लंबाई के लिए बीच में हाइलाइट करें: माथा, नाक और ठुड्डी।"}
+  },
+  "square": {
+   "blush": {"en": "Use round strokes on the apples to soften strong angles.", "hi": "मज़बूत कोणों को नरम करने के लिए गालों पर गोल-गोल ब्लश लगाएँ।"},
+   "contour": {"en": "Soften the jaw corners and the outer forehead with a light contour.", "hi": "जबड़े के कोनों और माथे के किनारों पर हल्का कंटूर लगाएँ।"},
+   "highlight": {"en": "Highlight the centre of the forehead and the chin to draw focus inward.", "hi": "ध्यान बीच में लाने के लिए माथे के बीच और ठुड्डी पर हाइलाइट करें।"}
+  },
+  "oblong": {
+   "blush": {"en": "Apply blush horizontally across the apples, not upward, to add width.", "hi": "चौड़ाई के लिए ब्लश ऊपर नहीं, गालों पर आड़ा लगाएँ।"},
+   "contour": {"en": "Contour along the hairline and under the chin to shorten the face slightly.", "hi": "चेहरा थोड़ा छोटा दिखाने के लिए हेयरलाइन और ठुड्डी के नीचे कंटूर करें।"},
+   "highlight": {"en": "Highlight the outer cheekbones rather than the centre.", "hi": "बीच के बजाय गाल की हड्डियों के बाहरी हिस्से को हाइलाइट करें।"}
+  },
+  "heart": {
+   "blush": {"en": "Keep blush low on the cheeks, just below the apples.", "hi": "ब्लश गालों पर नीचे, उभार के ठीक नीचे रखें।"},
+   "contour": {"en": "Contour the temples and sides of the forehead; keep the chin soft.", "hi": "कनपटी और माथे के किनारों पर कंटूर करें; ठुड्डी को नरम रखें।"},
+   "highlight": {"en": "Highlight the chin and the centre of the cheeks to balance a wider forehead.", "hi": "चौड़े माथे को संतुलित करने के लिए ठुड्डी और गालों के बीच हाइलाइट करें।"}
+  },
+  "diamond": {
+   "blush": {"en": "Blush just under the cheekbones, blended toward the centre of the face.", "hi": "ब्लश गाल की हड्डियों के ठीक नीचे लगाकर चेहरे के बीच की ओर मिलाएँ।"},
+   "contour": {"en": "Contour the very tops of the cheekbones lightly to soften width.", "hi": "चौड़ाई नरम करने के लिए गाल की हड्डियों के सबसे ऊपरी हिस्से पर हल्का कंटूर करें।"},
+   "highlight": {"en": "Highlight the centre of the forehead and the chin.", "hi": "माथे के बीच और ठुड्डी पर हाइलाइट करें।"}
+  }
+ },
+ "palettes": {
+  "warm": {
+   "lips": [
+    {"id": "terracotta", "name": {"en": "Terracotta", "hi": "टेराकोटा"}, "hex": "B5543A"},
+    {"id": "coral", "name": {"en": "Coral", "hi": "कोरल"}, "hex": "E2674F"},
+    {"id": "warm_nude", "name": {"en": "Warm nude", "hi": "वार्म न्यूड"}, "hex": "B07A5E"},
+    {"id": "brick_red", "name": {"en": "Brick red", "hi": "ईंट-लाल"}, "hex": "9E2B25"}
+   ],
+   "blush": [
+    {"id": "peach", "name": {"en": "Peach", "hi": "आड़ू"}, "hex": "F2A07B"},
+    {"id": "apricot", "name": {"en": "Apricot", "hi": "खुबानी"}, "hex": "E08A5C"},
+    {"id": "bronze", "name": {"en": "Soft bronze", "hi": "हल्का कांस्य"}, "hex": "B9784F"}
+   ],
+   "eyes": [
+    {"id": "gold", "name": {"en": "Gold", "hi": "सुनहरा"}, "hex": "C99A3E"},
+    {"id": "copper", "name": {"en": "Copper", "hi": "तांबा"}, "hex": "A65A2E"},
+    {"id": "olive", "name": {"en": "Olive", "hi": "जैतूनी"}, "hex": "6B6B2E"}
+   ]
+  },
+  "cool": {
+   "lips": [
+    {"id": "berry", "name": {"en": "Berry", "hi": "बेरी"}, "hex": "8E2C4E"},
+    {"id": "rose", "name": {"en": "Rose pink", "hi": "गुलाबी"}, "hex": "C25A7C"},
+    {"id": "mauve", "name": {"en": "Mauve", "hi": "मोव"}, "hex": "9C6A80"},
+    {"id": "blue_red", "name": {"en": "Blue red", "hi": "नीला-लाल"}, "hex": "B0172F"}
+   ],
+   "blush": [
+    {"id": "pink", "name": {"en": "Soft pink", "hi": "हल्का गुलाबी"}, "hex": "E59AAE"},
+    {"id": "plum", "name": {"en": "Plum", "hi": "प्लम"}, "hex": "A0577A"},
+    {"id": "rose_blush", "name": {"en": "Rose", "hi": "रोज़"}, "hex": "D27A8E"}
+   ],
+   "eyes": [
+    {"id": "silver", "name": {"en": "Silver", "hi": "चाँदी"}, "hex": "A9AEB8"},
+    {"id": "navy", "name": {"en": "Navy", "hi": "गहरा नीला"}, "hex": "2C3E6B"},
+    {"id": "plum_eye", "name": {"en": "Plum", "hi": "प्लम"}, "hex": "6B3B5E"}
+   ]
+  },
+  "neutral": {
+   "lips": [
+    {"id": "dusty_rose", "name": {"en": "Dusty rose", "hi": "डस्टी रोज़"}, "hex": "B86F78"},
+    {"id": "soft_red", "name": {"en": "Soft red", "hi": "हल्का लाल"}, "hex": "B23A3A"},
+    {"id": "nude_pink", "name": {"en": "Nude pink", "hi": "न्यूड पिंक"}, "hex": "C08A86"},
+    {"id": "cinnamon", "name": {"en": "Cinnamon", "hi": "दालचीनी"}, "hex": "9A5640"}
+   ],
+   "blush": [
+    {"id": "rosy_peach", "name": {"en": "Rosy peach", "hi": "गुलाबी आड़ू"}, "hex": "E8977F"},
+    {"id": "soft_berry", "name": {"en": "Soft berry", "hi": "हल्की बेरी"}, "hex": "C06A7E"},
+    {"id": "nude_blush", "name": {"en": "Nude", "hi": "न्यूड"}, "hex": "D19B87"}
+   ],
+   "eyes": [
+    {"id": "taupe", "name": {"en": "Taupe", "hi": "टॉप"}, "hex": "8A7A6E"},
+    {"id": "bronze_eye", "name": {"en": "Bronze", "hi": "कांस्य"}, "hex": "9C6B3F"},
+    {"id": "charcoal", "name": {"en": "Charcoal", "hi": "चारकोल"}, "hex": "3E3E44"}
+   ]
+  }
+ },
+ "depth": {
+  "light": {"en": "On lighter skin, sheer formulas and softer shades look most natural.", "hi": "हल्की त्वचा पर पतले फ़ॉर्मूले और हल्के शेड सबसे प्राकृतिक लगते हैं।"},
+  "medium": {"en": "On medium skin, mid-tone shades show well without looking heavy.", "hi": "मध्यम त्वचा पर बीच के शेड बिना भारी लगे अच्छे दिखते हैं।"},
+  "deep": {"en": "On deeper skin, richer, more pigmented shades show true to colour.", "hi": "गहरी त्वचा पर गहरे, ज़्यादा पिगमेंट वाले शेड सही रंग दिखाते हैं।"}
+ },
+ "basics": [
+  {"en": "Start with clean, moisturised skin and sunscreen in the day.", "hi": "साफ़, मॉइस्चराइज़ की हुई त्वचा और दिन में सनस्क्रीन से शुरू करें।"},
+  {"en": "Patch-test new products on the inner arm for 24 hours first.", "hi": "नए उत्पाद पहले 24 घंटे बाँह के अंदर लगाकर जाँचें।"},
+  {"en": "Match foundation on the jawline in daylight, not on the hand.", "hi": "फ़ाउंडेशन का मिलान हाथ पर नहीं, दिन की रोशनी में जबड़े पर करें।"},
+  {"en": "Blend edges well; less product, built up slowly, looks most natural.", "hi": "किनारे अच्छे से मिलाएँ; कम उत्पाद, धीरे-धीरे लगाने से सबसे प्राकृतिक लगता है।"},
+  {"en": "Remove makeup fully before sleep and clean brushes weekly.", "hi": "सोने से पहले मेकअप पूरी तरह हटाएँ और ब्रश हर हफ़्ते साफ़ करें।"},
+  {"en": "Stop using any product that stings, itches or causes redness.", "hi": "जो उत्पाद चुभे, खुजली करे या लालिमा लाए, उसे बंद करें।"}
+ ]
+}

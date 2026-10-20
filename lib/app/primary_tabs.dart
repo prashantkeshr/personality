@@ -99,12 +99,16 @@ class StyleTab extends StatelessWidget {
       heroImage: 'assets/images/looks/smart_1.jpg',
       features: const [
         AppFeature.styleDna,
+        AppFeature.lookbook,
         AppFeature.getReady,
         AppFeature.styleRecommendations,
         AppFeature.wardrobe,
         AppFeature.outfitCalendar,
         AppFeature.wardrobeStats,
         AppFeature.glassesFinder,
+        AppFeature.makeupGuide,
+        AppFeature.styleTrends,
+        AppFeature.styleQa,
         AppFeature.commerce,
       ],
       routes: const {
@@ -115,6 +119,10 @@ class StyleTab extends StatelessWidget {
         AppFeature.outfitCalendar: AppRoutes.outfitCalendar,
         AppFeature.wardrobeStats: AppRoutes.wardrobeStats,
         AppFeature.glassesFinder: AppRoutes.glasses,
+        AppFeature.lookbook: AppRoutes.lookbook,
+        AppFeature.makeupGuide: AppRoutes.makeup,
+        AppFeature.styleTrends: AppRoutes.trends,
+        AppFeature.styleQa: AppRoutes.styleQa,
       },
     );
   }

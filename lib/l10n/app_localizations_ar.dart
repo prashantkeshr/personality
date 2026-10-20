@@ -6220,4 +6220,175 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get widgetHabitsEmpty => 'لا عادات اليوم. أضف واحدة في التطبيق.';
+
+  @override
+  String get faceBalanceTitle => 'التوازن والنِّسب';
+
+  @override
+  String get faceBalanceInfo =>
+      'مدى تساوي كل ملمح على جانبي خط منتصف الوجه. لا يوجد وجه متماثل تمامًا، فمعظم الناس بين 90 و98%. للاطلاع فقط وليس تقييمًا.';
+
+  @override
+  String get faceBalanceEyes => 'العينان';
+
+  @override
+  String get faceBalanceCheeks => 'الوجنتان';
+
+  @override
+  String get faceBalanceJaw => 'الفك';
+
+  @override
+  String get faceBalanceMouth => 'الفم';
+
+  @override
+  String faceBalancePercent(int percent) {
+    return '$percent% متساوٍ';
+  }
+
+  @override
+  String get faceProportionsTitle => 'النِّسب';
+
+  @override
+  String get faceEyeSpacing => 'المسافة بين العينين';
+
+  @override
+  String faceEyeSpacingValue(String value, String kind) {
+    return '$value · $kind';
+  }
+
+  @override
+  String get faceCloseSet => 'متقاربتان';
+
+  @override
+  String get faceWideSet => 'متباعدتان';
+
+  @override
+  String get faceAverageSet => 'متوسطة';
+
+  @override
+  String get faceMouthWidth => 'عرض الفم إلى المسافة بين العينين';
+
+  @override
+  String get makeupTitle => 'دليل المكياج';
+
+  @override
+  String get makeupIntro =>
+      'أين تضع أحمر الخدود والكونتور والإضاءة حسب شكل وجهك، وألوان تناسب درجة بشرتك. كل ذلك اختياري، فاستخدم ما يعجبك.';
+
+  @override
+  String get makeupNoShape => 'اعرف شكل وجهك';
+
+  @override
+  String get makeupNoUndertone => 'اعرف درجة بشرتك';
+
+  @override
+  String makeupPlacementFor(String shape) {
+    return 'مواضع التطبيق لوجه $shape';
+  }
+
+  @override
+  String get makeupBlush => 'أحمر الخدود';
+
+  @override
+  String get makeupContour => 'الكونتور';
+
+  @override
+  String get makeupHighlight => 'الإضاءة';
+
+  @override
+  String get makeupLips => 'الشفاه';
+
+  @override
+  String get makeupEyes => 'العيون';
+
+  @override
+  String makeupShadesFor(String undertone) {
+    return 'ألوان تناسب $undertone';
+  }
+
+  @override
+  String get makeupShadesAll => 'ألوان للاستكشاف';
+
+  @override
+  String get makeupTryOn => 'جرّبه بالكاميرا';
+
+  @override
+  String get makeupBasics => 'الأساسيات';
+
+  @override
+  String get makeupNote =>
+      'نصائح عامة وليست نصيحة طبية. تحقق من المكونات إن كانت بشرتك حساسة.';
+
+  @override
+  String get makeupOpen => 'دليل المكياج';
+
+  @override
+  String get qaTitle => 'اسأل عن الأناقة';
+
+  @override
+  String get qaSearchHint => 'ابحث، مثل: التجعد، كريم الأساس، اللحية';
+
+  @override
+  String get qaAll => 'الكل';
+
+  @override
+  String get qaSkin => 'البشرة';
+
+  @override
+  String get qaStyle => 'الملابس والأناقة';
+
+  @override
+  String get qaColour => 'الألوان';
+
+  @override
+  String get qaNone => 'لا توجد إجابات مطابقة بعد. جرّب كلمة أو موضوعًا آخر.';
+
+  @override
+  String get qaNote =>
+      'الإجابات مدمجة في التطبيق وتعمل دون إنترنت. عمليات بحثك لا تغادر هاتفك أبدًا. إرشادات عامة وليست نصيحة طبية.';
+
+  @override
+  String get trendsTitle => 'صيحات الموضة';
+
+  @override
+  String get trendsInfo =>
+      'ما هو رائج الآن، فخذ ما يناسبك واترك الباقي. نزّل حزمة الصيحات من حزم المحتوى للتحديثات.';
+
+  @override
+  String get trendAccessories => 'الإكسسوارات';
+
+  @override
+  String get lookbookTitle => 'دفتر إطلالاتي';
+
+  @override
+  String get lookbookInfo =>
+      'كل ما حفظته بـ ♡ في مكان واحد. اضغط على أي إطلالة لتجربتها.';
+
+  @override
+  String get lookbookEmpty =>
+      'لا شيء محفوظ بعد. اضغط ♡ على تسريحات الشعر أو اللحى أو النظارات أو ألوان المكياج أو الملابس لتجتمع هنا.';
+
+  @override
+  String get lookbookFindStyles => 'ابحث عن إطلالات لوجهي';
+
+  @override
+  String get lookbookColours => 'أفضل ألواني';
+
+  @override
+  String get lookbookClothes => 'الملابس المفضلة';
+
+  @override
+  String get lookbookOutfits => 'الإطلالات المحفوظة';
+
+  @override
+  String get featureLookbook => 'دفتر إطلالاتي';
+
+  @override
+  String get featureMakeup => 'دليل المكياج';
+
+  @override
+  String get featureStyleQa => 'اسأل عن الأناقة';
+
+  @override
+  String get featureTrends => 'صيحات الموضة';
 }

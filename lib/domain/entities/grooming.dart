@@ -12,10 +12,14 @@ class StyleItem {
     this.image,
     this.credit,
     this.fit = StyleFit.all,
+    this.hair,
   });
 
   final String id;
   final StyleKind kind;
+
+  /// Try-on silhouette name for hairstyles (see `HairShape`).
+  final String? hair;
 
   /// Who the example is styled for; [StyleFit.all] suits everyone.
   final StyleFit fit;
@@ -88,6 +92,7 @@ class GroomingContent {
             image: e['image'] as String?,
             credit: e['credit'] as String?,
             fit: StyleFit.values.asNameMap()[e['fit']] ?? StyleFit.all,
+            hair: e['hair'] as String?,
           ),
       },
       shapes: {

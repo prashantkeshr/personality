@@ -38,6 +38,10 @@ extension FeatureLabels on AppLocalizations {
         AppFeature.outfitCalendar => featureOutfitCalendar,
         AppFeature.wardrobeStats => featureWardrobeStats,
         AppFeature.glassesFinder => featureGlasses,
+        AppFeature.lookbook => featureLookbook,
+        AppFeature.makeupGuide => featureMakeup,
+        AppFeature.styleQa => featureStyleQa,
+        AppFeature.styleTrends => featureTrends,
       };
 
   String featureStateLabel(FeatureState state) => switch (state) {
@@ -85,6 +89,10 @@ IconData featureIcon(AppFeature feature) => switch (feature) {
       AppFeature.outfitCalendar => Icons.calendar_month_outlined,
       AppFeature.wardrobeStats => Icons.bar_chart,
       AppFeature.glassesFinder => Icons.visibility_outlined,
+      AppFeature.lookbook => Icons.collections_bookmark_outlined,
+      AppFeature.makeupGuide => Icons.brush_outlined,
+      AppFeature.styleQa => Icons.question_answer_outlined,
+      AppFeature.styleTrends => Icons.trending_up,
     };
 
 /// Bundled photo for a feature card, or null to use vector art.
@@ -105,5 +113,8 @@ String? featureImage(AppFeature f) => switch (f) {
       AppFeature.getReady => 'assets/images/looks/classic_1.jpg',
       AppFeature.outfitCalendar => 'assets/images/looks/minimal_1.jpg',
       AppFeature.wardrobeStats => 'assets/images/looks/street_1.jpg',
+      AppFeature.lookbook => 'assets/images/looks/classic_2.jpg',
+      AppFeature.styleTrends => 'assets/images/looks/street_2.jpg',
+      AppFeature.styleQa => 'assets/images/looks/minimal_2.jpg',
       _ => null,
     };

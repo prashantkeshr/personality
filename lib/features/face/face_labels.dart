@@ -18,6 +18,13 @@ extension FaceLabels on AppLocalizations {
         FaceRatio.foreheadToCheek => ratioForeheadCheek,
         FaceRatio.jawToCheek => ratioJawCheek,
       };
+
+  String faceBalanceName(FaceBalance b) => switch (b) {
+        FaceBalance.eyes => faceBalanceEyes,
+        FaceBalance.cheeks => faceBalanceCheeks,
+        FaceBalance.jaw => faceBalanceJaw,
+        FaceBalance.mouth => faceBalanceMouth,
+      };
 }
 
 /// Face-specific wording for capture problems.

@@ -24,6 +24,8 @@ import '../features/exercise/exercise_library_screen.dart';
 import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
+import '../features/face/makeup_screen.dart';
+import '../features/style/style_extras.dart';
 import '../features/face/try_on_screen.dart';
 import '../data/repositories/snapshot_repository.dart' show SnapshotKind;
 import '../features/habits/habits_screen.dart';
@@ -96,6 +98,7 @@ abstract final class AppRoutes {
   static const face = '/analyze/face';
   static const faceHistory = '/analyze/face/history';
   static const tryOn = '/analyze/face/try-on';
+  static const makeup = '/analyze/face/makeup';
   static const snapshots = '/analyze/snapshots';
   static const colours = '/style/colours';
   static const drape = '/style/colours/drape';
@@ -104,6 +107,9 @@ abstract final class AppRoutes {
   static const garmentPhoto = '/style/wardrobe/photo';
   static const wardrobeStats = '/style/wardrobe/stats';
   static const styleDna = '/style/dna';
+  static const lookbook = '/style/lookbook';
+  static const trends = '/style/trends';
+  static const styleQa = '/style/ask';
   static const getReady = '/style/ready';
   static const outfitCalendar = '/style/calendar';
   static const glasses = '/style/glasses';
@@ -313,8 +319,13 @@ final routerProvider = Provider<GoRouter>((ref) {
                       path: 'try-on',
                       builder: (_, state) => TryOnScreen(
                           initialItem: state.uri.queryParameters['item'],
-                          initialColor: state.uri.queryParameters['color']),
+                          initialColor: state.uri.queryParameters['color'],
+                          initialLip: state.uri.queryParameters['lip'],
+                          initialBlush: state.uri.queryParameters['blush']),
                     ),
+                    GoRoute(
+                        path: 'makeup',
+                        builder: (_, _) => const MakeupGuideScreen()),
                   ],
                 ),
                 GoRoute(
@@ -334,6 +345,13 @@ final routerProvider = Provider<GoRouter>((ref) {
               path: AppRoutes.style,
               builder: (_, _) => const StyleTab(),
               routes: [
+                GoRoute(
+                    path: 'lookbook',
+                    builder: (_, _) => const LookbookScreen()),
+                GoRoute(
+                    path: 'trends', builder: (_, _) => const TrendsScreen()),
+                GoRoute(
+                    path: 'ask', builder: (_, _) => const StyleQaScreen()),
                 GoRoute(
                   path: 'colours',
                   builder: (_, _) => const ColourScreen(),

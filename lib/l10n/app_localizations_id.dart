@@ -6333,4 +6333,176 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get widgetHabitsEmpty =>
       'Tidak ada kebiasaan hari ini. Tambahkan di aplikasi.';
+
+  @override
+  String get faceBalanceTitle => 'Keseimbangan & proporsi';
+
+  @override
+  String get faceBalanceInfo =>
+      'Seberapa seimbang tiap fitur di kedua sisi garis tengah wajah. Tidak ada wajah yang simetris sempurna — kebanyakan orang 90–98%. Ini sekadar info, bukan skor.';
+
+  @override
+  String get faceBalanceEyes => 'Mata';
+
+  @override
+  String get faceBalanceCheeks => 'Pipi';
+
+  @override
+  String get faceBalanceJaw => 'Rahang';
+
+  @override
+  String get faceBalanceMouth => 'Mulut';
+
+  @override
+  String faceBalancePercent(int percent) {
+    return '$percent% seimbang';
+  }
+
+  @override
+  String get faceProportionsTitle => 'Proporsi';
+
+  @override
+  String get faceEyeSpacing => 'Jarak mata';
+
+  @override
+  String faceEyeSpacingValue(String value, String kind) {
+    return '$value · $kind';
+  }
+
+  @override
+  String get faceCloseSet => 'lebih rapat';
+
+  @override
+  String get faceWideSet => 'lebih lebar';
+
+  @override
+  String get faceAverageSet => 'rata-rata';
+
+  @override
+  String get faceMouthWidth => 'Lebar mulut / jarak mata';
+
+  @override
+  String get makeupTitle => 'Panduan riasan';
+
+  @override
+  String get makeupIntro =>
+      'Di mana memakai perona, kontur, dan highlight untuk bentuk wajahmu, serta warna yang cocok dengan undertone-mu. Semua opsional — pakai yang kamu suka.';
+
+  @override
+  String get makeupNoShape => 'Cari bentuk wajahmu';
+
+  @override
+  String get makeupNoUndertone => 'Cari undertone-mu';
+
+  @override
+  String makeupPlacementFor(String shape) {
+    return 'Penempatan untuk wajah $shape';
+  }
+
+  @override
+  String get makeupBlush => 'Perona pipi';
+
+  @override
+  String get makeupContour => 'Kontur';
+
+  @override
+  String get makeupHighlight => 'Highlight';
+
+  @override
+  String get makeupLips => 'Bibir';
+
+  @override
+  String get makeupEyes => 'Mata';
+
+  @override
+  String makeupShadesFor(String undertone) {
+    return 'Warna untuk $undertone-mu';
+  }
+
+  @override
+  String get makeupShadesAll => 'Warna untuk dicoba';
+
+  @override
+  String get makeupTryOn => 'Coba dengan kamera';
+
+  @override
+  String get makeupBasics => 'Dasar';
+
+  @override
+  String get makeupNote =>
+      'Tips umum, bukan saran medis. Periksa bahan jika kulitmu sensitif.';
+
+  @override
+  String get makeupOpen => 'Panduan riasan';
+
+  @override
+  String get qaTitle => 'Tanya soal gaya';
+
+  @override
+  String get qaSearchHint => 'Cari, mis. kusut, alas bedak, jenggot';
+
+  @override
+  String get qaAll => 'Semua';
+
+  @override
+  String get qaSkin => 'Kulit';
+
+  @override
+  String get qaStyle => 'Pakaian & gaya';
+
+  @override
+  String get qaColour => 'Warna';
+
+  @override
+  String get qaNone =>
+      'Belum ada jawaban yang cocok. Coba kata atau topik lain.';
+
+  @override
+  String get qaNote =>
+      'Jawaban ada di dalam aplikasi dan bekerja offline. Pencarianmu tidak pernah keluar dari ponsel. Panduan umum, bukan saran medis.';
+
+  @override
+  String get trendsTitle => 'Tren gaya';
+
+  @override
+  String get trendsInfo =>
+      'Yang sedang populer — ambil yang cocok untukmu, lewati sisanya. Unduh paket tren di Paket konten untuk pembaruan.';
+
+  @override
+  String get trendAccessories => 'Aksesori';
+
+  @override
+  String get lookbookTitle => 'Lookbook-ku';
+
+  @override
+  String get lookbookInfo =>
+      'Semua yang kamu simpan dengan ♡, di satu tempat. Ketuk gaya untuk mencobanya.';
+
+  @override
+  String get lookbookEmpty =>
+      'Belum ada yang disimpan. Ketuk ♡ pada gaya rambut, jenggot, kacamata, warna riasan, atau pakaian dan semuanya terkumpul di sini.';
+
+  @override
+  String get lookbookFindStyles => 'Cari gaya untuk wajahku';
+
+  @override
+  String get lookbookColours => 'Warna terbaikku';
+
+  @override
+  String get lookbookClothes => 'Pakaian favorit';
+
+  @override
+  String get lookbookOutfits => 'Pakaian tersimpan';
+
+  @override
+  String get featureLookbook => 'Lookbook-ku';
+
+  @override
+  String get featureMakeup => 'Panduan riasan';
+
+  @override
+  String get featureStyleQa => 'Tanya soal gaya';
+
+  @override
+  String get featureTrends => 'Tren gaya';
 }

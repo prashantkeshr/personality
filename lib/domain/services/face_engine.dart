@@ -25,6 +25,40 @@ enum FaceRatio {
   jawToCheek,
 }
 
+/// Left/right balance of a feature: 1.0 when both sides sit the same
+/// distance from the face's midline. Every face is a little asymmetric;
+/// most people measure around 0.90–0.98. Never a score of attractiveness.
+enum FaceBalance { eyes, cheeks, jaw, mouth }
+
+/// Feature proportions, for interest and for placing try-on overlays.
+enum FaceProportion {
+  /// Distance between the eyes / cheekbone width.
+  eyeSpacing,
+
+  /// Mouth width / distance between the eyes.
+  mouthToEyes,
+}
+
+/// Leftmost and rightmost crossings of a closed outline at height [y].
+(double, double)? _spanAt(List<(double, double)> pts, double y) {
+  double? lo, hi;
+  for (var i = 0; i < pts.length; i++) {
+    final (x1, y1) = pts[i];
+    final (x2, y2) = pts[(i + 1) % pts.length];
+    if ((y1 <= y && y2 >= y) || (y2 <= y && y1 >= y)) {
+      final x = y1 == y2 ? x1 : x1 + (y - y1) / (y2 - y1) * (x2 - x1);
+      lo = lo == null ? x : math.min(lo, x);
+      hi = hi == null ? x : math.max(hi, x);
+    }
+  }
+  return lo == null ? null : (lo, hi!);
+}
+
+double _balance(double left, double right) {
+  final l = left.abs(), r = right.abs();
+  return l + r <= 0 ? 1 : 1 - (l - r).abs() / (l + r);
+}
+
 /// Width of a closed outline at height [y] (distance between the outermost
 /// crossings), or null when the line misses it.
 double? _widthAt(List<(double, double)> pts, double y) {
@@ -42,10 +76,20 @@ double? _widthAt(List<(double, double)> pts, double y) {
 }
 
 class FaceFrameAssessment {
-  const FaceFrameAssessment({required this.issues, this.ratios = const {}});
+  const FaceFrameAssessment({
+    required this.issues,
+    this.ratios = const {},
+    this.balance = const {},
+    this.proportions = const {},
+  });
 
   final Set<FrameQualityIssue> issues;
   final Map<FaceRatio, double> ratios;
+
+  /// Only from frames looking straight at the camera (turning the head
+  /// makes one side look narrower).
+  final Map<FaceBalance, double> balance;
+  final Map<FaceProportion, double> proportions;
 
   bool get usable => issues.isEmpty && ratios.length == FaceRatio.values.length;
 }
@@ -88,11 +132,61 @@ abstract final class FaceEngine {
     if (cheek <= 0 || forehead == null || jaw == null) {
       return const FaceFrameAssessment(issues: {FrameQualityIssue.lowVisibility});
     }
-    return FaceFrameAssessment(issues: const {}, ratios: {
-      FaceRatio.lengthToWidth: length / cheek,
-      FaceRatio.foreheadToCheek: forehead / cheek,
-      FaceRatio.jawToCheek: jaw / cheek,
-    });
+    final (balance, proportions) = f.yaw.abs() <= maxYawForBalance
+        ? _features(f, top, length, cheek)
+        : (const <FaceBalance, double>{}, const <FaceProportion, double>{});
+    return FaceFrameAssessment(
+      issues: const {},
+      ratios: {
+        FaceRatio.lengthToWidth: length / cheek,
+        FaceRatio.foreheadToCheek: forehead / cheek,
+        FaceRatio.jawToCheek: jaw / cheek,
+      },
+      balance: balance,
+      proportions: proportions,
+    );
+  }
+
+  /// Head turn allowed for balance readings, in degrees.
+  static const maxYawForBalance = 5.0;
+
+  static (Map<FaceBalance, double>, Map<FaceProportion, double>) _features(
+    FaceDetected f,
+    double top,
+    double length,
+    double cheek,
+  ) {
+    final le = f.leftEye, re = f.rightEye, nose = f.noseBottom;
+    if (le == null || re == null || nose == null) {
+      return (const {}, const {});
+    }
+    // Midline: between the eye centre and the nose tip.
+    final mid = ((le.$1 + re.$1) / 2 + nose.$1) / 2;
+    final balance = <FaceBalance, double>{
+      FaceBalance.eyes: _balance(mid - math.min(le.$1, re.$1),
+          math.max(le.$1, re.$1) - mid),
+    };
+    for (final (b, at) in [(FaceBalance.cheeks, 0.4), (FaceBalance.jaw, 0.8)]) {
+      if (_spanAt(f.outline, top + at * length) case (final lo, final hi)) {
+        balance[b] = _balance(mid - lo, hi - mid);
+      }
+    }
+    final lips = [...?f.upperLip, ...?f.lowerLip];
+    double? mouth;
+    if (lips.length >= 4) {
+      final lo = lips.map((p) => p.$1).reduce(math.min);
+      final hi = lips.map((p) => p.$1).reduce(math.max);
+      balance[FaceBalance.mouth] = _balance(mid - lo, hi - mid);
+      mouth = hi - lo;
+    }
+    final eyeDist = (re.$1 - le.$1).abs();
+    return (
+      balance,
+      {
+        FaceProportion.eyeSpacing: eyeDist / cheek,
+        if (mouth != null && eyeDist > 0) FaceProportion.mouthToEyes: mouth / eyeDist,
+      },
+    );
   }
 
   /// Reference proportions, calibrated for the ML Kit outline (whose top
@@ -131,9 +225,15 @@ class FaceShapeResult {
     required this.confidence,
     required this.framesUsed,
     this.alsoLike,
+    this.balance = const {},
+    this.proportions = const {},
   });
 
   final FaceShape shape;
+
+  /// Median left/right balance per feature (see [FaceBalance]).
+  final Map<FaceBalance, double> balance;
+  final Map<FaceProportion, double> proportions;
 
   /// A second shape when the measurements sit between two references.
   final FaceShape? alsoLike;
@@ -151,6 +251,8 @@ class FaceCapture {
   static const minFrames = 6;
   final int targetFrames;
   final _frames = <Map<FaceRatio, double>>[];
+  final _balance = <Map<FaceBalance, double>>[];
+  final _proportions = <Map<FaceProportion, double>>[];
   final _issues = <FrameQualityIssue, int>{};
 
   int get usableFrames => _frames.length;
@@ -164,6 +266,8 @@ class FaceCapture {
   void add(FaceFrameAssessment a) {
     if (a.usable) {
       _frames.add(a.ratios);
+      if (a.balance.isNotEmpty) _balance.add(a.balance);
+      if (a.proportions.isNotEmpty) _proportions.add(a.proportions);
     } else {
       for (final i in a.issues) {
         _issues[i] = (_issues[i] ?? 0) + 1;
@@ -207,6 +311,21 @@ class FaceCapture {
       ratios: ratios,
       confidence: confidence,
       framesUsed: _frames.length,
+      // Needs a few straight-on frames to be meaningful.
+      balance: _balance.length < 3
+          ? const {}
+          : {
+              for (final b in FaceBalance.values)
+                if (_balance.where((m) => m.containsKey(b)).length >= 3)
+                  b: _median([for (final m in _balance) ?m[b]]),
+            },
+      proportions: _proportions.length < 3
+          ? const {}
+          : {
+              for (final pr in FaceProportion.values)
+                if (_proportions.where((m) => m.containsKey(pr)).length >= 3)
+                  pr: _median([for (final m in _proportions) ?m[pr]]),
+            },
     );
   }
 }

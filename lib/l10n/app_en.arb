@@ -3290,5 +3290,88 @@
       }
     }
   },
-  "widgetHabitsEmpty": "No habits due today. Add one in the app."
+  "widgetHabitsEmpty": "No habits due today. Add one in the app.",
+  "faceBalanceTitle": "Balance & proportions",
+  "faceBalanceInfo": "How evenly each feature sits either side of your face's midline. No face is perfectly symmetric — most people measure 90–98%. It's for interest, not a score.",
+  "faceBalanceEyes": "Eyes",
+  "faceBalanceCheeks": "Cheeks",
+  "faceBalanceJaw": "Jaw",
+  "faceBalanceMouth": "Mouth",
+  "faceBalancePercent": "{percent}% even",
+  "@faceBalancePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "faceProportionsTitle": "Proportions",
+  "faceEyeSpacing": "Eye spacing",
+  "faceEyeSpacingValue": "{value} · {kind}",
+  "@faceEyeSpacingValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "faceCloseSet": "closer-set",
+  "faceWideSet": "wide-set",
+  "faceAverageSet": "average",
+  "faceMouthWidth": "Mouth width to eye spacing",
+  "makeupTitle": "Makeup guide",
+  "makeupIntro": "Where to place blush, contour and highlight for your face shape, and shades that suit your undertone. All optional — wear what you enjoy.",
+  "makeupNoShape": "Find your face shape",
+  "makeupNoUndertone": "Find your undertone",
+  "makeupPlacementFor": "Placement for {shape} faces",
+  "@makeupPlacementFor": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "makeupBlush": "Blush",
+  "makeupContour": "Contour",
+  "makeupHighlight": "Highlight",
+  "makeupLips": "Lips",
+  "makeupEyes": "Eyes",
+  "makeupShadesFor": "Shades for your {undertone}",
+  "@makeupShadesFor": {
+    "placeholders": {
+      "undertone": {
+        "type": "String"
+      }
+    }
+  },
+  "makeupShadesAll": "Shades to explore",
+  "makeupTryOn": "Try on with the camera",
+  "makeupBasics": "Basics",
+  "makeupNote": "General tips, not medical advice. Check ingredients if you have sensitive skin.",
+  "makeupOpen": "Makeup guide",
+  "qaTitle": "Ask about style",
+  "qaSearchHint": "Search, e.g. frizz, foundation, beard",
+  "qaAll": "All",
+  "qaSkin": "Skin",
+  "qaStyle": "Clothes & style",
+  "qaColour": "Colour",
+  "qaNone": "No answers match yet. Try another word or topic.",
+  "qaNote": "Answers are built into the app and work offline. Your searches never leave your phone. General guidance, not medical advice.",
+  "trendsTitle": "Style trends",
+  "trendsInfo": "What's popular right now — take what suits you and skip the rest. Download the trends pack in Content packs for updates.",
+  "trendAccessories": "Accessories",
+  "lookbookTitle": "My lookbook",
+  "lookbookInfo": "Everything you saved with ♡, in one place. Tap a style to try it on.",
+  "lookbookEmpty": "Nothing saved yet. Tap ♡ on hairstyles, beards, glasses, makeup shades or clothes and they'll gather here.",
+  "lookbookFindStyles": "Find styles for my face",
+  "lookbookColours": "My best colours",
+  "lookbookClothes": "Favourite clothes",
+  "lookbookOutfits": "Saved outfits",
+  "featureLookbook": "My lookbook",
+  "featureMakeup": "Makeup guide",
+  "featureStyleQa": "Ask about style",
+  "featureTrends": "Style trends"
 }

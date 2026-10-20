@@ -45,4 +45,9 @@ const Set<AppFeature> implementedFeatures = {
   AppFeature.outfitCalendar,
   AppFeature.wardrobeStats,
   AppFeature.glassesFinder,
+  // Phase 32–33
+  AppFeature.lookbook,
+  AppFeature.makeupGuide,
+  AppFeature.styleQa,
+  AppFeature.styleTrends,
 };

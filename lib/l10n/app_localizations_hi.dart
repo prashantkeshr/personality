@@ -6289,4 +6289,176 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get widgetHabitsEmpty => 'आज कोई आदत नहीं। ऐप में एक जोड़ें।';
+
+  @override
+  String get faceBalanceTitle => 'संतुलन और अनुपात';
+
+  @override
+  String get faceBalanceInfo =>
+      'हर हिस्सा चेहरे की बीच की रेखा के दोनों ओर कितना बराबर है। कोई चेहरा पूरी तरह सममित नहीं होता — ज़्यादातर लोग 90–98% आते हैं। यह जानकारी के लिए है, कोई स्कोर नहीं।';
+
+  @override
+  String get faceBalanceEyes => 'आँखें';
+
+  @override
+  String get faceBalanceCheeks => 'गाल';
+
+  @override
+  String get faceBalanceJaw => 'जबड़ा';
+
+  @override
+  String get faceBalanceMouth => 'मुँह';
+
+  @override
+  String faceBalancePercent(int percent) {
+    return '$percent% बराबर';
+  }
+
+  @override
+  String get faceProportionsTitle => 'अनुपात';
+
+  @override
+  String get faceEyeSpacing => 'आँखों के बीच की दूरी';
+
+  @override
+  String faceEyeSpacingValue(String value, String kind) {
+    return '$value · $kind';
+  }
+
+  @override
+  String get faceCloseSet => 'पास-पास';
+
+  @override
+  String get faceWideSet => 'दूर-दूर';
+
+  @override
+  String get faceAverageSet => 'औसत';
+
+  @override
+  String get faceMouthWidth => 'मुँह की चौड़ाई / आँखों की दूरी';
+
+  @override
+  String get makeupTitle => 'मेकअप गाइड';
+
+  @override
+  String get makeupIntro =>
+      'आपके चेहरे के आकार के अनुसार ब्लश, कंटूर और हाइलाइट कहाँ लगाएँ, और आपके अंडरटोन पर जँचने वाले शेड। सब वैकल्पिक है — जो पसंद हो वही पहनें।';
+
+  @override
+  String get makeupNoShape => 'चेहरे का आकार जानें';
+
+  @override
+  String get makeupNoUndertone => 'अपना अंडरटोन जानें';
+
+  @override
+  String makeupPlacementFor(String shape) {
+    return '$shape चेहरे के लिए जगह';
+  }
+
+  @override
+  String get makeupBlush => 'ब्लश';
+
+  @override
+  String get makeupContour => 'कंटूर';
+
+  @override
+  String get makeupHighlight => 'हाइलाइट';
+
+  @override
+  String get makeupLips => 'होंठ';
+
+  @override
+  String get makeupEyes => 'आँखें';
+
+  @override
+  String makeupShadesFor(String undertone) {
+    return 'आपके $undertone के लिए शेड';
+  }
+
+  @override
+  String get makeupShadesAll => 'आज़माने लायक शेड';
+
+  @override
+  String get makeupTryOn => 'कैमरे से आज़माएँ';
+
+  @override
+  String get makeupBasics => 'बुनियादी बातें';
+
+  @override
+  String get makeupNote =>
+      'सामान्य सुझाव, चिकित्सा सलाह नहीं। संवेदनशील त्वचा हो तो सामग्री जाँचें।';
+
+  @override
+  String get makeupOpen => 'मेकअप गाइड';
+
+  @override
+  String get qaTitle => 'स्टाइल के बारे में पूछें';
+
+  @override
+  String get qaSearchHint => 'खोजें, जैसे फ्रिज़, फ़ाउंडेशन, दाढ़ी';
+
+  @override
+  String get qaAll => 'सभी';
+
+  @override
+  String get qaSkin => 'त्वचा';
+
+  @override
+  String get qaStyle => 'कपड़े और स्टाइल';
+
+  @override
+  String get qaColour => 'रंग';
+
+  @override
+  String get qaNone =>
+      'अभी कोई उत्तर मेल नहीं खाता। कोई दूसरा शब्द या विषय आज़माएँ।';
+
+  @override
+  String get qaNote =>
+      'उत्तर ऐप में ही हैं और बिना इंटरनेट चलते हैं। आपकी खोज कभी फ़ोन से बाहर नहीं जाती। सामान्य मार्गदर्शन, चिकित्सा सलाह नहीं।';
+
+  @override
+  String get trendsTitle => 'स्टाइल ट्रेंड';
+
+  @override
+  String get trendsInfo =>
+      'अभी क्या लोकप्रिय है — जो आप पर जँचे वह लें, बाकी छोड़ दें। अपडेट के लिए कंटेंट पैक में ट्रेंड पैक डाउनलोड करें।';
+
+  @override
+  String get trendAccessories => 'एक्सेसरी';
+
+  @override
+  String get lookbookTitle => 'मेरी लुकबुक';
+
+  @override
+  String get lookbookInfo =>
+      '♡ से सहेजी हर चीज़ एक जगह। आज़माने के लिए किसी स्टाइल पर टैप करें।';
+
+  @override
+  String get lookbookEmpty =>
+      'अभी कुछ सहेजा नहीं गया। हेयरस्टाइल, दाढ़ी, चश्मे, मेकअप शेड या कपड़ों पर ♡ टैप करें, वे यहाँ इकट्ठा होंगे।';
+
+  @override
+  String get lookbookFindStyles => 'मेरे चेहरे के लिए स्टाइल खोजें';
+
+  @override
+  String get lookbookColours => 'मेरे सबसे अच्छे रंग';
+
+  @override
+  String get lookbookClothes => 'पसंदीदा कपड़े';
+
+  @override
+  String get lookbookOutfits => 'सहेजे आउटफ़िट';
+
+  @override
+  String get featureLookbook => 'मेरी लुकबुक';
+
+  @override
+  String get featureMakeup => 'मेकअप गाइड';
+
+  @override
+  String get featureStyleQa => 'स्टाइल के बारे में पूछें';
+
+  @override
+  String get featureTrends => 'स्टाइल ट्रेंड';
 }
