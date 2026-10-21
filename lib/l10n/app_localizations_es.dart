@@ -50,7 +50,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'Las recomendaciones salen de reglas transparentes. El Coach con IA opcional puede explicarlas.';
+      'Pregunta sobre ejercicio, comida, sueño, postura, piel, pelo o estilo. Las respuestas salen de las guías de la app y de tus datos, con imágenes y enlaces.';
 
   @override
   String get styleIntro =>
@@ -6534,4 +6534,97 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get featureTrends => 'Tendencias';
+
+  @override
+  String get coachTitle => 'Coach IA';
+
+  @override
+  String get coachHint => 'Pregunta a tu coach…';
+
+  @override
+  String get coachSend => 'Enviar';
+
+  @override
+  String get coachStop => 'Detener';
+
+  @override
+  String get coachClear => 'Borrar chat';
+
+  @override
+  String get coachOpen => 'Abrir';
+
+  @override
+  String get coachNothing =>
+      'Aún no encontré nada sobre eso en la app. Prueba otras palabras o pregunta sobre ejercicio, comida, sueño, postura o estilo.';
+
+  @override
+  String get coachFromLibrary => 'De las guías de la app';
+
+  @override
+  String get coachNote =>
+      'Funciona en tu teléfono; tus preguntas nunca salen de él. Orientación general de bienestar, no consejo médico.';
+
+  @override
+  String get coachSearchMode => 'Modo de búsqueda inteligente';
+
+  @override
+  String get coachSearchModeInfo =>
+      'Este teléfono va mejor con respuestas rápidas de las guías de la app, con imágenes y enlaces. El modelo de redacción necesita un teléfono con más memoria.';
+
+  @override
+  String get coachReady => 'La IA sin conexión está lista';
+
+  @override
+  String get coachReadyInfo =>
+      'Las respuestas se escriben en tu teléfono a partir de las guías y tus datos.';
+
+  @override
+  String get coachGetModel => 'Añadir la IA sin conexión (opcional)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'Descarga una vez un modelo de lenguaje pequeño ($size) y tu coach escribirá respuestas completas sin conexión. Mientras tanto, muestra lo más relevante de las guías.';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'Descargar ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'Quitar la IA sin conexión';
+
+  @override
+  String get coachNoSpace => 'No hay suficiente espacio libre en el teléfono.';
+
+  @override
+  String get coachKindWorkout => 'Entrenamiento';
+
+  @override
+  String get coachKindSection => 'En la app';
+
+  @override
+  String get coachPromptFocus => '¿En qué debería trabajar primero?';
+
+  @override
+  String get coachPromptPosture => 'Ejercicios para mi postura';
+
+  @override
+  String get coachPromptDinner => 'Una cena alta en proteína';
+
+  @override
+  String get coachPromptHair => '¿Qué peinado le va a mi cara?';
+
+  @override
+  String get coachPromptSleep => '¿Cómo puedo dormir mejor?';
+
+  @override
+  String get coachPromptYoga => 'Yoga fácil para la espalda rígida';
+
+  @override
+  String get coachHomeCard => 'Pregunta a tu coach IA';
+
+  @override
+  String get coachHomeCardInfo =>
+      'Respuestas de ejercicio, comida, postura y estilo, con imágenes, en tu teléfono.';
 }

@@ -48,6 +48,11 @@ STYLE
 • Colour analysis, Style DNA, wardrobe, outfit calendar and a personal lookbook.
 • Style trends and an offline style Q&A.
 
+AI COACH (OFFLINE)
+• Ask about fitness, food, sleep, posture, skin, hair or style.
+• Answers come from the app's own guides and your data, with pictures and links to the right screen.
+• Optional small on-device model (about 430 MB, one-time download); your questions never leave your phone.
+
 MY GROWTH
 • Yoga, self-defence, boxing, karate, kung fu and Indian martial arts, with animated guides and safety notes (solo practice only).
 • Add a practice to your day with a reminder.
@@ -82,7 +87,7 @@ First release: health and habit tracking, on-device posture and face checks, sty
 | Is all user data encrypted in transit? | Not applicable — no user data is transmitted. Pack downloads use HTTPS. |
 | Do you provide a way for users to request deletion? | Users can delete records in the app; uninstalling deletes all data. |
 
-Notes for review: content-pack downloads send only a standard HTTPS file request to raw.githubusercontent.com (no identifiers). ML Kit runs on-device and its datatransport uploader is removed in the manifest.
+Notes for review: content-pack downloads send only a standard HTTPS file request to raw.githubusercontent.com, and the optional AI-coach model is a one-time HTTPS download from huggingface.co (no identifiers in either). The coach runs on-device; prompts are never transmitted. ML Kit runs on-device and its datatransport uploader is removed in the manifest.
 
 ## Content rating (IARC questionnaire)
 
@@ -107,7 +112,7 @@ Notes for review: content-pack downloads send only a standard HTTPS file request
 | ACTIVITY_RECOGNITION | Counts steps and active minutes from the phone's own sensors for the activity tracker. |
 | Health Connect: READ_STEPS, READ_DISTANCE, READ_EXERCISE, READ_SLEEP, READ_WEIGHT, READ_HEIGHT, READ_HYDRATION | Optional import so users see their existing health data in one private dashboard. Read-only; data stays on the device; never used for ads. Declare in the **Health apps declaration** and complete the Health Connect permissions form (link the privacy policy; the in-app rationale screen is `ACTION_SHOW_PERMISSIONS_RATIONALE`). |
 | POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED, VIBRATE | Local reminders the user schedules, restored after a restart. |
-| INTERNET, ACCESS_NETWORK_STATE | Only for downloading optional content packs when the user taps Download (and respecting "Wi-Fi only"). |
+| INTERNET, ACCESS_NETWORK_STATE | Only for downloading optional content packs and the optional on-device AI model when the user taps Download (and respecting "Wi-Fi only"). |
 
 ## Health apps declaration
 

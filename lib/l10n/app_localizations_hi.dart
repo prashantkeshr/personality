@@ -50,7 +50,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'सुझाव पारदर्शी नियमों से बनते हैं। वैकल्पिक AI कोच उन्हें समझा सकता है।';
+      'फ़िटनेस, खाना, नींद, पोस्चर, त्वचा, बाल या स्टाइल के बारे में पूछें। उत्तर ऐप की अपनी गाइड और आपके डेटा से आते हैं, तस्वीरों और लिंक के साथ।';
 
   @override
   String get styleIntro => 'आपके माप और पसंद के आधार पर कपड़े, रंग और आउटफ़िट।';
@@ -6461,4 +6461,97 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get featureTrends => 'स्टाइल ट्रेंड';
+
+  @override
+  String get coachTitle => 'AI कोच';
+
+  @override
+  String get coachHint => 'अपने कोच से पूछें…';
+
+  @override
+  String get coachSend => 'भेजें';
+
+  @override
+  String get coachStop => 'रोकें';
+
+  @override
+  String get coachClear => 'चैट साफ़ करें';
+
+  @override
+  String get coachOpen => 'खोलें';
+
+  @override
+  String get coachNothing =>
+      'ऐप में अभी इस बारे में कुछ नहीं मिला। दूसरे शब्द आज़माएँ, या फ़िटनेस, खाना, नींद, पोस्चर या स्टाइल के बारे में पूछें।';
+
+  @override
+  String get coachFromLibrary => 'ऐप की गाइड से';
+
+  @override
+  String get coachNote =>
+      'आपके फ़ोन पर चलता है; आपके सवाल कभी बाहर नहीं जाते। सामान्य वेलनेस मार्गदर्शन, चिकित्सा सलाह नहीं।';
+
+  @override
+  String get coachSearchMode => 'स्मार्ट खोज मोड';
+
+  @override
+  String get coachSearchModeInfo =>
+      'यह फ़ोन ऐप की गाइड से तस्वीरों और लिंक के साथ तेज़ उत्तरों के लिए सबसे अच्छा है। लिखने वाले मॉडल को ज़्यादा मेमोरी वाला फ़ोन चाहिए।';
+
+  @override
+  String get coachReady => 'ऑफ़लाइन AI तैयार है';
+
+  @override
+  String get coachReadyInfo =>
+      'उत्तर ऐप की गाइड और आपके डेटा से आपके फ़ोन पर ही लिखे जाते हैं।';
+
+  @override
+  String get coachGetModel => 'ऑफ़लाइन AI जोड़ें (वैकल्पिक)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'एक छोटा भाषा मॉडल एक बार डाउनलोड करें ($size), फिर कोच बिना इंटरनेट पूरे उत्तर लिखेगा। तब तक यह ऐप की गाइड से सबसे अच्छे मेल दिखाता है।';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'डाउनलोड करें ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'ऑफ़लाइन AI हटाएँ';
+
+  @override
+  String get coachNoSpace => 'इस फ़ोन में पर्याप्त खाली जगह नहीं है।';
+
+  @override
+  String get coachKindWorkout => 'वर्कआउट';
+
+  @override
+  String get coachKindSection => 'ऐप में';
+
+  @override
+  String get coachPromptFocus => 'मुझे पहले किस पर काम करना चाहिए?';
+
+  @override
+  String get coachPromptPosture => 'मेरे पोस्चर के लिए व्यायाम';
+
+  @override
+  String get coachPromptDinner => 'हाई-प्रोटीन डिनर का सुझाव';
+
+  @override
+  String get coachPromptHair => 'मेरे चेहरे पर कौन-सा हेयरस्टाइल जँचेगा?';
+
+  @override
+  String get coachPromptSleep => 'बेहतर नींद कैसे लूँ?';
+
+  @override
+  String get coachPromptYoga => 'कमर की जकड़न के लिए आसान योग';
+
+  @override
+  String get coachHomeCard => 'अपने AI कोच से पूछें';
+
+  @override
+  String get coachHomeCardInfo =>
+      'फ़िटनेस, खाना, पोस्चर और स्टाइल के उत्तर, तस्वीरों के साथ — आपके फ़ोन पर।';
 }

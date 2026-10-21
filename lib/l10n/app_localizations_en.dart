@@ -50,7 +50,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'Recommendations come from transparent rules. The optional AI Coach can explain them.';
+      'Ask about fitness, food, sleep, posture, skin, hair or style. Answers come from the app\'s own guides and your data, with pictures and links.';
 
   @override
   String get styleIntro =>
@@ -6472,4 +6472,97 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get featureTrends => 'Style trends';
+
+  @override
+  String get coachTitle => 'AI coach';
+
+  @override
+  String get coachHint => 'Ask your coach…';
+
+  @override
+  String get coachSend => 'Send';
+
+  @override
+  String get coachStop => 'Stop';
+
+  @override
+  String get coachClear => 'Clear chat';
+
+  @override
+  String get coachOpen => 'Open';
+
+  @override
+  String get coachNothing =>
+      'I couldn\'t find anything on that in the app yet. Try other words, or ask about fitness, food, sleep, posture or style.';
+
+  @override
+  String get coachFromLibrary => 'From the app\'s guides';
+
+  @override
+  String get coachNote =>
+      'Runs on your phone; your questions never leave it. General wellness guidance, not medical advice.';
+
+  @override
+  String get coachSearchMode => 'Smart search mode';
+
+  @override
+  String get coachSearchModeInfo =>
+      'This phone is best suited to quick answers from the app\'s guides, shown with pictures and links. The writing model needs a phone with more memory.';
+
+  @override
+  String get coachReady => 'Offline AI is ready';
+
+  @override
+  String get coachReadyInfo =>
+      'Answers are written on your phone from the app\'s guides and your data.';
+
+  @override
+  String get coachGetModel => 'Add the offline AI (optional)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'Download a small language model once ($size) and your coach writes full answers, offline. Until then it shows the best matches from the app\'s guides.';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'Download ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'Remove offline AI';
+
+  @override
+  String get coachNoSpace => 'Not enough free space on this phone.';
+
+  @override
+  String get coachKindWorkout => 'Workout';
+
+  @override
+  String get coachKindSection => 'In the app';
+
+  @override
+  String get coachPromptFocus => 'What should I work on first?';
+
+  @override
+  String get coachPromptPosture => 'Exercises for my posture';
+
+  @override
+  String get coachPromptDinner => 'A high-protein dinner idea';
+
+  @override
+  String get coachPromptHair => 'Which hairstyle suits my face?';
+
+  @override
+  String get coachPromptSleep => 'How can I sleep better?';
+
+  @override
+  String get coachPromptYoga => 'Easy yoga for back stiffness';
+
+  @override
+  String get coachHomeCard => 'Ask your AI coach';
+
+  @override
+  String get coachHomeCardInfo =>
+      'Fitness, food, posture and style answers, with pictures — on your phone.';
 }

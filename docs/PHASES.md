@@ -790,3 +790,26 @@ Verification: `flutter analyze` clean; `flutter test` 451 pass, 2 skipped (new: 
   - `screenshots/`: 7 phone screenshots (1080×2400) with a demo status bar.
 
 Still needs the user: create the upload key, host the privacy policy at a public URL, create the Play Console app and submit the forms.
+
+## Phase 35 — On-device AI coach (2026-10-21)
+
+- **Ask your AI coach** (`/growth/coach`, card at the top of My Growth). Every answer comes with picture cards and an **Open** button to the right screen. The pictures are the app's own: exercise figures, hairstyle drawings, style and section photos, colour swatches.
+- **Grounded in the app's knowledge** (`features/coach/coach_knowledge.dart`). A BM25 search runs over everything built in or downloaded:
+  - exercises (curated guides weigh 1.4, pack exercises 0.6), programs, yoga and martial arts;
+  - style Q&A, makeup placement and shades, trends, hairstyles, beards and glasses;
+  - meals, and 28 app sections (`assets/content/app_sections.json`).
+  Personal questions also pull in the user's About-snapshot exercise suggestions.
+- **The user's data** goes into the prompt as a short summary: ratings, areas to improve, goals, diet, region, undertone, and today's steps, active minutes and water. Chat history lives in memory only and is never stored.
+- **Model:** Qwen2.5-0.5B-Instruct q4_0 GGUF (Apache-2.0, 409 MB), pinned by size and SHA-256.
+  - Users download it once from Settings via Hugging Face; only `huggingface.co` and `*.hf.co` are allowed hosts. It streams to a `.part` file with chunked SHA-256 and gets a mobile-data prompt.
+  - Inference uses `llamadart` 0.15.5 (llama.cpp, CPU only — the Vulkan module would add 26 MB) with a 2,048-token context, temperature 0.2 and a 220-token cap. The answer streams in and can be stopped.
+  - The prompt keeps answers to 4 bullets, using only items, steps and figures from the notes, with no medical diagnosis.
+- **Capability:** 3.4 GB+ RAM and not a low-RAM device. Phones that can't load the engine (e.g. 32-bit) use **smart search mode**, which quotes the best notes with the same cards.
+- **Size:** arm64 APK 91 MB (+21 MB for the engine).
+- **Privacy:** the policy and listing now cover the one-time model download. Prompts never leave the phone.
+
+Verification: `flutter analyze` clean; `flutter test` 456 pass, 2 skipped. New tests cover search ranking, prompt content, search-mode answers with cards and navigation, a streamed answer from a fake model, and the My Growth entry.
+
+On the emulator (x86_64, 4 GB, 6 cores) with the real model:
+- The in-app download, including the Hugging Face → CDN redirect and checksum, finished in 210 s.
+- Answers took 5–12 s (posture → chin tucks / gentle mobility / desk reset programs; round face → ponytail / afro / top bun drawings; high-protein dinner → meal photos).

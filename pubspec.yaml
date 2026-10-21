@@ -31,6 +31,8 @@ dependencies:
   cryptography: ^2.9.0
   archive: ^4.4.0
   local_auth: ^3.0.2
+  llamadart: ^0.15.5
+  crypto: ^3.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +48,13 @@ hooks:
   user_defines:
     sqlite3:
       source: sqlite3mc
+    # On-device AI coach: bundle only the llama.cpp runtime (GGUF chat).
+    llamadart:
+      llamadart_native_runtimes: [llama_cpp]
+      # CPU only: a 0.5B model is fast on the CPU; the Vulkan GPU module adds 26 MB.
+      llamadart_native_backends:
+        platforms:
+          android: [cpu]
 
 flutter:
   uses-material-design: true

@@ -49,7 +49,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'تأتي التوصيات من قواعد واضحة. ويمكن لمدرّب الذكاء الاصطناعي الاختياري شرحها.';
+      'اسأل عن اللياقة والطعام والنوم ووضعية الجسم والبشرة والشعر والأناقة. تأتي الإجابات من أدلة التطبيق وبياناتك، مع صور وروابط.';
 
   @override
   String get styleIntro => 'ملابس وألوان وإطلالات تناسب مقاساتك وتفضيلاتك.';
@@ -6391,4 +6391,97 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get featureTrends => 'صيحات الموضة';
+
+  @override
+  String get coachTitle => 'المدرب الذكي';
+
+  @override
+  String get coachHint => 'اسأل مدربك…';
+
+  @override
+  String get coachSend => 'إرسال';
+
+  @override
+  String get coachStop => 'إيقاف';
+
+  @override
+  String get coachClear => 'مسح المحادثة';
+
+  @override
+  String get coachOpen => 'فتح';
+
+  @override
+  String get coachNothing =>
+      'لم أجد شيئًا عن ذلك في التطبيق بعد. جرّب كلمات أخرى أو اسأل عن اللياقة أو الطعام أو النوم أو وضعية الجسم أو الأناقة.';
+
+  @override
+  String get coachFromLibrary => 'من أدلة التطبيق';
+
+  @override
+  String get coachNote =>
+      'يعمل على هاتفك ولا تغادره أسئلتك أبدًا. إرشادات عامة للعافية وليست نصيحة طبية.';
+
+  @override
+  String get coachSearchMode => 'وضع البحث الذكي';
+
+  @override
+  String get coachSearchModeInfo =>
+      'يناسب هذا الهاتف الإجابات السريعة من أدلة التطبيق مع صور وروابط. يحتاج نموذج الكتابة إلى هاتف بذاكرة أكبر.';
+
+  @override
+  String get coachReady => 'الذكاء الاصطناعي دون اتصال جاهز';
+
+  @override
+  String get coachReadyInfo =>
+      'تُكتب الإجابات على هاتفك من أدلة التطبيق وبياناتك.';
+
+  @override
+  String get coachGetModel => 'أضف الذكاء الاصطناعي دون اتصال (اختياري)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'نزّل مرة واحدة نموذج لغة صغيرًا ($size) وسيكتب مدربك إجابات كاملة دون اتصال. حتى ذلك الحين يعرض أفضل النتائج من الأدلة.';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'تنزيل ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'إزالة الذكاء الاصطناعي دون اتصال';
+
+  @override
+  String get coachNoSpace => 'لا توجد مساحة كافية على هذا الهاتف.';
+
+  @override
+  String get coachKindWorkout => 'تمرين';
+
+  @override
+  String get coachKindSection => 'في التطبيق';
+
+  @override
+  String get coachPromptFocus => 'على ماذا أعمل أولًا؟';
+
+  @override
+  String get coachPromptPosture => 'تمارين لوضعية جسمي';
+
+  @override
+  String get coachPromptDinner => 'فكرة عشاء غني بالبروتين';
+
+  @override
+  String get coachPromptHair => 'أي تسريحة تناسب وجهي؟';
+
+  @override
+  String get coachPromptSleep => 'كيف أنام بشكل أفضل؟';
+
+  @override
+  String get coachPromptYoga => 'يوغا سهلة لتيبّس الظهر';
+
+  @override
+  String get coachHomeCard => 'اسأل مدربك الذكي';
+
+  @override
+  String get coachHomeCardInfo =>
+      'إجابات عن اللياقة والطعام ووضعية الجسم والأناقة مع صور، على هاتفك.';
 }

@@ -50,7 +50,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'As recomendações vêm de regras transparentes. O Coach com IA opcional pode explicá-las.';
+      'Pergunte sobre exercício, comida, sono, postura, pele, cabelo ou estilo. As respostas vêm dos guias do app e dos seus dados, com imagens e links.';
 
   @override
   String get styleIntro =>
@@ -6521,4 +6521,97 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get featureTrends => 'Tendências';
+
+  @override
+  String get coachTitle => 'Coach de IA';
+
+  @override
+  String get coachHint => 'Pergunte ao seu coach…';
+
+  @override
+  String get coachSend => 'Enviar';
+
+  @override
+  String get coachStop => 'Parar';
+
+  @override
+  String get coachClear => 'Limpar conversa';
+
+  @override
+  String get coachOpen => 'Abrir';
+
+  @override
+  String get coachNothing =>
+      'Ainda não achei nada sobre isso no app. Tente outras palavras ou pergunte sobre exercício, comida, sono, postura ou estilo.';
+
+  @override
+  String get coachFromLibrary => 'Dos guias do app';
+
+  @override
+  String get coachNote =>
+      'Roda no seu telefone; suas perguntas nunca saem dele. Orientação geral de bem-estar, não conselho médico.';
+
+  @override
+  String get coachSearchMode => 'Modo de busca inteligente';
+
+  @override
+  String get coachSearchModeInfo =>
+      'Este telefone funciona melhor com respostas rápidas dos guias do app, com imagens e links. O modelo de escrita precisa de um telefone com mais memória.';
+
+  @override
+  String get coachReady => 'A IA offline está pronta';
+
+  @override
+  String get coachReadyInfo =>
+      'As respostas são escritas no seu telefone a partir dos guias e dos seus dados.';
+
+  @override
+  String get coachGetModel => 'Adicionar a IA offline (opcional)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'Baixe uma vez um modelo de linguagem pequeno ($size) e seu coach escreverá respostas completas offline. Até lá, ele mostra o mais relevante dos guias.';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'Baixar ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'Remover a IA offline';
+
+  @override
+  String get coachNoSpace => 'Não há espaço livre suficiente no telefone.';
+
+  @override
+  String get coachKindWorkout => 'Treino';
+
+  @override
+  String get coachKindSection => 'No app';
+
+  @override
+  String get coachPromptFocus => 'No que devo trabalhar primeiro?';
+
+  @override
+  String get coachPromptPosture => 'Exercícios para minha postura';
+
+  @override
+  String get coachPromptDinner => 'Um jantar rico em proteína';
+
+  @override
+  String get coachPromptHair => 'Qual corte combina com meu rosto?';
+
+  @override
+  String get coachPromptSleep => 'Como posso dormir melhor?';
+
+  @override
+  String get coachPromptYoga => 'Ioga fácil para costas rígidas';
+
+  @override
+  String get coachHomeCard => 'Pergunte ao seu coach de IA';
+
+  @override
+  String get coachHomeCardInfo =>
+      'Respostas sobre exercício, comida, postura e estilo, com imagens, no seu telefone.';
 }

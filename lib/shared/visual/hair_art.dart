@@ -358,7 +358,8 @@ class HairArt extends StatelessWidget {
       shape,
       faceShape,
       colour,
-      Theme.of(context).colorScheme.surface,
+      // A neutral skin tone that reads on light and dark backgrounds.
+      const Color(0xFFD8B39A),
     ),
     child: const SizedBox.expand(),
   );

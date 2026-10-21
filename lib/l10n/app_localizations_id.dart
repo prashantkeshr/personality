@@ -50,7 +50,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get coachIntro =>
-      'Rekomendasi berasal dari aturan yang transparan. Pelatih AI opsional dapat menjelaskannya.';
+      'Tanya soal kebugaran, makanan, tidur, postur, kulit, rambut, atau gaya. Jawaban berasal dari panduan aplikasi dan datamu, dengan gambar dan tautan.';
 
   @override
   String get styleIntro =>
@@ -6505,4 +6505,97 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get featureTrends => 'Tren gaya';
+
+  @override
+  String get coachTitle => 'Pelatih AI';
+
+  @override
+  String get coachHint => 'Tanya pelatihmu…';
+
+  @override
+  String get coachSend => 'Kirim';
+
+  @override
+  String get coachStop => 'Berhenti';
+
+  @override
+  String get coachClear => 'Hapus obrolan';
+
+  @override
+  String get coachOpen => 'Buka';
+
+  @override
+  String get coachNothing =>
+      'Belum ada info soal itu di aplikasi. Coba kata lain, atau tanya soal kebugaran, makanan, tidur, postur, atau gaya.';
+
+  @override
+  String get coachFromLibrary => 'Dari panduan aplikasi';
+
+  @override
+  String get coachNote =>
+      'Berjalan di ponselmu; pertanyaanmu tidak pernah keluar. Panduan kebugaran umum, bukan saran medis.';
+
+  @override
+  String get coachSearchMode => 'Mode pencarian pintar';
+
+  @override
+  String get coachSearchModeInfo =>
+      'Ponsel ini paling cocok untuk jawaban cepat dari panduan aplikasi, dengan gambar dan tautan. Model penulis butuh ponsel dengan memori lebih besar.';
+
+  @override
+  String get coachReady => 'AI offline siap';
+
+  @override
+  String get coachReadyInfo =>
+      'Jawaban ditulis di ponselmu dari panduan aplikasi dan datamu.';
+
+  @override
+  String get coachGetModel => 'Tambahkan AI offline (opsional)';
+
+  @override
+  String coachGetModelInfo(String size) {
+    return 'Unduh sekali model bahasa kecil ($size) dan pelatihmu menulis jawaban lengkap secara offline. Sampai saat itu ia menampilkan yang paling cocok dari panduan.';
+  }
+
+  @override
+  String coachDownload(String size) {
+    return 'Unduh ($size)';
+  }
+
+  @override
+  String get coachRemoveModel => 'Hapus AI offline';
+
+  @override
+  String get coachNoSpace => 'Ruang kosong di ponsel ini tidak cukup.';
+
+  @override
+  String get coachKindWorkout => 'Latihan';
+
+  @override
+  String get coachKindSection => 'Di aplikasi';
+
+  @override
+  String get coachPromptFocus => 'Apa yang harus kulatih dulu?';
+
+  @override
+  String get coachPromptPosture => 'Latihan untuk posturku';
+
+  @override
+  String get coachPromptDinner => 'Ide makan malam tinggi protein';
+
+  @override
+  String get coachPromptHair => 'Gaya rambut apa yang cocok untuk wajahku?';
+
+  @override
+  String get coachPromptSleep => 'Bagaimana agar tidur lebih nyenyak?';
+
+  @override
+  String get coachPromptYoga => 'Yoga mudah untuk punggung kaku';
+
+  @override
+  String get coachHomeCard => 'Tanya pelatih AI-mu';
+
+  @override
+  String get coachHomeCardInfo =>
+      'Jawaban kebugaran, makanan, postur, dan gaya, dengan gambar — di ponselmu.';
 }

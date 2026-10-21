@@ -181,7 +181,7 @@ abstract class AppLocalizations {
   /// No description provided for @coachIntro.
   ///
   /// In en, this message translates to:
-  /// **'Recommendations come from transparent rules. The optional AI Coach can explain them.'**
+  /// **'Ask about fitness, food, sleep, posture, skin, hair or style. Answers come from the app\'s own guides and your data, with pictures and links.'**
   String get coachIntro;
 
   /// No description provided for @styleIntro.
@@ -11295,6 +11295,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Style trends'**
   String get featureTrends;
+
+  /// No description provided for @coachTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI coach'**
+  String get coachTitle;
+
+  /// No description provided for @coachHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask your coach…'**
+  String get coachHint;
+
+  /// No description provided for @coachSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get coachSend;
+
+  /// No description provided for @coachStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get coachStop;
+
+  /// No description provided for @coachClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear chat'**
+  String get coachClear;
+
+  /// No description provided for @coachOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get coachOpen;
+
+  /// No description provided for @coachNothing.
+  ///
+  /// In en, this message translates to:
+  /// **'I couldn\'t find anything on that in the app yet. Try other words, or ask about fitness, food, sleep, posture or style.'**
+  String get coachNothing;
+
+  /// No description provided for @coachFromLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'From the app\'s guides'**
+  String get coachFromLibrary;
+
+  /// No description provided for @coachNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Runs on your phone; your questions never leave it. General wellness guidance, not medical advice.'**
+  String get coachNote;
+
+  /// No description provided for @coachSearchMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart search mode'**
+  String get coachSearchMode;
+
+  /// No description provided for @coachSearchModeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone is best suited to quick answers from the app\'s guides, shown with pictures and links. The writing model needs a phone with more memory.'**
+  String get coachSearchModeInfo;
+
+  /// No description provided for @coachReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline AI is ready'**
+  String get coachReady;
+
+  /// No description provided for @coachReadyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers are written on your phone from the app\'s guides and your data.'**
+  String get coachReadyInfo;
+
+  /// No description provided for @coachGetModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the offline AI (optional)'**
+  String get coachGetModel;
+
+  /// No description provided for @coachGetModelInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Download a small language model once ({size}) and your coach writes full answers, offline. Until then it shows the best matches from the app\'s guides.'**
+  String coachGetModelInfo(String size);
+
+  /// No description provided for @coachDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download ({size})'**
+  String coachDownload(String size);
+
+  /// No description provided for @coachRemoveModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove offline AI'**
+  String get coachRemoveModel;
+
+  /// No description provided for @coachNoSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough free space on this phone.'**
+  String get coachNoSpace;
+
+  /// No description provided for @coachKindWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout'**
+  String get coachKindWorkout;
+
+  /// No description provided for @coachKindSection.
+  ///
+  /// In en, this message translates to:
+  /// **'In the app'**
+  String get coachKindSection;
+
+  /// No description provided for @coachPromptFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'What should I work on first?'**
+  String get coachPromptFocus;
+
+  /// No description provided for @coachPromptPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises for my posture'**
+  String get coachPromptPosture;
+
+  /// No description provided for @coachPromptDinner.
+  ///
+  /// In en, this message translates to:
+  /// **'A high-protein dinner idea'**
+  String get coachPromptDinner;
+
+  /// No description provided for @coachPromptHair.
+  ///
+  /// In en, this message translates to:
+  /// **'Which hairstyle suits my face?'**
+  String get coachPromptHair;
+
+  /// No description provided for @coachPromptSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'How can I sleep better?'**
+  String get coachPromptSleep;
+
+  /// No description provided for @coachPromptYoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy yoga for back stiffness'**
+  String get coachPromptYoga;
+
+  /// No description provided for @coachHomeCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask your AI coach'**
+  String get coachHomeCard;
+
+  /// No description provided for @coachHomeCardInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness, food, posture and style answers, with pictures — on your phone.'**
+  String get coachHomeCardInfo;
 }
 
 class _AppLocalizationsDelegate

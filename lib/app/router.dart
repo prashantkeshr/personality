@@ -24,6 +24,7 @@ import '../features/exercise/exercise_library_screen.dart';
 import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
+import '../features/coach/coach_screen.dart';
 import '../features/face/makeup_screen.dart';
 import '../features/style/style_extras.dart';
 import '../features/face/try_on_screen.dart';
@@ -72,6 +73,7 @@ abstract final class AppRoutes {
   static const growth = '/growth';
   static const search = '/growth/search';
   static const skills = '/growth/skills';
+  static const coach = '/growth/coach';
   static const style = '/style';
   static const settings = '/settings';
   static const profile = '/health/profile';
@@ -389,6 +391,7 @@ final routerProvider = Provider<GoRouter>((ref) {
               builder: (_, _) => const GrowthScreen(),
               routes: [
                 GoRoute(path: 'search', builder: (_, state) => SearchScreen(initial: state.uri.queryParameters['q'] ?? '')),
+                GoRoute(path: 'coach', builder: (_, state) => CoachScreen(initial: state.uri.queryParameters['q'])),
                 GoRoute(
                   path: 'skills',
                   builder: (_, _) => const SkillsScreen(),

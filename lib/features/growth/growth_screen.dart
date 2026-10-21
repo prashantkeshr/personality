@@ -40,6 +40,19 @@ class GrowthScreen extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, 112),
         children: [
           const GrowthSearchBar(),
+          const SizedBox(height: AppSpacing.md),
+          Card(
+            margin: EdgeInsets.zero,
+            color: theme.colorScheme.primaryContainer,
+            child: ListTile(
+              key: const Key('open-coach'),
+              leading: Icon(Icons.auto_awesome, color: theme.colorScheme.onPrimaryContainer),
+              title: Text(l.coachHomeCard),
+              subtitle: Text(l.coachHomeCardInfo),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.coach),
+            ),
+          ),
           const SizedBox(height: AppSpacing.lg),
           const BlueprintSection(),
           const SizedBox(height: AppSpacing.xl),

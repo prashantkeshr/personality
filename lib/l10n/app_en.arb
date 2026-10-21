@@ -12,7 +12,7 @@
   "sectionFeatures": "Features",
   "healthIntro": "Track your body, nutrition, sleep and daily activity.",
   "analyzeIntro": "On-device camera analysis. Frames are processed on your phone and discarded.",
-  "coachIntro": "Recommendations come from transparent rules. The optional AI Coach can explain them.",
+  "coachIntro": "Ask about fitness, food, sleep, posture, skin, hair or style. Answers come from the app's own guides and your data, with pictures and links.",
   "styleIntro": "Clothing, color and outfits based on your measurements and preferences.",
   "featureStateAvailable": "Available",
   "featureStateBeta": "Beta",
@@ -3373,5 +3373,47 @@
   "featureLookbook": "My lookbook",
   "featureMakeup": "Makeup guide",
   "featureStyleQa": "Ask about style",
-  "featureTrends": "Style trends"
+  "featureTrends": "Style trends",
+  "coachTitle": "AI coach",
+  "coachHint": "Ask your coach…",
+  "coachSend": "Send",
+  "coachStop": "Stop",
+  "coachClear": "Clear chat",
+  "coachOpen": "Open",
+  "coachNothing": "I couldn't find anything on that in the app yet. Try other words, or ask about fitness, food, sleep, posture or style.",
+  "coachFromLibrary": "From the app's guides",
+  "coachNote": "Runs on your phone; your questions never leave it. General wellness guidance, not medical advice.",
+  "coachSearchMode": "Smart search mode",
+  "coachSearchModeInfo": "This phone is best suited to quick answers from the app's guides, shown with pictures and links. The writing model needs a phone with more memory.",
+  "coachReady": "Offline AI is ready",
+  "coachReadyInfo": "Answers are written on your phone from the app's guides and your data.",
+  "coachGetModel": "Add the offline AI (optional)",
+  "coachGetModelInfo": "Download a small language model once ({size}) and your coach writes full answers, offline. Until then it shows the best matches from the app's guides.",
+  "@coachGetModelInfo": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "coachDownload": "Download ({size})",
+  "@coachDownload": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "coachRemoveModel": "Remove offline AI",
+  "coachNoSpace": "Not enough free space on this phone.",
+  "coachKindWorkout": "Workout",
+  "coachKindSection": "In the app",
+  "coachPromptFocus": "What should I work on first?",
+  "coachPromptPosture": "Exercises for my posture",
+  "coachPromptDinner": "A high-protein dinner idea",
+  "coachPromptHair": "Which hairstyle suits my face?",
+  "coachPromptSleep": "How can I sleep better?",
+  "coachPromptYoga": "Easy yoga for back stiffness",
+  "coachHomeCard": "Ask your AI coach",
+  "coachHomeCardInfo": "Fitness, food, posture and style answers, with pictures — on your phone."
 }
