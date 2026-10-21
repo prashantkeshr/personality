@@ -777,3 +777,16 @@ Verification: `flutter analyze` clean; `flutter test` 438 pass, 2 skipped (new: 
 - All four are cards on the Style tab.
 
 Verification: `flutter analyze` clean; `flutter test` 451 pass, 2 skipped (new: balance engine, hair and makeup content integrity, saved balance and drawn hairstyle cards, Style tab entries, lookbook add/remove, Q&A search and topics, trends, makeup guide). Emulator release build: Style tab cards and the makeup guide checked visually. Live hair/lip/blush try-on still needs checking on a real phone (the emulator camera has no face).
+
+## Phase 34 — Play Store release prep (2026-10-21)
+
+- **Signing:** `android/app/build.gradle.kts` signs release builds with the upload key from `android/key.properties` when it exists, and falls back to the debug key otherwise. `tool/make_upload_key.ps1` creates the key and the properties file; the user types the password, and both files are git-ignored.
+- **Builds:** `flutter build appbundle` → 139 MB AAB (Play serves each phone its own split: ~70 MB on arm64). `--split-per-abi` APKs: arm64 70 MB, armv7 63 MB, x86_64 74 MB. Target SDK 36, min SDK 26.
+- **Store kit** in `docs/store/`:
+  - `privacy-policy.html`, ready to host. Every claim was checked against the code: no data leaves the device, backup is off, the ML Kit uploader is removed, Health Connect is read-only, and pack downloads go to GitHub.
+  - `PLAY_LISTING.md`: name, short and full descriptions, Hindi translation, data safety, content rating, target audience, permission declarations and the Health apps declaration.
+  - `RELEASE_CHECKLIST.md`.
+  - `graphics/icon-512.png` and `feature-graphic-1024x500.png`, made by `tool/store_graphics.py`.
+  - `screenshots/`: 7 phone screenshots (1080×2400) with a demo status bar.
+
+Still needs the user: create the upload key, host the privacy policy at a public URL, create the Play Console app and submit the forms.
