@@ -6565,4 +6565,21 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get coachHomeCardInfo =>
       'Fitness, food, posture and style answers, with pictures — on your phone.';
+
+  @override
+  String letsTry(String name) {
+    return 'Let\'s try $name';
+  }
+
+  @override
+  String get letsTryYourFavourite => 'Your go-to workout';
+
+  @override
+  String get letsTryPopular => 'Most popular';
+
+  @override
+  String get workoutsLog => 'Exercise log';
+
+  @override
+  String get featureExerciseHub => 'Exercise & workouts';
 }

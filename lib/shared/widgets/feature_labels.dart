@@ -14,7 +14,7 @@ extension FeatureLabels on AppLocalizations {
         AppFeature.meals => featureMeals,
         AppFeature.sleep => featureSleep,
         AppFeature.activity => featureActivity,
-        AppFeature.exercise => featureExercise,
+        AppFeature.exercise => featureExerciseHub,
         AppFeature.habits => featureHabits,
         AppFeature.routines => featureRoutines,
         AppFeature.reminders => featureReminders,

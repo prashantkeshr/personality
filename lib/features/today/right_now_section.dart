@@ -213,6 +213,24 @@ class _NowCard extends ConsumerWidget {
     _ => null,
   };
 
+  /// The page a card opens when tapped (its button does the quick action).
+  String? get openRoute => switch (rec.kind) {
+    NowKind.breakfast || NowKind.lunch || NowKind.dinner => AppRoutes.meals,
+    NowKind.water => AppRoutes.water,
+    NowKind.postureCheck => AppRoutes.posture,
+    NowKind.weighIn => AppRoutes.weight,
+    NowKind.wakeStretch => '${AppRoutes.programs}/morning_mobility',
+    NowKind.yoga => '${AppRoutes.skills}/yoga',
+    NowKind.windDown => '${AppRoutes.programs}/wind_down',
+    NowKind.walkAfterMeal => AppRoutes.activity,
+    NowKind.microSet => rec.exercise == null
+        ? AppRoutes.programs
+        : '${AppRoutes.exerciseLibrary}/${Uri.encodeComponent(rec.exercise!.id)}',
+    NowKind.skillPractice => '${AppRoutes.skills}/${rec.skillId}',
+    NowKind.faceSnapshot => AppRoutes.snapshots,
+    NowKind.mealReminders => AppRoutes.goalReminders,
+  };
+
   Future<void> _act(BuildContext context, WidgetRef ref) async {
     final l = AppLocalizations.of(context);
     final actions = ref.read(nowActionsProvider);
@@ -290,7 +308,10 @@ class _NowCard extends ConsumerWidget {
       child: Card(
         key: Key('now-${rec.key}'),
         clipBehavior: Clip.antiAlias,
-        child: Column(
+        child: InkWell(
+          key: Key('now-open-${rec.key}'),
+          onTap: openRoute == null ? null : () => context.push(openRoute!),
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Illustration: the moving figure, or a soft icon panel.
@@ -374,6 +395,7 @@ class _NowCard extends ConsumerWidget {
               ),
             ),
           ],
+        ),
         ),
       ),
     );

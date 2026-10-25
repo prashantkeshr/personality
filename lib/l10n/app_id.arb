@@ -1892,5 +1892,10 @@
   "coachPromptSleep": "Bagaimana agar tidur lebih nyenyak?",
   "coachPromptYoga": "Yoga mudah untuk punggung kaku",
   "coachHomeCard": "Tanya pelatih AI-mu",
-  "coachHomeCardInfo": "Jawaban kebugaran, makanan, postur, dan gaya, dengan gambar — di ponselmu."
+  "coachHomeCardInfo": "Jawaban kebugaran, makanan, postur, dan gaya, dengan gambar — di ponselmu.",
+  "letsTry": "Ayo coba {name}",
+  "letsTryYourFavourite": "Latihan andalanmu",
+  "letsTryPopular": "Paling populer",
+  "workoutsLog": "Catatan olahraga",
+  "featureExerciseHub": "Olahraga & latihan"
 }

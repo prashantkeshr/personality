@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../about/about_personality_screen.dart';
+import '../exercise/home_workouts.dart';
 import '../permissions/permission_widgets.dart';
 import '../today/right_now_section.dart';
 import '../../app/router.dart';
@@ -93,6 +94,8 @@ class HomeScreen extends ConsumerWidget {
             SizedBox(height: AppSpacing.lg),
           ]),
           const AgendaTimeline(),
+          const SizedBox(height: AppSpacing.md),
+          const HomeWorkouts(),
           const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.xl),
           const JourneyCard(),

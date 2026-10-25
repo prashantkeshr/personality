@@ -77,10 +77,10 @@ void main() {
     final (app, _, _) = await start(tester);
     await tester.tap(find.text('Health'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Exercise').hitTestable(), 100,
+    await tester.scrollUntilVisible(find.text('Exercise & workouts').hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
-    await app.tapAndSettle(find.text('Exercise'));
-    await app.tapAndSettle(find.text('Exercise library'));
+    await app.tapAndSettle(find.text('Exercise & workouts'));
+    await app.tapAndSettle(find.byTooltip('Exercise library'));
     expect(find.text('Bodyweight squat'), findsOneWidget);
 
     await app.tapAndSettle(find.text('Camera-tracked').first);

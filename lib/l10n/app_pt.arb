@@ -1892,5 +1892,10 @@
   "coachPromptSleep": "Como posso dormir melhor?",
   "coachPromptYoga": "Ioga fácil para costas rígidas",
   "coachHomeCard": "Pergunte ao seu coach de IA",
-  "coachHomeCardInfo": "Respostas sobre exercício, comida, postura e estilo, com imagens, no seu telefone."
+  "coachHomeCardInfo": "Respostas sobre exercício, comida, postura e estilo, com imagens, no seu telefone.",
+  "letsTry": "Vamos fazer {name}",
+  "letsTryYourFavourite": "Seu treino favorito",
+  "letsTryPopular": "O mais popular",
+  "workoutsLog": "Registro de exercícios",
+  "featureExerciseHub": "Exercícios e treinos"
 }

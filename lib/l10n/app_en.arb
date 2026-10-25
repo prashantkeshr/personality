@@ -3415,5 +3415,17 @@
   "coachPromptSleep": "How can I sleep better?",
   "coachPromptYoga": "Easy yoga for back stiffness",
   "coachHomeCard": "Ask your AI coach",
-  "coachHomeCardInfo": "Fitness, food, posture and style answers, with pictures — on your phone."
+  "coachHomeCardInfo": "Fitness, food, posture and style answers, with pictures — on your phone.",
+  "letsTry": "Let's try {name}",
+  "@letsTry": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "letsTryYourFavourite": "Your go-to workout",
+  "letsTryPopular": "Most popular",
+  "workoutsLog": "Exercise log",
+  "featureExerciseHub": "Exercise & workouts"
 }

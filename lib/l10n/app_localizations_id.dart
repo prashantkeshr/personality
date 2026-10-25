@@ -6598,4 +6598,21 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get coachHomeCardInfo =>
       'Jawaban kebugaran, makanan, postur, dan gaya, dengan gambar — di ponselmu.';
+
+  @override
+  String letsTry(String name) {
+    return 'Ayo coba $name';
+  }
+
+  @override
+  String get letsTryYourFavourite => 'Latihan andalanmu';
+
+  @override
+  String get letsTryPopular => 'Paling populer';
+
+  @override
+  String get workoutsLog => 'Catatan olahraga';
+
+  @override
+  String get featureExerciseHub => 'Olahraga & latihan';
 }

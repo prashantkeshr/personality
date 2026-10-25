@@ -6627,4 +6627,21 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get coachHomeCardInfo =>
       'Respuestas de ejercicio, comida, postura y estilo, con imágenes, en tu teléfono.';
+
+  @override
+  String letsTry(String name) {
+    return 'Probemos $name';
+  }
+
+  @override
+  String get letsTryYourFavourite => 'Tu entrenamiento habitual';
+
+  @override
+  String get letsTryPopular => 'El más popular';
+
+  @override
+  String get workoutsLog => 'Registro de ejercicio';
+
+  @override
+  String get featureExerciseHub => 'Ejercicio y entrenamientos';
 }

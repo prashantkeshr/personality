@@ -813,3 +813,19 @@ Verification: `flutter analyze` clean; `flutter test` 456 pass, 2 skipped. New t
 On the emulator (x86_64, 4 GB, 6 cores) with the real model:
 - The in-app download, including the Hugging Face → CDN redirect and checksum, finished in 210 s.
 - Answers took 5–12 s (posture → chin tucks / gentle mobility / desk reset programs; round face → ponytail / afro / top bun drawings; high-protein dinner → meal photos).
+
+## Phase 36 — Guided workouts on Home, tappable cards, "Let's try" (2026-10-25)
+
+- **Workout ranking** (`features/exercise/workout_ranking.dart`):
+  - Starts from a popularity order: Beginner full body, Morning sun flow, Quick energy boost, Desk reset, Morning mobility, Home strength, Wind down, Balance, Evening calm; pack workouts come after.
+  - Usage then moves workouts up, scoring 3 per finished session and 1 per open. Counts are kept on the phone in app_settings (`workout.opened.<id>`, `workout.done.<id>`).
+  - The guided workouts list uses the same order.
+- **Home:**
+  - A **"Let's try …"** card for the top-ranked workout, labelled "Your go-to workout" or "Most popular", with a play button.
+  - A **Guided workouts** row in ranked order, with figures and minutes, plus "See all".
+- **Tappable cards:**
+  - Every timeline card opens its page (`agendaRoute`): water, meals, habits, posture check, sleep, and guided workouts for body-plan sessions. Plan items are matched by name to a skill (e.g. "Practise Self-defence") or an exercise ("8 reverse lunges each side"), with the longest name winning.
+  - Right-now cards open their page from anywhere on the card, while "Do it" keeps its quick action.
+- **Exercise card** on the Health tab is now **Exercise & workouts** and opens guided workouts. The workouts screen links to the exercise library and the exercise log.
+
+Verification: `flutter analyze` clean; `flutter test` 459 pass, 2 skipped. New tests cover the ranking, timeline routes, and the "Let's try" card rising with use and counting opens. The exercise and content flow tests were updated for the new entry point.

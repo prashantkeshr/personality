@@ -44,7 +44,7 @@ class HealthTab extends StatelessWidget {
         AppFeature.meals: AppRoutes.meals,
         AppFeature.sleep: AppRoutes.sleep,
         AppFeature.activity: AppRoutes.activity,
-        AppFeature.exercise: AppRoutes.exercise,
+        AppFeature.exercise: AppRoutes.programs,
         AppFeature.habits: AppRoutes.habits,
         AppFeature.routines: AppRoutes.routines,
         AppFeature.reminders: AppRoutes.reminders,

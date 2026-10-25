@@ -1892,5 +1892,10 @@
   "coachPromptSleep": "كيف أنام بشكل أفضل؟",
   "coachPromptYoga": "يوغا سهلة لتيبّس الظهر",
   "coachHomeCard": "اسأل مدربك الذكي",
-  "coachHomeCardInfo": "إجابات عن اللياقة والطعام ووضعية الجسم والأناقة مع صور، على هاتفك."
+  "coachHomeCardInfo": "إجابات عن اللياقة والطعام ووضعية الجسم والأناقة مع صور، على هاتفك.",
+  "letsTry": "لنجرّب {name}",
+  "letsTryYourFavourite": "تمرينك المفضل",
+  "letsTryPopular": "الأكثر شعبية",
+  "workoutsLog": "سجل التمارين",
+  "featureExerciseHub": "التمارين والتدريبات"
 }

@@ -16,6 +16,7 @@ import '../content/content_providers.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import 'figure/exercise_visual.dart';
+import 'workout_ranking.dart';
 
 String _levelLabel(AppLocalizations l10n, String level) => switch (level) {
       'intermediate' => l10n.levelIntermediate,
@@ -33,15 +34,33 @@ class WorkoutsScreen extends ConsumerWidget {
     final lang = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
     final packs = ref.watch(installedPacksProvider).value ?? const [];
+    final usage = ref.watch(workoutUsageProvider).value ?? const WorkoutUsage();
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.workoutsTitle)),
+      appBar: AppBar(
+        title: Text(l10n.workoutsTitle),
+        actions: [
+          IconButton(
+            key: const Key('workouts-library'),
+            tooltip: l10n.exerciseLibrary,
+            onPressed: () => context.push(AppRoutes.exerciseLibrary),
+            icon: const Icon(Icons.menu_book_outlined),
+          ),
+          IconButton(
+            key: const Key('workouts-log'),
+            tooltip: l10n.workoutsLog,
+            onPressed: () => context.push(AppRoutes.exercise),
+            icon: const Icon(Icons.history),
+          ),
+        ],
+      ),
       body: AsyncView(
         value: ref.watch(programCatalogProvider),
-        data: (programs) => ListView(
+        data: (all) => ListView(
           padding: const EdgeInsets.all(AppSpacing.lg),
           children: [
-            for (final p in programs)
+            for (final p in rankWorkouts(all, usage))
               Card(
+                key: Key('workout-${p.id}'),
                 margin: const EdgeInsets.only(bottom: AppSpacing.sm),
                 child: ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.xs),
@@ -74,12 +93,26 @@ class WorkoutsScreen extends ConsumerWidget {
   }
 }
 
-class ProgramDetailScreen extends ConsumerWidget {
+class ProgramDetailScreen extends ConsumerStatefulWidget {
   const ProgramDetailScreen({super.key, required this.id});
   final String id;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ProgramDetailScreen> createState() => _ProgramDetailScreenState();
+}
+
+class _ProgramDetailScreenState extends ConsumerState<ProgramDetailScreen> {
+  String get id => widget.id;
+
+  @override
+  void initState() {
+    super.initState();
+    // Opening a workout counts toward its place in the lists.
+    ref.read(workoutUsageRecorderProvider).opened(widget.id);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
@@ -229,6 +262,7 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
             durationMinutes: (_elapsed / 60).ceil().clamp(1, 600),
             performedAt: ref.read(clockProvider)(),
           );
+      await ref.read(workoutUsageRecorderProvider).finished(p.id);
       if (mounted) setState(() => _saved = true);
     } catch (e, st) {
       AppLogger.error('workout.save', e, st);

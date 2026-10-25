@@ -20,16 +20,16 @@ void main() {
 
   Future<void> openExercise(AppHarness app, WidgetTester tester) async {
     await app.tapAndSettle(find.text('Health'));
-    await tester.scrollUntilVisible(find.text('Exercise').hitTestable(), 100,
+    await tester.scrollUntilVisible(find.text('Exercise & workouts').hitTestable(), 100,
         scrollable: find.byType(Scrollable).last);
-    await app.tapAndSettle(find.text('Exercise'));
+    // The Exercise card opens guided workouts.
+    await app.tapAndSettle(find.text('Exercise & workouts'));
   }
 
   testWidgets('play a guided workout to the end and it is logged', (tester) async {
     final app = AppHarness(tester);
     await app.start(onboarded);
     await openExercise(app, tester);
-    await app.tapAndSettle(find.byTooltip('Guided workouts'));
     await app.tapAndSettle(find.text('Quick energy boost'));
     expect(find.text('Standing knee raises'), findsWidgets); // step list (first and last)
     // The player ticks every second, so it never settles: pump instead.
@@ -138,7 +138,7 @@ void main() {
     }
 
     await openExercise(app, tester);
-    await app.tapAndSettle(find.text('Exercise library'));
+    await app.tapAndSettle(find.byTooltip('Exercise library'));
     await app.tapAndSettle(find.text('Get more exercises'));
     await settleIo();
     expect(find.text('Martial arts drills'), findsOneWidget);
@@ -172,9 +172,11 @@ void main() {
     expect(find.text('Horse stance'), findsOneWidget);
     await app.tapAndSettle(find.text('Horse stance'));
     expect(find.text('1. Sink down.'), findsOneWidget);
-    await tester.pageBack();
+    await tester.pageBack(); // the library
     await tester.pumpAndSettle();
-    await app.tapAndSettle(find.byKey(const Key('open-workouts')));
+    await tester.pageBack(); // the workouts list
+    await settleIo();
+    // Back on the workouts list, which now includes the pack's workout.
     expect(find.text('Kung fu stances'), findsOneWidget);
     await app.dispose();
   });

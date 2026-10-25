@@ -10,6 +10,8 @@ import '../../app/router.dart';
 import '../../core/logging/app_logger.dart';
 import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
+import '../../domain/entities/discipline.dart';
+import '../../domain/entities/exercise_library.dart';
 import '../../domain/entities/health.dart';
 import '../../domain/entities/provenance.dart';
 import '../../domain/entities/routine.dart';
@@ -17,6 +19,8 @@ import '../../domain/services/day_agenda.dart';
 import '../../domain/services/health_stats.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/visual/reveal.dart';
+import '../content/content_providers.dart';
+import '../growth/growth_providers.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart' show HealthFormat;
 import '../plans/plan_labels.dart';
@@ -529,6 +533,58 @@ class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
   }
 }
 
+/// Where a timeline card leads: its own screen, or for a practice or
+/// exercise item the matching exercise, skill or guided workout.
+String? agendaRoute(
+  AgendaTask task, {
+  List<LibraryExercise> exercises = const [],
+  List<Discipline> skills = const [],
+}) {
+  String? byName() {
+    final t = (task.title ?? '').toLowerCase();
+    if (t.isEmpty) return null;
+    for (final d in skills) {
+      for (final n in d.name.values) {
+        if (n.length > 3 && t.contains(n.toLowerCase())) {
+          return '${AppRoutes.skills}/${d.id}';
+        }
+      }
+    }
+    // The longest matching exercise name wins ("reverse lunge" over "lunge").
+    LibraryExercise? best;
+    var bestLen = 0;
+    for (final e in exercises) {
+      for (final n in e.name.values) {
+        final key = n.toLowerCase();
+        final stem = key.endsWith('s') ? key.substring(0, key.length - 1) : key;
+        if (stem.length > 3 && stem.length > bestLen && t.contains(stem)) {
+          best = e;
+          bestLen = stem.length;
+        }
+      }
+    }
+    return best == null ? null : '${AppRoutes.exerciseLibrary}/${Uri.encodeComponent(best.id)}';
+  }
+
+  return switch (task.kind) {
+    AgendaKind.water => AppRoutes.water,
+    AgendaKind.meal => AppRoutes.meals,
+    AgendaKind.workout => AppRoutes.programs,
+    AgendaKind.habit => AppRoutes.habits,
+    AgendaKind.plan => switch (task.plan!.item.kind) {
+      RoutineItemKind.water => AppRoutes.water,
+      RoutineItemKind.meal => AppRoutes.meals,
+      RoutineItemKind.posture => byName() ?? AppRoutes.posture,
+      RoutineItemKind.exercise || RoutineItemKind.mobility =>
+        byName() ?? AppRoutes.programs,
+      RoutineItemKind.habit => AppRoutes.habits,
+      RoutineItemKind.grooming => AppRoutes.face,
+      RoutineItemKind.windDown || RoutineItemKind.sleep => AppRoutes.sleep,
+      RoutineItemKind.wake || RoutineItemKind.custom => byName() ?? AppRoutes.plan,
+    },
+  };
+}
+
 class _TaskRow extends ConsumerWidget {
   const _TaskRow({
     required this.task,
@@ -674,6 +730,11 @@ class _TaskRow extends ConsumerWidget {
         : isNext
         ? scheme.tertiary
         : scheme.outlineVariant;
+    final route = agendaRoute(
+      task,
+      exercises: ref.watch(exerciseCatalogProvider).value ?? const [],
+      skills: ref.watch(disciplinesProvider).value ?? const [],
+    );
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -705,8 +766,12 @@ class _TaskRow extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: AppSpacing.sm),
               child: Card(
+                key: Key('agenda-card-${task.id}'),
                 color: isNext ? scheme.primaryContainer : null,
-                child: Padding(
+                clipBehavior: Clip.antiAlias,
+                child: InkWell(
+                  onTap: route == null ? null : () => context.push(route),
+                  child: Padding(
                   padding: const EdgeInsets.fromLTRB(
                     AppSpacing.md,
                     AppSpacing.xs,
@@ -809,6 +874,7 @@ class _TaskRow extends ConsumerWidget {
                         ),
                     ],
                   ),
+                ),
                 ),
               ),
             ),

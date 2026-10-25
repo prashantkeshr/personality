@@ -11463,6 +11463,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fitness, food, posture and style answers, with pictures — on your phone.'**
   String get coachHomeCardInfo;
+
+  /// No description provided for @letsTry.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s try {name}'**
+  String letsTry(String name);
+
+  /// No description provided for @letsTryYourFavourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Your go-to workout'**
+  String get letsTryYourFavourite;
+
+  /// No description provided for @letsTryPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Most popular'**
+  String get letsTryPopular;
+
+  /// No description provided for @workoutsLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise log'**
+  String get workoutsLog;
+
+  /// No description provided for @featureExerciseHub.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise & workouts'**
+  String get featureExerciseHub;
 }
 
 class _AppLocalizationsDelegate

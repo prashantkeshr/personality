@@ -6484,4 +6484,21 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get coachHomeCardInfo =>
       'إجابات عن اللياقة والطعام ووضعية الجسم والأناقة مع صور، على هاتفك.';
+
+  @override
+  String letsTry(String name) {
+    return 'لنجرّب $name';
+  }
+
+  @override
+  String get letsTryYourFavourite => 'تمرينك المفضل';
+
+  @override
+  String get letsTryPopular => 'الأكثر شعبية';
+
+  @override
+  String get workoutsLog => 'سجل التمارين';
+
+  @override
+  String get featureExerciseHub => 'التمارين والتدريبات';
 }

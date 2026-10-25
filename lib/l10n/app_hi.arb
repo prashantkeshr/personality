@@ -1892,5 +1892,10 @@
   "coachPromptSleep": "बेहतर नींद कैसे लूँ?",
   "coachPromptYoga": "कमर की जकड़न के लिए आसान योग",
   "coachHomeCard": "अपने AI कोच से पूछें",
-  "coachHomeCardInfo": "फ़िटनेस, खाना, पोस्चर और स्टाइल के उत्तर, तस्वीरों के साथ — आपके फ़ोन पर।"
+  "coachHomeCardInfo": "फ़िटनेस, खाना, पोस्चर और स्टाइल के उत्तर, तस्वीरों के साथ — आपके फ़ोन पर।",
+  "letsTry": "चलिए {name} करें",
+  "letsTryYourFavourite": "आपका पसंदीदा वर्कआउट",
+  "letsTryPopular": "सबसे लोकप्रिय",
+  "workoutsLog": "व्यायाम रिकॉर्ड",
+  "featureExerciseHub": "व्यायाम और वर्कआउट"
 }
