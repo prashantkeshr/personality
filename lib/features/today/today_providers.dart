@@ -12,6 +12,10 @@ import '../health/health_providers.dart';
 import '../plans/plan_providers.dart';
 import '../routines/routine_providers.dart';
 
+/// Today's timeline starts with the next three tasks ("Show full day" opens
+/// the rest). Tests that check the whole day turn it off.
+final agendaTrimProvider = Provider<bool>((ref) => true);
+
 final wellbeingRepositoryProvider = Provider((ref) => WellbeingRepository(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider)));

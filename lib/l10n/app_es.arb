@@ -2006,5 +2006,10 @@
   "newSwipeTitle": "Un Inicio más corto, con gestos",
   "newSwipeBody": "Inicio muestra primero lo siguiente. Desliza una tarea a la derecha para hecho y a la izquierda para saltar.",
   "newBackupTitle": "Recordatorio semanal de copia",
-  "newBackupBody": "Un aviso en Inicio cuando pasa una semana desde tu última copia cifrada."
+  "newBackupBody": "Un aviso en Inicio cuando pasa una semana desde tu última copia cifrada.",
+  "agendaUpNext": "A continuación",
+  "agendaShowLess": "Mostrar menos",
+  "dayCompleteTitle": "¡Día completado!",
+  "dayCompleteBody": "Todo el plan de hoy está hecho. ¡Bien hecho!",
+  "greetingNight": "Buenas noches"
 }

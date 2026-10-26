@@ -6878,4 +6878,19 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get newBackupBody =>
       'تذكير لطيف في الرئيسية عند مرور أسبوع على آخر نسخة مشفّرة.';
+
+  @override
+  String get agendaUpNext => 'التالي';
+
+  @override
+  String get agendaShowLess => 'عرض أقل';
+
+  @override
+  String get dayCompleteTitle => 'اكتمل اليوم!';
+
+  @override
+  String get dayCompleteBody => 'أنجزت كل ما في خطة اليوم. أحسنت.';
+
+  @override
+  String get greetingNight => 'تصبح على خير';
 }

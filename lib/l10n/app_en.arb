@@ -3673,5 +3673,10 @@
   "newSwipeTitle": "A shorter Home, with swipes",
   "newSwipeBody": "Home shows what's next first. Swipe a timeline item right for done, left to skip.",
   "newBackupTitle": "Weekly backup reminder",
-  "newBackupBody": "A gentle nudge on Home when it's been a week since your last encrypted backup."
+  "newBackupBody": "A gentle nudge on Home when it's been a week since your last encrypted backup.",
+  "agendaUpNext": "Up next",
+  "agendaShowLess": "Show less",
+  "dayCompleteTitle": "Day complete!",
+  "dayCompleteBody": "Everything on today's plan is done. Well done.",
+  "greetingNight": "Good night"
 }

@@ -2006,5 +2006,10 @@
   "newSwipeTitle": "Beranda lebih ringkas, dengan geser",
   "newSwipeBody": "Beranda menampilkan yang berikutnya dulu. Geser item ke kanan untuk selesai, ke kiri untuk lewati.",
   "newBackupTitle": "Pengingat cadangan mingguan",
-  "newBackupBody": "Pengingat ringan di Beranda saat sudah seminggu sejak cadangan terenkripsi terakhir."
+  "newBackupBody": "Pengingat ringan di Beranda saat sudah seminggu sejak cadangan terenkripsi terakhir.",
+  "agendaUpNext": "Berikutnya",
+  "agendaShowLess": "Tampilkan lebih sedikit",
+  "dayCompleteTitle": "Hari selesai!",
+  "dayCompleteBody": "Semua rencana hari ini selesai. Kerja bagus!",
+  "greetingNight": "Selamat malam"
 }

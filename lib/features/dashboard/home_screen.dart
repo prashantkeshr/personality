@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 import '../about/about_personality_screen.dart';
 import '../exercise/home_workouts.dart';
+import 'home_hero.dart';
 import 'home_search.dart';
+import '../../shared/visual/reveal.dart';
 import '../backup/backup_nudge.dart';
 import '../whats_new/whats_new.dart';
 import '../training/training_screen.dart' show TodayWorkoutCard;
@@ -37,9 +38,6 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final locale = Localizations.localeOf(context).toLanguageTag();
-    final date =
-        DateFormat.yMMMMEEEEd(locale).format(ref.watch(clockProvider)());
 
     return Scaffold(
       appBar: AppBar(
@@ -62,26 +60,7 @@ class HomeScreen extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(
             AppSpacing.lg, AppSpacing.lg, AppSpacing.lg, 96),
         children: [
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const _Greeting(),
-                  Semantics(
-                    header: true,
-                    child: Text(l10n.todayTitle,
-                        style: theme.textTheme.headlineSmall),
-                  ),
-                  const SizedBox(height: AppSpacing.xs),
-                  Text(date,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant)),
-                ],
-              ),
-            ),
-            const DailyPlanRing(),
-          ]),
+          const Reveal(child: HomeHero()),
           const SizedBox(height: AppSpacing.md),
           const DayStrip(),
           const SizedBox(height: AppSpacing.md),
@@ -92,21 +71,21 @@ class HomeScreen extends ConsumerWidget {
           const BackupNudgeCard(),
           const PermissionNudgeCard(),
           const _CompleteProfileCard(),
-          const WeeklyReviewCard(),
+          const Reveal(index: 1, child: WeeklyReviewCard()),
           const _TodayOnly(children: [
             MoodCheckInCard(),
             SizedBox(height: AppSpacing.md),
             DayModeSelector(),
             SizedBox(height: AppSpacing.md),
-            RightNowSection(),
+            Reveal(index: 2, child: RightNowSection()),
             SizedBox(height: AppSpacing.lg),
           ]),
-          const AgendaTimeline(),
+          const Reveal(index: 3, child: AgendaTimeline()),
           const SizedBox(height: AppSpacing.md),
-          const TodayWorkoutCard(),
+          const Reveal(index: 4, child: TodayWorkoutCard()),
           const SizedBox(height: AppSpacing.sm),
-          const HomeWorkouts(),
-          const _HomeSuggestions(),
+          const Reveal(index: 5, child: HomeWorkouts()),
+          const Reveal(index: 6, child: _HomeSuggestions()),
           const SizedBox(height: AppSpacing.xl),
           const JourneyCard(),
           const SizedBox(height: AppSpacing.md),
@@ -337,32 +316,6 @@ class _HomeSuggestions extends ConsumerWidget {
           SuggestionCard(suggestion: s),
         ],
       ],
-    );
-  }
-}
-
-/// "Good morning, Name" by local time.
-class _Greeting extends ConsumerWidget {
-  const _Greeting();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-    final hour = ref.watch(clockProvider)().hour;
-    final greeting = hour < 12
-        ? l10n.greetingMorning
-        : hour < 17
-            ? l10n.greetingAfternoon
-            : l10n.greetingEvening;
-    final name = ref.watch(profileProvider).value?.displayName?.split(' ').first;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: AppSpacing.xs),
-      child: Text(
-        name == null || name.isEmpty ? greeting : l10n.greetingNamed(greeting, name),
-        style: theme.textTheme.titleMedium
-            ?.copyWith(color: theme.colorScheme.primary),
-      ),
     );
   }
 }

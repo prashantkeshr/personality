@@ -6962,4 +6962,20 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get newBackupBody =>
       'A gentle nudge on Home when it\'s been a week since your last encrypted backup.';
+
+  @override
+  String get agendaUpNext => 'Up next';
+
+  @override
+  String get agendaShowLess => 'Show less';
+
+  @override
+  String get dayCompleteTitle => 'Day complete!';
+
+  @override
+  String get dayCompleteBody =>
+      'Everything on today\'s plan is done. Well done.';
+
+  @override
+  String get greetingNight => 'Good night';
 }

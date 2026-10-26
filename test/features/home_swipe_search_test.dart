@@ -21,7 +21,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  Future<AppHarness> start(WidgetTester tester) async {
+  Future<AppHarness> start(WidgetTester tester, {bool trim = false}) async {
     final app = AppHarness(tester);
     await app.run(() async {
       final created = now.subtract(const Duration(days: 3));
@@ -35,10 +35,29 @@ void main() {
       await routines.addItem(r, 19 * 60, 'Dinner', RoutineItemKind.meal);
     });
     await app.start(onboarded,
+        trimAgenda: trim,
         overrides: [clockProvider.overrideWithValue(() => now)]);
     await wait(app, tester);
     return app;
   }
+
+  testWidgets('the timeline starts with the next three tasks and opens the full day',
+      (tester) async {
+    final app = await start(tester, trim: true);
+    expect(find.byKey(const Key('home-hero')), findsOneWidget);
+    await app.reveal(find.byKey(const Key('agenda-full-day')));
+    expect(find.text('Up next'), findsOneWidget);
+    expect(find.text('Posture check'), findsOneWidget);
+    expect(find.text('Dinner'), findsNothing);
+
+    await app.tapAndSettle(find.byKey(const Key('agenda-full-day')));
+    await app.reveal(find.text('Dinner'));
+    expect(find.text('Dinner'), findsOneWidget);
+    await app.reveal(find.byKey(const Key('agenda-less')));
+    await app.tapAndSettle(find.byKey(const Key('agenda-less')));
+    expect(find.text('Dinner'), findsNothing);
+    await app.dispose();
+  });
 
   testWidgets('swiping a timeline item left skips it', (tester) async {
     final app = await start(tester);

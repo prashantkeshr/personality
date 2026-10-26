@@ -7027,4 +7027,19 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get newBackupBody =>
       'Un aviso en Inicio cuando pasa una semana desde tu última copia cifrada.';
+
+  @override
+  String get agendaUpNext => 'A continuación';
+
+  @override
+  String get agendaShowLess => 'Mostrar menos';
+
+  @override
+  String get dayCompleteTitle => '¡Día completado!';
+
+  @override
+  String get dayCompleteBody => 'Todo el plan de hoy está hecho. ¡Bien hecho!';
+
+  @override
+  String get greetingNight => 'Buenas noches';
 }

@@ -442,6 +442,8 @@ class AgendaTimeline extends ConsumerStatefulWidget {
 }
 
 class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
+  /// Whole day open, instead of just the next three tasks.
+  late bool _fullDay = !ref.read(agendaTrimProvider);
   bool _showOptional = false;
 
   @override
@@ -462,7 +464,35 @@ class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
       (DayPart.evening, Icons.nights_stay_outlined, l10n.partEvening),
       (DayPart.anytime, Icons.all_inclusive, l10n.partAnytime),
     ];
-    var reveal = 0;
+    /// Every task of the day, grouped by part of the day.
+    List<Widget> wholeDay() {
+      var reveal = 0;
+      return [
+        for (final (part, icon, label) in parts)
+          if (agenda.inPart(part).isNotEmpty) ...[
+            const SizedBox(height: AppSpacing.md),
+            Row(
+              children: [
+                Icon(icon, size: 18, color: theme.colorScheme.primary),
+                const SizedBox(width: AppSpacing.sm),
+                Text(label, style: theme.textTheme.titleSmall),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xs),
+            for (final t in agenda.inPart(part))
+              Reveal(
+                index: reveal++,
+                child: _TaskRow(
+                  task: t,
+                  day: day,
+                  readOnly: past,
+                  isNext: t == next,
+                ),
+              ),
+          ],
+      ];
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -496,28 +526,61 @@ class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
             child: Text(l10n.agendaEmpty, style: theme.textTheme.bodyMedium),
           ),
-        for (final (part, icon, label) in parts)
-          if (agenda.inPart(part).isNotEmpty) ...[
-            const SizedBox(height: AppSpacing.md),
-            Row(
-              children: [
-                Icon(icon, size: 18, color: theme.colorScheme.primary),
-                const SizedBox(width: AppSpacing.sm),
-                Text(label, style: theme.textTheme.titleSmall),
-              ],
-            ),
-            const SizedBox(height: AppSpacing.xs),
-            for (final t in agenda.inPart(part))
-              Reveal(
-                index: reveal++,
-                child: _TaskRow(
-                  task: t,
-                  day: day,
-                  readOnly: past,
-                  isNext: t == next,
-                ),
+        if (!past && agenda.completion >= 1 && agenda.countedTotal > 1)
+          const _DayComplete(),
+        ...() {
+          final open = [
+            for (final (part, _, _) in parts)
+              for (final t in agenda.inPart(part))
+                if (!t.done && !t.skipped) t,
+          ];
+          final trimmed = !past && !_fullDay && open.length > 3;
+          final reduce = MediaQuery.disableAnimationsOf(context);
+          // AnimatedSize can't run with a zero duration (reduce motion).
+          Widget sized(Widget child) => reduce
+              ? child
+              : AnimatedSize(
+                  duration: const Duration(milliseconds: 350),
+                  curve: Curves.easeInOutCubic,
+                  alignment: Alignment.topCenter,
+                  child: child,
+                );
+          return [
+            sized(Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: trimmed
+                    ? [
+                        const SizedBox(height: AppSpacing.md),
+                        Row(children: [
+                          Icon(Icons.bolt, size: 18, color: theme.colorScheme.primary),
+                          const SizedBox(width: AppSpacing.sm),
+                          Text(l10n.agendaUpNext, style: theme.textTheme.titleSmall),
+                        ]),
+                        const SizedBox(height: AppSpacing.xs),
+                        for (final (i, t) in open.take(3).indexed)
+                          Reveal(
+                            index: i,
+                            child: _TaskRow(task: t, day: day, readOnly: false, isNext: t == next),
+                          ),
+                      ]
+                    : wholeDay(),
+            )),
+            if (trimmed)
+              TextButton.icon(
+                key: const Key('agenda-full-day'),
+                icon: const Icon(Icons.expand_more),
+                label: Text(l10n.agendaFullDay(agenda.countedTotal)),
+                onPressed: () => setState(() => _fullDay = true),
+              )
+            else if (!past && _fullDay && open.length > 3 && ref.read(agendaTrimProvider))
+              TextButton.icon(
+                key: const Key('agenda-less'),
+                icon: const Icon(Icons.expand_less),
+                label: Text(l10n.agendaShowLess),
+                onPressed: () => setState(() => _fullDay = false),
               ),
-          ],
+          ];
+        }(),
         if (agenda.optional.isNotEmpty) ...[
           TextButton.icon(
             icon: Icon(_showOptional ? Icons.expand_less : Icons.expand_more),
@@ -722,6 +785,7 @@ class _TaskRow extends ConsumerWidget {
                 : null,
             onPressed: task.done && !canTick ? null : primary,
           );
+    final Widget tick = task.done && !readOnly ? _Pop(key: ValueKey('pop-${task.id}'), child: action) : action;
 
     final dotColor = task.done
         ? scheme.primary
@@ -760,7 +824,8 @@ class _TaskRow extends ConsumerWidget {
                   width: 2,
                   color: scheme.outlineVariant.withValues(alpha: 0.5),
                 ),
-                Container(
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
                   width: 12,
                   height: 12,
                   decoration: BoxDecoration(
@@ -831,7 +896,7 @@ class _TaskRow extends ConsumerWidget {
                                 style: theme.textTheme.labelMedium,
                               ),
                             ),
-                          action,
+                          tick,
                         ],
                       ),
                       if (task.target > 1)
@@ -994,4 +1059,119 @@ Future<void> showQuickAdd(BuildContext context, WidgetRef ref) {
       );
     },
   );
+}
+
+/// Springs its child in once (a ticked task's check).
+class _Pop extends StatelessWidget {
+  const _Pop({super.key, required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0.5, end: 1),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 450),
+        curve: Curves.elasticOut,
+        builder: (_, v, c) => Transform.scale(scale: v, child: c),
+        child: child,
+      );
+}
+
+/// Shown on today's timeline once every task is done: a card that grows in
+/// with a burst of dots around a trophy.
+class _DayComplete extends StatefulWidget {
+  const _DayComplete();
+
+  @override
+  State<_DayComplete> createState() => _DayCompleteState();
+}
+
+class _DayCompleteState extends State<_DayComplete> with SingleTickerProviderStateMixin {
+  late final AnimationController _c =
+      AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _c.value = 1;
+    } else if (!_c.isAnimating && _c.value == 0) {
+      _c.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final grow = CurvedAnimation(parent: _c, curve: const Interval(0, 0.5, curve: Curves.easeOutBack));
+    return Padding(
+      padding: const EdgeInsets.only(top: AppSpacing.md),
+      child: ScaleTransition(
+        scale: grow,
+        child: Card(
+          key: const Key('day-complete'),
+          color: scheme.primaryContainer,
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            child: Row(children: [
+              SizedBox.square(
+                dimension: 56,
+                child: AnimatedBuilder(
+                  animation: _c,
+                  builder: (_, child) => CustomPaint(
+                    painter: _Burst(_c.value, [scheme.primary, scheme.tertiary, scheme.secondary]),
+                    child: child,
+                  ),
+                  child: Icon(Icons.emoji_events, size: 30, color: scheme.primary),
+                ),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(l10n.dayCompleteTitle,
+                      style: theme.textTheme.titleMedium?.copyWith(color: scheme.onPrimaryContainer)),
+                  Text(l10n.dayCompleteBody,
+                      style: theme.textTheme.bodyMedium?.copyWith(color: scheme.onPrimaryContainer)),
+                ]),
+              ),
+            ]),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Burst extends CustomPainter {
+  _Burst(this.t, this.colors);
+  final double t;
+  final List<Color> colors;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (t <= 0 || t >= 1) return;
+    final c = size.center(Offset.zero);
+    final fade = 1 - t;
+    for (var i = 0; i < 12; i++) {
+      final a = i * math.pi / 6;
+      final r = 10 + 26 * Curves.easeOut.transform(t);
+      canvas.drawCircle(
+        c + Offset(math.cos(a), math.sin(a)) * r,
+        3 * fade + 1,
+        Paint()..color = colors[i % colors.length].withValues(alpha: fade),
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_Burst old) => old.t != t;
 }

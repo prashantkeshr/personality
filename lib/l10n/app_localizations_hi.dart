@@ -6951,4 +6951,19 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get newBackupBody =>
       'पिछले एन्क्रिप्टेड बैकअप को एक हफ़्ता होने पर होम पर हल्का सा याद दिलाना।';
+
+  @override
+  String get agendaUpNext => 'आगे क्या है';
+
+  @override
+  String get agendaShowLess => 'कम दिखाएँ';
+
+  @override
+  String get dayCompleteTitle => 'दिन पूरा!';
+
+  @override
+  String get dayCompleteBody => 'आज की योजना का सब कुछ पूरा हो गया। शाबाश।';
+
+  @override
+  String get greetingNight => 'शुभ रात्रि';
 }

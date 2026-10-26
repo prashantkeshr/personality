@@ -6997,4 +6997,19 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get newBackupBody =>
       'Pengingat ringan di Beranda saat sudah seminggu sejak cadangan terenkripsi terakhir.';
+
+  @override
+  String get agendaUpNext => 'Berikutnya';
+
+  @override
+  String get agendaShowLess => 'Tampilkan lebih sedikit';
+
+  @override
+  String get dayCompleteTitle => 'Hari selesai!';
+
+  @override
+  String get dayCompleteBody => 'Semua rencana hari ini selesai. Kerja bagus!';
+
+  @override
+  String get greetingNight => 'Selamat malam';
 }

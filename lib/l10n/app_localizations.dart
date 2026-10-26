@@ -12147,6 +12147,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A gentle nudge on Home when it\'s been a week since your last encrypted backup.'**
   String get newBackupBody;
+
+  /// No description provided for @agendaUpNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Up next'**
+  String get agendaUpNext;
+
+  /// No description provided for @agendaShowLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Show less'**
+  String get agendaShowLess;
+
+  /// No description provided for @dayCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Day complete!'**
+  String get dayCompleteTitle;
+
+  /// No description provided for @dayCompleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything on today\'s plan is done. Well done.'**
+  String get dayCompleteBody;
+
+  /// No description provided for @greetingNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Good night'**
+  String get greetingNight;
 }
 
 class _AppLocalizationsDelegate

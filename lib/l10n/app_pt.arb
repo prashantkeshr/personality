@@ -2006,5 +2006,10 @@
   "newSwipeTitle": "Um Início mais curto, com gestos",
   "newSwipeBody": "O Início mostra primeiro o que vem. Deslize um item para a direita para concluir e à esquerda para pular.",
   "newBackupTitle": "Lembrete semanal de backup",
-  "newBackupBody": "Um aviso no Início quando faz uma semana do seu último backup criptografado."
+  "newBackupBody": "Um aviso no Início quando faz uma semana do seu último backup criptografado.",
+  "agendaUpNext": "A seguir",
+  "agendaShowLess": "Mostrar menos",
+  "dayCompleteTitle": "Dia concluído!",
+  "dayCompleteBody": "Tudo do plano de hoje está feito. Muito bem!",
+  "greetingNight": "Boa noite"
 }

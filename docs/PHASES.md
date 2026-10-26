@@ -901,3 +901,12 @@ Verification: `flutter analyze` clean; `flutter test` 483 pass, 2 skipped. New t
 - The "More for you" fold and the trimmed timeline are removed. The new features stay: search bar, swipe done/skip, What's new and backup reminder cards.
 
 Verification: `flutter analyze` clean; `flutter test` 482 pass, 2 skipped.
+
+## Phase 42 — Livelier Home
+
+- **Next three tasks:** today's timeline opens with an "Up next" list of the next three open tasks. "Show the full day" expands smoothly to every task; "Show less" folds it back. The rest of Home stays in full.
+- **Time-of-day header:** a gradient card (morning amber, afternoon sky, evening violet, night navy) with a sun or moon that eases in, the greeting, the date and the daily-plan ring on a light pill.
+- **Motion:** Home sections fade and slide in one after another; a ticked task's check springs in and its timeline dot fills smoothly; when every task is done a "Day complete!" card grows in with a burst of dots.
+- All motion turns off with Reduce animations (AnimatedSize is skipped then, since it cannot run with a zero duration).
+
+Verification: `flutter analyze` clean; `flutter test` 483 pass, 2 skipped. New test: the next-three timeline, full day and show less, and the header. Harness: `trimAgenda` (default off).
