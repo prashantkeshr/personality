@@ -13,6 +13,7 @@ import '../features/style/style_dna_screen.dart';
 import '../features/style/wardrobe_stats_screen.dart';
 import '../features/growth/growth_screen.dart';
 import '../features/growth/skills_screens.dart';
+import '../features/exercise/workout_builder_screen.dart';
 import '../features/exercise/workouts_screen.dart';
 import '../features/insights/evolution_screen.dart';
 import '../features/insights/insights_screen.dart';
@@ -92,6 +93,7 @@ abstract final class AppRoutes {
   static const training = '/health/training';
   static const exerciseLibrary = '/health/exercise/library';
   static const programs = '/health/exercise/programs';
+  static const buildWorkout = '$programs/build';
   static const habits = '/health/habits';
   static const routines = '/health/routines';
   static const plan = '/health/plan';
@@ -232,6 +234,11 @@ final routerProvider = Provider<GoRouter>((ref) {
                       path: 'programs',
                       builder: (_, _) => const WorkoutsScreen(),
                       routes: [
+                        GoRoute(
+                          path: 'build',
+                          builder: (_, state) =>
+                              WorkoutBuilderScreen(id: state.uri.queryParameters['id']),
+                        ),
                         GoRoute(
                           path: ':id',
                           builder: (_, state) =>

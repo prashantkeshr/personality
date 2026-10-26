@@ -11841,6 +11841,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show less'**
   String get homeLess;
+
+  /// No description provided for @voiceCuesOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice cues on'**
+  String get voiceCuesOn;
+
+  /// No description provided for @voiceCuesOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice cues off'**
+  String get voiceCuesOff;
+
+  /// No description provided for @voiceGetReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Get ready. First: {name}'**
+  String voiceGetReady(String name);
+
+  /// No description provided for @voiceWorkReps.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}. {count} reps'**
+  String voiceWorkReps(String name, int count);
+
+  /// No description provided for @voiceWorkSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}. {count} seconds'**
+  String voiceWorkSeconds(String name, int count);
+
+  /// No description provided for @voiceOtherSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Other side'**
+  String get voiceOtherSide;
+
+  /// No description provided for @voiceSwitchSides.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch sides'**
+  String get voiceSwitchSides;
+
+  /// No description provided for @voiceRestNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest. Next: {name}'**
+  String voiceRestNext(String name);
+
+  /// No description provided for @builderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build your own workout'**
+  String get builderTitle;
+
+  /// No description provided for @builderEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit workout'**
+  String get builderEditTitle;
+
+  /// No description provided for @builderEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Build your own'**
+  String get builderEntry;
+
+  /// No description provided for @builderEntryInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick exercises, reps or time, and rest'**
+  String get builderEntryInfo;
+
+  /// No description provided for @builderName.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout name'**
+  String get builderName;
+
+  /// No description provided for @builderRoundsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds'**
+  String get builderRoundsLabel;
+
+  /// No description provided for @builderAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add exercise'**
+  String get builderAdd;
+
+  /// No description provided for @builderEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the exercises you want, in the order you\'ll do them.'**
+  String get builderEmpty;
+
+  /// No description provided for @builderReps.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps'**
+  String get builderReps;
+
+  /// No description provided for @builderTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get builderTime;
+
+  /// No description provided for @builderRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest {count} s'**
+  String builderRest(int count);
+
+  /// No description provided for @builderEachSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Each side'**
+  String get builderEachSide;
+
+  /// No description provided for @builderSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search exercises'**
+  String get builderSearch;
+
+  /// No description provided for @builderDeleteAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this workout?'**
+  String get builderDeleteAsk;
+
+  /// No description provided for @builderSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout saved'**
+  String get builderSaved;
+
+  /// No description provided for @builderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Give it a name and add at least one exercise.'**
+  String get builderHint;
+
+  /// No description provided for @builderMoveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Move up'**
+  String get builderMoveUp;
+
+  /// No description provided for @builderMoveDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Move down'**
+  String get builderMoveDown;
+
+  /// No description provided for @builderRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get builderRemove;
+
+  /// No description provided for @myWorkoutBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Mine'**
+  String get myWorkoutBadge;
+
+  /// No description provided for @myWorkoutSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Your own workout'**
+  String get myWorkoutSummary;
 }
 
 class _AppLocalizationsDelegate

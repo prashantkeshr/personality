@@ -3574,5 +3574,75 @@
   "homeSearchNone": "Nothing found. Try another word, or ask the coach.",
   "homeSearchTip": "Find exercises, workouts, meals, hairstyles, answers or any screen — for example \"neck\", \"breakfast\", \"water\" or \"backup\".",
   "homeMore": "More for you",
-  "homeLess": "Show less"
+  "homeLess": "Show less",
+  "voiceCuesOn": "Voice cues on",
+  "voiceCuesOff": "Voice cues off",
+  "voiceGetReady": "Get ready. First: {name}",
+  "@voiceGetReady": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceWorkReps": "{name}. {count} reps",
+  "@voiceWorkReps": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceWorkSeconds": "{name}. {count} seconds",
+  "@voiceWorkSeconds": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceOtherSide": "Other side",
+  "voiceSwitchSides": "Switch sides",
+  "voiceRestNext": "Rest. Next: {name}",
+  "@voiceRestNext": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "builderTitle": "Build your own workout",
+  "builderEditTitle": "Edit workout",
+  "builderEntry": "Build your own",
+  "builderEntryInfo": "Pick exercises, reps or time, and rest",
+  "builderName": "Workout name",
+  "builderRoundsLabel": "Rounds",
+  "builderAdd": "Add exercise",
+  "builderEmpty": "Add the exercises you want, in the order you'll do them.",
+  "builderReps": "Reps",
+  "builderTime": "Time",
+  "builderRest": "Rest {count} s",
+  "@builderRest": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "builderEachSide": "Each side",
+  "builderSearch": "Search exercises",
+  "builderDeleteAsk": "Delete this workout?",
+  "builderSaved": "Workout saved",
+  "builderHint": "Give it a name and add at least one exercise.",
+  "builderMoveUp": "Move up",
+  "builderMoveDown": "Move down",
+  "builderRemove": "Remove",
+  "myWorkoutBadge": "Mine",
+  "myWorkoutSummary": "Your own workout"
 }

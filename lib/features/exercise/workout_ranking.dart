@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/exercise_library.dart';
 import '../content/content_providers.dart';
 import '../permissions/app_permissions.dart' show appKvProvider;
+import 'my_workouts.dart';
 
 /// How popular each built-in workout is, most popular first. Pack workouts
 /// come after these until the user uses them.
@@ -77,7 +78,10 @@ List<WorkoutProgram> rankWorkouts(List<WorkoutProgram> all, WorkoutUsage usage) 
 }
 
 final rankedWorkoutsProvider = Provider<List<WorkoutProgram>>((ref) {
-  final all = ref.watch(programCatalogProvider).value ?? const [];
+  final all = [
+    ...ref.watch(programCatalogProvider).value ?? const <WorkoutProgram>[],
+    ...ref.watch(myWorkoutsProvider).value ?? const <WorkoutProgram>[],
+  ];
   final usage = ref.watch(workoutUsageProvider).value ?? const WorkoutUsage();
   return rankWorkouts(all, usage);
 });

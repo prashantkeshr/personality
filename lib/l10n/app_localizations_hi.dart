@@ -6776,4 +6776,102 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeLess => 'कम दिखाएँ';
+
+  @override
+  String get voiceCuesOn => 'आवाज़ संकेत चालू';
+
+  @override
+  String get voiceCuesOff => 'आवाज़ संकेत बंद';
+
+  @override
+  String voiceGetReady(String name) {
+    return 'तैयार हो जाइए। पहला: $name';
+  }
+
+  @override
+  String voiceWorkReps(String name, int count) {
+    return '$name। $count बार';
+  }
+
+  @override
+  String voiceWorkSeconds(String name, int count) {
+    return '$name। $count सेकंड';
+  }
+
+  @override
+  String get voiceOtherSide => 'दूसरी तरफ़';
+
+  @override
+  String get voiceSwitchSides => 'तरफ़ बदलिए';
+
+  @override
+  String voiceRestNext(String name) {
+    return 'आराम। अगला: $name';
+  }
+
+  @override
+  String get builderTitle => 'अपना वर्कआउट बनाइए';
+
+  @override
+  String get builderEditTitle => 'वर्कआउट बदलिए';
+
+  @override
+  String get builderEntry => 'अपना बनाइए';
+
+  @override
+  String get builderEntryInfo => 'व्यायाम, गिनती या समय, और आराम चुनिए';
+
+  @override
+  String get builderName => 'वर्कआउट का नाम';
+
+  @override
+  String get builderRoundsLabel => 'राउंड';
+
+  @override
+  String get builderAdd => 'व्यायाम जोड़िए';
+
+  @override
+  String get builderEmpty =>
+      'जो व्यायाम चाहिए, उसी क्रम में जोड़िए जिसमें आप करेंगे।';
+
+  @override
+  String get builderReps => 'गिनती';
+
+  @override
+  String get builderTime => 'समय';
+
+  @override
+  String builderRest(int count) {
+    return 'आराम $count से.';
+  }
+
+  @override
+  String get builderEachSide => 'हर तरफ़';
+
+  @override
+  String get builderSearch => 'व्यायाम खोजिए';
+
+  @override
+  String get builderDeleteAsk => 'यह वर्कआउट हटाएँ?';
+
+  @override
+  String get builderSaved => 'वर्कआउट सहेजा गया';
+
+  @override
+  String get builderHint => 'नाम दीजिए और कम से कम एक व्यायाम जोड़िए।';
+
+  @override
+  String get builderMoveUp => 'ऊपर ले जाएँ';
+
+  @override
+  String get builderMoveDown => 'नीचे ले जाएँ';
+
+  @override
+  String get builderRemove => 'हटाएँ';
+
+  @override
+  String get myWorkoutBadge => 'मेरा';
+
+  @override
+  String get myWorkoutSummary => 'आपका अपना वर्कआउट';
 }

@@ -16,6 +16,9 @@ import '../content/content_providers.dart';
 import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import 'figure/exercise_visual.dart';
+import '../../core/device/speech.dart';
+import 'my_workouts.dart';
+import 'voice_cues.dart';
 import 'workout_ranking.dart';
 import '../../domain/services/training_engine.dart';
 import '../training/training_providers.dart';
@@ -45,7 +48,7 @@ class WorkoutsScreen extends ConsumerWidget {
     final lang = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
     final packs = ref.watch(installedPacksProvider).value ?? const [];
-    final usage = ref.watch(workoutUsageProvider).value ?? const WorkoutUsage();
+    final ranked = ref.watch(rankedWorkoutsProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.workoutsTitle),
@@ -66,7 +69,7 @@ class WorkoutsScreen extends ConsumerWidget {
       ),
       body: AsyncView(
         value: ref.watch(programCatalogProvider),
-        data: (all) => ListView(
+        data: (_) => ListView(
           padding: const EdgeInsets.all(AppSpacing.lg),
           children: [
             Card(
@@ -81,7 +84,18 @@ class WorkoutsScreen extends ConsumerWidget {
                 onTap: () => context.push(AppRoutes.training),
               ),
             ),
-            for (final p in rankWorkouts(all, usage))
+            Card(
+              key: const Key('build-workout'),
+              margin: const EdgeInsets.only(bottom: AppSpacing.md),
+              child: ListTile(
+                leading: Icon(Icons.edit_note, color: theme.colorScheme.primary),
+                title: Text(l10n.builderEntry),
+                subtitle: Text(l10n.builderEntryInfo),
+                trailing: const Icon(Icons.add),
+                onTap: () => context.push(AppRoutes.buildWorkout),
+              ),
+            ),
+            for (final p in ranked)
               Card(
                 key: Key('workout-${p.id}'),
                 margin: const EdgeInsets.only(bottom: AppSpacing.sm),
@@ -93,9 +107,10 @@ class WorkoutsScreen extends ConsumerWidget {
                   ),
                   title: Text(programTitle(ref, l10n, p, lang)),
                   subtitle: Text([
+                    if (isMyWorkout(p.id)) l10n.myWorkoutBadge,
                     l10n.workoutMinutes(p.minutes),
                     exerciseCategoryLabel(l10n, p.category),
-                    _levelLabel(l10n, p.level),
+                    if (!isMyWorkout(p.id)) _levelLabel(l10n, p.level),
                   ].join(' · ')),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => context.push('${AppRoutes.programs}/${p.id}'),
@@ -150,15 +165,28 @@ class _ProgramDetailScreenState extends ConsumerState<ProgramDetailScreen> {
         final byId = {for (final e in exercises.value ?? const <LibraryExercise>[]) e.id: e};
         if (p == null) return Scaffold(appBar: AppBar(), body: Center(child: Text(l10n.loadErrorBody)));
         return Scaffold(
-          appBar: AppBar(title: Text(programTitle(ref, l10n, p, lang))),
+          appBar: AppBar(
+            title: Text(programTitle(ref, l10n, p, lang)),
+            actions: [
+              if (isMyWorkout(p.id))
+                IconButton(
+                  key: const Key('workout-edit'),
+                  tooltip: l10n.builderEditTitle,
+                  onPressed: () => context.push('${AppRoutes.buildWorkout}?id=${p.id}'),
+                  icon: const Icon(Icons.edit_outlined),
+                ),
+            ],
+          ),
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.lg),
             children: [
-              Text(LibraryExercise.pick(p.summary, lang), style: theme.textTheme.bodyLarge),
+              Text(
+                  isMyWorkout(p.id) ? l10n.myWorkoutSummary : LibraryExercise.pick(p.summary, lang),
+                  style: theme.textTheme.bodyLarge),
               const SizedBox(height: AppSpacing.sm),
               Wrap(spacing: AppSpacing.sm, children: [
                 Chip(avatar: const Icon(Icons.timer_outlined, size: 18), label: Text(l10n.workoutMinutes(p.minutes))),
-                Chip(label: Text(_levelLabel(l10n, p.level))),
+                if (!isMyWorkout(p.id)) Chip(label: Text(_levelLabel(l10n, p.level))),
                 if (p.rounds > 1) Chip(label: Text(l10n.workoutRounds(p.rounds))),
               ]),
               if (p.note.isNotEmpty) ...[
@@ -235,7 +263,30 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
   @override
   void dispose() {
     _timer?.cancel();
+    _speech.stop();
     super.dispose();
+  }
+
+  late final Speech _speech = ref.read(speechProvider);
+  var _voice = true;
+  Map<String, LibraryExercise> _byId = const {};
+
+  void _say(String? text) {
+    if (!_voice || text == null || !mounted) return;
+    _speech.say(text, Localizations.localeOf(context).languageCode);
+  }
+
+  /// Announces the segment just entered.
+  void _announce() {
+    if (!mounted) return;
+    final segs = _segments!;
+    final lang = Localizations.localeOf(context).languageCode;
+    _say(voiceCueFor(
+      AppLocalizations.of(context),
+      segs[_index],
+      _index > 0 ? segs[_index - 1] : null,
+      (id) => _byId[id] == null ? '' : LibraryExercise.pick(_byId[id]!.name, lang),
+    ));
   }
 
   void _setup(WorkoutProgram p) {
@@ -253,6 +304,7 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
     }
     _index = i.clamp(0, segs.length - 1);
     _left = segs[_index].seconds ?? 0;
+    _announce();
   }
 
   void _tick() {
@@ -262,7 +314,10 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
       final seg = _segments![_index];
       if (seg.seconds == null) return; // reps: waits for Done
       _left--;
-      if (_left <= 3 && _left > 0) HapticFeedback.selectionClick();
+      if (_left <= 3 && _left > 0) {
+        HapticFeedback.selectionClick();
+        _say('$_left');
+      }
       if (_left <= 0) {
         HapticFeedback.mediumImpact();
         _enter(_index + 1);
@@ -302,6 +357,7 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
   Future<void> _finish() async {
     _done = true;
     _timer?.cancel();
+    _say(AppLocalizations.of(context).workoutDone);
     final p = _program!;
     final lang = Localizations.localeOf(context).languageCode;
     try {
@@ -327,6 +383,8 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
         ? null
         : ref.watch(playableProgramsProvider);
     final exercises = ref.watch(exerciseCatalogProvider).value;
+    _voice = ref.watch(voiceCuesProvider).value ?? true;
+    if (exercises != null && _byId.isEmpty) _byId = {for (final e in exercises) e.id: e};
     if (_program == null && programs != null && exercises != null) {
       final p = programs.where((x) => x.id == widget.id).firstOrNull;
       if (p != null) _setup(p);
@@ -409,7 +467,18 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(LibraryExercise.pick(p.title, lang)),
+        title: Text(programTitle(ref, l10n, p, lang)),
+        actions: [
+          IconButton(
+            key: const Key('workout-voice'),
+            tooltip: _voice ? l10n.voiceCuesOn : l10n.voiceCuesOff,
+            onPressed: () {
+              if (_voice) _speech.stop();
+              setVoiceCues(ref, !_voice);
+            },
+            icon: Icon(_voice ? Icons.record_voice_over : Icons.voice_over_off),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(value: progress),

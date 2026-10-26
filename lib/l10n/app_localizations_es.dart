@@ -6851,4 +6851,103 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeLess => 'Mostrar menos';
+
+  @override
+  String get voiceCuesOn => 'Indicaciones de voz activadas';
+
+  @override
+  String get voiceCuesOff => 'Indicaciones de voz desactivadas';
+
+  @override
+  String voiceGetReady(String name) {
+    return 'Prepárate. Primero: $name';
+  }
+
+  @override
+  String voiceWorkReps(String name, int count) {
+    return '$name. $count repeticiones';
+  }
+
+  @override
+  String voiceWorkSeconds(String name, int count) {
+    return '$name. $count segundos';
+  }
+
+  @override
+  String get voiceOtherSide => 'Otro lado';
+
+  @override
+  String get voiceSwitchSides => 'Cambia de lado';
+
+  @override
+  String voiceRestNext(String name) {
+    return 'Descansa. Siguiente: $name';
+  }
+
+  @override
+  String get builderTitle => 'Crea tu entrenamiento';
+
+  @override
+  String get builderEditTitle => 'Editar entrenamiento';
+
+  @override
+  String get builderEntry => 'Crea el tuyo';
+
+  @override
+  String get builderEntryInfo =>
+      'Elige ejercicios, repeticiones o tiempo, y descanso';
+
+  @override
+  String get builderName => 'Nombre del entrenamiento';
+
+  @override
+  String get builderRoundsLabel => 'Rondas';
+
+  @override
+  String get builderAdd => 'Añadir ejercicio';
+
+  @override
+  String get builderEmpty =>
+      'Añade los ejercicios que quieras, en el orden en que los harás.';
+
+  @override
+  String get builderReps => 'Repeticiones';
+
+  @override
+  String get builderTime => 'Tiempo';
+
+  @override
+  String builderRest(int count) {
+    return 'Descanso $count s';
+  }
+
+  @override
+  String get builderEachSide => 'Cada lado';
+
+  @override
+  String get builderSearch => 'Buscar ejercicios';
+
+  @override
+  String get builderDeleteAsk => '¿Eliminar este entrenamiento?';
+
+  @override
+  String get builderSaved => 'Entrenamiento guardado';
+
+  @override
+  String get builderHint => 'Ponle un nombre y añade al menos un ejercicio.';
+
+  @override
+  String get builderMoveUp => 'Subir';
+
+  @override
+  String get builderMoveDown => 'Bajar';
+
+  @override
+  String get builderRemove => 'Quitar';
+
+  @override
+  String get myWorkoutBadge => 'Mío';
+
+  @override
+  String get myWorkoutSummary => 'Tu propio entrenamiento';
 }

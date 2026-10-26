@@ -6821,4 +6821,103 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeLess => 'Tampilkan lebih sedikit';
+
+  @override
+  String get voiceCuesOn => 'Panduan suara aktif';
+
+  @override
+  String get voiceCuesOff => 'Panduan suara mati';
+
+  @override
+  String voiceGetReady(String name) {
+    return 'Bersiap. Pertama: $name';
+  }
+
+  @override
+  String voiceWorkReps(String name, int count) {
+    return '$name. $count repetisi';
+  }
+
+  @override
+  String voiceWorkSeconds(String name, int count) {
+    return '$name. $count detik';
+  }
+
+  @override
+  String get voiceOtherSide => 'Sisi lain';
+
+  @override
+  String get voiceSwitchSides => 'Ganti sisi';
+
+  @override
+  String voiceRestNext(String name) {
+    return 'Istirahat. Berikutnya: $name';
+  }
+
+  @override
+  String get builderTitle => 'Buat latihanmu sendiri';
+
+  @override
+  String get builderEditTitle => 'Ubah latihan';
+
+  @override
+  String get builderEntry => 'Buat sendiri';
+
+  @override
+  String get builderEntryInfo =>
+      'Pilih gerakan, repetisi atau waktu, dan istirahat';
+
+  @override
+  String get builderName => 'Nama latihan';
+
+  @override
+  String get builderRoundsLabel => 'Putaran';
+
+  @override
+  String get builderAdd => 'Tambah gerakan';
+
+  @override
+  String get builderEmpty =>
+      'Tambahkan gerakan yang kamu mau, sesuai urutan kamu melakukannya.';
+
+  @override
+  String get builderReps => 'Repetisi';
+
+  @override
+  String get builderTime => 'Waktu';
+
+  @override
+  String builderRest(int count) {
+    return 'Istirahat $count d';
+  }
+
+  @override
+  String get builderEachSide => 'Tiap sisi';
+
+  @override
+  String get builderSearch => 'Cari gerakan';
+
+  @override
+  String get builderDeleteAsk => 'Hapus latihan ini?';
+
+  @override
+  String get builderSaved => 'Latihan disimpan';
+
+  @override
+  String get builderHint => 'Beri nama dan tambahkan minimal satu gerakan.';
+
+  @override
+  String get builderMoveUp => 'Naikkan';
+
+  @override
+  String get builderMoveDown => 'Turunkan';
+
+  @override
+  String get builderRemove => 'Hapus';
+
+  @override
+  String get myWorkoutBadge => 'Milikku';
+
+  @override
+  String get myWorkoutSummary => 'Latihan buatanmu';
 }

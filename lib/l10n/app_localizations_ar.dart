@@ -6704,4 +6704,102 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeLess => 'عرض أقل';
+
+  @override
+  String get voiceCuesOn => 'الإرشادات الصوتية مفعّلة';
+
+  @override
+  String get voiceCuesOff => 'الإرشادات الصوتية متوقفة';
+
+  @override
+  String voiceGetReady(String name) {
+    return 'استعد. أولاً: $name';
+  }
+
+  @override
+  String voiceWorkReps(String name, int count) {
+    return '$name. $count تكرار';
+  }
+
+  @override
+  String voiceWorkSeconds(String name, int count) {
+    return '$name. $count ثانية';
+  }
+
+  @override
+  String get voiceOtherSide => 'الجانب الآخر';
+
+  @override
+  String get voiceSwitchSides => 'بدّل الجانب';
+
+  @override
+  String voiceRestNext(String name) {
+    return 'استراحة. التالي: $name';
+  }
+
+  @override
+  String get builderTitle => 'صمّم تمرينك';
+
+  @override
+  String get builderEditTitle => 'تعديل التمرين';
+
+  @override
+  String get builderEntry => 'صمّم بنفسك';
+
+  @override
+  String get builderEntryInfo => 'اختر التمارين والتكرار أو الوقت والراحة';
+
+  @override
+  String get builderName => 'اسم التمرين';
+
+  @override
+  String get builderRoundsLabel => 'الجولات';
+
+  @override
+  String get builderAdd => 'أضف تمريناً';
+
+  @override
+  String get builderEmpty =>
+      'أضف التمارين التي تريدها بالترتيب الذي ستؤديها به.';
+
+  @override
+  String get builderReps => 'تكرار';
+
+  @override
+  String get builderTime => 'وقت';
+
+  @override
+  String builderRest(int count) {
+    return 'راحة $count ث';
+  }
+
+  @override
+  String get builderEachSide => 'كل جانب';
+
+  @override
+  String get builderSearch => 'ابحث عن تمارين';
+
+  @override
+  String get builderDeleteAsk => 'حذف هذا التمرين؟';
+
+  @override
+  String get builderSaved => 'تم حفظ التمرين';
+
+  @override
+  String get builderHint => 'أعطه اسماً وأضف تمريناً واحداً على الأقل.';
+
+  @override
+  String get builderMoveUp => 'تحريك لأعلى';
+
+  @override
+  String get builderMoveDown => 'تحريك لأسفل';
+
+  @override
+  String get builderRemove => 'إزالة';
+
+  @override
+  String get myWorkoutBadge => 'خاصتي';
+
+  @override
+  String get myWorkoutSummary => 'تمرينك الخاص';
 }

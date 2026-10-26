@@ -134,6 +134,14 @@ class ProgramStep {
         sides: j['sides'] as bool? ?? false,
       );
 
+  Map<String, dynamic> toJson() => {
+        'exercise': exercise,
+        if (seconds != null) 'seconds': seconds,
+        if (reps != null) 'reps': reps,
+        'rest': rest,
+        if (sides) 'sides': true,
+      };
+
   /// Rough length used for the program's total: reps take ~3 s each.
   int get workSeconds => (seconds ?? (reps ?? 10) * 3) * (sides ? 2 : 1);
 }
@@ -171,6 +179,18 @@ class WorkoutProgram {
   int get totalSeconds =>
       rounds * steps.fold(0, (s, x) => s + x.workSeconds + x.rest * (x.sides ? 2 : 1));
   int get minutes => (totalSeconds / 60).ceil();
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'summary': summary,
+        if (note.isNotEmpty) 'note': note,
+        'category': category.name,
+        'level': level,
+        'rounds': rounds,
+        if (discipline != null) 'discipline': discipline,
+        'steps': [for (final s in steps) s.toJson()],
+      };
 
   factory WorkoutProgram.fromJson(Map<String, dynamic> j, {String? pack}) {
     Map<String, String> text(String k) =>

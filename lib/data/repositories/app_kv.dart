@@ -24,6 +24,9 @@ class AppKv {
     return (await q.getSingleOrNull())?.value;
   }
 
+  Future<void> delete(String key) =>
+      (_db.delete(_db.appSettingsEntries)..where((t) => t.key.equals(key))).go();
+
   Future<void> put(String key, String value) => _db
       .into(_db.appSettingsEntries)
       .insertOnConflictUpdate(

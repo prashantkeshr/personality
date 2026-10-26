@@ -4,6 +4,7 @@ import '../../domain/entities/health.dart' show ExerciseCategory;
 import '../../domain/entities/exercise_library.dart';
 import '../../domain/services/training_engine.dart';
 import '../content/content_providers.dart';
+import '../exercise/my_workouts.dart';
 import '../health/body_providers.dart';
 import '../health/health_providers.dart' show clockProvider;
 import '../permissions/app_permissions.dart' show appKvProvider;
@@ -91,6 +92,7 @@ WorkoutProgram planProgram(PlanDay day, {required String title}) => WorkoutProgr
 /// screens (plan days stay out of the guided lists).
 final playableProgramsProvider = Provider<List<WorkoutProgram>>((ref) => [
   ...ref.watch(programCatalogProvider).value ?? const [],
+  ...ref.watch(myWorkoutsProvider).value ?? const [],
   for (final d in ref.watch(trainingWeekProvider))
     if (!d.isRest) planProgram(d, title: 'My plan'),
 ]);

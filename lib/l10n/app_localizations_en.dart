@@ -6788,4 +6788,102 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeLess => 'Show less';
+
+  @override
+  String get voiceCuesOn => 'Voice cues on';
+
+  @override
+  String get voiceCuesOff => 'Voice cues off';
+
+  @override
+  String voiceGetReady(String name) {
+    return 'Get ready. First: $name';
+  }
+
+  @override
+  String voiceWorkReps(String name, int count) {
+    return '$name. $count reps';
+  }
+
+  @override
+  String voiceWorkSeconds(String name, int count) {
+    return '$name. $count seconds';
+  }
+
+  @override
+  String get voiceOtherSide => 'Other side';
+
+  @override
+  String get voiceSwitchSides => 'Switch sides';
+
+  @override
+  String voiceRestNext(String name) {
+    return 'Rest. Next: $name';
+  }
+
+  @override
+  String get builderTitle => 'Build your own workout';
+
+  @override
+  String get builderEditTitle => 'Edit workout';
+
+  @override
+  String get builderEntry => 'Build your own';
+
+  @override
+  String get builderEntryInfo => 'Pick exercises, reps or time, and rest';
+
+  @override
+  String get builderName => 'Workout name';
+
+  @override
+  String get builderRoundsLabel => 'Rounds';
+
+  @override
+  String get builderAdd => 'Add exercise';
+
+  @override
+  String get builderEmpty =>
+      'Add the exercises you want, in the order you\'ll do them.';
+
+  @override
+  String get builderReps => 'Reps';
+
+  @override
+  String get builderTime => 'Time';
+
+  @override
+  String builderRest(int count) {
+    return 'Rest $count s';
+  }
+
+  @override
+  String get builderEachSide => 'Each side';
+
+  @override
+  String get builderSearch => 'Search exercises';
+
+  @override
+  String get builderDeleteAsk => 'Delete this workout?';
+
+  @override
+  String get builderSaved => 'Workout saved';
+
+  @override
+  String get builderHint => 'Give it a name and add at least one exercise.';
+
+  @override
+  String get builderMoveUp => 'Move up';
+
+  @override
+  String get builderMoveDown => 'Move down';
+
+  @override
+  String get builderRemove => 'Remove';
+
+  @override
+  String get myWorkoutBadge => 'Mine';
+
+  @override
+  String get myWorkoutSummary => 'Your own workout';
 }

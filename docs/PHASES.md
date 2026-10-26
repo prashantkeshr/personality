@@ -866,3 +866,17 @@ Verification: `flutter analyze` clean; `flutter test` 470 pass, 2 skipped. New t
 - **Portrait lock:** phones (shortest side under 600 dp) stay in portrait; tablets rotate freely. Camera screens restore this on exit.
 
 Verification: `flutter analyze` clean; `flutter test` 473 pass, 2 skipped. New tests: the folded Home and full-day button, swipe-left skipping a habit, and search results with the ask-the-coach row. The test harness can turn the compact Home off (`compactHome`), and `reveal` now scrolls back up when the target is above.
+
+## Phase 39 — Build your own workout; voice cues
+
+- **Build your own** (`/health/exercise/programs/build`, card at the top of Guided workouts):
+  - Name the workout, add exercises from a searchable list (built in and from installed packs), and put them in order.
+  - Per exercise: reps or time, rest (5 s steps), and "each side". Rounds 1–6. The estimated length updates live.
+  - Saved on the phone in app_settings (`myworkout.<id>`, so backups include it). The category is the most common among the chosen exercises.
+  - Own workouts join the ranked lists (marked "Mine"), Home's Let's try row, and the player. Their page has Edit; the editor has Delete.
+- **Voice cues** in the workout player, through the phone's own text-to-speech (offline voices, new `personality/speech` channel; nothing is downloaded or sent):
+  - "Get ready. First: …", "Squat. 10 reps" or "… 30 seconds", "Rest. Next: …", "Switch sides", "Other side", a 3-2-1 countdown, and "Workout complete".
+  - On by default. A speaker button in the player turns them off, and the choice is remembered (`voice.cues`).
+  - If the phone has no voice for the app's language, it stays quiet instead of reading with the wrong voice.
+
+Verification: `flutter analyze` clean; `flutter test` 476 pass, 2 skipped. New tests: building, saving, listing, editing and deleting a workout; the player's spoken lines and countdown, and turning voice off; the switch-sides cue.

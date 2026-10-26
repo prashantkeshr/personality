@@ -30,10 +30,16 @@ class MainActivity : FlutterFragmentActivity() {
     private var hcResult: MethodChannel.Result? = null
     private lateinit var hcLauncher: ActivityResultLauncher<Set<String>>
     private var pendingWidgetAction: String? = null
+    private val speech by lazy { SpeechChannel(this) }
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
         takeWidgetAction(intent)
+    }
+
+    override fun onDestroy() {
+        speech.shutdown()
+        super.onDestroy()
     }
 
     override fun onNewIntent(intent: android.content.Intent) {
@@ -76,6 +82,8 @@ class MainActivity : FlutterFragmentActivity() {
                 }
             }
         val files = FileChannel(this)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/speech")
+            .setMethodCallHandler { call, result -> speech.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/files")
             .setMethodCallHandler { call, result -> files.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "personality/device")
