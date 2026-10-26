@@ -6501,4 +6501,181 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get featureExerciseHub => 'التمارين والتدريبات';
+
+  @override
+  String get sessionFullBody => 'الجسم كله';
+
+  @override
+  String get sessionUpper => 'الجزء العلوي';
+
+  @override
+  String get sessionLower => 'الجزء السفلي والأرداف';
+
+  @override
+  String get sessionCore => 'عضلات الجذع';
+
+  @override
+  String get sessionCardio => 'كارديو';
+
+  @override
+  String get sessionMobility => 'المرونة الحركية';
+
+  @override
+  String get sessionYoga => 'يوغا';
+
+  @override
+  String get sessionPosture => 'وضعية الجسم';
+
+  @override
+  String get sessionRest => 'يوم راحة';
+
+  @override
+  String planSessionTitle(String type) {
+    return 'حصة $type';
+  }
+
+  @override
+  String doseReps(int count) {
+    return '$count تكرار';
+  }
+
+  @override
+  String doseSeconds(int seconds) {
+    return '$seconds ث';
+  }
+
+  @override
+  String doseMinutes(int minutes) {
+    return '$minutes د';
+  }
+
+  @override
+  String get trainingTitle => 'خطة تدريبي';
+
+  @override
+  String get trainingEntryInfo => 'خطة يومية بمجموعات وتكرارات تتطور معك';
+
+  @override
+  String get trainingSettings => 'إعدادات التدريب';
+
+  @override
+  String trainingSummary(String level, int days, int minutes) {
+    return '$level · $days أيام أسبوعيًا · $minutes د';
+  }
+
+  @override
+  String planDayInfo(int count, int minutes) {
+    return '$count تمارين · نحو $minutes د';
+  }
+
+  @override
+  String get planRestInfo => 'تعافَ اليوم: يكفي مشي خفيف أو تمدد لطيف.';
+
+  @override
+  String get planProgressInfo =>
+      'بعد كل حصة أخبرنا كيف كانت. سهلة جدًا أو مناسبة مرتين متتاليتين تضيف تكرارات أو مجموعة، وصعبة جدًا تخففها. ومع ازدياد قوتك يرتفع مستواك وتتكيف الخطة تلقائيًا.';
+
+  @override
+  String get trainingLevel => 'مستوى اللياقة';
+
+  @override
+  String get trainingDays => 'أيام في الأسبوع';
+
+  @override
+  String trainingDaysValue(int days) {
+    return '$days أيام';
+  }
+
+  @override
+  String get trainingMinutes => 'مدة كل حصة';
+
+  @override
+  String get trainingEquipment => 'المعدات';
+
+  @override
+  String get equipmentNone => 'بدون';
+
+  @override
+  String get equipmentHome => 'كرسي وحقيبة ظهر';
+
+  @override
+  String get trainingFocus => 'منطقة التركيز';
+
+  @override
+  String get focusBalanced => 'متوازن';
+
+  @override
+  String get focusUpper => 'الجزء العلوي';
+
+  @override
+  String get focusLower => 'الجزء السفلي والأرداف';
+
+  @override
+  String get todaysWorkout => 'تمرين اليوم';
+
+  @override
+  String get feelQuestion => 'كيف كانت؟';
+
+  @override
+  String get feelTooEasy => 'سهلة جدًا';
+
+  @override
+  String get feelJustRight => 'مناسبة';
+
+  @override
+  String get feelTooHard => 'صعبة جدًا';
+
+  @override
+  String get feelNoteHarder => 'في المرة القادمة ستزيد التكرارات قليلًا.';
+
+  @override
+  String get feelNoteSteady => 'رائع، حصة أخرى مثلها وسترتفع الشدة.';
+
+  @override
+  String get feelNoteEasier => 'لا بأس، ستكون المرة القادمة أسهل قليلًا.';
+
+  @override
+  String feelLevelUp(String level) {
+    return 'ارتقيت مستوى! خطتك الآن $level.';
+  }
+
+  @override
+  String get welcomePrivateTitle => 'خاص منذ البداية';
+
+  @override
+  String get welcomePrivateBody =>
+      'بلا حساب ولا إعلانات، وتبقى بياناتك على هاتفك.';
+
+  @override
+  String get welcomePlanTitle => 'خطة مصممة لك';
+
+  @override
+  String get welcomePlanBody =>
+      'تمارين ووجبات وعادات يومية حسب أهدافك، تتكيف مع تقدمك.';
+
+  @override
+  String get welcomeAllTitle => 'كل شيء في مكان واحد';
+
+  @override
+  String get welcomeAllBody =>
+      'الصحة ووضعية الجسم والأناقة والمهارات ومدرب ذكي دون اتصال.';
+
+  @override
+  String get onboardingTrainingTitle => 'تدريبك';
+
+  @override
+  String get onboardingTrainingBody =>
+      'سنبني خطة يومية بمجموعات وتكرارات حسب أهدافك، تبدأ من مستواك الحالي وترتفع كلما ازدادت قوتك.';
+
+  @override
+  String get onboardingYourWeek => 'أسبوعك';
+
+  @override
+  String onboardingWeekNote(int days, int count) {
+    return '$days حصص أسبوعيًا، $count تمارين في كل حصة، مع أيام راحة بينها.';
+  }
+
+  @override
+  String get onboardingTrainingLater =>
+      'يمكنك تغيير كل ذلك لاحقًا من خطة تدريبي.';
 }

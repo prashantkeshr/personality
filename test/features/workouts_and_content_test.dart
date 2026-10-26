@@ -176,7 +176,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.pageBack(); // the workouts list
     await settleIo();
-    // Back on the workouts list, which now includes the pack's workout.
+    // Back on the workouts list, which now includes the pack's workout
+    // (below the plan card and the built-in workouts).
+    await tester.scrollUntilVisible(find.text('Kung fu stances').hitTestable(), 200,
+        scrollable: find.byType(Scrollable).last);
     expect(find.text('Kung fu stances'), findsOneWidget);
     await app.dispose();
   });

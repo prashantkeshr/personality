@@ -17,6 +17,17 @@ import '../health/health_providers.dart';
 import '../health/widgets/health_widgets.dart';
 import 'figure/exercise_visual.dart';
 import 'workout_ranking.dart';
+import '../../domain/services/training_engine.dart';
+import '../training/training_providers.dart';
+import '../training/training_screen.dart';
+
+/// The name shown for a program; plan days get a localized session title.
+String programTitle(WidgetRef ref, AppLocalizations l10n, WorkoutProgram p, String lang) {
+  final wd = planWeekdayOf(p.id);
+  if (wd == null) return LibraryExercise.pick(p.title, lang);
+  final day = ref.read(trainingWeekProvider).where((d) => d.weekday == wd).firstOrNull;
+  return day == null ? l10n.trainingTitle : sessionTitle(l10n, day);
+}
 
 String _levelLabel(AppLocalizations l10n, String level) => switch (level) {
       'intermediate' => l10n.levelIntermediate,
@@ -58,6 +69,18 @@ class WorkoutsScreen extends ConsumerWidget {
         data: (all) => ListView(
           padding: const EdgeInsets.all(AppSpacing.lg),
           children: [
+            Card(
+              key: const Key('open-training'),
+              color: theme.colorScheme.primaryContainer,
+              margin: const EdgeInsets.only(bottom: AppSpacing.md),
+              child: ListTile(
+                leading: Icon(Icons.calendar_month, color: theme.colorScheme.onPrimaryContainer),
+                title: Text(l10n.trainingTitle),
+                subtitle: Text(l10n.trainingEntryInfo),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => context.push(AppRoutes.training),
+              ),
+            ),
             for (final p in rankWorkouts(all, usage))
               Card(
                 key: Key('workout-${p.id}'),
@@ -68,7 +91,7 @@ class WorkoutsScreen extends ConsumerWidget {
                     backgroundColor: theme.colorScheme.primaryContainer,
                     child: Icon(categoryIcon(p.category), color: theme.colorScheme.onPrimaryContainer),
                   ),
-                  title: Text(LibraryExercise.pick(p.title, lang)),
+                  title: Text(programTitle(ref, l10n, p, lang)),
                   subtitle: Text([
                     l10n.workoutMinutes(p.minutes),
                     exerciseCategoryLabel(l10n, p.category),
@@ -117,15 +140,17 @@ class _ProgramDetailScreenState extends ConsumerState<ProgramDetailScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
     final programs = ref.watch(programCatalogProvider);
+    final playable = ref.watch(playableProgramsProvider);
     final exercises = ref.watch(exerciseCatalogProvider);
     return AsyncView(
       value: programs,
-      data: (all) {
+      data: (_) {
+        final all = playable;
         final p = all.where((x) => x.id == id).firstOrNull;
         final byId = {for (final e in exercises.value ?? const <LibraryExercise>[]) e.id: e};
         if (p == null) return Scaffold(appBar: AppBar(), body: Center(child: Text(l10n.loadErrorBody)));
         return Scaffold(
-          appBar: AppBar(title: Text(LibraryExercise.pick(p.title, lang))),
+          appBar: AppBar(title: Text(programTitle(ref, l10n, p, lang))),
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.lg),
             children: [
@@ -250,6 +275,30 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
         _enter(_index + delta < 0 ? 0 : _index + delta);
       });
 
+  SessionFeel? _feel;
+  String? _feelNote;
+
+  Future<void> _recordFeel(SessionFeel f) async {
+    final l10n = AppLocalizations.of(context);
+    final wd = planWeekdayOf(_program!.id);
+    final day = ref.read(trainingWeekProvider).where((d) => d.weekday == wd).firstOrNull;
+    if (day == null) return;
+    setState(() => _feel = f);
+    try {
+      final up = await ref.read(trainingActionsProvider).recordFeel(day, f);
+      if (!mounted) return;
+      setState(() => _feelNote = up != null
+          ? l10n.feelLevelUp(levelLabel(l10n, up))
+          : switch (f) {
+              SessionFeel.tooEasy => l10n.feelNoteHarder,
+              SessionFeel.justRight => l10n.feelNoteSteady,
+              SessionFeel.tooHard => l10n.feelNoteEasier,
+            });
+    } catch (e, st) {
+      AppLogger.error('training.feel', e, st);
+    }
+  }
+
   Future<void> _finish() async {
     _done = true;
     _timer?.cancel();
@@ -257,7 +306,7 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     try {
       await ref.read(exerciseRepositoryProvider).add(
-            name: LibraryExercise.pick(p.title, lang),
+            name: programTitle(ref, AppLocalizations.of(context), p, lang),
             category: p.category,
             durationMinutes: (_elapsed / 60).ceil().clamp(1, 600),
             performedAt: ref.read(clockProvider)(),
@@ -274,7 +323,9 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
     final l10n = AppLocalizations.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
-    final programs = ref.watch(programCatalogProvider).value;
+    final programs = ref.watch(programCatalogProvider).value == null
+        ? null
+        : ref.watch(playableProgramsProvider);
     final exercises = ref.watch(exerciseCatalogProvider).value;
     if (_program == null && programs != null && exercises != null) {
       final p = programs.where((x) => x.id == widget.id).firstOrNull;
@@ -289,7 +340,7 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
 
     if (_done) {
       return Scaffold(
-        appBar: AppBar(title: Text(LibraryExercise.pick(p.title, lang))),
+        appBar: AppBar(title: Text(programTitle(ref, l10n, p, lang))),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(AppSpacing.xl),
@@ -302,6 +353,33 @@ class _WorkoutPlayerScreenState extends ConsumerState<WorkoutPlayerScreen> {
               if (_saved) ...[
                 const SizedBox(height: AppSpacing.xs),
                 Text(l10n.savedToLog, style: theme.textTheme.bodySmall),
+              ],
+              if (planWeekdayOf(p.id) != null) ...[
+                const SizedBox(height: AppSpacing.lg),
+                Text(l10n.feelQuestion, style: theme.textTheme.titleMedium),
+                const SizedBox(height: AppSpacing.sm),
+                Wrap(
+                  spacing: AppSpacing.sm,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    for (final (f, text, icon) in [
+                      (SessionFeel.tooEasy, l10n.feelTooEasy, Icons.sentiment_very_satisfied),
+                      (SessionFeel.justRight, l10n.feelJustRight, Icons.sentiment_satisfied),
+                      (SessionFeel.tooHard, l10n.feelTooHard, Icons.sentiment_dissatisfied),
+                    ])
+                      ChoiceChip(
+                        key: Key('feel-${f.name}'),
+                        avatar: Icon(icon, size: 18),
+                        label: Text(text),
+                        selected: _feel == f,
+                        onSelected: _feel != null ? null : (_) => _recordFeel(f),
+                      ),
+                  ],
+                ),
+                if (_feelNote != null) ...[
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(_feelNote!, textAlign: TextAlign.center, style: theme.textTheme.bodyMedium),
+                ],
               ],
               const SizedBox(height: AppSpacing.xl),
               FilledButton(

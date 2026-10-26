@@ -26,6 +26,7 @@ import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
 import '../features/coach/coach_screen.dart';
 import '../features/face/makeup_screen.dart';
+import '../features/training/training_screen.dart';
 import '../features/style/style_extras.dart';
 import '../features/face/try_on_screen.dart';
 import '../data/repositories/snapshot_repository.dart' show SnapshotKind;
@@ -86,6 +87,7 @@ abstract final class AppRoutes {
   static const sleep = '/health/sleep';
   static const activity = '/health/activity';
   static const exercise = '/health/exercise';
+  static const training = '/health/training';
   static const exerciseLibrary = '/health/exercise/library';
   static const programs = '/health/exercise/programs';
   static const habits = '/health/habits';
@@ -214,6 +216,9 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                     path: 'activity',
                     builder: (_, _) => const ActivityScreen()),
+                GoRoute(
+                    path: 'training',
+                    builder: (_, _) => const TrainingScreen()),
                 GoRoute(
                   path: 'exercise',
                   builder: (_, _) => const ExerciseLogScreen(),

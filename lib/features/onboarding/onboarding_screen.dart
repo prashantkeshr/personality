@@ -9,6 +9,9 @@ import '../settings/preference_controls.dart';
 import '../../domain/entities/body.dart';
 import '../../shared/format/body_format.dart';
 import '../journey/goal_finder_screen.dart' show GoalArt, goalIcon;
+import '../../domain/services/training_engine.dart';
+import '../training/training_providers.dart';
+import '../training/training_screen.dart';
 import 'about_you.dart';
 import 'permissions_page.dart';
 
@@ -20,12 +23,21 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pageCount = 6;
+  static const _pageCount = 7;
+
+  /// Page order: welcome, goals, preferences (units come before height and
+  /// weight), about you, training, privacy, permissions.
+  static const _aboutPage = 3;
+  static const _trainingPage = 4;
   final _controller = PageController();
   final _about = AboutYouData();
   final _reminders = StarterReminders();
   int _page = 0;
   bool _finishing = false;
+  TrainingPrefs _training = const TrainingPrefs();
+
+  /// Until the user picks a focus, it follows the gender from About you.
+  bool _focusTouched = false;
 
   @override
   void dispose() {
@@ -48,13 +60,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   /// About you is checked as you leave it, so a typo is shown right there
   /// rather than on the last page.
   void _next() {
-    final aboutPage = _page == _pageCount - 2;
+    final aboutPage = _page == _aboutPage;
     final units = ref.read(settingsControllerProvider).unitSystem;
     if (aboutPage && !_about.valid(units)) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppLocalizations.of(context).onboardingInvalid)),
       );
       return;
+    }
+    if (_page + 1 == _trainingPage && !_focusTouched) {
+      setState(() => _training =
+          _training.copyWith(focus: TrainingPrefs.focusFor(_about.gender)));
     }
     _goTo(_page + 1);
   }
@@ -71,6 +87,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         return;
       }
       await _reminders.apply(ref, l10n);
+      await ref.read(trainingActionsProvider).savePrefs(_training);
       await ref
           .read(settingsControllerProvider.notifier)
           .update((s) => s.copyWith(onboardingCompleted: true));
@@ -95,13 +112,31 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(AppSpacing.lg),
-                  child: Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      l10n.onboardingStep(_page + 1, _pageCount),
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
+                  padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.lg, AppSpacing.lg, AppSpacing.lg, AppSpacing.sm),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.onboardingStep(_page + 1, _pageCount),
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                      const SizedBox(height: AppSpacing.xs),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: TweenAnimationBuilder<double>(
+                          tween: Tween(end: (_page + 1) / _pageCount),
+                          duration: MediaQuery.disableAnimationsOf(context)
+                              ? Duration.zero
+                              : const Duration(milliseconds: 300),
+                          builder: (_, v, _) => LinearProgressIndicator(
+                            key: const Key('onboarding-progress'),
+                            value: v,
+                            minHeight: 6,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -111,9 +146,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     children: [
                       const _WelcomePage(),
                       _GoalsPage(data: _about),
-                      const _PrivacyPage(),
                       const _PreferencesPage(),
                       AboutYouPage(data: _about),
+                      _TrainingPage(
+                        value: _training,
+                        about: _about,
+                        onChanged: (v) => setState(() {
+                          _focusTouched |= v.focus != _training.focus;
+                          _training = v;
+                        }),
+                      ),
+                      const _PrivacyPage(),
                       PermissionsPage(reminders: _reminders),
                     ],
                   ),
@@ -186,12 +229,44 @@ class _WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return _PageScaffold(
-      icon: Icons.spa_outlined,
-      title: l10n.onboardingWelcomeTitle,
+    final theme = Theme.of(context);
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
       children: [
+        const SizedBox(height: AppSpacing.lg),
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(28),
+            child: Image.asset('assets/images/brand/app_icon.png',
+                width: 112, height: 112),
+          ),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        Semantics(
+          header: true,
+          child: Text(l10n.onboardingWelcomeTitle,
+              textAlign: TextAlign.center, style: theme.textTheme.headlineSmall),
+        ),
+        const SizedBox(height: AppSpacing.sm),
         Text(l10n.onboardingWelcomeBody,
-            style: Theme.of(context).textTheme.bodyLarge),
+            textAlign: TextAlign.center, style: theme.textTheme.bodyLarge),
+        const SizedBox(height: AppSpacing.lg),
+        for (final (icon, title, body) in [
+          (Icons.lock_outline, l10n.welcomePrivateTitle, l10n.welcomePrivateBody),
+          (Icons.calendar_month, l10n.welcomePlanTitle, l10n.welcomePlanBody),
+          (Icons.auto_awesome, l10n.welcomeAllTitle, l10n.welcomeAllBody),
+        ])
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: theme.colorScheme.primaryContainer,
+                child: Icon(icon, color: theme.colorScheme.onPrimaryContainer),
+              ),
+              title: Text(title),
+              subtitle: Text(body),
+            ),
+          ),
+        const SizedBox(height: AppSpacing.lg),
       ],
     );
   }
@@ -360,6 +435,84 @@ class _GoalsPageState extends State<_GoalsPage> {
             );
           },
         ),
+        const SizedBox(height: AppSpacing.xl),
+      ],
+    );
+  }
+}
+
+/// Training setup with a live preview of the week it builds.
+class _TrainingPage extends StatelessWidget {
+  const _TrainingPage({
+    required this.value,
+    required this.about,
+    required this.onChanged,
+  });
+
+  final TrainingPrefs value;
+  final AboutYouData about;
+  final ValueChanged<TrainingPrefs> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final week = TrainingEngine.week(
+      prefs: value,
+      goals: about.goals,
+      age: about.ageRange,
+    );
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+      children: [
+        const SizedBox(height: AppSpacing.lg),
+        Semantics(
+          header: true,
+          child: Text(l10n.onboardingTrainingTitle,
+              style: theme.textTheme.headlineSmall),
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        Text(l10n.onboardingTrainingBody, style: theme.textTheme.bodyMedium),
+        const SizedBox(height: AppSpacing.md),
+        Card(
+          key: const Key('onboarding-week'),
+          color: scheme.secondaryContainer,
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.onboardingYourWeek, style: theme.textTheme.labelLarge),
+                const SizedBox(height: AppSpacing.sm),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: [
+                    for (final d in week)
+                      if (!d.isRest)
+                        Chip(
+                          avatar: Icon(sessionIcon(d.type), size: 16),
+                          label: Text(sessionLabel(l10n, d.type)),
+                          visualDensity: VisualDensity.compact,
+                        ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  l10n.onboardingWeekNote(
+                    week.where((d) => !d.isRest).length,
+                    week.where((d) => !d.isRest).first.exercises.length,
+                  ),
+                  style: theme.textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ),
+        ),
+        TrainingPrefsForm(value: value, onChanged: onChanged),
+        const SizedBox(height: AppSpacing.sm),
+        Text(l10n.onboardingTrainingLater, style: theme.textTheme.bodySmall),
         const SizedBox(height: AppSpacing.xl),
       ],
     );

@@ -3,7 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:personality/features/settings/app_settings.dart';
 import 'package:personality/features/settings/settings_repository.dart';
 import 'package:personality/app/app_shell.dart';
+import 'package:personality/data/repositories/app_kv.dart';
 import 'package:personality/data/repositories/body_record_repository.dart';
+import 'package:personality/domain/services/training_engine.dart';
 import 'package:personality/data/repositories/profile_repository.dart';
 import 'package:personality/data/repositories/routine_repository.dart';
 import 'package:personality/domain/entities/body.dart';
@@ -24,10 +26,8 @@ void main() {
     await app.tapAndSettle(find.byKey(const Key('onboard-goal-fitness')));
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
-    expect(find.text('Your data stays on this device'), findsOneWidget);
-    await tester.tap(find.text('Next'));
-    await tester.pumpAndSettle();
 
+    // Units come before height and weight.
     await app.tapAndSettle(find.text('Imperial (ft/in, lb, oz)'));
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
@@ -58,6 +58,23 @@ void main() {
     await tester.enterText(find.byKey(const Key('about-weight')), '130');
     await app.tapAndSettle(find.text('Next'));
 
+    // Training: the focus starts from the gender above; the week previews.
+    expect(find.text('Your training'), findsOneWidget);
+    expect(find.byKey(const Key('onboarding-week')), findsOneWidget);
+    final focus = find.descendant(
+      of: find.byKey(const Key('pref-focus')),
+      matching: find.byType(ChoiceChip),
+    );
+    expect(
+      tester.widgetList<ChoiceChip>(focus).where((c) => c.selected).single.label,
+      isA<Text>().having((t) => t.data, 'label', 'Lower body & glutes'),
+    );
+    await reveal(find.text('4 days'));
+    await app.tapAndSettle(find.text('4 days'));
+    await app.tapAndSettle(find.text('Next'));
+    expect(find.text('Your data stays on this device'), findsOneWidget);
+    await app.tapAndSettle(find.text('Next'));
+
     // Last step: permissions and starter reminders, both pre-ticked.
     expect(find.text('Allow what Personality needs'), findsOneWidget);
     expect(find.byKey(const Key('perm-camera')), findsOneWidget);
@@ -74,6 +91,9 @@ void main() {
     expect(profile.effectiveStyleFit, StyleFit.womenswear);
     final goals = await app.run(() => ProfileRepository(app.db).watchGoals().first);
     expect(goals, {GoalType.fitness});
+    final training = TrainingPrefs.parse(
+        await app.run<String?>(() => AppKv(app.db).get('training.prefs')));
+    expect((training!.focus, training.daysPerWeek), (FocusArea.lower, 4));
     final heights = await app.run(() => BodyRecordRepository(
             app.db, app.db.heightRecords, unit: 'cm')
         .watchAll()
@@ -98,14 +118,16 @@ void main() {
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
     await app.tapAndSettle(find.byKey(const Key('onboard-goal-style')));
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 2; i++) {
       await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
     }
     expect(find.text('About you'), findsOneWidget);
     expect(find.textContaining('Only what your goals need'), findsOneWidget);
     expect(find.byKey(const Key('about-weight')), findsNothing);
-    await app.tapAndSettle(find.text('Next'));
+    await app.tapAndSettle(find.text('Next')); // about you
+    await app.tapAndSettle(find.text('Next')); // training
+    await app.tapAndSettle(find.text('Next')); // privacy
     // Untick both starter reminders: none are created.
     await app.tapAndSettle(find.byKey(const Key('starter-meals')));
     await tester.scrollUntilVisible(

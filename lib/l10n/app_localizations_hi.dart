@@ -6571,4 +6571,182 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get featureExerciseHub => 'व्यायाम और वर्कआउट';
+
+  @override
+  String get sessionFullBody => 'पूरा शरीर';
+
+  @override
+  String get sessionUpper => 'ऊपरी शरीर';
+
+  @override
+  String get sessionLower => 'निचला शरीर और कूल्हे';
+
+  @override
+  String get sessionCore => 'कोर';
+
+  @override
+  String get sessionCardio => 'कार्डियो';
+
+  @override
+  String get sessionMobility => 'मोबिलिटी';
+
+  @override
+  String get sessionYoga => 'योग';
+
+  @override
+  String get sessionPosture => 'पोस्चर';
+
+  @override
+  String get sessionRest => 'आराम का दिन';
+
+  @override
+  String planSessionTitle(String type) {
+    return '$type सत्र';
+  }
+
+  @override
+  String doseReps(int count) {
+    return '$count बार';
+  }
+
+  @override
+  String doseSeconds(int seconds) {
+    return '$seconds सेकंड';
+  }
+
+  @override
+  String doseMinutes(int minutes) {
+    return '$minutes मिनट';
+  }
+
+  @override
+  String get trainingTitle => 'मेरा ट्रेनिंग प्लान';
+
+  @override
+  String get trainingEntryInfo =>
+      'सेट और रेप्स वाला रोज़ का प्लान, जो आपके साथ बढ़ता है';
+
+  @override
+  String get trainingSettings => 'ट्रेनिंग सेटिंग';
+
+  @override
+  String trainingSummary(String level, int days, int minutes) {
+    return '$level · हफ़्ते में $days दिन · $minutes मिनट';
+  }
+
+  @override
+  String planDayInfo(int count, int minutes) {
+    return '$count व्यायाम · लगभग $minutes मिनट';
+  }
+
+  @override
+  String get planRestInfo =>
+      'आज आराम करें: हल्की सैर या थोड़ी स्ट्रेचिंग काफ़ी है।';
+
+  @override
+  String get planProgressInfo =>
+      'हर सत्र के बाद बताएँ कि कैसा लगा। बहुत आसान, या लगातार दो बार ठीक, तो रेप्स या एक सेट बढ़ेगा; बहुत कठिन तो कम होगा। आपकी ताक़त बढ़ने पर लेवल बढ़ेगा और प्लान अपने आप बदलेगा।';
+
+  @override
+  String get trainingLevel => 'फ़िटनेस लेवल';
+
+  @override
+  String get trainingDays => 'हफ़्ते में दिन';
+
+  @override
+  String trainingDaysValue(int days) {
+    return '$days दिन';
+  }
+
+  @override
+  String get trainingMinutes => 'हर सत्र का समय';
+
+  @override
+  String get trainingEquipment => 'सामान';
+
+  @override
+  String get equipmentNone => 'कुछ नहीं';
+
+  @override
+  String get equipmentHome => 'कुर्सी और बैग';
+
+  @override
+  String get trainingFocus => 'फ़ोकस क्षेत्र';
+
+  @override
+  String get focusBalanced => 'संतुलित';
+
+  @override
+  String get focusUpper => 'ऊपरी शरीर';
+
+  @override
+  String get focusLower => 'निचला शरीर और कूल्हे';
+
+  @override
+  String get todaysWorkout => 'आज का वर्कआउट';
+
+  @override
+  String get feelQuestion => 'कैसा लगा?';
+
+  @override
+  String get feelTooEasy => 'बहुत आसान';
+
+  @override
+  String get feelJustRight => 'बिल्कुल ठीक';
+
+  @override
+  String get feelTooHard => 'बहुत कठिन';
+
+  @override
+  String get feelNoteHarder => 'अगली बार कुछ रेप्स ज़्यादा होंगे।';
+
+  @override
+  String get feelNoteSteady => 'बढ़िया — एक बार और ऐसा, फिर स्तर बढ़ेगा।';
+
+  @override
+  String get feelNoteEasier => 'कोई बात नहीं — अगली बार थोड़ा आसान होगा।';
+
+  @override
+  String feelLevelUp(String level) {
+    return 'लेवल अप! आपका प्लान अब $level है।';
+  }
+
+  @override
+  String get welcomePrivateTitle => 'पूरी तरह निजी';
+
+  @override
+  String get welcomePrivateBody =>
+      'कोई अकाउंट नहीं, कोई विज्ञापन नहीं। आपका डेटा आपके फ़ोन पर ही रहता है।';
+
+  @override
+  String get welcomePlanTitle => 'आपके लिए बना प्लान';
+
+  @override
+  String get welcomePlanBody =>
+      'आपके लक्ष्यों से रोज़ के वर्कआउट, भोजन और आदतें — जो आपकी प्रगति के साथ बदलते हैं।';
+
+  @override
+  String get welcomeAllTitle => 'सब एक जगह';
+
+  @override
+  String get welcomeAllBody => 'सेहत, पोस्चर, स्टाइल, कौशल और ऑफ़लाइन AI कोच।';
+
+  @override
+  String get onboardingTrainingTitle => 'आपकी ट्रेनिंग';
+
+  @override
+  String get onboardingTrainingBody =>
+      'हम आपके लक्ष्यों से सेट और रेप्स वाला रोज़ का प्लान बनाएँगे। यह आपकी अभी की क्षमता से शुरू होगा और ताक़त बढ़ने पर बढ़ेगा।';
+
+  @override
+  String get onboardingYourWeek => 'आपका हफ़्ता';
+
+  @override
+  String onboardingWeekNote(int days, int count) {
+    return 'हफ़्ते में $days सत्र, हर एक में $count व्यायाम, बीच में आराम के दिन।';
+  }
+
+  @override
+  String get onboardingTrainingLater =>
+      'यह सब बाद में \'मेरा ट्रेनिंग प्लान\' में बदल सकते हैं।';
 }

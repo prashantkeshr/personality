@@ -11493,6 +11493,312 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exercise & workouts'**
   String get featureExerciseHub;
+
+  /// No description provided for @sessionFullBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Full body'**
+  String get sessionFullBody;
+
+  /// No description provided for @sessionUpper.
+  ///
+  /// In en, this message translates to:
+  /// **'Upper body'**
+  String get sessionUpper;
+
+  /// No description provided for @sessionLower.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower body & glutes'**
+  String get sessionLower;
+
+  /// No description provided for @sessionCore.
+  ///
+  /// In en, this message translates to:
+  /// **'Core'**
+  String get sessionCore;
+
+  /// No description provided for @sessionCardio.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardio'**
+  String get sessionCardio;
+
+  /// No description provided for @sessionMobility.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobility'**
+  String get sessionMobility;
+
+  /// No description provided for @sessionYoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Yoga'**
+  String get sessionYoga;
+
+  /// No description provided for @sessionPosture.
+  ///
+  /// In en, this message translates to:
+  /// **'Posture'**
+  String get sessionPosture;
+
+  /// No description provided for @sessionRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest day'**
+  String get sessionRest;
+
+  /// No description provided for @planSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{type} session'**
+  String planSessionTitle(String type);
+
+  /// No description provided for @doseReps.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reps'**
+  String doseReps(int count);
+
+  /// No description provided for @doseSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds} s'**
+  String doseSeconds(int seconds);
+
+  /// No description provided for @doseMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String doseMinutes(int minutes);
+
+  /// No description provided for @trainingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My training plan'**
+  String get trainingTitle;
+
+  /// No description provided for @trainingEntryInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'A day-by-day plan with sets and reps that grows with you'**
+  String get trainingEntryInfo;
+
+  /// No description provided for @trainingSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Training settings'**
+  String get trainingSettings;
+
+  /// No description provided for @trainingSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{level} · {days} days a week · {minutes} min'**
+  String trainingSummary(String level, int days, int minutes);
+
+  /// No description provided for @planDayInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} exercises · about {minutes} min'**
+  String planDayInfo(int count, int minutes);
+
+  /// No description provided for @planRestInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Recover today: an easy walk or a gentle stretch is plenty.'**
+  String get planRestInfo;
+
+  /// No description provided for @planProgressInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'After each session, tell us how it felt. Too easy, or just right twice in a row, adds reps or a set; too hard eases off. As you get stronger, your level goes up and the plan adjusts by itself.'**
+  String get planProgressInfo;
+
+  /// No description provided for @trainingLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness level'**
+  String get trainingLevel;
+
+  /// No description provided for @trainingDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days a week'**
+  String get trainingDays;
+
+  /// No description provided for @trainingDaysValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days'**
+  String trainingDaysValue(int days);
+
+  /// No description provided for @trainingMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Time per session'**
+  String get trainingMinutes;
+
+  /// No description provided for @trainingEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment'**
+  String get trainingEquipment;
+
+  /// No description provided for @equipmentNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get equipmentNone;
+
+  /// No description provided for @equipmentHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Chair & backpack'**
+  String get equipmentHome;
+
+  /// No description provided for @trainingFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus area'**
+  String get trainingFocus;
+
+  /// No description provided for @focusBalanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced'**
+  String get focusBalanced;
+
+  /// No description provided for @focusUpper.
+  ///
+  /// In en, this message translates to:
+  /// **'Upper body'**
+  String get focusUpper;
+
+  /// No description provided for @focusLower.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower body & glutes'**
+  String get focusLower;
+
+  /// No description provided for @todaysWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s workout'**
+  String get todaysWorkout;
+
+  /// No description provided for @feelQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'How did that feel?'**
+  String get feelQuestion;
+
+  /// No description provided for @feelTooEasy.
+  ///
+  /// In en, this message translates to:
+  /// **'Too easy'**
+  String get feelTooEasy;
+
+  /// No description provided for @feelJustRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Just right'**
+  String get feelJustRight;
+
+  /// No description provided for @feelTooHard.
+  ///
+  /// In en, this message translates to:
+  /// **'Too hard'**
+  String get feelTooHard;
+
+  /// No description provided for @feelNoteHarder.
+  ///
+  /// In en, this message translates to:
+  /// **'Next time you\'ll get a few more reps.'**
+  String get feelNoteHarder;
+
+  /// No description provided for @feelNoteSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Great — one more like this and it steps up.'**
+  String get feelNoteSteady;
+
+  /// No description provided for @feelNoteEasier.
+  ///
+  /// In en, this message translates to:
+  /// **'No problem — next time is a little easier.'**
+  String get feelNoteEasier;
+
+  /// No description provided for @feelLevelUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Level up! Your plan is now {level}.'**
+  String feelLevelUp(String level);
+
+  /// No description provided for @welcomePrivateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Private by design'**
+  String get welcomePrivateTitle;
+
+  /// No description provided for @welcomePrivateBody.
+  ///
+  /// In en, this message translates to:
+  /// **'No account, no ads. Your data stays on your phone.'**
+  String get welcomePrivateBody;
+
+  /// No description provided for @welcomePlanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A plan made for you'**
+  String get welcomePlanTitle;
+
+  /// No description provided for @welcomePlanBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily workouts, meals and habits from your goals — adjusting as you progress.'**
+  String get welcomePlanBody;
+
+  /// No description provided for @welcomeAllTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All in one place'**
+  String get welcomeAllTitle;
+
+  /// No description provided for @welcomeAllBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Health, posture, style, skills and an offline AI coach.'**
+  String get welcomeAllBody;
+
+  /// No description provided for @onboardingTrainingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your training'**
+  String get onboardingTrainingTitle;
+
+  /// No description provided for @onboardingTrainingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll build a day-by-day plan with sets and reps from your goals. It starts where you are and steps up as you get stronger.'**
+  String get onboardingTrainingBody;
+
+  /// No description provided for @onboardingYourWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Your week'**
+  String get onboardingYourWeek;
+
+  /// No description provided for @onboardingWeekNote.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} sessions a week, {count} exercises each, rest days in between.'**
+  String onboardingWeekNote(int days, int count);
+
+  /// No description provided for @onboardingTrainingLater.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change all of this later in My training plan.'**
+  String get onboardingTrainingLater;
 }
 
 class _AppLocalizationsDelegate

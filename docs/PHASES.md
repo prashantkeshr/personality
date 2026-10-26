@@ -829,3 +829,30 @@ On the emulator (x86_64, 4 GB, 6 cores) with the real model:
 - **Exercise card** on the Health tab is now **Exercise & workouts** and opens guided workouts. The workouts screen links to the exercise library and the exercise log.
 
 Verification: `flutter analyze` clean; `flutter test` 459 pass, 2 skipped. New tests cover the ranking, timeline routes, and the "Let's try" card rising with use and counting opens. The exercise and content flow tests were updated for the new entry point.
+
+## Phase 37 — Day-wise training plan with auto level-up; redesigned setup (2026-10-26)
+
+- **Training engine** (`domain/services/training_engine.dart`):
+  - **Settings:** level (beginner, intermediate, advanced), 2–6 days a week, 10/20/30/45 minutes, equipment (none, or chair & backpack) and focus area (balanced, upper, lower). The focus defaults from gender — lower body & glutes for women, upper body for men — and can be changed.
+  - **The week:** training days are spread out (2 → Mon/Thu, 3 → Mon/Wed/Fri…) with rest days between. Session types follow the main goal:
+    - strength: upper, lower, core and full-body days, tilted toward the focus area;
+    - weight or energy: full body and cardio;
+    - posture: posture, core and mobility;
+    - flexibility, mindfulness or sleep: yoga and mobility.
+  - **Exercises:** 3–6 per session depending on time, each with sets × reps, holds or minutes, scaled by level. Beginners get incline push-ups; ages 55+ get low impact plus balance work; chair and backpack moves are added only with that equipment.
+  - **Auto-adjust:** after each plan session the user picks Too easy, Just right or Too hard.
+    - Too easy, or two Just right in a row for that day type, raises each exercise one step: +2 reps, +5 s or +2 min, and +1 set every 3 steps (5 at most).
+    - Too hard lowers it one step.
+    - Once the plan averages 4 steps up, the level rises and the steps reset, with a "Level up!" message.
+- **My training plan** (`/health/training`):
+  - A week strip (today outlined), each day's exercises with doses, Start, and a settings sheet. Its card sits at the top of Guided workouts.
+  - Plan days play in the workout player (one step per set) under localized titles ("Lower body & glutes session") without cluttering the guided lists.
+  - The finish screen asks "How did that feel?".
+- **Home:** a **Today's workout** card (today's session with its first exercises and a play button, or a rest-day note) above Let's try.
+- **Redesigned setup:**
+  - A progress bar replaces the plain step count.
+  - The welcome page shows the app icon and three promises: private, a plan made for you, all in one place.
+  - New order: welcome → goals → preferences (units before height and weight) → about you → **your training** → privacy → permissions.
+  - The training page pre-sets the focus from the gender chosen in About you and shows a live preview of the week. The choices are saved on finish.
+
+Verification: `flutter analyze` clean; `flutter test` 470 pass, 2 skipped. New tests: 9 engine tests, the plan screen and Home card, playing a plan day to the end and "too easy" stepping it up, and the setup saving a gender-based focus and 4 days.

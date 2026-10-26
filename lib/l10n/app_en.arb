@@ -3427,5 +3427,131 @@
   "letsTryYourFavourite": "Your go-to workout",
   "letsTryPopular": "Most popular",
   "workoutsLog": "Exercise log",
-  "featureExerciseHub": "Exercise & workouts"
+  "featureExerciseHub": "Exercise & workouts",
+  "sessionFullBody": "Full body",
+  "sessionUpper": "Upper body",
+  "sessionLower": "Lower body & glutes",
+  "sessionCore": "Core",
+  "sessionCardio": "Cardio",
+  "sessionMobility": "Mobility",
+  "sessionYoga": "Yoga",
+  "sessionPosture": "Posture",
+  "sessionRest": "Rest day",
+  "planSessionTitle": "{type} session",
+  "@planSessionTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "doseReps": "{count} reps",
+  "@doseReps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "doseSeconds": "{seconds} s",
+  "@doseSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "doseMinutes": "{minutes} min",
+  "@doseMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "trainingTitle": "My training plan",
+  "trainingEntryInfo": "A day-by-day plan with sets and reps that grows with you",
+  "trainingSettings": "Training settings",
+  "trainingSummary": "{level} · {days} days a week · {minutes} min",
+  "@trainingSummary": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "days": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "planDayInfo": "{count} exercises · about {minutes} min",
+  "@planDayInfo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "planRestInfo": "Recover today: an easy walk or a gentle stretch is plenty.",
+  "planProgressInfo": "After each session, tell us how it felt. Too easy, or just right twice in a row, adds reps or a set; too hard eases off. As you get stronger, your level goes up and the plan adjusts by itself.",
+  "trainingLevel": "Fitness level",
+  "trainingDays": "Days a week",
+  "trainingDaysValue": "{days} days",
+  "@trainingDaysValue": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "trainingMinutes": "Time per session",
+  "trainingEquipment": "Equipment",
+  "equipmentNone": "None",
+  "equipmentHome": "Chair & backpack",
+  "trainingFocus": "Focus area",
+  "focusBalanced": "Balanced",
+  "focusUpper": "Upper body",
+  "focusLower": "Lower body & glutes",
+  "todaysWorkout": "Today's workout",
+  "feelQuestion": "How did that feel?",
+  "feelTooEasy": "Too easy",
+  "feelJustRight": "Just right",
+  "feelTooHard": "Too hard",
+  "feelNoteHarder": "Next time you'll get a few more reps.",
+  "feelNoteSteady": "Great — one more like this and it steps up.",
+  "feelNoteEasier": "No problem — next time is a little easier.",
+  "feelLevelUp": "Level up! Your plan is now {level}.",
+  "@feelLevelUp": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomePrivateTitle": "Private by design",
+  "welcomePrivateBody": "No account, no ads. Your data stays on your phone.",
+  "welcomePlanTitle": "A plan made for you",
+  "welcomePlanBody": "Daily workouts, meals and habits from your goals — adjusting as you progress.",
+  "welcomeAllTitle": "All in one place",
+  "welcomeAllBody": "Health, posture, style, skills and an offline AI coach.",
+  "onboardingTrainingTitle": "Your training",
+  "onboardingTrainingBody": "We'll build a day-by-day plan with sets and reps from your goals. It starts where you are and steps up as you get stronger.",
+  "onboardingYourWeek": "Your week",
+  "onboardingWeekNote": "{days} sessions a week, {count} exercises each, rest days in between.",
+  "@onboardingWeekNote": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboardingTrainingLater": "You can change all of this later in My training plan."
 }

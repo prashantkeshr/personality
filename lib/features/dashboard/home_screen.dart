@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../about/about_personality_screen.dart';
 import '../exercise/home_workouts.dart';
+import '../training/training_screen.dart' show TodayWorkoutCard;
 import '../permissions/permission_widgets.dart';
 import '../today/right_now_section.dart';
 import '../../app/router.dart';
@@ -95,6 +96,8 @@ class HomeScreen extends ConsumerWidget {
           ]),
           const AgendaTimeline(),
           const SizedBox(height: AppSpacing.md),
+          const TodayWorkoutCard(),
+          const SizedBox(height: AppSpacing.sm),
           const HomeWorkouts(),
           const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.xl),

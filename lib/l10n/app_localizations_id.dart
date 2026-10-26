@@ -6615,4 +6615,183 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get featureExerciseHub => 'Olahraga & latihan';
+
+  @override
+  String get sessionFullBody => 'Seluruh tubuh';
+
+  @override
+  String get sessionUpper => 'Tubuh atas';
+
+  @override
+  String get sessionLower => 'Tubuh bawah & bokong';
+
+  @override
+  String get sessionCore => 'Inti';
+
+  @override
+  String get sessionCardio => 'Kardio';
+
+  @override
+  String get sessionMobility => 'Mobilitas';
+
+  @override
+  String get sessionYoga => 'Yoga';
+
+  @override
+  String get sessionPosture => 'Postur';
+
+  @override
+  String get sessionRest => 'Hari istirahat';
+
+  @override
+  String planSessionTitle(String type) {
+    return 'Sesi $type';
+  }
+
+  @override
+  String doseReps(int count) {
+    return '$count rep';
+  }
+
+  @override
+  String doseSeconds(int seconds) {
+    return '$seconds dtk';
+  }
+
+  @override
+  String doseMinutes(int minutes) {
+    return '$minutes mnt';
+  }
+
+  @override
+  String get trainingTitle => 'Rencana latihanku';
+
+  @override
+  String get trainingEntryInfo =>
+      'Rencana harian dengan set dan repetisi yang ikut berkembang';
+
+  @override
+  String get trainingSettings => 'Pengaturan latihan';
+
+  @override
+  String trainingSummary(String level, int days, int minutes) {
+    return '$level · $days hari seminggu · $minutes mnt';
+  }
+
+  @override
+  String planDayInfo(int count, int minutes) {
+    return '$count latihan · sekitar $minutes mnt';
+  }
+
+  @override
+  String get planRestInfo =>
+      'Pulihkan diri hari ini: jalan santai atau peregangan ringan sudah cukup.';
+
+  @override
+  String get planProgressInfo =>
+      'Setelah tiap sesi, beri tahu rasanya. Terlalu mudah, atau pas dua kali berturut-turut, menambah repetisi atau satu set; terlalu berat menguranginya. Saat makin kuat, levelmu naik dan rencana menyesuaikan sendiri.';
+
+  @override
+  String get trainingLevel => 'Tingkat kebugaran';
+
+  @override
+  String get trainingDays => 'Hari per minggu';
+
+  @override
+  String trainingDaysValue(int days) {
+    return '$days hari';
+  }
+
+  @override
+  String get trainingMinutes => 'Waktu per sesi';
+
+  @override
+  String get trainingEquipment => 'Peralatan';
+
+  @override
+  String get equipmentNone => 'Tidak ada';
+
+  @override
+  String get equipmentHome => 'Kursi & tas ransel';
+
+  @override
+  String get trainingFocus => 'Area fokus';
+
+  @override
+  String get focusBalanced => 'Seimbang';
+
+  @override
+  String get focusUpper => 'Tubuh atas';
+
+  @override
+  String get focusLower => 'Tubuh bawah & bokong';
+
+  @override
+  String get todaysWorkout => 'Latihan hari ini';
+
+  @override
+  String get feelQuestion => 'Bagaimana rasanya?';
+
+  @override
+  String get feelTooEasy => 'Terlalu mudah';
+
+  @override
+  String get feelJustRight => 'Pas';
+
+  @override
+  String get feelTooHard => 'Terlalu berat';
+
+  @override
+  String get feelNoteHarder => 'Lain kali repetisinya sedikit lebih banyak.';
+
+  @override
+  String get feelNoteSteady => 'Bagus — satu sesi lagi seperti ini lalu naik.';
+
+  @override
+  String get feelNoteEasier => 'Tidak apa — lain kali sedikit lebih ringan.';
+
+  @override
+  String feelLevelUp(String level) {
+    return 'Naik level! Rencanamu kini $level.';
+  }
+
+  @override
+  String get welcomePrivateTitle => 'Privat sejak awal';
+
+  @override
+  String get welcomePrivateBody =>
+      'Tanpa akun, tanpa iklan. Datamu tetap di ponselmu.';
+
+  @override
+  String get welcomePlanTitle => 'Rencana khusus untukmu';
+
+  @override
+  String get welcomePlanBody =>
+      'Latihan, makanan, dan kebiasaan harian dari tujuanmu — menyesuaikan kemajuanmu.';
+
+  @override
+  String get welcomeAllTitle => 'Semua di satu tempat';
+
+  @override
+  String get welcomeAllBody =>
+      'Kesehatan, postur, gaya, keterampilan, dan pelatih AI offline.';
+
+  @override
+  String get onboardingTrainingTitle => 'Latihanmu';
+
+  @override
+  String get onboardingTrainingBody =>
+      'Kami akan menyusun rencana harian dengan set dan repetisi dari tujuanmu. Dimulai dari kemampuanmu sekarang dan naik saat kamu makin kuat.';
+
+  @override
+  String get onboardingYourWeek => 'Mingguanmu';
+
+  @override
+  String onboardingWeekNote(int days, int count) {
+    return '$days sesi seminggu, masing-masing $count latihan, dengan hari istirahat di antaranya.';
+  }
+
+  @override
+  String get onboardingTrainingLater =>
+      'Semua ini bisa diubah nanti di Rencana latihanku.';
 }

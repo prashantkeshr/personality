@@ -6631,4 +6631,184 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get featureExerciseHub => 'Exercícios e treinos';
+
+  @override
+  String get sessionFullBody => 'Corpo inteiro';
+
+  @override
+  String get sessionUpper => 'Parte superior';
+
+  @override
+  String get sessionLower => 'Parte inferior e glúteos';
+
+  @override
+  String get sessionCore => 'Core';
+
+  @override
+  String get sessionCardio => 'Cardio';
+
+  @override
+  String get sessionMobility => 'Mobilidade';
+
+  @override
+  String get sessionYoga => 'Ioga';
+
+  @override
+  String get sessionPosture => 'Postura';
+
+  @override
+  String get sessionRest => 'Dia de descanso';
+
+  @override
+  String planSessionTitle(String type) {
+    return 'Sessão de $type';
+  }
+
+  @override
+  String doseReps(int count) {
+    return '$count reps';
+  }
+
+  @override
+  String doseSeconds(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String doseMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String get trainingTitle => 'Meu plano de treino';
+
+  @override
+  String get trainingEntryInfo =>
+      'Um plano dia a dia com séries e repetições que evolui com você';
+
+  @override
+  String get trainingSettings => 'Ajustes de treino';
+
+  @override
+  String trainingSummary(String level, int days, int minutes) {
+    return '$level · $days dias por semana · $minutes min';
+  }
+
+  @override
+  String planDayInfo(int count, int minutes) {
+    return '$count exercícios · cerca de $minutes min';
+  }
+
+  @override
+  String get planRestInfo =>
+      'Hoje é para recuperar: uma caminhada leve ou um alongamento bastam.';
+
+  @override
+  String get planProgressInfo =>
+      'Depois de cada sessão, diga como foi. Fácil demais, ou na medida duas vezes seguidas, soma repetições ou uma série; difícil demais, alivia. Conforme você ganha força, seu nível sobe e o plano se ajusta sozinho.';
+
+  @override
+  String get trainingLevel => 'Nível de condicionamento';
+
+  @override
+  String get trainingDays => 'Dias por semana';
+
+  @override
+  String trainingDaysValue(int days) {
+    return '$days dias';
+  }
+
+  @override
+  String get trainingMinutes => 'Tempo por sessão';
+
+  @override
+  String get trainingEquipment => 'Equipamento';
+
+  @override
+  String get equipmentNone => 'Nenhum';
+
+  @override
+  String get equipmentHome => 'Cadeira e mochila';
+
+  @override
+  String get trainingFocus => 'Área de foco';
+
+  @override
+  String get focusBalanced => 'Equilibrado';
+
+  @override
+  String get focusUpper => 'Parte superior';
+
+  @override
+  String get focusLower => 'Parte inferior e glúteos';
+
+  @override
+  String get todaysWorkout => 'Treino de hoje';
+
+  @override
+  String get feelQuestion => 'Como foi?';
+
+  @override
+  String get feelTooEasy => 'Fácil demais';
+
+  @override
+  String get feelJustRight => 'Na medida';
+
+  @override
+  String get feelTooHard => 'Difícil demais';
+
+  @override
+  String get feelNoteHarder => 'Na próxima vez, algumas repetições a mais.';
+
+  @override
+  String get feelNoteSteady => 'Ótimo — mais uma assim e ele sobe um pouco.';
+
+  @override
+  String get feelNoteEasier =>
+      'Sem problema — a próxima será um pouco mais leve.';
+
+  @override
+  String feelLevelUp(String level) {
+    return 'Subiu de nível! Seu plano agora é $level.';
+  }
+
+  @override
+  String get welcomePrivateTitle => 'Privado por padrão';
+
+  @override
+  String get welcomePrivateBody =>
+      'Sem conta e sem anúncios. Seus dados ficam no seu telefone.';
+
+  @override
+  String get welcomePlanTitle => 'Um plano feito para você';
+
+  @override
+  String get welcomePlanBody =>
+      'Treinos, refeições e hábitos diários conforme suas metas, ajustando-se ao seu progresso.';
+
+  @override
+  String get welcomeAllTitle => 'Tudo em um só lugar';
+
+  @override
+  String get welcomeAllBody =>
+      'Saúde, postura, estilo, habilidades e um coach de IA offline.';
+
+  @override
+  String get onboardingTrainingTitle => 'Seu treino';
+
+  @override
+  String get onboardingTrainingBody =>
+      'Vamos montar um plano dia a dia com séries e repetições conforme suas metas. Ele começa onde você está e sobe conforme você fica mais forte.';
+
+  @override
+  String get onboardingYourWeek => 'Sua semana';
+
+  @override
+  String onboardingWeekNote(int days, int count) {
+    return '$days sessões por semana, $count exercícios cada, com descanso entre elas.';
+  }
+
+  @override
+  String get onboardingTrainingLater =>
+      'Você pode mudar tudo isso depois em Meu plano de treino.';
 }
