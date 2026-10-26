@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import '../about/about_personality_screen.dart';
 import '../exercise/home_workouts.dart';
 import 'home_search.dart';
+import '../backup/backup_nudge.dart';
+import '../whats_new/whats_new.dart';
 import '../training/training_screen.dart' show TodayWorkoutCard;
 import '../permissions/permission_widgets.dart';
 import '../today/right_now_section.dart';
@@ -86,6 +88,8 @@ class HomeScreen extends ConsumerWidget {
           const HomeSearchBar(),
           const SizedBox(height: AppSpacing.lg),
           const BadgeCelebrationHost(),
+          const WhatsNewCard(),
+          const BackupNudgeCard(),
           const PermissionNudgeCard(),
           const _CompleteProfileCard(),
           const _TodayOnly(children: [

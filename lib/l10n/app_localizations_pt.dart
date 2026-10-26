@@ -6937,4 +6937,81 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'Seu próprio treino';
+
+  @override
+  String get backupNudgeTitle => 'Hora de fazer um backup';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'Seu último backup foi há $count dias. Salve uma cópia criptografada para não perder nada se perder o telefone.';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'Você ainda não fez backup. Salve uma cópia criptografada para não perder nada se perder o telefone.';
+
+  @override
+  String get backupNudgeLater => 'Depois';
+
+  @override
+  String get backupNudgeNow => 'Fazer backup agora';
+
+  @override
+  String get backupWeekly => 'Lembrete semanal de backup';
+
+  @override
+  String get backupWeeklyInfo =>
+      'O Início avisa quando passa uma semana sem backup. Sua senha nunca é guardada, então o backup é um toque.';
+
+  @override
+  String get whatsNewTitle => 'Novidades';
+
+  @override
+  String get whatsNewCard => 'Veja o que esta atualização traz';
+
+  @override
+  String get whatsNewIntro =>
+      'Novidades desta versão. Toque em um item para experimentar.';
+
+  @override
+  String get newTrainingTitle => 'Um plano que evolui com você';
+
+  @override
+  String get newTrainingBody =>
+      'Sessões dia a dia com séries e repetições. Diga como foi e ele se ajusta e sobe seu nível.';
+
+  @override
+  String get newBuilderTitle => 'Monte seu treino';
+
+  @override
+  String get newBuilderBody =>
+      'Escolha exercícios, repetições ou tempo, descanso e rodadas. Funciona como qualquer treino guiado.';
+
+  @override
+  String get newVoiceTitle => 'Dicas de voz';
+
+  @override
+  String get newVoiceBody =>
+      'O player diz o que vem, faz contagem regressiva e avisa quando trocar de lado. Funciona offline.';
+
+  @override
+  String get newSearchTitle => 'Busque tudo';
+
+  @override
+  String get newSearchBody =>
+      'Uma busca no Início para exercícios, treinos, refeições, estilos e cada tela.';
+
+  @override
+  String get newSwipeTitle => 'Um Início mais curto, com gestos';
+
+  @override
+  String get newSwipeBody =>
+      'O Início mostra primeiro o que vem. Deslize um item para a direita para concluir e à esquerda para pular.';
+
+  @override
+  String get newBackupTitle => 'Lembrete semanal de backup';
+
+  @override
+  String get newBackupBody =>
+      'Um aviso no Início quando faz uma semana do seu último backup criptografado.';
 }

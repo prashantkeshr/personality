@@ -12015,6 +12015,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your own workout'**
   String get myWorkoutSummary;
+
+  /// No description provided for @backupNudgeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Time for a backup'**
+  String get backupNudgeTitle;
+
+  /// No description provided for @backupNudgeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your last backup was {count} days ago. Save an encrypted copy so nothing is lost if this phone is.'**
+  String backupNudgeBody(int count);
+
+  /// No description provided for @backupNudgeNever.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t backed up yet. Save an encrypted copy so nothing is lost if this phone is.'**
+  String get backupNudgeNever;
+
+  /// No description provided for @backupNudgeLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get backupNudgeLater;
+
+  /// No description provided for @backupNudgeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up now'**
+  String get backupNudgeNow;
+
+  /// No description provided for @backupWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly backup reminder'**
+  String get backupWeekly;
+
+  /// No description provided for @backupWeeklyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Home reminds you when a week has passed without a backup. Your password is never stored, so the backup itself is one tap.'**
+  String get backupWeeklyInfo;
+
+  /// No description provided for @whatsNewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new'**
+  String get whatsNewTitle;
+
+  /// No description provided for @whatsNewCard.
+  ///
+  /// In en, this message translates to:
+  /// **'See what this update brings'**
+  String get whatsNewCard;
+
+  /// No description provided for @whatsNewIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'New in this version. Tap any item to try it.'**
+  String get whatsNewIntro;
+
+  /// No description provided for @newTrainingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A training plan that grows with you'**
+  String get newTrainingTitle;
+
+  /// No description provided for @newTrainingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Day-by-day sessions with sets and reps. Tell it how each session felt and it adjusts, then levels you up.'**
+  String get newTrainingBody;
+
+  /// No description provided for @newBuilderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build your own workout'**
+  String get newBuilderTitle;
+
+  /// No description provided for @newBuilderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick exercises, reps or time, rest and rounds. It plays like any guided workout.'**
+  String get newBuilderBody;
+
+  /// No description provided for @newVoiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice cues'**
+  String get newVoiceTitle;
+
+  /// No description provided for @newVoiceBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The workout player says what\'s next, counts down and tells you when to switch sides. Works offline.'**
+  String get newVoiceBody;
+
+  /// No description provided for @newSearchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search everything'**
+  String get newSearchTitle;
+
+  /// No description provided for @newSearchBody.
+  ///
+  /// In en, this message translates to:
+  /// **'One search on Home for exercises, workouts, meals, styles and every screen.'**
+  String get newSearchBody;
+
+  /// No description provided for @newSwipeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A shorter Home, with swipes'**
+  String get newSwipeTitle;
+
+  /// No description provided for @newSwipeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Home shows what\'s next first. Swipe a timeline item right for done, left to skip.'**
+  String get newSwipeBody;
+
+  /// No description provided for @newBackupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly backup reminder'**
+  String get newBackupTitle;
+
+  /// No description provided for @newBackupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A gentle nudge on Home when it\'s been a week since your last encrypted backup.'**
+  String get newBackupBody;
 }
 
 class _AppLocalizationsDelegate

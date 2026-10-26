@@ -12,6 +12,7 @@ import '../journey/goal_finder_screen.dart' show GoalArt, goalIcon;
 import '../../domain/services/training_engine.dart';
 import '../training/training_providers.dart';
 import '../training/training_screen.dart';
+import '../whats_new/whats_new.dart';
 import 'about_you.dart';
 import 'permissions_page.dart';
 
@@ -88,6 +89,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       }
       await _reminders.apply(ref, l10n);
       await ref.read(trainingActionsProvider).savePrefs(_training);
+      // A fresh install has nothing to catch up on.
+      await markWhatsNewSeen(ref);
       await ref
           .read(settingsControllerProvider.notifier)
           .update((s) => s.copyWith(onboardingCompleted: true));

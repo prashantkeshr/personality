@@ -94,6 +94,13 @@ class SettingsScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push(AppRoutes.content),
           ),
+          ListTile(
+            key: const Key('settings-whats-new'),
+            leading: const Icon(Icons.auto_awesome),
+            title: Text(l10n.whatsNewTitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRoutes.whatsNew),
+          ),
           header(l10n.deviceInfoTitle),
           ListTile(
             leading: const Icon(Icons.memory),

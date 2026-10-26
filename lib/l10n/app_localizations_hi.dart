@@ -6874,4 +6874,81 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'आपका अपना वर्कआउट';
+
+  @override
+  String get backupNudgeTitle => 'बैकअप का समय';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'आपका पिछला बैकअप $count दिन पहले था। एन्क्रिप्टेड कॉपी सहेजिए ताकि फ़ोन खोने पर भी कुछ न खोए।';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'आपने अभी तक बैकअप नहीं लिया है। एन्क्रिप्टेड कॉपी सहेजिए ताकि फ़ोन खोने पर भी कुछ न खोए।';
+
+  @override
+  String get backupNudgeLater => 'बाद में';
+
+  @override
+  String get backupNudgeNow => 'अभी बैकअप लें';
+
+  @override
+  String get backupWeekly => 'साप्ताहिक बैकअप याद दिलाना';
+
+  @override
+  String get backupWeeklyInfo =>
+      'एक हफ़्ता बिना बैकअप बीतने पर होम याद दिलाता है। आपका पासवर्ड कभी सहेजा नहीं जाता, इसलिए बैकअप बस एक टैप है।';
+
+  @override
+  String get whatsNewTitle => 'नया क्या है';
+
+  @override
+  String get whatsNewCard => 'देखिए इस अपडेट में क्या है';
+
+  @override
+  String get whatsNewIntro =>
+      'इस संस्करण में नया। आज़माने के लिए किसी पर टैप करें।';
+
+  @override
+  String get newTrainingTitle => 'आपके साथ बढ़ने वाला ट्रेनिंग प्लान';
+
+  @override
+  String get newTrainingBody =>
+      'सेट और गिनती के साथ रोज़ के सत्र। हर सत्र कैसा लगा बताइए, यह खुद बदलता है और लेवल बढ़ाता है।';
+
+  @override
+  String get newBuilderTitle => 'अपना वर्कआउट बनाइए';
+
+  @override
+  String get newBuilderBody =>
+      'व्यायाम, गिनती या समय, आराम और राउंड चुनिए। यह किसी भी गाइडेड वर्कआउट की तरह चलता है।';
+
+  @override
+  String get newVoiceTitle => 'आवाज़ संकेत';
+
+  @override
+  String get newVoiceBody =>
+      'वर्कआउट प्लेयर अगला व्यायाम बताता है, उल्टी गिनती करता है और तरफ़ बदलने को कहता है। ऑफ़लाइन चलता है।';
+
+  @override
+  String get newSearchTitle => 'सब कुछ खोजिए';
+
+  @override
+  String get newSearchBody =>
+      'होम पर एक खोज: व्यायाम, वर्कआउट, भोजन, स्टाइल और हर स्क्रीन।';
+
+  @override
+  String get newSwipeTitle => 'छोटा होम, स्वाइप के साथ';
+
+  @override
+  String get newSwipeBody =>
+      'होम पहले अगला काम दिखाता है। टाइमलाइन आइटम को दाएँ स्वाइप करें तो पूरा, बाएँ करें तो छोड़ें।';
+
+  @override
+  String get newBackupTitle => 'साप्ताहिक बैकअप याद दिलाना';
+
+  @override
+  String get newBackupBody =>
+      'पिछले एन्क्रिप्टेड बैकअप को एक हफ़्ता होने पर होम पर हल्का सा याद दिलाना।';
 }

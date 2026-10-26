@@ -6886,4 +6886,80 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'Your own workout';
+
+  @override
+  String get backupNudgeTitle => 'Time for a backup';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'Your last backup was $count days ago. Save an encrypted copy so nothing is lost if this phone is.';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'You haven\'t backed up yet. Save an encrypted copy so nothing is lost if this phone is.';
+
+  @override
+  String get backupNudgeLater => 'Later';
+
+  @override
+  String get backupNudgeNow => 'Back up now';
+
+  @override
+  String get backupWeekly => 'Weekly backup reminder';
+
+  @override
+  String get backupWeeklyInfo =>
+      'Home reminds you when a week has passed without a backup. Your password is never stored, so the backup itself is one tap.';
+
+  @override
+  String get whatsNewTitle => 'What\'s new';
+
+  @override
+  String get whatsNewCard => 'See what this update brings';
+
+  @override
+  String get whatsNewIntro => 'New in this version. Tap any item to try it.';
+
+  @override
+  String get newTrainingTitle => 'A training plan that grows with you';
+
+  @override
+  String get newTrainingBody =>
+      'Day-by-day sessions with sets and reps. Tell it how each session felt and it adjusts, then levels you up.';
+
+  @override
+  String get newBuilderTitle => 'Build your own workout';
+
+  @override
+  String get newBuilderBody =>
+      'Pick exercises, reps or time, rest and rounds. It plays like any guided workout.';
+
+  @override
+  String get newVoiceTitle => 'Voice cues';
+
+  @override
+  String get newVoiceBody =>
+      'The workout player says what\'s next, counts down and tells you when to switch sides. Works offline.';
+
+  @override
+  String get newSearchTitle => 'Search everything';
+
+  @override
+  String get newSearchBody =>
+      'One search on Home for exercises, workouts, meals, styles and every screen.';
+
+  @override
+  String get newSwipeTitle => 'A shorter Home, with swipes';
+
+  @override
+  String get newSwipeBody =>
+      'Home shows what\'s next first. Swipe a timeline item right for done, left to skip.';
+
+  @override
+  String get newBackupTitle => 'Weekly backup reminder';
+
+  @override
+  String get newBackupBody =>
+      'A gentle nudge on Home when it\'s been a week since your last encrypted backup.';
 }

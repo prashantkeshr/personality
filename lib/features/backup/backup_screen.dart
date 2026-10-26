@@ -12,6 +12,7 @@ import '../../core/theme/app_theme.dart';
 import '../../data/backup/backup_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../health/health_providers.dart';
+import 'backup_nudge.dart';
 import '../../shared/format/clock_format.dart';
 
 final fileBridgeProvider = Provider<FileBridge>(
@@ -222,6 +223,14 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
           ),
           const SizedBox(height: AppSpacing.lg),
           section(l10n.backupEncrypted, l10n.backupEncryptedInfo, [
+            SwitchListTile(
+              key: const Key('backup-weekly'),
+              contentPadding: EdgeInsets.zero,
+              title: Text(l10n.backupWeekly),
+              subtitle: Text(l10n.backupWeeklyInfo),
+              value: ref.watch(backupNudgeProvider).value?.weekly ?? true,
+              onChanged: (v) => setWeeklyBackupReminder(ref, v),
+            ),
             SwitchListTile(
               key: const Key('backup-photos'),
               contentPadding: EdgeInsets.zero,

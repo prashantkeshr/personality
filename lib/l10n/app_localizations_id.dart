@@ -6920,4 +6920,81 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'Latihan buatanmu';
+
+  @override
+  String get backupNudgeTitle => 'Saatnya mencadangkan';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'Cadangan terakhirmu $count hari lalu. Simpan salinan terenkripsi agar tak ada yang hilang jika ponsel hilang.';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'Kamu belum pernah mencadangkan. Simpan salinan terenkripsi agar tak ada yang hilang jika ponsel hilang.';
+
+  @override
+  String get backupNudgeLater => 'Nanti';
+
+  @override
+  String get backupNudgeNow => 'Cadangkan sekarang';
+
+  @override
+  String get backupWeekly => 'Pengingat cadangan mingguan';
+
+  @override
+  String get backupWeeklyInfo =>
+      'Beranda mengingatkan saat seminggu berlalu tanpa cadangan. Kata sandimu tak pernah disimpan, jadi cadangan cukup sekali ketuk.';
+
+  @override
+  String get whatsNewTitle => 'Yang baru';
+
+  @override
+  String get whatsNewCard => 'Lihat isi pembaruan ini';
+
+  @override
+  String get whatsNewIntro =>
+      'Baru di versi ini. Ketuk salah satu untuk mencobanya.';
+
+  @override
+  String get newTrainingTitle => 'Rencana latihan yang tumbuh bersamamu';
+
+  @override
+  String get newTrainingBody =>
+      'Sesi harian dengan set dan repetisi. Beri tahu rasanya, ia menyesuaikan lalu menaikkan levelmu.';
+
+  @override
+  String get newBuilderTitle => 'Buat latihanmu sendiri';
+
+  @override
+  String get newBuilderBody =>
+      'Pilih gerakan, repetisi atau waktu, istirahat, dan putaran. Diputar seperti latihan terpandu.';
+
+  @override
+  String get newVoiceTitle => 'Panduan suara';
+
+  @override
+  String get newVoiceBody =>
+      'Pemutar menyebut gerakan berikutnya, menghitung mundur, dan memberi tahu kapan ganti sisi. Bisa offline.';
+
+  @override
+  String get newSearchTitle => 'Cari apa saja';
+
+  @override
+  String get newSearchBody =>
+      'Satu pencarian di Beranda untuk gerakan, latihan, makanan, gaya, dan semua layar.';
+
+  @override
+  String get newSwipeTitle => 'Beranda lebih ringkas, dengan geser';
+
+  @override
+  String get newSwipeBody =>
+      'Beranda menampilkan yang berikutnya dulu. Geser item ke kanan untuk selesai, ke kiri untuk lewati.';
+
+  @override
+  String get newBackupTitle => 'Pengingat cadangan mingguan';
+
+  @override
+  String get newBackupBody =>
+      'Pengingat ringan di Beranda saat sudah seminggu sejak cadangan terenkripsi terakhir.';
 }

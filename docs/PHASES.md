@@ -880,3 +880,17 @@ Verification: `flutter analyze` clean; `flutter test` 473 pass, 2 skipped. New t
   - If the phone has no voice for the app's language, it stays quiet instead of reading with the wrong voice.
 
 Verification: `flutter analyze` clean; `flutter test` 476 pass, 2 skipped. New tests: building, saving, listing, editing and deleting a workout; the player's spoken lines and countdown, and turning voice off; the switch-sides cue.
+
+## Phase 40 — Weekly backup reminder; What's new
+
+- **Weekly backup reminder:** a Home card ("Time for a backup", with how many days it has been) appears once 7 days pass without an encrypted backup.
+  - Back up now opens Backup; Later hides the card for 3 days.
+  - A new install starts counting from its first run instead of reminding at once.
+  - Switch on the Backup screen, on by default. State is in `backup.*` device settings, which are never put in backups.
+  - The backup is not made silently in the background: that would mean storing the backup password on the phone, which weakens the encryption. The reminder keeps it to one tap.
+- **What's new:** after an update, a Home card opens a list of the new features (training plan, build your own, voice cues, search, shorter Home and swipes, backup reminder). Each item opens that feature.
+  - Seen once per release (`whatsnew.seen`, `whatsNewRelease = 40`). Closing the card also counts as seen.
+  - A fresh install marks it seen at the end of setup.
+  - Settings has a What's new entry to reopen it.
+
+Verification: `flutter analyze` clean; `flutter test` 483 pass, 2 skipped. New tests: reminder timing, snooze and turning it off, the reminder on Home with Later and the Backup switch, no reminder on a new install, and What's new opening, linking to a feature, and dismissing. The test harness hides the What's new card unless `whatsNew: true`.

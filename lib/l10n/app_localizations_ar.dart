@@ -6802,4 +6802,80 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'تمرينك الخاص';
+
+  @override
+  String get backupNudgeTitle => 'حان وقت النسخ الاحتياطي';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'آخر نسخة احتياطية كانت قبل $count يوماً. احفظ نسخة مشفّرة كي لا تفقد شيئاً إن فقدت الهاتف.';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'لم تُنشئ نسخة احتياطية بعد. احفظ نسخة مشفّرة كي لا تفقد شيئاً إن فقدت الهاتف.';
+
+  @override
+  String get backupNudgeLater => 'لاحقاً';
+
+  @override
+  String get backupNudgeNow => 'انسخ الآن';
+
+  @override
+  String get backupWeekly => 'تذكير أسبوعي بالنسخ الاحتياطي';
+
+  @override
+  String get backupWeeklyInfo =>
+      'تذكّرك الصفحة الرئيسية عند مرور أسبوع دون نسخة احتياطية. لا تُحفظ كلمة المرور أبداً، فالنسخ بلمسة واحدة.';
+
+  @override
+  String get whatsNewTitle => 'ما الجديد';
+
+  @override
+  String get whatsNewCard => 'اطّلع على ما يقدّمه هذا التحديث';
+
+  @override
+  String get whatsNewIntro => 'الجديد في هذا الإصدار. المس أي عنصر لتجربته.';
+
+  @override
+  String get newTrainingTitle => 'خطة تدريب تنمو معك';
+
+  @override
+  String get newTrainingBody =>
+      'جلسات يومية بمجموعات وتكرارات. أخبره بشعورك فيتكيّف ثم يرفع مستواك.';
+
+  @override
+  String get newBuilderTitle => 'صمّم تمرينك';
+
+  @override
+  String get newBuilderBody =>
+      'اختر التمارين والتكرار أو الوقت والراحة والجولات. يعمل مثل أي تمرين موجّه.';
+
+  @override
+  String get newVoiceTitle => 'إرشادات صوتية';
+
+  @override
+  String get newVoiceBody =>
+      'يعلن المشغّل التمرين التالي ويعدّ تنازلياً ويخبرك متى تبدّل الجانب. يعمل دون اتصال.';
+
+  @override
+  String get newSearchTitle => 'ابحث في كل شيء';
+
+  @override
+  String get newSearchBody =>
+      'بحث واحد في الرئيسية عن التمارين والوجبات والأساليب وكل الشاشات.';
+
+  @override
+  String get newSwipeTitle => 'رئيسية أقصر مع السحب';
+
+  @override
+  String get newSwipeBody =>
+      'تعرض الرئيسية التالي أولاً. اسحب العنصر يميناً للإنجاز ويساراً للتخطي.';
+
+  @override
+  String get newBackupTitle => 'تذكير أسبوعي بالنسخ الاحتياطي';
+
+  @override
+  String get newBackupBody =>
+      'تذكير لطيف في الرئيسية عند مرور أسبوع على آخر نسخة مشفّرة.';
 }

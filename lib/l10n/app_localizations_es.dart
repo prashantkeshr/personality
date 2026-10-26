@@ -6950,4 +6950,81 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get myWorkoutSummary => 'Tu propio entrenamiento';
+
+  @override
+  String get backupNudgeTitle => 'Hora de hacer una copia';
+
+  @override
+  String backupNudgeBody(int count) {
+    return 'Tu última copia fue hace $count días. Guarda una copia cifrada para no perder nada si pierdes el teléfono.';
+  }
+
+  @override
+  String get backupNudgeNever =>
+      'Aún no has hecho una copia. Guarda una copia cifrada para no perder nada si pierdes el teléfono.';
+
+  @override
+  String get backupNudgeLater => 'Más tarde';
+
+  @override
+  String get backupNudgeNow => 'Hacer copia ahora';
+
+  @override
+  String get backupWeekly => 'Recordatorio semanal de copia';
+
+  @override
+  String get backupWeeklyInfo =>
+      'Inicio te avisa cuando pasa una semana sin copia. Tu contraseña nunca se guarda, así que la copia es un toque.';
+
+  @override
+  String get whatsNewTitle => 'Novedades';
+
+  @override
+  String get whatsNewCard => 'Mira lo que trae esta actualización';
+
+  @override
+  String get whatsNewIntro =>
+      'Novedades de esta versión. Toca cualquiera para probarla.';
+
+  @override
+  String get newTrainingTitle => 'Un plan que crece contigo';
+
+  @override
+  String get newTrainingBody =>
+      'Sesiones día a día con series y repeticiones. Dile cómo te sentiste y se ajusta, y luego te sube de nivel.';
+
+  @override
+  String get newBuilderTitle => 'Crea tu entrenamiento';
+
+  @override
+  String get newBuilderBody =>
+      'Elige ejercicios, repeticiones o tiempo, descanso y rondas. Se reproduce como cualquier rutina guiada.';
+
+  @override
+  String get newVoiceTitle => 'Indicaciones de voz';
+
+  @override
+  String get newVoiceBody =>
+      'El reproductor dice lo que sigue, hace la cuenta atrás y avisa cuándo cambiar de lado. Funciona sin conexión.';
+
+  @override
+  String get newSearchTitle => 'Busca de todo';
+
+  @override
+  String get newSearchBody =>
+      'Una búsqueda en Inicio para ejercicios, rutinas, comidas, estilos y cada pantalla.';
+
+  @override
+  String get newSwipeTitle => 'Un Inicio más corto, con gestos';
+
+  @override
+  String get newSwipeBody =>
+      'Inicio muestra primero lo siguiente. Desliza una tarea a la derecha para hecho y a la izquierda para saltar.';
+
+  @override
+  String get newBackupTitle => 'Recordatorio semanal de copia';
+
+  @override
+  String get newBackupBody =>
+      'Un aviso en Inicio cuando pasa una semana desde tu última copia cifrada.';
 }

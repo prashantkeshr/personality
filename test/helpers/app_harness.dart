@@ -16,6 +16,7 @@ import 'package:personality/features/widget/home_widget_sync.dart';
 import 'package:personality/features/connected/data_import.dart';
 import 'package:personality/features/journey/journey_providers.dart';
 import 'package:personality/features/settings/app_settings.dart';
+import 'package:personality/features/whats_new/whats_new.dart';
 
 /// Runs the full app on an in-memory database inside a widget test.
 ///
@@ -66,6 +67,7 @@ class AppHarness {
     Biometrics biometrics = const NoBiometrics(),
     HomeWidgetBridge widget = const NoHomeWidgetBridge(),
     bool compactHome = false,
+    bool whatsNew = false,
   }) async {
     await tester.pumpWidget(ProviderScope(
       overrides: [
@@ -78,6 +80,8 @@ class AppHarness {
         homeWidgetBridgeProvider.overrideWithValue(widget),
         // Most tests check Home's cards directly; compact Home has its own.
         homeCompactProvider.overrideWithValue(compactHome),
+        // The update card would shift Home in every test; it has its own.
+        if (!whatsNew) whatsNewDueProvider.overrideWith((ref) => Stream.value(false)),
         ...overrides,
       ],
       child: const PersonalityApp(),
