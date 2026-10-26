@@ -12,10 +12,6 @@ import '../health/health_providers.dart';
 import '../plans/plan_providers.dart';
 import '../routines/routine_providers.dart';
 
-/// Home keeps only what's next on top (the rest under "More for you", the
-/// timeline trimmed to the next items). Turned off in some tests.
-final homeCompactProvider = Provider<bool>((ref) => true);
-
 final wellbeingRepositoryProvider = Provider((ref) => WellbeingRepository(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider)));

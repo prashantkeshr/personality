@@ -894,3 +894,10 @@ Verification: `flutter analyze` clean; `flutter test` 476 pass, 2 skipped. New t
   - Settings has a What's new entry to reopen it.
 
 Verification: `flutter analyze` clean; `flutter test` 483 pass, 2 skipped. New tests: reminder timing, snooze and turning it off, the reminder on Home with Later and the Backup switch, no reminder on a new install, and What's new opening, linking to a feature, and dismissing. The test harness hides the What's new card unless `whatsNew: true`.
+
+## Phase 41 — Full Home again
+
+- At the user's request, Home always shows in full again: weekly review, mood and day mode, Right now, the whole timeline, Today's workout, Let's try, suggestions, journey, insights, quests, For you and body summary.
+- The "More for you" fold and the trimmed timeline are removed. The new features stay: search bar, swipe done/skip, What's new and backup reminder cards.
+
+Verification: `flutter analyze` clean; `flutter test` 482 pass, 2 skipped.

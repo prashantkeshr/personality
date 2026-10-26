@@ -35,38 +35,13 @@ void main() {
       await routines.addItem(r, 19 * 60, 'Dinner', RoutineItemKind.meal);
     });
     await app.start(onboarded,
-        compactHome: true, overrides: [clockProvider.overrideWithValue(() => now)]);
+        overrides: [clockProvider.overrideWithValue(() => now)]);
     await wait(app, tester);
     return app;
   }
 
-  testWidgets('Home keeps the next items on top; the rest is one tap away', (tester) async {
-    final app = await start(tester);
-    // The rest of Home is folded.
-    await app.reveal(find.byKey(const Key('home-more')));
-    expect(find.text('More for you'), findsOneWidget);
-    expect(find.text('How are you feeling?'), findsNothing);
-
-    // The timeline shows only the next three items.
-    await app.reveal(find.byKey(const Key('agenda-full-day')), step: -250);
-    expect(find.text('Posture check'), findsOneWidget);
-    expect(find.text('Dinner'), findsNothing);
-    await app.tapAndSettle(find.byKey(const Key('agenda-full-day')));
-    await app.reveal(find.text('Dinner'));
-    expect(find.text('Dinner'), findsOneWidget);
-
-    await app.reveal(find.byKey(const Key('home-more')));
-    await app.tapAndSettle(find.byKey(const Key('home-more')));
-    expect(find.text('Show less'), findsOneWidget);
-    await app.reveal(find.text('How are you feeling?'));
-    expect(find.text('How are you feeling?'), findsOneWidget);
-    await app.dispose();
-  });
-
   testWidgets('swiping a timeline item left skips it', (tester) async {
     final app = await start(tester);
-    await app.reveal(find.byKey(const Key('agenda-full-day')));
-    await app.tapAndSettle(find.byKey(const Key('agenda-full-day')));
     final habit = find.byWidgetPredicate((w) =>
         w is Dismissible &&
         w.key is ValueKey<String> &&

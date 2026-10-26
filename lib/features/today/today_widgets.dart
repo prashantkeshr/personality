@@ -442,9 +442,6 @@ class AgendaTimeline extends ConsumerStatefulWidget {
 }
 
 class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
-  /// Today shows only what is next until the user asks for the whole day.
-  late bool _fullDay = !ref.read(homeCompactProvider);
-
   bool _showOptional = false;
 
   @override
@@ -499,21 +496,6 @@ class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
             child: Text(l10n.agendaEmpty, style: theme.textTheme.bodyMedium),
           ),
-        if (!past && !_fullDay) ...[
-          const SizedBox(height: AppSpacing.md),
-          for (final t in [
-            for (final (part, _, _) in parts)
-              for (final t in agenda.inPart(part))
-                if (!t.done && !t.skipped) t,
-          ].take(3))
-            _TaskRow(task: t, day: day, readOnly: false, isNext: t == next),
-          TextButton.icon(
-            key: const Key('agenda-full-day'),
-            icon: const Icon(Icons.expand_more),
-            label: Text(l10n.agendaFullDay(agenda.countedTotal)),
-            onPressed: () => setState(() => _fullDay = true),
-          ),
-        ] else
         for (final (part, icon, label) in parts)
           if (agenda.inPart(part).isNotEmpty) ...[
             const SizedBox(height: AppSpacing.md),

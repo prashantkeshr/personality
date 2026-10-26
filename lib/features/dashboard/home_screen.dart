@@ -92,25 +92,20 @@ class HomeScreen extends ConsumerWidget {
           const BackupNudgeCard(),
           const PermissionNudgeCard(),
           const _CompleteProfileCard(),
-          const _TodayOnly(children: [
-            RightNowSection(),
-            SizedBox(height: AppSpacing.md),
-          ]),
-          const TodayWorkoutCard(),
-          const SizedBox(height: AppSpacing.sm),
-          const HomeWorkouts(),
-          const SizedBox(height: AppSpacing.lg),
-          const AgendaTimeline(),
-          const SizedBox(height: AppSpacing.lg),
-          // Everything else, one tap away so Home stays short.
-          _MoreForYou(children: [
           const WeeklyReviewCard(),
           const _TodayOnly(children: [
             MoodCheckInCard(),
             SizedBox(height: AppSpacing.md),
             DayModeSelector(),
             SizedBox(height: AppSpacing.md),
+            RightNowSection(),
+            SizedBox(height: AppSpacing.lg),
           ]),
+          const AgendaTimeline(),
+          const SizedBox(height: AppSpacing.md),
+          const TodayWorkoutCard(),
+          const SizedBox(height: AppSpacing.sm),
+          const HomeWorkouts(),
           const _HomeSuggestions(),
           const SizedBox(height: AppSpacing.xl),
           const JourneyCard(),
@@ -140,47 +135,8 @@ class HomeScreen extends ConsumerWidget {
           ),
           const SizedBox(height: AppSpacing.sm),
           const _BodySummary(),
-          ]),
         ],
       ),
-    );
-  }
-}
-
-/// "More for you": the rest of Home, folded until opened.
-class _MoreForYou extends ConsumerStatefulWidget {
-  const _MoreForYou({required this.children});
-  final List<Widget> children;
-
-  @override
-  ConsumerState<_MoreForYou> createState() => _MoreForYouState();
-}
-
-class _MoreForYouState extends ConsumerState<_MoreForYou> {
-  late bool _open = !ref.read(homeCompactProvider);
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        OutlinedButton.icon(
-          key: const Key('home-more'),
-          onPressed: () => setState(() => _open = !_open),
-          icon: Icon(_open ? Icons.expand_less : Icons.expand_more),
-          label: Text(_open ? l10n.homeLess : l10n.homeMore),
-          style: OutlinedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
-            textStyle: theme.textTheme.titleSmall,
-          ),
-        ),
-        if (_open) ...[
-          const SizedBox(height: AppSpacing.lg),
-          ...widget.children,
-        ],
-      ],
     );
   }
 }

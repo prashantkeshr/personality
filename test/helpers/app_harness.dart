@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:personality/features/today/today_providers.dart';
 import 'package:personality/app/personality_app.dart';
 import 'package:personality/core/database/app_database.dart';
 import 'package:personality/core/providers.dart';
@@ -66,7 +65,6 @@ class AppHarness {
     SensorBridge sensors = const NoSensorBridge(),
     Biometrics biometrics = const NoBiometrics(),
     HomeWidgetBridge widget = const NoHomeWidgetBridge(),
-    bool compactHome = false,
     bool whatsNew = false,
   }) async {
     await tester.pumpWidget(ProviderScope(
@@ -78,8 +76,6 @@ class AppHarness {
         lockStoreProvider.overrideWithValue(lockStore),
         biometricsProvider.overrideWithValue(biometrics),
         homeWidgetBridgeProvider.overrideWithValue(widget),
-        // Most tests check Home's cards directly; compact Home has its own.
-        homeCompactProvider.overrideWithValue(compactHome),
         // The update card would shift Home in every test; it has its own.
         if (!whatsNew) whatsNewDueProvider.overrideWith((ref) => Stream.value(false)),
         ...overrides,
