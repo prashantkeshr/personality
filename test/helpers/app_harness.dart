@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:personality/features/today/today_providers.dart';
 import 'package:personality/app/personality_app.dart';
 import 'package:personality/core/database/app_database.dart';
 import 'package:personality/core/providers.dart';
@@ -64,6 +65,7 @@ class AppHarness {
     SensorBridge sensors = const NoSensorBridge(),
     Biometrics biometrics = const NoBiometrics(),
     HomeWidgetBridge widget = const NoHomeWidgetBridge(),
+    bool compactHome = false,
   }) async {
     await tester.pumpWidget(ProviderScope(
       overrides: [
@@ -74,6 +76,8 @@ class AppHarness {
         lockStoreProvider.overrideWithValue(lockStore),
         biometricsProvider.overrideWithValue(biometrics),
         homeWidgetBridgeProvider.overrideWithValue(widget),
+        // Most tests check Home's cards directly; compact Home has its own.
+        homeCompactProvider.overrideWithValue(compactHome),
         ...overrides,
       ],
       child: const PersonalityApp(),
@@ -98,9 +102,16 @@ class AppHarness {
 
   /// Scrolls the current page's main list until [finder] can be tapped
   /// (Home is long: timeline first, journey and stats below).
-  Future<void> reveal(Finder finder, {double step = 250}) => tester
-      .scrollUntilVisible(finder.hitTestable(), step,
-          scrollable: find.byType(Scrollable).first);
+  /// Scrolls the main list until [finder] shows; looks back up if it is not
+  /// further down.
+  Future<void> reveal(Finder finder, {double step = 250}) async {
+    final scrollable = find.byType(Scrollable).first;
+    try {
+      await tester.scrollUntilVisible(finder.hitTestable(), step, scrollable: scrollable);
+    } on StateError {
+      await tester.scrollUntilVisible(finder.hitTestable(), -step, scrollable: scrollable);
+    }
+  }
 
   /// Runs real async work (e.g. seeding the database) outside the fake clock.
   Future<T?> run<T>(Future<T> Function() body) => tester.runAsync(body);

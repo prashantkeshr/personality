@@ -1948,5 +1948,12 @@
   "onboardingTrainingBody": "Vamos montar um plano dia a dia com séries e repetições conforme suas metas. Ele começa onde você está e sobe conforme você fica mais forte.",
   "onboardingYourWeek": "Sua semana",
   "onboardingWeekNote": "{days} sessões por semana, {count} exercícios cada, com descanso entre elas.",
-  "onboardingTrainingLater": "Você pode mudar tudo isso depois em Meu plano de treino."
+  "onboardingTrainingLater": "Você pode mudar tudo isso depois em Meu plano de treino.",
+  "agendaFullDay": "Ver o dia inteiro ({count})",
+  "homeSearchHint": "Pesquise ou pergunte qualquer coisa",
+  "homeSearchAsk": "Perguntar ao coach: \"{query}\"",
+  "homeSearchNone": "Nada encontrado. Tente outra palavra ou pergunte ao coach.",
+  "homeSearchTip": "Ache exercícios, treinos, refeições, cortes, respostas ou qualquer tela — por exemplo \"pescoço\", \"café da manhã\", \"água\" ou \"backup\".",
+  "homeMore": "Mais para você",
+  "homeLess": "Mostrar menos"
 }

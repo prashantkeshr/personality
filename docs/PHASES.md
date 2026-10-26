@@ -856,3 +856,13 @@ Verification: `flutter analyze` clean; `flutter test` 459 pass, 2 skipped. New t
   - The training page pre-sets the focus from the gender chosen in About you and shows a live preview of the week. The choices are saved on finish.
 
 Verification: `flutter analyze` clean; `flutter test` 470 pass, 2 skipped. New tests: 9 engine tests, the plan screen and Home card, playing a plan day to the end and "too easy" stepping it up, and the setup saving a gender-based focus and 4 days.
+
+## Phase 38 — Shorter Home, search, swipe actions, portrait lock
+
+- **Shorter Home:** the top keeps only what's next: greeting and ring, day strip, a search bar, Right now, Today's workout, Let's try and the timeline. Everything else (weekly review, mood and day mode, suggestions, journey, insights, quests, body summary) sits under **More for you**, one tap away.
+- **Trimmed timeline:** today shows the next three open items and a **Show the full day (n)** button. Past days still show the whole day.
+- **Swipe actions:** swipe a timeline item right to mark it done (or undo), left to skip it for today. The card stays and its state changes.
+- **Home search** (`/home/search`): one field searching exercises, workouts, skills, meals, styles, answers and app screens, on the phone. Results open their page, and the first row asks the coach.
+- **Portrait lock:** phones (shortest side under 600 dp) stay in portrait; tablets rotate freely. Camera screens restore this on exit.
+
+Verification: `flutter analyze` clean; `flutter test` 473 pass, 2 skipped. New tests: the folded Home and full-day button, swipe-left skipping a habit, and search results with the ask-the-coach row. The test harness can turn the compact Home off (`compactHome`), and `reveal` now scrolls back up when the target is above.

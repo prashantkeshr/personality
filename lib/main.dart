@@ -8,11 +8,13 @@ import 'core/logging/app_logger.dart';
 import 'core/providers.dart';
 import 'core/security/database_key_store.dart';
 import 'core/notifications/reminder_scheduler.dart';
+import 'features/camera/portrait_lock.dart';
 import 'features/routines/routine_providers.dart';
 import 'features/settings/settings_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  PortraitLock.applyDefault();
   await _start();
 }
 

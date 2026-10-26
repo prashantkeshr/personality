@@ -6678,4 +6678,30 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get onboardingTrainingLater =>
       'يمكنك تغيير كل ذلك لاحقًا من خطة تدريبي.';
+
+  @override
+  String agendaFullDay(int count) {
+    return 'عرض اليوم كاملًا ($count)';
+  }
+
+  @override
+  String get homeSearchHint => 'ابحث أو اسأل عن أي شيء';
+
+  @override
+  String homeSearchAsk(String query) {
+    return 'اسأل المدرب: \"$query\"';
+  }
+
+  @override
+  String get homeSearchNone => 'لا نتائج. جرّب كلمة أخرى أو اسأل المدرب.';
+
+  @override
+  String get homeSearchTip =>
+      'ابحث عن تمارين أو وجبات أو تسريحات أو إجابات أو أي شاشة، مثل \"الرقبة\" أو \"الفطور\" أو \"الماء\".';
+
+  @override
+  String get homeMore => 'المزيد لك';
+
+  @override
+  String get homeLess => 'عرض أقل';
 }

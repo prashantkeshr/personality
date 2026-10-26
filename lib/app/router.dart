@@ -25,6 +25,7 @@ import '../features/exercise/exercise_tracking_screen.dart';
 import '../features/face/face_history_screen.dart';
 import '../features/face/face_screen.dart';
 import '../features/coach/coach_screen.dart';
+import '../features/dashboard/home_search.dart';
 import '../features/face/makeup_screen.dart';
 import '../features/training/training_screen.dart';
 import '../features/style/style_extras.dart';
@@ -66,6 +67,7 @@ abstract final class AppRoutes {
   static const home = '/home';
   static const journey = '/home/journey';
   static const aboutYou = '/home/about';
+  static const homeSearch = '/home/search';
   static const goalFinder = '/home/goals';
   static const insights = '/home/insights';
   static const evolution = '/home/evolution';
@@ -171,6 +173,9 @@ final routerProvider = Provider<GoRouter>((ref) {
               path: AppRoutes.home,
               builder: (_, _) => const HomeScreen(),
               routes: [
+                GoRoute(
+                    path: 'search',
+                    builder: (_, _) => const HomeSearchScreen()),
                 GoRoute(
                     path: 'about',
                     builder: (_, _) => const AboutPersonalityScreen()),

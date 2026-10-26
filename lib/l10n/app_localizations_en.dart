@@ -6761,4 +6761,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onboardingTrainingLater =>
       'You can change all of this later in My training plan.';
+
+  @override
+  String agendaFullDay(int count) {
+    return 'Show the full day ($count)';
+  }
+
+  @override
+  String get homeSearchHint => 'Search or ask anything';
+
+  @override
+  String homeSearchAsk(String query) {
+    return 'Ask the coach: \"$query\"';
+  }
+
+  @override
+  String get homeSearchNone =>
+      'Nothing found. Try another word, or ask the coach.';
+
+  @override
+  String get homeSearchTip =>
+      'Find exercises, workouts, meals, hairstyles, answers or any screen — for example \"neck\", \"breakfast\", \"water\" or \"backup\".';
+
+  @override
+  String get homeMore => 'More for you';
+
+  @override
+  String get homeLess => 'Show less';
 }

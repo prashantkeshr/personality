@@ -442,6 +442,9 @@ class AgendaTimeline extends ConsumerStatefulWidget {
 }
 
 class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
+  /// Today shows only what is next until the user asks for the whole day.
+  late bool _fullDay = !ref.read(homeCompactProvider);
+
   bool _showOptional = false;
 
   @override
@@ -496,6 +499,21 @@ class _AgendaTimelineState extends ConsumerState<AgendaTimeline> {
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
             child: Text(l10n.agendaEmpty, style: theme.textTheme.bodyMedium),
           ),
+        if (!past && !_fullDay) ...[
+          const SizedBox(height: AppSpacing.md),
+          for (final t in [
+            for (final (part, _, _) in parts)
+              for (final t in agenda.inPart(part))
+                if (!t.done && !t.skipped) t,
+          ].take(3))
+            _TaskRow(task: t, day: day, readOnly: false, isNext: t == next),
+          TextButton.icon(
+            key: const Key('agenda-full-day'),
+            icon: const Icon(Icons.expand_more),
+            label: Text(l10n.agendaFullDay(agenda.countedTotal)),
+            onPressed: () => setState(() => _fullDay = true),
+          ),
+        ] else
         for (final (part, icon, label) in parts)
           if (agenda.inPart(part).isNotEmpty) ...[
             const SizedBox(height: AppSpacing.md),
@@ -730,12 +748,23 @@ class _TaskRow extends ConsumerWidget {
         : isNext
         ? scheme.tertiary
         : scheme.outlineVariant;
+    Future<void> skip() => run(() async {
+      switch (task.kind) {
+        case AgendaKind.plan:
+          await routines.record(task.plan!.item.id, day, PlanOutcome.skipped);
+        case AgendaKind.habit:
+          await habits.setStatus(task.habitId!, day, HabitStatus.skipped);
+        default:
+          break;
+      }
+    });
+
     final route = agendaRoute(
       task,
       exercises: ref.watch(exerciseCatalogProvider).value ?? const [],
       skills: ref.watch(disciplinesProvider).value ?? const [],
     );
-    return IntrinsicHeight(
+    final row = IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -881,6 +910,40 @@ class _TaskRow extends ConsumerWidget {
           ),
         ],
       ),
+    );
+    if (readOnly || !canTick) return row;
+    return Dismissible(
+      key: Key('swipe-${task.id}'),
+      confirmDismiss: (dir) async {
+        if (dir == DismissDirection.startToEnd) {
+          await primary();
+        } else if (!task.done) {
+          await skip();
+        }
+        return false; // the card stays; its state changes
+      },
+      background: Container(
+        alignment: AlignmentDirectional.centerStart,
+        padding: const EdgeInsets.only(left: AppSpacing.lg),
+        color: scheme.primaryContainer,
+        child: Row(children: [
+          Icon(task.done ? Icons.undo : Icons.check, color: scheme.onPrimaryContainer),
+          const SizedBox(width: AppSpacing.sm),
+          Text(task.done ? l10n.agendaUndo : l10n.agendaDone,
+              style: TextStyle(color: scheme.onPrimaryContainer)),
+        ]),
+      ),
+      secondaryBackground: Container(
+        alignment: AlignmentDirectional.centerEnd,
+        padding: const EdgeInsets.only(right: AppSpacing.lg),
+        color: scheme.surfaceContainerHighest,
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Text(l10n.agendaSkip),
+          const SizedBox(width: AppSpacing.sm),
+          const Icon(Icons.skip_next),
+        ]),
+      ),
+      child: row,
     );
   }
 }

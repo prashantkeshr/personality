@@ -3553,5 +3553,26 @@
       }
     }
   },
-  "onboardingTrainingLater": "You can change all of this later in My training plan."
+  "onboardingTrainingLater": "You can change all of this later in My training plan.",
+  "agendaFullDay": "Show the full day ({count})",
+  "@agendaFullDay": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeSearchHint": "Search or ask anything",
+  "homeSearchAsk": "Ask the coach: \"{query}\"",
+  "@homeSearchAsk": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "homeSearchNone": "Nothing found. Try another word, or ask the coach.",
+  "homeSearchTip": "Find exercises, workouts, meals, hairstyles, answers or any screen — for example \"neck\", \"breakfast\", \"water\" or \"backup\".",
+  "homeMore": "More for you",
+  "homeLess": "Show less"
 }

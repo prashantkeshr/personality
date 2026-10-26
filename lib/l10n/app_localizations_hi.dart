@@ -6749,4 +6749,31 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get onboardingTrainingLater =>
       'यह सब बाद में \'मेरा ट्रेनिंग प्लान\' में बदल सकते हैं।';
+
+  @override
+  String agendaFullDay(int count) {
+    return 'पूरा दिन देखें ($count)';
+  }
+
+  @override
+  String get homeSearchHint => 'कुछ भी खोजें या पूछें';
+
+  @override
+  String homeSearchAsk(String query) {
+    return 'कोच से पूछें: \"$query\"';
+  }
+
+  @override
+  String get homeSearchNone =>
+      'कुछ नहीं मिला। दूसरा शब्द आज़माएँ या कोच से पूछें।';
+
+  @override
+  String get homeSearchTip =>
+      'व्यायाम, वर्कआउट, भोजन, हेयरस्टाइल, उत्तर या कोई भी स्क्रीन खोजें — जैसे \"गर्दन\", \"नाश्ता\", \"पानी\" या \"बैकअप\"।';
+
+  @override
+  String get homeMore => 'आपके लिए और';
+
+  @override
+  String get homeLess => 'कम दिखाएँ';
 }

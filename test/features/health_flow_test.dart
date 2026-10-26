@@ -52,7 +52,8 @@ void main() {
     expect(find.text('2.0 L'), findsWidgets);
 
     await app.tapAndSettle(find.text('Home'));
-    expect(find.text('2.0 L / 2.0 L'), findsOneWidget);
+    await app.reveal(find.text('2.0 L / 2.0 L'));
+    expect(find.text('2.0 L / 2.0 L'), findsWidgets);
     await app.dispose();
   });
 
@@ -103,7 +104,8 @@ void main() {
     await app.run(() => TargetsRepository(app.db)
         .save(const DailyTargets(waterMl: 3000)));
     await app.start(onboarded);
-    expect(find.text('0 ml / 3.0 L'), findsOneWidget);
+    await app.reveal(find.text('0 ml / 3.0 L'));
+    expect(find.text('0 ml / 3.0 L'), findsWidgets);
 
     await openHealthFeature(app, 'Sleep');
     await tester.tap(find.byTooltip('Daily targets'));

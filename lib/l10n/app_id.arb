@@ -1948,5 +1948,12 @@
   "onboardingTrainingBody": "Kami akan menyusun rencana harian dengan set dan repetisi dari tujuanmu. Dimulai dari kemampuanmu sekarang dan naik saat kamu makin kuat.",
   "onboardingYourWeek": "Mingguanmu",
   "onboardingWeekNote": "{days} sesi seminggu, masing-masing {count} latihan, dengan hari istirahat di antaranya.",
-  "onboardingTrainingLater": "Semua ini bisa diubah nanti di Rencana latihanku."
+  "onboardingTrainingLater": "Semua ini bisa diubah nanti di Rencana latihanku.",
+  "agendaFullDay": "Lihat seharian penuh ({count})",
+  "homeSearchHint": "Cari atau tanya apa saja",
+  "homeSearchAsk": "Tanya pelatih: \"{query}\"",
+  "homeSearchNone": "Tidak ditemukan. Coba kata lain atau tanya pelatih.",
+  "homeSearchTip": "Cari latihan, sesi, makanan, gaya rambut, jawaban, atau layar apa pun — misalnya \"leher\", \"sarapan\", \"air\", atau \"cadangan\".",
+  "homeMore": "Lainnya untukmu",
+  "homeLess": "Tampilkan lebih sedikit"
 }

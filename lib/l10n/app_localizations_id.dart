@@ -6794,4 +6794,31 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get onboardingTrainingLater =>
       'Semua ini bisa diubah nanti di Rencana latihanku.';
+
+  @override
+  String agendaFullDay(int count) {
+    return 'Lihat seharian penuh ($count)';
+  }
+
+  @override
+  String get homeSearchHint => 'Cari atau tanya apa saja';
+
+  @override
+  String homeSearchAsk(String query) {
+    return 'Tanya pelatih: \"$query\"';
+  }
+
+  @override
+  String get homeSearchNone =>
+      'Tidak ditemukan. Coba kata lain atau tanya pelatih.';
+
+  @override
+  String get homeSearchTip =>
+      'Cari latihan, sesi, makanan, gaya rambut, jawaban, atau layar apa pun — misalnya \"leher\", \"sarapan\", \"air\", atau \"cadangan\".';
+
+  @override
+  String get homeMore => 'Lainnya untukmu';
+
+  @override
+  String get homeLess => 'Tampilkan lebih sedikit';
 }

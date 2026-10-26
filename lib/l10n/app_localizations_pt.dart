@@ -6811,4 +6811,31 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get onboardingTrainingLater =>
       'Você pode mudar tudo isso depois em Meu plano de treino.';
+
+  @override
+  String agendaFullDay(int count) {
+    return 'Ver o dia inteiro ($count)';
+  }
+
+  @override
+  String get homeSearchHint => 'Pesquise ou pergunte qualquer coisa';
+
+  @override
+  String homeSearchAsk(String query) {
+    return 'Perguntar ao coach: \"$query\"';
+  }
+
+  @override
+  String get homeSearchNone =>
+      'Nada encontrado. Tente outra palavra ou pergunte ao coach.';
+
+  @override
+  String get homeSearchTip =>
+      'Ache exercícios, treinos, refeições, cortes, respostas ou qualquer tela — por exemplo \"pescoço\", \"café da manhã\", \"água\" ou \"backup\".';
+
+  @override
+  String get homeMore => 'Mais para você';
+
+  @override
+  String get homeLess => 'Mostrar menos';
 }

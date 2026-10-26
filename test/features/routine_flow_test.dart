@@ -61,6 +61,7 @@ void main() {
 
   testWidgets('example routine feeds the plan and Home', (tester) async {
     final app = await start(tester, FakeScheduler());
+    await app.reveal(find.textContaining('Nothing planned yet'));
     expect(find.textContaining('Nothing planned yet'), findsOneWidget);
 
     await openHealthFeature(app, 'Routines');

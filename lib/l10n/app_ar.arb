@@ -1948,5 +1948,12 @@
   "onboardingTrainingBody": "سنبني خطة يومية بمجموعات وتكرارات حسب أهدافك، تبدأ من مستواك الحالي وترتفع كلما ازدادت قوتك.",
   "onboardingYourWeek": "أسبوعك",
   "onboardingWeekNote": "{days} حصص أسبوعيًا، {count} تمارين في كل حصة، مع أيام راحة بينها.",
-  "onboardingTrainingLater": "يمكنك تغيير كل ذلك لاحقًا من خطة تدريبي."
+  "onboardingTrainingLater": "يمكنك تغيير كل ذلك لاحقًا من خطة تدريبي.",
+  "agendaFullDay": "عرض اليوم كاملًا ({count})",
+  "homeSearchHint": "ابحث أو اسأل عن أي شيء",
+  "homeSearchAsk": "اسأل المدرب: \"{query}\"",
+  "homeSearchNone": "لا نتائج. جرّب كلمة أخرى أو اسأل المدرب.",
+  "homeSearchTip": "ابحث عن تمارين أو وجبات أو تسريحات أو إجابات أو أي شاشة، مثل \"الرقبة\" أو \"الفطور\" أو \"الماء\".",
+  "homeMore": "المزيد لك",
+  "homeLess": "عرض أقل"
 }

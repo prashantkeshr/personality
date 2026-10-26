@@ -54,6 +54,7 @@ void main() {
     expect(find.textContaining('Water target met on 7 days'), findsOneWidget);
     expect(find.textContaining('regular bedtime'), findsOneWidget); // sleep tip
 
+    await app.reveal(find.text('See insights'));
     await app.tapAndSettle(find.text('See insights'));
     expect(find.text('Sleep score'), findsOneWidget);
     expect(find.textContaining('nights logged'), findsOneWidget);

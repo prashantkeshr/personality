@@ -11799,6 +11799,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You can change all of this later in My training plan.'**
   String get onboardingTrainingLater;
+
+  /// No description provided for @agendaFullDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the full day ({count})'**
+  String agendaFullDay(int count);
+
+  /// No description provided for @homeSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search or ask anything'**
+  String get homeSearchHint;
+
+  /// No description provided for @homeSearchAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the coach: \"{query}\"'**
+  String homeSearchAsk(String query);
+
+  /// No description provided for @homeSearchNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing found. Try another word, or ask the coach.'**
+  String get homeSearchNone;
+
+  /// No description provided for @homeSearchTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Find exercises, workouts, meals, hairstyles, answers or any screen — for example \"neck\", \"breakfast\", \"water\" or \"backup\".'**
+  String get homeSearchTip;
+
+  /// No description provided for @homeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More for you'**
+  String get homeMore;
+
+  /// No description provided for @homeLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Show less'**
+  String get homeLess;
 }
 
 class _AppLocalizationsDelegate

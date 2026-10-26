@@ -35,6 +35,7 @@ void main() {
       (tester) async {
     final app = await start(tester);
     expect(find.text('Daily plan'), findsOneWidget);
+    await app.reveal(find.text('How are you feeling?'));
     expect(find.text('How are you feeling?'), findsOneWidget);
 
     // Low energy suggests a gentler day.
